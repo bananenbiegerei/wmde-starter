@@ -17,10 +17,9 @@ module.exports = {
 			sans: ['Roboto', 'sans'],
 		},
 		fontWeight: {
-			light: 200,
-			normal: 300,
-			medium: 400,
-			bold: 500,
+			normal: 400,
+			medium: 600,
+			semibold: 700,
 		},
 	},
 	corePlugins: {
