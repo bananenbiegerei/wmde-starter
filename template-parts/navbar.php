@@ -84,8 +84,6 @@
 								@mouseenter="openNav(i)"
 								@click="toggleNav(i)">
 								<span x-text="domain.title"></span>
-								<span class="block lg:hidden font-icon text-4xl leading-none transition rotate-0" x-bind:class="{ '': !isOpen[i], 'transition rotate-45': isOpen[i] }">p</span>
-								<span class="hidden lg:block font-icon text-4xl leading-none transition -rotate-90" x-bind:class="{ 'transition -rotate-90': !isOpen[i], 'transition rotate-0': isOpen[i] }">c</span>
 							</button>
 
 							<!-- For mobile: add the items right underneath the domain -->
