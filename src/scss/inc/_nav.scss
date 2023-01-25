@@ -1,0 +1,12 @@
+.menu {
+	li {
+		a {
+			@apply btn btn-ghost hover:bg-white focus:bg-white active:bg-white;
+		}
+		&.current-menu-item {
+			a {
+				@apply bg-white;
+			}
+		}
+	}
+}

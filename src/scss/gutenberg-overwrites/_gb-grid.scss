@@ -1,0 +1,16 @@
+.gutenberg-container  {
+	@apply bg-gray-light;
+	> * {
+		@include container;
+		/* Fullwidth elements */ 
+		&.wp-block-group.has-background,
+		&.fluid {
+			@apply max-w-full px-0;
+			.wp-block-group__inner-container {
+				@include container;
+				@apply py-10;
+			}
+		}
+	}
+}
+

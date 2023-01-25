@@ -1,0 +1,7 @@
+.wp-block-image {
+	&.is-style-rounded {
+		img {
+			@apply rounded-xl;
+		}
+	}
+}

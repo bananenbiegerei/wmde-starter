@@ -1,0 +1,17 @@
+@mixin button {
+	@apply text-white;
+	&.active,
+	&.current {
+		@apply bg-white;
+	}
+}
+.btn:not(.btn-outline) {
+	@include button;
+	&.btn-ghost,
+	&.btn-link {
+		@apply text-primary;
+	}
+	&.btn-link {
+		@apply underline;
+	}
+}

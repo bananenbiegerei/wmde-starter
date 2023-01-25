@@ -1,0 +1,11 @@
+select {
+	//@include button-spacing;
+	@apply block w-full border-gray bg-white;
+	option {
+		@apply text-black font-normal;
+	}
+}
+input {
+	//@include button-spacing;
+	@apply border rounded-xl border-gray;
+}

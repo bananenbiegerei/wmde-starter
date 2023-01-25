@@ -1,0 +1,122 @@
+/* Paragraph */
+body {
+  @apply font-normal;
+}
+// p {
+//   font-size: $global-font-size;
+//   @screen md {
+//     font-size: $global-font-size;
+//   }
+// }
+
+
+@mixin font-setting-h1 {
+  @apply text-2xl md:text-3xl font-bold tracking-wide leading-normal;
+}
+@mixin font-setting-h2 {
+  @apply text-xl md:text-2xl font-bold tracking-wide leading-normal;
+}
+@mixin font-setting-h3 {
+  @apply text-lg md:text-xl font-bold tracking-wide leading-normal;
+}
+@mixin font-setting-h4 {
+  @apply text-base md:text-lg font-bold tracking-wide leading-normal;
+}
+@mixin font-setting-h5 {
+  @apply text-tiny md:text-base font-bold tracking-wide leading-normal;
+}
+@mixin font-setting-h6 {
+  @apply text-sm md:text-tiny font-bold tracking-wide leading-normal;
+}
+
+@mixin font-setting-base {
+  @apply text-base md:text-base font-light font-sans mb-2 leading-normal;
+}
+
+@mixin font-setting-small {
+  @apply text-sm md:text-sm font-normal mb-4 leading-normal;
+}
+
+@mixin blockquote {
+  @include font-setting-h3;
+  @apply font-normal italic leading-normal;
+  cite {
+    @include font-setting-base;
+  }
+}
+
+@mixin font-settings {
+  h1,
+  .h1 {
+    @include font-setting-h1;
+  }
+  h2,
+  .h2 {
+    @include font-setting-h2;
+  }
+  h3,
+  .h3 {
+    @include font-setting-h3;
+  }
+  h4,
+  .h4 {
+    @include font-setting-h4;
+  }
+  h5,
+  .h5 {
+    @include font-setting-h5;
+  }
+  h6,
+  .h6 {
+    @include font-setting-h6;
+  }
+  p {
+    @include font-setting-base;
+  }
+  p.small,
+  .small {
+    @include font-setting-small;
+  }
+  p.lead,
+  .lead p {
+    @include font-setting-h3;
+    @apply font-normal;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply mb-2;
+  }
+  blockquote,
+  blockquote p {
+    @include blockquote;
+  }
+}
+@include font-settings;
+
+/* Links */
+// a:not(.button) {
+//   @apply text-black;
+// }
+a:active,
+a:focus,
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+select::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+  border: 0;
+  outline: 0;
+  outline: none;
+}
+
+/* Icons */
+.icon {
+  // @apply ml-3 -mr-1 h-4 w-4;
+  @apply h-4 w-4;
+  &.lg {
+    @apply h-6 w-6;
+  }
+}
+.text-shadow-xl {
+  text-shadow: 0 0px 10px rgba(0,0,0,0.6);
+}

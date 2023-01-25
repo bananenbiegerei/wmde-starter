@@ -1,0 +1,10 @@
+.conferenceHistory {
+	@apply relative;
+	&:after {
+		content: '';
+		@apply h-px w-full bg-primary absolute top-20;
+	}
+	.swiper-wrapper {
+		@apply py-16;
+	}
+}
