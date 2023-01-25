@@ -11582,7 +11582,8 @@
             "4xl": "3.75rem"
           },
           fontFamily: {
-            sans: ["Arial", "sans-serif"]
+            montserrat: ["Montserrat", "sans-serif"],
+            sans: ["Roboto", "sans"]
           },
           fontWeight: {
             light: 200,

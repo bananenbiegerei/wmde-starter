@@ -13,9 +13,8 @@ module.exports = {
 			'4xl': '3.75rem', // 60px
 		},
 		fontFamily: {
-			sans: ['Arial', 'sans-serif'],
-			//mono: ['Roboto Mono', 'serif'],
-			//serif: ['Roboto Serif', 'serif'],
+			montserrat: ['Montserrat', 'sans-serif'],
+			sans: ['Roboto', 'sans'],
 		},
 		fontWeight: {
 			light: 200,
