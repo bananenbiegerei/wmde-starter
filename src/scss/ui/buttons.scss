@@ -1,0 +1,61 @@
+.btn {
+	@apply inline-flex items-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 transition;
+}
+	// Sizes
+	.btn-xs {
+		@apply px-2.5 py-1.5 text-xs;
+	}
+	.btn-sm {
+		@apply px-3 py-2 text-sm;
+	}
+	.btn-lg {
+		@apply px-6 py-3 text-lg;
+	}
+	.btn-xl {
+		@apply px-6 py-4 text-xl;
+	}
+	// Outline
+	.btn-hollow {
+		@apply bg-secondary text-primary border border-primary hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0;
+	}
+	// Ghost
+	.btn-ghost {
+		@apply bg-transparent text-primary border-none hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0;
+	}
+	// Only Icon
+	.btn-icon-only {
+		@apply rounded-full;
+		&.btn-xs {
+			@apply p-1;
+		}
+		&.btn-sm {
+			@apply p-1.5;
+		}
+		&.btn {
+			@apply p-2;
+		}
+		&.btn-lg {
+			@apply p-2.5;
+		}
+		&.btn-xl {
+			@apply p-3;
+		}
+	}
+	// With leading icon
+	.btn-icon {
+		.icon-xs {
+			@apply -ml-0.5 mr-2;
+		}
+		.icon-sm {
+			@apply -ml-1 mr-2;
+		}
+		.icon-base {
+			@apply -ml-1 mr-2;
+		}
+		.icon-lg {
+			@apply -ml-1.5 mr-3;
+		}
+		.icon-xl {
+			@apply -ml-2 mr-4;
+		}
+	}

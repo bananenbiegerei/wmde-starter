@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* UI Basic components */
+@import './ui/grid';
+@import './ui/icons';
+@import './ui/buttons';
+@import './ui/nav';
+@import './ui/forms';
+@import './ui/typography';
+@import './ui/badges';
+@import './ui/accessibility';
+
+/* ACF blocks */
+@import 'bb-blocks/*';
+
+/* Plugins overwrites */
+//@import 'plugin-overwrites/*';
+
+/* Templates */
+//@import './templates/*';
+
+/* Gutenberg Overwrites */
+//@import './gutenberg-overwrites/*';
+
+/* Components */
+@import './components/cards';
+//@import './blocks/image';
+//@import './components/main-menu';

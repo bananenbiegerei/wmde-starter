@@ -1,15 +1,8 @@
 <?php get_header(); ?>
 <div class="container">
-	<div class="grid md:grid-cols-2 grid-cols-1">
-		<div class="col-span-2">
-			<h1>Test</h1>
-		</div>
-		<div>
-			Col1
-		</div>
-		<div>
-			Col1
-		</div>
-	</div>
+	<h2>UI Components</h2>
+	<?php //get_template_part("template-parts/style-tile/buttons"); ?>
+	<?php //get_template_part("template-parts/style-tile/typography"); ?>
+	<?php get_template_part("template-parts/style-tile/forms"); ?>
 </div>
 <?php get_footer(); ?>

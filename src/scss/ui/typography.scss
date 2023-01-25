@@ -1,0 +1,33 @@
+// some old artiles are styled with strong tag
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply leading-tight mb-2;
+}
+h1 {
+	@apply text-xl lg:text-3xl;
+}
+h2 {
+	@apply text-lg lg:text-2xl;
+}
+h3 {
+	@apply text-lg lg:text-xl;
+}
+h4 {
+	@apply text-base lg:text-lg;
+}
+p {
+	@apply leading-tight;
+}
+ol {
+	@apply list-decimal pl-5;
+}
+ul:not(.menu) {
+	@apply list-disc pl-5;
+}
+a.link {
+	@apply underline hover:text-primary-300 transition;
+}
