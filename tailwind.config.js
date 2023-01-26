@@ -3,14 +3,15 @@ module.exports = {
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
 		fontSize: {
-			xs: '0.875rem', // 14px
-			sm: '1rem', // 16px
-			base: '1.25rem', // 20px
-			lg: '1.5rem', // 24px
-			xl: '2rem', // 32px
-			'2xl': '3rem', // 48px
-			'3xl': '3.5rem', // 56px
-			'4xl': '4.375rem', // 60px
+			xs: '0.75rem', // 12px
+			sm: '0.875rem', // 14px
+			base: '1rem', // 16px
+			lg: '1.25rem', // 20px
+			xl: '1.5rem', // 24px
+			'2xl': '2rem', // 32px
+			'3xl': '3rem', // 48px
+			'4xl': '3.5rem', // 56px
+			'5xl': '4.375rem', // 60px
 		},
 		fontFamily: {
 			alt: ['Montserrat', 'sans-serif'],

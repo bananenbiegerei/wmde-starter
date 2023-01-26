@@ -13,9 +13,9 @@
 	<div class="flex-none">
 		<ul class="menu menu-horizontal text-sm lg:text-base">
 			<?php if (get_field('link_fur_spenden', 'option')): ?>
-			<li class="red-scheme">
+			<li>
 				<a
-					class="text-primary"
+					class="btn btn-red btn-hollow"
 					target="_blank"
 					href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
 					<?php pll_e('donate'); ?>
@@ -25,7 +25,7 @@
 		</ul>
 	</div>
 	<div class="flex-none">
-		<?php get_template_part('template-parts/search-modal'); ?>
+		<?php //get_template_part('template-parts/search-modal'); ?>
 	</div>
 	<div class="block lg:hidden flex-none x-data="{ show: false }"">
 		<!-- Using the Alpine.store ($store) to save the state of the site header. -->

@@ -58,7 +58,7 @@
 
 	<!-- Container for the whole nav menu -->
 	<div
-		class="navbar border-b border-gray sticky top-0 z-40 bg-white block"
+		class="navbar border-b border-gray-200 sticky top-0 z-40 bg-white block"
 		transition x-show="$store.open_mobile_nav"
 		@mouseleave="closeNav()"
 		@click.outside="closeNav()">
@@ -79,7 +79,7 @@
 							<!-- Domain name -->
 							<button
 								type="button"
-								class="group inline-flex items-center rounded-md bg-white text-sm lg:text-base px-2 py-2 lg:px-3 lg:py-2 font-bold hover:text-gray-900 lg:w-auto w-full justify-between space-x-2 my-1 lg:my-0"
+								class="btn btn-menu"
 								aria-expanded="false"
 								@mouseenter="openNav(i)"
 								@click="toggleNav(i)">
@@ -95,7 +95,7 @@
 										<li class="" x-bind:class="{'current': pageID == page.ID }">
 											<a
 												x-bind:href="page.url"
-												class="flex items-center rounded-md px-3 py-2  transition duration-150 ease-in-out hover:bg-gray-200">
+												class="btn btn-menu">
 												<div class="w-full h-full w-4 h-4 mr-2 flex justify-center items-center">
 													<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 												</div>
@@ -111,7 +111,7 @@
 										<li class="pl-6" x-bind:class="{'current': pageID == page.ID }">
 											<a
 												x-bind:href="page.url"
-												class="flex items-center rounded-md px-3 py-2  transition duration-150 ease-in-out hover:bg-gray-200">
+												class="btn btn-menu">
 												<span class="w-full" x-text="page.title"></span>
 											</a>
 										</li>
@@ -120,7 +120,7 @@
 
 							</div>
 							<!-- End Mobile -->
-							<hr class="border-b-1 border-gray-200 lg:border-0">
+							<hr class="border-b-1 border-gray-100 lg:border-0">
 						</div>
 					</template>
 					<!-- End for each domain -->
@@ -132,31 +132,23 @@
 
 				<!-- For each domain... -->
 				<template x-for="(domain,i) in nav">
-					<div class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen overflow-auto" x-show="isOpen[i]">
-						<div class="relative mx-auto grid grid-cols-1 lg:grid-cols-3 py-5 divide-y divide-gray-200 lg:divide-y-0 space-y-5 lg:space-y-0">
+					<div class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen  max-w-6xl mx-8 rounded-xl shadow-navbar-dropdown py-8" x-show="isOpen[i]">
+						<svg class="w-auto h-4 fill-white absolute -top-4 left-8" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M16.2469 0L31.5 15.2531L0.993896 15.2531L16.2469 0Z" fill="inherit"/>
+						</svg>
+						<div class="relative mx-auto grid grid-cols-1 lg:grid-cols-2 divide-y divide-gray-200 lg:divide-y-0 space-y-5 lg:space-y-0">
 
 							<!-- Overview & featured pages -->
-							<div class="lg:border-r lg:border-gray-200 px-2">
+							<div class="lg:border-r lg:border-gray-100 px-2">
 								<h3 class="text-base font-bold sr-only">Hervorgehobenen Menüpunkte</h3>
 								<ul role="list" class="space-y-1 lg:space-y-6">
-
-									<!-- Overview -->
-									<li class="flow-root border-b border-gray-200 pb-5">
-										<a x-bind:href="domain.url" class="flex rounded-lg px-3 lg:py-2 transition duration-150 ease-in-out hover:bg-gray-100">
-											<div class="min-w-0 flex-1">
-												<h4 class="text-sm lg:text-base">Übersicht</h4>
-												<p class="mt-1 text-sm lg:text-md" x-html="domain.excerpt"</p>
-											</div>
-										</a>
-									</li>
-									<!-- End overview -->
 
 									<!-- Featured pages -->
 									<template x-for="page in domain.featured">
 										<li class="flow-root" x-bind:class="{'current': pageID == page.ID }">
 											<a
 												x-bind:href="page.url"
-												class="flex rounded-lg lg:py-2 transition duration-150 ease-in-out hover:bg-gray-100 items-center">
+												class="btn btn-menu">
 												<div class="w-full h-full w-16 h-16 flex justify-center items-center">
 													<!-- FIXME: get icon from ACF field? -->
 													<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
@@ -176,7 +168,7 @@
 											<li class="lg:flow-root" x-bind:class="{'current': pageID == page.ID }">
 												<a
 													x-bind:href="page.url"
-													class="flex items-center rounded-md px-3 py-2  transition duration-150 ease-in-out hover:bg-gray-200">
+													class="btn btn-menu">
 													<span class="w-full" x-text="page.title"></span>
 												</a>
 											</li>
@@ -184,48 +176,28 @@
 									</template>
 									<!-- End menu items -->
 
-									<!-- If there are no featured pages add search here -->
-									<template x-if="domain.featured.length == 0">
-										<li class="lg:flow-root">
-											<label for="default-search" class="mb-2 text-primary dark:text-primary">
-												<?php _e('Suche in: ', 'wkmde-theme'); ?>
-												<span x-text="domain.title"></span>
-											</label>
-											<?php get_search_form(); ?>
-										</li>
-									</template>
-									<!-- End -->
-
 								</ul>
 							</div>
 							<!-- End overview & featured -->
 
 							<!-- If there *are* featured pages other menu items go here -->
 							<template x-if="domain.featured.length > 0">
-								<nav class="bg-white col-span-2 py-5 lg:py-0" aria-labelledby="solutions-heading">
+								<nav class="bg-white py-5 lg:py-6" aria-labelledby="solutions-heading">
 									<h2 id="solutions-heading" class="sr-only" x-text="domain.title"></h2>
 									<div class="lg:max-h-screen overflow-auto">
-										<ul role="list" class="text-sm lg:text-base lg:space-y-2 mx-2 lg:mx-5 lg:flex lg:flex-wrap items-baseline">
+										<ul role="list" class="grid grid-cols-2 gap-4">
 
 										<!-- For each menu item... -->
 										<template x-for="page in domain.pages">
-											<li class="lg:flow-root lg:w-1/3" x-bind:class="{'current': pageID == page.ID }">
-												<a x-bind:href="page.url" class="flex items-center rounded-md px-3 py-2  transition duration-150 ease-in-out hover:bg-gray-200">
-													<span class="w-full" x-text="page.title"></span>
+											<li class="lg:flow-root" x-bind:class="{'current': pageID == page.ID }">
+												<a x-bind:href="page.url" class="btn btn-menu ">
+													<span class="w-full text-gray" x-text="page.title"></span>
 												</a>
 											</li>
 										</template>
 										<!-- End -->
 
 										</ul>
-										<!-- Search -->
-										<div class="mx-8 max-w-xl mt-10">
-											<label for="default-search" class="mb-2 text-primary dark:text-primary">
-											<?php _e('Suche in: ', 'wkmde-theme'); ?>
-											<span x-text="domain.title"></span>
-										</label> <?php get_search_form(); ?>
-										</div>
-										<!-- End -->
 									</div>
 								</nav>
 							</template>
