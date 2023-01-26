@@ -3,24 +3,30 @@ module.exports = {
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
 		fontSize: {
-			xs: '0.625rem', // 10px
-			sm: '0.875rem', // 14px
-			base: '1rem', // 16px
-			lg: '1.25rem', // 20px
-			xl: '1.5rem', // 24px
-			'2xl': '2rem', // 32px
-			'3xl': '2.5rem', // 40px
-			'4xl': '3.75rem', // 60px
+			xs: '0.875rem', // 14px
+			sm: '1rem', // 16px
+			base: '1.25rem', // 20px
+			lg: '1.5rem', // 24px
+			xl: '2rem', // 32px
+			'2xl': '3rem', // 48px
+			'3xl': '3.5rem', // 56px
+			'4xl': '4.375rem', // 60px
 		},
 		fontFamily: {
-			montserrat: ['Montserrat', 'sans-serif'],
-			sans: ['Roboto', 'sans'],
+			alt: ['Montserrat', 'sans-serif'],
+			sans: ['Roboto', 'sans-serif'],
 		},
 		fontWeight: {
 			normal: 400,
-			medium: 600,
+			medium: 500,
 			semibold: 700,
+			bold: 900,
 		},
+		extend: {
+		  boxShadow: {
+			'navbar-dropdown': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px -10px 10px rgba(0, 0, 0, 0.04)',
+		  }
+		}
 	},
 	corePlugins: {
 		aspectRatio: false,
@@ -36,16 +42,16 @@ module.exports = {
 			  // colors is used here for demonstration purposes
 			  colors: {
 				primary: {
-					'50': '#f7f7f7',
-					'100': '#e3e3e3',
-					'200': '#c8c8c8',
-					'300': '#a4a4a4',
-					'400': '#818181',
-					'500': '#666666',
-					'600': '#515151',
-					'700': '#434343',
-					'800': '#383838',
-					DEFAULT: '#000000',
+					'50': '#e5eeff',
+					'100': '#cfe0ff',
+					'200': '#a9c3ff',
+					'300': '#7599ff',
+					'400': '#3f5dff',
+					'500': '#1423ff',
+					'600': '#0008ff',
+					'700': '#0009ff',
+					'800': '#0008e3',
+					DEFAULT: '#000068',
 				},
 				secondary: {
 					DEFAULT: '#f7f7f7',
@@ -70,6 +76,30 @@ module.exports = {
 					'700': '#0049ff',
 					'800': '#0038c4',
 					'900': '#0b3aa4',
+				},
+				red: {
+					'50': '#fff0f2',
+					'100': '#ffe2e6',
+					'200': '#ffc9d4',
+					'300': '#ff9db1',
+					'400': '#ff6688',
+					'500': '#ff3164',
+					DEFAULT: '#f21b5a',
+					'700': '#cb0544',
+					'800': '#aa0740',
+					'900': '#910a3d',
+				},
+				gray: {
+					'50': '#f7f7f7',
+					'100': '#e3e3e3',
+					'200': '#c8c8c8',
+					'300': '#a4a4a4',
+					DEFAULT: '#797979',
+					'500': '#666666',
+					'600': '#515151',
+					'700': '#434343',
+					'800': '#383838',
+					'900': '#313131',
 				}
 			  }
 			}

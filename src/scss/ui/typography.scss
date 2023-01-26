@@ -19,8 +19,14 @@ h3 {
 h4 {
 	@apply text-base lg:text-lg;
 }
+h5 {
+	@apply text-sm lg:text-base;
+}
+h6 {
+	@apply text-xs lg:text-sm;
+}
 p {
-	@apply leading-tight;
+	@apply leading-tight text-base;
 }
 ol {
 	@apply list-decimal pl-5;
