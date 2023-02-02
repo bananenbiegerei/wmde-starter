@@ -1,0 +1,34 @@
+import * as TW from './tailwindhelpers';
+
+window.TwConfig = TW.fullConfig;
+
+jQuery(document).ready(function ($) {
+	// Set color picker palette to TW theme
+	acf.add_filter('color_picker_args', function (args, field) {
+		var h = (x) =>
+			'#' +
+			x
+				.match(/\d+/g)
+				.map((y = (z) => (+z < 16 ? '0' : '') + (+z).toString(16)))
+				.join('');
+
+		args.palettes = [];
+		var colors = ['primary', 'secondary', 'red', 'gray', 'yellow-200', 'secondary', 'secondary-500', 'red-700', 'primary-600', 'primary-200', 'primary-300'];
+		for (var color of colors) {
+			var colorValue = getComputedStyle(document.body).getPropertyValue(`--colors-${color}`);
+
+			if (colorValue === '') {
+				var index;
+				[color, index] = color.split('-');
+				if (typeof index === 'undefined') {
+					index = 'DEFAULT';
+				}
+				colorValue = TwConfig.theme.colors[color][index];
+			} else {
+				colorValue = h(colorValue);
+			}
+			args.palettes.push(colorValue);
+		}
+		return args;
+	});
+});

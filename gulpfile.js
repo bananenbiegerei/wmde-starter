@@ -41,10 +41,9 @@ function stylesProd() {
 }
 
 function esbuildDev() {
-	return src('./src/js/site.js')
+	return src(['./src/js/site.js', './src/js/editor.js'])
 		.pipe(
 			gulpEsbuildIncremental({
-				outfile: 'site.js',
 				bundle: true,
 				sourcemap: true,
 			})
