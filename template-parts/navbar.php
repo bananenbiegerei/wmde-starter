@@ -2,10 +2,13 @@
 	// Get current page ID (used to set 'current' class to menu item)
 	const pageID = <?php echo get_the_ID(); ?>;
 	// Get content of top-nav menu
-	var WPNav = JSON.parse('<?php echo json_encode(bb_topnav_menu()); ?>');
+	var WPNav = JSON.parse('<?php echo json_encode(bb_get_nav_menu()); ?>');
 
-	// Breakpoint for large, hardcoded for now... (need to get this from the TW config)
+	// Breakpoint for large
 	const lgWidth = 1024;
+	if (typeof(TW) !== 'undefined') {
+		lgWidth = parseInt(TW.fullConfig.theme.screens.lg);
+	}
 
 	// Default icon when featured page thumbnail is missing
 	const defaultIcon = "<?php echo get_stylesheet_directory_uri(); ?>/img/placeholders/wiki-logo-icon.png";
@@ -213,4 +216,5 @@
 		</div>
 	</div>
 
+</div>
 </div>

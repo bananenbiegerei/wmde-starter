@@ -32,7 +32,7 @@ add_action(
 add_action(
 	'admin_enqueue_scripts',
 	function () {
-		// Editor style
+		wp_enqueue_script('editor-addon', get_template_directory_uri() . '/js/editor.js', ['jquery', 'acf-input'], '', false);
 		wp_enqueue_style('style', get_template_directory_uri() . '/css/editor.css', [], '', 'all');
 	},
 	999,

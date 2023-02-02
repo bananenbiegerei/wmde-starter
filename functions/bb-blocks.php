@@ -21,3 +21,17 @@ add_filter(
 	10,
 	2,
 );
+
+/*
+add_filter('acf/load_field/name=tw_color', function ($field) {
+	// reset choices
+	$field['choices'] = [
+		'1' => 'one',
+		'2' => 'two',
+	];
+
+	// return the field
+	return $field;
+});
+
+*/

@@ -10,4 +10,5 @@ Alpine.start();
 
 // Tests
 Accordion.test();
-console.log(TW.fullConfig);
+
+window.TW = TW;

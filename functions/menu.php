@@ -4,18 +4,22 @@
 add_action('init', function () {
 	$locations = [
 		'nav' => 'Top Navigation Menu',
-		'footer' => __('Footer', 'text_domain')
+		'footer' => __('Footer', 'text_domain'),
 	];
 	register_nav_menus($locations);
 });
 
 // For new top navigation
-define('BB_TOPNAV_MENU_FEATURED', 'Featured');
-function bb_topnav_menu()
+define('BB_NAV_MENU_FEATURED', 'Featured');
+function bb_get_nav_menu($location = 'nav')
 {
+	$menu = wp_get_nav_menu_name($location);
+	if ($menu === '') {
+		return [];
+	}
 	$nav = [];
 	$featured_id = null;
-	$menu_array = wp_get_nav_menu_items(wp_get_nav_menu_name('nav'));
+	$menu_array = wp_get_nav_menu_items($menu);
 	foreach ($menu_array as $m) {
 		if (empty($m->menu_item_parent)) {
 			$domain = new stdClass();
@@ -26,7 +30,7 @@ function bb_topnav_menu()
 			$domain->featured = [];
 			$domain->pages = [];
 			$nav[] = $domain;
-		} elseif ($m->title == BB_TOPNAV_MENU_FEATURED) {
+		} elseif ($m->title == BB_NAV_MENU_FEATURED) {
 			$featured_id = $m->ID;
 		} else {
 			$page = new stdClass();
