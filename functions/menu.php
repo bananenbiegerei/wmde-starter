@@ -4,7 +4,7 @@
 add_action('init', function () {
 	$locations = [
 		'nav' => 'Top Navigation Menu',
-		'footer' => __('Footer', 'text_domain'),
+		'footer' => __('Footer', BB_TEXT_DOMAIN),
 	];
 	register_nav_menus($locations);
 });

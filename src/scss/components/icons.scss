@@ -1,0 +1,17 @@
+.icon:before {
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+	content: '';
+	background-size: contain;
+	vertical-align: sub;
+	background-repeat: no-repeat;
+}
+
+.icon-arrow-right:before {
+	background-image: url('../img/icons/arrow-right.svg');
+}
+
+.icon-arrow-left:before {
+	background-image: url('../img/icons/arrow-left.svg');
+}

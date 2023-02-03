@@ -20,7 +20,7 @@ if (!empty($block['align'])) {
 
 	<div class="flex flex-wrap sm:flex-nowrap gap-4  mb-6 sm:mb-0">
 
-		<div class="basis-full sm:basis-1/4 flex-shrink-0 rounded-xl bg-white">
+		<div class="basis-full sm:basis-1/4 flex-shrink-0 rounded-xl">
 			<?php echo wp_get_attachment_image(get_field('image'), [400, 0], false, ['class' => 'rounded-xl aspect-video sm:aspect-square object-cover min-w-full']); ?>
 		</div>
 
@@ -34,9 +34,16 @@ if (!empty($block['align'])) {
 			<div class="font-alt font-light text-xs flex-grow">
 				<?= get_field('text', false, false) ?>
 			</div>
-			<div class="mt-6 sm:mt-0 mb-2">
-				<a class="bg-white text-black border border-black rounded p-2 mr-2 button" href="<?= esc_attr(get_field('link')['url']) ?>"><?= esc_html(get_field('link')['title']) ?></a>
+			<div class="mt-6 sm:mb-0 mb-2 flex flex-wrap gap-8">
+				<div class="flex-shrink-0">
+				<a class="bg-white text-black border border-black rounded p-2 mr-2 button" href="<?= esc_attr(get_field('link')['url']) ?>">
+					<i class="icon icon-arrow-right"></i>
+					<?= esc_html(get_field('link')['title']) ?>
+				</a>
+				</div>
+				<div>
 				<span><?= esc_html(get_field('link_meta')) ?></span>
+				</div>
 			</div>
 		</div>
 
