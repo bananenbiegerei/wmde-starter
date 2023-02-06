@@ -18,7 +18,7 @@ if (!empty($block['align'])) {
 
 <div <?php echo $anchor; ?> class="<?php echo esc_attr($class_name); ?> rounded-2xl p-4" style="background-color: <?= get_field('bg_color') ?>;">
 
-	<div class="flex flex-wrap sm:flex-nowrap gap-4  mb-6 sm:mb-0">
+	<div class="flex flex-wrap sm:flex-nowrap gap-4 mb-6 sm:mb-0">
 
 		<div class="basis-full sm:basis-1/4 flex-shrink-0 rounded-xl">
 			<?php echo wp_get_attachment_image(get_field('image'), [400, 0], false, ['class' => 'rounded-xl aspect-video sm:aspect-square object-cover min-w-full']); ?>
@@ -34,13 +34,13 @@ if (!empty($block['align'])) {
 			<div class="font-alt font-light text-xs flex-grow">
 				<?= get_field('text', false, false) ?>
 			</div>
-			<div class="mt-6 sm:mb-0 mb-2 flex flex-wrap gap-8">
+			<div class="mt-6 mb-0 sm:mb-2 flex flex-wrap gap-y-8">
 				<div class="flex-shrink-0">
-				<a class="bg-white text-black border border-black rounded p-2 mr-2 button" href="<?= esc_attr(get_field('link')['url']) ?>">
-					<i class="icon icon-arrow-right"></i>
-					<?= esc_html(get_field('link')['title']) ?>
-				</a>
-				</div>
+					<a class="mr-2 button" href="<?= esc_attr(get_field('link')['url']) ?>">
+						<i class="icon icon-arrow-right"></i>
+						<?= esc_html(get_field('link')['title']) ?>
+					</a>
+					</div>
 				<div>
 				<span><?= esc_html(get_field('link_meta')) ?></span>
 				</div>
@@ -49,20 +49,21 @@ if (!empty($block['align'])) {
 
 	</div>
 
-	<div class="flex gap-4 sm:gap-5 flex-wrap">
-		<?php while (have_rows('related')): ?>
-			<?php the_row(); ?>
-			<div class="sm:mt-9 sm:basis-1/4">
-				<a href="<?= esc_attr(get_sub_field('link')['url']) ?>">
-					<div class="uppercase text-black font-bold text-xs mb-4 font-alt">
-						<?= esc_html(get_sub_field('title')) ?>
-					</div>
-					<div class="text-black text-xs font-alt">
-						<?= esc_html(get_sub_field('description')) ?>
-					</div>
-				</a>
-			</div>
+	<?php if (have_rows('related')): ?>
+		<div class="flex gap-4 sm:gap-5 flex-wrap">
+			<?php while (have_rows('related')): ?>
+				<?php the_row(); ?>
+				<div class="sm:mt-9 sm:basis-1/4">
+					<a href="<?= esc_attr(get_sub_field('link')['url']) ?>">
+						<div class="uppercase font-bold text-xs mb-4 font-alt">
+							<?= esc_html(get_sub_field('link')['title']) ?>
+						</div>
+						<div class="text-black text-xs font-alt">
+							<?= esc_html(get_sub_field('description')) ?>
+						</div>
+					</a>
+				</div>
 			<?php endwhile; ?>
-	</div>
-
+		</div>
+	<?php endif; ?>
 </div>

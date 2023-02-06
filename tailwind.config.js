@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
 	content: ['./**/*.php'],
 	theme: {
@@ -35,6 +37,11 @@ module.exports = {
 	plugins: [
 		// Disabled because we can use Tailwind's new aspect-ratio features
 		//require('@tailwindcss/aspect-ratio'),
+		plugin(function ({ addBase }) {
+			addBase({
+				//				html: { fontSize: '6px' },
+			});
+		}),
 		require('@tailwindcss/forms'),
 		require('tailwindcss-themer')({
 			defaultTheme: {
