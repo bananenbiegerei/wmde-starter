@@ -3,22 +3,28 @@
 @tailwind utilities;
 
 .block-editor-writing-flow {
+	@apply mx-6;
+	@apply font-sans overflow-hidden p-0 font-normal;
+
 	.hide-for-editor {
 		@apply hidden;
 	}
+
+	/* ACF blocks */
+	@import 'bb-blocks/*';
+
 	// @import './inc/globals';
 	// @import './inc/grid';
 	// @import './inc/typography';
 	// @import './components/cards';
 	// @import './gutenberg-overwrites/gb-images';
-	@apply font-sans overflow-hidden p-0 font-normal;
 
 	// Make groups easy to see
 	.wp-block-group {
 		border: dotted 1px grey;
 	}
 
-	/* overwrite custom eidtor blocks */
+	/* overwrite custom editor blocks */
 	.wp-block,
 	.wp-block-post-title {
 		@apply px-0 container;
@@ -26,12 +32,6 @@
 			@apply py-10 px-6;
 			// @include fluid-container;
 		}
-	}
-	.wp-block {
-		@apply py-0.5;
-	}
-	.wp-block.wp-block-group.has-background {
-		@apply my-0 px-6;
 	}
 
 	.wp-block-acf-stroke {
@@ -63,4 +63,17 @@
 	.swiper-wrapper {
 		@apply grid grid-cols-4 gap-5;
 	}
+}
+
+// Corrections for WP Admin
+.update-message.notice.inline {
+	display: block;
+}
+
+// Corrections for ACF
+.acf-btn.acf-publish {
+	background-color: #0783be !important;
+}
+.acf-btn.acf-publish:hover {
+	background-color: #066998 !important;
 }

@@ -4,7 +4,7 @@
 <div class="flex bg-white items-center py-1 lg:py-3 mx-4">
 	<div class="flex-1">
 		<a href="<?php echo get_home_url(); ?>" class="hidden lg:block">
-			<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-2021.svg" alt="Logo">
+			<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo.svg" alt="Logo">
 		</a>
 		<a href="<?php echo get_home_url(); ?>" class="block lg:hidden">
 			<img class="w-6 h-auto" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
@@ -25,7 +25,9 @@
 		</ul>
 	</div>
 	<div class="flex-none">
-		<?php //get_template_part('template-parts/search-modal'); ?>
+		<?php
+//get_template_part('template-parts/search-modal');
+?>
 	</div>
 	<div class="block lg:hidden flex-none x-data="{ show: false }"">
 		<!-- Using the Alpine.store ($store) to save the state of the site header. -->

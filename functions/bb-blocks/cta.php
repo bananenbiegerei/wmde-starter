@@ -7,4 +7,6 @@ acf_register_block_type([
 	'render_template' => get_template_directory() . '/template-parts/bb-blocks/cta.php',
 	'category' => 'wkmde-custom-blocks',
 	'icon' => 'slides',
+	'supports' => ['align' => false],
+	'mode' => false,
 ]);

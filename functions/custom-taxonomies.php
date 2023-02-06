@@ -38,3 +38,45 @@ register_taxonomy('team_category', 'team', [
 	'show_in_rest' => true,
 	'show_in_quick_edit' => false,
 ]);
+
+register_taxonomy(
+	'format',
+	['post', 'page'],
+	[
+		'labels' => [
+			'name' => __('Formate', 'wkmde'),
+			'singular_name' => __('Format', 'wkmde'),
+		],
+		'public' => true,
+		'publicly_queryable' => true,
+		'hierarchical' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'show_in_nav_menus' => true,
+		'query_var' => true,
+		'show_admin_column' => true,
+		'show_in_rest' => true,
+		'show_in_quick_edit' => false,
+	],
+);
+
+register_taxonomy(
+	'theme',
+	['post', 'page'],
+	[
+		'labels' => [
+			'name' => __('Themenbereiche', 'wkmde'),
+			'singular_name' => __('Themenbereich', 'wkmde'),
+		],
+		'public' => true,
+		'publicly_queryable' => true,
+		'hierarchical' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'show_in_nav_menus' => true,
+		'query_var' => true,
+		'show_admin_column' => true,
+		'show_in_rest' => true,
+		'show_in_quick_edit' => false,
+	],
+);

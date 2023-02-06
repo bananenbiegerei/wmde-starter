@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <?php while (have_posts()):
 	the_post(); ?>
-	<div class="container">
-		<div class="max-w-4xl">
+	<div class="_container">
+		<div class="px-5">
 			<h1><?php the_title(); ?></h1>
 			<?php the_content(); ?>
 		</div>
