@@ -15,8 +15,9 @@
 				<!-- Slides -->
 				<div class="swiper-wrapper">
 					<?php foreach (get_field('projects') as $project): ?>
-						<div class="swiper-slide bg-gray-100 rounded-2xl p-8 pt-16">
+						<div class="swiper-slide bg-gray-100 rounded-2xl p-8 pt-16"><!-- Slide size defined in block SCSS -->
 							<a class="block flex flex-col items-center" href="<?php echo get_post_permalink($project->ID); ?>">
+
 								<!-- Thumbnail -->
 								<div class="mb-10">
 										<?php if (has_post_thumbnail($project->ID)): ?>
@@ -25,10 +26,12 @@
 												src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>">
 										<?php endif; ?>
 								</div>
+
 								<!-- Title -->
 								<div class="mb-2">
 										<h3 class="text-3xl"><?php echo $project->post_title; ?></h3>
 								</div>
+
 								<!-- Description -->
 								<div class="text-lg text-inherit">
 									<?php if (get_field('description', $project->ID)): ?>

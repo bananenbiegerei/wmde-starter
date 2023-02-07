@@ -63,7 +63,7 @@
 	<div
 		class="navbar border-b border-gray-200 sticky top-0 z-40 bg-white block"
 		transition x-show="$store.open_mobile_nav"
-		@mouseleave="closeNav()"
+		X@mouseleave="closeNav()"
 		@click.outside="closeNav()">
 
 		<div class="relative z-0">
@@ -82,11 +82,15 @@
 							<!-- Domain name -->
 							<button
 								type="button"
-								class="btn btn-menu"
+								class="btn btn-menu relative"
 								aria-expanded="false"
-								@mouseenter="openNav(i)"
+								X@mouseenter="openNav(i)"
 								@click="toggleNav(i)">
 								<span x-text="domain.title"></span>
+								<svg class="w-auto h-4 fill-white absolute" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M16.2469 0L31.5 15.2531L0.993896 15.2531L16.2469 0Z" fill="red"/>
+								</svg>
+
 							</button>
 
 							<!-- For mobile: add the items right underneath the domain -->
@@ -136,9 +140,6 @@
 				<!-- For each domain... -->
 				<template x-for="(domain,i) in nav">
 					<div class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen  max-w-6xl mx-8 rounded-xl shadow-navbar-dropdown py-8" x-show="isOpen[i]">
-						<svg class="w-auto h-4 fill-white absolute -top-4 left-8" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M16.2469 0L31.5 15.2531L0.993896 15.2531L16.2469 0Z" fill="inherit"/>
-						</svg>
 						<div class="relative mx-auto grid grid-cols-1 lg:grid-cols-2 divide-y divide-gray-200 lg:divide-y-0 space-y-5 lg:space-y-0">
 
 							<!-- Overview & featured pages -->

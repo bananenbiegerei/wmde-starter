@@ -3,8 +3,8 @@ import Alpine from 'alpinejs';
 import Swiper, { Navigation, Autoplay, Mousewheel } from 'swiper';
 
 // Init Alpine
-Alpine.start();
 window.Alpine = Alpine;
+Alpine.start();
 
 // Make Tailwind config available outside of package
 window.TW = TW;
