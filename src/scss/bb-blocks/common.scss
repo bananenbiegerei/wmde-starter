@@ -1,3 +1,9 @@
+// Make the paragraphs inside a block inherit typography
+// Useful when we don't control the output
 .text-inherit p {
 	font-size: inherit;
+	color: inherit;
+	line-height: inherit;
+	font-family: inherit;
+	font-weight: inherit;
 }

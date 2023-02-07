@@ -31,8 +31,8 @@ if ($layout == 'v') {
 	style="background-color: <?= get_field('style')['bg_color'] ?>;">
 
 	<?php if (get_field('style')['image']): ?>
-		<div class="<?= $layout_classes['image'] ?> rounded-xl">
-			<?php echo wp_get_attachment_image(get_field('style')['image'], [400, 0], false, ['class' => 'rounded-3xl aspect-video object-cover min-w-full']); ?>
+		<div class="<?= $layout_classes['image'] ?>">
+			<?php echo wp_get_attachment_image(get_field('style')['image'], [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']); ?>
 		</div>
 	<?php endif; ?>
 

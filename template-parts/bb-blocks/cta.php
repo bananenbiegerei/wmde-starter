@@ -15,30 +15,36 @@ $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('met
 
 	<div class="flex flex-wrap sm:flex-nowrap gap-8 mb-6 sm:mb-0">
 
+		<!-- Image -->
 		<?php if (get_field('style')['image']): ?>
-			<div class="basis-full sm:basis-1/4 flex-shrink-0 rounded-3xl">
-				<?php echo wp_get_attachment_image(get_field('style')['image'], [400, 0], false, ['class' => 'rounded-3xl aspect-video sm:aspect-square object-cover min-w-full']); ?>
+			<div class="basis-full sm:basis-1/4 flex-shrink-0">
+				<?php echo wp_get_attachment_image(get_field('style')['image'], [400, 0], false, ['class' => 'rounded-2xl aspect-video sm:aspect-square object-cover min-w-full']); ?>
 			</div>
 		<?php endif; ?>
 
+		<!-- Content -->
 		<div class="flex flex-col">
 
+			<!-- Theme or format -->
 			<div class="uppercase text-primary font-bold text-base font-alt mb-0">
 				<?= esc_html($meta->name) ?>
 			</div>
 
+			<!-- Title -->
 			<div class="font-alt text-3xl mb-4">
 				<?= esc_html(get_field('content')['title']) ?>
 			</div>
 
+			<!-- Text -->
 			<div class="font-alt font-light font-sans text-2xl text-inherit flex-grow">
 				<?= get_field('content')['text'] ?>
 			</div>
 
+			<!-- Button and extra info -->
 			<div class="mt-6 mb-0 sm:mb-2 flex flex-wrap gap-y-8">
 				<div class="flex-shrink-0 text-xl">
-					<a class="mr-8 button" href="<?= esc_attr(get_field('link')['url']) ?>">
-						<i class="icon icon-arrow-right"></i>
+					<a class="button hover:text-blue-700 mr-8" href="<?= esc_attr(get_field('link')['url']) ?>">
+						<?= bb_icon('arrow-right') ?>
 						<?= esc_html(get_field('button')['link']['title']) ?>
 					</a>
 					</div>
@@ -48,9 +54,9 @@ $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('met
 			</div>
 
 		</div>
-
 	</div>
 
+	<!-- Related -->
 	<?php if (have_rows('related')): ?>
 		<div class="flex gap-4 sm:gap-5 flex-wrap pb-2">
 			<?php while (have_rows('related')): ?>

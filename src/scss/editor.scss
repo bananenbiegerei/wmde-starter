@@ -71,9 +71,11 @@
 }
 
 // Corrections for ACF
+.acf-btn[type='submit'],
 .acf-btn.acf-publish {
 	background-color: #0783be !important;
 }
+.acf-btn[type='submit']:hover,
 .acf-btn.acf-publish:hover {
 	background-color: #066998 !important;
 }

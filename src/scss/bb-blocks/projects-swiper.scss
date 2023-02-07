@@ -1,0 +1,9 @@
+@import '../../../node_modules/swiper/swiper';
+
+.bb-projects-swiper-block {
+	overflow: hidden;
+
+	.swiper-slide {
+		@apply w-[480px] h-[620px];
+	}
+}
