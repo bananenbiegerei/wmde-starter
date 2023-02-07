@@ -1,18 +1,25 @@
 import * as TW from './tailwindhelpers';
 import Alpine from 'alpinejs';
-import Swiper, { Navigation, Autoplay } from 'swiper';
+import Swiper, { Navigation, Autoplay, Mousewheel } from 'swiper';
 
-window.Alpine = Alpine;
+// Init Alpine
 Alpine.start();
+window.Alpine = Alpine;
 
-// Make Tailwind config available
+// Make Tailwind config available outside of package
 window.TW = TW;
 
 // Initialize all swipers
-// Variable 'Swipers' is defined in 'head.php', every swiper block adds its config in it.
+// 'SwipersConfig' is defined in 'head.php', every swiper block adds its config in it.
 var Swipers = {};
 for (sel in SwipersConfig) {
-	console.log('Swiper init: ' + sel);
-	Swipers[sel] = new Swiper(`${sel}  .swiper-container`, { ...SwipersConfig[sel], ...{ modules: [Navigation, Autoplay] } });
+	Swipers[sel] = new Swiper(`${sel}  .swiper-container`, {
+		// include modules
+		...{ modules: [Navigation, Autoplay, Mousewheel] },
+		// enable mouse-wheel by default
+		...{ mousewheel: { forceToAxis: true } },
+		// include swiper-specific config
+		...SwipersConfig[sel],
+	});
 }
 window.Swipers = Swipers;
