@@ -9,7 +9,7 @@
             "aria-label": "",
             "type": "post_object",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -20,34 +20,10 @@
                 "projects"
             ],
             "taxonomy": "",
-            "allow_null": 0,
+            "return_format": "object",
             "multiple": 1,
-            "return_format": "object",
             "translations": "copy_once",
-            "ui": 1
-        },
-        {
-            "key": "field_5e14778efeeff",
-            "label": "Projects Page",
-            "name": "projects_page",
-            "aria-label": "",
-            "type": "post_object",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": "",
             "allow_null": 0,
-            "multiple": 0,
-            "return_format": "object",
-            "translations": "copy_once",
             "ui": 1
         }
     ],
@@ -69,5 +45,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675770869
+    "modified": 1675858253
 }
