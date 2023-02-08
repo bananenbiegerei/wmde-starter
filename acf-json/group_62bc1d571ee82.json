@@ -1,12 +1,12 @@
 {
-    "key": "group_6328561607c43",
-    "title": "Block: Image",
+    "key": "group_62bc1d571ee82",
+    "title": "Latest Press Releases",
     "fields": [
         {
-            "key": "field_6328565a67504",
-            "label": "Bild",
-            "name": "image",
-            "type": "image",
+            "key": "field_62bc1d737c94c",
+            "label": "Anzahl der Pressemitteilungen",
+            "name": "number_to_show",
+            "type": "number",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,16 +16,14 @@
                 "id": ""
             },
             "aria-label": "",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": 3,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 24,
+            "step": "",
+            "translations": "copy_once"
         }
     ],
     "location": [
@@ -33,7 +31,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image"
+                "value": "acf\/latest-press-releases"
             }
         ]
     ],
@@ -46,5 +44,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1675864026
 }

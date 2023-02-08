@@ -1,0 +1,66 @@
+{
+    "key": "group_5ea995b5af0ca",
+    "title": "Custom Anchor",
+    "fields": [
+        {
+            "key": "field_5ea995bfd77df",
+            "label": "Anchor Name",
+            "name": "anchor_name",
+            "type": "text",
+            "instructions": "Bitte keine Sonderzeichen, oder Leerzeichen verwenden. Man kann den Anker später über die URL erreichen www.website.de\/seite#anker",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "aria-label": "",
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_601c0485fc077",
+            "label": "Anchor ID",
+            "name": "anchor_id",
+            "type": "text",
+            "instructions": "This will generate the URL www.wikimedia.de\/#anchor\r\nPlease use only web characters",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "aria-label": "",
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "translations": "translate"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/custom-anchor"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1675864026
+}

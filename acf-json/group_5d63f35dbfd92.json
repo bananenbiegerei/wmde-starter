@@ -1,12 +1,12 @@
 {
-    "key": "group_5cff8a6c26332",
-    "title": "Accordion",
+    "key": "group_5d63f35dbfd92",
+    "title": "Swiper Gallery",
     "fields": [
         {
-            "key": "field_5cff8f2d76b51",
-            "label": "Accordion",
-            "name": "acfb_add_accordion",
-            "type": "repeater",
+            "key": "field_5fa2bc2e23c73",
+            "label": "Headline and Description",
+            "name": "headline_and_description",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,17 +16,12 @@
                 "id": ""
             },
             "aria-label": "",
-            "collapsed": "",
-            "min": 1,
-            "max": 0,
             "layout": "block",
-            "button_label": "Add Accordion",
-            "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_5cff8f3f76b52",
-                    "label": "Accordion Title",
-                    "name": "acfb_accordion_title",
+                    "key": "field_5fa3c6c1137db",
+                    "label": "Headline",
+                    "name": "headline",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -37,17 +32,17 @@
                         "id": ""
                     },
                     "aria-label": "",
-                    "default_value": "Accordion Title",
-                    "placeholder": "Accordion Title",
+                    "default_value": "",
+                    "placeholder": "",
                     "prepend": "",
                     "append": "",
                     "maxlength": "",
-                    "parent_repeater": "field_5cff8f2d76b51"
+                    "translations": "translate"
                 },
                 {
-                    "key": "field_5cff8f5376b53",
-                    "label": "Accordion Content",
-                    "name": "acfb_accordion_content",
+                    "key": "field_5fa3c6c8137dc",
+                    "label": "Description",
+                    "name": "description",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -63,9 +58,37 @@
                     "toolbar": "full",
                     "media_upload": 0,
                     "delay": 0,
-                    "parent_repeater": "field_5cff8f2d76b51"
+                    "translations": "translate"
                 }
             ]
+        },
+        {
+            "key": "field_5d63f3da44b8b",
+            "label": "Images Swiper",
+            "name": "images",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "aria-label": "",
+            "return_format": "array",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -73,7 +96,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/accordion"
+                "value": "acf\/gallery-swiper"
             }
         ]
     ],
@@ -86,5 +109,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1675864027
 }

@@ -1,12 +1,12 @@
 {
-    "key": "group_6332e573a4146",
-    "title": "Block: Paragraph",
+    "key": "group_6050823682f32",
+    "title": "Slido Embed Block",
     "fields": [
         {
-            "key": "field_6332e57c9e5c2",
-            "label": "Paragraph",
-            "name": "paragraph",
-            "type": "wysiwyg",
+            "key": "field_605082404b6cc",
+            "label": "Headline",
+            "name": "headline",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,18 +15,17 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_6332e7ddefe75",
-            "label": "Options",
-            "name": "options",
-            "type": "button_group",
+            "key": "field_60508418d7b7f",
+            "label": "Slido Embed Code",
+            "name": "slido_embed_code",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -35,15 +34,11 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
-            "choices": {
-                "default": "Default Text Size",
-                "small": "Small Text Size"
-            },
-            "allow_null": 0,
             "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -51,7 +46,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/paragraph"
+                "value": "acf\/slido-embed"
             }
         ]
     ],
@@ -63,6 +58,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1675864025
+    "show_in_rest": false,
+    "modified": 1675864027
 }

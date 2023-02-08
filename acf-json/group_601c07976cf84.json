@@ -1,12 +1,12 @@
 {
-    "key": "group_6332e573a4146",
-    "title": "Block: Paragraph",
+    "key": "group_601c07976cf84",
+    "title": "Custom Anchor Global",
     "fields": [
         {
-            "key": "field_6332e57c9e5c2",
-            "label": "Paragraph",
-            "name": "paragraph",
-            "type": "wysiwyg",
+            "key": "field_601c07b40ea6b",
+            "label": "Anker Name",
+            "name": "anker_name_global",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,16 +17,17 @@
             },
             "aria-label": "",
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "translations": "translate"
         },
         {
-            "key": "field_6332e7ddefe75",
-            "label": "Options",
-            "name": "options",
-            "type": "button_group",
+            "key": "field_601c13cb0ea6c",
+            "label": "Anker ID",
+            "name": "anker_id_global",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -36,14 +37,12 @@
                 "id": ""
             },
             "aria-label": "",
-            "choices": {
-                "default": "Default Text Size",
-                "small": "Small Text Size"
-            },
-            "allow_null": 0,
             "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "translations": "translate"
         }
     ],
     "location": [
@@ -51,7 +50,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/paragraph"
+                "value": "acf\/custom-anchor-global"
             }
         ]
     ],
@@ -63,6 +62,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1675864025
+    "show_in_rest": false,
+    "modified": 1675864026
 }

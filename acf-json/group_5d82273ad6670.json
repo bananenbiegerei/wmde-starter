@@ -1,14 +1,14 @@
 {
-    "key": "group_6328561607c43",
-    "title": "Block: Image",
+    "key": "group_5d82273ad6670",
+    "title": "Page Teasers Block",
     "fields": [
         {
-            "key": "field_6328565a67504",
-            "label": "Bild",
-            "name": "image",
-            "type": "image",
+            "key": "field_5d82274903884",
+            "label": "Pages",
+            "name": "pages",
+            "type": "post_object",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -16,16 +16,15 @@
                 "id": ""
             },
             "aria-label": "",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "object",
+            "translations": "copy_once",
+            "ui": 1
         }
     ],
     "location": [
@@ -33,7 +32,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image"
+                "value": "acf\/page-teasers"
             }
         ]
     ],
@@ -46,5 +45,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1675864027
 }

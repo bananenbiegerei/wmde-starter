@@ -1,12 +1,12 @@
 {
-    "key": "group_6328561607c43",
-    "title": "Block: Image",
+    "key": "group_5ffc2b237573b",
+    "title": "Organigramm",
     "fields": [
         {
-            "key": "field_6328565a67504",
-            "label": "Bild",
-            "name": "image",
-            "type": "image",
+            "key": "field_5ffc2b369cb1c",
+            "label": "Headline",
+            "name": "headline",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,16 +16,12 @@
                 "id": ""
             },
             "aria-label": "",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "translations": "translate"
         }
     ],
     "location": [
@@ -33,7 +29,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image"
+                "value": "acf\/organimgramm"
             }
         ]
     ],
@@ -46,5 +42,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1675864027
 }

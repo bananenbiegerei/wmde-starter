@@ -1,10 +1,10 @@
 {
-    "key": "group_6328561607c43",
-    "title": "Block: Image",
+    "key": "group_5d64005bae375",
+    "title": "Image with Copyright",
     "fields": [
         {
-            "key": "field_6328565a67504",
-            "label": "Bild",
+            "key": "field_5d6400857e164",
+            "label": "Image",
             "name": "image",
             "type": "image",
             "instructions": "",
@@ -16,7 +16,7 @@
                 "id": ""
             },
             "aria-label": "",
-            "return_format": "id",
+            "return_format": "array",
             "preview_size": "medium",
             "library": "all",
             "min_width": "",
@@ -33,7 +33,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image"
+                "value": "acf\/image-with-copyright"
             }
         ]
     ],
@@ -45,6 +45,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1675864025
+    "show_in_rest": false,
+    "modified": 1675864026
 }

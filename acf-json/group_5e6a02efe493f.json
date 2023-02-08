@@ -1,13 +1,13 @@
 {
-    "key": "group_6332e573a4146",
-    "title": "Block: Paragraph",
+    "key": "group_5e6a02efe493f",
+    "title": "Störer",
     "fields": [
         {
-            "key": "field_6332e57c9e5c2",
-            "label": "Paragraph",
-            "name": "paragraph",
-            "type": "wysiwyg",
-            "instructions": "",
+            "key": "field_5e6a02f7e6889",
+            "label": "Text",
+            "name": "text",
+            "type": "textarea",
+            "instructions": "Falls ein manueller Umbruch erfolgen soll bitte ein \"Break-Tag\" einfügen. So: <br>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,16 +17,16 @@
             },
             "aria-label": "",
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         },
         {
-            "key": "field_6332e7ddefe75",
-            "label": "Options",
-            "name": "options",
-            "type": "button_group",
+            "key": "field_5e6a0338e688a",
+            "label": "Link",
+            "name": "link",
+            "type": "link",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -36,14 +36,7 @@
                 "id": ""
             },
             "aria-label": "",
-            "choices": {
-                "default": "Default Text Size",
-                "small": "Small Text Size"
-            },
-            "allow_null": 0,
-            "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
+            "return_format": "array"
         }
     ],
     "location": [
@@ -51,7 +44,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/paragraph"
+                "value": "acf\/stoerer"
             }
         ]
     ],
@@ -64,5 +57,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1675864027
 }

@@ -1,12 +1,12 @@
 {
-    "key": "group_5cff8a6c26332",
-    "title": "Accordion",
+    "key": "group_5fa2bbc118c3d",
+    "title": "Partials",
     "fields": [
         {
-            "key": "field_5cff8f2d76b51",
-            "label": "Accordion",
-            "name": "acfb_add_accordion",
-            "type": "repeater",
+            "key": "field_5fa2bbc7bea49",
+            "label": "Headline and Description",
+            "name": "headline_and_description",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,17 +16,12 @@
                 "id": ""
             },
             "aria-label": "",
-            "collapsed": "",
-            "min": 1,
-            "max": 0,
             "layout": "block",
-            "button_label": "Add Accordion",
-            "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_5cff8f3f76b52",
-                    "label": "Accordion Title",
-                    "name": "acfb_accordion_title",
+                    "key": "field_5fa2bbe9bea4a",
+                    "label": "Headline",
+                    "name": "headline",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -37,17 +32,17 @@
                         "id": ""
                     },
                     "aria-label": "",
-                    "default_value": "Accordion Title",
-                    "placeholder": "Accordion Title",
+                    "default_value": "",
+                    "placeholder": "",
                     "prepend": "",
                     "append": "",
                     "maxlength": "",
-                    "parent_repeater": "field_5cff8f2d76b51"
+                    "translations": "translate"
                 },
                 {
-                    "key": "field_5cff8f5376b53",
-                    "label": "Accordion Content",
-                    "name": "acfb_accordion_content",
+                    "key": "field_5fa2bbf1bea4b",
+                    "label": "Description",
+                    "name": "description",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -63,7 +58,7 @@
                     "toolbar": "full",
                     "media_upload": 0,
                     "delay": 0,
-                    "parent_repeater": "field_5cff8f2d76b51"
+                    "translations": "translate"
                 }
             ]
         }
@@ -71,9 +66,9 @@
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/accordion"
+                "value": "post"
             }
         ]
     ],
@@ -85,6 +80,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1675864025
+    "show_in_rest": false,
+    "modified": 1675864027
 }

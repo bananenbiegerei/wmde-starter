@@ -1,11 +1,11 @@
 {
-    "key": "group_5cff8a6c26332",
-    "title": "Accordion",
+    "key": "group_5f11876b597f2",
+    "title": "Unlock Projects",
     "fields": [
         {
-            "key": "field_5cff8f2d76b51",
-            "label": "Accordion",
-            "name": "acfb_add_accordion",
+            "key": "field_5f11876b6cab1",
+            "label": "Meta Infos",
+            "name": "meta_infos",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -15,18 +15,16 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
-            "min": 1,
+            "min": 0,
             "max": 0,
-            "layout": "block",
-            "button_label": "Add Accordion",
-            "rows_per_page": 20,
+            "layout": "table",
+            "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5cff8f3f76b52",
-                    "label": "Accordion Title",
-                    "name": "acfb_accordion_title",
+                    "key": "field_5f11876b6ec50",
+                    "label": "Label",
+                    "name": "label",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -36,18 +34,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
-                    "default_value": "Accordion Title",
-                    "placeholder": "Accordion Title",
+                    "default_value": "",
+                    "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_5cff8f2d76b51"
+                    "maxlength": ""
                 },
                 {
-                    "key": "field_5cff8f5376b53",
-                    "label": "Accordion Content",
-                    "name": "acfb_accordion_content",
+                    "key": "field_5f11876b6ec58",
+                    "label": "Text",
+                    "name": "text",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -57,13 +53,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "tabs": "all",
-                    "toolbar": "full",
+                    "toolbar": "basic",
                     "media_upload": 0,
-                    "delay": 0,
-                    "parent_repeater": "field_5cff8f2d76b51"
+                    "delay": 0
                 }
             ]
         }
@@ -71,20 +65,20 @@
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/accordion"
+                "value": "unlock-projects"
             }
         ]
     ],
-    "menu_order": 0,
-    "position": "normal",
+    "menu_order": 1,
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1675864025
+    "show_in_rest": false,
+    "modified": 1675864029
 }

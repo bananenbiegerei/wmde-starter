@@ -1,12 +1,12 @@
 {
-    "key": "group_6328561607c43",
-    "title": "Block: Image",
+    "key": "group_5eb194b9eee6a",
+    "title": "Custom Path",
     "fields": [
         {
-            "key": "field_6328565a67504",
-            "label": "Bild",
-            "name": "image",
-            "type": "image",
+            "key": "field_5eb194bfbb264",
+            "label": "Path",
+            "name": "path",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,16 +16,11 @@
                 "id": ""
             },
             "aria-label": "",
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -33,7 +28,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image"
+                "value": "acf\/custom-path"
             }
         ]
     ],
@@ -45,6 +40,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1675864025
+    "show_in_rest": false,
+    "modified": 1675864026
 }

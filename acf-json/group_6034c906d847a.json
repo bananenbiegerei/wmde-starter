@@ -1,9 +1,29 @@
 {
-    "key": "group_632dac8eb77a5",
-    "title": "Block: Blockquote",
+    "key": "group_6034c906d847a",
+    "title": "Twenty Years Events Tomorrow",
     "fields": [
         {
-            "key": "field_632dac8f25165",
+            "key": "field_6034c9083ff3f",
+            "label": "Headline",
+            "name": "headline",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Das erwartet dich morgen",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "translations": "translate"
+        },
+        {
+            "key": "field_6034c920a6836",
             "label": "Text",
             "name": "text",
             "type": "textarea",
@@ -15,32 +35,12 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
+            "placeholder": "",
             "maxlength": "",
             "rows": "",
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_6332e3019911e",
-            "label": "Blury",
-            "name": "blury",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "aria-label": "",
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "new_lines": "",
+            "translations": "translate"
         }
     ],
     "location": [
@@ -48,7 +48,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/blockquote"
+                "value": "acf\/birthday-events-tomorrow"
             }
         ]
     ],
@@ -60,6 +60,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1675864025
+    "show_in_rest": false,
+    "modified": 1675864028
 }

@@ -1,11 +1,11 @@
 {
-    "key": "group_5cff8a6c26332",
-    "title": "Accordion",
+    "key": "group_603f99328c171",
+    "title": "ABC Questions Block",
     "fields": [
         {
-            "key": "field_5cff8f2d76b51",
-            "label": "Accordion",
-            "name": "acfb_add_accordion",
+            "key": "field_603f99e884c35",
+            "label": "Question and Answer",
+            "name": "question_and_answer",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -15,18 +15,16 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
             "min": 1,
             "max": 0,
-            "layout": "block",
-            "button_label": "Add Accordion",
-            "rows_per_page": 20,
+            "layout": "table",
+            "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5cff8f3f76b52",
-                    "label": "Accordion Title",
-                    "name": "acfb_accordion_title",
+                    "key": "field_603f99fd84c36",
+                    "label": "Question",
+                    "name": "question",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -36,19 +34,18 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
-                    "default_value": "Accordion Title",
-                    "placeholder": "Accordion Title",
+                    "default_value": "",
+                    "placeholder": "",
                     "prepend": "",
                     "append": "",
                     "maxlength": "",
-                    "parent_repeater": "field_5cff8f2d76b51"
+                    "translations": "translate"
                 },
                 {
-                    "key": "field_5cff8f5376b53",
-                    "label": "Accordion Content",
-                    "name": "acfb_accordion_content",
-                    "type": "wysiwyg",
+                    "key": "field_603f9a0884c37",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -57,13 +54,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0,
-                    "parent_repeater": "field_5cff8f2d76b51"
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "translations": "translate"
                 }
             ]
         }
@@ -73,7 +69,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/accordion"
+                "value": "acf\/abc-questions-and-answers"
             }
         ]
     ],
@@ -82,9 +78,24 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "permalink",
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
     "active": true,
     "description": "",
-    "show_in_rest": 0,
+    "show_in_rest": false,
     "modified": 1675864025
 }

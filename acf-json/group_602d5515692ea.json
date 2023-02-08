@@ -1,12 +1,12 @@
 {
-    "key": "group_6332e573a4146",
-    "title": "Block: Paragraph",
+    "key": "group_602d5515692ea",
+    "title": "Youtube Livestream Block",
     "fields": [
         {
-            "key": "field_6332e57c9e5c2",
-            "label": "Paragraph",
-            "name": "paragraph",
-            "type": "wysiwyg",
+            "key": "field_602d5669a2b68",
+            "label": "Headline",
+            "name": "headline",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,18 +17,18 @@
             },
             "aria-label": "",
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_6332e7ddefe75",
-            "label": "Options",
-            "name": "options",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
+            "key": "field_602d553ac25c7",
+            "label": "Embed Code",
+            "name": "embed_code",
+            "type": "textarea",
+            "instructions": "Youtube embed code einfügen. Bitte im erweiterten Datenschutz Modus, das ist wichtig.",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -36,14 +36,11 @@
                 "id": ""
             },
             "aria-label": "",
-            "choices": {
-                "default": "Default Text Size",
-                "small": "Small Text Size"
-            },
-            "allow_null": 0,
             "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -51,7 +48,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/paragraph"
+                "value": "acf\/youtube-livestream"
             }
         ]
     ],
@@ -64,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1675864029
 }
