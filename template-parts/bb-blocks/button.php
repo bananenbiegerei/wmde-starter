@@ -31,11 +31,12 @@ if ( ! empty( $block['align'] ) ) {
         <?php $style = get_sub_field( 'style' ); ?>
         <?php $size = get_sub_field( 'size' ); ?>
         <?php $position = get_sub_field( 'position' ); ?>
+        <?php $color = get_sub_field( 'colors' ); ?>
     <?php endwhile; ?>
 <?php endif; ?>
 <div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> flex <?php echo $position; ?>">
     <?php $link = get_field( 'link' ); ?>
     <?php if ( $link ) : ?>
-        <a class="btn <?php echo $size; ?> <?php echo $style; ?>" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
+        <a class="btn btn-<?php echo $size; ?> <?php echo $style; ?> btn-<?php echo $color; ?>" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
     <?php endif; ?>
 </div>

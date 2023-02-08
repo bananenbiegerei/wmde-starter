@@ -58,36 +58,10 @@
                     "translations": "copy_once"
                 },
                 {
-                    "key": "field_63e3ad06c8390",
-                    "label": "Size",
-                    "name": "size",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "btn-base": "default",
-                        "btn-xs": "xs",
-                        "btn-sm": "sm",
-                        "btn-lg": "lg",
-                        "btn-xl": "xl"
-                    },
-                    "allow_null": 0,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value",
-                    "translations": "copy_once"
-                },
-                {
-                    "key": "field_63e3af2bd0a99",
+                    "key": "field_63e3b3a631dfe",
                     "label": "Position",
                     "name": "position",
-                    "type": "button_group",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -96,16 +70,55 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "justify-start": "left",
-                        "justify-center": "center",
-                        "justify-end": "right"
+                    "clone": [
+                        "field_63e3af2bd0a99"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
+                {
+                    "key": "field_63e3b5a5a0402",
+                    "label": "Color",
+                    "name": "color",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
                     },
-                    "allow_null": 0,
-                    "default_value": "justify-start : left",
-                    "layout": "horizontal",
-                    "return_format": "value",
-                    "translations": "copy_once"
+                    "clone": [
+                        "field_63e3b4bc78fbb"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
+                {
+                    "key": "field_63e3b5c43e8ad",
+                    "label": "Size",
+                    "name": "size",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_63e3ad06c8390"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 }
             ]
         }
@@ -128,5 +141,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675866243
+    "modified": 1675867667
 }
