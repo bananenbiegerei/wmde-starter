@@ -1,7 +1,7 @@
 <?php
 // NOTE: included by `navbar.php`
 ?>
-<div class="flex bg-white items-center py-1 lg:py-3 mx-4">
+<div class="flex bg-white items-center py-1 lg:py-3 mx-4 container">
 	<div class="flex-1">
 		<a href="<?php echo get_home_url(); ?>" class="hidden lg:block">
 			<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo.svg" alt="Logo">
