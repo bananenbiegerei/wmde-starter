@@ -1,0 +1,9 @@
+.bb-newsletter-block {
+	em {
+		@apply bg-primary-900 text-white px-2;
+	}
+
+	input::placeholder {
+		@apply text-gray-100;
+	}
+}

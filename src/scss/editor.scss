@@ -2,80 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.block-editor-writing-flow {
-	@apply mx-6;
-	@apply font-sans overflow-hidden p-0 font-normal;
+/* ACF blocks */
+@import 'bb-blocks/*';
 
-	.hide-for-editor {
-		@apply hidden;
-	}
-
-	/* ACF blocks */
-	@import 'bb-blocks/*';
-
-	// @import './inc/globals';
-	// @import './inc/grid';
-	// @import './inc/typography';
-	// @import './components/cards';
-	// @import './gutenberg-overwrites/gb-images';
-
-	// Make groups easy to see
-	.wp-block-group {
-		border: dotted 1px grey;
-	}
-
-	/* overwrite custom editor blocks */
-	.wp-block,
-	.wp-block-post-title {
-		@apply px-0 container;
-		&.has-background {
-			@apply py-10 px-6;
-			// @include fluid-container;
-		}
-	}
-
-	.wp-block-acf-stroke {
-		@apply max-w-full;
-		svg {
-			@apply w-full h-auto;
-		}
-	}
-	.wp-block-button {
-		.wp-block-button__link {
-			//@include button;
-		}
-	}
-
-	// @import './inc/color-scheme';
-	// @import './inc/globals';
-
-	// @import './inc/scafolding';
-	// @import './inc/fonts';
-	// @import './inc/typography';
-	// @import './inc/buttons';
-	// .is-root-container {
-	// 	@include fluid-container;
-	// }
-	/* Components */
-	.card {
-		@apply mt-0;
-	}
-	.swiper-wrapper {
-		@apply grid grid-cols-4 gap-5;
-	}
-}
-
-// Corrections for WP Admin
-.update-message.notice.inline {
-	display: block;
-}
-
-// Corrections for ACF
-.acf-btn[type='submit'],
-.acf-btn.acf-publish {
-	background-color: #0783be !important;
-}
-.acf-btn[type='submit']:hover,
-.acf-btn.acf-publish:hover {
-	background-color: #066998 !important;
+.swiper-wrapper {
+	@apply grid grid-cols-4 gap-5;
 }

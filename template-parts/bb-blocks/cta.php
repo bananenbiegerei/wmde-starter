@@ -1,7 +1,4 @@
 <?php
-// Create class attribute allowing for custom "className" and "align" values.
-$class_name = 'bb-cta-block';
-
 // Support custom "anchor" values.
 $anchor = '';
 if (!empty($block['anchor'])) {
