@@ -11,6 +11,7 @@ function custom_allowed_block_types($allowed_blocks)
 		'acf/image',
 		'acf/paragraph',
 		'acf/heading',
+		'acf/button',
 		'acf/blockquote',
 		'acf/accordion',
 		'acf/card',
