@@ -1,4 +1,25 @@
 <?php
+// list all allowed block types here. custom block types need to be added here to appear
+function custom_allowed_block_types($allowed_blocks)
+{
+	return array(
+		//'core/paragraph',
+		//'core/heading',
+		'core/column',
+		'core/columns',
+		// ACF Blocks
+		'acf/image',
+		'acf/paragraph',
+		'acf/heading',
+		'acf/button',
+		'acf/blockquote',
+		'acf/accordion',
+		'acf/card',
+		'acf/cta',
+		'acf/projects-swiper',
+	);
+}
+add_filter('allowed_block_types_all', 'custom_allowed_block_types');
 
 // Automatically declare all blocks in `bb-blocks/`
 add_action('acf/init', function () {

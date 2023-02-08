@@ -20,8 +20,17 @@ if ( ! empty($block['anchor'] ) ) {
 $size = get_field('headline_size');    
 ?>
 <div id="<?php echo esc_attr( $id ); ?>" class="headline-block">
-    <<?php the_field( 'options' ); ?> class="<?php the_field('headline_size'); ?> mb-1 text-base">
-        <?php the_field( 'headline' ); ?>
+    <<?php the_field( 'options' ); ?> class="<?php the_field('headline_size'); ?> mb-1">
+        <?php
+        $headline_bg_color = get_field('background_color_picker');
+        ?>
+        <?php if ( get_field( 'background_color_picker' ) ): ?>
+        <span style="background-color: <?php echo $headline_bg_color;?>">
+            <?php the_field( 'headline' ); ?>
+        </span>
+        <?php else: ?>
+            <?php the_field( 'headline' ); ?>
+        <?php endif; ?>
     </<?php the_field( 'options' ); ?>>
 </div>
 

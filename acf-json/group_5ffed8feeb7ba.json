@@ -1,0 +1,95 @@
+{
+    "key": "group_5ffed8feeb7ba",
+    "title": "Twenty Year News",
+    "fields": [
+        {
+            "key": "field_5ffed9065875e",
+            "label": "Youtube Video",
+            "name": "youtube_video",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Hier den embed Code einfügen. Bitte auf den erweiterten Datenschutzmodus achten",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "",
+            "translations": "translate"
+        },
+        {
+            "key": "field_5ffed96670ae5",
+            "label": "Select Color Scheme",
+            "name": "select_color_scheme",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yellow": "yellow",
+                "red": "red",
+                "pink": "pink",
+                "orange": "orange",
+                "light-yellow": "light-yellow",
+                "green": "green",
+                "cyan": "cyan",
+                "blue": "blue",
+                "dark-yellow": "dark-yellow",
+                "black": "black"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "translations": "copy_once",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5ffed9f04d09e",
+            "label": "Link",
+            "name": "link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "translations": "copy_once"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "birthday_news"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "modified": 1675864028
+}

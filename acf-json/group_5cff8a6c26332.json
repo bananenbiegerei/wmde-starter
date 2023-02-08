@@ -1,84 +1,90 @@
 {
-	"key": "group_5cff8a6c26332",
-	"title": "Accordion",
-	"fields": [
-		{
-			"key": "field_5cff8f2d76b51",
-			"label": "Accordion",
-			"name": "acfb_add_accordion",
-			"type": "repeater",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"collapsed": "",
-			"min": 1,
-			"max": 0,
-			"layout": "block",
-			"button_label": "Add Accordion",
-			"sub_fields": [
-				{
-					"key": "field_5cff8f3f76b52",
-					"label": "Accordion Title",
-					"name": "acfb_accordion_title",
-					"type": "text",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "Accordion Title",
-					"placeholder": "Accordion Title",
-					"prepend": "",
-					"append": "",
-					"maxlength": ""
-				},
-				{
-					"key": "field_5cff8f5376b53",
-					"label": "Accordion Content",
-					"name": "acfb_accordion_content",
-					"type": "wysiwyg",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"tabs": "all",
-					"toolbar": "full",
-					"media_upload": 0,
-					"delay": 0
-				}
-			]
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/accordion"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": "",
-	"active": true,
-	"description": "",
-	"show_in_rest": 0,
-	"modified": 1645440944
+    "key": "group_5cff8a6c26332",
+    "title": "Accordion",
+    "fields": [
+        {
+            "key": "field_5cff8f2d76b51",
+            "label": "Accordion",
+            "name": "acfb_add_accordion",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "aria-label": "",
+            "collapsed": "",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Accordion",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_5cff8f3f76b52",
+                    "label": "Accordion Title",
+                    "name": "acfb_accordion_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "aria-label": "",
+                    "default_value": "Accordion Title",
+                    "placeholder": "Accordion Title",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5cff8f2d76b51"
+                },
+                {
+                    "key": "field_5cff8f5376b53",
+                    "label": "Accordion Content",
+                    "name": "acfb_accordion_content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "aria-label": "",
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_5cff8f2d76b51"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/accordion"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1675864025
 }

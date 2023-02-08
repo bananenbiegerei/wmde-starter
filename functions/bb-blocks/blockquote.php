@@ -2,7 +2,7 @@
 
 acf_register_block_type([
 	'name' => 'blockquote',
-	'title'				=> __('Numero Blockquote'),
+	'title'				=> __(' Blockquote'),
 	'description'		=> __('Blockquote'),
 	'render_template'	=> get_template_directory() . '/template-parts/bb-blocks/blockquote-block.php',
 	'category'			=> 'wkmde-custom-blocks',

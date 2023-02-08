@@ -1,0 +1,98 @@
+{
+    "key": "group_5fb65a74d721c",
+    "title": "Twenty Years Wikipedia Options",
+    "fields": [
+        {
+            "key": "field_5fb65a82e30ba",
+            "label": "Select Color Scheme",
+            "name": "select_color_scheme",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yellow": "yellow",
+                "red": "red",
+                "pink": "pink",
+                "orange": "orange",
+                "light-yellow": "light-yellow",
+                "green": "green",
+                "cyan": "cyan",
+                "blue": "blue",
+                "dark-yellow": "dark-yellow",
+                "black": "black"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5fb65ce8c270b",
+            "label": "Is Big",
+            "name": "is_big",
+            "type": "true_false",
+            "instructions": "Bitte immer mindestens 4 Ereignisse Platz lassen zwischen großen Ereignissen",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "translations": "copy_once"
+        },
+        {
+            "key": "field_5ff70b5a1981c",
+            "label": "Show only year",
+            "name": "show_only_year",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "translations": "copy_once"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "birthday_events"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "modified": 1675864028
+}
