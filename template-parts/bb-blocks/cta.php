@@ -10,7 +10,7 @@ $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('met
 
 <div <?php echo $anchor; ?> class="bb-cta-block rounded-3xl p-4 mb-6" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 
-	<div class="flex flex-wrap sm:flex-nowrap gap-8 mb-6 sm:mb-0">
+	<div class="flex flex-wrap sm:flex-nowrap gap-8 h-full">
 
 		<!-- Image -->
 		<?php if (get_field('style')['image']): ?>
@@ -55,7 +55,7 @@ $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('met
 
 	<!-- Related -->
 	<?php if (have_rows('related')): ?>
-		<div class="flex gap-4 sm:gap-5 flex-wrap pb-2">
+		<div class="flex gap-4 sm:gap-5 flex-wrap pb-2 mt-6 sm:mt-0">
 			<?php while (have_rows('related')): ?>
 				<?php the_row(); ?>
 

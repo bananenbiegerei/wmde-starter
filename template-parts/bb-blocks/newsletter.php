@@ -4,12 +4,10 @@ $anchor = '';
 if (!empty($block['anchor'])) {
 	$anchor = 'id="' . esc_attr($block['anchor']) . '" ';
 }
-
-//$meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('meta')['format'];
 ?>
 
 <div <?php echo $anchor; ?>
-	class="bb-newsletter-block rounded-3xl p-4 mb-6 flex flex-col gap-8"
+	class="bb-newsletter-block rounded-3xl p-4 flex flex-col mb-6"
 	style="background-color: <?= get_field('bg_color') ?>;">
 
 		<!-- Theme or format -->
@@ -18,7 +16,7 @@ if (!empty($block['anchor'])) {
 		</div>
 
 		<!-- Text -->
-		<div class="font-alt font-light font-sans text-2xl text-inherit">
+		<div class="font-alt font-light font-alt text-2xl text-inherit">
 			<?= get_field('text') ?>
 		</div>
 
@@ -30,7 +28,7 @@ if (!empty($block['anchor'])) {
 			</div>
 		</form>
 
-		<div class="font-alt font-light font-sans text-xs text-inherit">
+		<div class="font-alt font-light font-sans text-xs text-inherit h-full flex items-end ">
 			<?= get_field('disclaimer') ?>
 		</div>
 

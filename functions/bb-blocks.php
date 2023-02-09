@@ -2,7 +2,7 @@
 // list all allowed block types here. custom block types need to be added here to appear
 function custom_allowed_block_types($allowed_blocks)
 {
-	return array(
+	return [
 		//'core/paragraph',
 		//'core/heading',
 		'core/column',
@@ -17,7 +17,8 @@ function custom_allowed_block_types($allowed_blocks)
 		'acf/card',
 		'acf/cta',
 		'acf/projects-swiper',
-	);
+		'acf/newsletter',
+	];
 }
 add_filter('allowed_block_types_all', 'custom_allowed_block_types');
 
