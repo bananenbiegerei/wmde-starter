@@ -21,12 +21,12 @@ if (!empty($block['anchor'])) {
 		</div>
 
 		<!-- Button and extra info -->
-		<form action="test.php" method="post">
+		<form action="" method="post">
 			<div class="mt-6 flex flex-row gap-4">
-				<input type="text" name="email" placeholder="your@email.com">
+				<input class="text-sm" type="text" name="email" placeholder="Email">
 				<label class="flex-shrink-0">
 					<input class="hidden" type="submit">
-					<span class="button inline-block hover:text-blue-700">
+					<span class="button inline-block text-lg hover:text-blue-700">
 						<?= _e('Register', BB_TEXT_DOMAIN) ?>
 						<?= bb_icon('arrow-right') ?>
 					</span>
