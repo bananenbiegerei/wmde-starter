@@ -1,14 +1,14 @@
 <?php
 register_taxonomy('project_types', 'projects', [
 	'labels' => [
-		'name' => __('Project Types', 'wkmde-theme'),
-		'singular_name' => __('Project Type', 'wkmde-theme'),
-		'all_items' => __('All Project Types', 'wkmde-theme'),
-		'edit_item' => __('Edit Project Type', 'wkmde-theme'),
-		'view_item' => __('View Project Type', 'wkmde-theme'),
-		'update_item' => __('Update Project Type', 'wkmde-theme'),
-		'add_new_item' => __('Add New Project Type', 'wkmde-theme'),
-		'new_item_name' => __('New Project Type Name', 'wkmde-theme'),
+		'name' => __('Project Types', BB_TEXT_DOMAIN),
+		'singular_name' => __('Project Type', BB_TEXT_DOMAIN),
+		'all_items' => __('All Project Types', BB_TEXT_DOMAIN),
+		'edit_item' => __('Edit Project Type', BB_TEXT_DOMAIN),
+		'view_item' => __('View Project Type', BB_TEXT_DOMAIN),
+		'update_item' => __('Update Project Type', BB_TEXT_DOMAIN),
+		'add_new_item' => __('Add New Project Type', BB_TEXT_DOMAIN),
+		'new_item_name' => __('New Project Type Name', BB_TEXT_DOMAIN),
 	],
 	'public' => true,
 	'publicly_queryable' => true,
@@ -24,8 +24,8 @@ register_taxonomy('project_types', 'projects', [
 
 register_taxonomy('team_category', 'team', [
 	'labels' => [
-		'name' => __('Categories', 'wkmde-theme'),
-		'singular_name' => __('Category', 'wkmde-theme'),
+		'name' => __('Categories', BB_TEXT_DOMAIN),
+		'singular_name' => __('Category', BB_TEXT_DOMAIN),
 	],
 	'public' => true,
 	'publicly_queryable' => true,
@@ -44,8 +44,8 @@ register_taxonomy(
 	['post', 'page'],
 	[
 		'labels' => [
-			'name' => __('Formate', 'wkmde'),
-			'singular_name' => __('Format', 'wkmde'),
+			'name' => __('Formats', BB_TEXT_DOMAIN),
+			'singular_name' => __('Format', BB_TEXT_DOMAIN),
 		],
 		'public' => true,
 		'publicly_queryable' => true,
@@ -65,8 +65,8 @@ register_taxonomy(
 	['post', 'page'],
 	[
 		'labels' => [
-			'name' => __('Themenbereiche', 'wkmde'),
-			'singular_name' => __('Themenbereich', 'wkmde'),
+			'name' => __('Themes', BB_TEXT_DOMAIN),
+			'singular_name' => __('Theme', BB_TEXT_DOMAIN),
 		],
 		'public' => true,
 		'publicly_queryable' => true,
