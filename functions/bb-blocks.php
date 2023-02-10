@@ -17,6 +17,7 @@ function custom_allowed_block_types($allowed_blocks)
 		'acf/card',
 		'acf/cta',
 		'acf/projects-swiper',
+		'acf/responsive-table',
 		'acf/newsletter',
 	];
 }

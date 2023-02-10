@@ -7,4 +7,5 @@ acf_register_block_type([
 	'render_template' => get_template_directory() . '/template-parts/bb-blocks/accordion.php',
 	'category' => 'wkmde-custom-blocks',
 	'icon' => 'slides',
+	'mode' => false,
 ]);
