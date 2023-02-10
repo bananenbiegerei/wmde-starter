@@ -1,14 +1,3 @@
-<style>
-.ptr {
-	position: absolute;
-	top: -30px;
-	left: 143px;
-}
-
-</style>
-
-
-
 <script>
 	// Get current page ID (used to set 'current' class to menu item)
 	const pageID = <?php echo get_the_ID(); ?>;
@@ -35,7 +24,7 @@
 			nav: WPNav,
 			isOpen: new Array(WPNav.length).fill(false),
 			timeOutFunctionId: 0,
-			idx: 0,
+			idx: -1,
 			init() {
 				// Set site header to visible each time we resize to bigger than lgWidth
 				// This bit is to do this only after we stop resizing and not during the whole resizing...
@@ -54,21 +43,30 @@
 				var v = this.isOpen[n];
 				this.isOpen.fill(false);
 				this.isOpen[n] = !v;
-				this.idx = n;
+				this.idx = this.isOpen[n] ? n : -1;
 			},
 			openNav(n) {
 				var v = this.isOpen[n];
 				this.isOpen.fill(false);
 				this.isOpen[n] = true;
+				this.idx = n;
 			},
-			closeNav() { this.isOpen.fill(false); },
+			closeNav() {
+				this.isOpen.fill(false);
+				this.idx = -1;
+			},
 			getMenuX() {
-				var bx = document.getElementById('menu' + this.idx).getBoundingClientRect().left;
-				var bw = document.getElementById('menu' + this.idx).offsetWidth;
-				// FIXME: get values dynamically
-				var doff = 28; // dropdown offset
+				if (this.idx === -1) {
+					return;
+				}
+				var bx = document.getElementById('menu' + this.idx).getBoundingClientRect().left; // button x
+				var bw = document.getElementById('menu' + this.idx).offsetWidth; // button width
+				// FIXME: get these values dynamically...
+				var dxoff = 22; // dropdown h offset
 				var pw = 42; // pointer width
-				document.getElementById('pointer'+ this.idx).style.left = bx - doff + bw/2 - pw/2 + 'px';
+				var pyoff = -30; // pointer v offset
+				document.getElementById('pointer').style.left = bx - dxoff + bw/2 - pw/2 + 'px';
+				document.getElementById('pointer').style.top = pyoff + 'px';
 			}
 		}));
 	});
@@ -84,10 +82,10 @@
 	<div
 		class="navbar border-b border-gray-200 sticky top-0 z-40 bg-white block"
 		transition x-show="$store.open_mobile_nav"
-		X@mouseleave="closeNav()"
+		@mouseleave="closeNav()"
 		@click.outside="closeNav()">
 
-		<div class="relative z-0">
+		<!--div class="relative z-0"-->
 
 			<!-- Domains top bar -->
 			<div class="relative z-10 bg-white lg:px-2">
@@ -105,7 +103,7 @@
 								type="button"
 								class="btn btn-menu relative"
 								aria-expanded="false"
-								X@mouseenter="openNav(i); getMenuX()"
+								@mouseenter="openNav(i); getMenuX()"
 								@click="toggleNav(i); getMenuX();"
 								x-bind:id="'menu' + i"
 								>
@@ -154,19 +152,21 @@
 			<!-- End domains top bar -->
 
 			<!-- For desktop: domain submenus go below the navigation bar -->
-			<div id="navdropdown" class="hidden lg:block">
+			<div id="navdropdown" class="relative lg:block  mx-4">
+
+				<!-- Pointer to domain button -->
+				<div class="z-20 absolute pointer-events-none" id="pointer" x-show="idx != -1">
+					<svg viewBox="-4 -9 42 42" width="42px" height="42px"><path d="M 16 10 L 32 26 L 0 26 L 16 10 Z" style="	filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px -10px 10px); fill: rgb(255, 255, 255);" bx:shape="triangle 0 10 32 16 0.5 0 1@8dd5f6f9"></path></svg>
+				</div>
 
 				<!-- For each domain... -->
 				<template x-for="(domain,i) in nav">
 					<div
 						x-show="isOpen[i]"
-						class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen mx-8 rounded-xl shadow-navbar-dropdown py-8"
+						class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen rounded-xl shadow-navbar-dropdown py-8"
 						x-bind:class="{'max-w-6xl': domain.featured.length > 0, 'max-w-2xl': domain.featured.length == 0}"
 					>
 
-					<div class="ptr" style="pointer-events: none;"  x-bind:id="'pointer' + i">
-						<svg viewBox="-4 -9 42 42" width="42px" height="42px" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" ><path d="M 16 10 L 32 26 L 0 26 L 16 10 Z" style="	filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px -10px 10px); fill: rgb(255, 255, 255);" bx:shape="triangle 0 10 32 16 0.5 0 1@8dd5f6f9"></path></svg>
-					</div>
 						<div
 							class="relative mx-auto grid grid-cols-1 divide-y divide-gray-200 lg:divide-y-0 space-y-5 lg:space-y-0"
 							x-bind:class="{'lg:grid-cols-2': domain.featured.length > 0}"
@@ -245,7 +245,7 @@
 			</div>
 			<!-- End desktop -->
 
-		</div>
+		<!--/div-->
 	</div>
 
 </div>
