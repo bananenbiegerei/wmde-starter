@@ -6,6 +6,7 @@
             "key": "field_63e3aca3c838d",
             "label": "Link",
             "name": "link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_63e3acafc838e",
             "label": "Display",
             "name": "display",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -37,6 +39,7 @@
                     "key": "field_63e3acbdc838f",
                     "label": "Style",
                     "name": "style",
+                    "aria-label": "",
                     "type": "button_group",
                     "instructions": "",
                     "required": 0,
@@ -61,6 +64,7 @@
                     "key": "field_63e3ad06c8390",
                     "label": "Size",
                     "name": "size",
+                    "aria-label": "",
                     "type": "button_group",
                     "instructions": "",
                     "required": 0,
@@ -87,6 +91,7 @@
                     "key": "field_63e3af2bd0a99",
                     "label": "Position",
                     "name": "position",
+                    "aria-label": "",
                     "type": "button_group",
                     "instructions": "",
                     "required": 0,
@@ -128,5 +133,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675866243
+    "modified": 1676036866
 }

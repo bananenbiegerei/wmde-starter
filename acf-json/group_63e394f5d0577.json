@@ -1,6 +1,6 @@
 {
     "key": "group_63e394f5d0577",
-    "title": "Newsletter Registration",
+    "title": "Block: Newsletter Registration",
     "fields": [
         {
             "key": "field_63e39536d648d",
@@ -103,5 +103,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675933901
+    "modified": 1676036819
 }

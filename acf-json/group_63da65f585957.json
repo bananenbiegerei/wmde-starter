@@ -1,11 +1,12 @@
 {
     "key": "group_63da65f585957",
-    "title": "Card",
+    "title": "Block: Card",
     "fields": [
         {
             "key": "field_63e0f78f28456",
             "label": "Content",
             "name": "content",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -15,13 +16,13 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_63e37fb4cd051",
                     "label": "Link or Post",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 1,
@@ -31,7 +32,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "return_format": "array",
                     "translations": "copy_once"
                 },
@@ -39,6 +39,7 @@
                     "key": "field_63da668ca3fb9",
                     "label": "Alt. Text",
                     "name": "text",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -48,7 +49,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "translations": "translate",
                     "maxlength": "",
@@ -60,6 +60,7 @@
                     "key": "field_63da66b1a3fba",
                     "label": "Alt. Image",
                     "name": "image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -69,7 +70,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "return_format": "id",
                     "library": "all",
                     "translations": "copy_once",
@@ -88,6 +88,7 @@
             "key": "field_63e0f89d28459",
             "label": "Meta",
             "name": "meta",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -97,13 +98,13 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "layout": "table",
             "sub_fields": [
                 {
                     "key": "field_63e0f87d28458",
                     "label": "Theme",
                     "name": "theme",
+                    "aria-label": "",
                     "type": "taxonomy",
                     "instructions": "",
                     "required": 0,
@@ -120,7 +121,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "taxonomy": "theme",
                     "add_term": 0,
                     "save_terms": 0,
@@ -135,6 +135,7 @@
                     "key": "field_63e0f83a28457",
                     "label": "Format",
                     "name": "format",
+                    "aria-label": "",
                     "type": "taxonomy",
                     "instructions": "",
                     "required": 0,
@@ -151,7 +152,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "taxonomy": "format",
                     "add_term": 0,
                     "save_terms": 0,
@@ -168,6 +168,7 @@
             "key": "field_63e0f8d92845a",
             "label": "Style",
             "name": "style",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -177,13 +178,13 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "layout": "table",
             "sub_fields": [
                 {
                     "key": "field_63da68e280f42",
                     "label": "Background Color",
                     "name": "bg_color",
+                    "aria-label": "",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 0,
@@ -193,7 +194,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "enable_opacity": 0,
                     "return_format": "string",
@@ -203,6 +203,7 @@
                     "key": "field_63e0d7b1b4052",
                     "label": "Layout",
                     "name": "layout",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -212,7 +213,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "choices": {
                         "v": "Vertical",
                         "h": "Horizontal (1-1)",
@@ -248,5 +248,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1676036815
 }

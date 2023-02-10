@@ -1,6 +1,6 @@
 {
     "key": "group_5cff8a6c26332",
-    "title": "Accordion",
+    "title": "Block: Accordion",
     "fields": [
         {
             "key": "field_5cff8f2d76b51",
@@ -89,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676033970
+    "modified": 1676036805
 }

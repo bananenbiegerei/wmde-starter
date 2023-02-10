@@ -6,6 +6,7 @@
             "key": "field_6332e57c9e5c2",
             "label": "Paragraph",
             "name": "paragraph",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "tabs": "all",
             "toolbar": "basic",
@@ -26,6 +26,7 @@
             "key": "field_6332e7ddefe75",
             "label": "Options",
             "name": "options",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -35,7 +36,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "default": "Default Text Size",
                 "small": "Small Text Size"
@@ -64,5 +64,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1676036868
 }
