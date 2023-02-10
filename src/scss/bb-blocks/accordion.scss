@@ -1,53 +1,25 @@
 // (ACF block using Foundation markup)
 .acf-block-accordion {
-	.accordion-item {
-		// border-radius: $global-radius;
-		// margin-bottom: $space-small;
-
-		.accordion-title {
-			border: none;
-			// font-size: $global-font-size;
-
-			&::before {
-				font-family: 'Material Icons';
-				content: '\e5cf';
-				font-size: 1.5rem;
-				margin-top: -1rem;
-			}
-
-			&:focus,
-			&:hover {
-				background-color: none;
-			}
-		}
-
-		.accordion-content {
-			border: none;
-			// font-size: $global-font-size;
-			// @include breakpoint(medium) {
-			// 	font-size: $global-font-size;
-			// }
-		}
-
-		&.is-active .accordion-title::before {
-			content: '\e5ce';
-		}
-	}
-}
-
-// Hide accordion decorations in editor
-#editor {
-	.acf-block-accordion {
-		.accordion-item {
-			list-style: none;
-
-			.accordion-title {
-				text-decoration: none;
-				border: none;
-
-				&:before {
-					display: none;
+	> ul {
+		list-style: none;
+		padding: 0;
+		details {
+			summary {
+				position: relative;
+				list-style: none;
+				outline: none !important;
+				&:after {
+					font-weight: lighter;
+					font-size: 1.2em;
+					position: absolute;
+					content: '＋';
+					right: 0;
+					display: inline-block;
+					text-align: center;
 				}
+			}
+			&[open] summary:after {
+				content: '－';
 			}
 		}
 	}
