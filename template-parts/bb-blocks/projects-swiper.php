@@ -1,10 +1,24 @@
+<?php
+/*
+	NOTES:
+	- This block must not have any horizontal padding/margin. It should be full-width.
+	- Padding is added to top-level div. For now: px-10.
+
+*/
+?>
+
 <?php define('EXCERPT_LENGTH', 30); ?>
+<?php $swiper_bg = get_field('background') == 'white' ? 'bg-white' : 'bg-gray-100'; ?>
+<?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>
 
 <?php if (!is_admin()): ?>
-	<div class="bb-projects-swiper-block -mt-16 pt-16" id="<?= $block['id'] ?>">
-			<div class="swiper-container relative">
+	<div class="bb-projects-swiper-block px-10 pb-16 pt-16 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
+			<h2 class="text-5xl"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
+
+			<div class="swiper-container relative mt-4">
+
 				<!-- Navigation -->
-				<div class="absolute -top-16 right-0 hidden lg:block">
+				<div class="absolute -top-20 right-0 hiddenlg:block">
 					<div class="inline-block swiper-button-prev h-14 w-14 hover:text-transparent cursor-pointer">
 						<?= bb_icon('swiper-left') ?>
 					</div>
@@ -12,10 +26,11 @@
 						<?= bb_icon('swiper-right') ?>
 					</div>
 				</div>
+
 				<!-- Slides -->
 				<div class="swiper-wrapper">
 					<?php foreach (get_field('projects') as $project): ?>
-						<div class="swiper-slide bg-gray-100 rounded-2xl p-8 pt-16"><!-- Slide size defined in block SCSS -->
+						<div class="swiper-slide rounded-2xl p-8 pt-16 <?= $slide_bg ?>"><!-- Slide size defined in block SCSS -->
 							<a class="block flex flex-col items-center" href="<?php echo get_post_permalink($project->ID); ?>">
 
 								<!-- Thumbnail -->
@@ -63,13 +78,16 @@
 							delay: 4000,
 							disableOnInteraction: true,
 					},
+					breakpoints: {}
 			};
 	</script>
 <?php else: ?>
 	<!-- Skeleton view for editor -->
+	<div class="<?= $swiper_bg ?> p-8">
+	<h2><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
 	<div class="overflow-hidden flex gap-10">
 		<?php for ($i = 0; $i < 3; $i++): ?>
-			<div class="bg-gray-100 rounded-2xl w-80 p-8 pt-16 flex flex-col items-center" href="<?php echo get_post_permalink($project->ID); ?>">
+			<div class="<?= $slide_bg ?> rounded-2xl w-80 p-8 pt-16 flex flex-col items-center" href="<?php echo get_post_permalink($project->ID); ?>">
 				<div class="mb-10 h-64 w-64 rounded-xl bg-gray-300 ">
 				</div>
 				<div class="mb-2">
@@ -80,5 +98,6 @@
 				</div>
 			</div>
 		<?php endfor; ?>
+	</div>
 	</div>
 <?php endif; ?>

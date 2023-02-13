@@ -10,17 +10,14 @@ if (!empty($block['anchor'])) {
 	class="bb-newsletter-block rounded-3xl p-4 flex flex-col mb-6"
 	style="background-color: <?= get_field('bg_color') ?>;">
 
-		<!-- Theme or format -->
 		<div class="uppercase text-primary font-bold text-base font-alt mb-0">
 			<?= esc_html(get_field('heading')) ?>
 		</div>
 
-		<!-- Text -->
 		<div class="font-alt font-light font-alt text-2xl text-inherit">
 			<?= get_field('text') ?>
 		</div>
 
-		<!-- Button and extra info -->
 		<form action="" method="post">
 			<div class="mt-6 flex flex-row gap-4">
 				<input class="text-sm" type="text" name="email" placeholder="Email">
