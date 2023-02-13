@@ -82,21 +82,17 @@
 	</script>
 <?php else: ?>
 	<!-- Skeleton view for editor -->
-	<div class="<?= $swiper_bg ?> p-8">
-	<h2><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
-	<div class="overflow-hidden flex gap-10">
-		<?php for ($i = 0; $i < 3; $i++): ?>
-			<div class="<?= $slide_bg ?> rounded-2xl w-80 p-8 pt-16 flex flex-col items-center" href="<?php echo get_post_permalink($project->ID); ?>">
-				<div class="mb-10 h-64 w-64 rounded-xl bg-gray-300 ">
-				</div>
-				<div class="mb-2">
-						<h3 class="text-3xl text-transparent bg-gray-300">Project</h3>
-				</div>
-				<div class="bg-gray-300 text-transparent text-inherit">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+	<div class="<?= $swiper_bg ?>">
+	<b><?= __('Projects Swiper', BB_TEXT_DOMAIN) ?></b>
+
+	<div class="grid grid-cols-4 gap-4">
+		<?php foreach (get_field('projects') as $project): ?>
+			<div class="rounded-3xl p-4 <?= $slide_bg ?>">
+				<?php if (has_post_thumbnail($project->ID)): ?>
+					<img class="h-32 object-contain" src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>">
+				<?php endif; ?>
+				<p class="text-s"><?php echo $project->post_title; ?></p>
 			</div>
-		<?php endfor; ?>
-	</div>
+		<?php endforeach; ?>
 	</div>
 <?php endif; ?>

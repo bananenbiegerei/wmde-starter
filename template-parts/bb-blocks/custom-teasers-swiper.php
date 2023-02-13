@@ -1,3 +1,5 @@
+
+<?php if (!is_admin()): ?>
 <div class="bb-custom-teasers-swiper-block overflow-hidden" id="<?= $block['id'] ?>">
 	<h2><?= esc_html(get_field('headline')) ?></h2>
 	<div class="text-inherit"><?= get_field('description') ?></div>
@@ -74,3 +76,15 @@
 				},
 		};
 </script>
+<?php else: ?>
+	<b><?= __('Custom Teasers Swiper', BB_TEXT_DOMAIN) ?></b>
+	<div class="grid grid-cols-4 gap-4">
+	<?php while (have_rows('slides')): ?>
+		<?php the_row(); ?>
+		<div>
+			<?= wp_get_attachment_image(get_sub_field('image'), [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']) ?>
+			<p class="text-xs"><b><?= get_sub_field('headline') ?></b><br/><?= get_sub_field('description') ?></p>
+		</div>
+	<?php endwhile; ?>
+	</div>
+<?php endif; ?>

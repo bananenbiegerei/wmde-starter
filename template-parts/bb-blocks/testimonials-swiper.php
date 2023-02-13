@@ -47,6 +47,7 @@
 	</script>
 <?php else: ?>
 	<div class="">
+	<b><?= __('Testimonials Swiper', BB_TEXT_DOMAIN) ?></b>
 		<blockquote class="text-sm flex">
 			<div class="flex-shrink-0"><?= bb_icon('chat', 'bg-red-100 rounded-full p-3 w-14 h-14 grid place-items-center') ?></div>
 			<ul>
