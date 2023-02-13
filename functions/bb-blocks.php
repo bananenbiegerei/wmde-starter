@@ -9,8 +9,6 @@ add_filter('allowed_block_types_all', function ($allowed_blocks) {
 		'core/columns',
 	];
 	$blocks = array_merge($blocks, bb_get_acf_blocknames());
-	var_dump($blocks);
-	die();
 	return $blocks;
 });
 
