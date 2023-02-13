@@ -1,10 +1,19 @@
 // Used by `bb_icon()`
 .bb-icon {
 	display: inline-block;
+
 	svg {
 		display: inline-block;
 		height: 100%;
 		width: 100%;
 		margin-bottom: 0.2em;
+	}
+
+	// Special cases
+	&.grid {
+		display: grid;
+		svg {
+			margin: 0;
+		}
 	}
 }

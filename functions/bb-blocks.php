@@ -1,13 +1,15 @@
 <?php
 
-// List all allowed block types here. custom block types need to be added here to appear
+// List all allowed block types here
 add_filter('allowed_block_types_all', function ($allowed_blocks) {
 	$blocks = [
 		//'core/paragraph',
 		//'core/heading',
+		//'core/image',
 		'core/column',
 		'core/columns',
 	];
+	// ACF Blocks loaded automatically...
 	$blocks = array_merge($blocks, bb_get_acf_blocknames());
 	return $blocks;
 });
