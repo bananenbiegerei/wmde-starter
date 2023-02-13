@@ -23,7 +23,7 @@ if (!empty($block['anchor'])) {
 				<input class="text-sm" type="text" name="email" placeholder="Email">
 				<label class="flex-shrink-0">
 					<input class="hidden" type="submit">
-					<span class="button inline-block text-lg hover:text-blue-700">
+					<span class="button inline-block text-lg">
 						<?= _e('Register', BB_TEXT_DOMAIN) ?>
 						<?= bb_icon('arrow-right') ?>
 					</span>

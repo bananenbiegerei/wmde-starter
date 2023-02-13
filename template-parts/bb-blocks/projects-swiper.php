@@ -6,7 +6,6 @@
 
 */
 ?>
-
 <?php define('EXCERPT_LENGTH', 30); ?>
 <?php $swiper_bg = get_field('background') == 'white' ? 'bg-white' : 'bg-gray-100'; ?>
 <?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>

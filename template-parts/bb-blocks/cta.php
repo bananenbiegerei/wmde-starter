@@ -40,7 +40,7 @@ $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('met
 			<!-- Button and extra info -->
 			<div class="mt-6 mb-0 sm:mb-2 flex flex-wrap gap-y-8">
 				<div class="flex-shrink-0 text-xl">
-					<a class="button hover:text-blue-700 mr-8" href="<?= esc_attr(get_field('link')['url']) ?>">
+					<a class="button mr-8" href="<?= esc_attr(get_field('link')['url']) ?>">
 						<?= bb_icon('arrow-right') ?>
 						<?= esc_html(get_field('button')['link']['title']) ?>
 					</a>
