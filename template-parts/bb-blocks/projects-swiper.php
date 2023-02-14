@@ -17,13 +17,9 @@
 			<div class="swiper-container relative mt-4">
 
 				<!-- Navigation -->
-				<div class="absolute -top-20 right-0 hiddenlg:block">
-					<div class="inline-block swiper-button-prev h-14 w-14 hover:text-transparent cursor-pointer">
-						<?= bb_icon('swiper-left') ?>
-					</div>
-					<div class="inline-block swiper-button-next h-14 w-14 hover:text-transparent cursor-pointer">
-						<?= bb_icon('swiper-right') ?>
-					</div>
+				<div class="absolute -top-20 right-0 hidden lg:block">
+						<?= bb_icon('swiper-left', 'swiper-button-prev h-14 w-14 hover:text-transparent cursor-pointer') ?>
+						<?= bb_icon('swiper-right', 'swiper-button-next h-14 w-14 hover:text-transparent cursor-pointer') ?>
 				</div>
 
 				<!-- Slides -->
@@ -69,8 +65,8 @@
 					grabCursor: true,
 					draggable: true,
 					navigation: {
-							nextEl: '.swiper-button-next',
-							prevEl: '.swiper-button-prev',
+							nextEl: '#<?= $block['id'] ?> .swiper-button-next',
+							prevEl: '#<?= $block['id'] ?> .swiper-button-prev',
 					},
 					speed: 1400,
 					autoplay: {

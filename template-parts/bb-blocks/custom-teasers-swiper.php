@@ -53,8 +53,8 @@
 						type: 'fraction',
 				},
 				navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
+						nextEl: '#<?= $block['id'] ?> .swiper-button-next',
+						prevEl: '#<?= $block['id'] ?> .swiper-button-prev',
 				},
 				breakpoints: {
 						640: {
