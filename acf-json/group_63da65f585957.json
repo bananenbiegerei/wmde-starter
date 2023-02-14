@@ -36,6 +36,27 @@
                     "translations": "copy_once"
                 },
                 {
+                    "key": "field_63eb9f55d4bb9",
+                    "label": "Alt. Details",
+                    "name": "alt_details",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "translations": "copy_once",
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
                     "key": "field_63da668ca3fb9",
                     "label": "Alt. Text",
                     "name": "text",
@@ -43,7 +64,15 @@
                     "type": "text",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63eb9f55d4bb9",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -64,7 +93,15 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63eb9f55d4bb9",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -81,28 +118,10 @@
                     "max_size": "",
                     "mime_types": "",
                     "preview_size": "thumbnail"
-                }
-            ]
-        },
-        {
-            "key": "field_63e0f89d28459",
-            "label": "Meta",
-            "name": "meta",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "sub_fields": [
+                },
                 {
                     "key": "field_63e0f87d28458",
-                    "label": "Theme",
+                    "label": "Alt. Themes",
                     "name": "theme",
                     "aria-label": "",
                     "type": "taxonomy",
@@ -111,8 +130,9 @@
                     "conditional_logic": [
                         [
                             {
-                                "field": "field_63e0f83a28457",
-                                "operator": "==empty"
+                                "field": "field_63eb9f55d4bb9",
+                                "operator": "==",
+                                "value": "1"
                             }
                         ]
                     ],
@@ -126,14 +146,14 @@
                     "save_terms": 0,
                     "load_terms": 0,
                     "return_format": "object",
-                    "field_type": "select",
+                    "field_type": "multi_select",
                     "allow_null": 1,
                     "translations": "copy_once",
                     "multiple": 0
                 },
                 {
                     "key": "field_63e0f83a28457",
-                    "label": "Format",
+                    "label": "Alt. Formats",
                     "name": "format",
                     "aria-label": "",
                     "type": "taxonomy",
@@ -142,8 +162,9 @@
                     "conditional_logic": [
                         [
                             {
-                                "field": "field_63e0f87d28458",
-                                "operator": "==empty"
+                                "field": "field_63eb9f55d4bb9",
+                                "operator": "==",
+                                "value": "1"
                             }
                         ]
                     ],
@@ -157,7 +178,7 @@
                     "save_terms": 0,
                     "load_terms": 0,
                     "return_format": "object",
-                    "field_type": "select",
+                    "field_type": "multi_select",
                     "allow_null": 1,
                     "translations": "copy_once",
                     "multiple": 0
@@ -248,5 +269,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676036815
+    "modified": 1676386934
 }

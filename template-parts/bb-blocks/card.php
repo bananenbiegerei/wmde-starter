@@ -8,24 +8,44 @@ if (!empty($block['anchor'])) {
 
 // Get link and text
 $link = get_field('content')['link'];
-$title = $link['title'] ?? '';
+$title = $link['title'] ?? 'missing title';
 
-// If it's a local link get the excerpt and image from the post
 $text = '';
 $image = false;
+$theme = [];
+$format = [];
+
+// If it's a local link get the excerpt and image from the post object
 if (parse_url($link['url'], PHP_URL_HOST) == $_SERVER['HTTP_HOST']) {
-	$rpost = get_page_by_path(parse_url($link['url'], PHP_URL_PATH));
-	if ($rpost) {
-		$text = $rpost->post_excerpt;
-		$image = get_post_thumbnail_id($rpost->ID);
+	$local_post = get_page_by_path(parse_url($link['url'], PHP_URL_PATH));
+	if ($local_post) {
+		$text = $local_post->post_excerpt;
+		$image = get_post_thumbnail_id($local_post->ID);
+		// Get themes and formats
+		foreach (wp_get_post_terms($local_post->ID, ['format', 'theme']) as $term) {
+			if ($term->taxonomy == 'format') {
+				$format[] = $term->name;
+			}
+			if ($term->taxonomy == 'theme') {
+				$theme[] = $term->name;
+			}
+		}
 	}
 }
-// Override if alt. versions are provided
-$text = get_field('content')['text'] ? get_field('content')['text'] : $text;
-$image = get_field('content')['image'] ? get_field('content')['image'] : $image;
 
-// Card meta (theme or format)
-$meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('meta')['format'];
+// Override if alt. versions are provided
+if (get_field('content')['alt_details']) {
+	$alt_theme = array_map(function ($a) {
+		return $a->name;
+	}, get_field('content')['theme']);
+	$alt_format = array_map(function ($a) {
+		return $a->name;
+	}, get_field('content')['format']);
+	$theme = $alt_theme ? $alt_theme : $theme;
+	$format = $alt_format ? $alt_format : $format;
+	$text = get_field('content')['text'] ? get_field('content')['text'] : $text;
+	$image = get_field('content')['image'] ? get_field('content')['image'] : $image;
+}
 
 // Configure layout classes
 $layout = get_field('style')['layout'];
@@ -55,14 +75,14 @@ if ($layout == 'v') {
 
 		<!-- Text content -->
 		<div class=" <?= $layout_classes['content'] ?>">
-			<?php if ($meta): ?>
-				<div class="uppercase text-base text-primary font-bold text-sm mb-6 font-alt">
-					<?= esc_html($meta->name) ?>
-				</div>
-			<?php endif; ?>
-			<div class="text-2xl mb-6 font-alt">
-				<?= strip_tags($title) ?>
+			<div class="uppercase text-base text-primary font-bold text-sm mb-6 font-alt">
+				<?= join(', ', $theme) ?>
+				<?= $theme && $format ? ' | ' : '' ?>
+				<?= join(', ', $format) ?>
 			</div>
+			<h2 class="text-2xl mb-6 font-alt">
+				<?= strip_tags($title) ?>
+			</h2>
 			<?php if ($layout != 'h2'): ?>
 				<div class="text-xl font-alt font-light text-inherit">
 					<?= strip_tags($text) ?>
