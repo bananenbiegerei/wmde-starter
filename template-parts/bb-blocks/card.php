@@ -66,28 +66,32 @@ if ($layout == 'v') {
 <div <?php echo $anchor; ?> class="bb-card-block rounded-3xl p-4 mb-6" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 	<a href="<?= $link['url'] ?>" class="flex gap-6 <?= $layout_classes['container'] ?>">
 
-		<!-- Image -->
 		<?php if ($image): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']); ?>
 			</div>
 		<?php endif; ?>
 
-		<!-- Text content -->
 		<div class=" <?= $layout_classes['content'] ?> space-y-2">
-			<div class="uppercase text-base text-primary font-bold text-sm mb-6 font-alt">
-				<?= join(', ', $theme) ?>
-				<?= $theme && $format ? ' | ' : '' ?>
-				<?= join(', ', $format) ?>
-			</div>
+
+			<?php if ($theme || $format): ?>
+				<div class="uppercase text-base text-primary font-bold text-sm mb-6 font-alt">
+					<?= join(', ', $theme) ?>
+					<?= $theme && $format ? ' | ' : '' ?>
+					<?= join(', ', $format) ?>
+				</div>
+			<?php endif; ?>
+
 			<h2 class="text-2xl mb-6 font-alt">
 				<?= strip_tags($title) ?>
 			</h2>
+
 			<?php if ($layout != 'h2'): ?>
 				<div class="text-xl font-alt font-light text-inherit">
 					<?= strip_tags($text) ?>
 				</div>
 			<?php endif; ?>
+
 		</div>
 
 	</a>
