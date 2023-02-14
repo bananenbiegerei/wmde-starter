@@ -52,13 +52,13 @@ if ($layout == 'v') {
 		<?php endif; ?>
 
 		<!-- Text content -->
-		<div class=" <?= $layout_classes['content'] ?>">
+		<div class=" <?= $layout_classes['content'] ?> space-y-2">
 			<?php if ($meta): ?>
-				<div class="uppercase text-base text-primary font-bold text-sm mb-6 font-alt">
+				<div class="uppercase text-base text-primary font-bold text-sm font-alt">
 					<?= esc_html($meta->name) ?>
 				</div>
 			<?php endif; ?>
-			<div class="text-2xl mb-6 font-alt">
+			<div class="text-2xl font-alt">
 				<?= strip_tags($title) ?>
 			</div>
 			<?php if ($layout != 'h2'): ?>
