@@ -14,6 +14,7 @@ module.exports = {
 			'3xl': '3rem', // 48px
 			'4xl': '3.5rem', // 56px
 			'5xl': '4.375rem', // 60px
+			'6xl': '6rem', // 96px
 		},
 		fontFamily: {
 			alt: ['Montserrat', 'sans-serif'],
