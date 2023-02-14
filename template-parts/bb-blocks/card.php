@@ -74,7 +74,7 @@ if ($layout == 'v') {
 		<?php endif; ?>
 
 		<!-- Text content -->
-		<div class=" <?= $layout_classes['content'] ?>">
+		<div class=" <?= $layout_classes['content'] ?> space-y-2">
 			<div class="uppercase text-base text-primary font-bold text-sm mb-6 font-alt">
 				<?= join(', ', $theme) ?>
 				<?= $theme && $format ? ' | ' : '' ?>
