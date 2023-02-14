@@ -4,7 +4,7 @@
 	}
 	li {
 		a {
-			@apply inline-flex items-center text-base py-1 px-2 hover:bg-primary-50 rounded transition;
+			@apply btn btn-menu;
 		}
 		&.current-menu-item {
 			a {
@@ -16,11 +16,11 @@
 		@apply flex flex-col space-y-2;
 		li {
 			a {
-				@apply w-full text-base py-1 px-2 hover:bg-primary-50 rounded transition;
+				@apply btn btn-menu;
 			}
 		}
 	}
 	.dropdown-toggle {
-		@apply inline-flex items-center text-base py-1 px-2 hover:bg-primary-50 rounded transition;
+		@apply inline-flex items-center text-base py-1 px-2 hover:bg-transparent rounded transition;
 	}
 }

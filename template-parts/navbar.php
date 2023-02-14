@@ -228,7 +228,7 @@
 									<template x-for="page in domain.pages">
 										<li class="lg:flow-root" x-bind:class="{'current': pageID == page.ID }">
 											<a x-bind:href="page.url" class="btn btn-menu ">
-												<span class="w-full text-gray" x-text="page.title"></span>
+												<span class="w-full" x-text="page.title"></span>
 											</a>
 										</li>
 									</template>

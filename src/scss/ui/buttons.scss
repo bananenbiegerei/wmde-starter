@@ -20,10 +20,10 @@
 	}
 	// Ghost
 	.btn-ghost {
-		@apply bg-transparent text-primary border-none hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-600;
+		@apply bg-transparent text-primary border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-600;
 	}
 	.btn-menu {
-		@apply bg-transparent text-black font-medium border-none hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-600 font-alt;
+		@apply bg-transparent text-black font-medium border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-600 font-alt;
 	}
 	// Colors
 	.btn-red {
