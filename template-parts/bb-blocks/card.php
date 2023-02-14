@@ -8,7 +8,7 @@ if (!empty($block['anchor'])) {
 
 // Get link and text
 $link = get_field('content')['link'];
-$title = $link['title'];
+$title = $link['title']??'';
 
 // If it's a local link get the excerpt and image from the post
 if (parse_url($link['url'], PHP_URL_HOST) == $_SERVER['HTTP_HOST']) {
