@@ -1,6 +1,6 @@
 <?php
 /**
- * Block template file: template-parts/blocks/paragraph-block.php
+ * Block template file: template-parts/blocks/paragraph-block max-w-4xl.php
  *
  * Paragraph Block Template.
  *
@@ -18,13 +18,23 @@ if ( ! empty($block['anchor'] ) ) {
 
 // Text Sizes
 if( get_field('options') == 'small' ) { ?>
-	<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> text-xs paragraph-block">
-        <?php the_field( 'paragraph' ); ?>
-    </div>
+	<p id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> text-xs paragraph-block max-w-4xl">
+        <?php the_field( 'paragraph', false, false ); ?>
+    </p>
 <?php }
 if( get_field('options') == 'default' ) {?>
-	<div id="<?php echo esc_attr( $id ); ?>" class="text-base paragraph-block">
-        <?php the_field( 'paragraph' ); ?>
-    </div>
+	<p id="<?php echo esc_attr( $id ); ?>" class="text-base paragraph-block max-w-4xl">
+        <?php the_field( 'paragraph', false, false ); ?>
+    </p>
+<?php }
+if( get_field('options') == 'large' ) {?>
+    <p id="<?php echo esc_attr( $id ); ?>" class="text-2xl paragraph-block max-w-4xl">
+        <?php the_field( 'paragraph', false, false ); ?>
+    </p>
+<?php }
+if( get_field('options') == 'extra-large' ) {?>
+    <p id="<?php echo esc_attr( $id ); ?>" class="text-4xl paragraph-block max-w-4xl">
+        <?php the_field( 'paragraph', false, false ); ?>
+    </p>
 <?php }
 ?>

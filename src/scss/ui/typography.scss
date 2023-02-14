@@ -5,7 +5,7 @@ h3,
 h4,
 h5,
 h6 {
-	@apply leading-tight mb-2;
+	@apply font-alt leading-tight mb-2 font-medium;
 }
 h1 {
 	@apply text-xl lg:text-3xl;
@@ -26,7 +26,7 @@ h6 {
 	@apply text-xs lg:text-sm;
 }
 p {
-	@apply leading-tight text-base;
+	@apply leading-tight text-base font-normal;
 }
 ol {
 	@apply list-decimal pl-5;
