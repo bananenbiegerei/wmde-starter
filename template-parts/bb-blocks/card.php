@@ -8,9 +8,11 @@ if (!empty($block['anchor'])) {
 
 // Get link and text
 $link = get_field('content')['link'];
-$title = $link['title']??'';
+$title = $link['title'] ?? '';
 
 // If it's a local link get the excerpt and image from the post
+$text = '';
+$image = false;
 if (parse_url($link['url'], PHP_URL_HOST) == $_SERVER['HTTP_HOST']) {
 	$rpost = get_page_by_path(parse_url($link['url'], PHP_URL_PATH));
 	if ($rpost) {
@@ -19,7 +21,7 @@ if (parse_url($link['url'], PHP_URL_HOST) == $_SERVER['HTTP_HOST']) {
 	}
 }
 // Override if alt. versions are provided
-$text = get_field('content')['text'] ? get_field('content')['text'] : $test;
+$text = get_field('content')['text'] ? get_field('content')['text'] : $text;
 $image = get_field('content')['image'] ? get_field('content')['image'] : $image;
 
 // Card meta (theme or format)
