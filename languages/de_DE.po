@@ -1,0 +1,314 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WMDE 2023 Theme\n"
+"POT-Creation-Date: 2023-02-09 15:41+0100\n"
+"PO-Revision-Date: 2023-02-09 15:42+0100\n"
+"Last-Translator: Éric Leclercq\n"
+"Language-Team: Éric Leclercq\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+
+#: functions/bb-blocks.php:39
+msgid "Custom Blocks"
+msgstr ""
+
+#: functions/bb-blocks/blockquote.php:5
+msgid " Blockquote"
+msgstr ""
+
+#: functions/bb-blocks/blockquote.php:6
+msgid "Blockquote"
+msgstr ""
+
+#: functions/bb-blocks/button.php:5
+msgid "Button"
+msgstr ""
+
+#: functions/bb-blocks/button.php:6
+msgid "Basic Block for Buttons"
+msgstr ""
+
+#: functions/bb-blocks/heading.php:5
+msgid "Headline"
+msgstr ""
+
+#: functions/bb-blocks/heading.php:6
+msgid "Basic Block for Headlines"
+msgstr ""
+
+#: functions/bb-blocks/image.php:5
+msgid "Image"
+msgstr ""
+
+#: functions/bb-blocks/image.php:6
+msgid "Custom image block"
+msgstr ""
+
+#: functions/bb-blocks/paragraph.php:5
+msgid " Paragraph"
+msgstr ""
+
+#: functions/bb-blocks/paragraph.php:6
+msgid "Basic Block for Paragraphs"
+msgstr ""
+
+#: functions/bb-blocks/projects-swiper.php:5
+msgid "Projects Swiper"
+msgstr ""
+
+#: functions/bb-blocks/projects-swiper.php:6
+msgid "A scrolling list of projects"
+msgstr ""
+
+#: functions/custom-posts.php:7
+msgid "Projects"
+msgstr ""
+
+#: functions/custom-posts.php:8
+msgid "Project"
+msgstr ""
+
+#: functions/custom-posts.php:19
+msgid "Team Members"
+msgstr ""
+
+#: functions/custom-posts.php:20
+msgid "Team Member"
+msgstr ""
+
+#: functions/custom-posts.php:31
+msgid "Calls to Action"
+msgstr ""
+
+#: functions/custom-posts.php:32
+msgid "Call to Action"
+msgstr ""
+
+#: functions/custom-posts.php:43
+msgid "Testimonials"
+msgstr ""
+
+#: functions/custom-posts.php:44
+msgid "Testimonial"
+msgstr ""
+
+#: functions/custom-posts.php:82
+msgctxt "Post Type General Name"
+msgid "Pressemitteilungen"
+msgstr ""
+
+#: functions/custom-posts.php:83
+msgctxt "Post Type Singular Name"
+msgid "Pressemitteilung"
+msgstr ""
+
+#: functions/custom-posts.php:84
+msgid "Pressemitteilungen"
+msgstr ""
+
+#: functions/custom-posts.php:85 functions/custom-posts.php:111
+msgid "Pressemitteilung"
+msgstr ""
+
+#: functions/custom-posts.php:86
+msgid "Pressemitteilungen-Archiv"
+msgstr ""
+
+#: functions/custom-posts.php:87
+msgid "Pressemitteilungen-Attribute"
+msgstr ""
+
+#: functions/custom-posts.php:88
+msgid "Parent Item:"
+msgstr ""
+
+#: functions/custom-posts.php:89
+msgid "Alle Pressemitteilungen"
+msgstr ""
+
+#: functions/custom-posts.php:90
+msgid "Pressemitteilung hinzufügen"
+msgstr ""
+
+#: functions/custom-posts.php:91
+msgid "Neue Pressemitteilung hinzufügen"
+msgstr ""
+
+#: functions/custom-posts.php:92
+msgid "Neue Pressemitteilung"
+msgstr ""
+
+#: functions/custom-posts.php:93
+msgid "Pressemitteilung bearbeiten"
+msgstr ""
+
+#: functions/custom-posts.php:94
+msgid "Pressemitteilung updaten"
+msgstr ""
+
+#: functions/custom-posts.php:95
+msgid "Pressemitteilung ansehen"
+msgstr ""
+
+#: functions/custom-posts.php:96
+msgid "Pressemitteilungen ansehen"
+msgstr ""
+
+#: functions/custom-posts.php:97
+msgid "Pressemitteilung suchen"
+msgstr ""
+
+#: functions/custom-posts.php:98
+msgid "Nicht gefunden"
+msgstr ""
+
+#: functions/custom-posts.php:99
+msgid "Nicht im Papierkorb gefunden"
+msgstr ""
+
+#: functions/custom-posts.php:100
+msgid "Beitragsbild"
+msgstr ""
+
+#: functions/custom-posts.php:101
+msgid "Beitragsbild auswählen"
+msgstr ""
+
+#: functions/custom-posts.php:102
+msgid "Beitragsbild entfernen"
+msgstr ""
+
+#: functions/custom-posts.php:103
+msgid "Als Beitragsbild benutzen"
+msgstr ""
+
+#: functions/custom-posts.php:104
+msgid "In Pressemitteilung einfügen"
+msgstr ""
+
+#: functions/custom-posts.php:105
+msgid "Zu Pressemitteilung hochladen"
+msgstr ""
+
+#: functions/custom-posts.php:106
+msgid "Pressemitteilungen-Liste"
+msgstr ""
+
+#: functions/custom-posts.php:107
+msgid "Items list navigation"
+msgstr ""
+
+#: functions/custom-posts.php:108
+msgid "Filter items list"
+msgstr ""
+
+#: functions/custom-posts.php:112
+msgid "Custom Post Type für Pressemitteilungen"
+msgstr ""
+
+#: functions/custom-taxonomies.php:4
+msgid "Project Types"
+msgstr ""
+
+#: functions/custom-taxonomies.php:5
+msgid "Project Type"
+msgstr ""
+
+#: functions/custom-taxonomies.php:6
+msgid "All Project Types"
+msgstr ""
+
+#: functions/custom-taxonomies.php:7
+msgid "Edit Project Type"
+msgstr ""
+
+#: functions/custom-taxonomies.php:8
+msgid "View Project Type"
+msgstr ""
+
+#: functions/custom-taxonomies.php:9
+msgid "Update Project Type"
+msgstr ""
+
+#: functions/custom-taxonomies.php:10
+msgid "Add New Project Type"
+msgstr ""
+
+#: functions/custom-taxonomies.php:11
+msgid "New Project Type Name"
+msgstr ""
+
+#: functions/custom-taxonomies.php:27
+msgid "Categories"
+msgstr "Kategorien"
+
+#: functions/custom-taxonomies.php:28
+msgid "Category"
+msgstr "Kategorie"
+
+#: functions/custom-taxonomies.php:47
+msgid "Formats"
+msgstr "Formate"
+
+#: functions/custom-taxonomies.php:48
+msgid "Format"
+msgstr "Format"
+
+#: functions/custom-taxonomies.php:68
+msgid "Themes"
+msgstr "Themenbereiche"
+
+#: functions/custom-taxonomies.php:69
+msgid "Theme"
+msgstr "Themenbereich"
+
+#: functions/menu.php:7
+msgid "Footer"
+msgstr ""
+
+#: search.php:5
+#, php-format
+msgid "Suchergebnisse für: %s"
+msgstr ""
+
+#: template-parts/bb-blocks/newsletter.php:30
+msgid "Register"
+msgstr "Anmelden"
+
+#: template-parts/search-modal.php:8
+msgid "Search"
+msgstr ""
+
+#: template-parts/search-modal.php:35
+msgid "Suche"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "WMDE 2023 Theme"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://bananenbiegerei.de/"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Bananenbiegerei"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://bananenbiegerei.de"
+msgstr ""

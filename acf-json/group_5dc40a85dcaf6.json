@@ -1,11 +1,12 @@
 {
     "key": "group_5dc40a85dcaf6",
-    "title": "Responsive Table",
+    "title": "Block: Responsive Table",
     "fields": [
         {
             "key": "field_608a9ed624949",
             "label": "Has Fullwidth",
             "name": "has_fullwidth",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "message": "",
             "default_value": 0,
             "ui": 1,
@@ -27,6 +27,7 @@
             "key": "field_5dc4196bacebf",
             "label": "Rows",
             "name": "rows",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -36,7 +37,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
             "min": 0,
             "max": 0,
@@ -48,6 +48,7 @@
                     "key": "field_5dc41c3f61c97",
                     "label": "Is Table Head?",
                     "name": "is_table_head",
+                    "aria-label": "",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -57,7 +58,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "message": "",
                     "default_value": 0,
                     "ui": 1,
@@ -70,6 +70,7 @@
                     "key": "field_5dc41c6761c98",
                     "label": "Column(s)",
                     "name": "columns",
+                    "aria-label": "",
                     "type": "repeater",
                     "instructions": "Bitte darauf achten, die Anzahl der Spalten in jeder Reihe die selbe ist.",
                     "required": 0,
@@ -79,7 +80,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "collapsed": "field_5dc41c7361c99",
                     "min": 0,
                     "max": 0,
@@ -92,6 +92,7 @@
                             "key": "field_608aa553562b2",
                             "label": "Right Align",
                             "name": "right_align",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -101,7 +102,6 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "aria-label": "",
                             "message": "",
                             "default_value": 0,
                             "ui": 1,
@@ -114,6 +114,7 @@
                             "key": "field_5dc41c7361c99",
                             "label": "Column",
                             "name": "column",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -123,7 +124,6 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "aria-label": "",
                             "default_value": "",
                             "tabs": "all",
                             "toolbar": "full",
@@ -155,5 +155,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864027
+    "modified": 1676281605
 }

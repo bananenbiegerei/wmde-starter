@@ -6,6 +6,7 @@
             "key": "field_632dac8f25165",
             "label": "Text",
             "name": "text",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "maxlength": "",
             "rows": "",
@@ -26,6 +26,7 @@
             "key": "field_6332e3019911e",
             "label": "Blury",
             "name": "blury",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -35,7 +36,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "message": "",
             "default_value": 0,
             "ui": 1,
@@ -61,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1676036865
 }

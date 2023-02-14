@@ -1,25 +1,31 @@
 <?php
-// list all allowed block types here. custom block types need to be added here to appear
-function custom_allowed_block_types($allowed_blocks)
-{
-	return array(
+
+// List all allowed block types here
+add_filter('allowed_block_types_all', function ($allowed_blocks) {
+	$blocks = [
 		//'core/paragraph',
 		//'core/heading',
+		//'core/image',
 		'core/column',
 		'core/columns',
-		// ACF Blocks
-		'acf/image',
-		'acf/paragraph',
-		'acf/heading',
-		'acf/button',
-		'acf/blockquote',
-		'acf/accordion',
-		'acf/card',
-		'acf/cta',
-		'acf/projects-swiper',
-	);
+	];
+	// ACF Blocks loaded automatically...
+	$blocks = array_merge($blocks, bb_get_acf_blocknames());
+	return $blocks;
+});
+
+// Automatically get names of defined ACF blocks in 'bb-blocks'
+function bb_get_acf_blocknames()
+{
+	$acf = [];
+	foreach (glob(dirname(__FILE__) . '/bb-blocks/*.php') as $block) {
+		preg_match("/'name'\s+=>\s+'(.*?)',/", file_get_contents($block), $m);
+		if (!empty($m[1])) {
+			$acf[] = "acf/{$m[1]}";
+		}
+	}
+	return $acf;
 }
-add_filter('allowed_block_types_all', 'custom_allowed_block_types');
 
 // Automatically declare all blocks in `bb-blocks/`
 add_action('acf/init', function () {

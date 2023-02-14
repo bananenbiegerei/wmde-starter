@@ -10,7 +10,7 @@ $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('met
 
 <div <?php echo $anchor; ?> class="bb-cta-block rounded-3xl p-4 mb-6" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 
-	<div class="flex flex-wrap sm:flex-nowrap gap-8 mb-6 sm:mb-0">
+	<div class="flex flex-wrap sm:flex-nowrap gap-8 h-full">
 
 		<!-- Image -->
 		<?php if (get_field('style')['image']): ?>
@@ -40,7 +40,7 @@ $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('met
 			<!-- Button and extra info -->
 			<div class="mt-6 mb-0 sm:mb-2 flex flex-wrap gap-y-8">
 				<div class="flex-shrink-0 text-xl">
-					<a class="button hover:text-blue-700 mr-8" href="<?= esc_attr(get_field('link')['url']) ?>">
+					<a class="button mr-8" href="<?= esc_attr(get_field('link')['url']) ?>">
 						<?= bb_icon('arrow-right') ?>
 						<?= esc_html(get_field('button')['link']['title']) ?>
 					</a>
@@ -55,7 +55,7 @@ $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('met
 
 	<!-- Related -->
 	<?php if (have_rows('related')): ?>
-		<div class="flex gap-4 sm:gap-5 flex-wrap pb-2">
+		<div class="flex gap-4 sm:gap-5 flex-wrap pb-2 mt-6 sm:mt-0">
 			<?php while (have_rows('related')): ?>
 				<?php the_row(); ?>
 

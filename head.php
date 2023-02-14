@@ -5,7 +5,7 @@
 	<script>
 			// Contains all swipers to be initialized by 'site.js'
 			var SwipersConfig = {
-				// "selector" : { swiperOptions... }
+				// "swiperID" : { swiperOptions... }
 			};
 	</script>
 

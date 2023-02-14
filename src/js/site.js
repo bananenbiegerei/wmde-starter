@@ -13,7 +13,7 @@ window.TW = TW;
 // 'SwipersConfig' is defined in 'head.php', every swiper block adds its config in it.
 var Swipers = {};
 for (sel in SwipersConfig) {
-	Swipers[sel] = new Swiper(`${sel}  .swiper-container`, {
+	Swipers[sel] = new Swiper(`${sel} .swiper-container`, {
 		// include modules
 		...{ modules: [Navigation, Autoplay, Mousewheel] },
 		// enable mouse-wheel by default
