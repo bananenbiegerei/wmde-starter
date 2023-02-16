@@ -10,15 +10,26 @@
 			<img class="w-6 h-auto" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
 		</a>
 	</div>
-	<div class="flex-none">
-		<ul class="menu menu-horizontal text-sm lg:text-base">
+	<div class="">
+		<ul class="menu horizontal text-sm lg:text-base">
 			<?php if (get_field('link_fur_spenden', 'option')): ?>
 			<li>
 				<a
-					class="btn btn-red btn-hollow"
+					class="btn btn-red btn-hollow btn-icon-left"
 					target="_blank"
 					href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
+					<?= bb_icon('heart') ?>
 					<?php pll_e('donate'); ?>
+				</a>
+			</li>
+			<?php endif; ?>
+			<?php if (get_field('link_fur_mitmachen', 'option')): ?>
+			<li>
+				<a
+					class="btn btn-ghot"
+					target="_blank"
+					href="<?php echo esc_url(get_field('link_fur_mitmachen', 'option')); ?>">
+					<?php pll_e('Mitmachen'); ?>
 				</a>
 			</li>
 			<?php endif; ?>
@@ -26,8 +37,8 @@
 	</div>
 	<div class="flex-none">
 		<?php
-//get_template_part('template-parts/search-modal');
-?>
+		//get_template_part('template-parts/search-modal');
+		?>
 	</div>
 	<div class="block lg:hidden flex-none x-data="{ show: false }"">
 		<!-- Using the Alpine.store ($store) to save the state of the site header. -->

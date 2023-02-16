@@ -22,35 +22,35 @@
 	<button type="button" class="btn btn-xl btn-ghost">Button text</button>
 	<hr>
 	<h4>Default Buttons with icons</h4>
-	<button type="button" class="btn btn-xs btn-icon">
+	<button type="button" class="btn btn-xs btn-icon-left">
 		<svg class="icon-xs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 			<path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
 			<path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
 		 </svg>
 		Button text
 	</button>
-	<button type="button" class="btn btn-sm btn-icon">
+	<button type="button" class="btn btn-sm btn-icon-left">
 	<svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 		<path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
 		<path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
 	 </svg>
 	Button text
 	</button>
-	<button type="button" class="btn hollow btn-icon">
+	<button type="button" class="btn hollow btn-icon-left">
 		<svg class="icon-base" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 			<path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
 			<path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
 		 </svg>
 		Button text
 		</button>
-	<button type="button" class="btn btn-lg btn-icon">
+	<button type="button" class="btn btn-lg btn-icon-left">
 		<svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 			<path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
 			<path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
 		 </svg>
 		Button text
 		</button>
-	<button type="button" class="btn btn-xl btn-icon">
+	<button type="button" class="btn btn-xl btn-icon-left">
 		<svg class="icon-xl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 			<path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
 			<path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
@@ -58,35 +58,35 @@
 		Button text
 	</button>
 	<h4>Default Buttons Icons only</h4>
-	<button type="button" class="btn btn-xs btn-icon-only">
+	<button type="button" class="btn btn-xs btn-icon-left-only">
 		<svg class="icon-xs" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-sm btn-icon-only">
+	<button type="button" class="btn btn-sm btn-icon-left-only">
 		<svg  class="icon-sm" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-icon-only">
+	<button type="button" class="btn btn-icon-left-only">
 		<svg class="icon-base" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-lg btn-icon-only">
+	<button type="button" class="btn btn-lg btn-icon-left-only">
 		<svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-xl btn-icon-only">
+	<button type="button" class="btn btn-xl btn-icon-left-only">
 		<svg class="icon-xl" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
 	<h4>Default Buttons Icons only hollow</h4>
-	<button type="button" class="btn btn-hollow btn-xs btn-icon-only">
+	<button type="button" class="btn btn-hollow btn-xs btn-icon-left-only">
 		<svg class="icon-xs" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-hollow btn-sm btn-icon-only">
+	<button type="button" class="btn btn-hollow btn-sm btn-icon-left-only">
 		<svg  class="icon-sm" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-hollow btn-icon-only">
+	<button type="button" class="btn btn-hollow btn-icon-left-only">
 		<svg class="icon-base" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-hollow btn-lg btn-icon-only">
+	<button type="button" class="btn btn-hollow btn-lg btn-icon-left-only">
 		<svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-hollow btn-xl btn-icon-only">
+	<button type="button" class="btn btn-hollow btn-xl btn-icon-left-only">
 		<svg class="icon-xl" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
 	<hr>
