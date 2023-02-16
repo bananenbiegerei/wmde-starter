@@ -1,11 +1,12 @@
 {
     "key": "group_6332f0ab55501",
-    "title": "Block : Headline",
+    "title": "Block: Headline",
     "fields": [
         {
             "key": "field_6332f0b132592",
             "label": "Headline",
             "name": "headline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -26,6 +26,7 @@
             "key": "field_6332f0c432593",
             "label": "Options",
             "name": "options",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -35,7 +36,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "default": "default",
                 "h2": "h2",
@@ -53,6 +53,7 @@
             "key": "field_6399a788bde81",
             "label": "Headline Size",
             "name": "headline_size",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -83,6 +84,7 @@
             "key": "field_63e3a7f69c005",
             "label": "Background Color",
             "name": "background_color",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -103,6 +105,7 @@
             "key": "field_63e3a8189c006",
             "label": "Background Color Picker",
             "name": "background_color_picker",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -144,5 +147,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676384846
+    "modified": 1676390087
 }
