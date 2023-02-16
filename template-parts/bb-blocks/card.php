@@ -9,26 +9,22 @@ if (!empty($block['anchor'])) {
 // Get link and text
 $link = get_field('content')['link'];
 $title = $link['title'] ?? 'missing title';
-
 $text = '';
 $image = false;
 $theme = [];
 $format = [];
 
-// If it's a local link get the excerpt and image from the post object
-if (parse_url($link['url'], PHP_URL_HOST) == $_SERVER['HTTP_HOST']) {
-	$local_post = get_page_by_path(parse_url($link['url'], PHP_URL_PATH));
-	if ($local_post) {
-		$text = $local_post->post_excerpt;
-		$image = get_post_thumbnail_id($local_post->ID);
-		// Get themes and formats
-		foreach (wp_get_post_terms($local_post->ID, ['format', 'theme']) as $term) {
-			if ($term->taxonomy == 'format') {
-				$format[] = $term->name;
-			}
-			if ($term->taxonomy == 'theme') {
-				$theme[] = $term->name;
-			}
+// See if there's a post with this URL
+if ($local_post_id = url_to_postid($link['url'])) {
+	$local_post = get_post($local_post_id);
+	$text = $local_post->post_excerpt;
+	$image = get_post_thumbnail_id($local_post_id); // Get themes and formats
+	foreach (wp_get_post_terms($local_post_id, ['format', 'theme']) as $term) {
+		if ($term->taxonomy == 'format') {
+			$format[] = $term->name;
+		}
+		if ($term->taxonomy == 'theme') {
+			$theme[] = $term->name;
 		}
 	}
 }
