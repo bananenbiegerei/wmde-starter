@@ -1,11 +1,12 @@
 {
     "key": "group_5ea8398d5cfd0",
-    "title": "Custom Teasers Swiper",
+    "title": "Block: Custom Teasers Swiper",
     "fields": [
         {
             "key": "field_5fa3f4ff2519d",
             "label": "Headline and description for Swiper",
             "name": "headline_and_description",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -15,13 +16,13 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_5fa3f4ff2519e",
                     "label": "Headline",
                     "name": "headline",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -31,7 +32,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -43,6 +43,7 @@
                     "key": "field_5fa3f4ff2519f",
                     "label": "Description",
                     "name": "description",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -52,7 +53,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "tabs": "all",
                     "toolbar": "full",
@@ -66,6 +66,7 @@
             "key": "field_5ea839b1d29a9",
             "label": "Headline",
             "name": "headline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -75,7 +76,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -87,6 +87,7 @@
             "key": "field_5ea839b9d29aa",
             "label": "Description",
             "name": "description",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -96,7 +97,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -108,6 +108,7 @@
             "key": "field_5ea839ced29ab",
             "label": "Slides",
             "name": "slides",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -117,7 +118,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
             "min": 5,
             "max": 0,
@@ -129,6 +129,7 @@
                     "key": "field_5ea839dad29ac",
                     "label": "Image",
                     "name": "image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -138,7 +139,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "return_format": "id",
                     "preview_size": "small-4-3",
                     "library": "all",
@@ -156,6 +156,7 @@
                     "key": "field_5ea839fed29ad",
                     "label": "Headline",
                     "name": "headline",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -165,7 +166,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -178,6 +178,7 @@
                     "key": "field_5ea83a07d29ae",
                     "label": "Description",
                     "name": "description",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -187,7 +188,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "maxlength": "",
@@ -200,6 +200,7 @@
                     "key": "field_5ea83a14d29af",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -209,7 +210,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "return_format": "array",
                     "translations": "copy_once",
                     "parent_repeater": "field_5ea839ced29ab"
@@ -235,5 +235,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864026
+    "modified": 1676390175
 }

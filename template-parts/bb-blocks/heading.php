@@ -19,7 +19,7 @@ if ( ! empty($block['anchor'] ) ) {
 <?php if ( get_field( 'headline_size' ) ):
 $size = get_field('headline_size');    
 ?>
-<div id="<?php echo esc_attr( $id ); ?>" class="headline-block">
+<div id="<?php echo esc_attr( $id ); ?>" class="headline-block container-compressed">
     <<?php the_field( 'options' ); ?> class="<?php the_field('headline_size'); ?> mb-1">
         <?php
         $headline_bg_color = get_field('background_color_picker');
