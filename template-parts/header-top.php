@@ -35,11 +35,6 @@
 			<?php endif; ?>
 		</ul>
 	</div>
-	<div class="flex-none">
-		<?php
-		//get_template_part('template-parts/search-modal');
-		?>
-	</div>
 	<div class="block lg:hidden flex-none x-data="{ show: false }"">
 		<!-- Using the Alpine.store ($store) to save the state of the site header. -->
 		<button class="btn btn-ghost btn-icon" x-on:click="$store.open_mobile_nav = ! $store.open_mobile_nav">
