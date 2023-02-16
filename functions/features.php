@@ -27,7 +27,7 @@ show_admin_bar(false);
 add_theme_support('title-tag');
 
 // Support for post thumbnails
-add_theme_support('post-thumbnails', ['post', 'page']);
+add_theme_support('post-thumbnails', ['post', 'page', 'projects', 'team-members']);
 
 add_post_type_support('page', 'excerpt');
 

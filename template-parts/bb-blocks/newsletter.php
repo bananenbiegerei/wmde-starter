@@ -1,12 +1,4 @@
-<?php
-// Support custom "anchor" values.
-$anchor = '';
-if (!empty($block['anchor'])) {
-	$anchor = 'id="' . esc_attr($block['anchor']) . '" ';
-}
-?>
-
-<div <?php echo $anchor; ?>
+<div id="<?= $block['id'] ?>"
 	class="bb-newsletter-block rounded-3xl p-4 flex flex-col mb-6"
 	style="background-color: <?= get_field('bg_color') ?>;">
 

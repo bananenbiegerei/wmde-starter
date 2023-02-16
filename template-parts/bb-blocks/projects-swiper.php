@@ -14,7 +14,7 @@
 	<div class="bb-projects-swiper-block px-10 pb-16 pt-16 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
 			<h2 class="text-5xl"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
 
-			<div class="swiper-container relative mt-4">
+			<div class="swiper-container relative">
 
 				<!-- Navigation -->
 				<div class="absolute -top-20 right-0 hidden lg:block">
