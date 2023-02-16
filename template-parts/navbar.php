@@ -78,19 +78,19 @@
 </script>
 
 <!-- Top container for site header and nav menu -->
-<div x-data="navMenu">
+<div x-data="navMenu" class="bg-white">
 
 	<!-- Site header -->
 	<?php get_template_part('template-parts/header-top'); ?>
 
 	<!-- Container for the whole nav menu -->
 	<div
-		class="border-b border-gray-200 sticky top-0 z-40 bg-white block"
+		class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 block"
 		x-show="$store.open_mobile_nav"
 		@mouseleave="closeNav()"
 	>
 		<!-- Domains top bar -->
-		<div class="relative z-10 bg-white lg:px-2">
+		<div class="relative z-10 lg:px-2 container">
 			<div class="lg:flex lg:space-x-1 lg:py-2 lg:py-3">
 
 				<!-- For each domain... -->
@@ -156,7 +156,7 @@
 		<!-- End domains top bar -->
 
 		<!-- For desktop: domain submenus go below the navigation bar -->
-		<div id="navdropdown" class="relative lg:block  mx-4">
+		<div id="navdropdown" class="relative lg:block  mx-4 container">
 
 			<!-- Pointer to domain button -->
 			<div class="z-20 absolute pointer-events-none" id="pointer" x-show="idx != -1">
@@ -167,7 +167,7 @@
 			<template x-for="(domain,i) in nav">
 				<div
 					x-show="isOpen[i]"
-					class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen rounded-xl shadow-navbar-dropdown py-8"
+					class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen rounded-xl shadow-navbar-dropdown pb-8"
 					x-bind:class="{'max-w-6xl': domain.featured.length > 0, 'max-w-2xl': domain.featured.length == 0}"
 				>
 
@@ -178,7 +178,7 @@
 
 						<!-- Overview & featured pages -->
 						<div class="px-2" x-bind:class="{'lg:border-r lg:border-gray-100': domain.featured.length > 0}">
-							<h3 class="text-base font-bold sr-only">Hervorgehobenen Menüpunkte</h3>
+							<h3 class="text-base font-bold sr-only"><?php _e('Hervorgehobenen Menüpunkte', 'wmde') ?></h3>
 							<ul role="list" class="space-y-1 lg:space-y-6">
 
 								<!-- Featured pages -->
@@ -205,7 +205,7 @@
 										<li class="lg:flow-root" x-bind:class="{'current': pageID == page.ID }">
 											<a
 												x-bind:href="page.url"
-												class="btn btn-menu">
+												class="btn btn-menu w-full">
 												<span class="w-full" x-text="page.title"></span>
 											</a>
 										</li>
@@ -244,9 +244,11 @@
 				</div>
 			</template>
 			<!-- End for each domain -->
+			
 		</div>
 		<!-- End desktop -->
-
+		
+		
 	</div>
 
 </div>

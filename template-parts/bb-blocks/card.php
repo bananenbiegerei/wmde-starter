@@ -67,19 +67,19 @@ if ($layout == 'v') {
 		<div class="<?= $layout_classes['content'] ?> space-y-2">
 
 			<?php if ($theme || $format): ?>
-				<div class="uppercase text-base text-primary font-bold text-sm mb-6 font-alt">
+				<div class="uppercase text-base text-primary font-bold text-sm font-alt">
 					<?= join(', ', $theme) ?>
 					<?= $theme && $format ? ' | ' : '' ?>
 					<?= join(', ', $format) ?>
 				</div>
 			<?php endif; ?>
 
-			<h2 class="text-2xl mb-6 font-alt">
+			<h2 class="text-2xl font-alt">
 				<?= strip_tags($title) ?>
 			</h2>
 
 			<?php if ($layout != 'h2'): ?>
-				<div class="text-xl font-alt font-light text-inherit">
+				<div class="text-xl font-alt font-normal text-inherit">
 					<?= strip_tags($text) ?>
 				</div>
 			<?php endif; ?>

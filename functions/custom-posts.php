@@ -1,5 +1,6 @@
 <?php
 
+
 function custom_post_types()
 {
 	register_post_type('projects', [
@@ -9,7 +10,7 @@ function custom_post_types()
 		],
 		'public' => true,
 		'has_archive' => true,
-		'supports' => ['title', 'editor', 'thumbnail', 'author'],
+		'supports' => ['title', 'editor', 'thumbnail', 'author', 'excerpt'],
 		'show_in_rest' => true,
 		'menu_icon' => 'dashicons-clipboard',
 	]);
@@ -107,3 +108,10 @@ function press_custom_post_type()
 	register_post_type('press-releases', $args);
 }
 add_action('init', 'press_custom_post_type', 0);
+
+// Add support for thumbnails and excerpts for the custom post type "books"
+add_action( 'after_setup_theme', 'custom_post_type_support' );
+function custom_post_type_support() {
+  add_theme_support( 'post-thumbnails', array( 'projects' ) );
+  add_post_type_support( 'projects', 'excerpt' );
+}

@@ -3,7 +3,7 @@
 		@apply flex gap-8 items-baseline;
 	}
 	li {
-		a {
+		a:not(.btn-hollow) {
 			@apply btn btn-menu;
 		}
 		&.current-menu-item {

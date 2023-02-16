@@ -1,71 +1,88 @@
 .btn {
-	@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1.5 text-base  text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 transition;
+	@apply font-alt inline-flex items-center rounded-md border border-transparent bg-primary px-3 py-2 text-base text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 transition;
 }
-	// Sizes
-	.btn-xs {
-		@apply px-1.5 py-1 text-xs;
+
+// Sizes
+.btn-xs {
+	@apply px-1.5 py-1 text-xs;
+}
+
+.btn-sm {
+	@apply px-2 py-1.5 text-sm;
+}
+
+.btn-lg {
+	@apply px-2.5 py-2 text-lg;
+}
+
+.btn-xl {
+	@apply px-4 py-2 text-xl;
+}
+
+// Outline
+.btn-hollow {
+	@apply bg-white text-primary border border-primary hover:border-primary-600 hover:bg-white hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0;
+}
+
+// Ghost
+.btn-ghost {
+	@apply bg-transparent text-primary border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-600;
+}
+
+.btn-menu {
+	@apply bg-transparent text-black font-alt font-medium border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-600 font-alt;
+}
+
+// Colors
+.btn-red {
+	@apply bg-red;
+
+	&.btn-hollow {
+		@apply bg-white text-red border border-red hover:bg-white hover:border-red-900 hover:text-red-900;
 	}
-	.btn-sm {
-		@apply px-2 py-1.5 text-sm;
+}
+
+// Only Icon
+.btn-icon-only {
+	@apply rounded-full;
+
+	&.btn-xs {
+		@apply p-1;
 	}
-	.btn-lg {
-		@apply px-2.5 py-2 text-lg;
+
+	&.btn-sm {
+		@apply p-1.5;
 	}
-	.btn-xl {
-		@apply px-4 py-2 text-xl;
+
+	&.btn {
+		@apply p-2;
 	}
-	// Outline
-	.btn-hollow {
-		@apply bg-white text-primary border border-primary hover:border-primary-600 hover:bg-white hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0;
+
+	&.btn-lg {
+		@apply p-2.5;
 	}
-	// Ghost
-	.btn-ghost {
-		@apply bg-transparent text-primary border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-600;
+
+	&.btn-xl {
+		@apply p-3;
 	}
-	.btn-menu {
-		@apply bg-transparent text-black font-medium border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-600 font-alt;
+}
+
+// With icon
+.btn-icon-left {
+	// .icon-xs {
+	// 	@apply -ml-0.5 mr-2;
+	// }
+	// .icon-sm {
+	// 	@apply -ml-1 mr-2;
+	// }
+	@apply px-3;
+	svg {
+		@apply pr-2;
 	}
-	// Colors
-	.btn-red {
-		@apply bg-red;
-		&.btn-hollow {
-			@apply bg-white text-red border border-red hover:bg-white hover:border-red-900 hover:text-red-900;
-		}
-	}
-	// Only Icon
-	.btn-icon-only {
-		@apply rounded-full;
-		&.btn-xs {
-			@apply p-1;
-		}
-		&.btn-sm {
-			@apply p-1.5;
-		}
-		&.btn {
-			@apply p-2;
-		}
-		&.btn-lg {
-			@apply p-2.5;
-		}
-		&.btn-xl {
-			@apply p-3;
-		}
-	}
-	// With leading icon
-	.btn-icon {
-		.icon-xs {
-			@apply -ml-0.5 mr-2;
-		}
-		.icon-sm {
-			@apply -ml-1 mr-2;
-		}
-		.icon-base {
-			@apply -ml-1 mr-2;
-		}
-		.icon-lg {
-			@apply -ml-1.5 mr-3;
-		}
-		.icon-xl {
-			@apply -ml-2 mr-4;
-		}
-	}
+	// .icon-lg {
+	// 	@apply -ml-1.5 mr-3;
+	// }
+	// .icon-xl {
+	// 	@apply -ml-2 mr-4;
+	// }
+}

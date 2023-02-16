@@ -1,4 +1,5 @@
-<ul class="menu menu-horizontal text-primary-focus" id="social-media-menu">
+<h3 class="text-base text-primary"><?php _e('Wikimedia folgen', BB_TEXT_DOMAIN); ?></h3>
+<ul class="list-none flex gap-2 items-center text-primary" id="social-media-menu">
     <li>
         <a href="https://www.facebook.com/WikimediaDE" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48c27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>

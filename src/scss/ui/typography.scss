@@ -28,12 +28,6 @@ h6 {
 p {
 	@apply leading-tight text-base font-normal;
 }
-ol {
-	@apply list-decimal pl-5;
-}
-ul:not(.menu) {
-	@apply list-disc pl-5;
-}
 a.link {
 	@apply underline hover:text-primary-300 transition;
 }
