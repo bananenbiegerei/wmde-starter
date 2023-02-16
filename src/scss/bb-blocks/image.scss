@@ -1,5 +1,14 @@
-.bb-image-block:hover {
-	figcaption {
-		visibility: visible;
+.bb-image-block {
+	&:hover {
+		figcaption {
+			visibility: visible;
+		}
+	}
+
+	// Caption always visible for touch devices
+	@media only screen and (hover: none) {
+		figcaption {
+			visibility: visible;
+		}
 	}
 }
