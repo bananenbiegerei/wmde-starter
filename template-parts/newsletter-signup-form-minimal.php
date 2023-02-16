@@ -1,5 +1,5 @@
 <div class="flex flex-col space-y-4">
-    <label for="newsletter-signup-form" class="font-bold text-primary-focus"><?php pll_e('Newlsetter Anmeldung'); ?></label>
+    <h3 for="newsletter-signup-form" class="text-primary text-base"><?php pll_e('Newlsetter Anmeldung'); ?></h3>
     <form action="https://t874ad7c5.emailsys1a.net/191/2155/d537ac9314/subscribe/form.html" method="post" id="newsletter-signup-form">
 
         <ul class="no-bullet newsletter-form-minimal relative">
@@ -14,7 +14,7 @@
                 <input type="text" class="form_field form-input" name="email" id="email" value="" placeholder="E-mail" />
             </li>
             <li class="form_button absolute right-1 bottom-1">
-                <input type="submit" class="form_button_submit btn btn-primary" value="<?php pll_e('Anmelden'); ?>" />
+                <input type="submit" class="form_button_submit btn btn-primary btn-sm" value="<?php pll_e('Anmelden'); ?>" />
             </li>
         </ul>
     </form>
