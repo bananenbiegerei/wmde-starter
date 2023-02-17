@@ -1,11 +1,3 @@
-<?php
-/*
-	NOTES:
-	- This block must not have any horizontal padding/margin. It should be full-width.
-	- Padding is added to top-level div. For now: px-10.
-
-*/
-?>
 <?php if (!is_admin()): ?>
 <div class="bb-custom-teasers-swiper-block px-10 pb-16 pt-16 " id="<?= $block['id'] ?>">
 
