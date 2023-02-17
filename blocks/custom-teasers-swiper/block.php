@@ -7,7 +7,7 @@
 */
 ?>
 <?php if (!is_admin()): ?>
-<div class="bb-custom-teasers-swiper-block overflow-hidden px-10 pb-16 pt-16 " id="<?= $block['id'] ?>">
+<div class="bb-custom-teasers-swiper-block px-10 pb-16 pt-16 " id="<?= $block['id'] ?>">
 
 	<h2 class="text-5xl"><?= esc_html(get_field('headline')) ?></h2>
 
