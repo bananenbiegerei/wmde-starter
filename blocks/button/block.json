@@ -1,0 +1,13 @@
+{
+	"name": "acf/button",
+	"title": "Button",
+	"description": "Button",
+	"category": "wkmde-custom-blocks",
+	"icon": "button",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "block.php"
+	},
+	"align": "full"
+}

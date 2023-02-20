@@ -1,0 +1,13 @@
+{
+	"name": "acf/gallery-swiper",
+	"title": "Gallery Swiper",
+	"description": "An image gallery with swiper",
+	"category": "wkmde-custom-blocks",
+	"icon": "slides",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "block.php"
+	},
+	"align": "full"
+}

@@ -14,10 +14,10 @@
 @import './ui/fonts';
 
 /* ACF blocks */
-@import 'bb-blocks/*';
-
-/* ACF blocks */
 @import '../../blocks/**/*';
+
+/* Components */
+@import './components/*';
 
 /* Plugins overwrites */
 //@import 'plugin-overwrites/*';
@@ -28,13 +28,6 @@
 /* Gutenberg Overwrites */
 //@import './gutenberg-overwrites/*';
 @import './gutenberg-overwrites/columns';
-
-/* Components */
-//@import './components/cards';
-
-@import './components/icons';
-@import './components/buttons';
-@import './components/swiper';
 
 //@import './blocks/image';
 //@import './components/main-menu';

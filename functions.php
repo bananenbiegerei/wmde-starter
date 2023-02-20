@@ -9,7 +9,7 @@ require_once get_template_directory() . '/functions/localization.php';
 require_once get_template_directory() . '/functions/features.php';
 
 // Load custom ACF blocks
-require_once get_template_directory() . '/functions/bb-blocks.php';
+require_once get_template_directory() . '/functions/acf-blocks.php';
 
 // Load styles & scripts
 require_once get_template_directory() . '/functions/enqueue-scripts.php';

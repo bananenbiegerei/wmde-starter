@@ -1,0 +1,13 @@
+{
+	"name": "acf/facts",
+	"title": "Custom Teasers Swiper",
+	"description": "A list of facts",
+	"category": "wkmde-custom-blocks",
+	"icon": "slides",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "block.php"
+	},
+	"align": "full"
+}
