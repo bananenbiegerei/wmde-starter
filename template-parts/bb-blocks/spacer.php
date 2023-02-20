@@ -13,25 +13,37 @@
 // Create id attribute allowing for custom "anchor" value.
 $id = 'spacer-' . $block['id'];
 if ( ! empty($block['anchor'] ) ) {
-	$id = $block['anchor'];
+    $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
 $classes = 'block-spacer';
 if ( ! empty( $block['className'] ) ) {
-	$classes .= ' ' . $block['className'];
-}
-if ( ! empty( $block['align'] ) ) {
-	$classes .= ' align' . $block['align'];
+    $classes .= ' ' . $block['className'];
 }
 ?>
+<?php
+$height = ''; // set default value
 
-<style type="text/css">
-	<?php echo '#' . $id; ?> {
-		/* Add styles that use ACF values here */
-	}
-</style>
+if ( get_field('size') == 'xs' ) {
+    $height = 'h-4';
+}
+if ( get_field('size') == 'sm' ) {
+    $height = 'h-6';
+}
+if ( get_field('size') == 'base' ) {
+    $height = 'h-10';
+}
+if ( get_field('size') == 'lg' ) {
+    $height = 'h-20';
+}
+if ( get_field('size') == 'xl' ) {
+    $height = 'h-40';
+}
 
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?>">
-	<?php the_field( 'size_size' ); ?>
-</div>
+if ( $height ) { ?>
+    <div id="<?php echo esc_attr( $id ); ?>" class="<?php echo $height; ?>">
+    </div>
+<?php }
+?>
+

@@ -1,5 +1,6 @@
 .is-layout-flex.wp-block-columns {
 	gap: 1.5rem;
+	@apply mb-0;
 }
 
 // In columns make these blocks take the full height

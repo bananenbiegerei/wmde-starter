@@ -55,7 +55,7 @@ if ($layout == 'v') {
 }
 ?>
 
-<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl p-4 mb-6" style="background-color: <?= get_field('style')['bg_color'] ?>;">
+<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl p-4" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 	<a href="<?= $link['url'] ?>" class="flex gap-6 <?= $layout_classes['container'] ?>">
 
 		<?php if ($image): ?>

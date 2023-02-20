@@ -35,8 +35,22 @@ if ( ! empty( $block['align'] ) ) {
     <?php endwhile; ?>
 <?php endif; ?>
 <div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> flex <?php echo $position; ?>">
-    <?php $link = get_field( 'link' ); ?>
-    <?php if ( $link ) : ?>
-        <a class="btn btn-<?php echo $size; ?> <?php echo $style; ?> btn-<?php echo $color; ?>" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
+    
+    <?php if ( get_sub_field( 'has_icon' ) == 1 ) : ?>
+        <?php $link = get_field( 'link' ); ?>
+        <?php if ( $link ) : ?>
+            <a class="btn btn-<?php echo $size; ?> <?php echo $style; ?> btn-<?php echo $color; ?>" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
+        <?php endif; ?>
+    <?php else : ?>
+        <?php $icon = get_sub_field( 'select_icon' ); ?>
+        <?php $link = get_field( 'link' ); ?>
+        <?php if ( $link ) : ?>
+            <a class="btn btn-<?php echo $size; ?> <?php echo $style; ?> btn-<?php echo $color; ?> btn-icon-left" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
+                <?php /* @EL bb_icon($icon); doesn't work, you know why? */ ?>
+                <?=bb_icon('arrow-right'); ?>
+                <?php echo esc_html( $link['title'] ); ?>
+            </a>
+        <?php endif; ?>
     <?php endif; ?>
+    <?php the_sub_field( 'select_icon' ); ?>
 </div>

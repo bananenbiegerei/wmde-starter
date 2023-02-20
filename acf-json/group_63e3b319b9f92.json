@@ -6,6 +6,7 @@
             "key": "field_63e3b4bc78fbb",
             "label": "Colors",
             "name": "colors",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -36,6 +37,7 @@
             "key": "field_63e3ad06c8390",
             "label": "Size",
             "name": "size",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -46,22 +48,23 @@
                 "id": ""
             },
             "choices": {
-                "base": "default",
+                "base": "base",
                 "xs": "xs",
                 "sm": "sm",
                 "lg": "lg",
                 "xl": "xl"
             },
-            "allow_null": 0,
-            "default_value": "base : default",
-            "layout": "horizontal",
+            "default_value": "base",
             "return_format": "value",
-            "translations": "copy_once"
+            "translations": "copy_once",
+            "allow_null": 0,
+            "layout": "horizontal"
         },
         {
             "key": "field_63e3af2bd0a99",
             "label": "Position",
             "name": "position",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -98,8 +101,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676544393
+    "modified": 1676886663
 }
