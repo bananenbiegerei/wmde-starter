@@ -38,7 +38,6 @@ function bb_convert_block($block)
 						'field_6332f0c432593' => 'h?', // headline type,
 						'field_63ef9861a9a68' => '', // ID for anchor nav
 						'field_6399a788bde81' => 'default',
-						'field_63e3a7f69c005' => 0,
 						'field_63e3a8189c006' => '#ffffff',
 					],
 					'mode' => 'auto',
