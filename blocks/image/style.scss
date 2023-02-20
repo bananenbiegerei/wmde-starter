@@ -10,7 +10,7 @@
 	@media only screen and (hover: none) {
 		figure {
 			img {
-				@apply rounded-none rounded-b rounded-2xl;
+				@apply rounded-none rounded-b-none rounded-2xl;
 			}
 			figcaption {
 				visibility: visible;
