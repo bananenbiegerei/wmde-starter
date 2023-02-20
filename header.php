@@ -12,4 +12,4 @@ $site_description = get_bloginfo('description');
 ?>
 <body <?php body_class(); ?>>
     <?php get_template_part('template-parts/navbar'); ?>
-    <main class="main-content min-h-screen">
+    <main class="main-content min-h-screen mt-16">

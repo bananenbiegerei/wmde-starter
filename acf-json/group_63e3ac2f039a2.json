@@ -111,6 +111,63 @@
                     "layout": "horizontal",
                     "return_format": "value",
                     "translations": "copy_once"
+                },
+                {
+                    "key": "field_63f34ce2623de",
+                    "label": "Has Icon",
+                    "name": "has_icon",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "translations": "copy_once",
+                    "ui_on_text": "yes",
+                    "ui_off_text": "no",
+                    "ui": 1
+                },
+                {
+                    "key": "field_63f34d06623df",
+                    "label": "Select Icon",
+                    "name": "select_icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63f34ce2623de",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "arrow-right": "arrow-right",
+                        "arrow-down": "arrow-down",
+                        "heart": "heart"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "translations": "copy_once",
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         }
@@ -133,5 +190,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676036866
+    "modified": 1676889406
 }
