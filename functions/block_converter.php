@@ -5,7 +5,7 @@ add_action('admin_menu', function () {
 
 function bb_block_converter_page()
 {
-	$p = get_post(52405); //55309);
+	$p = get_post(55309); //52405); //55309);
 
 	$blocks = parse_blocks($p->post_content);
 	$new_blocks = [];
