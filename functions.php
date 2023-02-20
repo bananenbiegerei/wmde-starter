@@ -26,3 +26,5 @@ require_once get_template_directory() . '/functions/custom-taxonomies.php';
 // Define some image sizes
 // @Ingo: is this still needed?
 // require_once get_template_directory() . '/functions/image-sizes.php';
+
+require_once get_template_directory() . '/functions/block_converter.php';

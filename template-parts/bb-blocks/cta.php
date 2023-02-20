@@ -1,14 +1,6 @@
-<?php
-// Support custom "anchor" values.
-$anchor = '';
-if (!empty($block['anchor'])) {
-	$anchor = 'id="' . esc_attr($block['anchor']) . '" ';
-}
+<?php $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('meta')['format']; ?>
 
-$meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('meta')['format'];
-?>
-
-<div <?php echo $anchor; ?> class="bb-cta-block rounded-3xl p-4 mb-6" style="background-color: <?= get_field('style')['bg_color'] ?>;">
+<div id="<?= $block['id'] ?>" class="bb-cta-block rounded-3xl p-4 mb-6" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 
 	<div class="flex flex-wrap sm:flex-nowrap gap-8 h-full">
 

@@ -1,6 +1,6 @@
 import * as TW from './tailwindhelpers';
 import Alpine from 'alpinejs';
-import Swiper, { Navigation, Autoplay, Mousewheel } from 'swiper';
+import Swiper, { Navigation, Autoplay, Pagination, Mousewheel } from 'swiper';
 
 // Init Alpine
 window.Alpine = Alpine;
@@ -15,7 +15,7 @@ var Swipers = {};
 for (sel in SwipersConfig) {
 	Swipers[sel] = new Swiper(`${sel} .swiper-container`, {
 		// include modules
-		...{ modules: [Navigation, Autoplay, Mousewheel] },
+		...{ modules: [Navigation, Autoplay, Pagination, Mousewheel] },
 		// enable mouse-wheel by default
 		...{ mousewheel: { forceToAxis: true } },
 		// include swiper-specific config

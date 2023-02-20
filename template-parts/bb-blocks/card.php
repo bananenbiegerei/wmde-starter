@@ -1,11 +1,5 @@
 <?php
 
-// Support custom "anchor" values.
-$anchor = '';
-if (!empty($block['anchor'])) {
-	$anchor = 'id="' . esc_attr($block['anchor']) . '" ';
-}
-
 // Get link and text
 $link = get_field('content')['link'];
 $title = $link['title'] ?? 'missing title';
@@ -48,6 +42,8 @@ $layout = get_field('style')['layout'];
 $layout_classes = [];
 if ($layout == 'v') {
 	$layout_classes['container'] = 'flex-col';
+	$layout_classes['image'] = '';
+	$layout_classes['content'] = '';
 } else {
 	$layout_classes['container'] = 'flex-row';
 	$layout_classes['image'] = 'basis-1/2';
@@ -59,7 +55,7 @@ if ($layout == 'v') {
 }
 ?>
 
-<div <?php echo $anchor; ?> class="bb-card-block rounded-3xl p-4 mb-6" style="background-color: <?= get_field('style')['bg_color'] ?>;">
+<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl p-4 mb-6" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 	<a href="<?= $link['url'] ?>" class="flex gap-6 <?= $layout_classes['container'] ?>">
 
 		<?php if ($image): ?>
@@ -68,7 +64,7 @@ if ($layout == 'v') {
 			</div>
 		<?php endif; ?>
 
-		<div class=" <?= $layout_classes['content'] ?> space-y-2">
+		<div class="<?= $layout_classes['content'] ?> space-y-2">
 
 			<?php if ($theme || $format): ?>
 				<div class="uppercase text-base text-primary font-bold text-sm font-alt">

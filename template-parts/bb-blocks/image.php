@@ -1,43 +1,29 @@
 <?php
-$image = get_field('image');
-$size = 'full';
-$ratio_factor = .74; // height compared to a width of 1. Example 4:3 -> .75, or .74 to allow some leeway
-if ($image) :
-	$image_meta_data = wp_get_attachment_metadata($image);
-	if (($image_meta_data['width'] * $ratio_factor) > $image_meta_data['height']) {
-		$image_class = 'landscape';
-	} else {
-		$image_class = 'portrait';
-	}
-	$image_caption = wp_get_attachment_caption($image);
-?>
-<?php
-$width = get_field('options');
-if( $width == 'narrow' ) {
-	$width = 'max-w-2xl mx-auto';
+
+$image = get_field('image') ? get_field('image') : $args['image']['id'];
+$width = get_field('wide');
+
+$ratio_factor = 0.74; // height compared to a width of 1. Example 4:3 -> .75, or .74 to allow some leeway
+$image_caption = wp_get_attachment_caption($image);
+$image_descripton = get_post($image)->post_content;
+$image_meta_data = wp_get_attachment_metadata($image);
+
+$figure_classes = 'flex flex-col relative rounded-2xl';
+$image_classes = ['class' => "{$width} rounded-2xl w-full h-auto"];
+if ($image_meta_data['width'] * $ratio_factor < $image_meta_data['height']) {
+	$figure_classes = 'flex flex-col rounded-2xl relative justify-center bg-secondary overflow-hidden';
+	$image_classes = ['class' => "{$width} h-auto max-w-2xl mx-auto w-full"];
 }
+$figure_classes .= $image_caption ? '' : ' no_caption';
 ?>
-	<div class="acf-block-image <?php echo $width; ?>">
-		<?php if ($image_class == 'landscape') : ?>			
-			<figure class="relative my-2" role="group">
-				<?php echo wp_get_attachment_image($image, $size, "", ["class" => 'w-full h-auto']); ?>
-				<?php if ($image_caption) : ?>
-					<figcaption class="caption hidden lg:block absolute top-0 right-0 bg-secondary w-auto h-auto z-20 p-2 text-sm">
-						<?php echo esc_attr($image_caption); ?>
-					</figcaption>
-				<?php endif; ?>
-			</figure>
-		<?php else : ?>
-			<figure class="flex justify-center bg-secondary my-2" role="group">
-				<div class="relative">
-					<?php echo wp_get_attachment_image($image, $size, "", ["class" => 'h-auto max-w-2xl mx-auto w-full']); ?>
-					<?php if ($image_caption) : ?>
-						<figcaption class="block caption absolute top-0 right-0 bg-secondary w-auto h-auto z-20 p-2 text-sm">
-							<?php echo esc_attr($image_caption); ?>
-						</figcaption>
-					<?php endif; ?>
-				</div>
-			</figure>
+<div class="bb-image-block my-4 <?php echo $width; ?>">
+	<figure class="<?= $figure_classes ?>" role="group">
+		<?= wp_get_attachment_image($image, 'full', '', $image_classes) ?>
+		<?php if ($image_caption): ?>
+			<figcaption class="invisible flex absolute rounded-b-2xl absolute left-0 bottom-0 right-0 text-white bg-black w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all" >
+				<?= bb_icon('info') ?> <div><?= strip_tags($image_caption, ['a']) ?></div>
+			</figcaption>
 		<?php endif; ?>
-	</div>
-<?php endif; ?>
+	</figure>
+	<?= $image_descripton ?>
+</div>

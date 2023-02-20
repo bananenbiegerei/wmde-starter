@@ -1,5 +1,18 @@
 <?php
 
+/* Experiments with new way of declaring blocks in ACF v6.0 -------------------------------------*/
+add_action('init', function () {
+	register_block_type(__DIR__ . '/../blocks/custom-teasers-swiper');
+});
+
+add_filter('acf/settings/load_json', function ($paths) {
+	// remove original path (optional)
+	//unset($paths[0]);
+	$paths[] = get_stylesheet_directory() . '/blocks/custom-teasers-swiper/';
+	return $paths;
+});
+/* ----------------------------------------------------------------------------------------------*/
+
 // List all allowed block types here
 add_filter('allowed_block_types_all', function ($allowed_blocks) {
 	$blocks = [
@@ -8,6 +21,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks) {
 		//'core/image',
 		'core/column',
 		'core/columns',
+		'acf/custom-teasers-swiper',
 	];
 	// ACF Blocks loaded automatically...
 	$blocks = array_merge($blocks, bb_get_acf_blocknames());

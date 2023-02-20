@@ -1,28 +1,36 @@
-
 <?php if (!is_admin()): ?>
-<div class="bb-custom-teasers-swiper-block overflow-hidden" id="<?= $block['id'] ?>">
-	<h2><?= esc_html(get_field('headline')) ?></h2>
-	<div class="text-inherit"><?= get_field('description') ?></div>
+<div class="bb-custom-teasers-swiper-block px-10 pb-16 pt-16 " id="<?= $block['id'] ?>">
 
-	<div class="swiper-container">
+	<h2 class="text-5xl"><?= esc_html(get_field('headline')) ?></h2>
+
+	<div class="swiper-container relative">
+
+		<!-- Navigation -->
+		<div class="absolute -top-16 right-0 hidden lg:block">
+				<?= bb_icon('swiper-left', 'swiper-button-prev h-14 w-14 hover:text-transparent cursor-pointer') ?>
+				<div class="swiper-pagination inline-block text-3xl font-alt align-middle mx-2"></div>
+				<?= bb_icon('swiper-right', 'swiper-button-next h-14 w-14 hover:text-transparent cursor-pointer') ?>
+		</div>
+
 		<div class="swiper-wrapper">
 
 			<?php while (have_rows('slides')): ?>
 				<?php the_row(); ?>
-				<div class="swiper-slide bg-gray-100 rounded-3xl p-4 flex flex-col" style="height:unset"><!-- height unset to make all slides full height -->
+				<div class="swiper-slide rounded-3xl p-4 flex flex-col" style="height:unset; background-color: <?= get_sub_field('bg_color') ?>">
+					<!-- height unset to make all slides full height -->
 
 					<div>
 						<?= wp_get_attachment_image(get_sub_field('image'), [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']) ?>
 					</div>
 
 					<?php if ($headline = get_sub_field('headline')): ?>
-						<div class="text-xl">
+						<div class="text-xl mt-4">
 							<?= esc_html($headline) ?>
 						</div>
 					<?php endif; ?>
 
 					<?php if ($description = get_sub_field('description')): ?>
-						<div class="text-base">
+						<div class="text-base mt-4">
 							<?= esc_html($description) ?>
 						</div>
 					<?php endif; ?>
@@ -49,7 +57,7 @@
 				grabCursor: true,
 				draggable: true,
 				pagination: {
-						el: '.swiper-pagination',
+						el: '#<?= $block['id'] ?> .swiper-pagination',
 						type: 'fraction',
 				},
 				navigation: {
@@ -81,7 +89,7 @@
 	<div class="grid grid-cols-4 gap-4">
 	<?php while (have_rows('slides')): ?>
 		<?php the_row(); ?>
-		<div>
+		<div class="p-4 rounded-3xl" style=" background-color: <?= get_sub_field('bg_color') ?>">
 			<?= wp_get_attachment_image(get_sub_field('image'), [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']) ?>
 			<p class="text-xs"><b><?= get_sub_field('headline') ?></b><br/><?= get_sub_field('description') ?></p>
 		</div>

@@ -16,6 +16,9 @@
 /* ACF blocks */
 @import 'bb-blocks/*';
 
+/* ACF blocks */
+@import '../../blocks/**/*';
+
 /* Plugins overwrites */
 //@import 'plugin-overwrites/*';
 
@@ -31,6 +34,7 @@
 
 @import './components/icons';
 @import './components/buttons';
+@import './components/swiper';
 
 //@import './blocks/image';
 //@import './components/main-menu';
