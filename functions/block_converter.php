@@ -5,13 +5,12 @@ add_action('admin_menu', function () {
 
 function bb_block_converter_page()
 {
-	$p = get_post(55309); //52405); //55309);
+	$p = get_post(240); //52405); //55309);
 
 	$blocks = parse_blocks($p->post_content);
 	$new_blocks = [];
 
 	clog($blocks);
-	//return;
 	foreach ($blocks as $block) {
 		if ($block['blockName']) {
 			$new_blocks[] = bb_convert_block($block);
@@ -28,17 +27,18 @@ function bb_convert_block($block)
 {
 	switch ($block['blockName']) {
 		case 'core/heading':
-			var_dump(ltrim(explode('>', $block['innerHTML'])[0]));
+			preg_match('/<(h.)( id="(.*?)")?>/', $block['innerHTML'], $match);
 			$new_block = [
 				'blockName' => 'acf/heading',
 				'attrs' => [
 					'name' => 'acf/heading',
 					'data' => [
 						'field_6332f0b132592' => strip_tags($block['innerHTML']), // headline text
-						'field_6332f0c432593' => 'h?', // headline type,
-						'field_63ef9861a9a68' => '', // ID for anchor nav
-						'field_6399a788bde81' => 'default',
-						'field_63e3a8189c006' => '#ffffff',
+						'field_6332f0c432593' => $match[1], // headline type,
+						'field_63ef9861a9a68' => $match[3] ?? null, // ID for anchor nav
+						'field_6399a788bde81' => 'default', // size
+						'field_63f346930b9b5' => 0, // has_bg_color
+						'field_63e3a8189c006' => '#ffffff', // bg_color
 					],
 					'mode' => 'auto',
 				],

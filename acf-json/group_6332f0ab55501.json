@@ -102,7 +102,6 @@
                         "id": ""
                     },
                     "choices": {
-                        "default": "default",
                         "text-xs": "xs",
                         "text-base": "base",
                         "text-lg": "lg",
@@ -112,7 +111,7 @@
                         "text-3xl lg:text-4xl": "4xl",
                         "text-4xl text-5xl": "5xl"
                     },
-                    "default_value": "default : default",
+                    "default_value": "text-base",
                     "return_format": "value",
                     "translations": "copy_once",
                     "allow_null": 0,
@@ -187,5 +186,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676887811
+    "modified": 1676904125
 }
