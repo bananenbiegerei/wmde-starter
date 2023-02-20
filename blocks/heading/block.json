@@ -1,0 +1,13 @@
+{
+	"name": "acf/heading",
+	"title": "Headline",
+	"description": "Basic Block for Headlines",
+	"category": "wkmde-custom-blocks",
+	"icon": "heading",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "block.php"
+	},
+	"align": "full"
+}

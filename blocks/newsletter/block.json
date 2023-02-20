@@ -1,0 +1,13 @@
+{
+	"name": "acf/newsletter",
+	"title": "Newsletter Registration",
+	"description": "Newsletter Registration Form",
+	"category": "wkmde-custom-blocks",
+	"icon": "email",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "block.php"
+	},
+	"align": "full"
+}
