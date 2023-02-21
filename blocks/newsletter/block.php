@@ -1,17 +1,17 @@
 <div id="<?= $block['id'] ?>"
-	class="bb-newsletter-block rounded-3xl p-4 flex flex-col mb-6"
+	class="bb-newsletter-block rounded-3xl p-5 flex flex-col mb-10"
 	style="background-color: <?= get_field('bg_color') ?>;">
 
-		<div class="uppercase text-primary font-bold text-base font-alt mb-0">
+		<div class="uppercase text-primary font-bold font-alt text-sm">
 			<?= esc_html(get_field('heading')) ?>
 		</div>
 
-		<div class="font-alt font-light font-alt text-2xl text-inherit">
+		<div class="font-alt font-light font-alt text-2xl text-inherit mb-5">
 			<?= get_field('text') ?>
 		</div>
 
 		<form action="" method="post">
-			<div class="mt-6 flex flex-row gap-4">
+			<div class="flex flex-row gap-4  mb-3">
 				<input class="text-sm" type="text" name="email" placeholder="Email">
 				<label class="flex-shrink-0">
 					<input class="hidden" type="submit">
@@ -23,7 +23,7 @@
 				</div>
 		</form>
 
-		<div class="font-alt font-light font-sans text-xs text-inherit h-full flex items-end ">
+		<div class="font-alt font-light font-sans text-xs text-inherit h-full flex items-end">
 			<?= get_field('disclaimer') ?>
 		</div>
 
