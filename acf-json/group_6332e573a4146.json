@@ -4,8 +4,9 @@
     "fields": [
         {
             "key": "field_6332e57c9e5c2",
-            "label": "Paragraph",
+            "label": "Content",
             "name": "paragraph",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -15,8 +16,8 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
+            "translations": "translate",
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0,
@@ -24,8 +25,9 @@
         },
         {
             "key": "field_6332e7ddefe75",
-            "label": "Options",
-            "name": "options",
+            "label": "Size",
+            "name": "size",
+            "aria-label": "",
             "type": "button_group",
             "instructions": "",
             "required": 0,
@@ -36,16 +38,16 @@
                 "id": ""
             },
             "choices": {
-                "default": "Default",
-                "small": "Small",
-                "large": "Large",
-                "extra-large": "Extra"
+                "text-xs": "xs",
+                "text-base": "base",
+                "lg:text-2xl": "2xl",
+                "text-2xl lg:text-3xl": "3xl"
             },
-            "allow_null": 0,
-            "default_value": "",
-            "layout": "horizontal",
+            "default_value": "text-base",
             "return_format": "value",
-            "translations": "copy_once"
+            "translations": "copy_once",
+            "allow_null": 0,
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -66,5 +68,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676384306
+    "modified": 1676904112
 }
