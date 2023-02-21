@@ -84,6 +84,30 @@
             "layout": "horizontal",
             "return_format": "value",
             "translations": "copy_once"
+        },
+        {
+            "key": "field_63f4e878e6337",
+            "label": "Container Size",
+            "name": "container_size",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "container": "base",
+                "container-compressed": "compressed"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "translations": "copy_once",
+            "allow_null": 0,
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -101,8 +125,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": false,
+    "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676886663
+    "modified": 1676995401
 }

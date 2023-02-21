@@ -36,8 +36,8 @@ if (!empty($block['align'])) {
     <?php
     endwhile; ?>
 <?php endif; ?>
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> flex <?php echo $position; ?>">
-    
+<?php $size = get_field('container_size_container_size');?>
+<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> flex <?php echo $position; ?> <?php echo $size; ?>">
     <?php if ( get_sub_field( 'has_icon' ) == 1 ) : ?>
         <?php $link = get_field( 'link' ); ?>
         <?php if ( $link ) : ?>
