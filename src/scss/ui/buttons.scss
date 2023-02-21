@@ -44,26 +44,24 @@
 
 // Only Icon
 .btn-icon-only {
-	@apply rounded-full;
-
+	@apply rounded-full flex items-center justify-center p-1;
+	svg {
+		@apply h-auto;
+	}
 	&.btn-xs {
-		@apply p-1;
 	}
 
 	&.btn-sm {
-		@apply p-1.5;
 	}
 
 	&.btn {
-		@apply p-2;
+		@apply w-12 h-12;
 	}
 
 	&.btn-lg {
-		@apply p-2.5;
 	}
 
 	&.btn-xl {
-		@apply p-3;
 	}
 }
 
