@@ -56,8 +56,8 @@
                     "default_value": "",
                     "translations": "translate",
                     "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
+                    "toolbar": "basic",
+                    "media_upload": 0,
                     "delay": 0
                 }
             ]
@@ -344,5 +344,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676036812
+    "modified": 1676999330
 }
