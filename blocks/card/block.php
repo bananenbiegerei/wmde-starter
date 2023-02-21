@@ -25,12 +25,18 @@ if ($local_post_id = url_to_postid($link['url'])) {
 
 // Override if alt. versions are provided
 if (get_field('content')['alt_details']) {
-	$alt_theme = array_map(function ($a) {
-		return $a->name;
-	}, get_field('content')['theme']);
-	$alt_format = array_map(function ($a) {
-		return $a->name;
-	}, get_field('content')['format']);
+	$alt_theme = array_map(
+		function ($a) {
+			return $a->name;
+		},
+		get_field('content')['theme'] ? get_field('content')['theme'] : [],
+	);
+	$alt_format = array_map(
+		function ($a) {
+			return $a->name;
+		},
+		get_field('content')['format'] ? get_field('content')['format'] : [],
+	);
 	$theme = $alt_theme ? $alt_theme : $theme;
 	$format = $alt_format ? $alt_format : $format;
 	$text = get_field('content')['text'] ? get_field('content')['text'] : $text;
