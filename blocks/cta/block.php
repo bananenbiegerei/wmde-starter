@@ -15,9 +15,11 @@
 		<div class="flex flex-col">
 
 			<!-- Theme or format -->
+			<?php if ($meta): ?>
 			<div class="uppercase text-primary font-bold text-base font-alt mb-0">
 				<?= esc_html($meta->name) ?>
 			</div>
+			<?php endif; ?>
 
 			<!-- Title -->
 			<div class="font-alt text-3xl mb-4">
@@ -34,7 +36,7 @@
 				<div class="flex-shrink-0 text-xl">
 					<a class="button mr-8" href="<?= esc_attr(get_field('link')['url']) ?>">
 						<?= bb_icon('arrow-right') ?>
-						<?= esc_html(get_field('button')['link']['title']) ?>
+						<?= esc_html(get_field('button')['link']['title'] ?? '') ?>
 					</a>
 					</div>
 				<div>
