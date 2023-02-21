@@ -57,12 +57,29 @@ if ($layout == 'v') {
 
 <div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl p-4" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 	<a href="<?= $link['url'] ?>" class="flex gap-6 <?= $layout_classes['container'] ?>">
+		
+		<?php 
+			$image = get_post_thumbnail_id($local_post_id);
+			if ($image):
+				$post_type = get_post_type($local_post_id);
+				if ($post_type == 'projects') {
+				?>
+					<div class="<?= $layout_classes['image'] ?>">
+						<div class="rounded-xl aspect-video bg-gray-100 flex justify-center items-center">
+							<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => '']); ?>
+						</div>
+					</div>
+				<?php 
+				} else {
+				?>
+				<div class="<?= $layout_classes['image'] ?>">
+					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']); ?>
+				</div>
+				<?php 
+				}
+		endif; 
+		?>
 
-		<?php if ($image): ?>
-			<div class="<?= $layout_classes['image'] ?>">
-				<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']); ?>
-			</div>
-		<?php endif; ?>
 
 		<div class="<?= $layout_classes['content'] ?> space-y-2">
 
