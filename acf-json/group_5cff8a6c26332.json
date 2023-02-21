@@ -1,6 +1,6 @@
 {
     "key": "group_5cff8a6c26332",
-    "title": "Accordion",
+    "title": "Block: Accordion",
     "fields": [
         {
             "key": "field_5cff8f2d76b51",
@@ -16,16 +16,17 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "layout": "block",
+            "pagination": 0,
             "min": 1,
             "max": 0,
-            "layout": "block",
+            "collapsed": "",
             "button_label": "Add Accordion",
             "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5cff8f3f76b52",
-                    "label": "Accordion Title",
+                    "label": "Title",
                     "name": "acfb_accordion_title",
                     "aria-label": "",
                     "type": "text",
@@ -38,15 +39,16 @@
                         "id": ""
                     },
                     "default_value": "Accordion Title",
+                    "translations": "translate",
+                    "maxlength": "",
                     "placeholder": "Accordion Title",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
                     "parent_repeater": "field_5cff8f2d76b51"
                 },
                 {
                     "key": "field_5cff8f5376b53",
-                    "label": "Accordion Content",
+                    "label": "Content",
                     "name": "acfb_accordion_content",
                     "aria-label": "",
                     "type": "wysiwyg",
@@ -59,6 +61,7 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "translations": "translate",
                     "tabs": "all",
                     "toolbar": "full",
                     "media_upload": 0,
@@ -86,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676974506
+    "modified": 1676036805
 }

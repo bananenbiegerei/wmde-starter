@@ -1,13 +1,13 @@
 {
-    "key": "group_5d63f35dbfd92",
-    "title": "Block: Gallery Swiper",
+    "key": "group_632dac8eb77a5",
+    "title": "Block: Blockquote",
     "fields": [
         {
-            "key": "field_5fa3c6c1137db",
-            "label": "Headline",
-            "name": "headline",
+            "key": "field_632dac8f25165",
+            "label": "Text",
+            "name": "text",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,18 +17,17 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
             "maxlength": "",
-            "translations": "translate"
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         },
         {
-            "key": "field_5d63f3da44b8b",
-            "label": "Images",
-            "name": "images",
+            "key": "field_6332e3019911e",
+            "label": "Blury",
+            "name": "blury",
             "aria-label": "",
-            "type": "gallery",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -37,20 +36,11 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "translations": "copy_once",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "insert": "append",
-            "preview_size": "medium"
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -58,7 +48,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/gallery-swiper"
+                "value": "acf\/blockquote"
             }
         ]
     ],
@@ -71,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676636538
+    "modified": 1676036865
 }

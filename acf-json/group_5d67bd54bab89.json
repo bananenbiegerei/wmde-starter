@@ -1,70 +1,10 @@
 {
     "key": "group_5d67bd54bab89",
-    "title": "Swiper Facts",
+    "title": "Block: Facts",
     "fields": [
         {
-            "key": "field_5fa3ddeaaa7ca",
-            "label": "Headline and description",
-            "name": "headline_and_description",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5fa3de09aa7cb",
-                    "label": "Headline",
-                    "name": "headline",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "translations": "translate"
-                },
-                {
-                    "key": "field_5fa3dc4b75559",
-                    "label": "Description",
-                    "name": "description",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0,
-                    "translations": "translate"
-                }
-            ]
-        },
-        {
             "key": "field_5d67bd5800b31",
-            "label": "Facts Swiper",
+            "label": "Facts",
             "name": "facts",
             "aria-label": "",
             "type": "repeater",
@@ -76,86 +16,42 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5d67bdac00b32",
+            "layout": "block",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "collapsed": "field_5d67bdac00b32",
             "button_label": "Eintrag hinzufügen",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_5d67bfe0588cb",
-                    "label": "Title",
-                    "name": "title",
+                    "key": "field_63eb83faccb25",
+                    "label": "Value",
+                    "name": "value",
                     "aria-label": "",
-                    "type": "group",
+                    "type": "text",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5d67bdac00b32",
-                            "label": "Text",
-                            "name": "text",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5d67bff8588cc",
-                            "label": "Color",
-                            "name": "color",
-                            "aria-label": "",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "red": "Red",
-                                "blue": "Blue",
-                                "green": "Green",
-                                "yellow": "Yellow"
-                            },
-                            "default_value": "red",
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
-                        }
-                    ],
+                    "default_value": "",
+                    "translations": "translate",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
                     "parent_repeater": "field_5d67bd5800b31"
                 },
                 {
-                    "key": "field_5d67bdbd00b33",
+                    "key": "field_63eb8413ccb26",
                     "label": "Details",
                     "name": "details",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -165,10 +61,43 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "translations": "translate",
+                    "tabs": "visual",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_5d67bd5800b31"
+                },
+                {
+                    "key": "field_63eb8446ccb28",
+                    "label": "Shape",
+                    "name": "shape",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6"
+                    },
+                    "default_value": 1,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "translations": "copy_once",
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
                     "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": "br",
                     "parent_repeater": "field_5d67bd5800b31"
                 }
             ]
@@ -179,7 +108,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/facts-swiper"
+                "value": "acf\/facts"
             }
         ]
     ],
@@ -192,5 +121,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676974507
+    "modified": 1676383687
 }

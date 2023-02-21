@@ -6,7 +6,6 @@
             "key": "field_5d8de54e7ce94",
             "label": "Meta Infos",
             "name": "meta_infos",
-            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -16,6 +15,7 @@
                 "class": "",
                 "id": ""
             },
+            "aria-label": "",
             "collapsed": "",
             "min": 0,
             "max": 0,
@@ -27,7 +27,6 @@
                     "key": "field_5d8de55b7ce95",
                     "label": "Label",
                     "name": "label",
-                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -37,6 +36,7 @@
                         "class": "",
                         "id": ""
                     },
+                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -48,7 +48,6 @@
                     "key": "field_5d8de5657ce96",
                     "label": "Text",
                     "name": "text",
-                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -58,6 +57,7 @@
                         "class": "",
                         "id": ""
                     },
+                    "aria-label": "",
                     "default_value": "",
                     "tabs": "all",
                     "toolbar": "basic",
@@ -78,7 +78,7 @@
         ]
     ],
     "menu_order": 1,
-    "position": "acf_after_title",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -86,5 +86,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676974507
+    "modified": 1676542704
 }

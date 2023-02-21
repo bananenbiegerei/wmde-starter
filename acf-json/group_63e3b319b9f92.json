@@ -1,0 +1,108 @@
+{
+    "key": "group_63e3b319b9f92",
+    "title": "Clone Library",
+    "fields": [
+        {
+            "key": "field_63e3b4bc78fbb",
+            "label": "Colors",
+            "name": "colors",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "primary": "primary",
+                "secondary": "secondary",
+                "red": "red",
+                "green": "green",
+                "yellow": "yellow",
+                "custom": "custom"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "translations": "copy_once",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_63e3ad06c8390",
+            "label": "Size",
+            "name": "size",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "base": "base",
+                "xs": "xs",
+                "sm": "sm",
+                "lg": "lg",
+                "xl": "xl"
+            },
+            "default_value": "base",
+            "return_format": "value",
+            "translations": "copy_once",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_63e3af2bd0a99",
+            "label": "Position",
+            "name": "position",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "justify-start": "left",
+                "justify-center": "center",
+                "justify-end": "right"
+            },
+            "allow_null": 0,
+            "default_value": "justify-start : left",
+            "layout": "horizontal",
+            "return_format": "value",
+            "translations": "copy_once"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1676886663
+}

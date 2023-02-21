@@ -1,13 +1,13 @@
 {
-    "key": "group_5d63f35dbfd92",
-    "title": "Block: Gallery Swiper",
+    "key": "group_6332e573a4146",
+    "title": "Block: Paragraph",
     "fields": [
         {
-            "key": "field_5fa3c6c1137db",
-            "label": "Headline",
-            "name": "headline",
+            "key": "field_6332e57c9e5c2",
+            "label": "Content",
+            "name": "paragraph",
             "aria-label": "",
-            "type": "text",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,18 +17,18 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "translations": "translate"
+            "translations": "translate",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         },
         {
-            "key": "field_5d63f3da44b8b",
-            "label": "Images",
-            "name": "images",
+            "key": "field_6332e7ddefe75",
+            "label": "Size",
+            "name": "size",
             "aria-label": "",
-            "type": "gallery",
+            "type": "button_group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -37,20 +37,17 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
+            "choices": {
+                "text-xs": "xs",
+                "text-base": "base",
+                "lg:text-2xl": "2xl",
+                "text-2xl lg:text-3xl": "3xl"
+            },
+            "default_value": "text-base",
+            "return_format": "value",
             "translations": "copy_once",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "insert": "append",
-            "preview_size": "medium"
+            "allow_null": 0,
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -58,7 +55,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/gallery-swiper"
+                "value": "acf\/paragraph"
             }
         ]
     ],
@@ -71,5 +68,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676636538
+    "modified": 1676904112
 }

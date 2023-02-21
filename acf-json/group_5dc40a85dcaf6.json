@@ -1,6 +1,6 @@
 {
     "key": "group_5dc40a85dcaf6",
-    "title": "Responsive Table",
+    "title": "Block: Responsive Table",
     "fields": [
         {
             "key": "field_608a9ed624949",
@@ -86,6 +86,7 @@
                     "layout": "row",
                     "button_label": "Spalte hinzufügen",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_5dc4196bacebf",
                     "sub_fields": [
                         {
                             "key": "field_608aa553562b2",
@@ -131,8 +132,7 @@
                             "translations": "translate",
                             "parent_repeater": "field_5dc41c6761c98"
                         }
-                    ],
-                    "parent_repeater": "field_5dc4196bacebf"
+                    ]
                 }
             ]
         }
@@ -155,5 +155,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676974507
+    "modified": 1676281605
 }
