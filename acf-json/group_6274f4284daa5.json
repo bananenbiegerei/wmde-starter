@@ -1,11 +1,11 @@
 {
-    "key": "group_63e394f5d0577",
-    "title": "Block: Newsletter Registration",
+    "key": "group_6274f4284daa5",
+    "title": "Card Stroke",
     "fields": [
         {
-            "key": "field_63e39536d648d",
-            "label": "Heading",
-            "name": "heading",
+            "key": "field_6274f4459555f",
+            "label": "label",
+            "name": "label",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -17,60 +17,18 @@
                 "id": ""
             },
             "default_value": "",
-            "translations": "translate",
-            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": ""
+            "append": "",
+            "maxlength": "",
+            "translations": "translate"
         },
         {
-            "key": "field_63e39572d648e",
-            "label": "Text",
-            "name": "text",
+            "key": "field_6274f44b95560",
+            "label": "Headline",
+            "name": "headline",
             "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "translations": "translate",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_63e394f6d648c",
-            "label": "Disclaimer",
-            "name": "disclaimer",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "* Indem ich meine E-Mail-Adresse eintrage, erkläre ich mich damit einverstanden, dass Wikimedia mich aufgrund meiner Einwilligung (Art. 6 Abs. 1 lit. a) DSGVO) per E-Mail bis auf Widerruf über Aktuelles informiert und die hierzu erforderlichen Datenverarbeitungen vornimmt. Ich kann meine Einwilligung jederzeit mit Wirkung für die Zukunft gegenüber Wikimedia widerrufen. Nähere Informationen zur Datenverarbeitung bei Wikimedia und zu meinen Rechten finde ich unter <a href=\"https:\/\/www.wikimedia.de\/datenschutz\/\">wikimedia.de\/datenschutz<\/a>.",
-            "translations": "translate",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_63e3a8f4440e2",
-            "label": "Background Color",
-            "name": "bg_color",
-            "aria-label": "",
-            "type": "color_picker",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -80,8 +38,48 @@
                 "id": ""
             },
             "default_value": "",
-            "enable_opacity": 0,
-            "return_format": "string",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "translations": "translate"
+        },
+        {
+            "key": "field_6274f45a95561",
+            "label": "Content",
+            "name": "content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "translations": "translate"
+        },
+        {
+            "key": "field_6274f46d95562",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
             "translations": "copy_once"
         }
     ],
@@ -90,7 +88,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/newsletter"
+                "value": "acf\/card-stroke"
             }
         ]
     ],
@@ -103,5 +101,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676036819
+    "modified": 1676974506
 }

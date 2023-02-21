@@ -1,13 +1,13 @@
 {
-    "key": "group_632dac8eb77a5",
-    "title": "Block: Blockquote",
+    "key": "group_602d5515692ea",
+    "title": "Youtube Livestream Block",
     "fields": [
         {
-            "key": "field_632dac8f25165",
-            "label": "Text",
-            "name": "text",
+            "key": "field_602d5669a2b68",
+            "label": "Headline",
+            "name": "headline",
             "aria-label": "",
-            "type": "textarea",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,30 +17,30 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "rows": "",
             "placeholder": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_6332e3019911e",
-            "label": "Blury",
-            "name": "blury",
+            "key": "field_602d553ac25c7",
+            "label": "Embed Code",
+            "name": "embed_code",
             "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
+            "type": "textarea",
+            "instructions": "Youtube embed code einfügen. Bitte im erweiterten Datenschutz Modus, das ist wichtig.",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -48,7 +48,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/blockquote"
+                "value": "acf\/youtube-livestream"
             }
         ]
     ],
@@ -61,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676036865
+    "modified": 1676974507
 }

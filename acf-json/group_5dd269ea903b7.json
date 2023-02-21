@@ -1,11 +1,11 @@
 {
-    "key": "group_5d8b4dc251c5a",
-    "title": "Projects",
+    "key": "group_5dd269ea903b7",
+    "title": "Post custom authors",
     "fields": [
         {
-            "key": "field_5d8de54e7ce94",
-            "label": "Meta Infos",
-            "name": "meta_infos",
+            "key": "field_5dd269ef820be",
+            "label": "Custom Authors",
+            "name": "custom_authors",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -20,13 +20,13 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "Eintrag hinzufügen",
+            "button_label": "Add author",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_5d8de55b7ce95",
-                    "label": "Label",
-                    "name": "label",
+                    "key": "field_5dd269ff820bf",
+                    "label": "Author",
+                    "name": "author",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -42,28 +42,7 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": "",
-                    "parent_repeater": "field_5d8de54e7ce94"
-                },
-                {
-                    "key": "field_5d8de5657ce96",
-                    "label": "Text",
-                    "name": "text",
-                    "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0,
-                    "parent_repeater": "field_5d8de54e7ce94"
+                    "parent_repeater": "field_5dd269ef820be"
                 }
             ]
         }
@@ -73,18 +52,25 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "projects"
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "unlock-blog"
             }
         ]
     ],
-    "menu_order": 1,
-    "position": "acf_after_title",
+    "menu_order": 0,
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
+    "show_in_rest": false,
     "modified": 1676974507
 }

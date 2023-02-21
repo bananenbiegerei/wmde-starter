@@ -1,33 +1,30 @@
 {
-    "key": "group_63ee075fc78cc",
-    "title": "Block: Spacer",
+    "key": "group_5d82273ad6670",
+    "title": "Page Teasers Block",
     "fields": [
         {
-            "key": "field_63ee0802c943c",
-            "label": "Size",
-            "name": "size",
+            "key": "field_5d82274903884",
+            "label": "Pages",
+            "name": "pages",
             "aria-label": "",
-            "type": "button_group",
+            "type": "post_object",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "xs": "xs",
-                "sm": "sm",
-                "base": "base",
-                "lg": "lg",
-                "xl": "xl"
-            },
-            "default_value": "base",
-            "return_format": "value",
-            "translations": "copy_once",
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
             "allow_null": 0,
-            "layout": "horizontal"
+            "multiple": 1,
+            "return_format": "object",
+            "translations": "copy_once",
+            "ui": 1
         }
     ],
     "location": [
@@ -35,7 +32,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/spacer"
+                "value": "acf\/page-teasers"
             }
         ]
     ],
@@ -48,5 +45,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676888235
+    "modified": 1676974506
 }

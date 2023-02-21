@@ -1,13 +1,13 @@
 {
-    "key": "group_63ea0e76b2277",
-    "title": "Block: Testimonials",
+    "key": "group_5eb194b9eee6a",
+    "title": "Custom Path",
     "fields": [
         {
-            "key": "field_63ea0e77cc52e",
-            "label": "Testimonials",
-            "name": "testimonials",
+            "key": "field_5eb194bfbb264",
+            "label": "Path",
+            "name": "path",
             "aria-label": "",
-            "type": "post_object",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,15 +16,11 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "testimonials"
-            ],
-            "taxonomy": "",
-            "return_format": "object",
-            "multiple": 1,
-            "translations": "copy_once",
-            "allow_null": 0,
-            "ui": 1
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -32,7 +28,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/testimonials-swiper"
+                "value": "acf\/custom-path"
             }
         ]
     ],
@@ -44,6 +40,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1676283556
+    "show_in_rest": false,
+    "modified": 1676974506
 }

@@ -1,9 +1,9 @@
 {
-    "key": "group_5d63f35dbfd92",
-    "title": "Swiper Gallery",
+    "key": "group_5fa2bbc118c3d",
+    "title": "Partials",
     "fields": [
         {
-            "key": "field_5fa2bc2e23c73",
+            "key": "field_5fa2bbc7bea49",
             "label": "Headline and Description",
             "name": "headline_and_description",
             "aria-label": "",
@@ -19,7 +19,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5fa3c6c1137db",
+                    "key": "field_5fa2bbe9bea4a",
                     "label": "Headline",
                     "name": "headline",
                     "aria-label": "",
@@ -40,7 +40,7 @@
                     "translations": "translate"
                 },
                 {
-                    "key": "field_5fa3c6c8137dc",
+                    "key": "field_5fa2bbf1bea4b",
                     "label": "Description",
                     "name": "description",
                     "aria-label": "",
@@ -61,42 +61,14 @@
                     "translations": "translate"
                 }
             ]
-        },
-        {
-            "key": "field_5d63f3da44b8b",
-            "label": "Images Swiper",
-            "name": "images",
-            "aria-label": "",
-            "type": "gallery",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "insert": "append",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
         }
     ],
     "location": [
         [
             {
-                "param": "block",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf\/gallery-swiper"
+                "value": "post"
             }
         ]
     ],
@@ -108,6 +80,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": 0,
+    "show_in_rest": false,
     "modified": 1676974507
 }
