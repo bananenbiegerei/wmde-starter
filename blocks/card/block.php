@@ -7,12 +7,15 @@ $text = '';
 $image = false;
 $theme = [];
 $format = [];
+$post_type = false;
 
 // See if there's a post with this URL
 if ($local_post_id = url_to_postid($link['url'])) {
 	$local_post = get_post($local_post_id);
 	$text = $local_post->post_excerpt;
-	$image = get_post_thumbnail_id($local_post_id); // Get themes and formats
+	$image = get_post_thumbnail_id($local_post_id);
+	$post_type = get_post_type($local_post_id);
+	// Get themes and formats
 	foreach (wp_get_post_terms($local_post_id, ['format', 'theme']) as $term) {
 		if ($term->taxonomy == 'format') {
 			$format[] = $term->name;
@@ -63,29 +66,18 @@ if ($layout == 'v') {
 
 <div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl p-4" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 	<a href="<?= $link['url'] ?>" class="flex gap-6 <?= $layout_classes['container'] ?>">
-		
-		<?php 
-			$image = get_post_thumbnail_id($local_post_id);
-			if ($image):
-				$post_type = get_post_type($local_post_id);
-				if ($post_type == 'projects') {
-				?>
-					<div class="<?= $layout_classes['image'] ?>">
-						<div class="rounded-xl aspect-video bg-gray-100/80 flex justify-center items-center p-3">
-							<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-contain max-h-32']); ?>
-						</div>
-					</div>
-				<?php 
-				} else {
-				?>
-				<div class="<?= $layout_classes['image'] ?>">
-					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']); ?>
-				</div>
-				<?php 
-				}
-		endif; 
-		?>
 
+  	<?php if ($post_type == 'projects'): ?>
+			<div class="<?= $layout_classes['image'] ?>">
+				<div class="rounded-xl aspect-video bg-gray-100/80 flex justify-center items-center p-3">
+					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-contain max-h-32']); ?>
+				</div>
+			</div>
+		<?php else: ?>
+			<div class="<?= $layout_classes['image'] ?>">
+				<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']); ?>
+			</div>
+		<?php endif; ?>
 
 		<div class="<?= $layout_classes['content'] ?> space-y-2">
 

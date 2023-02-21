@@ -1,9 +1,9 @@
 {
 	"name": "acf/facts",
-	"title": "Facts Swiper",
+	"title": "Facts",
 	"description": "A list of facts",
 	"category": "wkmde-custom-blocks",
-	"icon": "slides",
+	"icon": "info",
 	"keywords": [],
 	"acf": {
 		"mode": "false",
