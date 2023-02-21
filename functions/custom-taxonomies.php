@@ -41,7 +41,7 @@ register_taxonomy('team_category', 'team', [
 
 register_taxonomy(
 	'format',
-	['post', 'page'],
+	['post', 'page', 'projects'],
 	[
 		'labels' => [
 			'name' => __('Formats', BB_TEXT_DOMAIN),
@@ -62,11 +62,11 @@ register_taxonomy(
 
 register_taxonomy(
 	'theme',
-	['post', 'page'],
+	['post', 'page', 'projects'],
 	[
 		'labels' => [
-			'name' => __('Themes', BB_TEXT_DOMAIN),
-			'singular_name' => __('Theme', BB_TEXT_DOMAIN),
+			'name' => __('Thema', BB_TEXT_DOMAIN),
+			'singular_name' => __('Themen', BB_TEXT_DOMAIN),
 		],
 		'public' => true,
 		'publicly_queryable' => true,
