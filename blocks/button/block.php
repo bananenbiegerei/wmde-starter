@@ -36,7 +36,6 @@ if (!empty($block['align'])) {
     <?php
     endwhile; ?>
 <?php endif; ?>
-<<<<<<< HEAD:template-parts/bb-blocks/button.php
 <div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> flex <?php echo $position; ?>">
     
     <?php if ( get_sub_field( 'has_icon' ) == 1 ) : ?>
@@ -57,13 +56,3 @@ if (!empty($block['align'])) {
     <?php endif; ?>
     <?php the_sub_field( 'select_icon' ); ?>
 </div>
-=======
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($classes); ?> flex <?php echo $position; ?>">
-    <?php $link = get_field('link'); ?>
-    <?php if ($link): ?>
-        <a class="btn btn-<?php echo $size; ?> <?php echo $style; ?> btn-<?php echo $color; ?>" href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr(
-	$link['target'],
-); ?>"><?php echo esc_html($link['title']); ?></a>
-    <?php endif; ?>
-</div>
->>>>>>> 1e427664ddc2590dc1be1efba0cc2fb67fb2898d:blocks/button/block.php
