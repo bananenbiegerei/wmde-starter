@@ -12,8 +12,8 @@
 
 <?php if (!is_admin()): ?>
 <div class="bb-projects-swiper-block <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
-	<div class="flex">
-		<h2 class="text-5xl flex-1"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
+	<div class="flex mb-5">
+		<h2 class="text-5xl flex-1 text-primary"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
 		<!-- Navigation -->
 		<div class="relative hidden lg:block">
 			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>

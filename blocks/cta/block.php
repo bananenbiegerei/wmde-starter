@@ -24,9 +24,7 @@
 				
 				<!-- Title -->
 				<?php if( get_field('content')['title'] ): ?>
-					<h2 class="text-3xl pr-5">
-						<?= get_field('content')['title']; ?>
-					</h2>
+					<?= get_field('content')['title']; ?>
 				<?php endif; ?>
 			</div>
 			
