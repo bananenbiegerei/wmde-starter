@@ -1,5 +1,5 @@
 </main>
-<footer class="bg-white" aria-labelledby="footer-heading">
+<footer class="bg-white mt-36" aria-labelledby="footer-heading">
 	<h2 id="footer-heading" class="sr-only">Footer</h2>
 	<div class="border-t-2 border-b-2 border-b-gray-100 border-primary-600 py-8">
 		<div class="container lg:flex lg:gap-20">
