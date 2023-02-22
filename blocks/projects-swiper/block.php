@@ -11,7 +11,7 @@
 <?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>
 
 <?php if (!is_admin()): ?>
-<div class="bb-projects-swiper-block container <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
+<div class="bb-projects-swiper-block <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
 	<div class="flex">
 		<h2 class="text-5xl flex-1"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
 		<!-- Navigation -->
