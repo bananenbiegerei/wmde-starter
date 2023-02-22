@@ -15,9 +15,9 @@
 				<input class="text-sm" type="text" name="email" placeholder="Email">
 				<label class="flex-shrink-0">
 					<input class="hidden" type="submit">
-					<span class="button inline-block text-lg">
-						<?= _e('Register', BB_TEXT_DOMAIN) ?>
+					<span class="btn btn-lg btn-icon-left">
 						<?= bb_icon('arrow-right') ?>
+						<?= _e('Register', BB_TEXT_DOMAIN) ?>
 					</span>
 				</label>
 				</div>

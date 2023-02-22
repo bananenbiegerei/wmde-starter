@@ -31,3 +31,9 @@ p {
 a.link {
 	@apply underline hover:text-primary-300 transition;
 }
+.bb-cta-block,
+.bb-newsletter-block {
+	em {
+		@apply bg-primary text-white not-italic px-1;
+	}
+}

@@ -12,7 +12,7 @@
 		<?php endif; ?>
 
 		<!-- Content -->
-		<div class="flex flex-col justify-between space-y-5">
+		<div class="flex flex-col justify-between space-y-5 text-primary">
 
 			<div>
 				<!-- Theme or format -->
@@ -25,7 +25,7 @@
 				<!-- Title -->
 				<?php if( get_field('content')['title'] ): ?>
 					<h2 class="text-3xl pr-5">
-						<?= esc_html(get_field('content')['title']) ?>
+						<?= get_field('content')['title']; ?>
 					</h2>
 				<?php endif; ?>
 			</div>
