@@ -101,7 +101,7 @@
             },
             "choices": {
                 "container": "base",
-                "container-compressed": "compressed"
+                "container-ten-cols": "compressed"
             },
             "default_value": "",
             "return_format": "value",

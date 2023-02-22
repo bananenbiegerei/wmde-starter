@@ -98,4 +98,4 @@ $site_description = get_bloginfo('description');
     <?php get_template_part('template-parts/header-bottom'); ?>
     
 
-    <main class="main-content min-h-screen mt-16">
+    <main class="main-content min-h-screen">

@@ -23,4 +23,12 @@
 	.dropdown-toggle {
 		@apply inline-flex items-center text-base py-1 px-2 hover:bg-transparent rounded transition;
 	}
+	&.breadcrumbs {
+		@apply gap-0;
+		li {
+			a {
+				@apply px-1 font-alt font-normal;
+			}
+		}
+	}
 }
