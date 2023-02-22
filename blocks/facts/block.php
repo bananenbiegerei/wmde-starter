@@ -17,10 +17,12 @@ $aspect_ratios = [
 		<?php $img = str_replace('%', get_sub_field('shape'), $shape_img); ?>
 		<?php $aspect_ratio = $aspect_ratios[get_sub_field('shape')]; ?>
 		<div
-			class="h-64 bg-contain bg-no-repeat grid place-items-center"
+			class="h-64 bg-contain bg-no-repeat text-primary flex justify-center items-center font-alt"
 			style="background-image: url(<?= $img ?>); aspect-ratio: <?= $aspect_ratio ?>">
-				<div class="text-primary">
-					<div class="text-6xl text-center" style="line-height: 1em"><?= get_sub_field('value') ?></div>
+				<div class="w-4/5 text-center leading-none">
+					<div class="mb-0" style="font-size: 3vw;">
+						<?= get_sub_field('value') ?>
+					</div>
 					<div class="text-base"><?= get_sub_field('details') ?></div>
 			</div>
 		</div>
