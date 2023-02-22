@@ -1,70 +1,86 @@
 <?php $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('meta')['format']; ?>
 
-<div id="<?= $block['id'] ?>" class="bb-cta-block rounded-3xl p-4" style="background-color: <?= get_field('style')['bg_color'] ?>;">
+<div id="<?= $block['id'] ?>" class="bb-cta-block rounded-3xl p-5" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 
 	<div class="flex flex-wrap sm:flex-nowrap gap-8 h-full">
 
 		<!-- Image -->
 		<?php if (get_field('style')['image']): ?>
 			<div class="basis-full sm:basis-1/4 flex-shrink-0">
-				<?php echo wp_get_attachment_image(get_field('style')['image'], [400, 0], false, ['class' => 'rounded-2xl aspect-video sm:aspect-square object-cover min-w-full']); ?>
+				<?php echo wp_get_attachment_image(get_field('style')['image'], 'medium', false, ['class' => 'relative -translate-x-5 -translate-y-5 rounded-tl-3xl rounded-br-3xl']); ?>
 			</div>
 		<?php endif; ?>
 
 		<!-- Content -->
-		<div class="flex flex-col">
+		<div class="flex flex-col justify-between space-y-5">
 
-			<!-- Theme or format -->
-			<?php if ($meta): ?>
-			<div class="uppercase text-primary font-bold text-base font-alt mb-0">
-				<?= esc_html($meta->name) ?>
+			<div>
+				<!-- Theme or format -->
+				<?php if ($meta): ?>
+				<div class="uppercase text-primary font-bold text-base font-alt">
+					<?= esc_html($meta->name) ?>
+				</div>
+				<?php endif; ?>
+				
+				<!-- Title -->
+				<?php if( get_field('content')['title'] ): ?>
+					<h2 class="text-3xl pr-5">
+						<?= esc_html(get_field('content')['title']) ?>
+					</h2>
+				<?php endif; ?>
 			</div>
-			<?php endif; ?>
-
-			<!-- Title -->
-			<div class="font-alt text-3xl mb-4">
-				<?= esc_html(get_field('content')['title']) ?>
-			</div>
+			
 
 			<!-- Text -->
-			<div class="font-alt font-light font-sans text-2xl text-inherit flex-grow">
-				<?= get_field('content')['text'] ?>
-			</div>
+			<?php if( get_field('content')['text'] ): ?>
+				<div class="font-alt font-light font-sans text-2xl text-inherit flex-grow pr-5 pb-10">
+					<?= get_field('content')['text'] ?>
+				</div>
+			<?php endif; ?>
+			
 
 			<!-- Button and extra info -->
-			<div class="mt-6 mb-0 sm:mb-2 flex flex-wrap gap-y-8">
-				<div class="flex-shrink-0 text-xl">
-					<a class="button mr-8" href="<?= esc_attr(get_field('link')['url']) ?>">
-						<?= bb_icon('arrow-right') ?>
-						<?= esc_html(get_field('button')['link']['title'] ?? '') ?>
-					</a>
-					</div>
-				<div>
-					<span class="text-xl"><?= esc_html(get_field('button')['link_meta']) ?></span>
-				</div>
+			<div>
+				<?php if ( have_rows( 'button' ) ) : ?>
+					<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+						<?php $link = get_sub_field( 'link' ); ?>
+						<?php if ( $link ) : ?>
+							<a class="btn btn-hollow -translate-y-5" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
+							<?= bb_icon('arrow-right'); ?> <?php echo esc_html( $link['title'] ); ?>
+							</a>
+						<?php endif; ?>
+						<?php the_sub_field( 'link_meta' ); ?>
+					<?php endwhile; ?>
+				<?php endif; ?>
 			</div>
-
 		</div>
 	</div>
 
 	<!-- Related -->
-	<?php if (have_rows('related')): ?>
-		<div class="flex gap-4 sm:gap-5 flex-wrap pb-2 mt-6 sm:mt-0">
-			<?php while (have_rows('related')): ?>
-				<?php the_row(); ?>
-
-				<div class="sm:mt-9 sm:basis-1/4">
-					<a href="<?= esc_attr(get_sub_field('link')['url']) ?>">
-						<div class="uppercase font-bold text-lg mb-4 font-alt">
-							<?= esc_html(get_sub_field('link')['title']) ?>
-						</div>
-						<div class="text-black text-base font-sans">
-							<?= esc_html(get_sub_field('description')) ?>
-						</div>
-					</a>
-				</div>
-
-			<?php endwhile; ?>
+	<?php $related = get_field( 'related' ); ?>
+	<?php if ( $related ) : ?>
+		<div class="lg:grid lg:grid-cols-3 gap-10 p-10 pb-5">
+		<?php foreach ( $related as $related ) : ?>
+			<?php setup_postdata ( $related ); ?>
+			<div>
+				<?php
+					$terms = get_the_terms( $related->ID, 'theme' );
+					if ( $terms && ! is_wp_error( $terms ) ) :
+						$term_names = array();
+						foreach ( $terms as $term ) {
+							$term_names[] = $term->name;
+						}
+						echo '<div class="uppercase text-primary font-bold text-base font-alt">' . implode( ', ', $term_names ) . '</div>';
+					endif;
+				?>
+			<a href="<?php the_permalink(); ?>">
+				<h3><?php echo get_the_title($related->ID); ?></h3>
+			</a>
+			</div>
+		<?php endforeach; ?>
 		</div>
+		<?php wp_reset_postdata(); ?>
 	<?php endif; ?>
+
+
 </div>
