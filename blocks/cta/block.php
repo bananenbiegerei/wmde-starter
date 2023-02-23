@@ -4,7 +4,9 @@
 	<!-- Image -->
 	<?php if (get_field('style')['image']): ?>
 		<div class="col-span-4">
-			<?php echo wp_get_attachment_image(get_field('style')['image'], 'medium', false, ['class' => 'relative -translate-x-10 -translate-y-10 rounded-tl-3xl rounded-br-3xl']); ?>
+			<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 -translate-y-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
+				<?php echo wp_get_attachment_image(get_field('style')['image'], 'medium', false, ['class' => 'w-full h-full object-cover']); ?>
+			</div>
 		</div>
 		<div class="col-span-8 flex flex-col">
 			<div>
@@ -30,16 +32,25 @@
 			<?php endif; ?>
 			<!-- Button and extra info -->
 			<div class="flex-1 flex items-end pb-10">
-				<?php if ( have_rows( 'button' ) ) : ?>
-					<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-						<?php $link = get_sub_field( 'link' ); ?>
-						<?php if ( $link ) : ?>
-							<a class="btn btn-icon-left" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
-							<?= bb_icon('arrow-right'); ?> <?php echo esc_html( $link['title'] ); ?>
-							</a>
-						<?php endif; ?>
-						<?php the_sub_field( 'link_meta' ); ?>
-					<?php endwhile; ?>
+				<?php $link = get_field( 'cta_button_link' ); ?>
+				<?php if ( $link ) : ?>
+					<?php if ( have_rows( 'cta_button_display' ) ) : ?>
+						<?php while ( have_rows( 'cta_button_display' ) ) : the_row(); ?>
+							<a class="btn btn-icon-left <?php the_sub_field( 'style' ); ?> <?php the_sub_field( 'size' ); ?>" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
+							<?php if ( have_rows( 'icon' ) ) : ?>
+								<?php while ( have_rows( 'icon' ) ) : the_row(); ?>
+									<?php if ( get_sub_field( 'has_icon' ) == 1 ) : ?>
+										<?php $icon = get_sub_field( 'select_icon' ); ?>
+										<?=bb_icon('arrow-right'); ?>
+										<?php echo esc_html( $link['title'] ); ?>
+									<?php else : ?>
+										<?php echo esc_html( $link['title'] ); ?>
+									<?php endif; ?>
+								<?php endwhile; ?>
+							<?php endif; ?>
+							</a>							
+						<?php endwhile; ?>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 		</div>
