@@ -21,7 +21,7 @@
 		  </div>
 		  <div class="relative flex justify-center container grid grid-cols-12">
 				<div class="col-span-8 col-start-3">
-					<div class="aspect-video">
+					<div class="aspect-w-16 aspect-h-9">
 						<?php the_post_thumbnail('large', array('class' => 'rounded-3xl w-full h-full oject-cover')); ?>
 					</div>
 				</div>
@@ -42,8 +42,9 @@
 		  </div>
 	  </div>
 	<?php endif; ?>
+	
 	<div class="container grid grid-cols-12 pt-10">
-		<div class="col-span-8 col-start-3">
+		<div class="col-span-12">
 			<?php the_content(); ?>
 		</div>
 	</div>

@@ -101,7 +101,7 @@
             },
             "choices": {
                 "container": "base",
-                "container-ten-cols": "compressed"
+                "container-compressed": "compressed"
             },
             "default_value": "",
             "return_format": "value",
@@ -128,5 +128,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676995401
+    "modified": 1677157855
 }

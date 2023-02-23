@@ -20,7 +20,7 @@
 					<!-- height unset to make all slides full height -->
 
 					<div>
-						<?= wp_get_attachment_image(get_sub_field('image'), [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']) ?>
+						<?= wp_get_attachment_image(get_sub_field('image'), [400, 0], false, ['class' => 'rounded-2xl aspect-w-16 aspect-h-9 object-cover min-w-full']) ?>
 					</div>
 
 					<?php if ($headline = get_sub_field('headline')): ?>
@@ -90,7 +90,7 @@
 	<?php while (have_rows('slides')): ?>
 		<?php the_row(); ?>
 		<div class="p-4 rounded-3xl" style=" background-color: <?= get_sub_field('bg_color') ?>">
-			<?= wp_get_attachment_image(get_sub_field('image'), [400, 0], false, ['class' => 'rounded-2xl aspect-video object-cover min-w-full']) ?>
+			<?= wp_get_attachment_image(get_sub_field('image'), [400, 0], false, ['class' => 'rounded-2xl aspect-w-16 aspect-h-9 object-cover min-w-full']) ?>
 			<p class="text-xs"><b><?= get_sub_field('headline') ?></b><br/><?= get_sub_field('description') ?></p>
 		</div>
 	<?php endwhile; ?>
