@@ -69,8 +69,8 @@ if ($layout == 'v') {
 
   	<?php if ($post_type == 'projects'): ?>
 			<div class="<?= $layout_classes['image'] ?>">
-				<div class="rounded-xl aspect-video bg-gray-100/80 flex justify-center items-center p-3">
-					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-contain max-h-32']); ?>
+				<div class="rounded-xl aspect-video bg-gray-100/80 flex justify-center items-center p-5">
+					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-contain w-full h-full max-h-32']); ?>
 				</div>
 			</div>
 		<?php else: ?>

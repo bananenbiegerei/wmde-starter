@@ -15,7 +15,7 @@
 	<div class="flex mb-5">
 		<h2 class="text-5xl flex-1 text-primary"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
 		<!-- Navigation -->
-		<div class="relative hidden lg:block">
+		<div class="relative hidden lg:block space-x-2">
 			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
 			<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-hollow cursor-pointer') ?>
 		</div>
@@ -27,9 +27,9 @@
 			<div class="swiper-slide rounded-2xl p-5 <?= $slide_bg ?> self-stretch"><!-- Slide size defined in block SCSS -->
 				<a class="block flex flex-col space-y-5" href="<?php echo get_post_permalink($project->ID); ?>">
 					<!-- Thumbnail -->
-					<div>
+					<div class="">
 						<?php if (has_post_thumbnail($project->ID)): ?>
-						<img class="h-40 object-contain mx-auto my-5" src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>">
+						<img class="h-40 object-contain mx-auto my-5 grayscale mix-blend-multiply hover:grayscale-0" src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>">
 						<?php endif; ?>
 					</div>
 
@@ -65,10 +65,10 @@
 			prevEl: '#<?= $block['id'] ?> .swiper-button-prev',
 		},
 		speed: 1400,
-		autoplay: {
-			delay: 4000,
-			disableOnInteraction: true,
-		},
+		// autoplay: {
+		// 	delay: 4000,
+		// 	disableOnInteraction: true,
+		// },
 		breakpoints: {
 			// when window width is >= 320px
 			320: {

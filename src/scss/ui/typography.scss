@@ -26,7 +26,7 @@ h6 {
 	@apply text-xs lg:text-sm;
 }
 p {
-	@apply leading-tight text-base font-normal;
+	@apply leading-tight text-base font-normal mb-1;
 }
 a.link {
 	@apply underline hover:text-primary-300 transition;
@@ -35,5 +35,11 @@ a.link {
 .bb-newsletter-block {
 	em {
 		@apply bg-primary text-white not-italic px-1;
+	}
+}
+/* If we deliver WYSIWYG fields, we get p tags. But then the ACF selection classes don't work anymore … */
+.bb-paragraph-block {
+	p {
+		font-size: inherit;
 	}
 }

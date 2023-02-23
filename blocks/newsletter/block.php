@@ -1,5 +1,5 @@
 <div id="<?= $block['id'] ?>"
-	class="bb-newsletter-block rounded-3xl p-5 flex flex-col mb-10"
+	class="bb-newsletter-block rounded-3xl p-10 flex flex-col mb-10"
 	style="background-color: <?= get_field('bg_color') ?>;">
 
 		<div class="uppercase text-primary font-bold font-alt text-sm">
@@ -7,7 +7,9 @@
 		</div>
 
 		<div class="font-alt font-light font-alt text-2xl text-inherit mb-5">
-			<?= get_field('text') ?>
+			<div class="font-alt text-4xl">
+				<?= get_field('text') ?>
+			</div>
 		</div>
 
 		<form action="" method="post">

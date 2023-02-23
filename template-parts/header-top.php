@@ -11,7 +11,7 @@
 		</a>
 	</div>
 	<div class="">
-		<ul class="menu horizontal text-sm lg:text-base">
+		<ul class="flex items-baseline space-x-5">
 			<?php if (get_field('link_fur_spenden', 'option')): ?>
 			<li>
 				<a
@@ -26,7 +26,7 @@
 			<?php if (get_field('link_fur_mitmachen', 'option')): ?>
 			<li>
 				<a
-					class="btn btn-ghot"
+					class="btn btn-ghost"
 					target="_blank"
 					href="<?php echo esc_url(get_field('link_fur_mitmachen', 'option')); ?>">
 					<?php pll_e('Mitmachen'); ?>
