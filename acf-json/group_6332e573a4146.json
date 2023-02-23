@@ -47,7 +47,7 @@
                 "4xl": "4xl",
                 "5xl": "5xl"
             },
-            "default_value": "base",
+            "default_value": "xl",
             "return_format": "value",
             "translations": "copy_once",
             "allow_null": 0,
@@ -72,5 +72,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677097128
+    "modified": 1677160331
 }
