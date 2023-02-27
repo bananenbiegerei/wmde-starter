@@ -7,7 +7,9 @@
 	"keywords": [],
 	"acf": {
 		"mode": "false",
-		"renderTemplate": "block.php"
+		"renderTemplate": "card.php"
 	},
-	"align": "full"
+	"supports": {
+		"align": false
+	}
 }
