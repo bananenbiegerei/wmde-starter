@@ -1,15 +1,19 @@
 <?php
 $text = get_field('text');
 $output = apply_filters('the_content', $text);
-if ($text): ?>
-<?php if (get_field('blury') == 1): ?>
-  <blockquote class="text-gray-200 text-xl lg:text-4xl leading-none font-menu blur-xs font-normal my-3">
-    <?php echo wp_kses($output, []); ?>
-  </blockquote>
-<?php else: ?>
-  <blockquote class="text-xl lg:text-4xl leading-none font-menu font-normal my-3">
-    <?php echo wp_kses($output, []); ?>
-  </blockquote>
-<?php endif; ?>
+if ($text) :
+?>
 
+<div class="container grid grid-cols-12">
+  <div class="col-span-8 col-start-3 relative">
+    <blockquote class="text-xl lg:text-3xl leading-tight font-normal ml-32 mt-0 mb-5">
+      <?php echo wp_kses($output, array()); ?>
+    </blockquote>
+    <?=bb_icon('quote','absolute -top-8 left-0 w-24 h-24')?>
+    <?php if( get_field('source') ): ?>
+      <cite class="ml-32 font-normal text-gray-400"><?php the_field('source'); ?></cite>
+    <?php endif; ?>
+  </div>
+</div>
+  
 <?php endif; ?>

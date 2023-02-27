@@ -15,7 +15,7 @@
 			<?php if (get_field('link_fur_spenden', 'option')): ?>
 			<li>
 				<a
-					class="btn btn-red btn-hollow btn-icon-left"
+					class="btn btn-base btn-red btn-hollow btn-icon-left"
 					target="_blank"
 					href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
 					<?= bb_icon('heart') ?>
@@ -38,7 +38,7 @@
 	<div class="block lg:hidden flex-none x-data="{ show: false }"">
 		<!-- Using the Alpine.store ($store) to save the state of the site header. -->
 		<button class="btn btn-ghost btn-icon" x-on:click="$store.open_mobile_nav = ! $store.open_mobile_nav">
-			M
+			<?=bb_icon('menu-alt-2')?>
 		</button>
 	</div>
 </div>

@@ -4,19 +4,23 @@
 
 // Sizes
 .btn-xs {
-	@apply px-1.5 py-1 text-xs;
+	@apply px-1.5 py-0.5 text-base;
 }
 
 .btn-sm {
-	@apply px-2 py-1.5 text-base;
+	@apply px-1.5 py-0.5 text-base lg:px-2 lg:py-0.5 lg:text-lg;
+}
+
+.btn-base {
+	@apply px-2 py-0.5 text-lg lg:px-2 lg:py-1 lg:text-xl;
 }
 
 .btn-lg {
-	@apply px-2.5 py-2 text-lg;
+	@apply px-2 py-1 text-xl lg:px-2 lg:py-1 lg:text-2xl;
 }
 
 .btn-xl {
-	@apply px-4 py-2 text-xl;
+	@apply px-2 py-1 text-2xl lg:px-2 lg:py-1 lg:text-3xl;
 }
 
 // Outline

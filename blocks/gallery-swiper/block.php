@@ -2,17 +2,24 @@
 // get image field (array)
 $images = get_field('images'); ?>
 
-<div class="bb-gallery-swiper-block px-10 pb-16 pt-16" id="<?= $block['id'] ?>">
-	<h2 class="text-5xl"><?= esc_html(get_field('headline')) ?></h2>
-
-		<div class="swiper-container relative">
-
-			<div class="absolute -top-16 right-0 hidden lg:block">
-					<?= bb_icon('swiper-left', 'swiper-button-prev h-14 w-14 hover:text-transparent cursor-pointer') ?>
+<div class="bb-gallery-swiper-block" id="<?= $block['id'] ?>">
+	<div class="container grid grid-cols-12">
+		<div class="col-span-12 lg:col-span-8 lg:col-start-3">
+			<div class="flex items-center">
+				<div class="grow">
+					<h2 class="text-5xl text-primary">
+						<?= esc_html(get_field('headline')) ?>
+					</h2>
+				</div>
+				<div class="flex-none space-x-2">
+					<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
 					<div class="swiper-pagination inline-block text-3xl font-alt align-middle mx-2"></div>
-					<?= bb_icon('swiper-right', 'swiper-button-next h-14 w-14 hover:text-transparent cursor-pointer') ?>
+					<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-hollow cursor-pointer') ?>
+				</div>
 			</div>
-
+		</div>
+	</div>
+		<div class="swiper-container relative">
 			<div class="swiper-wrapper">
 					<?php foreach ($images as $image): ?>
 					<div class="swiper-slide" style="height:unset;">

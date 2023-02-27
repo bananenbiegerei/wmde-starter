@@ -1,29 +1,18 @@
 .bb-accordion-block {
 	> ul {
-		@apply bg-red-300;
-		list-style: none;
-		padding: 0;
+		@apply list-none p-0;
 		details {
 			summary {
-				position: relative;
-				list-style: none;
-				outline: none !important;
-				@apply bg-red-300;
+				@apply relative list-none outline-0;
 				&::-webkit-details-marker {
 					display: none;
 				}
 				&:after {
-					font-weight: lighter;
-					font-size: 1.2em;
-					position: absolute;
-					content: '＋';
-					right: 0;
-					display: inline-block;
-					text-align: center;
+					@apply font-normal text-4xl absolute content-['＋'] right-0 inline-block text-center top-4;
 				}
 			}
 			&[open] summary:after {
-				content: '－';
+				@apply content-['-'];
 			}
 		}
 	}

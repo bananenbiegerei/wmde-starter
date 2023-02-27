@@ -33,7 +33,7 @@ if ($image_data) {
 $figure_classes .= $image_caption ? '' : ' no_caption';
 ?>
 <div class="bb-image-block my-4 <?php echo $width; ?>">
-	<figure class="<?= $figure_classes ?>" role="group">
+	<figure class="<?= $figure_classes ?> col-span-12 lg:col-span-8 lg:col-start-3" role="group">
 		<?= $image ?>
 		<?php if ($image_caption): ?>
 			<figcaption class="invisible flex absolute rounded-b-2xl absolute left-0 bottom-0 right-0 text-white bg-black w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all" >

@@ -11,11 +11,13 @@
 <?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>
 
 <?php if (!is_admin()): ?>
-<div class="bb-projects-swiper-block <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
+<div class="bb-projects-swiper-block container <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
 	<div class="flex mb-5">
-		<h2 class="text-5xl flex-1 text-primary"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
+		<div class="grow">
+			<h2 class="text-5xl text-primary"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
+		</div>
 		<!-- Navigation -->
-		<div class="relative hidden lg:block space-x-2">
+		<div class="relative hidden lg:block space-x-2 flex-none">
 			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
 			<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-hollow cursor-pointer') ?>
 		</div>
