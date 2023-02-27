@@ -8,25 +8,25 @@ h6 {
 	@apply font-alt leading-tight mb-2 font-medium;
 }
 h1 {
-	@apply text-xl lg:text-3xl;
+	@apply text-4xl lg:text-5xl;
 }
 h2 {
-	@apply text-lg lg:text-2xl;
+	@apply text-3xl lg:text-4xl;
 }
 h3 {
-	@apply text-lg lg:text-xl;
+	@apply text-2xl lg:text-3xl;
 }
 h4 {
-	@apply text-base lg:text-lg;
+	@apply text-xl lg:text-2xl;
 }
 h5 {
-	@apply text-sm lg:text-base;
+	@apply text-lg lg:text-xl;
 }
 h6 {
-	@apply text-xs lg:text-sm;
+	@apply text-base lg:text-lg;
 }
 p {
-	@apply leading-tight text-base font-normal mb-1;
+	@apply leading-tight text-lg lg:text-xl font-normal mb-1;
 }
 a.link {
 	@apply underline hover:text-primary-300 transition;
@@ -39,7 +39,7 @@ a.link {
 }
 /* If we deliver WYSIWYG fields, we get p tags. But then the ACF selection classes don't work anymore … */
 .bb-paragraph-block {
-	p {
-		font-size: inherit;
-	}
+	// p {
+	// 	font-size: inherit;
+	// }
 }

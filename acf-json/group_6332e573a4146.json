@@ -38,16 +38,17 @@
                 "id": ""
             },
             "choices": {
-                "xs": "xs",
-                "sm": "sm",
-                "base": "base",
-                "xl": "xl",
-                "2xl": "2xl",
-                "3xl": "3xl",
-                "4xl": "4xl",
-                "5xl": "5xl"
+                "text-xs": "xs",
+                "text-xs lg:text-sm": "sm",
+                "text-sm lg:text-base": "base",
+                "text-base lg:text-xl": "xl",
+                "text-xl lg:text-2xl": "2xl",
+                "text-xl lg:text-3xl": "3xl",
+                "text-2xl lg:text-4xl": "4xl",
+                "text-3xl lg:text-5xl": "5xl",
+                "text-4xl lg:text-6xl": "6xl"
             },
-            "default_value": "xl",
+            "default_value": "text-base lg:text-xl : xl",
             "return_format": "value",
             "translations": "copy_once",
             "allow_null": 0,
@@ -72,5 +73,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677160331
+    "modified": 1677501262
 }

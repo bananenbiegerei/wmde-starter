@@ -5,6 +5,7 @@ module.exports = {
 	safelist: [
 		//'grid',
 		{ pattern: /text-*/ },
+		{ pattern: /lg:text-*/ },
 	],
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
@@ -12,12 +13,12 @@ module.exports = {
 			xs: '0.75rem', // 12px
 			sm: '0.875rem', // 14px
 			base: '1rem', // 16px
-			lg: '1.125rem', // 18px
-			xl: '1.25rem', // 20px p
-			'2xl': '1.5rem', // 24px h4
-			'3xl': '1.875rem', // 30px 
-			'4xl': '2.25rem', // 36px -> h3 32 p.lead
-			'5xl': '3rem', // 48px -> h1 56 h2 -> 48
+			lg: '1.125rem', // 18px -> h6
+			xl: '1.25rem', // 20px -> p, h5
+			'2xl': '1.5rem', // 24px -> h4
+			'3xl': '2rem', // 32px -> h3
+			'4xl': '3rem', // 48px -> h2
+			'5xl': '3.5rem', // 56px -> h1
 			'6xl': '6rem', // 96px
 			'3vw': '10vw',
 		},

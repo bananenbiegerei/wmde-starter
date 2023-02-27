@@ -103,13 +103,14 @@
                     "choices": {
                         "default": "default",
                         "text-xs": "xs",
-                        "text-base": "base",
-                        "text-lg": "lg",
-                        "text-xl": "xl",
-                        "lg:text-2xl": "2xl",
-                        "text-2xl lg:text-3xl": "3xl",
-                        "text-3xl lg:text-4xl": "4xl",
-                        "text-4xl text-5xl": "5xl"
+                        "text-xs lg:text-sm": "sm",
+                        "text-sm lg:text-base": "base",
+                        "text-base lg:text-xl": "xl",
+                        "text-xl lg:text-2xl": "2xl",
+                        "text-xl lg:text-3xl": "3xl",
+                        "text-2xl lg:text-4xl": "4xl",
+                        "text-3xl lg:text-5xl": "5xl",
+                        "text-4xl lg:text-6xl": "6xl"
                     },
                     "default_value": "default : default",
                     "return_format": "value",
@@ -186,5 +187,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677095750
+    "modified": 1677501278
 }
