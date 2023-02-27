@@ -4,9 +4,9 @@
 	<?php if ( has_post_thumbnail() ) : ?>
 	  <div class="bg-gray">
 		  <div class="container grid grid-cols-12 pb-5">
-			  <div class="col-span-10 col-start-2">
+			  <div class="col-span-12 lg:col-span-10 lg:col-start-2">
 				  <?php get_template_part("template-parts/breadcrumb"); ?>
-					<h1 class="text-5xl"><?php the_title(); ?></h1>
+					<h1 class="text-2xl lg:text-5xl"><?php the_title(); ?></h1>
 					<?php if ( has_excerpt() ) : ?>
 					  <div class="font-alt text-xl font-normal">
 						<?php echo get_the_excerpt(); ?>
@@ -20,7 +20,7 @@
 			  
 		  </div>
 		  <div class="relative flex justify-center container grid grid-cols-12">
-				<div class="col-span-8 col-start-3">
+				<div class="col-span-12 lg:col-span-8 lg:col-start-3">
 					<div class="aspect-w-16 aspect-h-9">
 						<?php the_post_thumbnail('large', array('class' => 'rounded-3xl w-full h-full oject-cover')); ?>
 					</div>
@@ -30,7 +30,7 @@
 	<?php else : ?>
 	  <div class="bg-gray rounded-b-3xl pb-8">
 		  <div class="container grid grid-cols-12">
-			  <div class="col-span-8 col-start-3">
+			  <div class="col-span-12 lg:col-span-8 lg:col-start-3">
 				  <?php get_template_part("template-parts/breadcrumb"); ?>
 					<h1 class="text-5xl"><?php the_title(); ?></h1>
 					<?php if ( has_excerpt() ) : ?>
