@@ -38,9 +38,9 @@ $images = get_field('images'); ?>
 				nextEl: '#<?= $block['id'] ?> .swiper-button-next',
 				prevEl: '#<?= $block['id'] ?> .swiper-button-prev',
 			},
-			autoplay: {
-				delay: 2500,
-				disableOnInteraction: true,
-			},
+			// autoplay: {
+			// 	delay: 2500,
+			// 	disableOnInteraction: true,
+			// },
 		};
 </script>
