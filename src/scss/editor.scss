@@ -5,11 +5,18 @@
 /* ACF blocks */
 @import 'bb-blocks/*';
 @import '../../blocks/**/*';
+@import './ui/buttons';
+
 @import 'ui/typography';
 html :where(.editor-styles-wrapper) {
-	h1, h2, h3, h4, h5, h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		@apply font-medium font-alt;
-	}	
+	}
 }
 .editor-styles-wrapper {
 	// Scale down facts in editor preview

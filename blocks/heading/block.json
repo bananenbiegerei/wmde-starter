@@ -9,5 +9,7 @@
 		"mode": "false",
 		"renderTemplate": "block.php"
 	},
-	"align": "full"
+	"supports": {
+		"align": false
+	}
 }
