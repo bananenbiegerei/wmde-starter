@@ -3,7 +3,7 @@
 	"title": "Card",
 	"description": "Card Block",
 	"category": "wkmde-custom-blocks",
-	"icon": "text-page",
+	"icon": "index-card",
 	"keywords": [],
 	"acf": {
 		"mode": "false",

@@ -1,8 +1,7 @@
 <?php
 
 // Get link and text
-$link = get_field('content')['link'];
-$title = $link['title'] ?? 'missing title';
+$link = get_field('content')['link'] ? get_field('content')['link'] : ['title' => 'Missing Link!', 'url' => '#'];
 $text = '';
 $image = false;
 $theme = [];
@@ -10,7 +9,7 @@ $format = [];
 $post_type = false;
 
 // See if there's a post with this URL
-if ($local_post_id = url_to_postid($link['url'] ?? 0)) {
+if ($local_post_id = url_to_postid($link['url'])) {
 	$local_post = get_post($local_post_id);
 	$text = $local_post->post_excerpt;
 	$image = get_post_thumbnail_id($local_post_id);
@@ -78,7 +77,7 @@ if ($layout == 'v') {
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
 					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-cover w-full h-full']); ?>
 				</div>
-				
+
 			</div>
 		<?php endif; ?>
 
