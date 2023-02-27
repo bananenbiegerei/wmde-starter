@@ -36,7 +36,7 @@
 			<div class="flex-1 flex items-end pb-10">
 				<?php if ($link = get_field('cta_button_link')): ?>
 					<a class="btn btn-icon-left <?= get_field('cta_button_display')['style'] ?> <?= get_field('cta_button_display')['size'] ?>" href="<?= esc_url($link['url']) ?>" target="<?= $link['target'] ?>">
-					<?= bb_icon($icon) ?>
+					<?= bb_icon(get_field('cta_button_display')['icon']) ?>
 					<?= esc_html($link['title']) ?>
 					</a>
 				<?php endif; ?>
