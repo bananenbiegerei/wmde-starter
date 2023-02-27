@@ -27,4 +27,4 @@ require_once get_template_directory() . '/functions/custom-taxonomies.php';
 // @Ingo: is this still needed?
 // require_once get_template_directory() . '/functions/image-sizes.php';
 
-require_once get_template_directory() . '/functions/block_converter.php';
+require_once get_template_directory() . '/functions/block-converter.php';

@@ -17,8 +17,10 @@ if ($image_data) {
 }
 
 $width = get_field('wide');
+// Default values
 $figure_classes = 'flex flex-col relative rounded-2xl';
 $image_classes = ['class' => "{$width} rounded-2xl w-full h-auto"];
+// For vertical images
 if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
 	$figure_classes = 'flex flex-col rounded-2xl relative justify-center bg-secondary overflow-hidden';
 	$image_classes = ['class' => "{$width} h-auto max-w-2xl mx-auto w-full"];
