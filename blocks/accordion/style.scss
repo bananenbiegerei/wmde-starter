@@ -1,5 +1,6 @@
 .bb-accordion-block {
 	> ul {
+		@apply bg-red-300;
 		list-style: none;
 		padding: 0;
 		details {
@@ -7,6 +8,7 @@
 				position: relative;
 				list-style: none;
 				outline: none !important;
+				@apply bg-red-300;
 				&::-webkit-details-marker {
 					display: none;
 				}
