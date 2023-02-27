@@ -21,7 +21,7 @@
         },
         {
             "key": "field_63e3acafc838e",
-            "label": "Button Display",
+            "label": "Style",
             "name": "display",
             "aria-label": "",
             "type": "group",
@@ -162,5 +162,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677493560
+    "modified": 1677494945
 }
