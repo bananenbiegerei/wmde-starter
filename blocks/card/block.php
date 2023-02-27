@@ -1,8 +1,10 @@
 <?php
+//FIX TITLE missing
 
 // Get link and text
 $link = get_field('content')['link'] ? get_field('content')['link'] : ['title' => 'Missing Link!', 'url' => '#'];
 $text = '';
+$title = '';
 $image = false;
 $theme = [];
 $format = [];
@@ -12,6 +14,7 @@ $post_type = false;
 if ($local_post_id = url_to_postid($link['url'])) {
 	$local_post = get_post($local_post_id);
 	$text = $local_post->post_excerpt;
+	$title = $local_post->post_title;
 	$image = get_post_thumbnail_id($local_post_id);
 	$post_type = get_post_type($local_post_id);
 	// Get themes and formats
@@ -41,6 +44,7 @@ if (get_field('content')['alt_details']) {
 	);
 	$theme = $alt_theme ? $alt_theme : $theme;
 	$format = $alt_format ? $alt_format : $format;
+	$title = get_field('content')['title'] ? get_field('content')['title'] : $title;
 	$text = get_field('content')['text'] ? get_field('content')['text'] : $text;
 	$image = get_field('content')['image'] ? get_field('content')['image'] : $image;
 }
@@ -68,8 +72,8 @@ if ($layout == 'v') {
 
   	<?php if ($post_type == 'projects'): ?>
 			<div class="<?= $layout_classes['image'] ?>">
-				<div class="rounded-xl aspect-w-16 aspect-h-9 bg-gray-100 flex justify-center items-center p-5">
-					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-contain w-full h-full max-h-32']); ?>
+				<div class="_aspect-w-16 _aspect-h-9 flex w-full justify-center items-center">
+					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-contain rounded-xl p-5 w-full h-32 bg-gray-100']); ?>
 				</div>
 			</div>
 		<?php else: ?>
