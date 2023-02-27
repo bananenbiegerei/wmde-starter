@@ -36,6 +36,12 @@ module.exports = {
 			boxShadow: {
 				'navbar-dropdown': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px -10px 10px rgba(0, 0, 0, 0.04)',
 			},
+			maxWidth: {
+				'32': '8rem',
+			},
+			minHeight: {
+			  '32': '8rem',
+			},
 		},
 	},
 	corePlugins: {

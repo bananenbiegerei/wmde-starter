@@ -100,10 +100,10 @@
                 "id": ""
             },
             "choices": {
-                "fullwidth": "fullwidth",
-                "12 columns": "12 columns",
-                "10 columns": "10 columns",
-                "8 columns": "8 columns"
+                "px-5": "fullwidth",
+                "col-span-12": "12 columns",
+                "col-span-12 lg:col-span-10 lg:col-start-1": "10 columns",
+                "col-span-12 lg:col-span-8 lg:col-start-3": "8 columns"
             },
             "default_value": "",
             "return_format": "value",
@@ -130,5 +130,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677499824
+    "modified": 1677504361
 }

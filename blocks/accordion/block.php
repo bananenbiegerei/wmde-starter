@@ -1,5 +1,5 @@
-<div class="bb-accordion-block">
-	<ul>
+<div class="bb-accordion-block container grid grid-cols-12">
+	<ul class="col-span-12 lg:col-span-8 lg:col-start-3">
 		<?php while (have_rows('acfb_add_accordion')): ?>
 		<?php the_row(); ?>
 		<li>

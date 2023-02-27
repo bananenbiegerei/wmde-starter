@@ -43,10 +43,8 @@
 	  </div>
 	<?php endif; ?>
 	
-	<div class="grid grid-cols-12 pt-10">
-		<div class="col-span-12">
-			<?php the_content(); ?>
-		</div>
+	<div class="content pt-10">
+		<?php the_content(); ?>
 	</div>
 <?php
 endwhile; ?>

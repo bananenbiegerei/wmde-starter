@@ -1,12 +1,12 @@
 <?php if (!is_admin()): ?>
-	<div class="bb-testimonials-swiper-block" id="<?= $block['id'] ?>">
+	<div class="bb-testimonials-swiper-block container" id="<?= $block['id'] ?>">
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
 				<?php foreach (get_field('testimonials') as $testimonial): ?>
 					<div class="swiper-slide">
 							<blockquote class="text-2xl flex gap-4">
-								<div class="flex-shrink-0"><?= bb_icon('chat', 'bg-red-100 rounded-full p-3 w-14 h-14 grid place-items-center') ?></div>
-								<div><?= $testimonial->post_title ?></div>
+								<div class="flex-shrink-0"><?= bb_icon('quote', 'bg-red-100 text-primary rounded-full p-2 w-10 h-10 grid place-items-center') ?></div>
+								<p class="text-primary"><?= $testimonial->post_title ?></p>
 								<!--cite>Spendenkommentar <?php echo get_the_date('Y', $testimonial->ID); ?></cite-->
 							</blockquote>
 					</div>
