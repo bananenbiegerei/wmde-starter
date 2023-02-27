@@ -3,14 +3,16 @@ $text = get_field('text');
 $output = apply_filters('the_content', $text);
 if ($text) :
 ?>
-<?php if ( get_field( 'blury' ) == 1 ) : ?>
-  <blockquote class="text-gray-200 text-xl lg:text-4xl leading-none font-menu blur-xs font-normal my-3">
+
+<div class="relative">
+  <blockquote class="text-xl lg:text-4xl leading-tight font-normal ml-32 mt-12 mb-5">
     <?php echo wp_kses($output, array()); ?>
   </blockquote>
-<?php else : ?>
-  <blockquote class="text-xl lg:text-4xl leading-none font-menu font-normal my-3">
-    <?php echo wp_kses($output, array()); ?>
-  </blockquote>
-<?php endif; ?>
+  <?=bb_icon('quote','absolute -top-8 left-0 w-24 h-24')?>
+  <?php if( get_field('source') ): ?>
+    <cite class="ml-32 font-normal text-gray-400"><?php the_field('source'); ?></cite>
+  <?php endif; ?>
+  
+</div>
   
 <?php endif; ?>

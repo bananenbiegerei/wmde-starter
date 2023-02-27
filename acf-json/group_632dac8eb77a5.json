@@ -23,11 +23,11 @@
             "new_lines": ""
         },
         {
-            "key": "field_6332e3019911e",
-            "label": "Blury",
-            "name": "blury",
+            "key": "field_63fc870875578",
+            "label": "Source",
+            "name": "source",
             "aria-label": "",
-            "type": "true_false",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -36,11 +36,12 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -61,5 +62,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676036865
+    "modified": 1677494037
 }
