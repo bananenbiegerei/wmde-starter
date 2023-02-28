@@ -80,7 +80,7 @@
 <div x-data="navMenu"
 	class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 block"
 	x-show="$store.open_mobile_nav"
-	DIS@mouseleave="closeNav()"
+	@mouseleave="closeNav()"
 >
 	<!-- Domains top bar -->
 	<div class="relative z-10 lg:px-2 container">

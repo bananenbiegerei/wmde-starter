@@ -78,6 +78,7 @@ function bb_convert_block($block)
 
 	$new_block['innerContent'] = $new_block['innerContent'] ?? [];
 
+	$new_inner_content = [];
 	foreach ($block['innerBlocks'] as $inner_block) {
 		if (gettype($inner_block) == 'string') {
 			$new_inner_content[] = $inner_block;

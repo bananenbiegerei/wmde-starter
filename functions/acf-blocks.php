@@ -5,6 +5,10 @@ add_action('init', function () {
 	foreach (glob(__DIR__ . '/../blocks/*') as $block) {
 		register_block_type($block);
 	}
+	// Each block can come with its set of functions...
+	foreach (glob(__DIR__ . '/../blocks/*/functions.php') as $block_functions) {
+		include_once $block_functions;
+	}
 });
 
 // List all allowed block types here
