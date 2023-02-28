@@ -21,11 +21,11 @@
             "placeholder": ""
         },
         {
-            "key": "field_63fdb861e56b5",
-            "label": "Wide",
-            "name": "wide",
+            "key": "field_63fdd8c0a5f23",
+            "label": "Style",
+            "name": "style",
             "aria-label": "",
-            "type": "true_false",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -34,12 +34,51 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "translations": "copy_once",
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_63fdb861e56b5",
+                    "label": "Wide",
+                    "name": "wide",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "translations": "copy_once",
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_63fdd8d2f7973",
+                    "label": "Rounded",
+                    "name": "rounded",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "translations": "copy_once",
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                }
+            ]
         }
     ],
     "location": [
@@ -60,5 +99,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677572203
+    "modified": 1677580517
 }

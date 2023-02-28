@@ -8,34 +8,40 @@ $image_id = get_field('image') ? get_field('image') : $args['image']['id'] ?? fa
 // If called from Wikimedia Commons Media block
 $wmc_image_data = $args['wmc_data'] ?? false;
 
+// Setup image parameters
 if ($image_id) {
 	$image_caption = wp_get_attachment_caption($image_id);
 	$image_descripton = get_post($image_id)->post_content;
 	$image_meta_data = wp_get_attachment_metadata($image_id);
-	$wide = get_field('wide');
+	$wide = get_field('style')['wide'] ?? false;
+	$rounded = get_field('style')['rounded'] ?? false;
 } elseif ($wmc_image_data) {
 	$image_caption = $wmc_image_data['usageterms'] . ' - <a href="' . esc_attr($wmc_image_data['url']) . '">Wikimedia Commons</a>';
 	$image_descripton = $wmc_image_data['desc'];
 	$dim = explode('x', $wmc_image_data['dim']);
 	$image_meta_data = ['width' => (int) $dim[0], 'height' => (int) $dim[1]];
-	$wide = $args['wide'];
+	$wide = $args['wide'] ?? false;
+	$rounded = $args['rounded'] ?? false;
 } else {
 	$image_caption = 'Missing image!';
 	$image_descripton = '';
 	$image_meta_data = ['width' => 180, 'height' => 139];
 	$wide = false;
+	$rounded = false;
 }
 
 // Get values for container and image classes
 $width = $wide ? 'FIXME:missing' : 'FIXME:missing';
-$figure_classes = 'flex flex-col relative rounded-2xl';
-$image_classes = ['class' => "{$width} rounded-2xl w-full h-auto"];
-// For vertical images
 if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
-	$figure_classes = 'flex flex-col rounded-2xl relative justify-center bg-secondary overflow-hidden';
+	$figure_classes = 'flex flex-col relative justify-center bg-secondary overflow-hidden ' . ($rounded ? 'rounded-2xl ' : '');
 	$image_classes = ['class' => "{$width} h-auto max-w-2xl mx-auto w-full"];
+} else {
+	$figure_classes = 'flex flex-col relative rounded-2xl';
+	$image_classes = ['class' => "{$width} w-full h-auto " . ($rounded ? 'rounded-2xl ' : '')];
 }
 $figure_classes .= $image_caption ? '' : ' no_caption';
+
+clog($image_classes);
 
 // Create image tag
 if ($image_id) {
