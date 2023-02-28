@@ -63,12 +63,14 @@ if ($layout == 'v') {
 ?>
 
 <div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10" style="background-color: <?= get_field('style')['bg_color'] ?>;">
-	<a href="<?= $link['url'] ?>" class="flex gap-6 <?= $layout_classes['container'] ?>">
+	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
   	<?php if ($post_type == 'projects'): ?>
 			<div class="<?= $layout_classes['image'] ?>">
-				<div class="_aspect-w-16 _aspect-h-9 flex w-full justify-center items-center">
-					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-contain rounded-xl p-5 w-full h-32 bg-gray-100']); ?>
+				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl">
+				<div class="w-full h-full flex items-center justify-center p-5">
+					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'p-1 w-auto max-h-32']); ?>
+				</div>
 				</div>
 			</div>
 		<?php else: ?>

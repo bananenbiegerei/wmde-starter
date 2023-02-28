@@ -12,7 +12,6 @@ $site_description = get_bloginfo('description');
 ?>
 <body <?php body_class(); ?>>
   <div class="z-10">
-    <!-- Site header -->
     <?php get_template_part('template-parts/header-top'); ?>
   </div>
   <?php get_template_part('template-parts/header-bottom'); ?>
