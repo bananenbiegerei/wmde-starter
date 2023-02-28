@@ -16,4 +16,5 @@ $site_description = get_bloginfo('description');
     <?php get_template_part('template-parts/header-top'); ?>
   </div>
   <?php get_template_part('template-parts/header-bottom'); ?>
+  <?php get_template_part('template-parts/anchor-nav'); ?>
   <main class="main-content min-h-screen">
