@@ -2,6 +2,7 @@
 // get image field (array)
 $images = get_field('images'); ?>
 
+<?php if (!is_admin()): ?>
 <div class="bb-gallery-swiper-block" id="<?= $block['id'] ?>">
 		<div class="flex items-center">
 			<div class="grow">
@@ -25,7 +26,6 @@ $images = get_field('images'); ?>
 			</div>
 		</div>
 </div>
-
 <script>
 		SwipersConfig['#<?php echo $block['id']; ?>'] = {
 			slidesPerView: 1,
@@ -49,3 +49,12 @@ $images = get_field('images'); ?>
 			},
 		};
 </script>
+<?php else: ?>
+	<div>
+		<b><?= esc_html(get_field('headline')) ?></b>
+		<div class="grid grid-cols-5 gap-4">
+			<?php foreach ($images as $image): ?>
+				<img class="h-32 object-contain" src="<?= wp_get_attachment_image_url($image['id'], 'thumbnail') ?>"/>
+		<?php endforeach; ?>
+	</div>
+<?php endif; ?>
