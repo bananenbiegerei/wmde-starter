@@ -1,14 +1,17 @@
 <?php
+/*
+	Image Block: also used by Gallery Swiper block and Wikimedia Commons Media block via `get_template_part()`.
+*/
 
 // If call from Image block or Gallery Swiper block
 $image_id = get_field('image') ? get_field('image') : $args['image']['id'] ?? false;
 // If called from Wikimedia Commons Media block
-$image_data = $args['wkcm_data'] ?? false;
+$wmc_image_data = $args['wmc_data'] ?? false;
 
-if ($image_data) {
-	$image_caption = $image_data['usageterms'] . ' - <a href="' . esc_attr($image_data['url']) . '">Wikimedia Commons</a>';
-	$image_descripton = $image_data['desc'];
-	$dim = explode('x', $image_data['dim']);
+if ($wmc_image_data) {
+	$image_caption = $wmc_image_data['usageterms'] . ' - <a href="' . esc_attr($wmc_image_data['url']) . '">Wikimedia Commons</a>';
+	$image_descripton = $wmc_image_data['desc'];
+	$dim = explode('x', $wmc_image_data['dim']);
 	$image_meta_data = ['width' => $dim[0], 'height' => $dim[1]];
 } else {
 	$image_caption = wp_get_attachment_caption($image);
@@ -26,8 +29,8 @@ if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
 	$image_classes = ['class' => "{$width} h-auto max-w-2xl mx-auto w-full"];
 }
 
-if ($image_data) {
-	$image = "<img src='{$image_data['media_url']}' srcset='{$image_data['srcset']}' alt='{$image_data['desc']}' loading='lazy' sizes='(max-width: 1024px) 100vw, 1024px' class='{$image_classes['class']}'>";
+if ($wmc_image_data) {
+	$image = "<img src='{$wmc_image_data['media_url']}' srcset='{$wmc_image_data['srcset']}' alt='{$wmc_image_data['desc']}' loading='lazy' sizes='(max-width: 1024px) 100vw, 1024px' class='{$image_classes['class']}'>";
 } else {
 	$image = wp_get_attachment_image($image_id, 'full', '', $image_classes);
 }

@@ -3,7 +3,7 @@ $placeholder = esc_url(get_template_directory_uri() . '/blocks/wikimedia-commons
 $image_data = bbwkc_get_media(get_field('media_url'));
 
 if ($image_data && $image_data['type'] == 'image') {
-	get_template_part('blocks/image/block', null, ['wkcm_data' => $image_data]);
+	get_template_part('blocks/image/block', null, ['wmc_data' => $image_data]);
 } elseif ($image_data && $image_data['type'] == 'video') {
 	echo '<figure>';
 	echo '<video preload="none" poster="' . $image_data['image'] . '" controls><source src="' . $image_data['media_url'] . '" type="' . $image_data['mime_type'] . '"></video>';

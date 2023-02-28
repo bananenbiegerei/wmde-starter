@@ -1,79 +1,20 @@
 <?php
 
-/* ACF Block to embed Wikimedia Commons media ********************************/
-define('BBWKC_CACHE_TIME', 6 * 60 * 60); // 6h cache expiry time
+define('BBWKC_CACHE_TIME', 24 * HOUR_IN_SECONDS);
 define('BBWKC_TRANSIENT_PREFIX', 'bbwkc');
 define('BBWKC_API_ENDPOINT', 'https://commons.wikimedia.org/w/api.php');
 
-function bbwkc_get_media_type($file)
+function bbwkc_get_media($file, $lang = 'en')
 {
-	/* prettier-ignore */
-	$WKC_MIME_TYPES = [ 'gif' => 'image/gif', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'm4v' => 'video/x-m4v', 'mov' => 'video/quicktime', 'mp4' => 'video/mp4', 'mp4v' => 'video/mp4', 'mpa' => 'video/mpeg', 'mpe' => 'video/mpeg', 'mpeg' => 'video/mpeg', 'mpg' => 'video/mpeg', 'mpg4' => 'video/mp4', 'ogv' => 'video/ogg', 'pdf' => 'application/pdf', 'png' => 'image/png', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'webm' => 'video/webm', 'tif' => 'image/tiff', 'tiff' => 'image/tiff', 'mp3' => 'audio/mpeg', 'mid' => 'audio/midi', 'midi' => 'audio/midi', 'flac' => 'audio/x-flac', 'wav' => 'audio/x-wav', 'ogg' => 'application/ogg', ];
-	$ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-	if (!empty($WKC_MIME_TYPES[$ext])) {
-		return $WKC_MIME_TYPES[$ext];
-	}
-}
-
-function bbwkc_sanitize_uri($uri)
-{
-	static $commonsRegex = '!^https?://(commons\.wikimedia\.org/wiki/File:|upload\.wikimedia\.org.+/)(.+)!';
-	if (preg_match($commonsRegex, $uri, $match)) {
-		$file = urldecode($match[2]);
-	} elseif (preg_match('!^File:(.+)!', $uri, $match)) {
-		$file = urldecode(str_replace(' ', '_', $match[1]));
-	} else {
-		$file = str_replace(' ', '_', $uri);
-	}
-	return $file;
-}
-
-function bbwkc_get_wp_image_sizes()
-{
-	$sizes = [];
-	foreach (wp_get_registered_image_subsizes() as $s) {
-		if ($s['crop'] == false) {
-			$sizes[] = $s['width'];
+	$file = stripcslashes(bbwkc_sanitize_uri($file));
+	$img = get_transient(BBWKC_TRANSIENT_PREFIX . $file);
+	if (!$img) {
+		$img = bbwkc_get_media_query($file, $lang);
+		if ($img) {
+			set_transient(BBWKC_TRANSIENT_PREFIX . $file, $img, BBWKC_CACHE_TIME);
 		}
 	}
-	return $sizes;
-}
-
-function bbkwc_get_thumbnail_url($file, $size, $h)
-{
-	return 'https://upload.wikimedia.org/wikipedia/commons/thumb/' . $h . '/' . urlencode($file) . '/' . $size . 'px-' . urlencode($file);
-}
-
-function bbkwc_get_image_url($file, $h)
-{
-	return 'https://upload.wikimedia.org/wikipedia/commons/' . $h . '/' . urlencode($file);
-}
-
-function bbwkc_get_audio_alt($file, $h)
-{
-	return 'https://upload.wikimedia.org/wikipedia/commons/transcoded/' . $h . '/' . urlencode($file) . '/' . urlencode($file) . '.mp3';
-}
-
-function bbwkc_get_video_alt($file, $h)
-{
-	return 'https://upload.wikimedia.org/wikipedia/commons/transcoded/' . $h . '/' . urlencode($file) . '/' . urlencode($file) . '.360p.vp9.webm';
-}
-
-function bbwkc_get_video_poster($file, $h)
-{
-	return 'https://upload.wikimedia.org/wikipedia/commons/thumb/' . $h . '/' . urlencode($file) . '/1024px--' . urlencode($file) . '.jpg';
-}
-
-function bbkwc_img_srcset($file, $sizes, $img_size, $h)
-{
-	$srcset = [];
-	if ($img_size > max($sizes)) {
-		foreach ($sizes as $size) {
-			$srcset[] = bbkwc_get_thumbnail_url($file, $size, $h) . ' ' . $size . 'w';
-		}
-	}
-	$srcset[] = bbkwc_get_image_url($file, $h) . ' ' . $img_size . 'w';
-	return join(', ', $srcset);
+	return $img;
 }
 
 function bbwkc_get_media_query($file, $lang = 'en')
@@ -151,16 +92,73 @@ function bbwkc_get_media_query($file, $lang = 'en')
 	return $out;
 }
 
-function bbwkc_get_media($file, $lang = 'en')
+function bbwkc_get_media_type($file)
 {
-	$file = stripcslashes(bbwkc_sanitize_uri($file));
-	$img = get_transient(BBWKC_TRANSIENT_PREFIX . $file);
-	if (!$img) {
-		$img = bbwkc_get_media_query($file, $lang);
-		if ($img) {
-			set_transient(BBWKC_TRANSIENT_PREFIX . $file, $img, BBWKC_CACHE_TIME);
-		}
-	} else {
+	/* prettier-ignore */
+	$WKC_MIME_TYPES = [ 'gif' => 'image/gif', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'm4v' => 'video/x-m4v', 'mov' => 'video/quicktime', 'mp4' => 'video/mp4', 'mp4v' => 'video/mp4', 'mpa' => 'video/mpeg', 'mpe' => 'video/mpeg', 'mpeg' => 'video/mpeg', 'mpg' => 'video/mpeg', 'mpg4' => 'video/mp4', 'ogv' => 'video/ogg', 'pdf' => 'application/pdf', 'png' => 'image/png', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'webm' => 'video/webm', 'tif' => 'image/tiff', 'tiff' => 'image/tiff', 'mp3' => 'audio/mpeg', 'mid' => 'audio/midi', 'midi' => 'audio/midi', 'flac' => 'audio/x-flac', 'wav' => 'audio/x-wav', 'ogg' => 'application/ogg', ];
+	$ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+	if (!empty($WKC_MIME_TYPES[$ext])) {
+		return $WKC_MIME_TYPES[$ext];
 	}
-	return $img;
+}
+
+function bbwkc_sanitize_uri($uri)
+{
+	static $commonsRegex = '!^https?://(commons\.wikimedia\.org/wiki/File:|upload\.wikimedia\.org.+/)(.+)!';
+	if (preg_match($commonsRegex, $uri, $match)) {
+		$file = urldecode($match[2]);
+	} elseif (preg_match('!^File:(.+)!', $uri, $match)) {
+		$file = urldecode(str_replace(' ', '_', $match[1]));
+	} else {
+		$file = str_replace(' ', '_', $uri);
+	}
+	return $file;
+}
+
+function bbwkc_get_wp_image_sizes()
+{
+	$sizes = [];
+	foreach (wp_get_registered_image_subsizes() as $s) {
+		if ($s['crop'] == false) {
+			$sizes[] = $s['width'];
+		}
+	}
+	return $sizes;
+}
+
+function bbkwc_get_thumbnail_url($file, $size, $h)
+{
+	return 'https://upload.wikimedia.org/wikipedia/commons/thumb/' . $h . '/' . urlencode($file) . '/' . $size . 'px-' . urlencode($file);
+}
+
+function bbkwc_get_image_url($file, $h)
+{
+	return 'https://upload.wikimedia.org/wikipedia/commons/' . $h . '/' . urlencode($file);
+}
+
+function bbwkc_get_audio_alt($file, $h)
+{
+	return 'https://upload.wikimedia.org/wikipedia/commons/transcoded/' . $h . '/' . urlencode($file) . '/' . urlencode($file) . '.mp3';
+}
+
+function bbwkc_get_video_alt($file, $h)
+{
+	return 'https://upload.wikimedia.org/wikipedia/commons/transcoded/' . $h . '/' . urlencode($file) . '/' . urlencode($file) . '.360p.vp9.webm';
+}
+
+function bbwkc_get_video_poster($file, $h)
+{
+	return 'https://upload.wikimedia.org/wikipedia/commons/thumb/' . $h . '/' . urlencode($file) . '/1024px--' . urlencode($file) . '.jpg';
+}
+
+function bbkwc_img_srcset($file, $sizes, $img_size, $h)
+{
+	$srcset = [];
+	if ($img_size > max($sizes)) {
+		foreach ($sizes as $size) {
+			$srcset[] = bbkwc_get_thumbnail_url($file, $size, $h) . ' ' . $size . 'w';
+		}
+	}
+	$srcset[] = bbkwc_get_image_url($file, $h) . ' ' . $img_size . 'w';
+	return join(', ', $srcset);
 }

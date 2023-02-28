@@ -8,7 +8,7 @@
             "name": "media_url",
             "aria-label": "",
             "type": "url",
-            "instructions": "",
+            "instructions": "The filename (<code>File:Image of a sunset.jpg<\/code>) or URL (<code>https:\/\/commons.wikimedia.org\/wiki\/File:Image_of_a_sunset.jpg<\/code>) as found on <a href=\"https:\/\/commons.wikimedia.org\/\">Wikimedia Commons<\/a>.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -39,5 +39,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677532921
+    "modified": 1677571686
 }
