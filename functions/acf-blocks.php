@@ -42,21 +42,52 @@ add_filter(
 	2,
 );
 
+// Add flag to block if it's within a column (to avoid getting a container)
+add_filter(
+	'render_block_data',
+	function ($parsed_block, $source_block, $parent_block) {
+		if ($parent_block && $parent_block->parsed_block['blockName'] == 'core/column') {
+			$parsed_block['inColumn'] = true;
+		} else {
+			$parsed_block['inColumn'] = false;
+		}
+		return $parsed_block;
+	},
+	10,
+	3,
+);
+
 // Wrap blocks with a container
 add_filter(
 	'render_block',
 	function ($block_content, $block) {
-		$always_fullwidth = [null, 'acf/projects-swiper', 'acf/testimonials-swiper'];
-		$align = $block['attrs']['data']['style_alignment'] ?? 'default';
-		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth)) {
-			return $block_content;
-		}
+		$always_fullwidth = [null, 'acf/projects-swiper', 'acf/testimonials-swiper', 'core/column'];
 		$container_classes = 'container grid grid-cols-12';
 		$align_classes = [
 			'default' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 			'wide' => 'col-span-12',
 			'right' => 'col-span-12 lg:col-span-8 lg:col-start-5',
+			'col-full' => 'px-5',
+			'col-12' => 'col-span-12',
+			'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-1',
+			'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 		];
+
+		// For columns we get the alignment info from the classes, otherwise from the block attributes
+		if ($block['blockName'] == 'core/columns') {
+			$align = $block['attrs']['className'];
+			if (!in_array($align, array_keys($align_classes))) {
+				$align = 'wide';
+			}
+		} else {
+			$align = $block['attrs']['data']['style_alignment'] ?? 'default';
+		}
+
+		// Full width block get no container around them
+		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth) || $block['inColumn']) {
+			return $block_content;
+		}
+
 		$content = "<div class='{$container_classes}'><div class='{$align_classes[$align]}'>" . $block_content . '</div></div>';
 		return $content;
 	},
