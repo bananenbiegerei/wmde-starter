@@ -11,12 +11,16 @@ require_once get_template_directory() . '/functions/features.php';
 // Load custom ACF blocks
 require_once get_template_directory() . '/functions/acf-blocks.php';
 
+// Wrap blocks with containers for page layout
+require_once get_template_directory() . '/functions/containers.php';
+
 // Load styles & scripts
 require_once get_template_directory() . '/functions/enqueue-scripts.php';
 
 // Define menu locations
 require_once get_template_directory() . '/functions/menu.php';
 
+// Icon dispenser
 require_once get_template_directory() . '/functions/icons.php';
 
 // Custom posts and taxonomies, edit as needed
@@ -30,4 +34,5 @@ require_once get_template_directory() . '/functions/excerpts.php';
 // @Ingo: is this still needed? IS: not sure yet
 // require_once get_template_directory() . '/functions/image-sizes.php';
 
+// Experimental
 require_once get_template_directory() . '/functions/block-converter.php';
