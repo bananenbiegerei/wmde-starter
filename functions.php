@@ -23,8 +23,11 @@ require_once get_template_directory() . '/functions/icons.php';
 require_once get_template_directory() . '/functions/custom-posts.php';
 require_once get_template_directory() . '/functions/custom-taxonomies.php';
 
+// Excerpts
+require_once get_template_directory() . '/functions/excerpts.php';
+
 // Define some image sizes
-// @Ingo: is this still needed?
+// @Ingo: is this still needed? IS: not sure yet
 // require_once get_template_directory() . '/functions/image-sizes.php';
 
 require_once get_template_directory() . '/functions/block_converter.php';

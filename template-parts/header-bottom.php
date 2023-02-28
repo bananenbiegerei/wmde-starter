@@ -78,7 +78,7 @@
 </script>
 <!-- Container for the whole nav menu -->
 <div x-data="navMenu"
-	class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 block hidden"
+	class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 block"
 	x-show="$store.open_mobile_nav"
 	@mouseleave="closeNav()"
 >
