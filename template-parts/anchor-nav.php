@@ -1,4 +1,5 @@
 <script>
+// hide for mobile...
 
 document.addEventListener('alpine:init', () => {
 	Alpine.data('anchorNav', () => ({
