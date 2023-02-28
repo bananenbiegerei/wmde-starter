@@ -41,3 +41,25 @@ add_filter(
 	10,
 	2,
 );
+
+// Wrap blocks with a container
+add_filter(
+	'render_block',
+	function ($block_content, $block) {
+		$always_fullwidth = [null, 'acf/projects-swiper', 'acf/testimonials-swiper'];
+		$align = $block['attrs']['data']['style_alignment'] ?? 'default';
+		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth)) {
+			return $block_content;
+		}
+		$container_classes = 'container grid grid-cols-12';
+		$align_classes = [
+			'default' => 'col-span-12 lg:col-span-8 lg:col-start-3',
+			'wide' => 'col-span-12',
+			'right' => 'col-span-12 lg:col-span-8 lg:col-start-5',
+		];
+		$content = "<div class='{$container_classes}'><div class='{$align_classes[$align]}'>" . $block_content . '</div></div>';
+		return $content;
+	},
+	10,
+	2,
+);

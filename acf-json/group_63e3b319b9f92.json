@@ -103,7 +103,9 @@
                 "none": "None",
                 "arrow-right": "→",
                 "arrow-down": "↓",
-                "heart": "♥"
+                "heart": "♥",
+                "info": "ℹ",
+                "search": "🔍"
             },
             "default_value": "none",
             "return_format": "value",
@@ -113,6 +115,32 @@
             "ui": 0,
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_63fe09e518224",
+            "label": "Alignment",
+            "name": "alignment",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "wide": "Wide",
+                "full": "Full Width",
+                "right": "Right"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "translations": "copy_once",
+            "allow_null": 0,
+            "layout": "horizontal"
         }
     ],
     "location": [
@@ -133,5 +161,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677582144
+    "modified": 1677593105
 }

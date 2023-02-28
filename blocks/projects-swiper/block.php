@@ -11,17 +11,22 @@
 <?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>
 
 <?php if (!is_admin()): ?>
-<div class="bb-projects-swiper-block container <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
-	<div class="flex mb-5">
-		<div class="grow">
-			<h2 class="text-5xl text-primary"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
-		</div>
-		<!-- Navigation -->
-		<div class="relative hidden lg:block space-x-2 flex-none">
-			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
-			<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-hollow cursor-pointer') ?>
+<div class="bb-projects-swiper-block py-5 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
+	<!-- Headline and Navigation -->
+	<div class="container grid grid-cols-12">
+		<div class="col-span-12 lg:col-span-8 lg:col-start-3">
+			<div class="flex mb-5">
+				<div class="grow">
+					<h2 class="text-5xl text-primary"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
+				</div>
+				<div class="relative hidden lg:flex space-x-2 items-center">
+					<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
+					<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-hollow cursor-pointer') ?>
+				</div>
+			</div>
 		</div>
 	</div>
+	<!-- Swiper -->
 	<div class="swiper-container relative">
 		<!-- Slides -->
 		<div class="swiper-wrapper h-full">

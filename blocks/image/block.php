@@ -14,7 +14,7 @@ if ($image_id) {
 	$image_descripton = get_post($image_id)->post_content;
 	$image_meta_data = wp_get_attachment_metadata($image_id);
 	$wide = get_field('style')['wide'] ?? false;
-	$rounded = get_field('style')['rounded'] ?? false;
+	$rounded = get_field('style')['rounded'] ?? ($args['rounded'] ?? false);
 } elseif ($wmc_image_data) {
 	$image_caption = $wmc_image_data['usageterms'] . ' - <a href="' . esc_attr($wmc_image_data['url']) . '">Wikimedia Commons</a>';
 	$image_descripton = $wmc_image_data['desc'];
@@ -52,7 +52,7 @@ if ($image_id) {
 }
 ?>
 <div class="bb-image-block my-4 <?= $width ?>">
-	<figure class="<?= $figure_classes ?> col-span-12 lg:col-span-8 lg:col-start-3" role="group">
+	<figure class="<?= $figure_classes ?>" role="group">
 		<?= $image ?>
 		<?php if ($image_caption): ?>
 			<figcaption class="invisible flex absolute rounded-b-2xl absolute left-0 bottom-0 right-0 text-white bg-black w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all" >

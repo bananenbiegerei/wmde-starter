@@ -1,5 +1,5 @@
 <?php if (!is_admin()): ?>
-	<div class="bb-testimonials-swiper-block container" id="<?= $block['id'] ?>">
+	<div class="bb-testimonials-swiper-block" id="<?= $block['id'] ?>">
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
 				<?php foreach (get_field('testimonials') as $testimonial): ?>
