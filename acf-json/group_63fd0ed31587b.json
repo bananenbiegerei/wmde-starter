@@ -1,14 +1,14 @@
 {
-    "key": "group_6328561607c43",
-    "title": "Block: Image",
+    "key": "group_63fd0ed31587b",
+    "title": "Block: Wikimedia Commons Media",
     "fields": [
         {
-            "key": "field_6328565a67504",
-            "label": "Bild",
-            "name": "image",
+            "key": "field_63fd0ed3745ae",
+            "label": "Media File Name or URL",
+            "name": "media_url",
             "aria-label": "",
-            "type": "image",
-            "instructions": "",
+            "type": "url",
+            "instructions": "The filename (<code>File:Image of a sunset.jpg<\/code>) or URL (<code>https:\/\/commons.wikimedia.org\/wiki\/File:Image_of_a_sunset.jpg<\/code>) as found on <a href=\"https:\/\/commons.wikimedia.org\/\">Wikimedia Commons<\/a>.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,19 +16,12 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "translations": "copy_once",
+            "placeholder": ""
         },
         {
-            "key": "field_63fdd7a5b2064",
+            "key": "field_63fdd8c0a5f23",
             "label": "Style",
             "name": "style",
             "aria-label": "",
@@ -44,7 +37,7 @@
             "layout": "table",
             "sub_fields": [
                 {
-                    "key": "field_63ee61aed2f3b",
+                    "key": "field_63fdb861e56b5",
                     "label": "Wide",
                     "name": "wide",
                     "aria-label": "",
@@ -65,7 +58,7 @@
                     "ui": 1
                 },
                 {
-                    "key": "field_63fdd7b2b2065",
+                    "key": "field_63fdd8d2f7973",
                     "label": "Rounded",
                     "name": "rounded",
                     "aria-label": "",
@@ -93,7 +86,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/image"
+                "value": "acf\/wikimedia-commons-media"
             }
         ]
     ],
@@ -106,5 +99,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677580267
+    "modified": 1677580517
 }

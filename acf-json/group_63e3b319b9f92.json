@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_63e3b4bc78fbb",
-            "label": "Colors",
-            "name": "colors",
+            "label": "Color",
+            "name": "color",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -25,43 +25,16 @@
                 "custom": "custom"
             },
             "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
             "translations": "copy_once",
+            "allow_null": 0,
+            "ui": 0,
             "ajax": 0,
             "placeholder": ""
         },
         {
-            "key": "field_63e3ad06c8390",
-            "label": "Size",
-            "name": "size",
-            "aria-label": "",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "base": "base",
-                "xs": "xs",
-                "sm": "sm",
-                "lg": "lg",
-                "xl": "xl"
-            },
-            "default_value": "base",
-            "return_format": "value",
-            "translations": "copy_once",
-            "allow_null": 0,
-            "layout": "horizontal"
-        },
-        {
-            "key": "field_63e3af2bd0a99",
+            "key": "field_63fddf137717d",
             "label": "Position",
             "name": "position",
             "aria-label": "",
@@ -79,16 +52,16 @@
                 "justify-center": "center",
                 "justify-end": "right"
             },
-            "allow_null": 0,
             "default_value": "justify-start : left",
-            "layout": "horizontal",
             "return_format": "value",
-            "translations": "copy_once"
+            "translations": "copy_once",
+            "allow_null": 0,
+            "layout": "horizontal"
         },
         {
-            "key": "field_63f4e878e6337",
-            "label": "Container Size",
-            "name": "container_size",
+            "key": "field_63e3ad06c8390",
+            "label": "Size",
+            "name": "size",
             "aria-label": "",
             "type": "button_group",
             "instructions": "",
@@ -100,16 +73,46 @@
                 "id": ""
             },
             "choices": {
-                "px-5": "fullwidth",
-                "col-span-12": "12 columns",
-                "col-span-12 lg:col-span-10 lg:col-start-1": "10 columns",
-                "col-span-12 lg:col-span-8 lg:col-start-3": "8 columns"
+                "base": "default",
+                "xs": "xs",
+                "sm": "sm",
+                "lg": "lg",
+                "xl": "xl"
             },
-            "default_value": "",
+            "allow_null": 0,
+            "default_value": "base : default",
+            "layout": "horizontal",
             "return_format": "value",
+            "translations": "copy_once"
+        },
+        {
+            "key": "field_63fdddbc600fd",
+            "label": "Icon",
+            "name": "icon",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "arrow-right": "→",
+                "arrow-down": "↓",
+                "heart": "♥"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
             "translations": "copy_once",
             "allow_null": 0,
-            "layout": "horizontal"
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -130,5 +133,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677504361
+    "modified": 1677582144
 }

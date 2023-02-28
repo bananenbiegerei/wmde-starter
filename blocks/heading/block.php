@@ -1,6 +1,6 @@
 <div
 <?= get_field('anchor_id') ? 'id="' . get_field('anchor_id') . '"' : '' ?>
-class="headline-block container grid grid-cols-12">
+class="bb-headline-block container grid grid-cols-12">
 <div class="col-span-12 lg:col-span-8 lg:col-start-3 mb-3">
 	<<?= get_field('level') ?> class="<?= get_field('style')['headline_size'] ?> mb-2">
 		<?php if (get_field('style')['has_bg_color']): ?>
