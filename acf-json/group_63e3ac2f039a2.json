@@ -37,7 +37,7 @@
             "sub_fields": [
                 {
                     "key": "field_63e3acbdc838f",
-                    "label": "Style",
+                    "label": "Border",
                     "name": "style",
                     "aria-label": "",
                     "type": "button_group",
@@ -54,11 +54,11 @@
                         "btn-hollow": "outline",
                         "btn-ghost": "ghost"
                     },
-                    "allow_null": 0,
                     "default_value": "btn : button default",
-                    "layout": "horizontal",
                     "return_format": "value",
-                    "translations": "copy_once"
+                    "translations": "copy_once",
+                    "allow_null": 0,
+                    "layout": "horizontal"
                 },
                 {
                     "key": "field_63e3ad06c8390",
@@ -92,7 +92,7 @@
                     "label": "Position",
                     "name": "position",
                     "aria-label": "",
-                    "type": "button_group",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -101,23 +101,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "justify-start": "left",
-                        "justify-center": "center",
-                        "justify-end": "right"
-                    },
-                    "allow_null": 0,
-                    "default_value": "justify-start : left",
-                    "layout": "horizontal",
-                    "return_format": "value",
-                    "translations": "copy_once"
+                    "clone": [
+                        "field_63fddf137717d"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 },
                 {
                     "key": "field_63f34d06623df",
                     "label": "Icon",
                     "name": "icon",
                     "aria-label": "",
-                    "type": "select",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -126,20 +123,35 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "none": "None",
-                        "arrow-right": "→",
-                        "arrow-down": "↓",
-                        "heart": "♥"
+                    "clone": [
+                        "field_63fdddbc600fd"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
+                {
+                    "key": "field_63fddb3f3625d",
+                    "label": "Color",
+                    "name": "color",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
                     },
-                    "default_value": "none",
-                    "return_format": "value",
-                    "multiple": 0,
-                    "translations": "copy_once",
-                    "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": ""
+                    "clone": [
+                        "field_63e3b4bc78fbb"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
                 }
             ]
         }
@@ -162,5 +174,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677494945
+    "modified": 1677582130
 }

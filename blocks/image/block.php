@@ -41,8 +41,6 @@ if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
 }
 $figure_classes .= $image_caption ? '' : ' no_caption';
 
-clog($image_classes);
-
 // Create image tag
 if ($image_id) {
 	$image = wp_get_attachment_image($image_id, 'full', '', $image_classes);
