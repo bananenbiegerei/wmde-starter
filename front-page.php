@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php
 while ( have_posts() ) : the_post(); ?>
-	<div class="container mt-10">
+	<div class="content mt-10 container">
 		<?php the_content(); ?>
 	</div>
 <?php endwhile;
