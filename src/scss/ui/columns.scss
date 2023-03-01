@@ -2,6 +2,11 @@
 	@apply gap-5;
 }
 
+// Setup for columns containers (see 'functions/containers.php')
+.wp-block-columns:not([class~='col-12']):not([class~='col-10']):not([class~='col-8']) {
+	@apply px-5;
+}
+
 // In columns make these blocks take the full height
 .wp-block-column .bb-cta-block,
 .wp-block-column .bb-newsletter-block {

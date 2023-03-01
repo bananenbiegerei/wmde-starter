@@ -8,7 +8,7 @@ require_once get_template_directory() . '/functions/localization.php';
 // Special features of theme
 require_once get_template_directory() . '/functions/features.php';
 
-// Load custom ACF blocks
+// Load ACF blocks
 require_once get_template_directory() . '/functions/acf-blocks.php';
 
 // Wrap blocks with containers for page layout
@@ -23,7 +23,7 @@ require_once get_template_directory() . '/functions/menu.php';
 // Icon dispenser
 require_once get_template_directory() . '/functions/icons.php';
 
-// Custom posts and taxonomies, edit as needed
+// Custom posts and taxonomies
 require_once get_template_directory() . '/functions/custom-posts.php';
 require_once get_template_directory() . '/functions/custom-taxonomies.php';
 

@@ -10,9 +10,10 @@
 @import './ui/forms';
 @import './ui/typography';
 @import './ui/badges';
-//@import './ui/accessibility';
 @import './ui/fonts';
 @import './ui/anchor-nav';
+@import './ui/columns';
+
 /* ACF blocks */
 @import '../../blocks/**/*';
 
@@ -27,4 +28,3 @@
 
 /* Gutenberg Overwrites */
 //@import './gutenberg-overwrites/*';
-@import './gutenberg-overwrites/columns';

@@ -10,34 +10,30 @@ $wmc_image_data = $args['wmc_data'] ?? false;
 
 // Setup image parameters
 if ($image_id) {
-	$image_caption = wp_get_attachment_caption($image_id);
+	$image_caption = strip_tags(wp_get_attachment_caption($image_id), ['a']);
 	$image_descripton = get_post($image_id)->post_content;
 	$image_meta_data = wp_get_attachment_metadata($image_id);
-	$wide = get_field('style')['wide'] ?? false;
 	$rounded = get_field('style')['rounded'] ?? ($args['rounded'] ?? false);
 } elseif ($wmc_image_data) {
 	$image_caption = $wmc_image_data['usageterms'] . ' - <a href="' . esc_attr($wmc_image_data['url']) . '">Wikimedia Commons</a>';
 	$image_descripton = $wmc_image_data['desc'];
 	$dim = explode('x', $wmc_image_data['dim']);
 	$image_meta_data = ['width' => (int) $dim[0], 'height' => (int) $dim[1]];
-	$wide = $args['wide'] ?? false;
 	$rounded = $args['rounded'] ?? false;
 } else {
 	$image_caption = 'Missing image!';
 	$image_descripton = '';
 	$image_meta_data = ['width' => 180, 'height' => 139];
-	$wide = false;
 	$rounded = false;
 }
 
 // Get values for container and image classes
-$width = $wide ? 'FIXME:missing' : 'FIXME:missing';
 if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
 	$figure_classes = 'flex flex-col relative justify-center bg-secondary overflow-hidden ' . ($rounded ? 'rounded-2xl ' : '');
-	$image_classes = ['class' => "{$width} h-auto max-w-2xl mx-auto w-full"];
+	$image_classes = ['class' => 'h-auto max-w-2xl mx-auto w-full'];
 } else {
 	$figure_classes = 'flex flex-col relative rounded-2xl';
-	$image_classes = ['class' => "{$width} w-full h-auto " . ($rounded ? 'rounded-2xl ' : '')];
+	$image_classes = ['class' => 'w-full h-auto ' . ($rounded ? 'rounded-2xl ' : '')];
 }
 $figure_classes .= $image_caption ? '' : ' no_caption';
 
@@ -51,12 +47,12 @@ if ($image_id) {
 	$image = "<img src='{$placeholder}' class='{$image_classes['class']}'>";
 }
 ?>
-<div class="bb-image-block my-4 <?= $width ?>">
+<div class="bb-image-block my-4">
 	<figure class="<?= $figure_classes ?>" role="group">
 		<?= $image ?>
 		<?php if ($image_caption): ?>
 			<figcaption class="invisible flex absolute rounded-b-2xl absolute left-0 bottom-0 right-0 text-white bg-black w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all" >
-				<?= bb_icon('info') ?> <div><?= strip_tags($image_caption, ['a']) ?></div>
+				<?= bb_icon('info') ?> <div><?= $image_caption ?></div>
 			</figcaption>
 		<?php endif; ?>
 	</figure>
