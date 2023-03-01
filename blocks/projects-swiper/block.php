@@ -13,8 +13,6 @@
 <?php if (!is_admin()): ?>
 <div class="bb-projects-swiper-block py-5 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
 	<!-- Headline and Navigation -->
-	<div class="container grid grid-cols-12">
-		<div class="col-span-12 lg:col-span-8 lg:col-start-3">
 			<div class="flex mb-5">
 				<div class="grow">
 					<h2 class="text-5xl text-primary"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
@@ -23,8 +21,6 @@
 					<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
 					<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-hollow cursor-pointer') ?>
 				</div>
-			</div>
-		</div>
 	</div>
 	<!-- Swiper -->
 	<div class="swiper-container relative">

@@ -1,6 +1,5 @@
 <?php $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('meta')['format']; ?>
-
-<div id="<?= $block['id'] ?>" class="container bb-cta-block">
+<div id="<?= $block['id'] ?>" class="bb-cta-block">
 	<div class="rounded-3xl p-10 grid grid-cols-12" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 		<!-- Image -->
 		<?php if (get_field('style')['image']): ?>

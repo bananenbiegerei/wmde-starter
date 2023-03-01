@@ -1,5 +1,5 @@
 <div class="bb-responsive-table-block">
-	<table class="hover <?php echo get_field('has_fullwidth') ? 'fullwidth' : 'scroll hover'; ?>">
+	<table class="min-w-full divide-y divide-gray-300">
 		<?php while (have_rows('rows')): ?>
   		<?php the_row(); ?>
 			<?php if (get_sub_field('is_table_head')): ?>
@@ -8,7 +8,7 @@
 						<tr>
 						<?php while (have_rows('columns')): ?>
       				<?php the_row(); ?>
-							<th class="<?php echo get_sub_field('right_align') ? 'text-right' : ''; ?>">
+							<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
 				        <?php the_sub_field('column'); ?>
 							</th>
 						<?php endwhile; ?>
@@ -16,18 +16,18 @@
 				</thead>
 				<?php endif; ?>
 			<?php else: ?>
-				<?php if (have_rows('columns')): ?>
+				<?php /* if (have_rows('columns')): ?>
 					<tbody>
-						<tr>
+						<tr class="bg-white even:bg-gray">
 							<?php while (have_rows('columns')): ?>
 								<?php the_row(); ?>
-								<td class="<?php echo get_sub_field('right_align') ? 'text-right' : ''; ?>"
+								<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
 									<?php the_sub_field('column'); ?>
 								</td>
 							<?php endwhile; ?>
 						</tr>
 					</tbody>
-				<?php endif; ?>
+				<?php endif; */ ?>
 			<?php endif; ?>
 		<?php endwhile; ?>
 	</table>
