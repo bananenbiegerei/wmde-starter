@@ -3,27 +3,6 @@
     "title": "Block: Responsive Table",
     "fields": [
         {
-            "key": "field_608a9ed624949",
-            "label": "Has Fullwidth",
-            "name": "has_fullwidth",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "translations": "copy_once"
-        },
-        {
             "key": "field_5dc4196bacebf",
             "label": "Rows",
             "name": "rows",
@@ -155,5 +134,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676281605
+    "modified": 1677666020
 }
