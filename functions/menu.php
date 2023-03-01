@@ -11,6 +11,7 @@ add_action('init', function () {
 
 // For new top navigation
 define('BB_NAV_MENU_FEATURED', 'Featured');
+
 function bb_get_nav_menu($location = 'nav')
 {
 	$menu = wp_get_nav_menu_name($location);
@@ -19,6 +20,7 @@ function bb_get_nav_menu($location = 'nav')
 	}
 	$nav = [];
 	$featured_id = null;
+	$section_title_id = ['title' => null, 'id' => null];
 	$menu_array = wp_get_nav_menu_items($menu);
 	foreach ($menu_array as $m) {
 		if (empty($m->menu_item_parent)) {
@@ -29,9 +31,13 @@ function bb_get_nav_menu($location = 'nav')
 			$domain->excerpt = wp_strip_all_tags(get_the_excerpt($m->object_id), true);
 			$domain->featured = [];
 			$domain->pages = [];
+			$domain->sections = [];
 			$nav[] = $domain;
 		} elseif ($m->title == BB_NAV_MENU_FEATURED) {
 			$featured_id = $m->ID;
+		} elseif ($m->url == '#') {
+			$section_title_id = ['title' => $m->title, 'id' => $m->ID];
+			$domain->sections["{$m->title}#{$m->ID}"] = [];
 		} else {
 			$page = new stdClass();
 			$page->ID = $m->object_id;
@@ -41,6 +47,8 @@ function bb_get_nav_menu($location = 'nav')
 				$page->excerpt = wp_strip_all_tags(get_the_excerpt($m->object_id), true);
 				$page->thumbnail = get_the_post_thumbnail_url($m->object_id);
 				$domain->featured[] = $page;
+			} elseif ($m->menu_item_parent == $section_title_id['id']) {
+				$domain->sections["{$section_title_id['title']}#{$section_title_id['id']}"][] = $page;
 			} else {
 				$domain->pages[] = $page;
 			}
