@@ -14,9 +14,6 @@
 @import './ui/anchor-nav';
 @import './ui/columns';
 
-/* ACF blocks */
-@import '../../blocks/**/*';
-
 /* Components */
 @import './components/*';
 
@@ -26,5 +23,5 @@
 /* Templates */
 @import './templates/*';
 
-/* Gutenberg Overwrites */
-//@import './gutenberg-overwrites/*';
+/* ACF blocks */
+@import '../../blocks/**/*';
