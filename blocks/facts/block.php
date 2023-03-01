@@ -1,6 +1,6 @@
 <?php
 
-$shape_img = get_stylesheet_directory_uri() . '/img/blocks/facts/%.svg';
+$shape_img = get_stylesheet_directory_uri() . '/blocks/facts/img/%.svg';
 $aspect_ratios = [
 	'1' => '410/260',
 	'2' => '410/260',
