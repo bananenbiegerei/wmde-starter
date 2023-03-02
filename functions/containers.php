@@ -15,33 +15,19 @@ add_filter(
 	3,
 );
 
-// Wrap blocks with a container to implement page layout
+// Magically wrap blocks with a container to implement page layout
 add_filter(
 	'render_block',
 	function ($block_content, $block) {
-		// Get alignment values (for columns from the classes)
-		if ($block['blockName'] == 'core/columns') {
-			$align = $block['attrs']['className'] ?? 'default';
-		} else {
-			$align = $block['attrs']['data']['style_alignment'] ?? 'default';
-		}
-
-		// Full width blocks, columns, or blocks within a column, or null blocks get no containers around them
+		// These blocks always get fullwidth with no container
 		$always_fullwidth = ['acf/projects-swiper', 'acf/testimonials-swiper', 'core/column', null];
-		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth) || $block['inColumn']) {
-			return $block_content;
-		}
 
-		// These blocks will have full width with a small padding
+		// These blocks always get a small padding
 		$always_fullwidth_with_padding = ['core/columns'];
-		$container_classes = 'px-5';
-		if (in_array($block['blockName'], $always_fullwidth_with_padding) && $align == 'default') {
-			return "<div class='{$container_classes}'>" . $block_content . '</div>';
-		}
+		$always_fullwidth_with_padding_classes = 'px-5';
 
-		// For other blocks, depending on the align value
-		$container_classes = 'container grid grid-cols-12';
-		$alignment_classes = [
+		// These blocks get multiple options
+		$inner_container_classes_rules = [
 			// Default for specific blocks
 			'acf/XX' => ['default' => 'col-span-12'],
 			// For other blocks with or without alignment settings
@@ -50,14 +36,36 @@ add_filter(
 				'default' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 				'wide' => 'col-span-12',
 				'right' => 'col-span-12 lg:col-span-8 lg:col-start-5',
-				// Classes manually added to Columns blocks in Gutenberg editor
+				// Classes manually added to Columns blocks in Gutenberg editor (could be named differently...)
 				'col-12' => 'col-span-12',
 				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
 				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 			],
 		];
-		$item_classes = ($alignment_classes[$block['blockName']] ?? $alignment_classes['default'])[$align] ?? ($alignment_classes['default'][$align] ?? $alignment_classes['default']['default']);
-		$content = "<div class='{$container_classes}'><div class='{$item_classes}'>" . $block_content . '</div></div>';
+		$outer_container_classes = 'container grid grid-cols-12';
+
+		// Get alignment values (for columns from the classes)
+		if ($block['blockName'] == 'core/columns') {
+			$align = $block['attrs']['className'] ?? 'default';
+		} else {
+			$align = $block['attrs']['data']['style_alignment'] ?? 'default';
+		}
+
+		// Full width blocks, columns, or blocks within a column, or null blocks get no containers around them
+		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth) || $block['inColumn']) {
+			return $block_content;
+		}
+
+		// These blocks will have full width with a small padding
+		if (in_array($block['blockName'], $always_fullwidth_with_padding) && $align == 'default') {
+			return "<div class='{$always_fullwidth_with_padding_classes}'>" . $block_content . '</div>';
+		}
+
+		// For other blocks, depending on the align value and the block name
+		$inner_container_classes =
+			($inner_container_classes_rules[$block['blockName']] ?? $inner_container_classes_rules['default'])[$align] ??
+			($inner_container_classes_rules['default'][$align] ?? $inner_container_classes_rules['default']['default']);
+		$content = "<div class='{$outer_container_classes}'><div class='{$inner_container_classes}'>" . $block_content . '</div></div>';
 		return $content;
 	},
 	10,
