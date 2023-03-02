@@ -1,5 +1,8 @@
 <?php
 
+// Polyfills
+require_once get_template_directory() . '/functions/polyfills.php';
+
 // Load localization functions
 // Usage: `__('my example text', BB_TEXT_DOMAIN)`
 // String translations can be edited with [Poedit](https://poedit.net)
