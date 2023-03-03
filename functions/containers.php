@@ -1,14 +1,10 @@
 <?php
 
-// Add flag to a block if it's within a column (to avoid getting a container during render_block)
+// Add the name of the parent block if applicable
 add_filter(
 	'render_block_data',
 	function ($parsed_block, $source_block, $parent_block) {
-		if ($parent_block && $parent_block->parsed_block['blockName'] == 'core/column') {
-			$parsed_block['inColumn'] = true;
-		} else {
-			$parsed_block['inColumn'] = false;
-		}
+		$parsed_block['parentBlock'] = $parent_block;
 		return $parsed_block;
 	},
 	10,
@@ -19,8 +15,13 @@ add_filter(
 add_filter(
 	'render_block',
 	function ($block_content, $block) {
-		// These blocks always get fullwidth with no container
-		$always_fullwidth = ['acf/projects-swiper', 'acf/testimonials-swiper', 'core/column', null];
+		// Null blocks... still not sure about them...
+		if ($block['blockName'] == null) {
+			return $block_content;
+		}
+
+		// These blocks always get fullwidth with no container, and also blocks with a 'full' alignment
+		$always_fullwidth = ['acf/projects-swiper', 'acf/testimonials-swiper', 'core/column'];
 
 		// These blocks always get a small padding
 		$always_fullwidth_with_padding = ['core/columns'];
@@ -51,8 +52,8 @@ add_filter(
 			$align = $block['attrs']['data']['style_alignment'] ?? 'default';
 		}
 
-		// Full width blocks, columns, or blocks within a column, or null blocks get no containers around them
-		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth) || $block['inColumn']) {
+		// Full width blocks, columns, or blocks within a block get no containers around them
+		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth) || $block['parentBlock']) {
 			return $block_content;
 		}
 
