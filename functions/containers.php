@@ -20,16 +20,20 @@ add_filter(
 	'render_block',
 	function ($block_content, $block) {
 		// These blocks always get fullwidth with no container
-		$always_fullwidth = ['acf/projects-swiper', 'acf/testimonials-swiper', 'core/column', null];
+		$always_fullwidth = ['acf/xx', 'core/column', null];
 
 		// These blocks always get a small padding
-		$always_fullwidth_with_padding = ['core/columns'];
+		$always_fullwidth_with_padding = ['core/columns', 'acf/xx'];
 		$always_fullwidth_with_padding_classes = 'px-5';
 
 		// These blocks get multiple options
 		$inner_container_classes_rules = [
 			// Default for specific blocks
-			'acf/XX' => ['default' => 'col-span-12'],
+			'acf/cta' => ['default' => 'col-span-12'],
+			'acf/logo-graveyard' => ['default' => 'col-span-12'],
+			'acf/projects-swiper' => ['default' => 'col-span-12'],
+			'acf/projects-swiper' => ['default' => 'col-span-12'],
+			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
 			// For other blocks with or without alignment settings
 			'default' => [
 				// Options defined in ACF: Clone Library / Alignment
