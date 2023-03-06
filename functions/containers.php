@@ -16,7 +16,7 @@ add_filter(
 	'render_block',
 	function ($block_content, $block) {
 		// Null blocks... still not sure about them...
-		if ($block['blockName'] == null) {
+		if ($block['blockName'] == null || ($block['noContainers'] ?? false) == true) {
 			return $block_content;
 		}
 
