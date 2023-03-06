@@ -50,40 +50,15 @@ class BBBlockConverter
 		echo '<div class="wrap">';
 		echo '<h1>' . esc_html(get_admin_page_title()) . '</h1>';
 
-		if (isset($_POST['bb_convert_post_types_nonce']) && wp_verify_nonce($_POST['bb_convert_post_types_nonce'], 'bb_convert_post_types')) {
-			$post_type = $_POST['post_type'];
-			$dry_run = ($_POST['dry_run'] ?? 'off') == 'on' ? true : false;
-			$results = $this->convert_posts($post_type, $dry_run);
-			// Output //
-			echo '<h2>Conversion</h2>';
-			echo '<p>' .
-				join(
-					', ',
-					array_map(function ($r) {
-						return $this->get_post_edit_a($r);
-					}, $results),
-				) .
-				'</p>';
-		} elseif (isset($_POST['bb_convert_post_nonce']) && wp_verify_nonce($_POST['bb_convert_post_nonce'], 'bb_convert_post')) {
-			$post_id = $_POST['post_id'];
-			$dry_run = ($_POST['dry_run'] ?? 'off') == 'on' ? true : false;
-			[$post_content, $new_post_content] = $this->convert_post($post_id, $dry_run);
-			// Output //
-			echo '<p>' . ($dry_run ? '<b>DRY RUN</b> ' : '') . $this->get_post_edit_a($_POST['post_id']) . '</p>';
-			echo '<textarea rows="20" cols="100">';
-			print_r($post_content);
-			echo '</textarea>';
-			echo '<textarea rows="20" cols="100">';
-			print_r($new_post_content);
-			echo '</textarea>';
-		}
+		$this->convert_posts_form_results();
+		$this->convert_post_form_results();
 
 		echo '<form method="post">';
 		wp_nonce_field('bb_convert_post', 'bb_convert_post_nonce');
 		echo '<table class="form-table">';
 		echo '<tr>';
 		echo '<th scope="row"><label for="post_id">Post ID</label></th>';
-		echo '<td><input type="text" name="post_id" id="post_id" value="' . ($_POST['post_id'] ?? '') . '"></td>';
+		echo '<td><input type="text" name="post_id" id="post_id" value="' . ($_POST['post_id'] ?? '') . '" required></td>';
 		echo '</tr>';
 		echo '<tr>';
 		echo '<th scope="row"><label for="dry_run">Dry Run</label></th>';
@@ -134,6 +109,47 @@ class BBBlockConverter
 		echo '</div>';
 	}
 
+	function convert_posts_form_results()
+	{
+		if (isset($_POST['bb_convert_post_types_nonce']) && wp_verify_nonce($_POST['bb_convert_post_types_nonce'], 'bb_convert_post_types')) {
+			$post_type = $_POST['post_type'];
+			$dry_run = ($_POST['dry_run'] ?? 'off') == 'on' ? true : false;
+			$results = $this->convert_posts($post_type, $dry_run);
+			// Output //
+			echo '<h2>Conversion Results</h2>';
+			echo '<p>' .
+				join(
+					', ',
+					array_map(function ($r) {
+						return $this->get_post_edit_a($r);
+					}, $results),
+				) .
+				'</p>';
+		}
+	}
+
+	function convert_post_form_results()
+	{
+		if (isset($_POST['bb_convert_post_nonce']) && wp_verify_nonce($_POST['bb_convert_post_nonce'], 'bb_convert_post') && $_POST['post_id'] != '') {
+			$post_id = $_POST['post_id'];
+			$dry_run = ($_POST['dry_run'] ?? 'off') == 'on' ? true : false;
+			[$post_content, $new_post_content] = $this->convert_post($post_id, $dry_run);
+			// Output //
+			echo '<h2>Conversion Result</h2>';
+			echo '<p>Converted post ' . $this->get_post_edit_a($_POST['post_id']) . ($dry_run ? ' <b>DRY RUN</b> ' : '') . '</p>';
+			if ($dry_run) {
+				echo '<p><b>Old content:</b></p>';
+				echo '<textarea rows="20" cols="100">';
+				print_r($post_content);
+				echo '</textarea>';
+				echo '<p><b>New content:</b></p>';
+				echo '<textarea rows="20" cols="100">';
+				print_r($new_post_content);
+				echo '</textarea>';
+			}
+		}
+	}
+
 	function get_post_edit_a($post_id)
 	{
 		return "<a href=\"" . get_admin_url() . "post.php?post={$post_id}&action=edit\" target=\"_blank\">{$post_id}</a>";
@@ -157,92 +173,6 @@ class BBBlockConverter
 		}
 		wp_reset_postdata();
 		return $posts_data;
-	}
-
-	function convert_posts($post_type, $dry_run = false)
-	{
-		$post_ids = [];
-		$query = new WP_Query(['post_type' => $post_type, 'posts_per_page' => -1]);
-		while ($query->have_posts()) {
-			$query->the_post();
-			$this->convert_post(get_the_ID(), $dry_run);
-			$post_ids[] = get_the_ID();
-		}
-		wp_reset_postdata();
-		return $post_ids;
-	}
-
-	function convert_post($post_id, $dry_run = false, $debug = BB_BC_DEBUG)
-	{
-		$post_content = get_post($post_id)->post_content;
-		$blocks = parse_blocks($post_content);
-
-		if (BB_BC_DEBUG) {
-			clog($blocks);
-		}
-
-		$new_blocks = [];
-		$previous_block_name = null;
-		$paragraph_buffer_block = null;
-		$paragraph_buffer_block_max_length = $this->$paragraph_buffer_block_max_length;
-
-		foreach ($blocks as $block) {
-			if (in_array($block['blockName'], $this->ignore_blocks)) {
-				// Skip ignored blocks or null blocks (no idea what they're here for...)
-				continue;
-			}
-			if ($previous_block_name == 'core/paragraph' && $block['blockName'] == 'core/paragraph') {
-				// If 2 paragraphs in a row, first check if we've reached $paragraph_buffer_block_max_length
-				// If so, flush $paragraph_buffer_block
-				if (count($paragraph_buffer_block['innerContent']) >= $paragraph_buffer_block_max_length) {
-					$new_blocks[] = $this->convert_block($paragraph_buffer_block);
-					$paragraph_buffer_block = $block;
-				}
-				// Add block to $paragraph_buffer_block
-				$paragraph_buffer_block['innerHTML'] .= $block['innerHTML'];
-				$paragraph_buffer_block['innerContent'] = array_merge($paragraph_buffer_block['innerContent'], $block['innerContent']);
-			} elseif ($block['blockName'] == 'core/paragraph') {
-				// If 1 single paragraph, create new paragraph buffer
-				$paragraph_buffer_block = $block;
-			} else {
-				// Else for any other non-null block, first flush paragraph buffer
-				if ($paragraph_buffer_block) {
-					//var_dump($paragraph_buffer_block);
-					$new_blocks[] = $this->convert_block($paragraph_buffer_block);
-					$paragraph_buffer_block = null;
-				}
-				// Convert current block
-				$new_block = $this->convert_block($block);
-				if ($new_block['blockName'] == 'tmp/unpack') {
-					// Handle temporarily packed blocks ('tmp/unpack')
-					foreach ($new_block['innerBlocks'] as $inner_block) {
-						$new_inner_block = $this->convert_block($inner_block);
-						$new_blocks[] = $new_inner_block;
-					}
-				} else {
-					// Normal blocks
-					$new_blocks[] = $new_block;
-				}
-			}
-			$previous_block_name = $block['blockName'];
-		}
-		// Handle last paragraph
-		if ($paragraph_buffer_block) {
-			$new_blocks[] = $this->convert_block($paragraph_buffer_block);
-		}
-
-		if (BB_BC_DEBUG) {
-			clog($new_blocks);
-		}
-
-		$new_post_content = serialize_blocks($new_blocks);
-		// Cleanup markup...
-		$new_post_content = str_replace('--><!--', "-->\n\n<!--", $new_post_content);
-		$new_post_content = str_replace('<!-- wp:tmp/unpack /-->', '', $new_post_content);
-		if (!$dry_run) {
-			$this->db_update_post_content($post_id, $new_post_content);
-		}
-		return [$post_content, $new_post_content];
 	}
 
 	function convert_block($block)
@@ -392,6 +322,92 @@ class BBBlockConverter
 		$new_block['innerBlocks'] = $new_inner_content;
 
 		return $new_block;
+	}
+
+	function convert_post($post_id, $dry_run = false, $debug = BB_BC_DEBUG)
+	{
+		$post_content = get_post($post_id)->post_content;
+		$blocks = parse_blocks($post_content);
+
+		if (BB_BC_DEBUG) {
+			clog($blocks);
+		}
+
+		$new_blocks = [];
+		$previous_block_name = null;
+		$paragraph_buffer_block = null;
+		$paragraph_buffer_block_max_length = $this->$paragraph_buffer_block_max_length;
+
+		foreach ($blocks as $block) {
+			if (in_array($block['blockName'], $this->ignore_blocks)) {
+				// Skip ignored blocks or null blocks (no idea what they're here for...)
+				continue;
+			}
+			if ($previous_block_name == 'core/paragraph' && $block['blockName'] == 'core/paragraph') {
+				// If 2 paragraphs in a row, first check if we've reached $paragraph_buffer_block_max_length
+				// If so, flush $paragraph_buffer_block
+				if (count($paragraph_buffer_block['innerContent']) >= $paragraph_buffer_block_max_length) {
+					$new_blocks[] = $this->convert_block($paragraph_buffer_block);
+					$paragraph_buffer_block = $block;
+				}
+				// Add block to $paragraph_buffer_block
+				$paragraph_buffer_block['innerHTML'] .= $block['innerHTML'];
+				$paragraph_buffer_block['innerContent'] = array_merge($paragraph_buffer_block['innerContent'], $block['innerContent']);
+			} elseif ($block['blockName'] == 'core/paragraph') {
+				// If 1 single paragraph, create new paragraph buffer
+				$paragraph_buffer_block = $block;
+			} else {
+				// Else for any other non-null block, first flush paragraph buffer
+				if ($paragraph_buffer_block) {
+					//var_dump($paragraph_buffer_block);
+					$new_blocks[] = $this->convert_block($paragraph_buffer_block);
+					$paragraph_buffer_block = null;
+				}
+				// Convert current block
+				$new_block = $this->convert_block($block);
+				if ($new_block['blockName'] == 'tmp/unpack') {
+					// Handle temporarily packed blocks ('tmp/unpack')
+					foreach ($new_block['innerBlocks'] as $inner_block) {
+						$new_inner_block = $this->convert_block($inner_block);
+						$new_blocks[] = $new_inner_block;
+					}
+				} else {
+					// Normal blocks
+					$new_blocks[] = $new_block;
+				}
+			}
+			$previous_block_name = $block['blockName'];
+		}
+		// Handle last paragraph
+		if ($paragraph_buffer_block) {
+			$new_blocks[] = $this->convert_block($paragraph_buffer_block);
+		}
+
+		if (BB_BC_DEBUG) {
+			clog($new_blocks);
+		}
+
+		$new_post_content = serialize_blocks($new_blocks);
+		// Cleanup markup...
+		$new_post_content = str_replace('--><!--', "-->\n\n<!--", $new_post_content);
+		$new_post_content = str_replace('<!-- wp:tmp/unpack /-->', '', $new_post_content);
+		if (!$dry_run) {
+			$this->db_update_post_content($post_id, $new_post_content);
+		}
+		return [$post_content, $new_post_content];
+	}
+
+	function convert_posts($post_type, $dry_run = false)
+	{
+		$post_ids = [];
+		$query = new WP_Query(['post_type' => $post_type, 'posts_per_page' => -1]);
+		while ($query->have_posts()) {
+			$query->the_post();
+			$this->convert_post(get_the_ID(), $dry_run);
+			$post_ids[] = get_the_ID();
+		}
+		wp_reset_postdata();
+		return $post_ids;
 	}
 
 	function db_update_post_content($post_id, $post_content)
