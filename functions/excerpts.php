@@ -3,7 +3,7 @@
 function custom_excerpt_length( $length ) {
 	global $post;
 	if ( 'page' == get_post_type( $post ) ) {
-		return 18; // Change this number to set your desired excerpt length for the custom post type
+		return 20; // Change this number to set your desired excerpt length for the custom post type
 	}
 	return $length;
 }

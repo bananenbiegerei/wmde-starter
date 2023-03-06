@@ -84,7 +84,7 @@
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<div x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 block" x-show="$store.open_mobile_nav" XX@mouseleave="closeNav()" >
+<div x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 block" x-show="$store.open_mobile_nav" @mouseleave="closeNav()" >
 
 	<!-- Domains top bar -->
 	<div id="navbar" class="relative z-10 px-2 container">
@@ -111,7 +111,7 @@
 
 		<!-- For each domain... -->
 		<template x-for="(domain,i) in nav">
-			<div x-show="isOpen[i]" class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen rounded-xl shadow-navbar-dropdown p-5" x-bind:class="{'max-w-6xl': domain.featured.length > 0, 'max-w-2xl': domain.featured.length == 0}">
+			<div x-show="isOpen[i]" class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen rounded-xl shadow-navbar-dropdown p-5" x-bind:class="{'max-w-6xl': domain.featured.length > 0, 'max-w-md': domain.featured.length == 0}">
 
 
 				<!-- If there are featured pages: 2 columns with featured pages + pages -->
@@ -119,7 +119,7 @@
 
 					<!-- Featured pages -->
 					<template x-if="domain.featured.length > 0">
-						<nav class="border-r border-gray-200 pr-5">
+						<nav class="border-r border-gray-200 pr-5 mr-5">
 							<ul role="list" class="flex flex-col">
 								<template x-for="page in domain.featured">
 									<li class="bg-white transition hover:bg-gray p-1 rounded-xl" x-bind:class="{'current': pageID == page.ID }">
@@ -139,7 +139,7 @@
 					</template>
 
 					<!-- Pages & sections -->
-					<nav class="pl-5 overflow-auto" aria-labelledby="solutions-heading">
+					<nav class="overflow-auto" aria-labelledby="solutions-heading">
 						<ul role="list" class="grid grid-cols-1 gap-2 items-stretch justify-items-stretch"  x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0}" >
 
 							<!-- Pages -->
