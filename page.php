@@ -22,7 +22,7 @@
 		  <div class="relative flex justify-center container grid grid-cols-12">
 				<div class="col-span-12 lg:col-span-8 lg:col-start-3">
 					<div class="aspect-w-16 aspect-h-9">
-						<?php the_post_thumbnail('large', array('class' => 'rounded-3xl w-full h-full oject-cover')); ?>
+						<?php the_post_thumbnail('large', array('class' => 'rounded-3xl w-full h-full object-cover')); ?>
 					</div>
 				</div>
 			</div>
