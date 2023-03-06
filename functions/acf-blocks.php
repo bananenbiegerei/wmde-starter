@@ -13,14 +13,9 @@ add_action('init', function () {
 
 // List all allowed block types here
 add_filter('allowed_block_types_all', function ($allowed_blocks) {
-	$blocks = [
-		//'core/paragraph',
-		//'core/heading',
-		//'core/image',
-		'core/column',
-		'core/columns',
-	];
-	// ACF Blocks loaded automatically..
+	// These core blocks are still enabled
+	$blocks = ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode'];
+	// ACF blocks loaded automatically...
 	foreach (glob(__DIR__ . '/../blocks/*') as $block) {
 		$blocks[] = 'acf/' . basename($block);
 	}
