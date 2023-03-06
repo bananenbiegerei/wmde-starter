@@ -46,6 +46,14 @@
 	}
 }
 
+.btn-secondary {
+	@apply bg-secondary;
+
+	&.btn-hollow {
+		@apply bg-white text-secondary border border-secondary hover:bg-white hover:border-secondary-900 hover:text-secondary-900;
+	}
+}
+
 // Only Icon
 .btn-icon-only {
 	@apply rounded-full flex items-center justify-center p-1;
@@ -59,7 +67,7 @@
 	}
 
 	&.btn {
-		@apply w-12 h-12;
+		@apply w-10 h-10;
 	}
 
 	&.btn-lg {
