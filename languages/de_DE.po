@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WMDE 2023 Theme\n"
-"POT-Creation-Date: 2023-02-09 15:41+0100\n"
-"PO-Revision-Date: 2023-02-09 15:42+0100\n"
+"POT-Creation-Date: 2023-03-07 18:13+0100\n"
+"PO-Revision-Date: 2023-03-07 18:13+0100\n"
 "Last-Translator: Éric Leclercq\n"
 "Language-Team: Éric Leclercq\n"
 "Language: de_DE\n"
@@ -22,202 +22,271 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 
-#: functions/bb-blocks.php:39
-msgid "Custom Blocks"
+#: blocks.disabled/custom-teasers-swiper/block.php:88
+msgid "Custom Teasers Swiper"
 msgstr ""
 
-#: functions/bb-blocks/blockquote.php:5
-msgid " Blockquote"
-msgstr ""
+#: blocks/newsletter/block.php:22
+msgid "Register"
+msgstr "Anmelden"
 
-#: functions/bb-blocks/blockquote.php:6
-msgid "Blockquote"
-msgstr ""
-
-#: functions/bb-blocks/button.php:5
-msgid "Button"
-msgstr ""
-
-#: functions/bb-blocks/button.php:6
-msgid "Basic Block for Buttons"
-msgstr ""
-
-#: functions/bb-blocks/heading.php:5
-msgid "Headline"
-msgstr ""
-
-#: functions/bb-blocks/heading.php:6
-msgid "Basic Block for Headlines"
-msgstr ""
-
-#: functions/bb-blocks/image.php:5
-msgid "Image"
-msgstr ""
-
-#: functions/bb-blocks/image.php:6
-msgid "Custom image block"
-msgstr ""
-
-#: functions/bb-blocks/paragraph.php:5
-msgid " Paragraph"
-msgstr ""
-
-#: functions/bb-blocks/paragraph.php:6
-msgid "Basic Block for Paragraphs"
-msgstr ""
-
-#: functions/bb-blocks/projects-swiper.php:5
-msgid "Projects Swiper"
-msgstr ""
-
-#: functions/bb-blocks/projects-swiper.php:6
-msgid "A scrolling list of projects"
-msgstr ""
-
-#: functions/custom-posts.php:7
+#: blocks/projects-swiper/block.php:18 functions/custom-posts.php:8
 msgid "Projects"
 msgstr ""
 
-#: functions/custom-posts.php:8
+#: blocks/projects-swiper/block.php:105
+msgid "Projects Swiper"
+msgstr ""
+
+#: blocks/testimonials-swiper/block.php:50
+msgid "Testimonials Swiper"
+msgstr ""
+
+#: blocks/theme/theme.php:21
+msgid "Theme"
+msgstr "Thema"
+
+#: blocks/wikimedia-commons-media/block.php:19
+msgid "Error: Unsupported or missing media"
+msgstr ""
+
+#: footer.php:14
+msgid "Spendenservice"
+msgstr ""
+
+#: footer.php:20
+msgid "Kontakt"
+msgstr ""
+
+#: functions/acf-blocks.php:38
+msgid "Custom Blocks"
+msgstr ""
+
+#: functions/custom-posts.php:9
 msgid "Project"
 msgstr ""
 
-#: functions/custom-posts.php:19
+#: functions/custom-posts.php:20
 msgid "Team Members"
 msgstr ""
 
-#: functions/custom-posts.php:20
+#: functions/custom-posts.php:21
 msgid "Team Member"
 msgstr ""
 
-#: functions/custom-posts.php:31
-msgid "Calls to Action"
-msgstr ""
-
 #: functions/custom-posts.php:32
-msgid "Call to Action"
-msgstr ""
-
-#: functions/custom-posts.php:43
 msgid "Testimonials"
 msgstr ""
 
-#: functions/custom-posts.php:44
+#: functions/custom-posts.php:33
 msgid "Testimonial"
 msgstr ""
 
-#: functions/custom-posts.php:82
+#: functions/custom-posts.php:57
 msgctxt "Post Type General Name"
 msgid "Pressemitteilungen"
 msgstr ""
 
-#: functions/custom-posts.php:83
+#: functions/custom-posts.php:58
 msgctxt "Post Type Singular Name"
 msgid "Pressemitteilung"
 msgstr ""
 
-#: functions/custom-posts.php:84
+#: functions/custom-posts.php:59
 msgid "Pressemitteilungen"
 msgstr ""
 
-#: functions/custom-posts.php:85 functions/custom-posts.php:111
+#: functions/custom-posts.php:60 functions/custom-posts.php:86
 msgid "Pressemitteilung"
 msgstr ""
 
-#: functions/custom-posts.php:86
+#: functions/custom-posts.php:61
 msgid "Pressemitteilungen-Archiv"
 msgstr ""
 
-#: functions/custom-posts.php:87
+#: functions/custom-posts.php:62
 msgid "Pressemitteilungen-Attribute"
 msgstr ""
 
-#: functions/custom-posts.php:88
+#: functions/custom-posts.php:63 functions/custom-posts.php:121
 msgid "Parent Item:"
 msgstr ""
 
-#: functions/custom-posts.php:89
+#: functions/custom-posts.php:64
 msgid "Alle Pressemitteilungen"
 msgstr ""
 
-#: functions/custom-posts.php:90
+#: functions/custom-posts.php:65
 msgid "Pressemitteilung hinzufügen"
 msgstr ""
 
-#: functions/custom-posts.php:91
+#: functions/custom-posts.php:66
 msgid "Neue Pressemitteilung hinzufügen"
 msgstr ""
 
-#: functions/custom-posts.php:92
+#: functions/custom-posts.php:67
 msgid "Neue Pressemitteilung"
 msgstr ""
 
-#: functions/custom-posts.php:93
+#: functions/custom-posts.php:68
 msgid "Pressemitteilung bearbeiten"
 msgstr ""
 
-#: functions/custom-posts.php:94
+#: functions/custom-posts.php:69
 msgid "Pressemitteilung updaten"
 msgstr ""
 
-#: functions/custom-posts.php:95
+#: functions/custom-posts.php:70
 msgid "Pressemitteilung ansehen"
 msgstr ""
 
-#: functions/custom-posts.php:96
+#: functions/custom-posts.php:71
 msgid "Pressemitteilungen ansehen"
 msgstr ""
 
-#: functions/custom-posts.php:97
+#: functions/custom-posts.php:72
 msgid "Pressemitteilung suchen"
 msgstr ""
 
-#: functions/custom-posts.php:98
+#: functions/custom-posts.php:73 functions/custom-posts.php:131
 msgid "Nicht gefunden"
 msgstr ""
 
-#: functions/custom-posts.php:99
+#: functions/custom-posts.php:74 functions/custom-posts.php:132
 msgid "Nicht im Papierkorb gefunden"
 msgstr ""
 
-#: functions/custom-posts.php:100
+#: functions/custom-posts.php:75 functions/custom-posts.php:133
 msgid "Beitragsbild"
 msgstr ""
 
-#: functions/custom-posts.php:101
+#: functions/custom-posts.php:76 functions/custom-posts.php:134
 msgid "Beitragsbild auswählen"
 msgstr ""
 
-#: functions/custom-posts.php:102
+#: functions/custom-posts.php:77 functions/custom-posts.php:135
 msgid "Beitragsbild entfernen"
 msgstr ""
 
-#: functions/custom-posts.php:103
+#: functions/custom-posts.php:78 functions/custom-posts.php:136
 msgid "Als Beitragsbild benutzen"
 msgstr ""
 
-#: functions/custom-posts.php:104
+#: functions/custom-posts.php:79
 msgid "In Pressemitteilung einfügen"
 msgstr ""
 
-#: functions/custom-posts.php:105
+#: functions/custom-posts.php:80
 msgid "Zu Pressemitteilung hochladen"
 msgstr ""
 
-#: functions/custom-posts.php:106
+#: functions/custom-posts.php:81
 msgid "Pressemitteilungen-Liste"
 msgstr ""
 
-#: functions/custom-posts.php:107
+#: functions/custom-posts.php:82 functions/custom-posts.php:140
 msgid "Items list navigation"
 msgstr ""
 
-#: functions/custom-posts.php:108
+#: functions/custom-posts.php:83 functions/custom-posts.php:141
 msgid "Filter items list"
 msgstr ""
 
-#: functions/custom-posts.php:112
+#: functions/custom-posts.php:87
 msgid "Custom Post Type für Pressemitteilungen"
+msgstr ""
+
+#: functions/custom-posts.php:115
+#, fuzzy
+#| msgid "Theme"
+msgctxt "Post Type General Name"
+msgid "Themen"
+msgstr "Themenbereich"
+
+#: functions/custom-posts.php:116
+#, fuzzy
+#| msgid "Theme"
+msgctxt "Post Type Singular Name"
+msgid "Thema"
+msgstr "Themenbereich"
+
+#: functions/custom-posts.php:117 functions/custom-taxonomies.php:69
+#, fuzzy
+#| msgid "Theme"
+msgid "Themen"
+msgstr "Themenbereich"
+
+#: functions/custom-posts.php:118 functions/custom-posts.php:144
+#: functions/custom-taxonomies.php:68
+#, fuzzy
+#| msgid "Theme"
+msgid "Thema"
+msgstr "Themenbereich"
+
+#: functions/custom-posts.php:119
+msgid "Themen-Archiv"
+msgstr ""
+
+#: functions/custom-posts.php:120
+msgid "Themen-Attribute"
+msgstr ""
+
+#: functions/custom-posts.php:122
+#, fuzzy
+#| msgid "Theme"
+msgid "Alle Themen"
+msgstr "Themenbereich"
+
+#: functions/custom-posts.php:123
+msgid "Thema hinzufügen"
+msgstr ""
+
+#: functions/custom-posts.php:124
+msgid "Neue Thema hinzufügen"
+msgstr ""
+
+#: functions/custom-posts.php:125
+msgid "Neue Thema"
+msgstr ""
+
+#: functions/custom-posts.php:126
+msgid "Thema bearbeiten"
+msgstr ""
+
+#: functions/custom-posts.php:127
+msgid "Thema updaten"
+msgstr ""
+
+#: functions/custom-posts.php:128
+msgid "Thema ansehen"
+msgstr ""
+
+#: functions/custom-posts.php:129
+#, fuzzy
+#| msgid "Themes"
+msgid "Themen ansehen"
+msgstr "Themenbereiche"
+
+#: functions/custom-posts.php:130
+msgid "Thema suchen"
+msgstr ""
+
+#: functions/custom-posts.php:137
+msgid "In Thema einfügen"
+msgstr ""
+
+#: functions/custom-posts.php:138
+msgid "Zu Thema hochladen"
+msgstr ""
+
+#: functions/custom-posts.php:139
+#, fuzzy
+#| msgid "Themes"
+msgid "Themen-Liste"
+msgstr "Themenbereiche"
+
+#: functions/custom-posts.php:145
+msgid "Custom Post Type für Themen"
 msgstr ""
 
 #: functions/custom-taxonomies.php:4
@@ -268,14 +337,6 @@ msgstr "Formate"
 msgid "Format"
 msgstr "Format"
 
-#: functions/custom-taxonomies.php:68
-msgid "Themes"
-msgstr "Themenbereiche"
-
-#: functions/custom-taxonomies.php:69
-msgid "Theme"
-msgstr "Themenbereich"
-
 #: functions/menu.php:7
 msgid "Footer"
 msgstr ""
@@ -285,16 +346,8 @@ msgstr ""
 msgid "Suchergebnisse für: %s"
 msgstr ""
 
-#: template-parts/bb-blocks/newsletter.php:30
-msgid "Register"
-msgstr "Anmelden"
-
-#: template-parts/search-modal.php:8
-msgid "Search"
-msgstr ""
-
-#: template-parts/search-modal.php:35
-msgid "Suche"
+#: template-parts/social-media-menu.php:1
+msgid "Wikimedia folgen"
 msgstr ""
 
 #. Theme Name of the plugin/theme

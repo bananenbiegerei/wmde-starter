@@ -1,0 +1,15 @@
+{
+	"name": "acf/theme",
+	"title": "Theme",
+	"description": "Theme",
+	"category": "wkmde-custom-blocks",
+	"icon": "excerpt-view",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "theme.php"
+	},
+	"supports": {
+		"align": false
+	}
+}
