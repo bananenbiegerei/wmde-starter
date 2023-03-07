@@ -1,5 +1,6 @@
 <?php $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('meta')['format']; ?>
-<div id="<?= $block['id'] ?>" class="bb-cta-block">
+
+<div class="bb-cta-block">
 	<div class="rounded-3xl p-10 grid grid-cols-12" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 		<!-- Image -->
 		<?php if (get_field('style')['image']): ?>
@@ -16,20 +17,20 @@
 						<?= esc_html($meta->name) ?>
 					</div>
 					<?php endif; ?>
-	
+
 					<!-- Title -->
 					<?php if (get_field('content')['title']): ?>
 						<h2 class="text-2xl lg:text-3xl"><?= get_field('content')['title'] ?></h2>
 					<?php endif; ?>
 				</div>
-	
+
 				<!-- Text -->
 				<?php if (get_field('content')['text']): ?>
-					<div class="text-xl font-normal flex-grow pr-5 pb-5">
+					<div class="text-xl font-normal flex-grow pr-5 pb-5 text-3xl text-inherit">
 						<?= get_field('content')['text'] ?>
 					</div>
 				<?php endif; ?>
-	
+
 				<!-- Button and extra info -->
 				<div class="flex-1 flex items-end pb-10">
 					<?php if ($link = get_field('cta_button_link')): ?>
@@ -39,9 +40,9 @@
 						</a>
 					<?php endif; ?>
 				</div>
-	
+
 			</div>
-	
+
 			<div class="col-span-12">
 				<!-- Related -->
 				<?php $related = get_field('related'); ?>
