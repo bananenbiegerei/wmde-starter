@@ -1,14 +1,10 @@
 <?php
 
-// Add flag to a block if it's within a column (to avoid getting a container during render_block)
+// Add parent block to a block (to avoid getting a container during render_block)
 add_filter(
 	'render_block_data',
 	function ($parsed_block, $source_block, $parent_block) {
-		if ($parent_block && $parent_block->parsed_block['blockName'] == 'core/column') {
-			$parsed_block['inColumn'] = true;
-		} else {
-			$parsed_block['inColumn'] = false;
-		}
+		$parsed_block['parentBlock'] = $parent_block;
 		return $parsed_block;
 	},
 	10,
@@ -34,16 +30,18 @@ add_filter(
 			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
+			// Classes manually added to Columns blocks in Gutenberg editor (could be named differently...)
+			'core/columns' => [
+				'col-12' => 'col-span-12',
+				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
+				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
+			],
 			// For other blocks with or without alignment settings
 			'default' => [
 				// Options defined in ACF: Clone Library / Alignment
 				'default' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 				'wide' => 'col-span-12',
 				'right' => 'col-span-12 lg:col-span-8 lg:col-start-5',
-				// Classes manually added to Columns blocks in Gutenberg editor (could be named differently...)
-				'col-12' => 'col-span-12',
-				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
-				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 			],
 		];
 		$outer_container_classes = 'container grid grid-cols-12';
@@ -55,8 +53,8 @@ add_filter(
 			$align = $block['attrs']['data']['style_alignment'] ?? 'default';
 		}
 
-		// Full width blocks, columns, or blocks within a column, or null blocks get no containers around them
-		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth) || $block['inColumn']) {
+		// Full width blocks, columns, or blocks within a block, or null blocks get no containers around them
+		if ($align == 'full' || in_array($block['blockName'], $always_fullwidth) || $block['parentBlock']) {
 			return $block_content;
 		}
 

@@ -1,10 +1,8 @@
 <?php
 
-define('BB_BC_DEBUG', true);
-
 class BBBlockConverter
 {
-	private $ignore_blocks = [null, 'core/spacer'];
+	private $ignore_blocks = ['core/spacer'];
 	private $unsupported_blocks = [
 		'acf/call-to-action',
 		'acf/card-stroke',
@@ -42,6 +40,8 @@ class BBBlockConverter
 			add_menu_page('Block Converter', 'Block Converter', 'install_plugins', 'bb_block_converter', [$this, 'block_converter_page'], 'dashicons-block-default');
 			add_submenu_page('bb_block_converter', 'Unsupported Blocks', 'Unsupported Blocks', 'install_plugins', 'bb_block_converter_audit', [$this, 'unsupported_blocks_page']);
 		});
+
+		add_action('wp_ajax_bb_block_converter', [$this, 'ajax_convert_posts']);
 	}
 
 	function block_converter_page()
@@ -49,9 +49,9 @@ class BBBlockConverter
 		echo '<div class="wrap">';
 		echo '<h1>' . esc_html(get_admin_page_title()) . '</h1>';
 
-		$this->convert_posts_form_results();
 		$this->convert_post_form_results();
 
+		echo '<h2>Convert Post</h2>';
 		echo '<form method="post">';
 		wp_nonce_field('bb_convert_post', 'bb_convert_post_nonce');
 		echo '<table class="form-table">';
@@ -72,6 +72,7 @@ class BBBlockConverter
 			return "<option value='{$post_type}'>{$post_type}</option>";
 		}, array_keys(get_post_types()));
 
+		echo '<h2>Batch-convert Posts</h2>';
 		echo '<form method="post">';
 		wp_nonce_field('bb_convert_post_types', 'bb_convert_post_types_nonce');
 		echo '<table class="form-table">';
@@ -79,13 +80,10 @@ class BBBlockConverter
 		echo '<th scope="row"><label for="post_type">Post Type</label></th>';
 		echo '<td><select name="post_type" id="post_type" value="">' . join('', $post_type_options) . '</select></td>';
 		echo '</tr>';
-		echo '<tr>';
-		echo '<th scope="row"><label for="dry_run">Dry Run</label></th>';
-		echo '<td><input type="checkbox" name="dry_run" id="dry_run" checked="checked"></td>';
-		echo '</tr>';
 		echo '</table>';
-		submit_button('Convert All Posts');
+		submit_button('Load Posts');
 		echo '</form>';
+		$this->convert_posts_form_results();
 
 		echo '</div>';
 	}
@@ -112,18 +110,47 @@ class BBBlockConverter
 	{
 		if (isset($_POST['bb_convert_post_types_nonce']) && wp_verify_nonce($_POST['bb_convert_post_types_nonce'], 'bb_convert_post_types')) {
 			$post_type = $_POST['post_type'];
-			$dry_run = ($_POST['dry_run'] ?? 'off') == 'on' ? true : false;
-			$results = $this->convert_posts($post_type, $dry_run);
-			// Output //
-			echo '<h2>Conversion Results</h2>';
-			echo '<p>' .
-				join(
-					', ',
-					array_map(function ($r) {
-						return $this->get_post_edit_a($r);
-					}, $results),
-				) .
-				'</p>';
+			// Get all posts ID
+			$post_ids = [];
+			$query = new WP_Query(['post_type' => $post_type, 'posts_per_page' => -1]);
+			while ($query->have_posts()) {
+				$query->the_post();
+				$post_ids[] = get_the_ID();
+			}
+			wp_reset_postdata();
+			echo '<script>var postsID = ' . json_encode($post_ids) . ', adminURL = "' . admin_url('admin-ajax.php') . '";</script>';
+			echo <<<EOF
+						<script>
+							function convertPosts() {
+								var done = 0;
+								var batches = [];
+								var count = postsID.length;
+								var size = 10;
+								while (postsID.length > 0) {
+									batches.push(postsID.splice(0, size));
+								}
+								batches.forEach((b) => {
+									jQuery.ajax({
+										url: adminURL,
+										data: {
+											action: 'bb_block_converter',
+											posts_id: b,
+										},
+										success: function (data) {
+											done += data.length;
+											document.getElementById('results').value = done;
+										},
+										error: function (errorThrown) {
+											console.log(errorThrown);
+										},
+									});
+								});
+							}
+						</script>
+			EOF;
+			echo '<hr>';
+			echo '<p>Ready to convert ' . count($post_ids) . ' posts. <button class="button" onclick="convertPosts()">Convert</button></p>';
+			echo '<progress style="width:100%" id="results" max="' . count($post_ids) . '" value="0"></progress>';
 		}
 	}
 
@@ -245,13 +272,19 @@ class BBBlockConverter
 				break;
 
 			case 'core/quote':
+				$quote = '';
+				foreach ($block['innerBlocks'] as $innerBlock) {
+					$quote .= $innerBlock['innerHTML'];
+				}
+				$quote = strip_tags($quote, ['p', 'em', 'strong']);
+				$source = strip_tags($block['innerHTML']);
 				$new_block = [
 					'blockName' => 'acf/blockquote',
 					'attrs' => [
 						'name' => 'acf/blockquote',
 						'data' => [
-							'field_632dac8f25165' => strip_tags(trim($block['innerHTML']), ['p', 'em', 'strong']), // quote
-							'field_63fc870875578' => '', // source
+							'field_632dac8f25165' => $quote,
+							'field_63fc870875578' => $source,
 						],
 						'mode' => 'auto',
 					],
@@ -328,23 +361,18 @@ class BBBlockConverter
 		return $new_block;
 	}
 
-	function convert_post($post_id, $dry_run = false, $debug = BB_BC_DEBUG)
+	function convert_post($post_id, $dry_run = false)
 	{
 		$post_content = get_post($post_id)->post_content;
 		$blocks = parse_blocks($post_content);
-
-		if (BB_BC_DEBUG) {
-			clog($blocks);
-		}
-
 		$new_blocks = [];
 		$previous_block_name = null;
 		$paragraph_buffer_block = null;
-		$paragraph_buffer_block_max_length = $this->$paragraph_buffer_block_max_length;
+		$paragraph_buffer_block_max_length = $this->paragraph_buffer_block_max_length;
 
 		foreach ($blocks as $block) {
 			if (in_array($block['blockName'], $this->ignore_blocks)) {
-				// Skip ignored blocks or null blocks (no idea what they're here for...)
+				// Skip ignored blocks
 				continue;
 			}
 			if ($previous_block_name == 'core/paragraph' && $block['blockName'] == 'core/paragraph') {
@@ -361,9 +389,8 @@ class BBBlockConverter
 				// If 1 single paragraph, create new paragraph buffer
 				$paragraph_buffer_block = $block;
 			} else {
-				// Else for any other non-null block, first flush paragraph buffer
+				// Else for other blocks, first flush paragraph buffer
 				if ($paragraph_buffer_block) {
-					//var_dump($paragraph_buffer_block);
 					$new_blocks[] = $this->convert_block($paragraph_buffer_block);
 					$paragraph_buffer_block = null;
 				}
@@ -387,10 +414,6 @@ class BBBlockConverter
 			$new_blocks[] = $this->convert_block($paragraph_buffer_block);
 		}
 
-		if (BB_BC_DEBUG) {
-			clog($new_blocks);
-		}
-
 		$new_post_content = serialize_blocks($new_blocks);
 		// Cleanup markup...
 		$new_post_content = str_replace('--><!--', "-->\n\n<!--", $new_post_content);
@@ -401,7 +424,7 @@ class BBBlockConverter
 		return [$post_content, $new_post_content];
 	}
 
-	function convert_posts($post_type, $dry_run = false)
+	function convert_post_type($post_type, $dry_run = false)
 	{
 		$post_ids = [];
 		$query = new WP_Query(['post_type' => $post_type, 'posts_per_page' => -1]);
@@ -412,6 +435,20 @@ class BBBlockConverter
 		}
 		wp_reset_postdata();
 		return $post_ids;
+	}
+
+	function ajax_convert_posts()
+	{
+		if (isset($_REQUEST) && $_REQUEST['posts_id']) {
+			$posts_id = $_REQUEST['posts_id'];
+			$results = [];
+			foreach ($posts_id as $post_id) {
+				$result = $this->convert_post(intval($post_id), false);
+				$results[] = intval($post_id);
+			}
+			wp_send_json($results);
+		}
+		wp_die();
 	}
 
 	function db_update_post_content($post_id, $post_content)

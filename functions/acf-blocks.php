@@ -11,10 +11,16 @@ add_action('init', function () {
 	}
 });
 
+add_filter('acf/settings/load_json', function ($paths) {
+	// Add all folders in /blocks/
+	//$paths[] = get_template_directory() . '/blocks/custom-teasers-swiper/';
+	return $paths;
+});
+
 // List all allowed block types here
 add_filter('allowed_block_types_all', function ($allowed_blocks) {
 	// These core blocks are still enabled
-	$blocks = ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode'];
+	$blocks = ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode', 'core/table', 'core/block', 'core/html'];
 	// ACF blocks loaded automatically...
 	foreach (glob(__DIR__ . '/../blocks/*') as $block) {
 		$blocks[] = 'acf/' . basename($block);
