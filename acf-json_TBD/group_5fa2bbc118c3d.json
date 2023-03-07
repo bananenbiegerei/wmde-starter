@@ -6,6 +6,7 @@
             "key": "field_5fa2bbc7bea49",
             "label": "Headline and Description",
             "name": "headline_and_description",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -15,13 +16,13 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_5fa2bbe9bea4a",
                     "label": "Headline",
                     "name": "headline",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -31,7 +32,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -43,6 +43,7 @@
                     "key": "field_5fa2bbf1bea4b",
                     "label": "Description",
                     "name": "description",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -52,7 +53,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "tabs": "all",
                     "toolbar": "full",
@@ -81,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": false,
-    "modified": 1675864027
+    "modified": 1676974507
 }

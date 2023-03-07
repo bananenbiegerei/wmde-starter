@@ -1,6 +1,6 @@
 {
     "key": "group_5d8cb6df04cf6",
-    "title": "Team Member",
+    "title": "Post Type: Team Member",
     "fields": [
         {
             "key": "field_5d8cb6e7b3ca1",
@@ -143,5 +143,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676974507
+    "modified": 1678210531
 }

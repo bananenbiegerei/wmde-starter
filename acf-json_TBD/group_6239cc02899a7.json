@@ -6,6 +6,7 @@
             "key": "field_6239cc02ac39c",
             "label": "Slides",
             "name": "slides",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
             "min": 0,
             "max": 0,
@@ -27,6 +27,7 @@
                     "key": "field_6239cc21ca0c8",
                     "label": "Background Image",
                     "name": "image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -36,7 +37,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "return_format": "id",
                     "preview_size": "medium",
                     "library": "all",
@@ -54,6 +54,7 @@
                     "key": "field_6239cc3bca0c9",
                     "label": "Background Color",
                     "name": "bg_color",
+                    "aria-label": "",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 0,
@@ -63,7 +64,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "#ffffff",
                     "enable_opacity": 0,
                     "return_format": "string",
@@ -74,6 +74,7 @@
                     "key": "field_6239cc76ca0ca",
                     "label": "Button Link",
                     "name": "button_link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -83,7 +84,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "return_format": "array",
                     "translations": "copy_once",
                     "parent_repeater": "field_6239cc02ac39c"
@@ -92,6 +92,7 @@
                     "key": "field_6239ce3bca0cb",
                     "label": "Button Background",
                     "name": "button_background",
+                    "aria-label": "",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 0,
@@ -101,7 +102,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "#eeeaff",
                     "enable_opacity": 0,
                     "return_format": "string",
@@ -112,6 +112,7 @@
                     "key": "field_6239ce55ca0cc",
                     "label": "Button Color",
                     "name": "button_color",
+                    "aria-label": "",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 0,
@@ -121,7 +122,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "#3a25ff",
                     "enable_opacity": 0,
                     "return_format": "string",
@@ -132,6 +132,7 @@
                     "key": "field_6239ce5dca0cd",
                     "label": "Button Position",
                     "name": "button_position",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -141,7 +142,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "choices": {
                         "bottom-left-position": "Bottom Left",
                         "bottom-right-position": "Bottom Right",
@@ -161,6 +161,7 @@
                     "key": "field_6239cebdca0ce",
                     "label": "Text",
                     "name": "text",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -170,7 +171,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "tabs": "all",
                     "toolbar": "full",
@@ -183,6 +183,7 @@
                     "key": "field_6359da2902b4f",
                     "label": "Text Background Color",
                     "name": "text_background_color",
+                    "aria-label": "",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 0,
@@ -192,7 +193,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "enable_opacity": 0,
                     "return_format": "string",
@@ -203,6 +203,7 @@
                     "key": "field_6239cec5ca0cf",
                     "label": "Screenreader only",
                     "name": "screenreader_only",
+                    "aria-label": "",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -212,7 +213,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "message": "",
                     "default_value": 0,
                     "ui": 0,
@@ -225,6 +225,7 @@
                     "key": "field_624acf5d1388e",
                     "label": "Slide verstecken",
                     "name": "slide_verstecken",
+                    "aria-label": "",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -234,7 +235,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "message": "",
                     "default_value": 0,
                     "ui": 1,
@@ -264,5 +264,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864027
+    "modified": 1676974507
 }

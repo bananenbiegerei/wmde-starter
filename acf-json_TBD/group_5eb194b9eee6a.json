@@ -6,6 +6,7 @@
             "key": "field_5eb194bfbb264",
             "label": "Path",
             "name": "path",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": false,
-    "modified": 1675864026
+    "modified": 1676974506
 }

@@ -6,6 +6,7 @@
             "key": "field_601c07b40ea6b",
             "label": "Anker Name",
             "name": "anker_name_global",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -27,6 +27,7 @@
             "key": "field_601c13cb0ea6c",
             "label": "Anker ID",
             "name": "anker_id_global",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -36,7 +37,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -63,5 +63,5 @@
     "active": true,
     "description": "",
     "show_in_rest": false,
-    "modified": 1675864026
+    "modified": 1676974506
 }

@@ -6,6 +6,7 @@
             "key": "field_602d5669a2b68",
             "label": "Headline",
             "name": "headline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -26,6 +26,7 @@
             "key": "field_602d553ac25c7",
             "label": "Embed Code",
             "name": "embed_code",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "Youtube embed code einfügen. Bitte im erweiterten Datenschutz Modus, das ist wichtig.",
             "required": 1,
@@ -35,7 +36,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -61,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864029
+    "modified": 1676974507
 }

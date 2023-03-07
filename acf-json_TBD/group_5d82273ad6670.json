@@ -6,6 +6,7 @@
             "key": "field_5d82274903884",
             "label": "Pages",
             "name": "pages",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "",
             "required": 1,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "post_type": [
                 "page"
             ],
@@ -45,5 +45,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864027
+    "modified": 1676974506
 }

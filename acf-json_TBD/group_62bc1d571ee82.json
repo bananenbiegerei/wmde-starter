@@ -6,6 +6,7 @@
             "key": "field_62bc1d737c94c",
             "label": "Anzahl der Pressemitteilungen",
             "name": "number_to_show",
+            "aria-label": "",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": 3,
             "placeholder": "",
             "prepend": "",
@@ -44,5 +44,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864026
+    "modified": 1676974506
 }

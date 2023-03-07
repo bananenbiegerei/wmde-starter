@@ -6,6 +6,7 @@
             "key": "field_619b97bddcd4b",
             "label": "Headline",
             "name": "headline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -27,6 +27,7 @@
             "key": "field_619b97bddcd95",
             "label": "Embed Code",
             "name": "embed_code",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "Youtube embed code einfügen. Bitte im erweiterten Datenschutz Modus, das ist wichtig.",
             "required": 1,
@@ -36,7 +37,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -48,6 +48,7 @@
             "key": "field_619b97d4a77ab",
             "label": "Shortcode for Chat",
             "name": "shortcode_for_chat",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -57,7 +58,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -69,6 +69,7 @@
             "key": "field_619ba1758ae4c",
             "label": "Chat Alignement",
             "name": "chat_alignement",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -78,7 +79,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "vertical": "vertical",
                 "horizontal": "horizontal"
@@ -111,5 +111,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864029
+    "modified": 1676974507
 }

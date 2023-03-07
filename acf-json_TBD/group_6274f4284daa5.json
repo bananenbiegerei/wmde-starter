@@ -6,6 +6,7 @@
             "key": "field_6274f4459555f",
             "label": "label",
             "name": "label",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -27,6 +27,7 @@
             "key": "field_6274f44b95560",
             "label": "Headline",
             "name": "headline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -36,7 +37,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -48,6 +48,7 @@
             "key": "field_6274f45a95561",
             "label": "Content",
             "name": "content",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -57,7 +58,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "tabs": "all",
             "toolbar": "basic",
@@ -69,6 +69,7 @@
             "key": "field_6274f46d95562",
             "label": "Link",
             "name": "link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -78,7 +79,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "return_format": "array",
             "translations": "copy_once"
         }
@@ -101,5 +101,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864026
+    "modified": 1676974506
 }

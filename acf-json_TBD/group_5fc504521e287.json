@@ -6,6 +6,7 @@
             "key": "field_5fc504723afad",
             "label": "Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "return_format": "id",
             "preview_size": "medium",
             "library": "all",
@@ -32,6 +32,7 @@
             "key": "field_5fc751eb1cf17",
             "label": "Color",
             "name": "color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -41,7 +42,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "page": "Page Scheme",
                 "red": "Red",
@@ -62,6 +62,7 @@
             "key": "field_5fc7565c5cc0c",
             "label": "Background",
             "name": "bg_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -71,7 +72,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "none": "None",
                 "lighter-gray": "Gray",
@@ -90,6 +90,7 @@
             "key": "field_5fc504b03afae",
             "label": "Headline",
             "name": "headline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -99,7 +100,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -111,6 +111,7 @@
             "key": "field_5fc504d23afaf",
             "label": "Description",
             "name": "description",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -120,7 +121,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -132,6 +132,7 @@
             "key": "field_5fc504e43afb0",
             "label": "Post",
             "name": "dest",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "",
             "required": 0,
@@ -141,7 +142,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "post_type": "",
             "taxonomy": "",
             "allow_null": 0,
@@ -154,6 +154,7 @@
             "key": "field_5fd210aa21de6",
             "label": "Or External Link",
             "name": "dest_ext",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -163,7 +164,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "translations": "copy_once"
@@ -172,6 +172,7 @@
             "key": "field_5fc5051b3afb1",
             "label": "Link Text",
             "name": "link_text",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -181,7 +182,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -208,5 +208,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864026
+    "modified": 1676974506
 }

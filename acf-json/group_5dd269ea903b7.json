@@ -1,6 +1,6 @@
 {
     "key": "group_5dd269ea903b7",
-    "title": "Post custom authors",
+    "title": "Post Type: Post",
     "fields": [
         {
             "key": "field_5dd269ef820be",
@@ -54,13 +54,6 @@
                 "operator": "==",
                 "value": "post"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "unlock-blog"
-            }
         ]
     ],
     "menu_order": 0,
@@ -71,6 +64,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1676974507
+    "show_in_rest": 0,
+    "modified": 1678210601
 }

@@ -6,6 +6,7 @@
             "key": "field_62fa97ed9aff0",
             "label": "Beschreibungstext",
             "name": "description",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -42,5 +42,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864027
+    "modified": 1676974507
 }

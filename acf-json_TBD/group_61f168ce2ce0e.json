@@ -6,6 +6,7 @@
             "key": "field_61f168ec0b6e8",
             "label": "Newsletter Embed Code auswählen:",
             "name": "embed_code_selection",
+            "aria-label": "",
             "type": "radio",
             "instructions": "",
             "required": 1,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "1": "1",
                 "2": "2",
@@ -35,6 +35,7 @@
             "key": "field_61f16a06c6a00",
             "label": "Hinweis",
             "name": "",
+            "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
@@ -44,7 +45,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "message": "Die Embed-Codes sind auf der Options-Seite hinterlegt.",
             "new_lines": "wpautop",
             "esc_html": 0
@@ -53,6 +53,7 @@
             "key": "field_61f16e5c36361",
             "label": "Hintergrund-Farbe",
             "name": "background_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -62,7 +63,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "white": "white",
                 "light-gray": "light-gray",
@@ -98,5 +98,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864025
+    "modified": 1676974506
 }

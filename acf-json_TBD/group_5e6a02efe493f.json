@@ -6,6 +6,7 @@
             "key": "field_5e6a02f7e6889",
             "label": "Text",
             "name": "text",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "Falls ein manueller Umbruch erfolgen soll bitte ein \"Break-Tag\" einfügen. So: <br>",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -26,6 +26,7 @@
             "key": "field_5e6a0338e688a",
             "label": "Link",
             "name": "link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -35,7 +36,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "return_format": "array"
         }
     ],
@@ -57,5 +57,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864027
+    "modified": 1676974507
 }

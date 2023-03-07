@@ -6,6 +6,7 @@
             "key": "field_5fc6167cc84de",
             "label": "Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "return_format": "id",
             "preview_size": "medium",
             "library": "all",
@@ -31,6 +31,7 @@
             "key": "field_5fc6167cc8529",
             "label": "Headline",
             "name": "headline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -40,7 +41,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -52,6 +52,7 @@
             "key": "field_5fc6167cc8573",
             "label": "Description",
             "name": "description",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -61,7 +62,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "maxlength": "",
@@ -72,6 +72,7 @@
             "key": "field_5fc6167cc85ba",
             "label": "Post",
             "name": "dest",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "",
             "required": 0,
@@ -81,7 +82,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "post_type": "",
             "taxonomy": "",
             "allow_null": 0,
@@ -93,6 +93,7 @@
             "key": "field_5fd210e77a850",
             "label": "Or External Link",
             "name": "dest_ext",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -102,7 +103,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": ""
         },
@@ -110,6 +110,7 @@
             "key": "field_5fc6167cc8604",
             "label": "Link Text",
             "name": "link_text",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -119,7 +120,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -130,6 +130,7 @@
             "key": "field_5fc61b2fe145c",
             "label": "Link Color",
             "name": "link_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -139,7 +140,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "choices": {
                 "red": "Red",
                 "green": "Green",
@@ -172,5 +172,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864026
+    "modified": 1676974506
 }

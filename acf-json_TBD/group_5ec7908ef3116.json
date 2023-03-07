@@ -6,6 +6,7 @@
             "key": "field_5fa3df88a109c",
             "label": "Headline and description",
             "name": "headline_and_description",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -15,13 +16,13 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "layout": "block",
             "sub_fields": [
                 {
                     "key": "field_5fa3dfa5a109d",
                     "label": "Headline",
                     "name": "headline",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -31,7 +32,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -43,6 +43,7 @@
                     "key": "field_5fa3dfaca109e",
                     "label": "Description",
                     "name": "description",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -52,7 +53,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "tabs": "all",
                     "toolbar": "full",
@@ -66,6 +66,7 @@
             "key": "field_5ec790e505dff",
             "label": "Slides",
             "name": "slides",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -75,7 +76,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
             "min": 0,
             "max": 0,
@@ -87,6 +87,7 @@
                     "key": "field_5ec790ff05e00",
                     "label": "Path",
                     "name": "path",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -96,7 +97,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -125,5 +125,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864026
+    "modified": 1676974506
 }

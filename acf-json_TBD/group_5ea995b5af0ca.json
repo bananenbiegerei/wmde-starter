@@ -6,6 +6,7 @@
             "key": "field_5ea995bfd77df",
             "label": "Anchor Name",
             "name": "anchor_name",
+            "aria-label": "",
             "type": "text",
             "instructions": "Bitte keine Sonderzeichen, oder Leerzeichen verwenden. Man kann den Anker später über die URL erreichen www.website.de\/seite#anker",
             "required": 1,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -26,6 +26,7 @@
             "key": "field_601c0485fc077",
             "label": "Anchor ID",
             "name": "anchor_id",
+            "aria-label": "",
             "type": "text",
             "instructions": "This will generate the URL www.wikimedia.de\/#anchor\r\nPlease use only web characters",
             "required": 0,
@@ -35,7 +36,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -62,5 +62,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675864026
+    "modified": 1676974506
 }
