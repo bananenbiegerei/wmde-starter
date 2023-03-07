@@ -1,6 +1,6 @@
 {
     "key": "group_5ffc2b237573b",
-    "title": "Organigramm",
+    "title": "Block: Organigramm",
     "fields": [
         {
             "key": "field_5ffc2b369cb1c",
@@ -29,7 +29,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/organimgramm"
+                "value": "acf\/organigramm"
             }
         ]
     ],
@@ -42,5 +42,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676974506
+    "modified": 1678108967
 }

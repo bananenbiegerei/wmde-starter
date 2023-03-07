@@ -18,7 +18,6 @@ class BBBlockConverter
 		'acf/latest-blog-posts',
 		'acf/latest-press-releases',
 		'acf/newsletter-signup-form',
-		'acf/organimgramm',
 		'acf/page-teasers',
 		'acf/projects',
 		'acf/stoerer',
@@ -40,8 +39,8 @@ class BBBlockConverter
 	function __construct()
 	{
 		add_action('admin_menu', function () {
-			add_menu_page('Block Converter', 'Block Converter', 'install_plugins', 'bb_block_converter', [$this, 'block_converter_page'], 'dashicons-hammer');
-			add_submenu_page('bb_block_converter', 'Unsupported Blocks', 'Unsupported Blocks', 'install_plugins', 'bb_block_converter_audit', [$this, 'unsupported_blocks_page'], 'dashicons-hammer');
+			add_menu_page('Block Converter', 'Block Converter', 'install_plugins', 'bb_block_converter', [$this, 'block_converter_page'], 'dashicons-block-default');
+			add_submenu_page('bb_block_converter', 'Unsupported Blocks', 'Unsupported Blocks', 'install_plugins', 'bb_block_converter_audit', [$this, 'unsupported_blocks_page']);
 		});
 	}
 
@@ -304,6 +303,11 @@ class BBBlockConverter
 						'mode' => 'auto',
 					],
 				];
+				break;
+			case 'acf/organimgramm':
+				$new_block = $block;
+				$new_block['blockName'] = 'acf/organigramm';
+				$new_block['attrs']['name'] = 'acf/organigramm';
 				break;
 
 			default:
