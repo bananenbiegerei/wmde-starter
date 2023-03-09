@@ -3,7 +3,7 @@
 	"title": "Accordion",
 	"description": "Accordion",
 	"category": "wkmde-custom-blocks",
-	"icon": "slides",
+	"icon": "menu-alt3",
 	"keywords": [],
 	"acf": {
 		"mode": "false",
