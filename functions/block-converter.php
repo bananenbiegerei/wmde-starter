@@ -309,9 +309,9 @@ class BBBlockConverter
 
 			case 'core/buttons':
 				$new_block = $block;
-				$new_block['blockName'] = 'tmp/unpack';
-				$new_block['innerHTML'] = '';
-				$new_block['innerContent'] = [];
+				$new_block['blockName'] = 'core/group';
+				$new_block['innerHTML'] = "<div class=\"wp-block-group has-light-blue-background-color has-background\">\n\n</div>";
+				$new_block['innerContent'] = ["<div class=\"wp-block-group has-light-blue-background-color has-background\">", null, '</div>'];
 				break;
 
 			case 'core/button':
@@ -334,7 +334,7 @@ class BBBlockConverter
 							'display_position' => 'justify-start',
 							'display_size' => 'btn-base',
 							'display_style' => 'btn',
-							'link' => ['title' => $match[3] ?? 'Missing Title', 'url' => $match[2] ?? '#', 'target' => ''],
+							'link' => ['title' => strip_tags($match[3]) ?? 'Missing Title', 'url' => $match[2] ?? '#', 'target' => ''],
 						],
 						'mode' => 'auto',
 					],
@@ -389,6 +389,10 @@ class BBBlockConverter
 		}
 		$new_block['innerBlocks'] = $new_inner_content;
 
+		clog('---');
+		clog($block);
+		clog($new_block);
+
 		return $new_block;
 	}
 
@@ -401,7 +405,9 @@ class BBBlockConverter
 		$paragraph_buffer_block = null;
 		$paragraph_buffer_block_max_length = $this->paragraph_buffer_block_max_length;
 
+		// NOTE: this gets top level blocks... recursion is handled in convert_block()
 		foreach ($blocks as $block) {
+			// Skip null blocks
 			if (!$block['blockName']) {
 				continue;
 			}
@@ -426,18 +432,8 @@ class BBBlockConverter
 				}
 				// Convert current block
 				$new_block = $this->convert_block($block);
-
-				if ($new_block['blockName'] == 'tmp/unpack') {
-					// Handle temporarily packed blocks ('tmp/unpack')
-					foreach ($new_block['innerBlocks'] as $inner_block) {
-						$new_inner_block = $this->convert_block($inner_block);
-						$new_blocks[] = $new_inner_block;
-					}
-				} else {
-					// Normal blocks
-					if ($new_block != null) {
-						$new_blocks[] = $new_block;
-					}
+				if ($new_block != null) {
+					$new_blocks[] = $new_block;
 				}
 			}
 			$previous_block_name = $block['blockName'];
@@ -450,7 +446,6 @@ class BBBlockConverter
 		$new_post_content = serialize_blocks($new_blocks);
 		// Cleanup markup...
 		$new_post_content = str_replace('--><!--', "-->\n\n<!--", $new_post_content);
-		$new_post_content = str_replace('<!-- wp:tmp/unpack /-->', '', $new_post_content);
 		$new_post_content = str_replace('<!-- wp:tmp/ignore /-->', '', $new_post_content);
 		if (!$dry_run) {
 			$this->db_update_post_content($post_id, $new_post_content);
