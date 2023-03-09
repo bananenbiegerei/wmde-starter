@@ -2,7 +2,7 @@
 
 class BBBlockConverter
 {
-	private $ignore_blocks = ['core/spacer'];
+	private $ignored_blocks = ['core/spacer'];
 	private $unsupported_blocks = [
 		'acf/call-to-action',
 		'acf/card-stroke',
@@ -18,7 +18,6 @@ class BBBlockConverter
 		'acf/newsletter-signup-form',
 		'acf/page-teasers',
 		'acf/projects',
-		'acf/stoerer',
 		'acf/teaser-card-swiper',
 		'acf/text-image-float',
 		'core/pullquote',
@@ -49,9 +48,8 @@ class BBBlockConverter
 		echo '<div class="wrap">';
 		echo '<h1>' . esc_html(get_admin_page_title()) . '</h1>';
 
-		$this->convert_post_form_results();
-
 		echo '<h2>Convert Post</h2>';
+		$this->convert_post_form_results();
 		echo '<form method="post">';
 		wp_nonce_field('bb_convert_post', 'bb_convert_post_nonce');
 		echo '<table class="form-table">';
@@ -63,14 +61,9 @@ class BBBlockConverter
 		echo '<th scope="row"><label for="dry_run">Dry Run</label></th>';
 		echo '<td><input type="checkbox" name="dry_run" id="dry_run" checked="checked"></td>';
 		echo '</tr>';
-
 		echo '</table>';
 		submit_button('Convert Post');
 		echo '</form>';
-
-		$post_type_options = array_map(function ($post_type) {
-			return "<option value='{$post_type}'>{$post_type}</option>";
-		}, array_keys(get_post_types()));
 
 		echo '<h2>Batch-convert Posts</h2>';
 		echo '<form method="post">';
@@ -78,11 +71,16 @@ class BBBlockConverter
 		echo '<table class="form-table">';
 		echo '<tr>';
 		echo '<th scope="row"><label for="post_type">Post Type</label></th>';
-		echo '<td><select name="post_type" id="post_type" value="">' . join('', $post_type_options) . '</select></td>';
+		$post_type_options = array_map(function ($post_type) {
+			$selected = $post_type == ($_POST['post_type'] ?? '') ? 'selected' : '';
+			return "<option value='{$post_type}' {$selected}>{$post_type}</option>";
+		}, array_keys(get_post_types()));
+		echo '<td><select name="post_type" id="post_type">' . join('', $post_type_options) . '</select></td>';
 		echo '</tr>';
 		echo '</table>';
 		submit_button('Load Posts');
 		echo '</form>';
+
 		$this->convert_posts_form_results();
 
 		echo '</div>';
@@ -203,6 +201,11 @@ class BBBlockConverter
 
 	function convert_block($block)
 	{
+		if (in_array($block['blockName'], $this->ignored_blocks)) {
+			$new_block = ['blockName' => 'tmp/ignore', 'innerHTML' => '', 'innerContent' => []];
+			return $new_block;
+		}
+
 		switch ($block['blockName']) {
 			case 'core/heading':
 				// Remove classes
@@ -337,14 +340,42 @@ class BBBlockConverter
 					],
 				];
 				break;
+
 			case 'acf/organimgramm':
 				$new_block = $block;
 				$new_block['blockName'] = 'acf/organigramm';
 				$new_block['attrs']['name'] = 'acf/organigramm';
 				break;
 
+			case 'acf/stoerer':
+				$new_block = [
+					'blockName' => 'acf/button',
+					'attrs' => [
+						'name' => 'acf/button',
+						'data' => [
+							'_display' => 'field_63e3acafc838e',
+							'_display_color' => 'field_63fddb3f3625d_field_63e3b4bc78fbb',
+							'_display_icon' => 'field_63f34d06623df_field_63fdddbc600fd',
+							'_display_position' => 'field_63e3af2bd0a99_field_63fddf137717d',
+							'_display_size' => 'field_63e3ad06c8390',
+							'_display_style' => 'field_63e3acbdc838f',
+							'_link' => 'field_63e3aca3c838d',
+							'display' => '',
+							'display_color' => 'primary',
+							'display_icon' => 'none',
+							'display_position' => 'justify-start',
+							'display_size' => 'btn-base',
+							'display_style' => 'btn',
+							'link' => $block['attrs']['data']['link'],
+						],
+						'mode' => 'auto',
+					],
+				];
+				break;
+
 			default:
 				$new_block = $block;
+				break;
 		}
 
 		$new_block['innerContent'] = $new_block['innerContent'] ?? [];
@@ -371,8 +402,7 @@ class BBBlockConverter
 		$paragraph_buffer_block_max_length = $this->paragraph_buffer_block_max_length;
 
 		foreach ($blocks as $block) {
-			if (in_array($block['blockName'], $this->ignore_blocks)) {
-				// Skip ignored blocks
+			if (!$block['blockName']) {
 				continue;
 			}
 			if ($previous_block_name == 'core/paragraph' && $block['blockName'] == 'core/paragraph') {
@@ -396,6 +426,7 @@ class BBBlockConverter
 				}
 				// Convert current block
 				$new_block = $this->convert_block($block);
+
 				if ($new_block['blockName'] == 'tmp/unpack') {
 					// Handle temporarily packed blocks ('tmp/unpack')
 					foreach ($new_block['innerBlocks'] as $inner_block) {
@@ -404,7 +435,9 @@ class BBBlockConverter
 					}
 				} else {
 					// Normal blocks
-					$new_blocks[] = $new_block;
+					if ($new_block != null) {
+						$new_blocks[] = $new_block;
+					}
 				}
 			}
 			$previous_block_name = $block['blockName'];
@@ -418,6 +451,7 @@ class BBBlockConverter
 		// Cleanup markup...
 		$new_post_content = str_replace('--><!--', "-->\n\n<!--", $new_post_content);
 		$new_post_content = str_replace('<!-- wp:tmp/unpack /-->', '', $new_post_content);
+		$new_post_content = str_replace('<!-- wp:tmp/ignore /-->', '', $new_post_content);
 		if (!$dry_run) {
 			$this->db_update_post_content($post_id, $new_post_content);
 		}
