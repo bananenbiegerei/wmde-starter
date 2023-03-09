@@ -1,5 +1,17 @@
 <?php
 
+// PHP function to debug a PHP variable to the JS console
+function clog($var)
+{
+	$json = json_encode($var);
+	echo "<script>console.log($json)</script>";
+}
+
+function is_production_server()
+{
+	return file_exists(ABSPATH . '#PRODUCTION#');
+}
+
 // Add an option to defer loading of scripts (required for AlpineJS)
 // Usage: `wp_enqueue_script('site-js:defer'...`
 add_filter(
@@ -39,10 +51,3 @@ add_filter(
 	},
 	999,
 );
-
-// PHP function to debug a PHP variable to the JS console
-function clog($var)
-{
-	$json = json_encode($var);
-	echo "<script>console.log($json)</script>";
-}

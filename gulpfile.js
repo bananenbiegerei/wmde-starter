@@ -14,7 +14,7 @@ const gulpEsbuildIncremental = createGulpEsbuild({ incremental: true });
 const browserSync = require('browser-sync').create();
 
 function stylesDev() {
-	return src(['./src/scss/site.scss', './src/scss/editor.scss'])
+	return src('./src/scss/*.scss')
 		.pipe(sassGlob())
 		.pipe(sourcemaps.init())
 		.pipe(
@@ -29,7 +29,7 @@ function stylesDev() {
 }
 
 function stylesProd() {
-	return src(['./src/scss/site.scss', './src/scss/editor.scss'])
+	return src('./src/scss/*.scss')
 		.pipe(sassGlob())
 		.pipe(
 			sass({

@@ -45,9 +45,8 @@ add_filter(
 	2,
 );
 
-// define('BB_PRODUCTION_SERVER_NAME', 'website.wikimedia.de');
-// add_action('admin_enqueue_scripts', function () {
-// 	if (is_production_server()) {
-// 		wp_enqueue_style('admin-prod', get_template_directory_uri() . '/css/admin-prod.css', [], '', 'all');
-// 	}
-// });
+add_action('admin_enqueue_scripts', function () {
+	if (is_production_server()) {
+		wp_enqueue_style('admin-prod', get_template_directory_uri() . '/css/admin-prod.css', [], '', 'all');
+	}
+});
