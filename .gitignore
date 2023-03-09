@@ -5,3 +5,4 @@
 /js
 .DS_Store
 /.nova
+/.nova/Configuration.json
