@@ -1,10 +1,11 @@
 <?php
 
-// Declare all blocks in '/blocks/'
 add_action('init', function () {
+	// Declare all blocks in '/blocks/'
 	foreach (glob(__DIR__ . '/../blocks/*') as $block) {
 		register_block_type($block);
 	}
+
 	// Each block can come with its set of functions...
 	foreach (glob(__DIR__ . '/../blocks/*/functions.php') as $block_functions) {
 		include_once $block_functions;
@@ -20,7 +21,7 @@ add_action('init', function () {
 // List all allowed block types here
 add_filter('allowed_block_types_all', function ($allowed_blocks) {
 	// These core blocks are still enabled
-	$blocks = ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode', 'core/table', 'core/block', 'core/html', 'wpforms/form-selector'];
+	$blocks = ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode', 'core/table', 'core/block', 'core/html', 'core/separator', 'wpforms/form-selector'];
 
 	// ACF blocks loaded automatically...
 	foreach (glob(__DIR__ . '/../blocks/*') as $block) {
@@ -43,3 +44,10 @@ add_filter(
 	10,
 	2,
 );
+
+// define('BB_PRODUCTION_SERVER_NAME', 'website.wikimedia.de');
+// add_action('admin_enqueue_scripts', function () {
+// 	if (is_production_server()) {
+// 		wp_enqueue_style('admin-prod', get_template_directory_uri() . '/css/admin-prod.css', [], '', 'all');
+// 	}
+// });
