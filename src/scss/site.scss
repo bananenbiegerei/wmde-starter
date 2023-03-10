@@ -17,6 +17,9 @@
 /* Components */
 @import './components/*';
 
+/* Gutenberg overwrites */
+@import './gutenberg-overwrites/*';
+
 /* Plugins overwrites */
 //@import 'plugin-overwrites/*';
 

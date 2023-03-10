@@ -37,6 +37,7 @@ a.link {
 		@apply bg-primary text-white not-italic px-1;
 	}
 }
+
 /* If we deliver WYSIWYG fields, we get p tags. But then the ACF selection classes don't work anymore … */
 .bb-paragraph-block {
 	// p {
