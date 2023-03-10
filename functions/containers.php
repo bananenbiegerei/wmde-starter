@@ -16,7 +16,7 @@ add_filter(
 	'render_block',
 	function ($block_content, $block) {
 		// These blocks always get fullwidth with no container
-		$always_fullwidth = ['acf/xx', 'core/column', null];
+		$always_fullwidth = ['core/column', null];
 
 		// These blocks always get a small padding
 		$always_fullwidth_with_padding = ['core/columns', 'acf/xx'];

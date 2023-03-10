@@ -7,6 +7,7 @@ function clog($var)
 	echo "<script>console.log($json)</script>";
 }
 
+// Test if this is a production server
 function is_production_server()
 {
 	return file_exists(ABSPATH . '#PRODUCTION#');

@@ -22,8 +22,12 @@ function bb_get_nav_menu($location = 'nav')
 	$featured_id = null;
 	$section_title_id = ['title' => null, 'id' => null];
 	$menu_array = wp_get_nav_menu_items($menu);
+	$menu_item_IDs = array_map(function ($a) {
+		return $a->ID;
+	}, $menu_array);
+
 	foreach ($menu_array as $m) {
-		if (empty($m->menu_item_parent)) {
+		if (empty($m->menu_item_parent) || !in_array($m->menu_item_parent, $menu_item_IDs)) {
 			$domain = new stdClass();
 			$domain->ID = $m->object_id;
 			$domain->title = $m->title;
