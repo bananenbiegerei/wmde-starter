@@ -28,14 +28,19 @@ if ($image_id) {
 }
 
 // Get values for container and image classes
+
 if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
+	// For portrait
 	$figure_classes = 'flex flex-col relative justify-center bg-secondary overflow-hidden ' . ($rounded ? 'rounded-2xl ' : '');
 	$image_classes = ['class' => 'h-auto max-w-2xl mx-auto w-full'];
 } else {
-	$figure_classes = 'flex flex-col relative rounded-2xl';
+	// For landscape
+	$figure_classes = 'flex flex-col relative ';
 	$image_classes = ['class' => 'w-full h-auto ' . ($rounded ? 'rounded-2xl ' : '')];
 }
+
 $figure_classes .= $image_caption ? '' : ' no_caption';
+$caption_classes = 'invisible flex absolute left-0 bottom-0 right-0 text-white bg-black w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all ' . ($rounded ? 'rounded-b-2xl' : '');
 
 // Create image tag
 if ($image_id) {
@@ -51,7 +56,7 @@ if ($image_id) {
 	<figure class="<?= $figure_classes ?>" role="group">
 		<?= $image ?>
 		<?php if ($image_caption): ?>
-			<figcaption class="invisible flex absolute rounded-b-2xl absolute left-0 bottom-0 right-0 text-white bg-black w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all" >
+			<figcaption class="<?= $caption_classes ?>">
 				<?= bb_icon('info') ?> <div><?= $image_caption ?></div>
 			</figcaption>
 		<?php endif; ?>
