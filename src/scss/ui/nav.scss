@@ -1,34 +1,24 @@
-.menu {
-	&.horizontal {
-		@apply flex gap-8 items-baseline;
+[x-data='navMenuMobile'] {
+	.item_closed::after {
+		content: '';
+		height: 1.4em;
+		width: 1.4em;
+		top: 1.4em;
+		right: 1.4em;
+		background-image: url(../img/nav/menu_open.svg);
+		background-size: contain;
+		background-repeat: no-repeat;
+		position: absolute;
 	}
-	li {
-		a:not(.btn-hollow) {
-			@apply btn btn-menu;
-		}
-		&.current-menu-item {
-			a {
-				@apply bg-white;
-			}
-		}
-	}
-	&.dropdown {
-		@apply flex flex-col space-y-2;
-		li {
-			a {
-				@apply btn btn-menu;
-			}
-		}
-	}
-	.dropdown-toggle {
-		@apply inline-flex items-center text-base py-1 px-2 hover:bg-transparent rounded transition;
-	}
-	&.breadcrumbs {
-		@apply gap-0;
-		li {
-			a {
-				@apply px-1 font-normal;
-			}
-		}
+	.item_open::after {
+		content: '';
+		height: 1.4em;
+		width: 1.4em;
+		top: 1.4em;
+		right: 1.4em;
+		background-size: contain;
+		background-repeat: no-repeat;
+		position: absolute;
+		background-image: url(../img/nav/menu_close.svg);
 	}
 }

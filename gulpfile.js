@@ -70,6 +70,7 @@ function dev() {
 	browserSync.init({
 		proxy: process.env.BROWSERSYNC_PROXY_URL,
 		open: process.env.BROWSERSYNC_OPEN_BROWSER == 'true',
+		notify: false,
 	});
 	//watch(['./src/scss/**/*.scss', './blocks/**/*.scss'], stylesDev);
 	watch(['./src/scss/**/*.scss', './blocks/**/*.scss'], stylesDev).on('change', browserSync.reload);

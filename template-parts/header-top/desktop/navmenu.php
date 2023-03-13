@@ -4,19 +4,8 @@
 	// Get content of top-nav menu
 	var WPNav = JSON.parse('<?php echo json_encode(bb_get_nav_menu()); ?>');
 
-	// Breakpoint for large
-	const lgWidth = 1024;
-	if (typeof(TW) !== 'undefined') {
-		lgWidth = parseInt(TW.fullConfig.theme.screens.lg);
-	}
-
 	// Default icon when featured page thumbnail is missing
 	const defaultIcon = "<?php echo get_stylesheet_directory_uri(); ?>/img/placeholders/wiki-logo-icon.png";
-
-	// Store site header status in Alpine.store
-	document.addEventListener('alpine:init', () => {
-		Alpine.store('open_mobile_nav', window.innerWidth >= lgWidth ? true : false);
-	});
 
 	function getCoords(elem) {
 		var box = elem.getBoundingClientRect();
@@ -36,22 +25,9 @@
 		Alpine.data('navMenu', () => ({
 			nav: WPNav,
 			isOpen: new Array(WPNav.length).fill(false),
-			timeOutFunctionId: 0,
 			idx: -1,
 			showPointer: false,
 			init() {
-				// Set site header to visible each time we resize to bigger than lgWidth
-				// This bit is to do this only after we stop resizing and not during the whole resizing...
-				window.onresize = function() {
-					clearTimeout(this.timeOutFunctionId);
-					this.timeOutFunctionId = setTimeout(function() {
-						if (window.innerWidth >= lgWidth) {
-						Alpine.store('open_mobile_nav', true);
-						} else {
-							Alpine.store('open_mobile_nav', false);
-						}
-					}, 50);
-				};
 			},
 			openNav(n) {
 				var v = this.isOpen[n];
@@ -64,6 +40,7 @@
 			closeNav() {
 				this.isOpen.fill(false);
 				this.idx = -1;
+				this.showPointer = false;
 			},
 			movePointer() {
 				if (this.nav[this.idx].pages.length == 0) {
@@ -84,7 +61,7 @@
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<div x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 block" x-show="$store.open_mobile_nav" @mouseleave="closeNav()" >
+<div x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
 
 	<!-- Domains top bar -->
 	<div id="navbar" class="relative z-10 px-2 container">

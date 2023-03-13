@@ -24,10 +24,8 @@ add_filter('allowed_block_types_all', function ($allowed_blocks) {
 	$blocks = array_filter(array_keys(WP_Block_Type_Registry::get_instance()->get_all_registered()), function ($b) {
 		return !str_starts_with($b, 'core/');
 	});
-
 	// Add the core blocks we're still using
 	$blocks = array_merge($blocks, ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode', 'core/table', 'core/block', 'core/html', 'core/separator']);
-
 	return $blocks;
 });
 
