@@ -18,15 +18,16 @@ add_action('init', function () {
 //   return $paths;
 // });
 
-// List all allowed block types here
+// Define list of allowed block types
 add_filter('allowed_block_types_all', function ($allowed_blocks) {
-	// These core blocks are still enabled
-	$blocks = ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode', 'core/table', 'core/block', 'core/html', 'core/separator', 'wpforms/form-selector'];
+	// Get all registered blocks except 'core/*' blocks
+	$blocks = array_filter(array_keys(WP_Block_Type_Registry::get_instance()->get_all_registered()), function ($b) {
+		return !str_starts_with($b, 'core/');
+	});
 
-	// ACF blocks loaded automatically...
-	foreach (glob(__DIR__ . '/../blocks/*') as $block) {
-		$blocks[] = 'acf/' . basename($block);
-	}
+	// Add the core blocks we're still using
+	$blocks = array_merge($blocks, ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode', 'core/table', 'core/block', 'core/html', 'core/separator']);
+
 	return $blocks;
 });
 
