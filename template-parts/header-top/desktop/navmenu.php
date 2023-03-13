@@ -128,8 +128,8 @@
 
 							<!-- Sections -->
 							<template x-for="(section_pages, section_title) in domain.sections">
-								<li class="font-bold border-2 border-red">
-									<span class="pl-2" x-text="section_title.split('#')[0]"></span>
+								<li class="">
+									<span class="font-bold pl-2 uppercase" x-text="section_title.split('#')[0]"></span>
 									<ul role="list" class="grid grid-cols-1 gap-2 items-stretch justify-items-stretch">
 										<template x-for="page in section_pages">
 											<li class="bg-white transition hover:bg-gray hover:drop-shadow-sm rounded-md" x-bind:class="{'current': pageID == page.ID }">

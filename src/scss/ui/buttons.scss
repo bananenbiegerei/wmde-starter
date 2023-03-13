@@ -34,7 +34,11 @@
 }
 
 .btn-menu {
-	@apply text-base bg-transparent text-black font-alt font-medium border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-800 font-alt;
+	@apply text-base bg-transparent text-black font-alt font-medium border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-800;
+}
+
+.btn-menu-section {
+	@apply text-base bg-transparent text-black font-alt font-bold  uppercase border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-800;
 }
 
 // Colors
