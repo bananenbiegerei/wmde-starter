@@ -55,12 +55,17 @@ if ($layout == 'v') {
 		$layout_classes['content'] = 'basis-2/3';
 	}
 }
+
+if (get_field('style')['bg_color']) {
+	$bgcolor = 'background-color: ' . get_field('style')['bg_color'] . ';';
+	$layout_classes['container'] .= ' p-4';
+}
 ?>
 
-<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10" style="background-color: <?= get_field('style')['bg_color'] ?>;">
+<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10" style="<?= $bgcolor ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
-		<?php if ($post_type == 'projects'): ?>
+		<?php if ($post_type == 'projects' && $image): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl">
 				<div class="w-full h-full flex items-center justify-center p-5">
@@ -68,7 +73,7 @@ if ($layout == 'v') {
 				</div>
 				</div>
 			</div>
-		<?php else: ?>
+		<?php elseif ($image): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
 					<?php echo bb_get_multisite_attachment_image($img_blog_id, $image, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
