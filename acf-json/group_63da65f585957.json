@@ -24,7 +24,7 @@
                     "name": "link",
                     "aria-label": "",
                     "type": "link",
-                    "instructions": "",
+                    "instructions": "This can also be the URL of a post on another Wikimedia DE site (e.g. Blog).",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -269,5 +269,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676386934
+    "modified": 1678791498
 }

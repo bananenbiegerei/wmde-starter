@@ -6,22 +6,17 @@ $image = false;
 $theme = [];
 $format = [];
 $post_type = false;
+$img_blog_id = get_current_blog_id();
 
 // See if there's a post with this URL
-if ($local_post_id = url_to_postid($link['url'])) {
-	$local_post = get_post($local_post_id);
-	$text = $local_post->post_excerpt;
-	$image = get_post_thumbnail_id($local_post_id);
-	$post_type = get_post_type($local_post_id);
-	// Get themes and formats
-	foreach (wp_get_post_terms($local_post_id, ['format', 'theme']) as $term) {
-		if ($term->taxonomy == 'format') {
-			$format[] = $term->name;
-		}
-		if ($term->taxonomy == 'theme') {
-			$theme[] = $term->name;
-		}
-	}
+if ($post_data = bb_find_post_data($link['url'])) {
+	$link['title'] = $post_data['title'];
+	$text = $post_data['text'];
+	$image = $post_data['image'];
+	$theme = $post_data['theme'];
+	$format = $post_data['format'];
+	$post_type = $post_data['post_type'];
+	$img_blog_id = $post_data['blog_id'];
 }
 
 // Override if alt. versions are provided
@@ -65,7 +60,7 @@ if ($layout == 'v') {
 <div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
-  	<?php if ($post_type == 'projects'): ?>
+		<?php if ($post_type == 'projects'): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl">
 				<div class="w-full h-full flex items-center justify-center p-5">
@@ -76,9 +71,8 @@ if ($layout == 'v') {
 		<?php else: ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
-					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'object-cover w-full h-full']); ?>
+					<?php echo bb_get_multisite_attachment_image($img_blog_id, $image, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
 				</div>
-
 			</div>
 		<?php endif; ?>
 
