@@ -1,6 +1,4 @@
 <script>
-// hide for mobile...
-
 function isVisible(element) {
 	return element.offsetWidth > 0 || element.offsetHeight > 0;
 }
@@ -16,8 +14,7 @@ function calcTopNavOffset() {
 document.addEventListener('alpine:init', () => {
 	Alpine.data('anchorNav', () => ({
 		anchors: [],
-		offset: 0,
-		buffer: 140, // manual for now...
+		buffer: 16,
 		init() {
 			for (const h of document.querySelectorAll('.bb-headline-block[id]')) {
 				this.anchors.push({'id': h.id, 'title': h.getAttribute('data-anchor-title')});
@@ -43,14 +40,12 @@ document.addEventListener('alpine:init', () => {
 				return { top: Math.round(top), left: Math.round(left) };
 		},
 		scrollTo(id) {
-			const pos = this.getCoords(document.getElementById(id)).top;
-			console.log(id, pos);
-			window.scrollTo({ 'top': pos - this.offset - this.buffer, 'behavior': 'smooth'});
+			const pos = this.getCoords(document.getElementById(id)).top - calcTopNavOffset() - document.getElementById('anchor-nav').getBoundingClientRect().height - this.buffer;
+			window.scrollTo({ 'top': pos , 'behavior': 'smooth'});
 		}
 	}));
 });
 </script>
-
 <div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200  sticky z-30 bg-white">
 	<ul>
 		<template x-for="(anchor,i) in anchors">
