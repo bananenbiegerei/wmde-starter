@@ -2,21 +2,21 @@
 // Get link and text
 $link = get_field('content')['link'] ? get_field('content')['link'] : ['title' => 'Missing Link!', 'url' => '#'];
 $text = '';
-$image = false;
+$image_id = false;
+$image_blog_id = get_current_blog_id();
 $theme = [];
 $format = [];
 $post_type = false;
-$img_blog_id = get_current_blog_id();
 
 // See if there's a post with this URL
 if ($post_data = bb_find_post_data($link['url'])) {
 	$link['title'] = $post_data['title'];
 	$text = $post_data['text'];
-	$image = $post_data['image'];
+	$image_id = $post_data['image'];
+	$image_blog_id = $post_data['blog_id'];
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
 	$post_type = $post_data['post_type'];
-	$img_blog_id = $post_data['blog_id'];
 }
 
 // Override if alt. versions are provided
@@ -36,7 +36,7 @@ if (get_field('content')['alt_details']) {
 	$theme = $alt_theme ? $alt_theme : $theme;
 	$format = $alt_format ? $alt_format : $format;
 	$text = get_field('content')['text'] ? get_field('content')['text'] : $text;
-	$image = get_field('content')['image'] ? get_field('content')['image'] : $image;
+	$image_id = get_field('content')['image'] ? get_field('content')['image'] : $image_id;
 }
 
 // Configure layout classes
@@ -65,18 +65,18 @@ if (get_field('style')['bg_color']) {
 <div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10" style="<?= $bgcolor ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
-		<?php if ($post_type == 'projects' && $image): ?>
+		<?php if ($post_type == 'projects' && $image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl">
 				<div class="w-full h-full flex items-center justify-center p-5">
-					<?php echo wp_get_attachment_image($image, [400, 0], false, ['class' => 'p-1 w-auto max-h-32']); ?>
+					<?php echo wp_get_attachment_image($image_id, [400, 0], false, ['class' => 'p-1 w-auto max-h-32']); ?>
 				</div>
 				</div>
 			</div>
-		<?php elseif ($image): ?>
+		<?php elseif ($image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
-					<?php echo bb_get_multisite_attachment_image($img_blog_id, $image, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
+					<?php echo bb_get_multisite_attachment_image($image_blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
 				</div>
 			</div>
 		<?php endif; ?>

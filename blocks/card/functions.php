@@ -1,16 +1,25 @@
 <?php
 
+// Cache of list of blogs id
+$BB_sites = null;
+
 // Get list of sites
 function bb_get_sites()
 {
-	global $wpdb;
+	global $wpdb, $BB_sites;
 	if (!is_multisite()) {
-		return [1 => (object) ['blog_id' => 1, 'site_id' => 1, 'path' => '/', 'domain' => $_SERVER['SERVER_NAME']]];
+		return [1];
 	}
-	$sites = [];
-	foreach ($wpdb->get_results("SELECT * FROM {$wpdb->prefix}blogs;") as $site) {
-		$sites[$site->blog_id] = $site;
+
+	if ($BB_sites) {
+		return $BB_sites;
 	}
+
+	$sites = [get_current_blog_id()];
+	foreach ($wpdb->get_results("SELECT blog_id FROM {$wpdb->prefix}blogs;") as $site) {
+		$sites[] = $site->blog_id;
+	}
+	$BB_sites = array_unique($sites);
 	return $sites;
 }
 
@@ -21,7 +30,7 @@ function bb_find_post_data($url)
 	}
 
 	$post_data = null;
-	foreach (array_keys(bb_get_sites()) as $blog_id) {
+	foreach (bb_get_sites() as $blog_id) {
 		switch_to_blog($blog_id);
 		if ($post_data = bb_get_post_data($url)) {
 			$post_data['blog_id'] = $blog_id;
@@ -38,7 +47,6 @@ function bb_get_post_data($url)
 {
 	if ($local_post_id = url_to_postid($url)) {
 		$local_post = get_post($local_post_id);
-		// Get themes and formats
 		$theme = [];
 		$format = [];
 		foreach (wp_get_post_terms($local_post_id, ['format', 'theme']) as $term) {
@@ -67,6 +75,7 @@ function bb_get_multisite_attachment_image($blog_id, $image, $size, $classes)
 		switch_to_blog($blog_id);
 	}
 	$img = wp_get_attachment_image($image, $size, false, $classes);
+
 	if (is_multisite()) {
 		restore_current_blog();
 	}
