@@ -16,7 +16,7 @@
 		}))});
 </script>
 
-<div class="flex bg-white h-12 items-center py-1 px-2 left-0 right-0 fixed  border-b border-gray-200 block z-40 lg:hidden">
+<div id="titlebar_mobile" class="flex bg-white h-12 items-center py-1 px-2 left-0 right-0 fixed  border-b border-gray-200 block z-40 lg:hidden">
 
 	<?php get_template_part('template-parts/header-top/titlebar_content'); ?>
 

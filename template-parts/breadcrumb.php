@@ -26,13 +26,3 @@ if (count($breadcrumbs) == 0) {
 		<?= join('', $breadcrumbs) ?>
 	</ul>
 </div>
-
-
-
-
-
-
-
-
-
-

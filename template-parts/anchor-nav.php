@@ -1,13 +1,34 @@
 <script>
 // hide for mobile...
 
+function isVisible(element) {
+	return element.offsetWidth > 0 || element.offsetHeight > 0;
+}
+
+function calcTopNavOffset() {
+	if (isVisible(document.getElementById('navmenu_desktop'))) {
+		return this.offset = document.getElementById('navmenu_desktop').getBoundingClientRect().height;
+	} else {
+		return this.offset = document.getElementById('titlebar_mobile').getBoundingClientRect().height;
+	}
+}
+
 document.addEventListener('alpine:init', () => {
 	Alpine.data('anchorNav', () => ({
 		anchors: [],
 		offset: 0,
-		buffer: 40,
-		calcTopNavOffset() {
-			return this.offset = document.querySelector('[x-data="navMenu"]').getBoundingClientRect().height;
+		buffer: 140, // manual for now...
+		init() {
+			for (const h of document.querySelectorAll('.bb-headline-block[id]')) {
+				this.anchors.push({'id': h.id, 'title': h.getAttribute('data-anchor-title')});
+			}
+			if (this.anchors.length == 0) {
+				document.getElementById('anchor-nav').style.display = 'none';
+			}
+			document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
+			window.addEventListener('resize', function () {
+				document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
+			});
 		},
 		 getCoords(elem) {
 				var box = elem.getBoundingClientRect();
@@ -21,19 +42,8 @@ document.addEventListener('alpine:init', () => {
 				var left = box.left + scrollLeft - clientLeft;
 				return { top: Math.round(top), left: Math.round(left) };
 		},
-		init() {
-			for (const h of document.querySelectorAll('.bb-headline-block[id]')) {
-				this.anchors.push({'id': h.id, 'title': h.querySelector('h2').innerHTML.trim()});
-			}
-			if (this.anchors.length == 0) {
-				document.getElementById('anchor-nav').style.display = 'none';
-			}
-			document.getElementById('anchor-nav').style.top = this.calcTopNavOffset() + 'px';
-			window.onresize = this.calcTopNavOffset;
-
-		},
 		scrollTo(id) {
-			const pos = this.getCoords(document.getElementById(id)).top; //.getBoundingClientRect().top;
+			const pos = this.getCoords(document.getElementById(id)).top;
 			console.log(id, pos);
 			window.scrollTo({ 'top': pos - this.offset - this.buffer, 'behavior': 'smooth'});
 		}

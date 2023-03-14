@@ -61,7 +61,7 @@
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<div x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
+<div id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
 
 	<!-- Domains top bar -->
 	<div id="navbar" class="relative z-10 px-2 container">

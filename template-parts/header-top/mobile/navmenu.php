@@ -21,7 +21,7 @@
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<div x-data="navMenuMobile" class="z-40 block bg-white fixed left-0 right-0  bottom-0 top-12 block lg:hidden overflow-scroll" x-show="$store.open_mobile_nav">
+<div id="navmenu_mobile" x-data="navMenuMobile" class="z-40 block bg-white fixed left-0 right-0  bottom-0 top-12 block lg:hidden overflow-scroll" x-show="$store.open_mobile_nav">
 
 	<template x-for="(domain,i) in nav">
 
