@@ -7,7 +7,7 @@
 	"keywords": [],
 	"acf": {
 		"mode": "false",
-		"renderTemplate": "block.php"
+		"renderTemplate": "wikimedia-commons-media.php"
 	},
 	"supports": {
 		"align": false

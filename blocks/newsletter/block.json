@@ -7,7 +7,7 @@
 	"keywords": [],
 	"acf": {
 		"mode": "false",
-		"renderTemplate": "block.php"
+		"renderTemplate": "newsletter.php"
 	},
 	"align": "full"
 }

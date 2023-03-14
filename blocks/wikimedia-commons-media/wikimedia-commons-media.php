@@ -3,7 +3,7 @@ $placeholder = esc_url(get_template_directory_uri() . '/blocks/wikimedia-commons
 $image_data = bbwkc_get_media(get_field('media_url'));
 
 if ($image_data && $image_data['type'] == 'image') {
-	get_template_part('blocks/image/block', null, [
+	get_template_part('blocks/image/image', null, [
 		'wmc_data' => $image_data,
 		'wide' => get_field('style')['wide'] ?? false,
 		'rounded' => get_field('style')['rounded'] ?? false,

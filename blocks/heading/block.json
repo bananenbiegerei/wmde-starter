@@ -7,7 +7,7 @@
 	"keywords": [],
 	"acf": {
 		"mode": "false",
-		"renderTemplate": "block.php"
+		"renderTemplate": "heading.php"
 	},
 	"supports": {
 		"align": false

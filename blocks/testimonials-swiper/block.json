@@ -7,7 +7,7 @@
 	"keywords": [],
 	"acf": {
 		"mode": "false",
-		"renderTemplate": "block.php"
+		"renderTemplate": "testimonials-swiper.php"
 	},
 	"align": "full"
 }
