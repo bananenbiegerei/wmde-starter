@@ -9,6 +9,7 @@
 		background-size: contain;
 		background-repeat: no-repeat;
 		position: absolute;
+		pointer-events: none;
 	}
 	.item_open::after {
 		content: '';
@@ -20,5 +21,6 @@
 		background-repeat: no-repeat;
 		position: absolute;
 		background-image: url(../img/header-top/menu_close.svg);
+		pointer-events: none;
 	}
 }
