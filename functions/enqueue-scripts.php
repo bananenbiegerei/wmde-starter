@@ -35,7 +35,7 @@ add_action(
 		global $pagenow;
 		if ($pagenow == 'post.php') {
 			wp_enqueue_script('editor-addon', get_template_directory_uri() . '/js/editor.js', ['jquery', 'acf-input'], '', false);
-			wp_enqueue_style('editor', get_template_directory_uri() . '/css/editor.css', [], '', 'all');
+			wp_enqueue_style('editor-wmde', get_template_directory_uri() . '/css/editor.css', [], '', 'all');
 		}
 	},
 	999,
