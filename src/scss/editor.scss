@@ -18,31 +18,29 @@ html :where(.editor-styles-wrapper) {
 		@apply font-medium font-alt;
 	}
 }
+
+// Apply container width to all blocks
+html :where(.wp-block) {
+	@apply max-w-screen-2xl mx-auto px-6;
+}
+
 .editor-styles-wrapper {
-	// Scale down facts in editor preview
-	.wp-block-post-title {
-		@apply container;
+	.bb-facts-block {
+		> div {
+			height: 8rem;
+			div.text-6xl {
+				font-size: 3rem;
+			}
+			div.text-base {
+				font-size: 0.5rem;
+			}
+		}
+		p {
+			line-height: 0;
+		}
 	}
-	.wp-block-post-content {
-		> * {
-			@apply container;
-		}
-		.bb-facts-block {
-			> div {
-				height: 8rem;
-				div.text-6xl {
-					font-size: 3rem;
-				}
-				div.text-base {
-					font-size: 0.5rem;
-				}
-			}
-			p {
-				line-height: 0;
-			}
-		}
-		.wp-block-acf-spacer {
-			@apply after:content-['_spacer'] after:absolute after:top-2 after:right-2 after:bg-gray-200 after:py-1 after:px-3 text-xs after:rounded-full after:block border border-gray-200 rounded-xl border-dotted;
-		}
+
+	.bb-spacer-block {
+		@apply after:content-['_spacer'] after:absolute after:top-2 after:right-8 after:bg-gray-200 after:py-1 after:px-3 text-xs after:rounded-full after:block border border-gray-200 rounded-xl border-dotted;
 	}
 }
