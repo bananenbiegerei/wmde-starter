@@ -38,6 +38,18 @@ function custom_post_types()
 		'show_in_rest' => true,
 		'menu_icon' => 'dashicons-format-quote',
 	]);
+	
+	register_post_type('publications', [
+		'labels' => [
+			'name' => __('Publikationen', BB_TEXT_DOMAIN),
+			'singular_name' => __('Publikation', BB_TEXT_DOMAIN),
+		],
+		'public' => true,
+		'has_archive' => true,
+		'supports' => ['title', 'editor', 'thumbnail'],
+		'show_in_rest' => true,
+		'menu_icon' => 'dashicons-admin-page',
+	]);
 }
 add_action('init', 'custom_post_types');
 
@@ -170,6 +182,6 @@ add_action('init', 'theme_custom_post_type', 0);
 // Add support for thumbnails and excerpts
 add_action( 'after_setup_theme', 'custom_post_type_support' );
 function custom_post_type_support() {
-  add_theme_support( 'post-thumbnails', array( 'projects' ) );
+  add_theme_support( 'post-thumbnails', array( 'projects', 'theme-releases' ) );
   add_post_type_support( 'projects', 'excerpt' );
 }
