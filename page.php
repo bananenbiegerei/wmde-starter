@@ -3,7 +3,7 @@
 	the_post(); ?>
 	<?php if ( has_post_thumbnail() ) : ?>
 	  <div class="bg-gray">
-		  <div class="container grid grid-cols-12 pb-5">
+		  <div class="container grid grid-cols-12 py-5">
 			  <div class="col-span-12 lg:col-span-10 lg:col-start-2">
 				  <?php get_template_part("template-parts/breadcrumb"); ?>
 					<h1 class="text-2xl lg:text-5xl"><?php the_title(); ?></h1>

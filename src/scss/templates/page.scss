@@ -14,16 +14,4 @@
 			}
 		}
 	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-// FIXME: @ingo: not working for blocks that contain paragraphs...
-// p,
-	.title-query-container {
-		@apply max-w-2xl mx-0;
-	}
 }

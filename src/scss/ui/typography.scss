@@ -11,7 +11,7 @@ h1 {
 	@apply text-4xl lg:text-5xl;
 }
 h2 {
-	@apply text-3xl lg:text-4xl;
+	@apply text-2xl lg:text-3xl;
 }
 h3 {
 	@apply text-2xl lg:text-3xl;
@@ -41,11 +41,11 @@ a.link {
 	}
 }
 
-/* If we deliver WYSIWYG fields, we get p tags. But then the ACF selection classes don't work anymore … */
+/* inherit not really working. Maye tailwind classes unknown, despite being safe listed?*/
 .bb-paragraph-block {
-	// p {
-	// 	font-size: inherit;
-	// }
+	p {
+		font-size: inherit;
+	}
 }
 
 // Make the paragraphs inside a block inherit typography

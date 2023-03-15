@@ -16,18 +16,15 @@ add_filter(
 	'render_block',
 	function ($block_content, $block) {
 		// These blocks always get fullwidth with no container
-		$always_fullwidth = ['core/column', null];
+		$always_fullwidth = ['core/xxx', null];
 
 		// These blocks always get a small padding
-		$always_fullwidth_with_padding = ['core/columns', 'acf/xx'];
+		$always_fullwidth_with_padding = ['core/xxx', 'acf/xx'];
 		$always_fullwidth_with_padding_classes = 'px-5';
 
 		// These blocks get multiple options
 		$inner_container_classes_rules = [
 			// Default for specific blocks
-			'acf/cta' => ['default' => 'col-span-12'],
-			'acf/logo-graveyard' => ['default' => 'col-span-12'],
-			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
 			// Classes manually added to Columns blocks in Gutenberg editor (could be named differently...)
@@ -39,12 +36,12 @@ add_filter(
 			// For other blocks with or without alignment settings
 			'default' => [
 				// Options defined in ACF: Clone Library / Alignment
-				'default' => 'col-span-12 lg:col-span-8 lg:col-start-3',
+				'default' => 'col-span-12 lg:col-span-8 lg:col-start-3 ',
 				'wide' => 'col-span-12',
 				'right' => 'col-span-12 lg:col-span-8 lg:col-start-5',
 			],
 		];
-		$outer_container_classes = 'container grid grid-cols-12';
+		$outer_container_classes = 'grid grid-cols-12 container';
 
 		// Get alignment values (for columns from the classes)
 		if ($block['blockName'] == 'core/columns') {
