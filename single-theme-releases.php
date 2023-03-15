@@ -3,12 +3,12 @@
 	the_post(); ?>
 	<?php if ( has_post_thumbnail() ) : ?>
 	  <div class="bg-gray">
-		  <div class="container grid grid-cols-12 pb-5">
-			  <div class="col-span-12 lg:col-span-10 lg:col-start-2">
+		  <div class="container grid grid-cols-12 py-5">
+			  <div class="col-span-12 lg:col-span-8 lg:col-start-3">
 				  <?php get_template_part("template-parts/breadcrumb"); ?>
-					<h1 class="text-2xl lg:text-5xl"><?php the_title(); ?></h1>
+					<h1 class="text-base uppercase text-primary font-bold"><?php the_title(); ?></h1>
 					<?php if ( has_excerpt() ) : ?>
-					  <div class="font-alt text-xl font-normal">
+					  <div class="font-alt text-2xl lg:text-3xl font-normal">
 						<?php echo get_the_excerpt(); ?>
 					  </div>
 					<?php endif; ?>

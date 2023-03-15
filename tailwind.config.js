@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
 	content: ['./**/*.php'],
 	safelist: [
-		//'grid',
+		'grid',
 		{ pattern: /text-*/ },
 		{ pattern: /lg:text-*/ },
 	],
