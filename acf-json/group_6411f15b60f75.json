@@ -1,0 +1,91 @@
+{
+    "key": "group_6411f15b60f75",
+    "title": "Block: Topic Teaser",
+    "fields": [
+        {
+            "key": "field_6411f15b17aa1",
+            "label": "Select Topic",
+            "name": "select_topic",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "theme-releases"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "translations": "copy_once",
+            "allow_null": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_6411fadd0d03e",
+            "label": "Related Articles",
+            "name": "related_articles",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 3,
+            "collapsed": "",
+            "button_label": "Eintrag hinzufügen",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6411faed0d03f",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "translations": "copy_once",
+                    "parent_repeater": "field_6411fadd0d03e"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/topic-teaser"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1678899990
+}
