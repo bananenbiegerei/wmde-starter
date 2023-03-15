@@ -1,7 +1,14 @@
 <?php
-// Get link and text
-$link = get_field('content')['link'] ? get_field('content')['link'] : ['title' => 'Missing Link!', 'url' => '#'];
-$text = '';
+
+/* ACF BLOCK: Card
+ * - A link to a post that is on the same network instance will get title, excerpt, image, and theme & format
+ * - These can also be set manually to override fetched values
+ */
+
+// Get link or show an error
+$link = get_field('content')['link'] ? get_field('content')['link'] : ['title' => __('Missing Link!', BB_TEXT_DOMAIN), 'url' => '#'];
+
+$excerpt = '';
 $image_id = false;
 $image_blog_id = get_current_blog_id();
 $theme = [];
@@ -10,8 +17,10 @@ $post_type = false;
 
 // See if there's a post with this URL
 if ($post_data = bb_find_post_data($link['url'])) {
-	$link['title'] = $post_data['title'];
-	$text = $post_data['text'];
+	// Use title from post if not manually set
+	$link['title'] = $link['title'] != '' ? $link['title'] : $post_data['title'];
+	// Get other values from post
+	$excerpt = $post_data['excerpt'];
 	$image_id = $post_data['image'];
 	$image_blog_id = $post_data['blog_id'];
 	$theme = $post_data['theme'];
@@ -19,24 +28,24 @@ if ($post_data = bb_find_post_data($link['url'])) {
 	$post_type = $post_data['post_type'];
 }
 
-// Override if alt. versions are provided
+// Override values if alt. versions are provided
 if (get_field('content')['alt_details']) {
+	$excerpt = get_field('content')['text'] ? get_field('content')['text'] : $excerpt;
+	$image_id = get_field('content')['image'] ? get_field('content')['image'] : $image_id;
 	$alt_theme = array_map(
 		function ($a) {
 			return $a->name;
 		},
 		get_field('content')['theme'] ? get_field('content')['theme'] : [],
 	);
+	$theme = $alt_theme ? $alt_theme : $theme;
 	$alt_format = array_map(
 		function ($a) {
 			return $a->name;
 		},
 		get_field('content')['format'] ? get_field('content')['format'] : [],
 	);
-	$theme = $alt_theme ? $alt_theme : $theme;
 	$format = $alt_format ? $alt_format : $format;
-	$text = get_field('content')['text'] ? get_field('content')['text'] : $text;
-	$image_id = get_field('content')['image'] ? get_field('content')['image'] : $image_id;
 }
 
 // Configure layout classes
@@ -56,9 +65,15 @@ if ($layout == 'v') {
 	}
 }
 
+// Add background color and padding
 if (get_field('style')['bg_color']) {
 	$bgcolor = 'background-color: ' . get_field('style')['bg_color'] . ';';
 	$layout_classes['container'] .= ' p-4';
+}
+
+// Last check for missing data
+if ($link['title'] == '') {
+	$link['title'] = __('Missing Link Title!', BB_TEXT_DOMAIN);
 }
 ?>
 
@@ -85,19 +100,19 @@ if (get_field('style')['bg_color']) {
 
 			<?php if ($theme || $format): ?>
 				<div class="uppercase text-base text-primary font-bold text-sm font-alt">
-					<?= join(', ', $theme) ?>
+					<?= strip_tags(join(', ', $theme)) ?>
 					<?= $theme && $format ? ' | ' : '' ?>
-					<?= join(', ', $format) ?>
+					<?= strip_tags(join(', ', $format)) ?>
 				</div>
 			<?php endif; ?>
 
 			<h2 class="text-2xl font-alt">
-				<?= $link['title'] ?>
+				<?= strip_tags($link['title']) ?>
 			</h2>
 
 			<?php if ($layout != 'h2'): ?>
 				<div class="text-xl font-alt font-normal text-inherit">
-					<?= strip_tags($text) ?>
+					<?= strip_tags($excerpt) ?>
 				</div>
 			<?php endif; ?>
 
