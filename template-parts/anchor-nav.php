@@ -11,6 +11,19 @@ function calcTopNavOffset() {
 	}
 }
 
+function getCoords(elem) {
+		var box = elem.getBoundingClientRect();
+		var body = document.body;
+		var docEl = document.documentElement;
+		var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+		var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+		var clientTop = docEl.clientTop || body.clientTop || 0;
+		var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+		var top  = box.top +  scrollTop - clientTop;
+		var left = box.left + scrollLeft - clientLeft;
+		return { top: Math.round(top), left: Math.round(left) };
+}
+
 document.addEventListener('alpine:init', () => {
 	Alpine.data('anchorNav', () => ({
 		anchors: [],
@@ -27,20 +40,8 @@ document.addEventListener('alpine:init', () => {
 				document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
 			});
 		},
-		 getCoords(elem) {
-				var box = elem.getBoundingClientRect();
-				var body = document.body;
-				var docEl = document.documentElement;
-				var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-				var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-				var clientTop = docEl.clientTop || body.clientTop || 0;
-				var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-				var top  = box.top +  scrollTop - clientTop;
-				var left = box.left + scrollLeft - clientLeft;
-				return { top: Math.round(top), left: Math.round(left) };
-		},
 		scrollTo(id) {
-			const pos = this.getCoords(document.getElementById(id)).top - calcTopNavOffset() - document.getElementById('anchor-nav').getBoundingClientRect().height - this.buffer;
+			const pos = getCoords(document.getElementById(id)).top - calcTopNavOffset() - document.getElementById('anchor-nav').getBoundingClientRect().height - this.buffer;
 			window.scrollTo({ 'top': pos , 'behavior': 'smooth'});
 		}
 	}));
