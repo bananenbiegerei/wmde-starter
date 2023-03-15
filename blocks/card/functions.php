@@ -10,11 +10,9 @@ function bb_get_sites()
 	if (!is_multisite()) {
 		return [1];
 	}
-
 	if ($BB_sites) {
 		return $BB_sites;
 	}
-
 	$sites = [get_current_blog_id()];
 	foreach ($wpdb->get_results("SELECT blog_id FROM {$wpdb->prefix}blogs;") as $site) {
 		$sites[] = $site->blog_id;
@@ -28,7 +26,6 @@ function bb_find_post_data($url)
 	if (!is_multisite()) {
 		return bb_get_post_data($url);
 	}
-
 	$post_data = null;
 	foreach (bb_get_sites() as $blog_id) {
 		switch_to_blog($blog_id);
@@ -59,7 +56,7 @@ function bb_get_post_data($url)
 		}
 		return [
 			'title' => $local_post->post_title,
-			'text' => $local_post->post_excerpt,
+			'excerpt' => $local_post->post_excerpt,
 			'image' => get_post_thumbnail_id($local_post_id),
 			'post_type' => get_post_type($local_post_id),
 			'format' => $format,
@@ -75,7 +72,6 @@ function bb_get_multisite_attachment_image($blog_id, $image, $size, $classes)
 		switch_to_blog($blog_id);
 	}
 	$img = wp_get_attachment_image($image, $size, false, $classes);
-
 	if (is_multisite()) {
 		restore_current_blog();
 	}
