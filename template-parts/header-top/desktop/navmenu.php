@@ -59,14 +59,35 @@
 		}));
 	});
 </script>
-
 <!-- Container for the whole desktop nav menu -->
 <div id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
 
 	<!-- Domains top bar -->
-	<div id="navbar" class="relative z-10 px-2 container">
-		<div class="flex space-x-1 py-3">
-
+	<div id="navbar" class="relative z-10 container"
+	x-data="{ isScrolled: false }" x-init="() => {
+	  window.addEventListener('scroll', () => {
+		const scrollPosition = window.scrollY;
+		if (scrollPosition >= 68) {
+		  isScrolled = true;
+		} else {
+		  isScrolled = false;
+		}
+	  });
+	}"
+	>
+		<div class="absolute left-5 top-2 overflow-hidden">
+			<div class="transition-all duration-500 ease-in-out" 
+				x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }"
+			>
+				<a href="<?php echo get_home_url(); ?>">
+					<img class="mini-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
+				</a>   
+			</div>
+		</div>
+		<div class="flex space-x-1 py-3 transition-all duration-500 ease-in-out"
+		x-bind:class="{ 'translate-x-0': !isScrolled, 'translate-x-10': isScrolled }"
+		>
+			
 			<!-- Domain items -->
 			<template x-for="(domain,i) in nav">
 				<!-- Domain name -->
