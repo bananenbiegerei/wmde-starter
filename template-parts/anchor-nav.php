@@ -46,6 +46,7 @@ document.addEventListener('alpine:init', () => {
 	}));
 });
 </script>
+<!-- FIXME: @EL please hide if no anchor exists-->
 <div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200  sticky z-30 bg-white">
 	<ul>
 		<template x-for="(anchor,i) in anchors">
