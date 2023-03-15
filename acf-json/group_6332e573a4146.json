@@ -38,9 +38,9 @@
                 "id": ""
             },
             "choices": {
-                "text-xs lg:text-sm": "sm",
-                "text-sm lg:text-base": "base",
-                "text-xl lg:text-2xl": "2xl"
+                "text-base": "base",
+                "text-base lg:text-lg": "lg",
+                "text-2xl lg:text-3xl": "3xl"
             },
             "default_value": "text-sm lg:text-base : base",
             "return_format": "value",
@@ -67,5 +67,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678886401
+    "modified": 1678887803
 }
