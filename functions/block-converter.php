@@ -35,8 +35,8 @@ class BBBlockConverter
 	function __construct()
 	{
 		add_action('admin_menu', function () {
-			add_menu_page('Block Converter', 'Block Converter', 'install_plugins', 'bb_block_converter', [$this, 'block_converter_page'], 'dashicons-block-default');
-			add_submenu_page('bb_block_converter', 'Unsupported Blocks', 'Unsupported Blocks', 'install_plugins', 'bb_block_converter_audit', [$this, 'unsupported_blocks_page']);
+			add_menu_page('Block Converter', 'Block Converter', 'edit_posts', 'bb_block_converter', [$this, 'block_converter_page'], 'dashicons-block-default');
+			add_submenu_page('bb_block_converter', 'Unsupported Blocks', 'Unsupported Blocks', 'edit_posts', 'bb_block_converter_audit', [$this, 'unsupported_blocks_page']);
 		});
 
 		add_action('wp_ajax_bb_block_converter', [$this, 'ajax_convert_posts']);

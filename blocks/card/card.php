@@ -10,7 +10,8 @@ $link = get_field('content')['link'] ? get_field('content')['link'] : ['title' =
 
 $excerpt = '';
 $image_id = false;
-$image_blog_id = get_current_blog_id();
+$blog_id = get_current_blog_id();
+$post_id = null;
 $theme = [];
 $format = [];
 $post_type = false;
@@ -20,14 +21,15 @@ if ($post_data = bb_find_post_data($link['url'])) {
 	// Use title from post if not manually set
 	$link['title'] = $link['title'] != '' ? $link['title'] : $post_data['title'];
 	// Get other values from post
+	$post_id = $post_data['post_id'];
 	$excerpt = $post_data['excerpt'];
 	$image_id = $post_data['image'];
-	$image_blog_id = $post_data['blog_id'];
+	$blog_id = $post_data['blog_id'];
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
 	$post_type = $post_data['post_type'];
 }
-
+clog($blog_id);
 // Override values if alt. versions are provided
 if (get_field('content')['alt_details']) {
 	$excerpt = get_field('content')['text'] ? get_field('content')['text'] : $excerpt;
@@ -77,7 +79,7 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10" style="<?= $bgcolor ?>">
+<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $image_id): ?>
@@ -91,7 +93,7 @@ if ($link['title'] == '') {
 		<?php elseif ($image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
-					<?php echo bb_get_multisite_attachment_image($image_blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
+					<?php echo bb_get_multisite_attachment_image($blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
 				</div>
 			</div>
 		<?php endif; ?>
