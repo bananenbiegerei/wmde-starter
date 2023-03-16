@@ -244,7 +244,6 @@ class BBBlockConverter
 
 			case 'core/list':
 				// Here we flatten the block content and convert it to a acf/paragraph
-				// FIXME: strip_tags as well?
 				$block['noContainers'] = true;
 				$new_block = [
 					'blockName' => 'acf/paragraph',
@@ -404,7 +403,7 @@ class BBBlockConverter
 		$paragraph_buffer_block = null;
 		$paragraph_buffer_block_max_length = $this->paragraph_buffer_block_max_length;
 
-		// NOTE: this gets top level blocks... recursion is handled in convert_block()
+		// This gets top level blocks only... recursion is handled in convert_block()
 		foreach ($blocks as $block) {
 			// Skip null blocks
 			if (!$block['blockName']) {

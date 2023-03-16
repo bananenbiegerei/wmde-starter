@@ -1,12 +1,4 @@
 <script>
-	// Get current page ID (used to set 'current' class to menu item)
-	const pageID = <?php echo get_the_ID(); ?>;
-	// Get content of top-nav menu
-	var WPNav = JSON.parse('<?php echo json_encode(bb_get_nav_menu()); ?>');
-
-	// Default icon when featured page thumbnail is missing
-	const defaultIcon = "<?php echo get_stylesheet_directory_uri(); ?>/img/placeholders/wiki-logo-icon.png";
-
 	function getCoords(elem) {
 		var box = elem.getBoundingClientRect();
 		var body = document.body;
@@ -76,18 +68,18 @@
 	}"
 	>
 		<div class="absolute left-5 top-2 overflow-hidden">
-			<div class="transition-all duration-500 ease-in-out" 
+			<div class="transition-all duration-500 ease-in-out"
 				x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }"
 			>
 				<a href="<?php echo get_home_url(); ?>">
 					<img class="mini-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
-				</a>   
+				</a>
 			</div>
 		</div>
 		<div class="flex space-x-1 py-3 transition-all duration-500 ease-in-out"
 		x-bind:class="{ 'translate-x-0': !isScrolled, 'translate-x-10': isScrolled }"
 		>
-			
+
 			<!-- Domain items -->
 			<template x-for="(domain,i) in nav">
 				<!-- Domain name -->
