@@ -36,13 +36,13 @@ if (function_exists('acf_add_options_page')) {
 // Disable admin bar in site view
 show_admin_bar(false);
 
-// Allow theme to define the `title` tag
-add_theme_support('title-tag');
-
-// Support for post thumbnails
-add_theme_support('post-thumbnails', ['post', 'page', 'projects', 'team']);
-
-add_post_type_support('page', 'excerpt');
+// Add support for thumbnails and excerpts
+add_action('after_setup_theme', function () {
+	add_theme_support('title-tag');
+	add_theme_support('post-thumbnails', ['post', 'page', 'projects', 'team', 'theme-releases']);
+	add_post_type_support('projects', 'excerpt');
+	add_post_type_support('page', 'excerpt');
+});
 
 // Set custom excerpt length
 add_filter(
