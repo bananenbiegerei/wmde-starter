@@ -37,6 +37,7 @@ function bb_get_sites()
 	return $BB_sites;
 }
 
+// Find a matching post in any of the network sites from its URL
 function bb_find_post_data($url)
 {
 	if (!is_multisite()) {
@@ -58,6 +59,7 @@ function bb_find_post_data($url)
 	return $post_data;
 }
 
+// Get the matching post in a site from its URL
 function bb_get_post_data($url)
 {
 	if ($local_post_id = bb_url_to_postid($url)) {
@@ -75,7 +77,7 @@ function bb_get_post_data($url)
 		return [
 			'post_id' => $local_post_id,
 			'title' => $local_post->post_title,
-			'text' => $local_post->post_excerpt,
+			'excerpt' => $local_post->post_excerpt,
 			'image' => get_post_thumbnail_id($local_post_id),
 			'post_type' => get_post_type($local_post_id),
 			'format' => $format,
@@ -98,6 +100,7 @@ function bb_get_multisite_attachment_image($blog_id, $image, $size, $classes)
 	return $img;
 }
 
+// This is a rewrite of url_to_postid with support for custom post types
 function bb_url_to_postid($url)
 {
 	global $wp_rewrite;

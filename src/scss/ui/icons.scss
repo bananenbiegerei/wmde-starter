@@ -1,11 +1,37 @@
 // Used by `bb_icon()`
 .bb-icon {
 	display: inline-block;
-
 	svg {
 		margin-bottom: 0.1em;
 	}
-
+	// Default size
+	&:not(&[class*='icon-']) {
+		@apply h-7 w-7;
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+	}
+	// Make sure SVG gets resized properly
+	&[class*='icon-'] {
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+	}
+	// Custom sizes
+	&.icon-xs {
+		@apply h-4 w-4;
+	}
+	&.icon-sm {
+		@apply h-5 w-5;
+	}
+	&.icon-lg {
+		@apply h-8 w-8;
+	}
+	&.icon-xl {
+		@apply h-9 w-9;
+	}
 	// Special cases
 	&.grid {
 		display: grid;
@@ -13,20 +39,4 @@
 			margin: 0;
 		}
 	}
-}
-
-.icon-xs {
-	@apply h-4 w-4;
-}
-.icon-sm {
-	@apply h-5 w-5;
-}
-.icon-base {
-	@apply h-7 w-7;
-}
-.icon-lg {
-	@apply h-8 w-8;
-}
-.icon-xl {
-	@apply h-9 w-9;
 }
