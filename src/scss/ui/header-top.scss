@@ -1,26 +1,18 @@
 #navmenu_mobile {
-	.item_closed::after {
-		content: '';
-		height: 1.4em;
-		width: 1.4em;
-		top: 1.4em;
-		right: 1.4em;
-		background-image: url(../img/header-top/menu_open.svg);
-		background-size: contain;
-		background-repeat: no-repeat;
-		position: absolute;
-		pointer-events: none;
+	.item_closed {
+		.close {
+			@apply hidden;
+		}
+		.open {
+			@apply block;
+		}
 	}
-	.item_open::after {
-		content: '';
-		height: 1.4em;
-		width: 1.4em;
-		top: 1.4em;
-		right: 1.4em;
-		background-size: contain;
-		background-repeat: no-repeat;
-		position: absolute;
-		background-image: url(../img/header-top/menu_close.svg);
-		pointer-events: none;
+	.item_open{
+		.close {
+			@apply block;
+		}
+		.open {
+			@apply hidden;
+		}
 	}
 }
