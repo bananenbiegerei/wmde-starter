@@ -1,0 +1,26 @@
+.menu {
+	&.horizontal {
+		@apply flex gap-5 items-baseline;
+	}
+	li {
+		a {
+			@apply inline-flex items-center text-base py-1 px-2 hover:bg-primary-50 rounded transition;
+		}
+		&.current-menu-item {
+			a {
+				@apply bg-white;
+			}
+		}
+	}
+	&.dropdown {
+		@apply flex flex-col space-y-2;
+		li {
+			a {
+				@apply w-full text-base py-1 px-2 hover:bg-primary-50 rounded transition;
+			}
+		}
+	}
+	.dropdown-toggle {
+		@apply inline-flex items-center text-base py-1 px-2 hover:bg-primary-50 rounded transition;
+	}
+}
