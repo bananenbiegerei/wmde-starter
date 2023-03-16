@@ -68,7 +68,7 @@
 	}"
 	>
 		<div class="absolute left-5 top-2 overflow-hidden">
-			<div class="transition-all duration-500 ease-in-out"
+			<div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10"
 				x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }"
 			>
 				<a href="<?php echo get_home_url(); ?>">

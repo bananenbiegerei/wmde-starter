@@ -8,11 +8,11 @@
 </div>
 
 <div>
-	<ul class="flex items-baseline space-x-5">
+	<ul class="flex items-center space-x-2 lg:space-x-5">
 		<?php if (get_field('link_fur_spenden', 'option')): ?>
 		<li>
 			<a
-				class="btn btn-base btn-red btn-hollow btn-icon-left"
+				class="btn btn-xs btn-ghost lg:btn-base btn-red btn-hollow btn-icon-left"
 				target="_blank"
 				href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
 				<?= bb_icon('heart', 'heartbeat') ?>
@@ -21,9 +21,9 @@
 		</li>
 		<?php endif; ?>
 		<?php if (get_field('link_fur_mitmachen', 'option')): ?>
-		<li>
+		<li class="hidden lg:block">
 			<a
-				class="btn btn-ghost"
+				class="btn btn-ghost btn-xs lg:btn-base"
 				target="_blank"
 				href="<?php echo esc_url(get_field('link_fur_mitmachen', 'option')); ?>">
 				<?php pll_e('Mitmachen'); ?>
