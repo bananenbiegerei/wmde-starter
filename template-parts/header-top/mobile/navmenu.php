@@ -28,11 +28,13 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 			<div  class="relative border-l-8 nav_item" x-bind:class="{ 'border-transparent' : !isOpen[i], 'border-blue-600' : isOpen[i] }" >
 
 				<!-- Domain title -->
+				<div x-bind:class="{'current before:w-2 before:h-16 before:bg-primary-600 before:absolute before:-left-2 before:top-0': pageID == domain.ID }">
 				<a
 					x-bind:href="domain.url"
 					class="btn btn-menu h-16">
 					<span class="w-full" x-text="domain.title"></span>
 				</a>
+				</div>
 				<!-- TODO: @EL hide plus for pages without children see. Presse -->
 				<div @click="toggleNav(i)" class="absolute top-5 right-5" x-bind:class="{ 'item_closed' : !isOpen[i], 'item_open' : isOpen[i] }" >
 					<?= bb_icon('menu_open', 'cursor-pointer open') ?>
