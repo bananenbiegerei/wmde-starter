@@ -83,7 +83,7 @@
 			<!-- Domain items -->
 			<template x-for="(domain,i) in nav">
 				<!-- Domain name -->
-				<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'menu' + i" >
+				<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'menu' + i" x-bind:class="{'current': pageID == domain.ID }">
 					<a x-bind:href="domain.url"> <span x-text="domain.title"></span> </a>
 				</button>
 			</template>

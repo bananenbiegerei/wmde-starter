@@ -32,7 +32,8 @@
 				<div x-show="isOpen[i]">
 
 					<!-- Domain link -->
-					<div>
+					<div x-bind:class="{'current': pageID == domain.ID }">
+
 					<a x-bind:href="domain.url" class="btn btn-menu">
 						<div class="w-full h-full w-4 h-4 mr-2 flex justify-center items-center">
 							<img class="h-auto w-10" x-bind:src="domain.thumbnail || defaultIcon"/>
