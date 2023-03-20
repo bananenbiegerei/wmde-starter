@@ -46,7 +46,7 @@ add_action(
 			],
 			'public' => true,
 			'has_archive' => true,
-			'supports' => ['title', 'editor', 'thumbnail'],
+			'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
 			'show_in_rest' => true,
 			'menu_icon' => 'dashicons-book',
 		]);
