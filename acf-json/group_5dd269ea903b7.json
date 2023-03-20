@@ -1,6 +1,6 @@
 {
     "key": "group_5dd269ea903b7",
-    "title": "Post Type: Post",
+    "title": "Custom Authors",
     "fields": [
         {
             "key": "field_5dd269ef820be",
@@ -65,5 +65,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678210601
+    "modified": 1679328531
 }

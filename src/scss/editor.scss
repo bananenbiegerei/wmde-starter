@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../../blocks/**/*';
 @import './ui/*';
 @import './components/*';
 @import './gutenberg-overwrites/*';
+@import '../../blocks/**/style.scss';
 
 html :where(.editor-styles-wrapper) {
 	h1,
@@ -25,22 +25,14 @@ html :where(.wp-block) {
 
 // Specific settings for blocks in editor
 html :where(.wp-block) {
-	.bb-facts-block {
-		> div {
-			height: 8rem;
-			div.text-6xl {
-				font-size: 3rem;
-			}
-			div.text-base {
-				font-size: 0.5rem;
-			}
-		}
-		p {
-			line-height: 0;
-		}
-	}
+	@import '../../blocks/**/editor.scss';
+}
 
-	.bb-spacer-block {
-		@apply after:content-['_spacer'] after:absolute after:top-2 after:right-8 after:bg-gray-200 after:py-1 after:px-3 text-xs after:rounded-full after:block border border-gray-200 rounded-xl border-dotted;
-	}
+// ACF
+.edit-post-meta-boxes-area #poststuff .stuffbox > h3,
+.edit-post-meta-boxes-area #poststuff h2.hndle,
+.edit-post-meta-boxes-area #poststuff h3.hndle {
+	font-weight: 400;
+	padding: 16px;
+	font-size: inherit;
 }

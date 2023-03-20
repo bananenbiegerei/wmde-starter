@@ -49,7 +49,11 @@ function bb_get_nav_menu($location = 'nav')
 			$page->url = $m->url;
 			if ($m->menu_item_parent == $featured_id) {
 				$page->excerpt = wp_strip_all_tags(get_the_excerpt($m->object_id), true);
-				$page->thumbnail = get_the_post_thumbnail_url($m->object_id);
+				if (function_exists('bb_get_the_post_thumbnail_url')) {
+					$page->thumbnail = bb_get_the_post_thumbnail_url($m->object_id);
+				} else {
+					$page->thumbnail = get_the_post_thumbnail_url($m->object_id);
+				}
 				$domain->featured[] = $page;
 			} elseif ($m->menu_item_parent == $section_title_id['id']) {
 				$domain->sections["{$section_title_id['title']}#{$section_title_id['id']}"][] = $page;

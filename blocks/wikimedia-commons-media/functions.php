@@ -162,3 +162,29 @@ function bbkwc_img_srcset($file, $sizes, $img_size, $h)
 	$srcset[] = bbkwc_get_image_url($file, $h) . ' ' . $img_size . 'w';
 	return join(', ', $srcset);
 }
+
+function bb_has_post_thumbnail()
+{
+	return get_field('wkc_featured_image_url') || has_post_thumbnail();
+}
+
+function bb_the_post_thumbnail($size, $options)
+{
+	$classes = $options['class'] ?? '';
+	if ($url = get_field('wkc_featured_image_url')) {
+		$data = bbwkc_get_media($url);
+		echo "<img src=\"{$data['media_url']}\"  alt=\"{$data['desc']}\" class=\"wp-post-image {$classes}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
+	} else {
+		echo the_post_thumbnail($size, $classes);
+	}
+}
+
+function bb_get_the_post_thumbnail_url($post_id)
+{
+	if ($url = get_field('wkc_featured_image_url', $post_id)) {
+		$data = bbwkc_get_media($url);
+		return explode(' ', explode(',', $data['srcset'])[0])[0];
+	} else {
+		return get_the_post_thumbnail_url($post_id);
+	}
+}

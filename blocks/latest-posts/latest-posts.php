@@ -23,9 +23,6 @@ foreach (wp_get_recent_posts(['numberposts' => $count + $sticky_count], OBJECT) 
 if (is_multisite()) {
 	restore_current_blog();
 }
-
-// Make sure this class in included in css (used to style the 'count' ACF)
-$stub_class = 'w-48';
 ?>
 
 <div class="bb-latest-posts-block">
