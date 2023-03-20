@@ -1,5 +1,33 @@
 <?php
 
+// Get list of sites
+$BB_sites = null;
+function bb_get_sites()
+{
+	global $wpdb, $BB_sites;
+	if (!is_multisite()) {
+		return ['1' => ['blog_id' => '1', 'title' => get_bloginfo('name')]];
+	}
+	if ($BB_sites) {
+		return $BB_sites;
+	}
+	$sites = [];
+	$sites[get_current_blog_id()] = null;
+	foreach ($wpdb->get_results("SELECT blog_id,domain,path FROM {$wpdb->prefix}blogs;", ARRAY_A) as $site) {
+		if ($site['blog_id'] == '1') {
+			$table = "{$wpdb->prefix}options";
+		} else {
+			$table = "{$wpdb->prefix}{$site['blog_id']}_options";
+		}
+
+		$site['title'] = $wpdb->get_var("SELECT option_value FROM {$table} WHERE option_name='blogname';");
+
+		$sites[$site['blog_id'] . ''] = $site;
+	}
+	$BB_sites = $sites;
+	return $BB_sites;
+}
+
 // Get list of custom post types
 $BB_cpt = null;
 function bb_get_custom_post_types()
@@ -18,25 +46,6 @@ function bb_get_custom_post_types()
 	return $BB_cpt;
 }
 
-// Get list of sites
-$BB_sites = null;
-function bb_get_sites()
-{
-	global $wpdb, $BB_sites;
-	if (!is_multisite()) {
-		return [1];
-	}
-	if ($BB_sites) {
-		return $BB_sites;
-	}
-	$sites = [get_current_blog_id() . ''];
-	foreach ($wpdb->get_results("SELECT blog_id FROM {$wpdb->prefix}blogs;") as $site) {
-		$sites[] = $site->blog_id;
-	}
-	$BB_sites = array_unique($sites);
-	return $BB_sites;
-}
-
 // Find a matching post in any of the network sites from its URL
 function bb_find_post_data($url)
 {
@@ -46,7 +55,10 @@ function bb_find_post_data($url)
 		return $post_data;
 	}
 	$post_data = null;
-	foreach (bb_get_sites() as $blog_id) {
+
+	clog(bb_get_sites());
+	foreach (bb_get_sites() as $blog_id => $site) {
+		clog('blog: ' . $blog_id);
 		switch_to_blog($blog_id);
 		if ($post_data = bb_get_post_data($url)) {
 			$post_data['blog_id'] = $blog_id;
@@ -62,11 +74,11 @@ function bb_find_post_data($url)
 // Get the matching post in a site from its URL
 function bb_get_post_data($url)
 {
-	if ($local_post_id = bb_url_to_postid($url)) {
-		$local_post = get_post($local_post_id);
+	if ($post_id = bb_url_to_postid($url)) {
+		$post = get_post($post_id);
 		$theme = [];
 		$format = [];
-		foreach (wp_get_post_terms($local_post_id, ['format', 'theme']) as $term) {
+		foreach (wp_get_post_terms($post_id, ['format', 'theme']) as $term) {
 			if ($term->taxonomy == 'format') {
 				$format[] = $term->name;
 			}
@@ -75,16 +87,55 @@ function bb_get_post_data($url)
 			}
 		}
 		return [
-			'post_id' => $local_post_id,
-			'title' => $local_post->post_title,
-			'excerpt' => $local_post->post_excerpt,
-			'image' => get_post_thumbnail_id($local_post_id),
-			'post_type' => get_post_type($local_post_id),
+			'post_id' => $post_id,
+			'title' => $post->post_title,
+			'excerpt' => $post->post_excerpt,
+			'image' => get_post_thumbnail_id($post_id),
+			'post_type' => get_post_type($post_id),
 			'format' => $format,
 			'theme' => $theme,
 		];
 	}
 	return null;
+}
+
+// Get the matching post in a site from its blog_id and post_id
+// For use with get_template_part('blocks/card/card', ...)
+function bb_get_post_data_from_include($blog_id, $post_id)
+{
+	// Check if we get post_id and blog_id from get_template_part()
+	if (is_multisite()) {
+		switch_to_blog($blog_id);
+	}
+	$post = get_post($post_id);
+	foreach (wp_get_post_terms($post_id, ['format', 'theme']) as $term) {
+		if ($term->taxonomy == 'format') {
+			$format[] = $term->name;
+		}
+		if ($term->taxonomy == 'theme') {
+			$theme[] = $term->name;
+		}
+	}
+	$theme = $post_data['theme'];
+	$format = $post_data['format'];
+	$post_type = get_post_type($post_id);
+	$url = get_post_permalink($post_id);
+	$image_id = get_post_thumbnail_id($post_id);
+
+	if (is_multisite()) {
+		restore_current_blog();
+	}
+	return [
+		'blog_id' => $blog_id,
+		'post_id' => $post_id,
+		'title' => $post->post_title,
+		'url' => $url,
+		'excerpt' => $post->post_excerpt,
+		'image' => $image_id,
+		'post_type' => $post_type,
+		'format' => $format,
+		'theme' => $theme,
+	];
 }
 
 function bb_get_multisite_attachment_image($blog_id, $image, $size, $classes)

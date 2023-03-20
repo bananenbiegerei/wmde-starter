@@ -1,0 +1,15 @@
+{
+	"name": "acf/latest-posts",
+	"title": "Latest Posts",
+	"description": "Show the latests posts from a site",
+	"category": "wkmde-custom-blocks",
+	"icon": "dashicons-page",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "latest-posts.php"
+	},
+	"supports": {
+		"align": false
+	}
+}

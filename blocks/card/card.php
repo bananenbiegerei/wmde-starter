@@ -16,8 +16,20 @@ $theme = [];
 $format = [];
 $post_type = false;
 
-// See if there's a post with this URL
-if ($post_data = bb_find_post_data($link['url'])) {
+if ($args['post_id'] ?? (false && $args['blog_id'] ?? false)) {
+	// If card is included as a get_template_part()
+	$post_data = bb_get_post_data_from_include($args['blog_id'], $args['post_id']);
+	$link['title'] = $post_data['title'];
+	$link['url'] = $post_data['url'];
+	$post_id = $post_data['post_id'];
+	$excerpt = $post_data['excerpt'];
+	$image_id = $post_data['image'];
+	$blog_id = $post_data['blog_id'];
+	$theme = $post_data['theme'];
+	$format = $post_data['format'];
+	$post_type = $post_data['post_type'];
+} elseif ($post_data = bb_find_post_data($link['url'])) {
+	// See if there's a post with this URL
 	// Use title from post if not manually set
 	$link['title'] = $link['title'] != '' ? $link['title'] : $post_data['title'];
 	// Get other values from post
@@ -29,7 +41,7 @@ if ($post_data = bb_find_post_data($link['url'])) {
 	$format = $post_data['format'];
 	$post_type = $post_data['post_type'];
 }
-clog($blog_id);
+
 // Override values if alt. versions are provided
 if (get_field('content')['alt_details']) {
 	$excerpt = get_field('content')['text'] ? get_field('content')['text'] : $excerpt;
@@ -51,9 +63,10 @@ if (get_field('content')['alt_details']) {
 }
 
 // Configure layout classes
-$layout = get_field('style')['layout'];
+$layout = $args['layout'] ?? get_field('style')['layout'];
 $layout_classes = [];
-if ($layout == 'v') {
+if ($layout == 'v' || $layout == 'vne') {
+	// 'vne' is 'vertical no excerpt' used by latest-posts block
 	$layout_classes['container'] = 'flex-col';
 	$layout_classes['image'] = '';
 	$layout_classes['content'] = '';
@@ -112,7 +125,7 @@ if ($link['title'] == '') {
 				<?= strip_tags($link['title']) ?>
 			</h2>
 
-			<?php if ($layout != 'h2'): ?>
+			<?php if ($layout != 'h2' && $layout != 'vne'): ?>
 				<div class="text-xl font-alt font-normal text-inherit">
 					<?= strip_tags($excerpt) ?>
 				</div>
