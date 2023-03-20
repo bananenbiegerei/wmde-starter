@@ -38,7 +38,7 @@ $stub_class = 'w-48';
 		<?php endfor; ?>
 	</div>
 	<!-- Other posts -->
-	<div class="container grid grid-cols-4 gap-8">
+	<div class="container grid grid-cols-1 lg:grid-cols-4 gap-8">
 			<?php for ($i = 0; $i < $count; $i++): ?>
 					<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $posts[$i]->ID, 'layout' => 'vne']); ?>
 		<?php endfor; ?>
