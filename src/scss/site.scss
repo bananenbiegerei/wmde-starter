@@ -3,17 +3,7 @@
 @tailwind utilities;
 
 /* UI Basic components */
-@import './ui/grid';
-@import './ui/icons';
-@import './ui/buttons';
-@import './ui/header-top';
-@import './ui/forms';
-@import './ui/typography';
-@import './ui/badges';
-@import './ui/fonts';
-@import './ui/anchor-nav';
-@import './ui/columns';
-@import './ui/nav';
+@import './ui/*';
 
 /* Components */
 @import './components/*';
