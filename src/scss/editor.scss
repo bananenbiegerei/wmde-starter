@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 @import '../../blocks/**/*';
-@import './ui/buttons';
+@import './ui/*';
 @import './components/*';
 @import './gutenberg-overwrites/*';
-@import 'ui/typography';
 
 html :where(.editor-styles-wrapper) {
 	h1,
@@ -24,7 +23,8 @@ html :where(.wp-block) {
 	@apply max-w-screen-2xl mx-auto px-6;
 }
 
-.editor-styles-wrapper {
+// Specific settings for blocks in editor
+html :where(.wp-block) {
 	.bb-facts-block {
 		> div {
 			height: 8rem;

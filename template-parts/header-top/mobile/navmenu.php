@@ -35,21 +35,16 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 					<span class="w-full" x-text="domain.title"></span>
 				</a>
 				</div>
-				<!-- TODO: @EL hide plus for pages without children see. Presse -->
-				<div @click="toggleNav(i)" class="absolute top-5 right-5" x-bind:class="{ 'item_closed' : !isOpen[i], 'item_open' : isOpen[i] }" >
-					<?= bb_icon('menu_open', 'cursor-pointer open') ?>
-					<?= bb_icon('menu_close', 'cursor-pointer close') ?>	
-				</div>
+
+				<template x-if="domain.pages.length > 0 || domain.featured.length > 0 ||  domain.sections.length > 0">
+					<div @click="toggleNav(i)" class="absolute top-5 right-5" x-bind:class="{ 'item_closed' : !isOpen[i], 'item_open' : isOpen[i] }" >
+						<?= bb_icon('menu_open', 'cursor-pointer open') ?>
+						<?= bb_icon('menu_close', 'cursor-pointer close') ?>
+					</div>
+				</template>
 
 				<!-- Wrapper for domain items -->
 				<div x-show="isOpen[i]" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
-
-					<!-- Domain link -->
-					<!-- <div>
-					<a x-bind:href="domain.url" class="btn btn-menu">
-						<span class="w-full" x-text="domain.title"></span>
-					</a>
-					</div> -->
 
 					<!-- Featured pages -->
 					<template x-if="domain.featured.length >0">
