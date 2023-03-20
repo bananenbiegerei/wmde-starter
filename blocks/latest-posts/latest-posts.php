@@ -1,8 +1,8 @@
 <?php
 // FIXME: REQUIRES CARD BLOCK
 $blog_id = get_field('site');
-$count = get_field('settings')['count'];
-$sticky_count = get_field('settings')['count_sticky'];
+$count = get_field('count');
+$sticky_count = 12;
 
 if (is_multisite()) {
 	switch_to_blog($blog_id);
@@ -27,7 +27,7 @@ if (is_multisite()) {
 
 <div class="bb-latest-posts-block">
 	<!-- Sticky posts -->
-		<div class="container grid grid-cols-<?= count($sticky_posts) ?> gap-8">
+		<div class="container grid grid-cols-<?= max(4, count($sticky_posts)) ?> gap-8">
 			<?php for ($i = 0; $i < $sticky_count; $i++): ?>
 				<?php if ($sticky_posts[$i]): ?>
 					<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $sticky_posts[$i]->ID, 'layout' => 'v']); ?>

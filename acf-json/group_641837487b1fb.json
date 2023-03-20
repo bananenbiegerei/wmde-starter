@@ -29,11 +29,11 @@
             "placeholder": ""
         },
         {
-            "key": "field_641865bba8c7e",
-            "label": "Limits",
-            "name": "settings",
+            "key": "field_6418375eb83ed",
+            "label": "Number of Posts",
+            "name": "count",
             "aria-label": "",
-            "type": "group",
+            "type": "number",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -42,55 +42,14 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "sub_fields": [
-                {
-                    "key": "field_64186087118f3",
-                    "label": "Number of Sticky Posts",
-                    "name": "count_sticky",
-                    "aria-label": "",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "w-48",
-                        "id": ""
-                    },
-                    "default_value": 4,
-                    "translations": "copy_once",
-                    "min": 0,
-                    "max": 4,
-                    "placeholder": "",
-                    "step": 1,
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_6418375eb83ed",
-                    "label": "Number of Posts",
-                    "name": "count",
-                    "aria-label": "",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "w-48",
-                        "id": ""
-                    },
-                    "default_value": 4,
-                    "translations": "copy_once",
-                    "min": 4,
-                    "max": 32,
-                    "placeholder": "",
-                    "step": 4,
-                    "prepend": "",
-                    "append": ""
-                }
-            ]
+            "default_value": 4,
+            "translations": "copy_once",
+            "min": 4,
+            "max": 32,
+            "placeholder": "",
+            "step": 4,
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -111,5 +70,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679320582
+    "modified": 1679329020
 }
