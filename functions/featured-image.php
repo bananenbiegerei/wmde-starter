@@ -12,4 +12,11 @@
 	</div>
 
 <?php
-} ?>
+}
+
+function bb_has_post_thumbnail()
+{
+	return bbWikimediaCommonsMedia::has_post_thumbnail();
+}
+
+?>
