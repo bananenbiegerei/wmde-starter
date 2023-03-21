@@ -1,6 +1,6 @@
 <?php
 
-// Polyfills
+// Polyfills (provides a few functions not yet in PHP7)
 require_once get_template_directory() . '/functions/polyfills.php';
 
 // Load localization functions
@@ -20,7 +20,7 @@ require_once get_template_directory() . '/functions/containers.php';
 // Load styles & scripts
 require_once get_template_directory() . '/functions/enqueue-scripts.php';
 
-// Define menu locations
+// Define menu locations and menu getter
 require_once get_template_directory() . '/functions/menu.php';
 
 // Icon dispenser
@@ -33,9 +33,8 @@ require_once get_template_directory() . '/functions/custom-taxonomies.php';
 // Excerpts
 require_once get_template_directory() . '/functions/excerpts.php';
 
-// Define some image sizes
-// @Ingo: is this still needed? IS: not sure yet
-// require_once get_template_directory() . '/functions/image-sizes.php';
+// Featured image
+require_once get_template_directory() . '/functions/featured-image.php';
 
-// Experimental
+// Block converter and unsupported blocks
 require_once get_template_directory() . '/functions/block-converter.php';

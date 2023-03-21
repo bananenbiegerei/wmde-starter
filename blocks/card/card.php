@@ -18,7 +18,7 @@ $post_type = false;
 
 if ($args['post_id'] ?? (false && $args['blog_id'] ?? false)) {
 	// If card is included as a get_template_part()
-	$post_data = bb_get_post_data_from_include($args['blog_id'], $args['post_id']);
+	$post_data = bbCard::get_post_data_from_include($args['blog_id'], $args['post_id']);
 	$link['title'] = $post_data['title'];
 	$link['url'] = $post_data['url'];
 	$post_id = $post_data['post_id'];
@@ -28,7 +28,7 @@ if ($args['post_id'] ?? (false && $args['blog_id'] ?? false)) {
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
 	$post_type = $post_data['post_type'];
-} elseif ($post_data = bb_find_post_data($link['url'])) {
+} elseif ($post_data = bbCard::find_post_data($link['url'])) {
 	// See if there's a post with this URL
 	// Use title from post if not manually set
 	$link['title'] = $link['title'] != '' ? $link['title'] : $post_data['title'];
@@ -84,8 +84,7 @@ if ($layout == 'v' || $layout == 'vne') {
 if (get_field('style')['bg_color']) {
 	$bgcolor = 'background-color: ' . get_field('style')['bg_color'] . ';';
 	$layout_classes['container'] .= ' p-4';
-}
-else {
+} else {
 	$bgcolor = '';
 }
 
@@ -109,7 +108,7 @@ if ($link['title'] == '') {
 		<?php elseif ($image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
-					<?php echo bb_get_multisite_attachment_image($blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
+					<?php echo bbCard::get_multisite_attachment_image($blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
 				</div>
 			</div>
 		<?php endif; ?>
