@@ -12,11 +12,15 @@ add_action('init', function () {
 	}
 });
 
-// add_filter('acf/settings/load_json', function ($paths) {
-// 	//Add all folders in /blocks/
-// 	$paths[] = get_template_directory() . '/blocks/custom-teasers-swiper/';
-// 	return $paths;
-// });
+// NOTE: If there's not acf-json folder then load from 'acf-groups' and /blocks/*/
+if (!file_exists(get_template_directory() . '/acf-json') || !is_dir(get_template_directory() . '/acf-json')) {
+	add_filter('acf/settings/load_json', function ($paths) {
+		$paths[] = get_template_directory() . 'acf-groups';
+		foreach (glob(__DIR__ . '/../blocks/*/') as $block_dir) {
+			$paths[] = $block_dir;
+		}
+	});
+}
 
 // Define list of allowed block types
 add_filter('allowed_block_types_all', function ($allowed_blocks) {
@@ -25,8 +29,8 @@ add_filter('allowed_block_types_all', function ($allowed_blocks) {
 		return !str_starts_with($b, 'core/');
 	});
 	// Add the core blocks we're still using
-	$blocks = array_merge($blocks, ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode', 'core/table', 'core/block', 'core/html', 'core/separator']);
-	return $blocks;
+	$core_blocks = ['core/group', 'core/column', 'core/columns', 'core/file', 'core/shortcode', 'core/table', 'core/block', 'core/html', 'core/separator'];
+	return array_merge($blocks, $core_blocks);
 });
 
 // Add custom blocks category

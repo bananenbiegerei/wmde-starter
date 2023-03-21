@@ -2,7 +2,7 @@
 // FIXME: REQUIRES CARD BLOCK
 $blog_id = get_field('site');
 $count = get_field('count');
-$sticky_count = 12;
+$sticky_count_max = 12;
 
 if (is_multisite()) {
 	switch_to_blog($blog_id);
@@ -11,8 +11,8 @@ if (is_multisite()) {
 $posts = [];
 $sticky_posts = [];
 $i = 0;
-foreach (wp_get_recent_posts(['numberposts' => $count + $sticky_count], OBJECT) as $post) {
-	if (is_sticky($post->ID) && $i < $sticky_count) {
+foreach (wp_get_recent_posts(['numberposts' => $count + $sticky_count_max], OBJECT) as $post) {
+	if (is_sticky($post->ID) && $i < $sticky_count_max) {
 		$i++;
 		$sticky_posts[] = $post;
 	} else {
@@ -27,11 +27,10 @@ if (is_multisite()) {
 
 <div class="bb-latest-posts-block">
 	<!-- Sticky posts -->
-		<div class="container grid grid-cols-<?= max(4, count($sticky_posts)) ?> gap-8">
-			<?php for ($i = 0; $i < $sticky_count; $i++): ?>
-				<?php if ($sticky_posts[$i]): ?>
-					<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $sticky_posts[$i]->ID, 'layout' => 'v']); ?>
-				<?php endif; ?>
+		<div class="container grid grid-cols-<?= min(2, count($sticky_posts)) ?> gap-8">
+			<?php for ($i = 0; $i < min(2, count($sticky_posts)); $i++): ?>
+				<?php $layout = count($sticky_posts) == 1 ? 'v' : 'h'; ?>
+				<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $sticky_posts[$i]->ID, 'layout' => $layout]); ?>
 		<?php endfor; ?>
 	</div>
 	<!-- Other posts -->
