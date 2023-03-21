@@ -81,24 +81,11 @@
 	}
 }
 
-// With icon
+// With icon, but the size of the icon is defined in bb_icon
 .btn-icon-left {
-	// .icon-xs {
-	// 	@apply -ml-0.5 mr-2;
-	// }
-	// .icon-sm {
-	// 	@apply -ml-1 mr-2;
-	// }
-	@apply px-2;
 	svg {
-		@apply -mr-4 bg-red-500;
+		@apply relative -left-1;
 	}
-	// .icon-lg {
-	// 	@apply -ml-1.5 mr-3;
-	// }
-	// .icon-xl {
-	// 	@apply -ml-2 mr-4;
-	// }
 }
 .btn-expanded {
 	@apply w-full;

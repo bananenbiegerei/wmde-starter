@@ -12,10 +12,10 @@
 		<?php if (get_field('link_fur_spenden', 'option')): ?>
 		<li>
 			<a
-				class="btn btn-xs btn-ghost lg:btn-base btn-red btn-hollow btn-icon-left"
+				class="btn btn-xs btn-red btn-hollow btn-ghost lg:btn-base  btn-icon-left"
 				target="_blank"
 				href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
-				<?= bb_icon('heart', 'heartbeat') ?>
+				<?= bb_icon('heart', 'heartbeat icon-sm') ?>
 				<?php pll_e('donate'); ?>
 			</a>
 		</li>
