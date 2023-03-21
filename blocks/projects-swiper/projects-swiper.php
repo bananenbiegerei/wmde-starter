@@ -27,7 +27,7 @@
 		<!-- Slides -->
 		<div class="swiper-wrapper h-full">
 			<?php foreach (get_field('projects') as $project): ?>
-			<div class="swiper-slide rounded-2xl p-5 <?= $slide_bg ?> self-stretch"><!-- Slide size defined in block SCSS -->
+			<div class="swiper-slide rounded-2xl p-5 hover:shadow-xl transition hover:scale-cards <?= $slide_bg ?> self-stretch"><!-- Slide size defined in block SCSS -->
 				<a class="block flex flex-col space-y-5" href="<?php echo get_post_permalink($project->ID); ?>">
 					<!-- Thumbnail -->
 					<div class="">

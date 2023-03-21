@@ -42,6 +42,9 @@ module.exports = {
 			minHeight: {
 			  '32': '8rem',
 			},
+			scale: {
+				'cards': '1.01',
+			},
 		},
 	},
 	corePlugins: {

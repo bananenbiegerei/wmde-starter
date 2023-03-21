@@ -94,7 +94,7 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
+<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10 hover:shadow-xl transition scale-100 hover:scale-cards" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $image_id): ?>
@@ -113,7 +113,7 @@ if ($link['title'] == '') {
 			</div>
 		<?php endif; ?>
 
-		<div class="<?= $layout_classes['content'] ?> space-y-2">
+		<div class="<?= $layout_classes['content'] ?> space-y-2 px-2 pb-2">
 
 			<?php if ($theme || $format): ?>
 				<div class="uppercase text-base text-primary font-bold text-sm font-alt">

@@ -43,23 +43,22 @@
 
 			</div>
 
-			<div class="col-span-12">
+			<div class="col-span-12 -mx-5">
 				<!-- Related -->
 				<?php $related = get_field('related'); ?>
 				<?php if ($related): ?>
-					<div class="lg:grid lg:grid-cols-3">
+					<div class="lg:grid lg:grid-cols-3 gap-5">
 					<?php foreach ($related as $related): ?>
 						<?php setup_postdata($related); ?>
-						<div class="pr-10">
+							<a class="p-5 rounded-lg transition hover:shadow-2xl scale-cards" href="<?php the_permalink(); ?>">
 							<?php if ($terms = get_the_terms($related->ID, 'theme')): ?>
 						  <?php $term_names = []; ?>
 						  <?php /* prettier-ignore */ foreach ($terms as $term) { $term_names[] = $term->name; } ?>
 						  <div class="uppercase text-primary font-bold text-base font-alt"><?php echo implode(', ', $term_names); ?></div>
-				  <?php endif; ?>
-						<a href="<?php the_permalink(); ?>">
+				  		<?php endif; ?>
+						
 							<h3 class="text-base lg:text-xl"><?php echo get_the_title($related->ID); ?></h3>
 						</a>
-						</div>
 					<?php endforeach; ?>
 					</div>
 					<?php wp_reset_postdata(); ?>
