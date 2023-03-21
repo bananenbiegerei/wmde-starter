@@ -13,7 +13,7 @@
 					<h1 class="text-2xl lg:text-5xl pt-5"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
 					  <div class="font-alt text-xl font-normal">
-						<?php echo get_the_excerpt(); ?>
+						<?php the_excerpt(); ?>
 					  </div>
 					<?php endif; ?>
 			  </div>
@@ -26,7 +26,6 @@
 		  <div class="relative flex justify-center container grid grid-cols-12">
 				<div class="col-span-12 lg:col-span-8 lg:col-start-3">
 
-
 				<div class="bb-image-block aspect-w-16 aspect-h-9">
 					<figure class="w-full w-full">
 						<?php the_post_thumbnail('large', ['class' => 'rounded-3xl object-cover w-full h-full']); ?>
@@ -35,7 +34,6 @@
 						</figcaption>
 					</figure>
 				</div>
-
 
 				</div>
 			</div>
@@ -50,7 +48,7 @@
 					<h1 class="text-5xl"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
 					  <div class="font-alt text-xl font-normal">
-						<?php echo get_the_excerpt(); ?>
+						<?php the_excerpt(); ?>
 					  </div>
 					<?php endif; ?>
 			  </div>

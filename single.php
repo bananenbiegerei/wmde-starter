@@ -2,7 +2,7 @@
 <?php while (have_posts()): ?>
 	<?php the_post(); ?>
 
-	<?php if (bb_has_post_thumbnail()): ?>
+	<?php if (has_post_thumbnail()): ?>
 
 	  <div class="bg-gray">
 		  <div class="container grid grid-cols-12 pb-5">
@@ -11,7 +11,7 @@
 					<h1 class="text-2xl lg:text-5xl"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
 					  <div class="font-alt text-xl font-normal">
-						<?php echo get_the_excerpt(); ?>
+						<?php the_excerpt(); ?>
 					  </div>
 					<?php endif; ?>
 			  </div>
@@ -47,7 +47,7 @@
 
 					<?php if (has_excerpt()): ?>
 					  <div class="font-alt text-xl font-normal">
-						<?php echo get_the_excerpt(); ?>
+						<?php the_excerpt(); ?>
 					  </div>
 					<?php endif; ?>
 
