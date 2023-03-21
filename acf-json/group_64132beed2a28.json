@@ -25,6 +25,27 @@
             "translations": "copy_once",
             "allow_null": 0,
             "ui": 1
+        },
+        {
+            "key": "field_6419a3b51d3c8",
+            "label": "Hide Excerpt",
+            "name": "hide_excerpt",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "translations": "copy_once",
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -45,5 +66,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678978086
+    "modified": 1679401927
 }

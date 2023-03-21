@@ -19,12 +19,15 @@ if( $selected_publication ):
 			<?php endif; ?>
 		</div>
 		<div>
+			<?php if ( get_field( 'hide_excerpt' ) ): ?>			
+			<?php else: ?>
 			<a href="<?php echo $post_permalink; ?>">
 				<h2 class="uppercase text-base text-primary font-bold text-sm font-alt"><?php echo $post_title; ?></h2>
 				<p class="font-alt">
 					<?php echo $post_excerpt; ?>
 				</p>
 			</a>
+			<?php endif; ?>
 			<a href="<?php echo $post_download; ?>" class="btn btn-base btn-icon-left">
 				<?= bb_icon('arrow-down') ?> <?php _e('Download', BB_TEXT_DOMAIN) ?>
 			</a>
