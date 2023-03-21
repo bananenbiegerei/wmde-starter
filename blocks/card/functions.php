@@ -6,7 +6,7 @@ class bbCard
 	static $sites = null;
 
 	// Get list of sites
-	function get_sites()
+	static function get_sites()
 	{
 		global $wpdb;
 
@@ -37,7 +37,7 @@ class bbCard
 	}
 
 	// Get list of custom post types
-	function get_custom_post_types()
+	static function get_custom_post_types()
 	{
 		global $custom_post_types;
 		if ($custom_post_types) {
@@ -54,7 +54,7 @@ class bbCard
 	}
 
 	// Find a matching post in any of the network sites from its URL
-	function find_post_data($url)
+	static function find_post_data($url)
 	{
 		if (!is_multisite()) {
 			$post_data = bbCard::get_post_data($url);
@@ -77,7 +77,7 @@ class bbCard
 	}
 
 	// Get the matching post in a site from its URL
-	function get_post_data($url)
+	static function get_post_data($url)
 	{
 		if ($post_id = bbCard::url_to_postid($url)) {
 			$post = get_post($post_id);
@@ -106,7 +106,7 @@ class bbCard
 
 	// Get the matching post in a site from its blog_id and post_id
 	// For use with get_template_part('blocks/card/card', ...)
-	function get_post_data_from_include($blog_id, $post_id)
+	static function get_post_data_from_include($blog_id, $post_id)
 	{
 		// Check if we get post_id and blog_id from get_template_part()
 		if (is_multisite()) {
@@ -143,7 +143,7 @@ class bbCard
 		];
 	}
 
-	function get_multisite_attachment_image($blog_id, $image, $size, $classes)
+	static function get_multisite_attachment_image($blog_id, $image, $size, $classes)
 	{
 		if (is_multisite()) {
 			switch_to_blog($blog_id);
@@ -157,7 +157,7 @@ class bbCard
 	}
 
 	// This is a rewrite of url_to_postid with support for custom post types
-	function url_to_postid($url)
+	static function url_to_postid($url)
 	{
 		global $wp_rewrite;
 		$url = apply_filters('url_to_postid', $url);
