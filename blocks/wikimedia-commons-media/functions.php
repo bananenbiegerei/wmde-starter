@@ -7,12 +7,12 @@ define('BBWKC_API_ENDPOINT', 'https://commons.wikimedia.org/w/api.php');
 class bbWikimediaCommonsMedia
 {
 	/* Fuctions for post featured image */
-	function has_post_thumbnail()
+	static function has_post_thumbnail()
 	{
 		return get_field('wkc_featured_image_url') || has_post_thumbnail();
 	}
 
-	function the_post_thumbnail($size, $options)
+	static function the_post_thumbnail($size, $options)
 	{
 		$classes = $options['class'] ?? '';
 		if ($url = get_field('wkc_featured_image_url')) {
@@ -23,7 +23,7 @@ class bbWikimediaCommonsMedia
 		}
 	}
 
-	function get_post_thumbnail_caption()
+	static function get_post_thumbnail_caption()
 	{
 		if ($url = get_field('wkc_featured_image_url')) {
 			$wmc_image_data = bbWikimediaCommonsMedia::get_media($url);
@@ -33,7 +33,7 @@ class bbWikimediaCommonsMedia
 		}
 	}
 
-	function get_the_post_thumbnail_url($post_id)
+	static function get_the_post_thumbnail_url($post_id)
 	{
 		if ($url = get_field('wkc_featured_image_url', $post_id)) {
 			$data = bbWikimediaCommonsMedia::get_media($url);
@@ -44,7 +44,7 @@ class bbWikimediaCommonsMedia
 	}
 
 	/* Interface with Wikimedia Commons */
-	function get_media($file, $lang = 'en')
+	static function get_media($file, $lang = 'en')
 	{
 		$file = stripcslashes(bbWikimediaCommonsMedia::sanitize_uri($file));
 		$img = get_transient(BBWKC_TRANSIENT_PREFIX . $file);
@@ -57,7 +57,7 @@ class bbWikimediaCommonsMedia
 		return $img;
 	}
 
-	function get_media_query($file, $lang = 'en')
+	static function get_media_query($file, $lang = 'en')
 	{
 		$endPoint = BBWKC_API_ENDPOINT;
 		$mime_type = bbWikimediaCommonsMedia::get_media_type($file);
@@ -132,7 +132,7 @@ class bbWikimediaCommonsMedia
 		return $out;
 	}
 
-	function get_media_type($file)
+	static function get_media_type($file)
 	{
 		/* prettier-ignore */
 		$WKC_MIME_TYPES = [ 'gif' => 'image/gif', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'm4v' => 'video/x-m4v', 'mov' => 'video/quicktime', 'mp4' => 'video/mp4', 'mp4v' => 'video/mp4', 'mpa' => 'video/mpeg', 'mpe' => 'video/mpeg', 'mpeg' => 'video/mpeg', 'mpg' => 'video/mpeg', 'mpg4' => 'video/mp4', 'ogv' => 'video/ogg', 'pdf' => 'application/pdf', 'png' => 'image/png', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'webm' => 'video/webm', 'tif' => 'image/tiff', 'tiff' => 'image/tiff', 'mp3' => 'audio/mpeg', 'mid' => 'audio/midi', 'midi' => 'audio/midi', 'flac' => 'audio/x-flac', 'wav' => 'audio/x-wav', 'ogg' => 'application/ogg', ];
@@ -142,7 +142,7 @@ class bbWikimediaCommonsMedia
 		}
 	}
 
-	function sanitize_uri($uri)
+	static function sanitize_uri($uri)
 	{
 		static $commonsRegex = '!^https?://(commons\.wikimedia\.org/wiki/File:|upload\.wikimedia\.org.+/)(.+)!';
 		if (preg_match($commonsRegex, $uri, $match)) {
@@ -155,7 +155,7 @@ class bbWikimediaCommonsMedia
 		return $file;
 	}
 
-	function get_wp_image_sizes()
+	static function get_wp_image_sizes()
 	{
 		$sizes = [];
 		foreach (wp_get_registered_image_subsizes() as $s) {
@@ -166,32 +166,32 @@ class bbWikimediaCommonsMedia
 		return $sizes;
 	}
 
-	function get_thumbnail_url($file, $size, $h)
+	static function get_thumbnail_url($file, $size, $h)
 	{
 		return 'https://upload.wikimedia.org/wikipedia/commons/thumb/' . $h . '/' . urlencode($file) . '/' . $size . 'px-' . urlencode($file);
 	}
 
-	function get_image_url($file, $h)
+	static function get_image_url($file, $h)
 	{
 		return 'https://upload.wikimedia.org/wikipedia/commons/' . $h . '/' . urlencode($file);
 	}
 
-	function get_audio_alt($file, $h)
+	static function get_audio_alt($file, $h)
 	{
 		return 'https://upload.wikimedia.org/wikipedia/commons/transcoded/' . $h . '/' . urlencode($file) . '/' . urlencode($file) . '.mp3';
 	}
 
-	function get_video_alt($file, $h)
+	static function get_video_alt($file, $h)
 	{
 		return 'https://upload.wikimedia.org/wikipedia/commons/transcoded/' . $h . '/' . urlencode($file) . '/' . urlencode($file) . '.360p.vp9.webm';
 	}
 
-	function get_video_poster($file, $h)
+	static function get_video_poster($file, $h)
 	{
 		return 'https://upload.wikimedia.org/wikipedia/commons/thumb/' . $h . '/' . urlencode($file) . '/1024px--' . urlencode($file) . '.jpg';
 	}
 
-	function img_srcset($file, $sizes, $img_size, $h)
+	static function img_srcset($file, $sizes, $img_size, $h)
 	{
 		$srcset = [];
 		if ($img_size > max($sizes)) {
