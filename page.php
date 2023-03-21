@@ -2,7 +2,7 @@
 <?php while (have_posts()): ?>
 <?php the_post(); ?>
 
-	<?php if (has_post_thumbnail()): ?>
+	<?php if (bb_has_post_thumbnail()): ?>
 
 	  <div class="bg-gray py-8 min-h-[12rem]">
 		  <div class="container grid grid-cols-12 py-5">
