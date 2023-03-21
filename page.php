@@ -2,9 +2,9 @@
 <?php while (have_posts()): ?>
 <?php the_post(); ?>
 
-	<?php if (bbWikimediaCommonsMedia::has_post_thumbnail()): ?>
+	<?php if (has_post_thumbnail()): ?>
 
-	  <div class="bg-gray">
+	  <div class="bg-gray py-8 min-h-[12rem]">
 		  <div class="container grid grid-cols-12 py-5">
 			  <div class="col-span-12 lg:col-span-10 lg:col-start-2">
 				  <?php get_template_part('template-parts/breadcrumbs'); ?>
@@ -32,7 +32,7 @@
 
 	<?php else: ?>
 
-	  <div class="bg-gray rounded-b-3xl pb-8">
+	  <div class="bg-gray rounded-b-3xl py-8 min-h-[12rem]">
 		  <div class="container grid grid-cols-12">
 			  <div class="col-span-12 lg:col-span-8 lg:col-start-3">
 				  <?php get_template_part('template-parts/breadcrumbs'); ?>
