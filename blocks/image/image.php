@@ -10,12 +10,14 @@ $wmc_image_data = $args['wmc_data'] ?? false;
 
 // Setup image parameters
 if ($image_id) {
+	// If called from Image block
 	$image_caption = strip_tags(wp_get_attachment_caption($image_id), ['a']);
 	$image_descripton = get_post($image_id)->post_content;
 	$image_meta_data = wp_get_attachment_metadata($image_id);
 	$rounded = get_field('style')['rounded'] ?? ($args['rounded'] ?? false);
 } elseif ($wmc_image_data) {
-	$image_caption = $wmc_image_data['usageterms'] . ' - <a href="' . esc_attr($wmc_image_data['url']) . '">Wikimedia Commons</a>';
+	// If called from Wikimedia Commons Media block
+	$image_caption = '<a href="' . esc_attr($wmc_image_data['url']) . '">' . $wmc_image_data['creator'] . ' - ' . $wmc_image_data['usageterms'] . '</a>';
 	$image_descripton = $wmc_image_data['desc'];
 	$dim = explode('x', $wmc_image_data['dim']);
 	$image_meta_data = ['width' => (int) $dim[0], 'height' => (int) $dim[1]];
@@ -57,7 +59,7 @@ if ($image_id) {
 		<?= $image ?>
 		<?php if ($image_caption): ?>
 			<figcaption class="<?= $caption_classes ?>">
-				<?= bb_icon('info') ?> <div><?= $image_caption ?></div>
+				<?= bb_icon('info') ?> <div class="self-center"><?= $image_caption ?></div>
 			</figcaption>
 		<?php endif; ?>
 	</figure>

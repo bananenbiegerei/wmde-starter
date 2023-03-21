@@ -173,9 +173,19 @@ function bb_the_post_thumbnail($size, $options)
 	$classes = $options['class'] ?? '';
 	if ($url = get_field('wkc_featured_image_url')) {
 		$data = bbwkc_get_media($url);
-		echo "<img src=\"{$data['media_url']}\"  alt=\"{$data['desc']}\" class=\"wp-post-image {$classes}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
+		echo "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\"wp-post-image {$classes}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
 	} else {
-		echo the_post_thumbnail($size, $classes);
+		echo the_post_thumbnail($size, ['class' => $classes]);
+	}
+}
+
+function bb_get_post_thumbnail_caption()
+{
+	if ($url = get_field('wkc_featured_image_url')) {
+		$wmc_image_data = bbwkc_get_media($url);
+		return '<a href="' . esc_attr($wmc_image_data['url']) . '">' . $wmc_image_data['creator'] . ' - ' . $wmc_image_data['usageterms'] . '</a>';
+	} else {
+		return strip_tags(wp_get_attachment_caption(get_post_thumbnail_id()), ['a']);
 	}
 }
 

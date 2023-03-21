@@ -10,7 +10,7 @@ function clog($var)
 // Test if this is a production server
 function is_production_server()
 {
-	return file_exists(ABSPATH . '#PRODUCTION#');
+	return !file_exists(ABSPATH . '#NOT_PROD#');
 }
 
 // Add an option to defer loading of scripts (required for AlpineJS)
@@ -39,8 +39,16 @@ show_admin_bar(false);
 // Add support for thumbnails and excerpts
 add_action('after_setup_theme', function () {
 	add_theme_support('title-tag');
-	add_theme_support('post-thumbnails', ['post', 'page', 'projects', 'team', 'theme-releases', 'publications']);
+	add_theme_support('post-thumbnails', ['post', 'page', 'projects', 'team', 'theme-releases']);
 	add_post_type_support('projects', 'excerpt');
 	add_post_type_support('page', 'excerpt');
 });
 
+// Set custom excerpt length
+add_filter(
+	'excerpt_length',
+	function ($length) {
+		return 20;
+	},
+	999,
+);
