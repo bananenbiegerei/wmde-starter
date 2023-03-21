@@ -7,7 +7,7 @@
 							<blockquote class="text-2xl flex gap-4">
 								<div class="flex-shrink-0"><?= bb_icon('quote', 'bg-red-100 text-primary rounded-full p-2 w-10 h-10 grid place-items-center') ?></div>
 								<p class="text-primary"><?= $testimonial->post_title ?></p>
-								<!--cite>Spendenkommentar <?php echo get_the_date('Y', $testimonial->ID); ?></cite-->
+								<?php /* cite>Spendenkommentar <?php echo get_the_date('Y', $testimonial->ID); ?> */?>
 							</blockquote>
 					</div>
 				<?php endforeach; ?>

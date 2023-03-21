@@ -85,6 +85,9 @@ if (get_field('style')['bg_color']) {
 	$bgcolor = 'background-color: ' . get_field('style')['bg_color'] . ';';
 	$layout_classes['container'] .= ' p-4';
 }
+else {
+	$bgcolor = '';
+}
 
 // Last check for missing data
 if ($link['title'] == '') {
