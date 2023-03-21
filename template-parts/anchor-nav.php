@@ -29,7 +29,7 @@ document.addEventListener('alpine:init', () => {
 		anchors: [],
 		buffer: 16,
 		init() {
-			for (const h of document.querySelectorAll('.bb-headline-block[id]')) {
+			for (const h of document.querySelectorAll(".bb-headline-block:not([data-anchor-title=''])")) {
 				this.anchors.push({'id': h.id, 'title': h.getAttribute('data-anchor-title')});
 			}
 			if (this.anchors.length == 0) {
@@ -40,8 +40,8 @@ document.addEventListener('alpine:init', () => {
 				document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
 			});
 		},
-		scrollTo(id) {
-			const pos = getCoords(document.getElementById(id)).top - calcTopNavOffset() - document.getElementById('anchor-nav').getBoundingClientRect().height - this.buffer;
+		scrollTo(anchor) {
+			const pos = getCoords(document.getElementById(anchor.id)).top - calcTopNavOffset() - document.getElementById('anchor-nav').getBoundingClientRect().height - this.buffer;
 			window.scrollTo({ 'top': pos , 'behavior': 'smooth'});
 		}
 	}));
@@ -50,7 +50,7 @@ document.addEventListener('alpine:init', () => {
 <div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200  sticky z-30 bg-white" x-show="anchors.length > 0">
 	<ul class="flex justify-center">
 		<template x-for="(anchor,i) in anchors">
-			<li class="inline-block cursor-pointer py-2 px-8"><span x-text="anchor.title" @click="scrollTo(anchor.id)"></span></li>
+			<li class="inline-block cursor-pointer py-2 px-8"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
 		</template>
 	</ul>
 </div>
