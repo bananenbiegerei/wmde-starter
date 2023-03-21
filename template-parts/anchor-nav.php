@@ -47,8 +47,8 @@ document.addEventListener('alpine:init', () => {
 	}));
 });
 </script>
-<div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200  sticky z-30 bg-white flex justify-center" x-show="anchors.length > 0">
-	<ul>
+<div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200  sticky z-30 bg-white" x-show="anchors.length > 0">
+	<ul class="flex justify-center">
 		<template x-for="(anchor,i) in anchors">
 			<li class="inline-block cursor-pointer py-2 px-8"><span x-text="anchor.title" @click="scrollTo(anchor.id)"></span></li>
 		</template>
