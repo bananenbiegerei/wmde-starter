@@ -13,9 +13,9 @@ add_action('init', function () {
 });
 
 // add_filter('acf/settings/load_json', function ($paths) {
-//   Add all folders in /blocks/
-//   $paths[] = get_template_directory() . '/blocks/custom-teasers-swiper/';
-//   return $paths;
+// 	//Add all folders in /blocks/
+// 	$paths[] = get_template_directory() . '/blocks/custom-teasers-swiper/';
+// 	return $paths;
 // });
 
 // Define list of allowed block types
@@ -48,4 +48,11 @@ add_action('admin_enqueue_scripts', function () {
 	if (is_production_server()) {
 		wp_enqueue_style('admin-prod', get_template_directory_uri() . '/css/admin-prod.css', [], '', 'all');
 	}
+});
+
+add_filter('acf/fields/wysiwyg/toolbars', function ($toolbars) {
+	// Remove fullscreen button
+	unset($toolbars['Basic'][1][13]);
+	unset($toolbars['Full'][1][12]);
+	return $toolbars;
 });
