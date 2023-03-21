@@ -84,7 +84,25 @@
 // With icon, but the size of the icon is defined in bb_icon
 .btn-icon-left {
 	svg {
-		@apply relative -left-1;
+		height: 100%;
+		width: 100%;
+	}
+	&.btn-xs {
+		svg {
+			@apply h-4 w-4;
+		}
+	}
+	
+	&.btn-sm {
+	}
+	
+	&.btn {
+	}
+	
+	&.btn-lg {
+	}
+	
+	&.btn-xl {
 	}
 }
 .btn-expanded {

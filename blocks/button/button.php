@@ -8,7 +8,11 @@ $color = get_field('display')['color'] ?? 'primary';
 $icon = get_field('display')['icon'];
 ?>
 
-<div id="<?= $block['id'] ?>" class="bb-button-block flex <?= $position ?> <?= $size ?>">
+<div id="<?= $block['id'] ?>" class="bb-button-block flex <?= $position ?> <?= $size ?>
+<?php if( $icon ): ?>
+	btn-icon-left
+<?php endif; ?>
+">
 	<a class="btn <?= $size ?> btn-<?= $color ?> <?= $style ?>" href="<?= esc_url($link['url']) ?>" target="<?= esc_attr($link['target']) ?>">
 		<?= bb_icon($icon) ?>
 		<?= esc_html($link['title']) ?>
