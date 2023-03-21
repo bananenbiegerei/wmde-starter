@@ -28,6 +28,7 @@ document.addEventListener('alpine:init', () => {
 	Alpine.data('anchorNav', () => ({
 		anchors: [],
 		buffer: 16,
+		narrow: false,
 		init() {
 			for (const h of document.querySelectorAll(".bb-headline-block:not([data-anchor-title=''])")) {
 				this.anchors.push({'id': h.id, 'title': h.getAttribute('data-anchor-title')});
@@ -35,9 +36,24 @@ document.addEventListener('alpine:init', () => {
 			if (this.anchors.length == 0) {
 				document.getElementById('anchor-nav').style.display = 'none';
 			}
+
 			document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
+
+			var anchorNavWidth = document.querySelector('#anchor-nav ul').getBoundingClientRect().width ;
+			var bodyWidth = document.querySelector('body').getBoundingClientRect().width;
+			if (anchorNavWidth <  bodyWidth ) {
+				this.narrow = true;
+			}
+
 			window.addEventListener('resize', function () {
 				document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
+				var anchorNavWidth = document.querySelector('#anchor-nav ul').getBoundingClientRect().width ;
+				var bodyWidth = document.querySelector('body').getBoundingClientRect().width;
+				if (anchorNavWidth > bodyWidth ) {
+					this.narrow = false;
+				} else {
+					this.narrow = true;
+				}
 			});
 		},
 		scrollTo(anchor) {
@@ -48,7 +64,7 @@ document.addEventListener('alpine:init', () => {
 });
 </script>
 <div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200  sticky z-30 bg-white" x-show="anchors.length > 0">
-	<ul class="flex justify-center">
+	<ul class="flex overflow-scroll" x-bind:class="{ 'justify-center': 'narrow' }">
 		<template x-for="(anchor,i) in anchors">
 			<li class="inline-block cursor-pointer py-2 px-8"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
 		</template>
