@@ -2,7 +2,7 @@
 // FIXME: requires Image block
 
 $placeholder = esc_url(get_template_directory_uri() . '/blocks/wikimedia-commons-media/placeholder.svg');
-$image_data = bbwkc_get_media(get_field('media_url'));
+$image_data = bbWikimediaCommonsMedia::get_media(get_field('media_url'));
 
 if ($image_data && $image_data['type'] == 'image') {
 	get_template_part('blocks/image/image', null, [

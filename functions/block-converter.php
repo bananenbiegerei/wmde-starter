@@ -1,6 +1,6 @@
 <?php
 
-class BBBlockConverter
+class bbBlockConverter
 {
 	private $ignored_blocks = ['core/spacer'];
 	private $unsupported_blocks = [
@@ -488,4 +488,4 @@ class BBBlockConverter
 	}
 }
 
-new BBBlockConverter();
+new bbBlockConverter();
