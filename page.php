@@ -4,11 +4,11 @@
 
 	<?php if (bb_has_post_thumbnail()): ?>
 
-	  <div class="bg-gray py-8 min-h-[12rem]">
-		  <div class="container grid grid-cols-12 py-5">
+	  <div class="bg-gray min-h-[12rem]">
+		  <div class="container grid grid-cols-12">
 			  <div class="col-span-12 lg:col-span-10 lg:col-start-2">
 				  <?php get_template_part('template-parts/breadcrumbs'); ?>
-					<h1 class="text-2xl lg:text-5xl"><?php the_title(); ?></h1>
+					<h1 class="text-2xl lg:text-5xl pt-5"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
 					  <div class="font-alt text-xl font-normal">
 						<?php echo get_the_excerpt(); ?>
