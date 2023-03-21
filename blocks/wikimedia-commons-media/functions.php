@@ -1,5 +1,36 @@
 <?php
 
+// Extend has_post_thumbnail() to check is there's featured image from the media library or from Wikimedia Commons
+add_filter(
+	'has_post_thumbnail',
+	function ($has_thumbnail, $post, $thumbnail_id) {
+		return get_field('wkc_featured_image_url') ? true : false || $has_thumbnail;
+	},
+	10,
+	3,
+);
+
+// Extend the_post_thumbnail() to get image from media library or from Wikimedia Commons
+add_filter('post_thumbnail_html', function ($html) {
+	preg_match('/class="(.*?)"/s', $html, $match);
+	$classes = $match[1] ?? '';
+	if ($url = get_field('wkc_featured_image_url')) {
+		$data = bbWikimediaCommonsMedia::get_media($url);
+		$thumbnail = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$classes}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
+	} else {
+		$thumbnail = the_post_thumbnail($size, ['class' => $classes]);
+	}
+	return $thumbnail;
+});
+
+// Extend the_post_thumbnail_caption() to get caption from media library or from Wikimedia Commons
+add_filter('the_post_thumbnail_caption', function ($caption) {
+	if (get_field('wkc_featured_image_url')) {
+		return bbWikimediaCommonsMedia::get_post_thumbnail_caption();
+	}
+	return $caption;
+});
+
 define('BBWKC_CACHE_TIME', 24 * HOUR_IN_SECONDS);
 define('BBWKC_TRANSIENT_PREFIX', 'bbwkc');
 define('BBWKC_API_ENDPOINT', 'https://commons.wikimedia.org/w/api.php');

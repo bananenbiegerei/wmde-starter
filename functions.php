@@ -33,8 +33,5 @@ require_once get_template_directory() . '/functions/custom-taxonomies.php';
 // Excerpts
 require_once get_template_directory() . '/functions/excerpts.php';
 
-// Featured image
-require_once get_template_directory() . '/functions/featured-image.php';
-
 // Block converter and unsupported blocks
 require_once get_template_directory() . '/functions/block-converter.php';
