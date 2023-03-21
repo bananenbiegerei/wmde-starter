@@ -123,7 +123,7 @@ if ($link['title'] == '') {
 				</div>
 			<?php endif; ?>
 
-			<h2 class="text-2xl font-alt">
+			<h2 class="text-xl font-alt">
 				<?= strip_tags($link['title']) ?>
 			</h2>
 
