@@ -17,21 +17,8 @@ $format = [];
 $post_type = false;
 $placeholder = false;
 
-if (($args['post_id'] ?? false) && ($args['blog_id'] ?? false)) {
-	// If card is included as a get_template_part() (post_id and blog_id are defined in $args)
-	$post_data = bbCard::get_post_data_from_args($args);
-	$link['title'] = $post_data['title'];
-	$link['url'] = $post_data['url'];
-	$post_id = $post_data['post_id'];
-	$excerpt = $post_data['excerpt'];
-	$image_id = $post_data['image_id'];
-	$placeholder = $args['placeholder'] ?? false;
-	$blog_id = $post_data['blog_id'] ?? get_current_blog_id();
-	$theme = $post_data['theme'];
-	$format = $post_data['format'];
-	$post_type = $post_data['post_type'];
-} elseif ($post_data = bbCard::get_post_data_from_url($link['url'])) {
-	// Else if card is loaded from the Card block, see if there's a post with this URL
+if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
+	// If card is loaded from the Card ACF block, see if there's a post with this URL
 	// Use title from post if not manually set
 	$link['title'] = $link['title'] != '' ? $link['title'] : $post_data['title'];
 	// Get other values from post
@@ -43,6 +30,19 @@ if (($args['post_id'] ?? false) && ($args['blog_id'] ?? false)) {
 	$format = $post_data['format'];
 	$post_type = $post_data['post_type'];
 	$wkc_image = true;
+} elseif (($args['post_id'] ?? false) && ($args['blog_id'] ?? false)) {
+	// Else if card is included as a get_template_part() (post_id and blog_id are defined in $args)
+	$post_data = bbCard::get_post_data_from_args($args);
+	$link['title'] = $post_data['title'];
+	$link['url'] = $post_data['url'];
+	$post_id = $post_data['post_id'];
+	$excerpt = $post_data['excerpt'];
+	$image_id = $post_data['image_id'];
+	$placeholder = $args['placeholder'] ?? false;
+	$blog_id = $post_data['blog_id'] ?? get_current_blog_id();
+	$theme = $post_data['theme'];
+	$format = $post_data['format'];
+	$post_type = $post_data['post_type'];
 }
 
 // Override values if alt. versions are provided

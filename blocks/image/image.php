@@ -3,20 +3,20 @@
 	Image Block: also used by Gallery Swiper block and Wikimedia Commons Media block via `get_template_part()`.
 */
 
-// If call from Image block or Gallery Swiper block
+// If called from Image block or Gallery Swiper block
 $image_id = get_field('image') ? get_field('image') : $args['image']['id'] ?? false;
 // If called from Wikimedia Commons Media block
 $wmc_image_data = $args['wmc_data'] ?? false;
 
 // Setup image parameters
 if ($image_id) {
-	// If called from Image block
+	// If called from Image ACF block or Gallery Swiper block
 	$image_caption = strip_tags(wp_get_attachment_caption($image_id), ['a']);
 	$image_descripton = get_post($image_id)->post_content;
 	$image_meta_data = wp_get_attachment_metadata($image_id);
 	$rounded = get_field('style')['rounded'] ?? ($args['rounded'] ?? false);
 } elseif ($wmc_image_data) {
-	// If called from Wikimedia Commons Media block
+	// If called from Wikimedia Commons Media block as get_template_part()
 	$image_caption = '<a href="' . esc_attr($wmc_image_data['url']) . '">' . $wmc_image_data['creator'] . ' - ' . $wmc_image_data['usageterms'] . '</a>';
 	$image_descripton = $wmc_image_data['desc'];
 	$dim = explode('x', $wmc_image_data['dim']);
@@ -30,7 +30,6 @@ if ($image_id) {
 }
 
 // Get values for container and image classes
-
 if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
 	// For portrait
 	$figure_classes = 'flex flex-col relative justify-center bg-secondary overflow-hidden ' . ($rounded ? 'rounded-2xl ' : '');
