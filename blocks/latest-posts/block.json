@@ -3,7 +3,7 @@
 	"title": "Latest Posts",
 	"description": "Show the latests posts from a site",
 	"category": "wkmde-custom-blocks",
-	"icon": "dashicons-page",
+	"icon": "admin-page",
 	"keywords": [],
 	"acf": {
 		"mode": "false",
