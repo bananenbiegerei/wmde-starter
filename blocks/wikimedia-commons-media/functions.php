@@ -11,17 +11,21 @@ add_filter(
 );
 
 // Extend the_post_thumbnail() to get image from media library or from Wikimedia Commons
-add_filter('post_thumbnail_html', function ($html) {
-	preg_match('/class="(.*?)"/s', $html, $match);
-	$classes = $match[1] ?? '';
-	if ($url = get_field('wkc_featured_image_url')) {
-		$data = bbWikimediaCommonsMedia::get_media($url);
-		$thumbnail = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$classes}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
-	} else {
-		$thumbnail = the_post_thumbnail($size, ['class' => $classes]);
-	}
-	return $thumbnail;
-});
+add_filter(
+	'post_thumbnail_html',
+	function ($html, $post_id, $post_thumbnail_id, $size, $attr) {
+		$classes = $attr['class'] ?? '';
+		if ($url = get_field('wkc_featured_image_url')) {
+			$data = bbWikimediaCommonsMedia::get_media($url);
+			$thumbnail = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$classes}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
+		} else {
+			$thumbnail = the_post_thumbnail($size, ['class' => $classes]);
+		}
+		return $thumbnail;
+	},
+	10,
+	5,
+);
 
 // Extend the_post_thumbnail_caption() to get caption from media library or from Wikimedia Commons
 add_filter('the_post_thumbnail_caption', function ($caption) {

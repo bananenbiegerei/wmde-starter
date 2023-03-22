@@ -24,7 +24,7 @@ if ($args['post_id'] ?? (false && $args['blog_id'] ?? false)) {
 	$post_id = $post_data['post_id'];
 	$excerpt = $post_data['excerpt'];
 	$image_id = $post_data['image'];
-	$blog_id = $post_data['blog_id'];
+	$blog_id = $post_data['blog_id'] ?? get_current_blog_id();
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
 	$post_type = $post_data['post_type'];
@@ -84,6 +84,9 @@ if ($layout == 'v' || $layout == 'vne') {
 if (get_field('style')['bg_color']) {
 	$bgcolor = 'background-color: ' . get_field('style')['bg_color'] . ';';
 	$layout_classes['container'] .= ' p-4';
+} elseif ($args['bg_color'] ?? false) {
+	$bgcolor = 'background-color: ' . $args['bg_color'];
+	$layout_classes['container'] .= ' p-4';
 } else {
 	$bgcolor = '';
 }
@@ -94,7 +97,9 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div id="<?= $block['id'] ?>" class="bb-card-block rounded-3xl mb-10 hover:shadow-xl transition scale-100 hover:scale-cards" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
+<div id="<?= $block[
+	'id'
+] ?>" class="bb-card-block rounded-3xl mb-10 hover:shadow-xl transition scale-100 hover:scale-cards" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $image_id): ?>
@@ -105,7 +110,6 @@ if ($link['title'] == '') {
 				</div>
 				</div>
 			</div>
-			<!-- FIXME: @EL please hide if post thumbnail or wikicommons is empty, right now it displays the gray container -->
 		<?php elseif ($image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
