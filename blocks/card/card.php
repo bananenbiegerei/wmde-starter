@@ -105,6 +105,7 @@ if ($link['title'] == '') {
 				</div>
 				</div>
 			</div>
+			<!-- FIXME: @EL please hide if post thumbnail or wikicommons is empty, right now it displays the gray container -->
 		<?php elseif ($image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
@@ -128,7 +129,7 @@ if ($link['title'] == '') {
 			</h2>
 
 			<?php if ($layout != 'h2' && $layout != 'vne'): ?>
-				<div class="text-xl font-alt font-normal text-inherit">
+				<div class="text-xl font-alt font-normal">
 					<?= strip_tags($excerpt) ?>
 				</div>
 			<?php endif; ?>
