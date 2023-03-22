@@ -1,5 +1,3 @@
-<?php $meta = get_field('meta')['theme'] ? get_field('meta')['theme'] : get_field('meta')['format']; ?>
-
 <div class="bb-cta-block">
 	<div class="rounded-3xl p-10 grid grid-cols-12" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 		<!-- Image -->
@@ -10,19 +8,10 @@
 				</div>
 			</div>
 			<div class="col-span-8 flex flex-col">
-				<div>
-					<!-- Theme or format -->
-					<?php if ($meta): ?>
-					<div class="uppercase text-primary font-bold text-base font-alt">
-						<?= esc_html($meta->name) ?>
-					</div>
-					<?php endif; ?>
-
 					<!-- Title -->
 					<?php if (get_field('content')['title']): ?>
 						<h2 class="text-2xl lg:text-3xl"><?= get_field('content')['title'] ?></h2>
 					<?php endif; ?>
-				</div>
 
 				<!-- Text -->
 				<?php if (get_field('content')['text']): ?>
@@ -56,7 +45,7 @@
 						  <?php /* prettier-ignore */ foreach ($terms as $term) { $term_names[] = $term->name; } ?>
 						  <div class="uppercase text-primary font-bold text-base font-alt"><?php echo implode(', ', $term_names); ?></div>
 				  		<?php endif; ?>
-						
+
 							<h3 class="text-base lg:text-xl"><?php echo get_the_title($related->ID); ?></h3>
 						</a>
 					<?php endforeach; ?>
