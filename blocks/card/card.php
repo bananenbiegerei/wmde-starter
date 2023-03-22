@@ -6,7 +6,7 @@
  */
 
 // Get link or show an error
-$link = get_field('content')['link'] ? get_field('content')['link'] : ['title' => __('Missing Link!', BB_TEXT_DOMAIN), 'url' => '#'];
+$link = get_field('content')['link'] ?? false ? get_field('content')['link'] ?? false : ['title' => __('Missing Link!', BB_TEXT_DOMAIN), 'url' => '#'];
 
 $excerpt = '';
 $image_id = false;
@@ -15,6 +15,7 @@ $post_id = null;
 $theme = [];
 $format = [];
 $post_type = false;
+$placeholder = false;
 
 if ($args['post_id'] ?? (false && $args['blog_id'] ?? false)) {
 	// If card is included as a get_template_part()
@@ -24,6 +25,7 @@ if ($args['post_id'] ?? (false && $args['blog_id'] ?? false)) {
 	$post_id = $post_data['post_id'];
 	$excerpt = $post_data['excerpt'];
 	$image_id = $post_data['image'];
+	$placeholder = $args['placeholder'] ?? false;
 	$blog_id = $post_data['blog_id'] ?? get_current_blog_id();
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
@@ -43,7 +45,7 @@ if ($args['post_id'] ?? (false && $args['blog_id'] ?? false)) {
 }
 
 // Override values if alt. versions are provided
-if (get_field('content')['alt_details']) {
+if (get_field('content')['alt_details'] ?? false) {
 	$excerpt = get_field('content')['text'] ? get_field('content')['text'] : $excerpt;
 	$image_id = get_field('content')['image'] ? get_field('content')['image'] : $image_id;
 	$alt_theme = array_map(
@@ -81,7 +83,7 @@ if ($layout == 'v' || $layout == 'vne') {
 }
 
 // Add background color and padding
-if (get_field('style')['bg_color']) {
+if (get_field('style')['bg_color'] ?? false) {
 	$bgcolor = 'background-color: ' . get_field('style')['bg_color'] . ';';
 	$layout_classes['container'] .= ' p-4';
 } elseif ($args['bg_color'] ?? false) {
@@ -97,9 +99,7 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div id="<?= $block[
-	'id'
-] ?>" class="bb-card-block rounded-3xl mb-10 hover:shadow-xl transition scale-100 hover:scale-cards" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
+<div class="bb-card-block rounded-3xl mb-10 hover:shadow-xl transition scale-100 hover:scale-cards" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $image_id): ?>
@@ -110,10 +110,10 @@ if ($link['title'] == '') {
 				</div>
 				</div>
 			</div>
-		<?php elseif ($image_id): ?>
+		<?php elseif ($image_id || $placeholder): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
-					<?php echo bbCard::get_multisite_attachment_image($blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full']); ?>
+					<?php echo bbCard::get_multisite_attachment_image($blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full'], $placeholder); ?>
 				</div>
 			</div>
 		<?php endif; ?>
@@ -133,7 +133,7 @@ if ($link['title'] == '') {
 			</h2>
 
 			<?php if ($layout != 'h2' && $layout != 'vne'): ?>
-				<div class="text-xl font-alt font-normal">
+				<div class="text-xl font-alt font-normal text-inherit">
 					<?= strip_tags($excerpt) ?>
 				</div>
 			<?php endif; ?>
