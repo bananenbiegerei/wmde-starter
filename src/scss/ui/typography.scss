@@ -11,19 +11,19 @@ h1 {
 	@apply text-4xl lg:text-5xl;
 }
 h2 {
-	@apply text-2xl lg:text-4xl;
+	@apply text-2xl lg:text-3xl;
 }
 h3 {
-	@apply text-xl lg:text-3xl;
+	@apply text-xl lg:text-2xl;
 }
 h4 {
-	@apply text-lg lg:text-2xl;
+	@apply text-lg lg:text-xl;
 }
 h5 {
-	@apply text-base lg:text-xl;
+	@apply text-base lg:text-lg;
 }
 h6 {
-	@apply text-base lg:text-lg;
+	@apply text-sm lg:text-base;
 }
 p {
 	@apply leading-tight text-lg lg:text-xl font-normal mb-1;
@@ -50,6 +50,7 @@ a.link {
 
 // Make the paragraphs inside a block inherit typography
 // Useful when we don't control the output
+.text-inherit,
 .text-inherit p {
 	font-size: inherit;
 	color: inherit;
