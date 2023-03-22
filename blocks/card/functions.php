@@ -83,6 +83,7 @@ class bbCard
 			$post = get_post($post_id);
 			$theme = [];
 			$format = [];
+
 			foreach (wp_get_post_terms($post_id, ['format', 'theme']) as $term) {
 				if ($term->taxonomy == 'format') {
 					$format[] = $term->name;
@@ -121,8 +122,8 @@ class bbCard
 				$theme[] = $term->name;
 			}
 		}
-		$theme = $post_data['theme'];
-		$format = $post_data['format'];
+		$theme = $post_data['theme'] ?? false;
+		$format = $post_data['format'] ?? false;
 		$post_type = get_post_type($post_id);
 		$url = get_post_permalink($post_id);
 		$image_id = get_post_thumbnail_id($post_id);
@@ -143,16 +144,21 @@ class bbCard
 		];
 	}
 
-	static function get_multisite_attachment_image($blog_id, $image, $size, $classes)
+	static function get_multisite_attachment_image($blog_id, $image, $size, $attr, $placeholder = false)
 	{
 		if (is_multisite()) {
 			switch_to_blog($blog_id);
 		}
-		$img = wp_get_attachment_image($image, $size, false, $classes);
+		$img = wp_get_attachment_image($image, $size, false, $attr);
 
 		if (is_multisite()) {
 			restore_current_blog();
 		}
+
+		if (!$img && $placeholder) {
+			$img = '<img src="' . get_template_directory_uri() . '/' . $placeholder . '" class="' . $attr['class'] . '">';
+		}
+
 		return $img;
 	}
 

@@ -7,7 +7,7 @@ $posts = get_posts(['post_type' => 'press-releases', 'numberposts' => $count]);
 <div class="bb-latest-press-releases-block">
 	<div class="container grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
 			<?php foreach ($posts as $p): ?>
-				<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $p->ID, 'layout' => 'vne']); ?>
+				<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $p->ID, 'layout' => 'vne', 'placeholder' => '/blocks/latest-press-releases/placeholder.svg']); ?>
 		<?php endforeach; ?>
 	</div>
 </div>
