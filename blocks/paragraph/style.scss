@@ -1,4 +1,7 @@
 .bb-paragraph-block {
+	p {
+		font-size: inherit;
+	}
 	ol {
 		@apply list-decimal pl-4;
 	}
