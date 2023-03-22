@@ -37,7 +37,7 @@ class bbCard
 	}
 
 	// Get list of custom post types
-	static function get_custom_post_types()
+	static function get_all_custom_post_types()
 	{
 		global $custom_post_types;
 		if ($custom_post_types) {
@@ -54,10 +54,10 @@ class bbCard
 	}
 
 	// Find a matching post in any of the network sites from its URL
-	static function find_post_data($url)
+	static function get_post_data_from_url($url)
 	{
 		if (!is_multisite()) {
-			$post_data = bbCard::get_post_data($url);
+			$post_data = bbCard::get_post_data_from_url_for_blog($url);
 			$post_data['blog_id'] = 1;
 			return $post_data;
 		}
@@ -65,7 +65,7 @@ class bbCard
 
 		foreach (bbCard::get_sites() as $blog_id => $site) {
 			switch_to_blog($blog_id);
-			if ($post_data = bbCard::get_post_data($url)) {
+			if ($post_data = bbCard::get_post_data_from_url_for_blog($url)) {
 				$post_data['blog_id'] = $blog_id;
 				restore_current_blog();
 				break;
@@ -77,7 +77,7 @@ class bbCard
 	}
 
 	// Get the matching post in a site from its URL
-	static function get_post_data($url)
+	static function get_post_data_from_url_for_blog($url)
 	{
 		if ($post_id = bbCard::url_to_postid($url)) {
 			$post = get_post($post_id);
@@ -96,7 +96,7 @@ class bbCard
 				'post_id' => $post_id,
 				'title' => $post->post_title,
 				'excerpt' => $post->post_excerpt,
-				'image' => get_post_thumbnail_id($post_id),
+				'image_id' => get_field('wkc_featured_image_url', $post_id) ? -1 : get_post_thumbnail_id($post_id),
 				'post_type' => get_post_type($post_id),
 				'format' => $format,
 				'theme' => $theme,
@@ -107,9 +107,11 @@ class bbCard
 
 	// Get the matching post in a site from its blog_id and post_id
 	// For use with get_template_part('blocks/card/card', ...)
-	static function get_post_data_from_include($blog_id, $post_id)
+	static function get_post_data_from_args($args)
 	{
-		// Check if we get post_id and blog_id from get_template_part()
+		$blog_id = $args['blog_id'];
+		$post_id = $args['post_id'];
+
 		if (is_multisite()) {
 			switch_to_blog($blog_id);
 		}
@@ -144,12 +146,19 @@ class bbCard
 		];
 	}
 
-	static function get_multisite_attachment_image($blog_id, $image, $size, $attr, $placeholder = false)
+	// Get featured image from any network site (supports image from  Wikimedia Commons)
+	static function get_multisite_attachment_image($blog_id, $post_id, $image_id, $size, $attr, $placeholder = false)
 	{
 		if (is_multisite()) {
 			switch_to_blog($blog_id);
 		}
-		$img = wp_get_attachment_image($image, $size, false, $attr);
+
+		if ($url = get_field('wkc_featured_image_url', $post_id)) {
+			$data = bbWikimediaCommonsMedia::get_media($url);
+			$img = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$attr['class']}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
+		} else {
+			$img = wp_get_attachment_image($image_id, $size, false, $attr);
+		}
 
 		if (is_multisite()) {
 			restore_current_blog();
@@ -243,7 +252,7 @@ class bbCard
 		}
 		// Add custom post types
 		$post_type_query_vars_cpt = [];
-		foreach (bbCard::get_custom_post_types() as $cpt) {
+		foreach (bbCard::get_all_custom_post_types() as $cpt) {
 			$post_type_query_vars_cpt[$cpt] = $cpt;
 		}
 		$post_type_query_vars = array_merge($post_type_query_vars, $post_type_query_vars_cpt);
@@ -277,7 +286,7 @@ class bbCard
 				parse_str($query, $query_vars);
 				$query = [];
 				foreach ((array) $query_vars as $key => $value) {
-					if (in_array((string) $key, array_merge($wp->public_query_vars, bbCard::get_custom_post_types()), true)) {
+					if (in_array((string) $key, array_merge($wp->public_query_vars, bbCard::get_all_custom_post_types()), true)) {
 						$query[$key] = $value;
 						if (isset($post_type_query_vars[$key])) {
 							$query['post_type'] = $post_type_query_vars[$key];
