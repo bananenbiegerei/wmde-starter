@@ -2,11 +2,7 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
 	content: ['./**/*.php'],
-	safelist: [
-		'grid',
-		{ pattern: /text-*/ },
-		{ pattern: /lg:text-*/ },
-	],
+	safelist: ['grid', { pattern: /text-*/ }, { pattern: /lg:text-*/ }, { pattern: /justify-*/ }],
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
 		fontSize: {
@@ -37,13 +33,13 @@ module.exports = {
 				'navbar-dropdown': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px -10px 10px rgba(0, 0, 0, 0.04)',
 			},
 			maxWidth: {
-				'32': '8rem',
+				32: '8rem',
 			},
 			minHeight: {
-			  '32': '8rem',
+				32: '8rem',
 			},
 			scale: {
-				'cards': '1.01',
+				cards: '1.01',
 			},
 		},
 	},
