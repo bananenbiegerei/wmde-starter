@@ -1,6 +1,6 @@
 <?php
 
-// Extend has_post_thumbnail() to check is there's featured image from the media library or from Wikimedia Commons
+// Extends has_post_thumbnail() to check is there's featured image from the media library or from Wikimedia Commons
 add_filter(
 	'has_post_thumbnail',
 	function ($has_thumbnail, $post, $thumbnail_id) {
@@ -10,12 +10,12 @@ add_filter(
 	3,
 );
 
-// Extend the_post_thumbnail() to get image from media library or from Wikimedia Commons
+// Extends get_the_post_thumbnail() and the_post_thumbnail() to get image from media library or from Wikimedia Commons
 add_filter(
 	'post_thumbnail_html',
 	function ($html, $post_id, $post_thumbnail_id, $size, $attr) {
 		$classes = $attr['class'] ?? '';
-		if ($url = get_field('wkc_featured_image_url')) {
+		if ($url = get_field('wkc_featured_image_url', $post_id)) {
 			$data = bbWikimediaCommonsMedia::get_media($url);
 			$thumbnail = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$classes}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
 		} else {
@@ -27,7 +27,7 @@ add_filter(
 	5,
 );
 
-// Extend the_post_thumbnail_caption() to get caption from media library or from Wikimedia Commons
+// Extends the_post_thumbnail_caption() to get caption from media library or from Wikimedia Commons
 add_filter('the_post_thumbnail_caption', function ($caption) {
 	if (get_field('wkc_featured_image_url')) {
 		return bbWikimediaCommonsMedia::get_post_thumbnail_caption();
@@ -41,7 +41,7 @@ define('BBWKC_API_ENDPOINT', 'https://commons.wikimedia.org/w/api.php');
 
 class bbWikimediaCommonsMedia
 {
-	/* Fuctions for post featured image */
+	/* Functions for post featured image */
 	static function has_post_thumbnail()
 	{
 		return get_field('wkc_featured_image_url') || has_post_thumbnail();
