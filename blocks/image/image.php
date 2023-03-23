@@ -58,7 +58,7 @@ if ($image_id) {
 		<?= $image ?>
 		<?php if ($image_caption): ?>
 			<figcaption class="<?= $caption_classes ?>">
-				<?= bb_icon('info') ?> <div class="self-center"><?= $image_caption ?></div>
+				<?= bb_icon('info', 'flex-shrink-0') ?> <div class="self-center"><?= $image_caption ?></div>
 			</figcaption>
 		<?php endif; ?>
 	</figure>
