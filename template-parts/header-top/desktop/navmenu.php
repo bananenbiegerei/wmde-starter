@@ -15,18 +15,50 @@
 	// Prepare x-data for 'navMenu' component
 	document.addEventListener('alpine:init', () => {
 		Alpine.data('navMenu', () => ({
-			nav: WPNav,
+			nav: [],
 			isOpen: new Array(WPNav.length).fill(false),
 			idx: -1,
 			showPointer: false,
+			isScrolled: false,
+			curSection: 0,
 			init() {
+				// Build Nav structure: needs to be adapted to handle sections properly in template loop...
+				for(var domain of WPNav ) {
+					var dom = { 'ID': domain.ID, 'excerpt':domain.excerpt, 'title': domain.title, 'url': domain.url, 'featured': domain.featured };
+					var featured = domain.featured;
+					var pagesAndSections = [];
+					for(var page of domain.pages) {
+						page.type = 'link';
+						pagesAndSections.push(page);
+					}
+					for(var titleId in domain.sections) {
+						var section = { 'type': 'section', 'title': titleId.split('#')[0] };
+						pagesAndSections.push(section);
+						for(var page of domain.sections[titleId]) {
+							page.type = 'link';
+							pagesAndSections.push(page);
+						}
+					}
+					dom.pagesAndSections = pagesAndSections;
+					this.nav.push(dom);
+				}
+				// Slide-in logo when sticky navbar
+				window.addEventListener('scroll', () => {
+				const scrollPosition = window.scrollY;
+				const threshold = document.getElementById('titlebar_desktop').getBoundingClientRect().height;
+				if (scrollPosition >= threshold) {
+					this.isScrolled = true;
+				} else {
+					this.isScrolled = false;
+				}
+				});
 			},
 			openNav(n) {
 				var v = this.isOpen[n];
 				this.isOpen.fill(false);
 				this.idx = n;
-				if (this.nav[n].pages.length > 0) {
-				this.isOpen[n] = true;
+				if ((this.nav[n].featured.length + this.nav[n].pagesAndSections.length) > 0 ) {
+					this.isOpen[n] = true;
 				}
 			},
 			closeNav() {
@@ -35,19 +67,19 @@
 				this.showPointer = false;
 			},
 			movePointer() {
-				if (this.nav[this.idx].pages.length == 0) {
+				if (this.nav[this.idx].pagesAndSections.length == 0) {
 					this.showPointer = false;
 					return;
 				}
 				this.showPointer = true;
 				var bx = document.getElementById('menu' + this.idx).getBoundingClientRect().left; // button x
 				var bw = document.getElementById('menu' + this.idx).offsetWidth; // button width
-				var dxoff = getCoords(document.getElementById('navbar')).left; // dropdown h offset
+				var dxoff = getCoords(document.getElementById('navdropdown')).left; // dropdown h offset
 				var pw = 42; // pointer width
 				var pyoff = -30; // pointer v offset
 				document.getElementById('pointer').style.left = bx - dxoff + bw/2 - pw/2 + 'px';
 				document.getElementById('pointer').style.top = pyoff + 'px';
-			}
+			},
 		}));
 	});
 </script>
@@ -55,30 +87,15 @@
 <div id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
 
 	<!-- Domains top bar -->
-	<div id="navbar" class="relative z-10 container"
-	x-data="{ isScrolled: false }" x-init="() => {
-	  window.addEventListener('scroll', () => {
-		const scrollPosition = window.scrollY;
-		if (scrollPosition >= 68) {
-		  isScrolled = true;
-		} else {
-		  isScrolled = false;
-		}
-	  });
-	}"
-	>
+	<div class="relative z-10 container">
 		<div class="absolute left-5 top-2 overflow-hidden">
-			<div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10"
-				x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }"
-			>
+			<div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
 				<a href="<?php echo get_home_url(); ?>">
 					<img class="mini-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
 				</a>
 			</div>
 		</div>
-		<div class="flex space-x-1 py-3 transition-all duration-500 ease-in-out"
-		x-bind:class="{ 'translate-x-0': !isScrolled, 'translate-x-10': isScrolled }"
-		>
+		<div class="flex space-x-1 py-3 transition-all duration-500 ease-in-out" x-bind:class="{ 'translate-x-0': !isScrolled, 'translate-x-10': isScrolled }">
 
 			<!-- Domain items -->
 			<template x-for="(domain,i) in nav">
@@ -130,26 +147,14 @@
 
 					<!-- Pages & sections -->
 					<nav class="overflow-auto" aria-labelledby="solutions-heading">
-						<ul role="list" class="grid grid-cols-1 gap-2 items-stretch justify-items-stretch"  x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0}" >
+						<ul role="list" class="columns-2 gap-2 items-stretch justify-items-stretch"  x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0}" >
 
 							<!-- Pages -->
-							<template x-for="page in domain.pages">
-								<li class="bg-white transition hover:bg-gray hover:drop-shadow-sm rounded-md" x-bind:class="{'current': pageID == page.ID }">
-									<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-text="page.title"></a>
-								</li>
-							</template>
-
-							<!-- Sections -->
-							<template x-for="(section_pages, section_title) in domain.sections">
-								<li class="">
-									<span class="font-bold pl-2 uppercase" x-text="section_title.split('#')[0]"></span>
-									<ul role="list" class="grid grid-cols-1 gap-2 items-stretch justify-items-stretch">
-										<template x-for="page in section_pages">
-											<li class="bg-white transition hover:bg-gray hover:drop-shadow-sm rounded-md" x-bind:class="{'current': pageID == page.ID }">
-												<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-text="page.title"></a>
-											</li>
-										</template>
-									</ul>
+							<template x-for="page in domain.pagesAndSections">
+								<li class="bg-white transition rounded-md"
+									x-bind:class="{'hover:bg-gray hover:drop-shadow-sm' : page.type == 'link', 'current': pageID == page.ID }">
+									<span class="inline-block font-bold pt-8 px-1.5 py-0.5 uppercase" x-text="page.title" x-show="page.type == 'section'"></span>
+									<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-text="page.title" x-show="page.type == 'link'"></a>
 								</li>
 							</template>
 

@@ -19,7 +19,7 @@ add_filter(
 			$data = bbWikimediaCommonsMedia::get_media($url);
 			$thumbnail = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$classes}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
 		} else {
-			$thumbnail = the_post_thumbnail($size, ['class' => $classes]);
+			$thumbnail = $html;
 		}
 		return $thumbnail;
 	},
