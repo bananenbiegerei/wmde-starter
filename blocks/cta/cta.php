@@ -1,12 +1,14 @@
 <div class="bb-cta-block">
 	<div class="rounded-3xl p-10 grid grid-cols-12" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 		<!-- Image -->
-		<?php if ($image = get_field('style')['image']): ?>
-			<div class="col-span-4">
-				<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 -translate-y-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
-					<?php echo wp_get_attachment_image($image, 'medium', false, ['class' => 'w-full h-full object-cover']); ?>
+			<?php if ($image = get_field('style')['image']): ?>
+				<div class="col-span-4">
+					<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 -translate-y-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
+						<?php echo wp_get_attachment_image($image, 'medium', false, ['class' => 'w-full h-full object-cover']); ?>
+					</div>
 				</div>
-			</div>
+			<?php endif; ?>
+
 			<div class="col-span-8 flex flex-col">
 					<!-- Title -->
 					<?php if ($title = get_field('content')['title']): ?>
@@ -49,7 +51,6 @@
 					</div>
 				<?php endif; ?>
 			</div>
-		<?php endif; ?>
 	</div>
 </div>
 
