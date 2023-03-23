@@ -19,6 +19,12 @@ switch (get_field('size')) {
 		break;
 }
 ?>
-<div class="bb-spacer-block <?php echo $height; ?>">
+<?php if ( get_field( 'add_divider' ) == 1 ) :
+	$divider = 'border-t border-gray-300';
+else :
+	$divider = '';
+endif; ?>
+<div class="bb-spacer-block <?php echo $height; ?> <?php echo $divider; ?>">
+	
 </div>
 

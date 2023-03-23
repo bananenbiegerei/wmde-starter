@@ -28,6 +28,27 @@
             "translations": "copy_once",
             "allow_null": 0,
             "layout": "horizontal"
+        },
+        {
+            "key": "field_641ad5f268af1",
+            "label": "Add Divider",
+            "name": "add_divider",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Adds a horizontal thin line on top of the space.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "translations": "copy_once",
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
         }
     ],
     "location": [
@@ -48,5 +69,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676888235
+    "modified": 1679480686
 }
