@@ -1,0 +1,13 @@
+{
+	"version": 1,
+	"settings": {
+		"color": {
+			"palette": [
+				{ "name": "red-50", "slug": "red-50", "color": "rgb( 255, 240, 242)" },
+				{ "name": "white", "slug": "white", "color": "#ffffff" },
+				{ "name": "primary-50", "slug": "primary-50", "color": "rgb( 229, 238, 255)" },
+				{ "name": "gray", "slug": "gray", "color": "rgb( 246, 246, 246)" }
+			]
+		}
+	}
+}
