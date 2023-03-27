@@ -1,3 +1,6 @@
 .is-layout-flex.wp-block-columns {
 	@apply gap-10;
+	.wp-block-group__inner-container {
+		@apply h-full;
+	}
 }
