@@ -20,9 +20,9 @@ if( $selected_publication ):
 		</div>
 		<div>
 			<?php if ( get_field( 'hide_excerpt' ) ): ?>
-				<h2 class="uppercase text-base text-primary font-bold text-sm font-alt"><?php echo $post_title; ?></h2>
+				<h2 class="uppercase text-primary font-bold text-xs font-alt"><?php echo $post_title; ?></h2>
 			<?php else: ?>
-				<h2 class="uppercase text-base text-primary font-bold text-sm font-alt"><?php echo $post_title; ?></h2>
+				<h2 class="uppercase text-primary font-bold text-xs font-alt"><?php echo $post_title; ?></h2>
 				<p class="font-alt">
 					<?php echo $post_excerpt; ?>
 				</p>

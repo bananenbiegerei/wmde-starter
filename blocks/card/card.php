@@ -100,7 +100,7 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div class="bb-card-block rounded-3xl mb-10 hover:shadow-xl transition scale-100 hover:scale-cards" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
+<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 hover:shadow-xl transition scale-100 hover:scale-cards -mx-2 p-2 bg-white z-10 hover:z-20 relative" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $image_id): ?>
@@ -122,14 +122,14 @@ if ($link['title'] == '') {
 		<div class="<?= $layout_classes['content'] ?> space-y-2 px-2 pb-2">
 
 			<?php if ($theme || $format): ?>
-				<div class="uppercase text-base text-primary font-bold text-sm font-alt">
+				<div class="uppercase text-primary font-bold text-xs font-alt">
 					<?= strip_tags(join(', ', $theme)) ?>
 					<?= $theme && $format ? ' | ' : '' ?>
 					<?= strip_tags(join(', ', $format)) ?>
 				</div>
 			<?php endif; ?>
 
-			<h2 class="text-xl font-alt">
+			<h2 class="text-2xl font-alt">
 				<?= strip_tags($link['title']) ?>
 			</h2>
 

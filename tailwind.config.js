@@ -36,6 +36,9 @@ module.exports = {
 			boxShadow: {
 				'navbar-dropdown': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px -10px 10px rgba(0, 0, 0, 0.04)',
 			},
+			boxShadow: {
+				'xl': '0 0px 60px -15px rgba(0, 0, 0, 0.3)',
+			},
 			maxWidth: {
 				'32': '8rem',
 			},

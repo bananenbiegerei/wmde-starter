@@ -1,4 +1,4 @@
-<div class="bb-cta-block">
+<div class="bb-cta-block mb-20">
 	<div class="rounded-3xl p-10 grid grid-cols-12" style="background-color: <?= get_field('style')['bg_color'] ?>;">
 		<!-- Image -->
 		<?php if (get_field('style')['image']): ?>
@@ -10,7 +10,7 @@
 			<div class="col-span-8 flex flex-col">
 					<!-- Title -->
 					<?php if (get_field('content')['title']): ?>
-						<h2 class="text-2xl lg:text-3xl"><?= get_field('content')['title'] ?></h2>
+						<h2 class="text-2xl lg:text-4xl"><?= get_field('content')['title'] ?></h2>
 					<?php endif; ?>
 
 				<!-- Text -->
@@ -39,11 +39,11 @@
 					<div class="lg:grid lg:grid-cols-3 gap-5">
 					<?php foreach ($related as $related): ?>
 						<?php setup_postdata($related); ?>
-							<a class="p-5 rounded-lg transition hover:shadow-2xl scale-cards" href="<?php the_permalink(); ?>">
+							<a class="p-5 rounded-xl transition hover:shadow-2xl scale-cards" href="<?php the_permalink(); ?>">
 							<?php if ($terms = get_the_terms($related->ID, 'theme')): ?>
 						  <?php $term_names = []; ?>
 						  <?php /* prettier-ignore */ foreach ($terms as $term) { $term_names[] = $term->name; } ?>
-						  <div class="uppercase text-primary font-bold text-base font-alt"><?php echo implode(', ', $term_names); ?></div>
+						  <div class="uppercase text-primary font-bold text-xs font-alt"><?php echo implode(', ', $term_names); ?></div>
 				  		<?php endif; ?>
 
 							<h3 class="text-base lg:text-xl"><?php echo get_the_title($related->ID); ?></h3>

@@ -12,10 +12,10 @@
 		<?php if (get_field('link_fur_spenden', 'option')): ?>
 		<li>
 			<a
-				class="btn btn-xs btn-red btn-hollow btn-ghost lg:btn-base  btn-icon-left"
+				class="btn btn-red btn-hollow btn-ghost btn-base btn-icon-left"
 				target="_blank"
 				href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
-				<?= bb_icon('heart', 'heartbeat icon-sm') ?>
+				<?= bb_icon('heart', 'heartbeat icon-base') ?>
 				<?php pll_e('donate'); ?>
 			</a>
 		</li>
@@ -23,7 +23,7 @@
 		<?php if (get_field('link_fur_mitmachen', 'option')): ?>
 		<li class="hidden lg:block">
 			<a
-				class="btn btn-ghost btn-xs lg:btn-base"
+				class="btn btn-ghost btn-base"
 				target="_blank"
 				href="<?php echo esc_url(get_field('link_fur_mitmachen', 'option')); ?>">
 				<?php pll_e('Mitmachen'); ?>

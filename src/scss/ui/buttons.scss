@@ -58,7 +58,7 @@
 	}
 }
 
-// Only Icon
+// Only Icon FIXME: @IS NOT finished only one size
 .btn-icon-only {
 	@apply rounded-full flex items-center justify-center p-1;
 	svg {
@@ -83,14 +83,11 @@
 
 // With icon, but the size of the icon is defined in bb_icon
 .btn-icon-left {
+	@apply flex items-center gap-1;
 	svg {
-		height: 100%;
-		width: 100%;
+		@apply w-full h-full;
 	}
 	&.btn-xs {
-		svg {
-			@apply h-4 w-4;
-		}
 	}
 	
 	&.btn-sm {
