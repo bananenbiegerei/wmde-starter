@@ -49,7 +49,6 @@ class bbCard
 			$cpt = array_merge($cpt, $matches[1]);
 		}
 		bbCard::$custom_post_types = array_unique($cpt);
-		clog(bbCard::$custom_post_types);
 		return bbCard::$custom_post_types;
 	}
 
@@ -139,7 +138,7 @@ class bbCard
 			'title' => $post->post_title,
 			'url' => $url,
 			'excerpt' => $post->post_excerpt,
-			'image' => $image_id,
+			'image_id' => $image_id,
 			'post_type' => $post_type,
 			'format' => $format,
 			'theme' => $theme,
