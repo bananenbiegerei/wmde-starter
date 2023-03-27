@@ -10,7 +10,7 @@ $related = get_field('related');
 		<!-- Image -->
 			<div class="col-span-4">
 				<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 -translate-y-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
-					<?php echo wp_get_attachment_image($image['ID'], 'medium', false, ['class' => 'w-full h-full object-cover']); ?>
+					<?php echo wp_get_attachment_image($image['ID'] ?? false, 'medium', false, ['class' => 'w-full h-full object-cover']); ?>
 				</div>
 			</div>
 			<div class="col-span-8 flex flex-col">
