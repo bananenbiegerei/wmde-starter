@@ -1,5 +1,6 @@
-// In columns make these blocks take the full height
-.wp-block-column .bb-cta-block,
-.wp-block-column .bb-newsletter-block {
-	height: 100%;
+.is-layout-flex.wp-block-columns {
+	@apply gap-10;
+	.wp-block-group__inner-container {
+		@apply h-full;
+	}
 }

@@ -65,10 +65,49 @@ document.addEventListener('alpine:init', () => {
 	}));
 });
 </script>
-<div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200  sticky z-30 bg-white" x-show="anchors.length > 0">
-	<ul class="sm:flex overflow-scroll" XXXx-bind:class="{ 'justify-center': justifyCenter }">
+<div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200 sticky z-30 bg-white" x-show="anchors.length > 0">
+	<ul class="md:flex container md:justify-center hidden" XXXx-bind:class="{ 'justify-center': justifyCenter }">
 		<template x-for="(anchor,i) in anchors">
-			<li class="sm:inline-block cursor-pointer sm:py-2 sm:px-8 text-xs sm:text-sm"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
+			<li class="sm:inline-block cursor-pointer sm:py-2 sm:px-8 text-base sm:text-base"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
 		</template>
 	</ul>
+	<div class="flex items-center block md:hidden">
+		<div class="flex none">
+			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-ghost cursor-pointer') ?>
+		</div>
+		<div class="flex-1 overflow-hidden">
+			<div class="swiper-container">
+				<ul class="swiper-wrapper"
+				class="container hidden" XXXx-bind:class="{ 'justify-center': justifyCenter }"
+				>
+					<template x-for="(anchor,i) in anchors">
+						<li class="swiper-slide !w-auto px-2"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
+					</template>
+				</ul>
+			</div>
+		</div>
+		<div class="flex-none">
+			<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-ghost cursor-pointer') ?>
+		</div>
+	</div>
 </div>
+
+<script>
+	SwipersConfig['#anchor-nav'] = {
+		loop: false,
+		centeredSlides: false,
+		spaceBetween: 0,
+		speed: 200,
+		grabCursor: true,
+		draggable: true,
+		slidesPerView: 'auto',
+		freeMode: {
+			enabled: true,
+			sticky: true,
+		},
+		navigation: {
+			nextEl: '#anchor-nav .swiper-button-next',
+			prevEl: '#anchor-nav .swiper-button-prev',
+		},
+	};
+</script>

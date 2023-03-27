@@ -83,7 +83,7 @@
 
 // With icon, but the size of the icon is defined in bb_icon
 .btn-icon-left {
-	@apply flex items-center gap-1;
+	@apply inline-flex items-center gap-1 w-auto;
 	svg {
 		@apply w-full h-full;
 	}
