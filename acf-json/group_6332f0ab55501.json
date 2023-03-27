@@ -47,7 +47,7 @@
             "return_format": "value",
             "translations": "copy_once",
             "allow_null": 0,
-            "layout": "horizontal"
+            "layout": "vertical"
         },
         {
             "key": "field_63ef9861a9a68",
@@ -84,7 +84,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "row",
+            "layout": "table",
             "sub_fields": [
                 {
                     "key": "field_6399a788bde81",
@@ -112,7 +112,7 @@
                     "return_format": "value",
                     "translations": "copy_once",
                     "allow_null": 0,
-                    "layout": "horizontal"
+                    "layout": "vertical"
                 },
                 {
                     "key": "field_63f346930b9b5",
@@ -183,5 +183,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679401738
+    "modified": 1679919700
 }
