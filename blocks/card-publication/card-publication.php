@@ -8,10 +8,10 @@ if( $selected_publication ):
 	$post_thumbnail = get_the_post_thumbnail($post_id, 'medium', array('class' => 'h-3/4 w-auto drop-shadow-xl'));
 	$post_download = get_field('pdf', $post_id); // get ACF field
 	?>
-	<div class="bb-card-publication-block lg:grid lg:grid-cols-2 gap-5">
-		<div class="rounded-3xl mb-10">
+	<div class="bb-card-publication-block lg:flex gap-5">
+		<div class="rounded-3xl mb-10 basis-2/3">
 			<?php if ( $post_thumbnail ): ?>
-				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl overflow-hidden">
+				<div class="aspect-w-1 aspect-h-1 bg-gray-100 rounded-xl overflow-hidden">
 					<div class="flex flex-col items-center justify-center">
 						<?php echo $post_thumbnail; ?>
 					</div>
@@ -27,9 +27,11 @@ if( $selected_publication ):
 					<?php echo $post_excerpt; ?>
 				</p>
 			<?php endif; ?>
-			<a href="<?php echo $post_download; ?>" class="btn btn-xs btn-hollow btn-icon-left">
-				<?= bb_icon('arrow-down') ?> <?php _e('Download', BB_TEXT_DOMAIN) ?>
-			</a>
+			<div>
+				<a href="<?php echo $post_download; ?>" class="btn btn-xs btn-hollow btn-icon-left">
+					<?= bb_icon('arrow-down','icon-xs') ?> <?php _e('Download', BB_TEXT_DOMAIN) ?>
+				</a>
+			</div>
 		</div>
 	</div>
 	
