@@ -75,8 +75,8 @@
 				var bx = document.getElementById('menu' + this.idx).getBoundingClientRect().left; // button x
 				var bw = document.getElementById('menu' + this.idx).offsetWidth; // button width
 				var dxoff = getCoords(document.getElementById('navdropdown')).left; // dropdown h offset
-				var pw = 42; // pointer width
-				var pyoff = -30; // pointer v offset
+				var pw = 32; // pointer width
+				var pyoff = -20; // pointer v offset
 				document.getElementById('pointer').style.left = bx - dxoff + bw/2 - pw/2 + 'px';
 				document.getElementById('pointer').style.top = pyoff + 'px';
 			},
@@ -84,7 +84,7 @@
 	});
 </script>
 <!-- Container for the whole desktop nav menu -->
-<div id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
+<div id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @XXmouseleave="closeNav()" >
 
 	<!-- Domains top bar -->
 	<div class="relative z-10 container">
@@ -112,13 +112,13 @@
 	<div id="navdropdown" class="relative block container">
 
 		<!-- Pointer to domain button -->
-		<div class="z-20 absolute pointer-events-none" id="pointer" x-show="showPointer">
-			<svg viewBox="-4 -9 42 42" width="42px" height="42px"><path d="M 16 10 L 32 26 L 0 26 L 16 10 Z" style="	filter: drop-shadow(rgba(0, 0, 0, 0.05) 0px -10px 10px); fill: rgb(255, 255, 255);" bx:shape="triangle 0 10 32 16 0.5 0 1@8dd5f6f9"></path></svg>
+		<div class="z-20 absolute pointer-events-none w-8 h-6" id="pointer" x-show="showPointer">
+			<img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/pointer-top.png" alt="Logo">
 		</div>
 
 		<!-- For each domain... -->
 		<template x-for="(domain,i) in nav">
-			<div x-show="isOpen[i]" class="absolute inset-x-0 z-10 transform shadow-lg bg-white max-h-screen rounded-xl shadow-navbar-dropdown p-5" x-bind:class="{'max-w-6xl': domain.featured.length > 0, 'max-w-md': domain.featured.length == 0}">
+			<div x-show="isOpen[i]" class="absolute inset-x-0 z-10 transform shadow-lg bg-white border border-gray-100 max-h-screen rounded-xl shadow-navbar-dropdown p-5" x-bind:class="{'max-w-6xl': domain.featured.length > 0, 'max-w-md': domain.featured.length == 0}">
 
 
 				<!-- If there are featured pages: 2 columns with featured pages + pages -->
