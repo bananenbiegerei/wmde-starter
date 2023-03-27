@@ -39,18 +39,18 @@ class bbCard
 	// Get list of custom post types
 	static function get_all_custom_post_types()
 	{
-		global $custom_post_types;
-		if ($custom_post_types) {
-			return $custom_post_types;
+		if (bbCard::$custom_post_types) {
+			return bbCard::$custom_post_types;
 		}
 		$themes_dir = dirname(get_stylesheet_directory());
 		$cpt = [];
-		foreach (glob($themes_dir . '/*/functions/custom-posts.php') as $filename) {
+		foreach (glob($themes_dir . '/*/functions/custom-post*.php') as $filename) {
 			preg_match_all("#register_post_type\('(.*?)'#", file_get_contents($filename), $matches);
 			$cpt = array_merge($cpt, $matches[1]);
 		}
-		$custom_post_types = array_unique($cpt);
-		return $custom_post_types;
+		bbCard::$custom_post_types = array_unique($cpt);
+		clog(bbCard::$custom_post_types);
+		return bbCard::$custom_post_types;
 	}
 
 	// Find a matching post in any of the network sites from its URL
