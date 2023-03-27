@@ -2,7 +2,9 @@
 
 class bbBlockConverter
 {
+	// Ignored blocks will be converted to 'tmp/ignored' and removed from the content
 	private $ignored_blocks = ['core/spacer'];
+	// These blocks will be flagged as not supported in the 'Unsupported Blocks' page
 	private $unsupported_blocks = [
 		'acf/call-to-action',
 		'acf/card-stroke',
@@ -30,6 +32,7 @@ class bbBlockConverter
 		'gallery',
 		'media-text',
 	];
+	// Number of 'core/paragraph' blocks to bundle together in an 'acf/paragraph' block
 	private $paragraph_buffer_block_max_length = 4;
 
 	function __construct()
@@ -103,6 +106,7 @@ class bbBlockConverter
 		echo '</div>';
 	}
 
+	// Batch convert all posts of a specific post type
 	function convert_posts_form_results()
 	{
 		if (isset($_POST['bb_convert_post_types_nonce']) && wp_verify_nonce($_POST['bb_convert_post_types_nonce'], 'bb_convert_post_types')) {
@@ -151,6 +155,7 @@ class bbBlockConverter
 		}
 	}
 
+	// Convert a post and show a before/after
 	function convert_post_form_results()
 	{
 		if (isset($_POST['bb_convert_post_nonce']) && wp_verify_nonce($_POST['bb_convert_post_nonce'], 'bb_convert_post') && $_POST['post_id'] != '') {
@@ -173,11 +178,13 @@ class bbBlockConverter
 		}
 	}
 
+	// Get URL to edit a post
 	function get_post_edit_a($post_id)
 	{
 		return "<a href=\"" . get_admin_url() . "post.php?post={$post_id}&action=edit\" target=\"_blank\">{$post_id}</a>";
 	}
 
+	// Find all posts with unsuppored blocks
 	function get_posts_with_unsupported_blocks()
 	{
 		$posts_data = [];
@@ -198,6 +205,7 @@ class bbBlockConverter
 		return $posts_data;
 	}
 
+	// Convert a block and recurse down its inner blocks
 	function convert_block($block)
 	{
 		if (in_array($block['blockName'], $this->ignored_blocks)) {
@@ -205,6 +213,7 @@ class bbBlockConverter
 			return $new_block;
 		}
 
+		// Depending on the block name we create a new block and match the content as needed
 		switch ($block['blockName']) {
 			case 'core/heading':
 				// Remove classes
@@ -243,7 +252,7 @@ class bbBlockConverter
 				break;
 
 			case 'core/list':
-				// Here we flatten the block content and convert it to a acf/paragraph
+				// This block contains 'core/list-item' blocks so we flatten the block content and convert it to an 'acf/paragraph'
 				$block['noContainers'] = true;
 				$new_block = [
 					'blockName' => 'acf/paragraph',
@@ -305,11 +314,12 @@ class bbBlockConverter
 				];
 				break;
 
+			// Convert the buttons block to a group
 			case 'core/buttons':
 				$new_block = $block;
 				$new_block['blockName'] = 'core/group';
-				$new_block['innerHTML'] = "<div class=\"wp-block-group has-light-blue-background-color has-background\">\n\n</div>";
-				$new_block['innerContent'] = ["<div class=\"wp-block-group has-light-blue-background-color has-background\">", null, '</div>'];
+				$new_block['innerHTML'] = "<div class=\"wp-block-group\">\n\n</div>";
+				$new_block['innerContent'] = ["<div class=\"wp-block-group\">", null, '</div>'];
 				break;
 
 			case 'core/button':
@@ -337,12 +347,6 @@ class bbBlockConverter
 						'mode' => 'auto',
 					],
 				];
-				break;
-
-			case 'acf/organimgramm':
-				$new_block = $block;
-				$new_block['blockName'] = 'acf/organigramm';
-				$new_block['attrs']['name'] = 'acf/organigramm';
 				break;
 
 			case 'acf/stoerer':
@@ -378,6 +382,8 @@ class bbBlockConverter
 
 		$new_block['innerContent'] = $new_block['innerContent'] ?? [];
 		$new_inner_content = [];
+
+		// Recurse down the inner block
 		foreach ($block['innerBlocks'] as $inner_block) {
 			if (gettype($inner_block) == 'string') {
 				$new_inner_content[] = $inner_block;
@@ -394,6 +400,7 @@ class bbBlockConverter
 		return $new_block;
 	}
 
+	// Convert all the blocks in one post
 	function convert_post($post_id, $dry_run = false)
 	{
 		$post_content = get_post($post_id)->post_content;
@@ -405,7 +412,7 @@ class bbBlockConverter
 
 		// This gets top level blocks only... recursion is handled in convert_block()
 		foreach ($blocks as $block) {
-			// Skip null blocks
+			// Skip null blocks (for some reason there are empty blocks?)
 			if (!$block['blockName']) {
 				continue;
 			}
@@ -442,15 +449,17 @@ class bbBlockConverter
 		}
 
 		$new_post_content = serialize_blocks($new_blocks);
-		// Cleanup markup...
+		// Cleanup markup: remove empty lines and ignored blocks
 		$new_post_content = str_replace('--><!--', "-->\n\n<!--", $new_post_content);
 		$new_post_content = str_replace('<!-- wp:tmp/ignore /-->', '', $new_post_content);
+		// Finally update post in the DB
 		if (!$dry_run) {
 			$this->db_update_post_content($post_id, $new_post_content);
 		}
 		return [$post_content, $new_post_content];
 	}
 
+	// Convert all posts of a type
 	function convert_post_type($post_type, $dry_run = false)
 	{
 		$post_ids = [];
