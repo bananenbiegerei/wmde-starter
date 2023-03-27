@@ -153,12 +153,7 @@ class bbCard
 			switch_to_blog($blog_id);
 		}
 
-		if ($url = get_field('wkc_featured_image_url', $post_id)) {
-			$data = bbWikimediaCommonsMedia::get_media($url);
-			$img = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$attr['class']}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
-		} else {
-			$img = wp_get_attachment_image($image_id, $size, false, $attr);
-		}
+		$img = get_the_post_thumbnail($post_id, $size, $attr);
 
 		if (is_multisite()) {
 			restore_current_blog();
