@@ -34,7 +34,7 @@ $theme_url = get_the_permalink($theme);
 				<!-- Button and extra info -->
 				<div class="flex-1 flex items-end pb-10">
 					<a href="<?php echo $theme_url; ?>" class="btn btn-hollow">
-						<?= bb_icon('arrow-right','icon-base'); ?>
+						<?= bb_icon('arrow-right',''); ?>
 						<?= __('Zum Thema', BB_TEXT_DOMAIN) ?>						
 					</a>
 				</div>

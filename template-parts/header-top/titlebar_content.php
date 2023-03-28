@@ -15,7 +15,7 @@
 				class="btn btn-red btn-hollow btn-ghost btn-base btn-icon-left"
 				target="_blank"
 				href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
-				<?= bb_icon('heart', 'heartbeat icon-base') ?>
+				<?= bb_icon('heart', 'heartbeat') ?>
 				<?php pll_e('donate'); ?>
 			</a>
 		</li>
