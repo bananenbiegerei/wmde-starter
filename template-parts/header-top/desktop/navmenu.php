@@ -72,11 +72,17 @@
 					return;
 				}
 				this.showPointer = true;
-				var bx = document.getElementById('menu' + this.idx).getBoundingClientRect().left; // button x
-				var bw = document.getElementById('menu' + this.idx).offsetWidth; // button width
+				var bx = document.getElementById('domain_' + this.idx).getBoundingClientRect().left; // button x
+				var bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
 				var dxoff = getCoords(document.getElementById('navdropdown')).left; // dropdown h offset
 				var pw = 32; // pointer width
 				var pyoff = -20; // pointer v offset
+				var ddw = document.getElementById('menu_' + this.idx).offsetWidth;
+				var ddx = Math.max(dxoff, bx + bw/2 - ddw/2);
+
+				//console.log({'bx': bx, 'bw': bw, 'dxoff': dxoff, 'ddw': ddw, 'ddx': ddx});
+
+				document.getElementById('menu_' + this.idx).style.left = ddx + 'px';
 				document.getElementById('pointer').style.left = bx - dxoff + bw/2 - pw/2 + 'px';
 				document.getElementById('pointer').style.top = pyoff + 'px';
 			},
@@ -100,7 +106,7 @@
 			<!-- Domain items -->
 			<template x-for="(domain,i) in nav">
 				<!-- Domain name -->
-				<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'menu' + i" x-bind:class="{'current': pageID == domain.ID }">
+				<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }">
 					<a x-bind:href="domain.url"> <span x-text="domain.title"></span> </a>
 				</button>
 			</template>
@@ -118,8 +124,17 @@
 
 		<!-- For each domain... -->
 		<template x-for="(domain,i) in nav">
-			<div x-show="isOpen[i]" class="absolute inset-x-0 z-10 transform shadow-lg bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar-dropdown p-5 overflow-hidden" x-bind:class="{'max-w-6xl': domain.featured.length > 0, 'max-w-md': domain.featured.length == 0}">
-
+			<div
+				XXx-show="isOpen[i]"
+				x-bind:id="'menu_'+ i"
+				class="absolute inset-x-0 z-10 transform shadow-lg bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar-dropdown p-5 overflow-hidden"
+				x-bind:class="{
+					'max-w-6xl': domain.featured.length > 0,
+					'max-w-md': domain.featured.length == 0,
+					'visible': isOpen[i],
+					'invisible': !isOpen[i]
+				}"
+			>
 
 				<!-- If there are featured pages: 2 columns with featured pages + pages -->
 				<div class="relative mx-auto grid" x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0, 'grid-cols-1': domain.featured.length == 0}">
