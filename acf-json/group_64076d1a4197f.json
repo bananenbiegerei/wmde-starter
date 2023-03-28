@@ -1,10 +1,10 @@
 {
     "key": "group_64076d1a4197f",
-    "title": "Block: Theme",
+    "title": "Block: Thema",
     "fields": [
         {
             "key": "field_64076d1a48929",
-            "label": "Theme",
+            "label": "Thema",
             "name": "theme",
             "aria-label": "",
             "type": "post_object",
@@ -54,28 +54,6 @@
             "elements": [
                 "featured_image"
             ]
-        },
-        {
-            "key": "field_64076d1a47ac3",
-            "label": "CTA Button",
-            "name": "cta_button",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_63e3ac2f039a2"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 1
         }
     ],
     "location": [
@@ -96,5 +74,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678209023
+    "modified": 1679993519
 }

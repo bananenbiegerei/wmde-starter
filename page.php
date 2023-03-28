@@ -10,7 +10,7 @@
 		  <div class="container grid grid-cols-12">
 			  <div class="col-span-12 lg:col-span-10 lg:col-start-2">
 				  <?php get_template_part('template-parts/breadcrumbs'); ?>
-					<h1 class="text-2xl lg:text-5xl pt-5"><?php the_title(); ?></h1>
+					<h1 class="text-2xl lg:text-5xl"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
 					  <div class="font-alt text-xl font-normal">
 						<?php the_excerpt(); ?>

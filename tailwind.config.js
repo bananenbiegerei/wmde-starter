@@ -25,8 +25,8 @@ module.exports = {
 		fontWeight: {
 			normal: 300,
 			medium: 400,
-			semibold: 700,
-			bold: 900,
+			semibold: 500,
+			bold: 500,
 		},
 		extend: {
 			boxShadow: {
@@ -41,6 +41,9 @@ module.exports = {
 			minHeight: {
 				32: '8rem',
 			},
+			maxHeight: {
+				'screen-80': '80vh',
+			 },
 			scale: {
 				cards: '1.01',
 			},
@@ -132,17 +135,23 @@ module.exports = {
 					},
 				},
 			},
-			// if needed add custom themes here…
-			// themes: [
-			// {
-			//   name: 'my-theme',
-			//   extend: {
-			// 	colors: {
-			// 	  primary: 'blue'
-			// 	}
-			//   }
-			// }
-			// ]
+			themes: [{
+				name: 'orga-scheme',
+				extend: {
+					colors: {
+						red: {
+							DEFAULT: '#FA4A28',
+						},
+						cyan: {
+							DEFAULT: '#00B9FF',
+						},
+						blue: {
+							DEFAULT: '#3A25FF',
+							200: '#EEEAFF'
+						},
+					}
+				}
+			}]
 		}),
 	],
 };

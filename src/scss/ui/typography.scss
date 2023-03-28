@@ -26,12 +26,16 @@ h6 {
 	@apply text-sm lg:text-base;
 }
 p {
-	@apply leading-tight text-lg lg:text-xl font-normal mb-1;
+	@apply leading-tight text-lg lg:text-xl font-normal mb-2;
 }
 
 p a,
 a.link {
 	@apply underline hover:text-primary-300 transition;
+}
+
+strong {
+	@apply font-bold;
 }
 
 .bb-cta-block,

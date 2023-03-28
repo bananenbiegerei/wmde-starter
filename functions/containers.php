@@ -27,9 +27,11 @@ add_filter(
 			// Default for specific blocks
 			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
+			'acf/theme' => ['default' => 'col-span-12'],
 			'acf/cta' => ['default' => 'col-span-12 mb-10'],
 			'acf/latest-posts' => ['default' => 'mb-10'],
 			'acf/facts' => ['default' => 'col-span-12 mb-10'],
+			'acf/organigramm' => ['default' => 'col-span-12'],
 			// Classes manually added to Columns blocks in Gutenberg editor (could be named differently...)
 			'core/columns' => [
 				'col-12' => 'col-span-12',
