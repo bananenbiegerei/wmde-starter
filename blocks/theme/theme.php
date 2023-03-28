@@ -1,8 +1,9 @@
 <?php
 $theme = get_field('theme');
-$color = get_field('color', $theme->ID);
-$image = get_field('image', $theme->ID);
+$color = get_field('color_for_theme', $theme->ID);
 $related = get_field('related');
+$thumbnail_url = get_the_post_thumbnail_url($theme, 'medium');
+$theme_url = get_the_permalink($theme);
 ?>
 
 <div class="bb-theme-block">
@@ -10,7 +11,9 @@ $related = get_field('related');
 		<!-- Image -->
 			<div class="col-span-4">
 				<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 -translate-y-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
-					<?php echo wp_get_attachment_image($image['ID'] ?? false, 'medium', false, ['class' => 'w-full h-full object-cover']); ?>
+					<?php
+					  echo '<img class="w-full h-full object-cover" src="' . $thumbnail_url . '" />';
+					?>
 				</div>
 			</div>
 			<div class="col-span-8 flex flex-col">
@@ -30,12 +33,10 @@ $related = get_field('related');
 
 				<!-- Button and extra info -->
 				<div class="flex-1 flex items-end pb-10">
-					<?php if ($link = get_field('cta_button_link')): ?>
-						<a class="btn btn-icon-left <?= get_field('cta_button_display')['style'] ?> <?= get_field('cta_button_display')['size'] ?>" href="<?= esc_url($link['url']) ?>" target="<?= $link['target'] ?>">
-						<?= bb_icon(get_field('cta_button_display')['icon']) ?>
-						<?= esc_html($link['title']) ?>
-						</a>
-					<?php endif; ?>
+					<a href="<?php echo $theme_url; ?>" class="btn btn-hollow">
+						<?= bb_icon('arrow-right','icon-base'); ?>
+						<?= __('Zum Thema', BB_TEXT_DOMAIN) ?>						
+					</a>
 				</div>
 
 			</div>
