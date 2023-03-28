@@ -1,7 +1,7 @@
 import * as TW from './tailwindhelpers';
 window.TwConfig = TW.fullConfig;
 
-const themeColors = ['primary', 'secondary', 'red', 'gray', 'yellow-200', 'secondary', 'secondary-500', 'red-700', 'primary-600', 'primary-200', 'primary-300'];
+const themeColors = ['red-50', 'primary-50', 'white', 'gray'];
 
 jQuery(document).ready(function ($) {
 	// Set color picker palette to TW theme

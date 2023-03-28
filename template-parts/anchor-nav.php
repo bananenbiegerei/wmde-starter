@@ -1,4 +1,31 @@
 <script>
+
+
+
+
+function onChange(changes, observer) {
+	changes.forEach(change => {
+		if (change.intersectionRatio > 0) {
+		console.log(changes);
+				}
+	});
+}
+let options = {
+	root: null, // relative to document viewport
+	rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
+	threshold: 1.0 // visible amount of item shown in relation to root
+};
+let observer = new IntersectionObserver(onChange, options);
+
+window.addEventListener("load", (event) => {
+	let h = document.querySelectorAll('h2');
+	h.forEach(img => observer.observe(img));
+});
+
+
+
+
+
 function isVisible(element) {
 	return element.offsetWidth > 0 || element.offsetHeight > 0;
 }
@@ -50,10 +77,9 @@ document.addEventListener('alpine:init', () => {
 				document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
 				var anchorNavWidth = document.querySelector('#anchor-nav ul').scrollWidth;
 				var bodyWidth = document.querySelector('body').getBoundingClientRect().width;
-				console.log(anchorNavWidth, bodyWidth);
 				if (anchorNavWidth > bodyWidth ) {
 					this.justifyCenter = false;
-				} else {					console.log('justifyCenter');
+				} else {
 					this.justifyCenter = true;
 				}
 			});
