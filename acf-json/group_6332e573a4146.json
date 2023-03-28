@@ -40,7 +40,7 @@
             "choices": {
                 "text-base": "small",
                 "text-base lg:text-xl": "base",
-                "text-2xl lg:text-3xl": "large"
+                "text-xl lg:text-2xl": "large"
             },
             "default_value": "text-base lg:text-xl : base",
             "return_format": "value",
@@ -67,5 +67,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679474712
+    "modified": 1680001117
 }
