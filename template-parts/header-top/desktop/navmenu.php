@@ -78,10 +78,9 @@
 				var pw = 32; // pointer width
 				var pyoff = -20; // pointer v offset
 				var ddw = document.getElementById('menu_' + this.idx).offsetWidth;
-				var ddx = Math.max(dxoff, bx + bw/2 - ddw/2);
-
-				//console.log({'bx': bx, 'bw': bw, 'dxoff': dxoff, 'ddw': ddw, 'ddx': ddx});
-
+				var voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
+				var ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
+				//console.log({'bx': bx, 'bw': bw, 'dxoff': dxoff, 'ddw': ddw, 'voff': voff, 'ddx': ddx});
 				document.getElementById('menu_' + this.idx).style.left = ddx + 'px';
 				document.getElementById('pointer').style.left = bx - dxoff + bw/2 - pw/2 + 'px';
 				document.getElementById('pointer').style.top = pyoff + 'px';
