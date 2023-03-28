@@ -135,7 +135,8 @@ if ($link['title'] == '') {
 
 			<?php if ($layout != 'h2' && $layout != 'vne'): ?>
 				<div class="text-xl font-alt font-normal text-inherit">
-					<?= strip_tags($excerpt) ?>
+					<!-- FIXME: @EL please add … if the expert is longer then 7 words. Saw also somethin like this: wp_trim_words( get_the_excerpt(), 7, '...' ); -->
+					<?= strip_tags(implode(' ', array_slice(explode(' ', $excerpt), 0, 7))) ?>
 				</div>
 			<?php endif; ?>
 
