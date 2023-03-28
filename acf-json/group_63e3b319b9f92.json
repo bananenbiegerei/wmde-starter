@@ -17,12 +17,10 @@
                 "id": ""
             },
             "choices": {
-                "primary": "primary",
-                "secondary": "secondary",
-                "red": "red",
-                "green": "green",
-                "yellow": "yellow",
-                "custom": "custom"
+                "white": "White",
+                "gray": "Gray",
+                "red-50": "Red",
+                "primary-50": "Blue"
             },
             "default_value": false,
             "return_format": "value",
@@ -161,5 +159,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677765061
+    "modified": 1680010189
 }
