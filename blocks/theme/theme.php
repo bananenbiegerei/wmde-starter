@@ -6,8 +6,8 @@ $thumbnail_url = get_the_post_thumbnail_url($theme, 'medium');
 $theme_url = get_the_permalink($theme);
 ?>
 
-<div class="bb-theme-block">
-	<div class="rounded-3xl p-10 grid grid-cols-12" style="background-color: <?= $color ?>;">
+<div class="bb-theme-block mb-20">
+	<div class="rounded-3xl p-10 grid grid-cols-12 " style="background-color: <?= $color ?>;">
 		<!-- Image -->
 			<div class="col-span-4">
 				<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 -translate-y-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
