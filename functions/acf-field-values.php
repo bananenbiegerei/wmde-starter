@@ -7,8 +7,8 @@ add_filter('acf/load_field/name=color_light', function ($field) {
 		'gray' => 'Gray',
 		'red-50' => 'Red',
 		'green-50' => 'Green',
-		'neon' => 'Neon',
 		'primary-50' => 'Blue',
+		'neon' => 'Neon',
 	];
 	return $field;
 });
@@ -20,8 +20,8 @@ add_filter('acf/load_field/name=color_dark', function ($field) {
 		'gray-700' => 'Gray',
 		'red' => 'Red',
 		'green-700' => 'Green',
-		'neon-800' => 'Neon',
 		'primary' => 'Blue',
+		'neon-800' => 'Neon',
 	];
 	return $field;
 });
