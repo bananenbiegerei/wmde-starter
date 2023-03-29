@@ -11,6 +11,9 @@ require_once get_template_directory() . '/functions/localization.php';
 // Special features of theme
 require_once get_template_directory() . '/functions/features.php';
 
+// Fill in available values in some fields
+require_once get_template_directory() . '/functions/acf-field-values.php';
+
 // Load ACF blocks
 require_once get_template_directory() . '/functions/acf-blocks.php';
 

@@ -5,7 +5,7 @@
         {
             "key": "field_63e3b4bc78fbb",
             "label": "Color",
-            "name": "color",
+            "name": "color_light",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -17,9 +17,11 @@
                 "id": ""
             },
             "choices": {
+                "default": "Default",
                 "white": "White",
                 "gray": "Gray",
                 "red-50": "Red",
+                "green-50": "Green",
                 "primary-50": "Blue"
             },
             "default_value": false,
@@ -32,11 +34,11 @@
             "placeholder": ""
         },
         {
-            "key": "field_63fddf137717d",
-            "label": "Position",
-            "name": "position",
+            "key": "field_642400595d82a",
+            "label": "Color",
+            "name": "color_dark",
             "aria-label": "",
-            "type": "button_group",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -46,15 +48,21 @@
                 "id": ""
             },
             "choices": {
-                "justify-start": "left",
-                "justify-center": "center",
-                "justify-end": "right"
+                "default": "Default",
+                "black": "Black",
+                "gray-700": "Gray",
+                "red": "Red",
+                "green-700": "Green",
+                "primary": "Blue"
             },
-            "default_value": "justify-start : left",
+            "default_value": false,
             "return_format": "value",
+            "multiple": 0,
             "translations": "copy_once",
             "allow_null": 0,
-            "layout": "horizontal"
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_63e3ad06c8390",
@@ -82,6 +90,31 @@
             "layout": "horizontal",
             "return_format": "value",
             "translations": "copy_once"
+        },
+        {
+            "key": "field_63fddf137717d",
+            "label": "Position",
+            "name": "position",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "justify-start": "left",
+                "justify-center": "center",
+                "justify-end": "right"
+            },
+            "default_value": "justify-start : left",
+            "return_format": "value",
+            "translations": "copy_once",
+            "allow_null": 0,
+            "layout": "horizontal"
         },
         {
             "key": "field_63fdddbc600fd",
@@ -159,5 +192,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680010189
+    "modified": 1680092008
 }

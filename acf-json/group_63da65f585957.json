@@ -199,14 +199,14 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "row",
+            "layout": "table",
             "sub_fields": [
                 {
-                    "key": "field_63da68e280f42",
+                    "key": "field_642408cfaf519",
                     "label": "Background Color",
-                    "name": "bg_color",
+                    "name": "color_light",
                     "aria-label": "",
-                    "type": "color_picker",
+                    "type": "clone",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -215,10 +215,21 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "string",
-                    "translations": "copy_once"
+                    "clone": [
+                        "field_63e3b4bc78fbb"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0,
+                    "choices": {
+                        "default": "Default",
+                        "white": "White",
+                        "gray": "Gray",
+                        "red-50": "Red",
+                        "green-50": "Green",
+                        "primary-50": "Blue"
+                    }
                 },
                 {
                     "key": "field_63e0d7b1b4052",
@@ -269,5 +280,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680003397
+    "modified": 1680092157
 }
