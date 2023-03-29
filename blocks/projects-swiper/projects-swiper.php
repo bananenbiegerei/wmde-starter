@@ -67,7 +67,7 @@
 			nextEl: '#<?= $block['id'] ?> .swiper-button-next',
 			prevEl: '#<?= $block['id'] ?> .swiper-button-prev',
 		},
-		speed: 1400,
+		//speed: 100,
 		// autoplay: {
 		// 	delay: 4000,
 		// 	disableOnInteraction: true,
