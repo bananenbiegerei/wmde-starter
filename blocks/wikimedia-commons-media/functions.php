@@ -1,5 +1,10 @@
 <?php
 
+function has_post_thumbnail_caption($post = null)
+{
+	return get_the_post_thumbnail_caption($post) || bbWikimediaCommonsMedia::get_post_thumbnail_caption($post);
+}
+
 // Extends has_post_thumbnail() to check is there's featured image from the media library or from Wikimedia Commons
 add_filter(
 	'has_post_thumbnail',
@@ -58,8 +63,9 @@ class bbWikimediaCommonsMedia
 		}
 	}
 
-	static function get_post_thumbnail_caption()
+	static function get_post_thumbnail_caption($post = null)
 	{
+		// FIXME: handle use of $post
 		if ($url = get_field('wkc_featured_image_url')) {
 			$wmc_image_data = bbWikimediaCommonsMedia::get_media($url);
 			return '<a href="' . esc_attr($wmc_image_data['url']) . '">' . $wmc_image_data['creator'] . ' - ' . $wmc_image_data['usageterms'] . '</a>';
