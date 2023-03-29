@@ -1,0 +1,15 @@
+{
+	"name": "acf/text-image-floating-box",
+	"title": "Text Image Floating Box",
+	"description": "Text floats around image with different positions",
+	"category": "wkmde-custom-blocks",
+	"icon": "dashicons-media-document",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "image-text-float.php"
+	},
+	"supports": {
+		"align": false
+	}
+}
