@@ -11,7 +11,14 @@ class bbCard
 		global $wpdb;
 
 		if (!is_multisite()) {
-			bbCard::$sites = ['1' => ['blog_id' => '1', 'title' => get_bloginfo('name')]];
+			bbCard::$sites = [
+				'1' => [
+					'blog_id' => '1',
+					'title' => get_bloginfo('name'),
+					'domain' => parse_url(get_site_url(), PHP_URL_HOST),
+					'path' => '', // FIXME
+				],
+			];
 			return bbCard::$sites;
 		}
 

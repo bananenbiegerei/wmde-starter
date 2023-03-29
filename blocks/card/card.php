@@ -66,6 +66,7 @@ if (get_field('content')['alt_details'] ?? false) {
 }
 
 // Configure layout classes
+// Options: v, vne, h, h2
 $layout = $args['layout'] ?? get_field('style')['layout'];
 $layout_classes = [];
 if ($layout == 'v' || $layout == 'vne') {
@@ -135,8 +136,7 @@ if ($link['title'] == '') {
 
 			<?php if ($layout != 'h2' && $layout != 'vne'): ?>
 				<div class="text-xl font-alt font-normal text-inherit">
-					<!-- FIXME: @EL please add … if the expert is longer then 7 words. Saw also somethin like this: wp_trim_words( get_the_excerpt(), 7, '...' ); -->
-					<?= strip_tags(implode(' ', array_slice(explode(' ', $excerpt), 0, 7))) ?>
+					<?= wp_trim_words($excerpt, 7, '...') ?>
 				</div>
 			<?php endif; ?>
 
