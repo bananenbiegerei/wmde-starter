@@ -89,9 +89,11 @@ document.addEventListener('alpine:init', () => {
 });
 </script>
 <div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200 sticky z-30 bg-white" x-show="anchors.length > 0">
-	<ul class="md:flex container md:justify-center hidden" XXXx-bind:class="{ 'justify-center': justifyCenter }">
+	<ul class="md:flex container md:justify-center hidden overflow-auto" XXXx-bind:class="{ 'justify-center': justifyCenter }">
 		<template x-for="(anchor,i) in anchors">
-			<li class="sm:inline-block cursor-pointer sm:py-2 sm:px-8 text-base sm:text-base"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
+			<li class="sm:inline-block cursor-pointer sm:py-2 sm:px-8 text-base sm:text-base  whitespace-nowrap">
+				<span x-text="anchor.title" @click="scrollTo(anchor)"></span>
+			</li>
 		</template>
 	</ul>
 	<div class="flex items-center block md:hidden">
