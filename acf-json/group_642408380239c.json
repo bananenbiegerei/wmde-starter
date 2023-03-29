@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_642408385b3da",
-            "label": "gallery lightbox",
-            "name": "gallery_lightbox",
+            "label": "Image",
+            "name": "images",
             "aria-label": "",
             "type": "gallery",
             "instructions": "",
@@ -50,5 +50,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680083160
+    "modified": 1680098811
 }
