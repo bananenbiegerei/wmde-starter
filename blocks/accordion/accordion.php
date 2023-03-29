@@ -1,4 +1,4 @@
-<div class="bb-accordion-block">
+<div class="bb-accordion-block mb-10">
 	<ul>
 		<?php while (have_rows('acfb_add_accordion')): ?>
 		<?php the_row(); ?>
