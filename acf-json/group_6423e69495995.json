@@ -3,11 +3,11 @@
     "title": "Block: Latest Wikimove Podcasts",
     "fields": [
         {
-            "key": "field_6423e6942e6be",
-            "label": "",
+            "key": "field_6423ef113202b",
+            "label": "Latest Wikimove Podcasts",
             "name": "",
             "aria-label": "",
-            "type": "text",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,12 +16,9 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "translations": "translate",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "message": "The 4 latest Wikimove Podcasts.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -42,5 +39,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680074421
+    "modified": 1680076982
 }
