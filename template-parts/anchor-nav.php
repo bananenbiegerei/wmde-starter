@@ -6,7 +6,7 @@
 function onChange(changes, observer) {
 	changes.forEach(change => {
 		if (change.intersectionRatio > 0) {
-		console.log(changes);
+//		console.log(changes);
 				}
 	});
 }
@@ -63,16 +63,13 @@ document.addEventListener('alpine:init', () => {
 			if (this.anchors.length == 0) {
 				document.getElementById('anchor-nav').style.display = 'none';
 			}
-
 			document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
-
 			var anchorNavWidth = document.querySelector('#anchor-nav ul').scrollWidth;
 			var bodyWidth = document.querySelector('body').getBoundingClientRect().width;
 			if (anchorNavWidth <  bodyWidth ) {
 				this.justifyCenter = true;
 			} else {
 			}
-
 			window.addEventListener('resize', function () {
 				document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
 				var anchorNavWidth = document.querySelector('#anchor-nav ul').scrollWidth;

@@ -5,7 +5,7 @@ $publications = get_posts(['post_type' => 'publications', 'numberposts' => $coun
 <div class="bb-latest-publications-block">
 	<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
 		<?php foreach ($publications as $p): ?>
-			<div class="bb-card-publication-block flex flex-col">
+			<div class="flex flex-col">
 				<div class="rounded-3xl basis-2/3">
 					<?php if ($post_thumbnail = get_the_post_thumbnail($p->ID, 'medium', ['class' => 'h-3/4 w-auto drop-shadow-xl'])): ?>
 						<div class="aspect-w-1 aspect-h-1 overflow-hidden">

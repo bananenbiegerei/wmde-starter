@@ -13,14 +13,14 @@ add_action('init', function () {
 });
 
 // NOTE: If there's not acf-json folder then load from 'acf-groups' and /blocks/*/
-if (!file_exists(get_template_directory() . '/acf-json') || !is_dir(get_template_directory() . '/acf-json')) {
-	add_filter('acf/settings/load_json', function ($paths) {
-		$paths[] = get_template_directory() . 'acf-groups';
-		foreach (glob(__DIR__ . '/../blocks/*/') as $block_dir) {
-			$paths[] = $block_dir;
-		}
-	});
-}
+// if (!file_exists(get_template_directory() . '/acf-json') || !is_dir(get_template_directory() . '/acf-json')) {
+// 	add_filter('acf/settings/load_json', function ($paths) {
+// 		$paths[] = get_template_directory() . 'acf-groups';
+// 		foreach (glob(__DIR__ . '/../blocks/*/') as $block_dir) {
+// 			$paths[] = $block_dir;
+// 		}
+// 	});
+// }
 
 // Define list of allowed block types
 add_filter('allowed_block_types_all', function ($allowed_blocks) {
