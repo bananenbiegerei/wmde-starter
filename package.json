@@ -12,6 +12,7 @@
 		"jsxSingleQuote": true
 	},
 	"devDependencies": {
+		"@prettier/plugin-php": "^0.19.4",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/forms": "^0.5.2",
 		"alpinejs": "^3.9.0",
@@ -25,6 +26,8 @@
 		"gulp-sass": "^5.1.0",
 		"gulp-sass-glob": "^1.1.0",
 		"gulp-sourcemaps": "^3.0.0",
+		"prettier": "^2.8.7",
+		"prettier-plugin-tailwindcss": "^0.2.5",
 		"sass": "^1.32.8",
 		"tailwindcss": "^3.0.0",
 		"tailwindcss-themer": "^2.0.3",

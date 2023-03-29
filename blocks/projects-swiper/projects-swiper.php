@@ -6,7 +6,6 @@
 
 */
 ?>
-<?php define('EXCERPT_LENGTH', 30); ?>
 <?php $swiper_bg = get_field('background') == 'white' ? 'bg-white' : 'bg-gray-100'; ?>
 <?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>
 
@@ -44,7 +43,7 @@
 					<!-- Description -->
 					<div class="text-lg text-inherit">
 						<?php if (get_field('description', $project->ID)): ?>
-						<p><?php echo wp_trim_words(get_field('description', $project->ID), EXCERPT_LENGTH, '... <br>'); ?></p>
+						<p><?php echo wp_trim_words(get_field('description', $project->ID), 30, '... <br>'); ?></p>
 						<?php else: ?>
 						<p><?php echo get_the_excerpt($project->ID); ?></p>
 						<?php endif; ?>
@@ -67,7 +66,7 @@
 			nextEl: '#<?= $block['id'] ?> .swiper-button-next',
 			prevEl: '#<?= $block['id'] ?> .swiper-button-prev',
 		},
-		//speed: 100,
+		speed: 1400,
 		// autoplay: {
 		// 	delay: 4000,
 		// 	disableOnInteraction: true,

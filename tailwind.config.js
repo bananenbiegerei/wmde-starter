@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
 	content: ['./**/*.php'],
-	safelist: ['grid', { pattern: /text-*/ }, { pattern: /lg:text-*/ }, { pattern: /justify-*/ }],
+	safelist: ['grid', { pattern: /text-*/ }, { pattern: /lg:text-*/ }, { pattern: /justify-*/ }, { pattern: /bg-*/ }],
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
 		fontSize: {
@@ -33,7 +33,7 @@ module.exports = {
 				'navbar-dropdown': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px -10px 10px rgba(0, 0, 0, 0.04)',
 			},
 			boxShadow: {
-				'xl': '0 0px 60px -15px rgba(0, 0, 0, 0.3)',
+				xl: '0 0px 60px -15px rgba(0, 0, 0, 0.3)',
 			},
 			maxWidth: {
 				32: '8rem',
@@ -43,7 +43,7 @@ module.exports = {
 			},
 			maxHeight: {
 				'screen-80': '80vh',
-			 },
+			},
 			scale: {
 				cards: '1.01',
 			},
@@ -159,23 +159,25 @@ module.exports = {
 					},
 				},
 			},
-			themes: [{
-				name: 'orga-scheme',
-				extend: {
-					colors: {
-						red: {
-							DEFAULT: '#FA4A28',
+			themes: [
+				{
+					name: 'orga-scheme',
+					extend: {
+						colors: {
+							red: {
+								DEFAULT: '#FA4A28',
+							},
+							cyan: {
+								DEFAULT: '#00B9FF',
+							},
+							blue: {
+								DEFAULT: '#3A25FF',
+								200: '#EEEAFF',
+							},
 						},
-						cyan: {
-							DEFAULT: '#00B9FF',
-						},
-						blue: {
-							DEFAULT: '#3A25FF',
-							200: '#EEEAFF'
-						},
-					}
-				}
-			}]
+					},
+				},
+			],
 		}),
 	],
 };

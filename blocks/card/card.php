@@ -85,14 +85,15 @@ if ($layout == 'v' || $layout == 'vne') {
 }
 
 // Add background color and padding
-if (get_field('style')['bg_color'] ?? false) {
-	$bgcolor = 'background-color: ' . get_field('style')['bg_color'] . ';';
+$bgcolor_style = $args['bg_color'] ?? false;
+$bgcolor = get_field('style')['color_light'] ?? false;
+$bgcolor = $bgcolor == 'default' ? '' : $bgcolor;
+if ($bgcolor) {
+	$bgcolor = "bg-{$bgcolor}";
 	$layout_classes['container'] .= ' p-4';
-} elseif ($args['bg_color'] ?? false) {
-	$bgcolor = 'background-color: ' . $args['bg_color'];
+} elseif ($bgcolor_style) {
+	$bgcolor_style = 'background-color: ' . $args['bg_color'];
 	$layout_classes['container'] .= ' p-4';
-} else {
-	$bgcolor = '';
 }
 
 // Last check for missing data
@@ -101,8 +102,8 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 hover:shadow-xl transition scale-100 hover:scale-cards -mx-2 p-2 bg-white z-10 hover:z-20 relative" style="<?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
-	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
+<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 hover:shadow-xl transition scale-100 hover:scale-cards -mx-2 p-2 z-10 hover:z-20 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
+<?= $bgcolor_style ?> 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">

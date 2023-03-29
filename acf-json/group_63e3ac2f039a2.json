@@ -33,7 +33,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "row",
             "sub_fields": [
                 {
                     "key": "field_63e3acbdc838f",
@@ -81,11 +81,11 @@
                         "btn-lg": "lg",
                         "btn-xl": "xl"
                     },
-                    "default_value": "",
-                    "return_format": "value",
-                    "translations": "copy_once",
                     "allow_null": 0,
-                    "layout": "vertical"
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "translations": "copy_once"
                 },
                 {
                     "key": "field_63e3af2bd0a99",
@@ -174,5 +174,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679477830
+    "modified": 1680081210
 }
