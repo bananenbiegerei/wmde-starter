@@ -92,7 +92,7 @@
 <div id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
 
 	<!-- Domains top bar -->
-	<div class="relative z-10 container">
+	<div class="relative z-10 container overflow-hidden">
 		<div class="absolute left-5 top-2 overflow-hidden">
 			<div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
 				<a href="<?php echo get_home_url(); ?>">
