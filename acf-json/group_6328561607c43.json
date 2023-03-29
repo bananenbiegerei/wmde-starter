@@ -41,7 +41,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "row",
             "sub_fields": [
                 {
                     "key": "field_63fdd7b2b2065",
@@ -107,5 +107,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677657828
+    "modified": 1680096806
 }
