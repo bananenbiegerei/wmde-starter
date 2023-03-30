@@ -12,6 +12,7 @@ const gulpEsbuild = require('gulp-esbuild');
 const { createGulpEsbuild } = require('gulp-esbuild');
 const gulpEsbuildIncremental = createGulpEsbuild({ incremental: true });
 const browserSync = require('browser-sync').create();
+const run = require('gulp-run');
 
 function stylesDev() {
 	return src('./src/scss/*.scss')
@@ -66,6 +67,10 @@ function esbuildProd() {
 		.pipe(dest('./js'));
 }
 
+function pacakgeTheme() {
+	return run('./mktheme.sh', { verbosity: 0 }).exec();
+}
+
 function dev() {
 	browserSync.init({
 		proxy: process.env.BROWSERSYNC_PROXY_URL,
@@ -80,8 +85,9 @@ function dev() {
 }
 
 exports.default = series(parallel(stylesDev, esbuildDev), dev);
-exports.build = series(stylesProd, esbuildProd);
+exports.build = series(stylesProd, esbuildProd, pacakgeTheme);
 exports.styles = stylesDev;
 exports.scripts = esbuildDev;
 exports.pstyles = stylesProd;
 exports.pscripts = esbuildProd;
+exports.pkg = pacakgeTheme;
