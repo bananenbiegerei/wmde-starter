@@ -1,10 +1,5 @@
 <?php
 
-function has_post_thumbnail_caption($post = null)
-{
-	return get_the_post_thumbnail_caption($post) || bbWikimediaCommonsMedia::get_post_thumbnail_caption($post);
-}
-
 // Extends has_post_thumbnail() to check is there's featured image from the media library or from Wikimedia Commons
 add_filter(
 	'has_post_thumbnail',
@@ -82,6 +77,12 @@ class bbWikimediaCommonsMedia
 		} else {
 			return get_the_post_thumbnail_url($post_id);
 		}
+	}
+
+	// Sadly get_post_thumbnail_caption() does not use apply_filters() so we can't extend it directly...
+	static function has_post_thumbnail_caption($post = null)
+	{
+		return get_the_post_thumbnail_caption($post) || bbWikimediaCommonsMedia::get_post_thumbnail_caption($post);
 	}
 
 	/* Interface with Wikimedia Commons */
