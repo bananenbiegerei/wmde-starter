@@ -20,7 +20,7 @@ $images = get_field('images'); ?>
 			<div class="swiper-wrapper">
 					<?php foreach ($images as $image): ?>
 					<div class="swiper-slide" style="height:unset;">
-						 <?php get_template_part('blocks/image/block', null, ['image' => $image, 'rounded' => true]); ?>
+						 <?php get_template_part('blocks/image/image', null, ['image' => $image, 'rounded' => true]); ?>
 					</div>
 					<?php endforeach; ?>
 			</div>
@@ -31,7 +31,7 @@ $images = get_field('images'); ?>
 			slidesPerView: 1,
 			loop: true,
 			// FIXME: fade not working properly!
-			effect: 'fade',
+			//effect: 'fade',
 			fadeEffect: {
 				crossFade: true
 			},

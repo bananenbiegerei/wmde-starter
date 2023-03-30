@@ -32,7 +32,7 @@
 						</button -->
 					</div>
 					<div class="bb-image-block" @click="lightbox = ''">
-						<figure class="relative">
+						<figure class="relative cursor-pointer">
 							<img class="max-h-[80vh] max-w-[80vw] rounded-2xl" :src="imgModalSrc" :alt="imgModalAlt">
 							<template x-if="imgModalCaption">
 								<figcaption class="invisible absolute left-0 bottom-0 right-0 flex text-white bg-black w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all rounded-b-2xl">
