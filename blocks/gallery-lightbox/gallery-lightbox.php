@@ -7,9 +7,9 @@
 	</div>
 <?php else: ?>
 	<div x-data="{ lightbox: false, imgModalSrc : '', imgModalAlt : '', imgModalCaption : '' }">
-		<div class="flex gap-8">
+		<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
 			<?php foreach (get_field('images') as $image): ?>
-				<div class="w-1/4 cursor-pointer">
+				<div class="cursor-pointer">
 					<img
 						class="block rounded object-cover h-full w-full"
 						@click="$dispatch('lightbox',  {  imgModalSrc: '<?= $image['url'] ?>', imgModalAlt: '<?= $image['alt'] ?>', imgModalCaption: '<?= $image['caption'] ?>' })"
