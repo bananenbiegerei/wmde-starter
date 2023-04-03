@@ -136,8 +136,8 @@ if ($link['title'] == '') {
 			</h2>
 
 			<?php if ($layout != 'h2' && $layout != 'vne'): ?>
-				<div class="text-xl font-alt font-normal text-inherit">
-					<?= wp_trim_words($excerpt, 7, '...') ?>
+				<div class="text-xl font-alt font-normal text-inherit line-clamp-2">
+					<?= wp_trim_words($excerpt, 20, '...') ?>
 				</div>
 			<?php endif; ?>
 
