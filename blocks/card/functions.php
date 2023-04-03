@@ -153,13 +153,13 @@ class bbCard
 	}
 
 	// Get featured image from any network site (supports image from  Wikimedia Commons)
-	static function get_multisite_attachment_image($blog_id, $post_id, $image_id, $size, $attr, $placeholder = false)
+	static function get_multisite_attachment_image($blog_id, $image_id, $size, $attr, $placeholder = false)
 	{
 		if (is_multisite()) {
 			switch_to_blog($blog_id);
 		}
 
-		$img = get_the_post_thumbnail($post_id, $size, $attr);
+		$img = wp_get_attachment_image($image_id, $size, $attr);
 
 		if (is_multisite()) {
 			restore_current_blog();

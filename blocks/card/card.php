@@ -116,7 +116,7 @@ if ($link['title'] == '') {
 		<?php elseif ($image_id || $placeholder): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
-					<?php echo bbCard::get_multisite_attachment_image($blog_id, $post_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full'], $placeholder); ?>
+					<?php echo bbCard::get_multisite_attachment_image($blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full'], $placeholder); ?>
 				</div>
 			</div>
 		<?php endif; ?>
@@ -136,8 +136,8 @@ if ($link['title'] == '') {
 			</h2>
 
 			<?php if ($layout != 'h2' && $layout != 'vne'): ?>
-				<div class="text-xl font-alt font-normal text-inherit line-clamp-2">
-					<?= wp_trim_words($excerpt, 20, '...') ?>
+				<div class="text-xl font-alt font-normal text-inherit">
+					<?= wp_trim_words($excerpt, 7, '...') ?>
 				</div>
 			<?php endif; ?>
 
