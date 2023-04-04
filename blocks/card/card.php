@@ -109,14 +109,14 @@ if ($link['title'] == '') {
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl">
 				<div class="w-full h-full flex items-center justify-center p-5">
-					<?php echo wp_get_attachment_image($image_id, [400, 0], false, ['class' => 'p-1 w-auto max-h-32']); ?>
+					<?php echo wp_get_attachment_image($image_id, 'full', false, ['class' => 'p-1 w-auto max-h-32']); ?>
 				</div>
 				</div>
 			</div>
 		<?php elseif ($image_id || $placeholder): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
-					<?php echo bbCard::get_multisite_attachment_image($blog_id, $image_id, [400, 0], ['class' => 'object-cover w-full h-full'], $placeholder); ?>
+					<?php echo bbCard::get_multisite_attachment_image($blog_id, $image_id, 'full', ['class' => 'object-cover w-full h-full'], $placeholder); ?>
 				</div>
 			</div>
 		<?php endif; ?>
