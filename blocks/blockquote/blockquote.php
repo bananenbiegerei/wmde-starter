@@ -11,7 +11,7 @@ if ($color) {
     <?= bb_icon('quote', 'icon-xxl') ?>
   </div>
   <div class="flex-1">
-    <blockquote class="text-xl lg:text-3xl leading-tight font-normal mb-5  text-inherit <?= $color ?>">
+    <blockquote class="text-xl lg:text-2xl leading-tight font-normal mb-5  text-inherit <?= $color ?>">
       <?= get_field('text') ?>
     </blockquote>
     <?php if (get_field('source')): ?>
