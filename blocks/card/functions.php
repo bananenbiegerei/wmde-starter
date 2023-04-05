@@ -1,33 +1,39 @@
 <?php
 
+define('WKC_FEATURED_IMAGE', -1);
+
 class bbCard
 {
+	// List of all detected custom post types on network
 	static $custom_post_types = null;
+	// List of all sites of network
 	static $sites = null;
 
-	// Get list of sites
+	// Get list of sites of network
 	static function get_sites()
 	{
 		global $wpdb;
 
+		// Return a default single site for single site instances
 		if (!is_multisite()) {
 			bbCard::$sites = [
 				'1' => [
 					'blog_id' => '1',
 					'title' => get_bloginfo('name'),
 					'domain' => parse_url(get_site_url(), PHP_URL_HOST),
-					'path' => '', // FIXME
+					'path' => '', // FIXME: should not be empty...
 				],
 			];
 			return bbCard::$sites;
 		}
 
+		// Cached values
 		if (bbCard::$sites) {
 			return bbCard::$sites;
 		}
 
 		$sites = [];
-		$sites[get_current_blog_id()] = null;
+		$sites[get_current_blog_id()] = null; // FIXME: why?
 		foreach ($wpdb->get_results("SELECT blog_id,domain,path FROM {$wpdb->prefix}blogs;", ARRAY_A) as $site) {
 			if ($site['blog_id'] == '1') {
 				$table = "{$wpdb->prefix}options";
@@ -43,14 +49,17 @@ class bbCard
 		return $sites;
 	}
 
-	// Get list of custom post types
+	// Get list of custom post types of network
 	static function get_all_custom_post_types()
 	{
+		// Cached values
 		if (bbCard::$custom_post_types) {
 			return bbCard::$custom_post_types;
 		}
 		$themes_dir = dirname(get_stylesheet_directory());
 		$cpt = [];
+		// Scan all theme directories for register_post_type()
+		// NOTE: we're pretty restrictive here in which files we search
 		foreach (glob($themes_dir . '/*/functions/custom-post*.php') as $filename) {
 			preg_match_all("#register_post_type\('(.*?)'#", file_get_contents($filename), $matches);
 			$cpt = array_merge($cpt, $matches[1]);
@@ -67,8 +76,9 @@ class bbCard
 			$post_data['blog_id'] = 1;
 			return $post_data;
 		}
-		$post_data = null;
 
+		$post_data = null;
+		// Look in all subsites and find the first post that matches the URL
 		foreach (bbCard::get_sites() as $blog_id => $site) {
 			switch_to_blog($blog_id);
 			if ($post_data = bbCard::get_post_data_from_url_for_blog($url)) {
@@ -82,7 +92,7 @@ class bbCard
 		return $post_data;
 	}
 
-	// Get the matching post in a site from its URL
+	// Get the matching post in a subsite from its URL
 	static function get_post_data_from_url_for_blog($url)
 	{
 		if ($post_id = bbCard::url_to_postid($url)) {
@@ -102,7 +112,7 @@ class bbCard
 				'post_id' => $post_id,
 				'title' => $post->post_title,
 				'excerpt' => $post->post_excerpt,
-				'image_id' => get_field('wkc_featured_image_url', $post_id) ? -1 : get_post_thumbnail_id($post_id),
+				// 'image_id' => get_field('wkc_featured_image_url', $post_id) ? WKC_FEATURED_IMAGE : get_post_thumbnail_id($post_id),
 				'post_type' => get_post_type($post_id),
 				'format' => $format,
 				'theme' => $theme,
@@ -115,23 +125,23 @@ class bbCard
 	// For use with get_template_part('blocks/card/card', ...)
 	static function get_post_data_from_args($args)
 	{
-		$blog_id = $args['blog_id'];
+		$blog_id = $args['blog_id'] ?? get_current_blog_id();
 		$post_id = $args['post_id'];
 
 		if (is_multisite()) {
 			switch_to_blog($blog_id);
 		}
+
 		$post = get_post($post_id);
+		$theme = [];
+		$format = [];
 		foreach (wp_get_post_terms($post_id, ['format', 'theme']) as $term) {
 			if ($term->taxonomy == 'format') {
 				$format[] = $term->name;
-			}
-			if ($term->taxonomy == 'theme') {
+			} elseif ($term->taxonomy == 'theme') {
 				$theme[] = $term->name;
 			}
 		}
-		$theme = $post_data['theme'] ?? false;
-		$format = $post_data['format'] ?? false;
 		$post_type = get_post_type($post_id);
 		$url = get_post_permalink($post_id);
 		$image_id = get_post_thumbnail_id($post_id);
@@ -139,27 +149,36 @@ class bbCard
 		if (is_multisite()) {
 			restore_current_blog();
 		}
+
 		return [
 			'blog_id' => $blog_id,
 			'post_id' => $post_id,
 			'title' => $post->post_title,
 			'url' => $url,
 			'excerpt' => $post->post_excerpt,
-			'image_id' => $image_id,
+			// 'image_id' => $image_id,
 			'post_type' => $post_type,
 			'format' => $format,
 			'theme' => $theme,
 		];
 	}
 
-	// Get featured image from any network site (supports image from  Wikimedia Commons)
-	static function get_multisite_attachment_image($blog_id, $image_id, $size, $attr, $placeholder = false)
+	// Get featured image from any network site (also supports image from  Wikimedia Commons)
+	static function get_multisite_featured_image($blog_id, $post_id, $size, $attr, $placeholder = false)
 	{
 		if (is_multisite()) {
 			switch_to_blog($blog_id);
 		}
 
-		$img = wp_get_attachment_image($image_id, $size, $attr);
+		$wkc_image_url = get_field('wkc_featured_image_url', $post_id);
+		if ($wkc_image_url && class_exists('bbWikimediaCommonsMedia')) {
+			$data = bbWikimediaCommonsMedia::get_media($wkc_image_url);
+			$img = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$attr['class']}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
+			return $img;
+		}
+
+		$image_id = get_post_thumbnail_id($post_id);
+		$img = wp_get_attachment_image($image_id, $size, false, $attr);
 
 		if (is_multisite()) {
 			restore_current_blog();
@@ -171,6 +190,32 @@ class bbCard
 
 		return $img;
 	}
+
+	// 	static function get_multisite_attachment_image($blog_id, $image_id, $post_id = null, $size, $attr, $placeholder = false)
+	// 	{
+	// 		if (is_multisite()) {
+	// 			switch_to_blog($blog_id);
+	// 		}
+	//
+	// 		if ($image_id == WKC_FEATURED_IMAGE && $post_id && class_exists('bbWikimediaCommonsMedia')) {
+	// 			$url = get_field('wkc_featured_image_url', $post_id);
+	// 			$data = bbWikimediaCommonsMedia::get_media($url);
+	// 			$img = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$attr['class']}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
+	// 			return $img;
+	// 		}
+	//
+	// 		$img = wp_get_attachment_image($image_id, $size, $attr);
+	//
+	// 		if (is_multisite()) {
+	// 			restore_current_blog();
+	// 		}
+	//
+	// 		if (!$img && $placeholder) {
+	// 			$img = '<img src="' . get_template_directory_uri() . '/' . $placeholder . '" class="' . $attr['class'] . '">';
+	// 		}
+	//
+	// 		return $img;
+	// 	}
 
 	// This is a rewrite of url_to_postid with support for custom post types
 	static function url_to_postid($url)
@@ -298,10 +343,17 @@ class bbCard
 				// Resolve conflicts between posts with numeric slugs and date archive queries.
 				$query = wp_resolve_numeric_slug_conflicts($query);
 				// Do the query.
-				$query = new WP_Query($query);
-				if (!empty($query->posts) && $query->is_singular) {
-					return $query->post->ID;
+				$wpquery = new WP_Query($query);
+				if (!empty($wpquery->posts) && $wpquery->is_singular) {
+					return $wpquery->post->ID;
 				} else {
+					// If the post is still not found, search with the last past of the post path
+					// NOTE: not sure why WP has trouble finding a post that has a parent slug...
+					$query['name'] = array_pop(explode('/', $query['name']));
+					$wpquery = new WP_Query($query);
+					if (!empty($wpquery->posts) && $wpquery->is_singular) {
+						return $wpquery->post->ID;
+					}
 					return 0;
 				}
 			}
