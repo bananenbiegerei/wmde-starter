@@ -26,7 +26,7 @@ if ( ! empty( $block['align'] ) ) {
 }
 ?>
 
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> bg-gray mb-20 rounded-xl p-10 pt-0">
+<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> bg-gray mb-10 lg:mb-20 rounded-xl p-10 pt-0">
 	<div class="text-white orga-scheme space-y-20 sm:space-y-5">
 		<div class="sm:grid sm:grid-cols-12 sm:gap-5 space-y-5 sm:space-y-0">
 			<div class="sm:order-3 sm:col-span-3 lg:col-span-2 mt-10">

@@ -13,7 +13,7 @@ $post_excerpt = get_the_excerpt($post_id);
 $post_thumbnail = get_the_post_thumbnail($post_id, 'medium', ['class' => 'h-3/4 w-auto drop-shadow-xl']);
 $post_download = get_field('pdf', $post_id);
 ?>
-	<div class="bb-card-publication-block lg:flex gap-5">
+	<div class="bb-card-publication-block lg:flex gap-5 mb-10 lg:mb-20">
 		<div class="rounded-3xl mb-10 basis-2/3">
 			<?php if ($post_thumbnail): ?>
 				<div class="aspect-w-1 aspect-h-1 bg-gray-100 rounded-xl overflow-hidden">

@@ -6,7 +6,7 @@ if ($color) {
 	$color = "text-{$color}";
 }
 ?>
-<div class="bb-blockquote-block relative flex gap-5">
+<div class="bb-blockquote-block relative flex gap-5 mb-10 lg:mb-20">
   <div class="flex-none <?= $color ?>">
     <?= bb_icon('quote', 'icon-xxl') ?>
   </div>
