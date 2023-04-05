@@ -191,33 +191,7 @@ class bbCard
 		return $img;
 	}
 
-	// 	static function get_multisite_attachment_image($blog_id, $image_id, $post_id = null, $size, $attr, $placeholder = false)
-	// 	{
-	// 		if (is_multisite()) {
-	// 			switch_to_blog($blog_id);
-	// 		}
-	//
-	// 		if ($image_id == WKC_FEATURED_IMAGE && $post_id && class_exists('bbWikimediaCommonsMedia')) {
-	// 			$url = get_field('wkc_featured_image_url', $post_id);
-	// 			$data = bbWikimediaCommonsMedia::get_media($url);
-	// 			$img = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$attr['class']}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
-	// 			return $img;
-	// 		}
-	//
-	// 		$img = wp_get_attachment_image($image_id, $size, $attr);
-	//
-	// 		if (is_multisite()) {
-	// 			restore_current_blog();
-	// 		}
-	//
-	// 		if (!$img && $placeholder) {
-	// 			$img = '<img src="' . get_template_directory_uri() . '/' . $placeholder . '" class="' . $attr['class'] . '">';
-	// 		}
-	//
-	// 		return $img;
-	// 	}
-
-	// This is a rewrite of url_to_postid with support for custom post types
+	// This is a rewrite of url_to_postid with support for custom post types and with a fix/hack for posts with a parent page
 	static function url_to_postid($url)
 	{
 		global $wp_rewrite;
@@ -348,7 +322,7 @@ class bbCard
 					return $wpquery->post->ID;
 				} else {
 					// If the post is still not found, search with the last past of the post path
-					// NOTE: not sure why WP has trouble finding a post that has a parent slug...
+					// NOTE: not sure why WP has trouble finding a post that has a parent slug... had the issue with abc_posts
 					$query['name'] = array_pop(explode('/', $query['name']));
 					$wpquery = new WP_Query($query);
 					if (!empty($wpquery->posts) && $wpquery->is_singular) {

@@ -45,6 +45,8 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
 	$post_type = $post_data['post_type'];
+} else {
+	// Otherwise it's an external link for which we need a title, image, etc.
 }
 
 // Override values if alt. versions are provided
@@ -70,10 +72,13 @@ if (get_field('content')['alt_details'] ?? false) {
 // Set featured image
 $featured_image = null;
 if ($post_type == 'projects' && !$alt_image_id && ($image_id = get_post_thumbnail_id($post_id))) {
+	// If it's a project w/o an alt. image
 	$featured_image = wp_get_attachment_image($image_id, 'full', false, ['class' => 'p-1 w-auto max-h-32']);
 } elseif ($alt_image_id) {
+	// If there's an alt. image, use it
 	$featured_image = wp_get_attachment_image($alt_image_id, 'full', false, ['class' => 'object-cover w-full h-full']);
 } else {
+	// Otherwise get the featured image of the post
 	$featured_image = bbCard::get_multisite_featured_image($blog_id, $post_id, 'full', ['class' => 'object-cover w-full h-full'], $placeholder);
 }
 
@@ -109,13 +114,14 @@ if ($bgcolor) {
 }
 
 // Last check for missing data
+// FIXME: not sure if it's still needed
 if ($link['title'] == '') {
 	$link['title'] = __('Missing Link Title!', BB_TEXT_DOMAIN);
 }
 ?>
 
-<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 hover:shadow-xl transition scale-100 hover:scale-cards -mx-2 p-2 z-10 hover:z-20 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>">
-<?= $bgcolor_style ?> 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
+<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 hover:shadow-xl transition scale-100 hover:scale-cards -mx-2 p-2 z-10 hover:z-20 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
+ 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $featured_image && !$alt_image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
