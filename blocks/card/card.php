@@ -49,6 +49,8 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 if (get_field('content')['alt_details'] ?? false) {
 	$excerpt = get_field('content')['text'] ? get_field('content')['text'] : $excerpt;
 	$image_id = get_field('content')['image'] ? get_field('content')['image'] : $image_id;
+	// If there's an alt. image it comes from the current blog...
+	$blog_id = get_field('content')['image'] ? get_current_blog_id() : $blog_id;
 	$alt_theme = array_map(
 		function ($a) {
 			return $a->name;
