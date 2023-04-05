@@ -11,7 +11,6 @@
 $link = get_field('content')['link'] ?? false ? get_field('content')['link'] ?? false : ['title' => __('Missing Link!', BB_TEXT_DOMAIN), 'url' => '#'];
 
 // Set default values
-$excerpt = '';
 $blog_id = get_current_blog_id();
 $post_id = null;
 $theme = [];
@@ -27,7 +26,6 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 	$link['title'] = $link['title'] != '' ? $link['title'] : $post_data['title'];
 	// Get other values from post
 	$post_id = $post_data['post_id'];
-	$excerpt = $post_data['excerpt'];
 	$blog_id = $post_data['blog_id'];
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
@@ -39,7 +37,6 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 	$link['title'] = $post_data['title'];
 	$link['url'] = $post_data['url'];
 	$post_id = $post_data['post_id'];
-	$excerpt = $post_data['excerpt'];
 	$blog_id = $post_data['blog_id'];
 	$placeholder = $args['placeholder'] ?? false;
 	$theme = $post_data['theme'];
@@ -51,7 +48,6 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 
 // Override values if alt. versions are provided
 if (get_field('content')['alt_details'] ?? false) {
-	$excerpt = get_field('content')['text'] ? get_field('content')['text'] : $excerpt;
 	$alt_image_id = get_field('content')['image'];
 	$alt_theme = array_map(
 		function ($a) {
@@ -121,7 +117,7 @@ if ($link['title'] == '') {
 ?>
 
 <div class="bb-card-block rounded-3xl mb-10 lg:mb-5 hover:shadow-xl transition scale-100 hover:scale-cards -mx-2 p-2 z-10 hover:z-20 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
- 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
+	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $featured_image && !$alt_image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">

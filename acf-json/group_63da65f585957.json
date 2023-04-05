@@ -57,35 +57,6 @@
 					"ui": 1
 				},
 				{
-					"key": "field_63da668ca3fb9",
-					"label": "Alt. Excerpt",
-					"name": "text",
-					"aria-label": "",
-					"type": "text",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": [
-						[
-							{
-								"field": "field_63eb9f55d4bb9",
-								"operator": "==",
-								"value": "1"
-							}
-						]
-					],
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"translations": "translate",
-					"maxlength": "",
-					"placeholder": "",
-					"prepend": "",
-					"append": ""
-				},
-				{
 					"key": "field_63da66b1a3fba",
 					"label": "Alt. Image",
 					"name": "image",
