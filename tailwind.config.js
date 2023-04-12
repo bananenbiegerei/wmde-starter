@@ -2,7 +2,21 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
 	content: ['./**/*.php'],
-	safelist: ['grid', { pattern: /text-*/ }, { pattern: /lg:text-*/ }, { pattern: /justify-*/ }, { pattern: /bg-*/ }],
+	safelist: [
+		'grid',
+		'lg:text-2xl', 
+		{ 
+			pattern: /text-*/ 
+		}, 
+		{ 
+			pattern: /lg:text-*/ 
+		}, 
+		{ 
+			pattern: /justify-*/ 
+		}, 
+		{ 
+			pattern: /bg-*/ 
+		}],
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
 		fontSize: {
