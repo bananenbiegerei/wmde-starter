@@ -50,7 +50,7 @@
             "return_format": "object",
             "translations": "copy_once",
             "min": "",
-            "max": "",
+            "max": 3,
             "elements": [
                 "featured_image"
             ]
@@ -74,5 +74,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679993519
+    "modified": 1681295271
 }

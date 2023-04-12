@@ -7,17 +7,17 @@ $theme_url = get_the_permalink($theme);
 ?>
 
 <div class="bb-theme-block mb-10 lg:mb-20">
-	<div class="rounded-3xl p-10 grid grid-cols-12 " style="background-color: <?= $color ?>;">
+	<div class="rounded-3xl px-10 grid grid-cols-12 " style="background-color: <?= $color ?>;">
 		<!-- Image -->
 			<div class="col-span-4">
-				<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 -translate-y-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
+				<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
 					<?php
 					  echo '<img class="w-full h-full object-cover" src="' . $thumbnail_url . '" />';
 					?>
 				</div>
 			</div>
 			<div class="col-span-8 flex flex-col">
-				<div>
+				<div class="pt-10">
 					<!-- Theme or format -->
 					<div class="uppercase text-primary font-bold text-base font-alt">
 						<?= __('Theme', BB_TEXT_DOMAIN) ?>
@@ -27,9 +27,9 @@ $theme_url = get_the_permalink($theme);
 				</div>
 
 				<!-- Text -->
-				<div class="text-xl font-normal flex-grow pr-5 pb-5 text-3xl text-inherit">
-					<p><?= $theme->post_excerpt ?></p>
-				</div>
+				<p class="font-normal flex-grow pr-5 pb-5 text-2xl">
+					<?= $theme->post_excerpt ?>
+				</p>
 
 				<!-- Button and extra info -->
 				<div class="flex-1 flex items-end pb-10">
@@ -40,13 +40,14 @@ $theme_url = get_the_permalink($theme);
 				</div>
 
 			</div>
-			<div class="col-span-12">
+			
 				<!-- Related -->
 				<?php if ($related): ?>
+					<div class="col-span-12">
 					<div class="lg:grid lg:grid-cols-3">
 					<?php foreach ($related as $related): ?>
 						<?php setup_postdata($related); ?>
-						<div class="pr-10">
+						<div class="py-5">
 							<?php if ($terms = get_the_terms($related->ID, 'theme')): ?>
 						  	<?php $term_names = []; ?>
 						  	<?php /* prettier-ignore */ foreach ($terms as $term) { $term_names[] = $term->name; } ?>
@@ -58,8 +59,9 @@ $theme_url = get_the_permalink($theme);
 						</div>
 					<?php endforeach; ?>
 					</div>
+					</div>
 					<?php wp_reset_postdata(); ?>
 				<?php endif; ?>
-			</div>
+			
 	</div>
 </div>
