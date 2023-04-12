@@ -38,6 +38,11 @@ add_filter(
 				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
 				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 			],
+			'core/group' => [
+				'col-12' => 'col-span-12',
+				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
+				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
+			],
 			// For other blocks with or without alignment settings
 			'default' => [
 				// Options defined in ACF: Clone Library / Alignment
