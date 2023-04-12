@@ -45,13 +45,6 @@ strong {
 	}
 }
 
-/* inherit not really working. Maye tailwind classes unknown, despite being safe listed?*/
-.bb-paragraph-block {
-	p {
-		font-size: inherit;
-	}
-}
-
 // Make the paragraphs inside a block inherit typography
 // Useful when we don't control the output
 .text-inherit,
