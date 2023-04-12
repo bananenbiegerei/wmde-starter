@@ -27,29 +27,8 @@
 		<!-- Slides -->
 		<div class="swiper-wrapper h-full">
 			<?php foreach (get_field('projects') as $project): ?>
-			<div class="swiper-slide rounded-2xl p-5 hover:shadow-xl transition hover:scale-cards <?= $slide_bg ?> self-stretch"><!-- Slide size defined in block SCSS -->
-				<a class="block flex flex-col space-y-5" href="<?php echo get_post_permalink($project->ID); ?>">
-					<!-- Thumbnail -->
-					<div class="">
-						<?php if (has_post_thumbnail($project->ID)): ?>
-						<img class="h-40 object-contain mx-auto my-5 grayscale mix-blend-multiply hover:grayscale-0" src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>">
-						<?php endif; ?>
-					</div>
-
-					<!-- Title -->
-					<div>
-						<h3 class="text-3xl break-words font-alt font-normal"><?php echo $project->post_title; ?></h3>
-					</div>
-
-					<!-- Description -->
-					<div class="text-lg text-inherit">
-						<?php if (get_field('description', $project->ID)): ?>
-						<p><?php echo wp_trim_words(get_field('description', $project->ID), EXCERPT_LENGTH, '... <br>'); ?></p>
-						<?php else: ?>
-						<p><?php echo get_the_excerpt($project->ID); ?></p>
-						<?php endif; ?>
-					</div>
-				</a>
+			<div class="swiper-slide rounded-2xl p-5 <?= $slide_bg ?> self-stretch"><!-- Slide size defined in block SCSS -->
+			<?php include( locate_template( 'template-parts/card-project-inner.php', false, false ) ); ?>
 			</div>
 			<?php endforeach; ?>
 		</div>
