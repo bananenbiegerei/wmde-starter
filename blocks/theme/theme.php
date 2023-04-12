@@ -23,11 +23,11 @@ $theme_url = get_the_permalink($theme);
 						<?= __('Theme', BB_TEXT_DOMAIN) ?>
 					</div>
 					<!-- Title -->
-					<h2 class="text-2xl lg:text-3xl"><?= esc_html($theme->post_title) ?></h2>
+					<h2 class="text-2xl lg:text-3xl text-bg-related"><?= esc_html($theme->post_title) ?></h2>
 				</div>
 
 				<!-- Text -->
-				<p class="font-normal flex-grow pr-5 pb-5 text-2xl">
+				<p class="font-normal flex-grow pr-5 pb-5 text-2xl text-bg-related">
 					<?= $theme->post_excerpt ?>
 				</p>
 
@@ -54,7 +54,7 @@ $theme_url = get_the_permalink($theme);
 						  	<div class="uppercase text-primary font-bold text-base font-alt"><?php echo implode(', ', $term_names); ?></div>
 				 			<?php endif; ?>
 							<a href="<?php the_permalink(); ?>">
-								<h3 class="text-base lg:text-xl"><?php echo get_the_title($related->ID); ?></h3>
+								<h3 class="text-base lg:text-xl text-bg-related"><?php echo get_the_title($related->ID); ?></h3>
 							</a>
 						</div>
 					<?php endforeach; ?>
@@ -65,3 +65,27 @@ $theme_url = get_the_permalink($theme);
 			
 	</div>
 </div>
+<!-- <script>
+  // Get all elements with the class "text-inherit"
+  const elements = document.querySelectorAll('.text-bg-related');
+
+  // Loop through all elements and adjust their text color
+  elements.forEach(element => {
+	// Get the background color of the element
+	const bgColor = window.getComputedStyle(element.parentElement).getPropertyValue('background-color');
+
+	// Convert the color to an RGB value
+	const rgbColor = bgColor.match(/\d+/g);
+
+	// Calculate the relative luminance of the color
+	const relativeLuminance = (0.2126 * rgbColor[0] + 0.7152 * rgbColor[1] + 0.0722 * rgbColor[2]) / 255;
+
+	// Set the text color based on the relative luminance
+	if (relativeLuminance > 0.5) {
+	  element.style.color = '#000'; // Set text color to black
+	} else {
+	  element.style.color = '#fff'; // Set text color to white
+	}
+  });
+</script> -->
+
