@@ -44,6 +44,7 @@
 		"build": "gulp build"
 	},
 	"dependencies": {
+		"@fullhuman/postcss-purgecss": "^5.0.0",
 		"jquery": "^3.5.1",
 		"swiper": "^7.4.1"
 	}
