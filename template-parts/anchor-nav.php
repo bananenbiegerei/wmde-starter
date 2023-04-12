@@ -1,3 +1,4 @@
+<?php /* 
 <script>
 
 
@@ -91,7 +92,7 @@ document.addEventListener('alpine:init', () => {
 <div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200 sticky z-30 bg-white" x-show="anchors.length > 0">
 	<ul class="md:flex container md:justify-center hidden overflow-auto" XXXx-bind:class="{ 'justify-center': justifyCenter }">
 		<template x-for="(anchor,i) in anchors">
-			<li class="sm:inline-block cursor-pointer sm:py-2 sm:px-8 text-base sm:text-base  whitespace-nowrap">
+			<li class="sm:inline-block cursor-pointer sm:py-2 sm:px-8 text-base sm:text-base ">
 				<span x-text="anchor.title" @click="scrollTo(anchor)"></span>
 			</li>
 		</template>
@@ -136,3 +137,29 @@ document.addEventListener('alpine:init', () => {
 		},
 	};
 </script>
+*/ ?>
+<div class="sticky top-16 bg-white z-50">
+	<div class="container justify-center">
+		<ul class="grid grid-cols-6 gap-5 items-end">
+			<li class="text-base">
+				<a class="border-b-2 border-black w-full block py-3" href="#">Anchor one</a>
+			</li>
+			<li class="text-base">
+				<a class="border-b-2 border-black w-full block py-3" href="#">Anchor two</a>
+			</li>
+			<li class="text-base">
+				<a class="border-b-2 border-black w-full block py-3" href="#">Anchor threeeee eeee ee beormbpotrmbpotzgbpo</a>
+			</li>
+			<li class="text-base">
+				<a class="border-b-2 border-black w-full block py-3" href="#">Anchor one</a>
+			</li>
+			<li class="text-base">
+				<a class="border-b-2 border-black w-full block py-3" href="#">Anchor one</a>
+			</li>
+			<li class="text-base">
+				<a class="border-b-2 border-black w-full block py-3" href="#">Max Six one</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
