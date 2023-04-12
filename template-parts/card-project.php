@@ -1,4 +1,4 @@
-<div x-show="!selectedFilter || '<?php echo $classes; ?>' == selectedFilter" class="<?php echo $classes; ?> rounded-3xl mb-5 lg:mb-0 hover:shadow-xl transition scale-100 hover:scale-cards p-5 bg-gray z-10 hover:z-20 relative">
+<div x-show="!selectedFilter || '<?php echo $classes; ?>' == selectedFilter" class="<?php echo $classes; ?> rounded-3xl mb-5 lg:mb-0  p-5 bg-gray z-10 relative">
 	<div class="aspect-w-3 aspect-h-4">
 		<a class="flex flex-col gap-5" href="<?php the_permalink(); ?>">
 			<div class="basis-1/2">

@@ -20,7 +20,7 @@ $podcasts = get_posts(['post_type' => 'podcast', 'numberposts' => 4]);
 	<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
 		<?php foreach ($podcasts as $p): ?>
 			<a href="<?= get_the_permalink($p->ID) ?>">
-				<div class="flex flex-col rounded-3xl mb-10 lg:mb-5 hover:shadow-xl transition scale-100 hover:scale-cards -mx-2 p-2 bg-white z-10 hover:z-20">
+				<div class="flex flex-col rounded-3xl mb-10 lg:mb-5  -mx-2 p-2 bg-white z-10 hover:z-20">
 					<div class="rounded-3xl basis-2/3 mb-4">
 						<?php if ($post_thumbnail = get_the_post_thumbnail($p->ID, 'medium', ['class' => 'w-full h-auto rounded-xl w-auto drop-shadow-xl'])): ?>
 							<div class="aspect-w-1 aspect-h-1 overflow-hidden">

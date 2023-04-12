@@ -116,7 +116,7 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 hover:shadow-xl transition scale-100 hover:scale-cards -mx-2 p-2 z-10 hover:z-20 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
+<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 -mx-2 p-2 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $featured_image && !$alt_image_id): ?>
