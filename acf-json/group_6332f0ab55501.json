@@ -84,7 +84,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "row",
             "sub_fields": [
                 {
                     "key": "field_6399a788bde81",
@@ -109,8 +109,7 @@
                         "text-xl lg:text-2xl": "2xl",
                         "text-xl lg:text-3xl": "3xl",
                         "text-2xl lg:text-4xl": "4xl",
-                        "text-3xl lg:text-5xl": "5xl",
-                        "text-4xl lg:text-6xl": "6xl"
+                        "text-3xl lg:text-5xl": "5xl"
                     },
                     "default_value": "default : default",
                     "return_format": "value",
@@ -199,5 +198,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680093016
+    "modified": 1681299059
 }
