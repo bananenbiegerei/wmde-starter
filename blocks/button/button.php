@@ -9,8 +9,8 @@ $icon = get_field('display')['icon'];
 $icon_size = 'icon-' . explode('-', $size)[1];
 ?>
 
-<div id="<?= $block['id'] ?>" class="bb-button-block flex">
-	<a class="btn <?= $size ?> btn-<?= $color ?> <?= $style ?>" href="<?= esc_url($link['url']) ?>" target="<?= esc_attr($link['target']) ?>">
+<div id="<?= $block['id'] ?>" class="bb-button-block flex <?= $position ?> <?= $size ?>">
+	<a class="btn <?= $size ?> btn-<?= $color ?> <?= $style ?> <?= $icon ? 'btn-icon-left' : '' ?>" href="<?= esc_url($link['url']) ?>" target="<?= esc_attr($link['target']) ?>">
 		<?= bb_icon($icon, $icon_size) ?>
 		<?= esc_html($link['title']) ?>
 	</a>
