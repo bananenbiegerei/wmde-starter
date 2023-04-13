@@ -1,9 +1,9 @@
 <?php if (!is_admin()): ?>
-	<div class="bb-testimonials-swiper-block" id="<?= $block['id'] ?>">
+	<div class="bb-testimonials-swiper-block mb-20" id="<?= $block['id'] ?>">
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
 				<?php foreach (get_field('testimonials') as $testimonial): ?>
-					<div class="swiper-slide">
+					<div class="swiper-slide rounded-xl bg-gray p-5">
 							<blockquote class="text-2xl flex gap-4">
 								<div class="flex-shrink-0"><?= bb_icon('quote', 'bg-red-100 text-primary rounded-full p-2 w-10 h-10 grid place-items-center') ?></div>
 								<p class="text-primary"><?= $testimonial->post_title ?></p>
@@ -20,6 +20,7 @@
 			centeredSlides: false,
 			spaceBetween: 30,
 			speed: 1400,
+			autoHeight: true,
 			autoplay: {
 				delay: 4000,
 				disableOnInteraction: true,
