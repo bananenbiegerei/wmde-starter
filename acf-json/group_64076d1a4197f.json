@@ -27,6 +27,27 @@
             "ui": 1
         },
         {
+            "key": "field_6437f95e3f07a",
+            "label": "Internal \/ External Link",
+            "name": "internal_external_link",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Choose if You want to link to a post, page within wmde main site, or outside like blog etc.",
+            "default_value": 0,
+            "translations": "copy_once",
+            "ui_on_text": "External Link",
+            "ui_off_text": "Internal Link",
+            "ui": 1
+        },
+        {
             "key": "field_64076d1a47abf",
             "label": "Related",
             "name": "related",
@@ -34,7 +55,15 @@
             "type": "relationship",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6437f95e3f07a",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -53,6 +82,56 @@
             "max": 3,
             "elements": [
                 "featured_image"
+            ]
+        },
+        {
+            "key": "field_6437fac682617",
+            "label": "External_Links",
+            "name": "external_links",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Eintrag hinzufügen",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6437f9c93f07b",
+                    "label": "External Link",
+                    "name": "external_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6437f95e3f07a",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "translations": "copy_once",
+                    "parent_repeater": "field_6437fac682617"
+                }
             ]
         }
     ],
@@ -74,5 +153,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681295271
+    "modified": 1681390301
 }

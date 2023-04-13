@@ -41,28 +41,55 @@ $theme_url = get_the_permalink($theme);
 
 			</div>
 			
-				<!-- Related -->
-				<?php if ($related): ?>
-					<div class="col-span-12">
-					<div class="lg:grid lg:grid-cols-3">
-					<?php foreach ($related as $related): ?>
-						<?php setup_postdata($related); ?>
-						<div class="py-5">
-							<?php if ($terms = get_the_terms($related->ID, 'theme')): ?>
-						  	<?php $term_names = []; ?>
-						  	<?php /* prettier-ignore */ foreach ($terms as $term) { $term_names[] = $term->name; } ?>
-						  	<div class="uppercase text-primary font-bold text-base font-alt"><?php echo implode(', ', $term_names); ?></div>
-				 			<?php endif; ?>
-							<a href="<?php the_permalink(); ?>">
-								<h3 class="text-base lg:text-xl text-bg-related"><?php echo get_the_title($related->ID); ?></h3>
-							</a>
-						</div>
-					<?php endforeach; ?>
-					</div>
-					</div>
-					<?php wp_reset_postdata(); ?>
-				<?php endif; ?>
+			<?php if ( get_field( 'internal_external_link' ) ): ?>
 			
+			<?php if ( have_rows( 'external_links' ) ) : ?>
+				<div class="col-span-12">
+				<div class="lg:grid lg:grid-cols-3">
+				<?php while ( have_rows( 'external_links' ) ) : the_row(); ?>
+					<?php $external_link = get_sub_field( 'external_link' ); ?>
+					
+					<?php if ( $external_link ) : ?>
+						<div class="py-5">
+						<a href="<?php echo esc_url( $external_link['url'] ); ?>" target="<?php echo esc_attr( $external_link['target'] ); ?>">
+						<h3 class="text-base lg:text-xl text-bg-related">
+							<?php echo esc_html( $external_link['title'] ); ?>
+						</h3>
+						</a>
+						</div>
+					<?php endif; ?>
+					
+				<?php endwhile; ?>
+				</div>
+				</div>
+			<?php endif; ?>
+			
+			<?php else: ?>
+			
+			<!-- Related -->
+			<?php if ($related): ?>
+				<div class="col-span-12">
+				<div class="lg:grid lg:grid-cols-3">
+				<?php foreach ($related as $related): ?>
+					<?php setup_postdata($related); ?>
+					<div class="py-5">
+						<?php if ($terms = get_the_terms($related->ID, 'theme')): ?>
+						  <?php $term_names = []; ?>
+						  <?php /* prettier-ignore */ foreach ($terms as $term) { $term_names[] = $term->name; } ?>
+						  <div class="uppercase text-primary font-bold text-base font-alt"><?php echo implode(', ', $term_names); ?></div>
+						 <?php endif; ?>
+						<a href="<?php the_permalink(); ?>">
+							<h3 class="text-base lg:text-xl text-bg-related"><?php echo get_the_title($related->ID); ?></h3>
+						</a>
+					</div>
+				<?php endforeach; ?>
+				</div>
+				</div>
+				<?php wp_reset_postdata(); ?>
+			<?php endif; ?>
+			
+			<?php endif; ?>
+
 	</div>
 </div>
 <!-- <script>
