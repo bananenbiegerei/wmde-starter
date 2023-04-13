@@ -25,6 +25,50 @@
             "translations": "copy_once",
             "allow_null": 0,
             "ui": 1
+        },
+        {
+            "key": "field_64381f9342841",
+            "label": "hide meta infos",
+            "name": "hide_meta_infos",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "translations": "copy_once",
+            "ui_on_text": "yes",
+            "ui_off_text": "no",
+            "ui": 1
+        },
+        {
+            "key": "field_64381faf42842",
+            "label": "team member columns",
+            "name": "team_member_columns",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 2,
+            "translations": "copy_once",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -45,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677761031
+    "modified": 1681400340
 }
