@@ -4,7 +4,7 @@
 $title_style = 'uppercase text-primary text-base'; 
 $excerpt_style = 'font-alt text-2xl lg:text-3xl font-normal';
 else: 
-$title_style = 'text-5xl my-5 bg-lime-500'; 
+$title_style = 'text-5xl my-5'; 
 $excerpt_style = 'font-alt text-2xl font-normal';
 ?>
 
