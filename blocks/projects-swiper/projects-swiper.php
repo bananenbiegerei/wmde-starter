@@ -11,7 +11,7 @@
 <?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>
 
 <?php if (!is_admin()): ?>
-<div class="bb-projects-swiper-block pb-20 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
+<div class="bb-projects-swiper-block mb-20 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
 	<!-- Headline and Navigation -->
 			<div class="flex mb-5">
 				<div class="grow">
@@ -23,7 +23,7 @@
 				</div>
 	</div>
 	<!-- Swiper -->
-	<div class="swiper-container relative">
+	<div class="swiper-container relative mb-10">
 		<!-- Slides -->
 		<div class="swiper-wrapper h-full">
 			<?php foreach (get_field('projects') as $project): ?>
@@ -33,6 +33,10 @@
 			<?php endforeach; ?>
 		</div>
 	</div>
+	<a class="btn btn-base btn-icon-left" href="<?php the_permalink('23'); ?>">
+		<?= bb_icon('arrow-right','icon-base'); ?>
+		<?= __('Alle Projekte', BB_TEXT_DOMAIN) ?>
+	</a>
 </div>
 <script>
 	SwipersConfig['#<?= $block['id'] ?>'] = {
