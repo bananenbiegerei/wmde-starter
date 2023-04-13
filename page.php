@@ -33,7 +33,7 @@
 		  </div>
 	  </div>
 	<?php endif; ?>
-	<?php get_template_part('template-parts/anchor-nav'); ?>
+	<?php //get_template_part('template-parts/anchor-nav'); ?>
 	<div class="content pt-10">
 		<?php the_content(); ?>
 	</div>

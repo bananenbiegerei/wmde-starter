@@ -1,4 +1,4 @@
-<div class="bb-image-block aspect-w-16 aspect-h-9 bg-gray-200 rounded-3xl">
+<div class="bb-image-block aspect-w-16 aspect-h-9 bg-gray-200 rounded-t-3xl">
 	<figure class="w-full w-full">
 		<?php the_post_thumbnail('large', ['class' => 'rounded-t-3xl object-cover w-full h-full']); ?>
 		<?php if (bbWikimediaCommonsMedia::has_post_thumbnail_caption()): ?>
