@@ -54,11 +54,11 @@
                         "id": ""
                     },
                     "choices": {
-                        "text-base": "small",
-                        "text-base lg:text-xl": "base",
-                        "text-xl lg:text-2xl": "large"
+                        "small": "small",
+                        "base": "base",
+                        "large": "large"
                     },
-                    "default_value": "text-base lg:text-xl : base",
+                    "default_value": "base",
                     "return_format": "value",
                     "translations": "copy_once",
                     "allow_null": 0,
@@ -107,5 +107,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681314954
+    "modified": 1681387372
 }
