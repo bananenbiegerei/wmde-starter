@@ -116,7 +116,7 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 -mx-2 p-2 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
+<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
 
 		<?php if ($post_type == 'projects' && $featured_image && !$alt_image_id): ?>
@@ -135,7 +135,7 @@ if ($link['title'] == '') {
 			</div>
 		<?php endif; ?>
 
-		<div class="<?= $layout_classes['content'] ?> space-y-2 px-2 pb-2">
+		<div class="<?= $layout_classes['content'] ?> space-y-2 px-2 pb-2 card-content">
 
 			<?php if ($theme || $format): ?>
 				<div class="uppercase text-primary font-bold text-xs font-alt">
