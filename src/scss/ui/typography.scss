@@ -28,7 +28,10 @@ h6 {
 p {
 	@apply leading-tight text-lg lg:text-xl font-normal mb-2;
 }
-
+ul,
+ol {
+	@apply font-normal;
+}
 p a,
 a.link {
 	@apply underline hover:text-primary-300 transition;
