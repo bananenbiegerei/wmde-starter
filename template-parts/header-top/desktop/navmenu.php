@@ -143,14 +143,14 @@
 						<nav class="border-r border-gray-200 pr-5 mr-5">
 							<ul role="list" class="flex flex-col max-h-screen-80 overflow-auto">
 								<template x-for="page in domain.featured">
-									<li class="bg-white transition hover:bg-gray p-1 rounded-xl" x-bind:class="{'current': pageID == page.ID }">
-										<a x-bind:href="page.url" class="btn btn-menu">
-											<div class="w-full h-full w-16 h-16 flex justify-center items-center">
+									<li class="" x-bind:class="{'current': pageID == page.ID }">
+										<a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4">
+											<div class="">
 												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 											</div>
-											<div class="min-w-0 flex-1 ml-8">
-												<h4 class="text-base" x-text="page.title"></h4>
-												<p class="mt-1 text-sm text-gray-500 block" x-html="page.excerpt"></p>
+											<div class="">
+												<h4 class="text-base m-0" x-text="page.title"></h4>
+												<!-- <p class="mt-1 text-sm text-gray-500 block" x-html="page.excerpt"></p> -->
 											</div>
 										</a>
 									</li>
