@@ -36,3 +36,24 @@ html :where(.wp-block) {
 	padding: 16px;
 	font-size: inherit;
 }
+
+.editor-styles-wrapper {
+	.bb-facts-block {
+		> div {
+			height: 8rem;
+			div.text-6xl {
+				font-size: 3rem;
+			}
+			div.text-base {
+				font-size: 0.5rem;
+			}
+		}
+		p {
+			line-height: 0;
+		}
+	}
+
+	.bb-spacer-block {
+		@apply after:content-['_spacer'] after:absolute after:top-2 after:right-8 after:bg-gray-200 after:py-1 after:px-3 text-xs after:rounded-full after:block border border-gray-200 rounded-xl border-dotted;
+	}
+}
