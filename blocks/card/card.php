@@ -1,5 +1,7 @@
 <?php
 
+// FIXME: re-implement excerpt and add option to show excerpt
+
 /* ACF BLOCK: Card
  * Notes:
  * - Title, excerpt, image, and theme & format will be fetched for link to a post that is on any subsite of the same network instance
@@ -13,6 +15,7 @@ $link = get_field('content')['link'] ?? false ? get_field('content')['link'] ?? 
 // Set default values
 $blog_id = get_current_blog_id();
 $post_id = null;
+$excerpt = null;
 $theme = [];
 $format = [];
 $post_type = false;
@@ -27,6 +30,7 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 	// Get other values from post
 	$post_id = $post_data['post_id'];
 	$blog_id = $post_data['blog_id'];
+	$excerpt = $post_data['excerpt'];
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
 	$post_type = $post_data['post_type'];
@@ -38,6 +42,7 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 	$link['url'] = $post_data['url'];
 	$post_id = $post_data['post_id'];
 	$blog_id = $post_data['blog_id'];
+	$excerpt = $post_data['excerpt'];
 	$placeholder = $args['placeholder'] ?? false;
 	$theme = $post_data['theme'];
 	$format = $post_data['format'];
@@ -148,6 +153,12 @@ if ($link['title'] == '') {
 			<h2 class="text-2xl font-alt">
 				<?= htmlspecialchars_decode(strip_tags($link['title'])) ?>
 			</h2>
+
+			<?php if (in_array($layout, ['v', 'hwe', 'h2we'])): ?>
+				<div class="text-xl font-alt font-normal text-inherit">
+					<?= wp_trim_words($excerpt, 7, '...') ?>
+				</div>
+			<?php endif; ?>
 
 		</div>
 

@@ -216,8 +216,11 @@
 					},
 					"choices": {
 						"v": "Vertical",
-						"h": "Horizontal (1-1)",
-						"h2": "Horizontal (1-2)"
+						"vne": "Vertical (no excerpt)",
+						"hwe": "Horizontal 1-1",
+						"h": "Horizontal 1-1 (no excerpt)",
+						"h2we": "Horizontal 1-2",
+						"h2": "Horizontal 1-2 (no excerpt)"
 					},
 					"default_value": false,
 					"return_format": "value",
