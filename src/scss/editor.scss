@@ -38,6 +38,7 @@ html :where(.wp-block) {
 }
 
 .editor-styles-wrapper {
+	@apply container;
 	.bb-facts-block {
 		> div {
 			height: 8rem;

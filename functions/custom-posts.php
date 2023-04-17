@@ -71,7 +71,7 @@ add_action(
 			'exclude_from_search' => false,
 			'publicly_queryable' => true,
 			'capability_type' => 'page',
-			'rewrite' => ['slug' => 'pressemitteilungen'],
+			'rewrite' => ['slug' => 'pressemitteilungen-archive'],
 			'show_in_rest' => true,
 		]);
 

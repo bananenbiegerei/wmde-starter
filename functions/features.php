@@ -39,7 +39,7 @@ show_admin_bar(false);
 // Add support for thumbnails and excerpts
 add_action('after_setup_theme', function () {
 	add_theme_support('title-tag');
-	add_theme_support('post-thumbnails', ['post', 'page', 'projects', 'team', 'theme-releases']);
+	add_theme_support('post-thumbnails', ['post', 'page', 'projects', 'team', 'theme-releases', 'publications']);
 	add_post_type_support('projects', 'excerpt');
 	add_post_type_support('page', 'excerpt');
 });

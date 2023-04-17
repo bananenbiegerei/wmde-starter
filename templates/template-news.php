@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Aktuelles Template
+Template Name: News template
 */
 get_header(); ?>
 <?php while (have_posts()): ?>
