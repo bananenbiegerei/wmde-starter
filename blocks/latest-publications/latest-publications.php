@@ -2,7 +2,7 @@
 $count = get_field('count');
 $publications = get_posts(['post_type' => 'publications', 'numberposts' => $count]);
 ?>
-<div class="bb-latest-publications-block">
+<div class="bb-latest-publications-block mb-20">
 	<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
 		<?php foreach ($publications as $p): ?>
 			<div class="flex flex-col">
