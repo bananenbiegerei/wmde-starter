@@ -53,6 +53,31 @@
             "step": 4,
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_643cec9d6adeb",
+            "label": "Link to archive",
+            "name": "link_to_archive",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_641ac0ec8a0d4",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "translations": "copy_once"
         }
     ],
     "location": [
@@ -73,5 +98,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679474969
+    "modified": 1681714918
 }

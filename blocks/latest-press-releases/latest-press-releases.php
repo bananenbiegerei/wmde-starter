@@ -12,8 +12,12 @@ $posts = get_posts(['post_type' => 'press-releases', 'numberposts' => $count]);
 	</div>
 	<?php if ( get_field( 'show_all' ) ): ?>	
 	<?php else: ?>
-		<a class="btn btn-base" href="<?php echo get_page_link('pressemittelungen'); ?>">
-			<?= _e('Alle Pressemitteilungen', BB_TEXT_DOMAIN) ?>
-		</a>
+		<?php $link_to_archive = get_field( 'link_to_archive' ); ?>
+		<?php if ( $link_to_archive ) : ?>
+			<?php $link_to_archive = get_field( 'link_to_archive' ); ?>
+			<?php if ( $link_to_archive ) : ?>
+				<a class="btn btn-base" href="<?php echo esc_url( $link_to_archive['url'] ); ?>" target="<?php echo esc_attr( $link_to_archive['target'] ); ?>"><?php echo esc_html( $link_to_archive['title'] ); ?></a>
+			<?php endif; ?>
+		<?php endif; ?>
 	<?php endif; ?>
 </div>
