@@ -1,0 +1,13 @@
+{
+	"name": "acf/projects-overview",
+	"title": "Projects Overview",
+	"description": "Projects Overview for archive page",
+	"category": "wkmde-custom-blocks",
+	"icon": "slides",
+	"keywords": [],
+	"acf": {
+		"mode": "false",
+		"renderTemplate": "projects-overview.php"
+	},
+	"align": "full"
+}
