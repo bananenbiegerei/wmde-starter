@@ -146,7 +146,7 @@ if ($link['title'] == '') {
 			<?php endif; ?>
 
 			<h2 class="text-2xl font-alt">
-				<?= strip_tags($link['title']) ?>
+				<?= htmlspecialchars_decode(strip_tags($link['title'])) ?>
 			</h2>
 
 		</div>
