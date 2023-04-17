@@ -17,7 +17,7 @@ $id = str_replace(' ', '_', esc_attr(get_field('anchor_title')));
 
 
 <div id="<?= $id ?>" data-anchor-title="<?= esc_attr(get_field('anchor_title')) ?>" class="bb-headline-block">
-	<<?= get_field('level') ?> class="<?= get_field('style')['headline_size'] ?? '' ?> mb-2 <?= $color ?>">
+	<<?= get_field('level') ?> class="<?= get_field('style')['headline_size'] ?? '' ?> mb-4 <?= $color ?>">
 		<span class="<?= $bgcolor ?>">
 			<?= get_field('headline') ?>
 		</span>
