@@ -38,18 +38,24 @@ add_filter(
 				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
 				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 			],
+			// Classes manually added to Group blocks in Gutenberg editor (could be named differently...)
+			'core/group' => [
+				'col-12' => 'col-span-12',
+				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
+				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
+			],
 			// For other blocks with or without alignment settings
 			'default' => [
 				// Options defined in ACF: Clone Library / Alignment
-				'default' => 'col-span-12 lg:col-span-8 lg:col-start-3 ',
+				'default' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 				'wide' => 'col-span-12',
 				'right' => 'col-span-12 lg:col-span-8 lg:col-start-5',
 			],
 		];
 		$outer_container_classes = 'grid grid-cols-12 container';
 
-		// Get alignment values (for columns from the classes)
-		if ($block['blockName'] == 'core/columns') {
+		// Get alignment values (for columns and group from the classes)
+		if ($block['blockName'] == 'core/columns' || $block['blockName'] == 'core/group') {
 			$align = $block['attrs']['className'] ?? 'default';
 		} else {
 			$align = $block['attrs']['data']['style_alignment'] ?? 'default';
