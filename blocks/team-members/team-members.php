@@ -19,15 +19,15 @@ foreach (get_field('team_members') as $member_id) {
 $columns = get_field('team_member_columns');
 $meta_infos = get_field('show_meta_infos');
 ?>
-		<div class="grid grid-cols-1 sm:grid-cols-<?php echo $columns ?> mb-16 gap-5">
+		<div class="grid grid-cols-1 sm:grid-cols-<?php echo $columns ?> mb-16 gap-10">
 				<?php foreach ($members as $member): ?>
 							<div class="sm:flex sm:gap-5">
-								<div class="overflow-hidden basis-1/3 self-start mt-2">
+								<div class="overflow-hidden basis-1/2 self-start">
 									<!-- <div class="aspect-h-1 aspect-w-1"> -->
 										<?= $member['photo'] ?>
 									<!-- </div> -->
 								</div>
-								<div class="basis-2/3">
+								<div class="basis-1/2">
 									<?php if ( get_field( 'hide_meta_infos' ) == 1 ) : ?>
 									<?php else : ?>
 										<?php $related_project = $member['related_project']; ?>
