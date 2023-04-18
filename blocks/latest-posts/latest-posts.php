@@ -11,7 +11,7 @@ if (is_multisite()) {
 $posts = [];
 $sticky_posts = [];
 $i = 0;
-foreach (wp_get_recent_posts(['numberposts' => $count + $sticky_count_max], OBJECT) as $post) {
+foreach (wp_get_recent_posts(['numberposts' => $count + $sticky_count_max, 'post_status' => 'publish'], OBJECT) as $post) {
 	if (is_sticky($post->ID) && $i < $sticky_count_max) {
 		$i++;
 		$sticky_posts[] = $post;
