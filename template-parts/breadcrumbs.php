@@ -13,7 +13,7 @@ if ($post->post_parent) {
 		$breadcrumbs[] =
 			'<li class="flex items-center">' .
 			($k > 0 ? bb_icon('caret-right', 'text-red-500 icon-xs') : '') .
-			'<a class="" href="' .
+			'<a class="text-base !no-underline" href="' .
 			get_permalink($ancestor) .
 			'">' .
 			get_the_title($ancestor) .
