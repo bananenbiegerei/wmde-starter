@@ -11,7 +11,7 @@ $aspect_ratios = [
 ];
 ?>
 
-<div class="bb-facts-block flex flex-row flex-wrap" id="<?= $block['id'] ?>">
+<div class="bb-facts-block flex flex-row flex-wrap mb-20" id="<?= $block['id'] ?>">
 	<?php while (have_rows('facts')): ?>
     <?php the_row(); ?>
 		<?php $img = str_replace('%', get_sub_field('shape'), $shape_img); ?>

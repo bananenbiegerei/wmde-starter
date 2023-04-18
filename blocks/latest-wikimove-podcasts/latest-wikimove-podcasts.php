@@ -16,7 +16,7 @@ if (!$wikimove_site) {
 switch_to_blog($wikimove_site->blog_id);
 $podcasts = get_posts(['post_type' => 'podcast', 'numberposts' => 4]);
 ?>
-<div class="bb-latest-wikimove-podcasts-block">
+<div class="bb-latest-wikimove-podcasts-block mb-20">
 	<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
 		<?php foreach ($podcasts as $p): ?>
 			<a href="<?= get_the_permalink($p->ID) ?>">

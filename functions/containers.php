@@ -28,11 +28,9 @@ add_filter(
 			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
 			'acf/theme' => ['default' => 'col-span-12'],
-			'acf/latest-posts' => ['default' => 'mb-20'],
-			'acf/facts' => ['default' => 'col-span-12 mb-20'],
+			'acf/facts' => ['default' => 'col-span-12'],
 			'acf/organigramm' => ['default' => 'col-span-12'],
-			'acf/projects-overview' => ['default' => 'col-span-12 mb-20'],
-			'acf/latest-wikimove-podcasts' => ['default' => 'col-span-12 mb-20'],
+			'acf/latest-wikimove-podcasts' => ['default' => 'col-span-12'],
 			// Classes manually added to Columns blocks in Gutenberg editor (could be named differently...)
 			'core/columns' => [
 				'col-12' => 'col-span-12',

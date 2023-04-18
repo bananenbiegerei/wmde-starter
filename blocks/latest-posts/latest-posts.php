@@ -25,7 +25,7 @@ if (is_multisite()) {
 }
 ?>
 
-<div class="bb-latest-posts-block">
+<div class="bb-latest-posts-block mb-20">
 	<!-- Sticky posts -->
 		<div class="container grid grid-cols-<?= min(2, count($sticky_posts)) ?> gap-8">
 			<?php for ($i = 0; $i < min(2, count($sticky_posts)); $i++): ?>
