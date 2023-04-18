@@ -32,6 +32,7 @@ add_filter(
 			'acf/facts' => ['default' => 'col-span-12 mb-20'],
 			'acf/organigramm' => ['default' => 'col-span-12'],
 			'acf/projects-overview' => ['default' => 'col-span-12 mb-20'],
+			'acf/latest-wikimove-podcasts' => ['default' => 'col-span-12 mb-20'],
 			// Classes manually added to Columns blocks in Gutenberg editor (could be named differently...)
 			'core/columns' => [
 				'col-12' => 'col-span-12',
