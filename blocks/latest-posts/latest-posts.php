@@ -29,7 +29,7 @@ if (is_multisite()) {
 	<!-- Sticky posts -->
 		<div class="container grid grid-cols-<?= min(2, count($sticky_posts)) ?> gap-8">
 			<?php for ($i = 0; $i < min(2, count($sticky_posts)); $i++): ?>
-				<?php $layout = count($sticky_posts) == 1 ? 'h' : 'v'; ?>
+				<?php $layout = count($sticky_posts) == 1 ? 'hwexl' : 'v'; ?>
 				<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $sticky_posts[$i]->ID, 'layout' => $layout]); ?>
 		<?php endfor; ?>
 	</div>
