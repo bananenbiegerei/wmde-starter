@@ -91,7 +91,7 @@ if ($layout == 'v' || $layout == 'vne') {
 	$layout_classes['container'] = 'flex-col';
 	$layout_classes['image'] = '';
 	$layout_classes['content'] = '';
-} elseif ($layout == 'h' || $layout == 'hwe') {
+} elseif ($layout == 'h' || $layout == 'hwe' || $layout == 'hwexl') {
 	$layout_classes['container'] = 'flex-row';
 	$layout_classes['image'] = 'basis-1/2';
 	$layout_classes['content'] = 'basis-1/2 self-center';
@@ -154,8 +154,8 @@ if ($link['title'] == '') {
 				<?= htmlspecialchars_decode(strip_tags($link['title'])) ?>
 			</h2>
 
-			<?php if (in_array($layout, ['v', 'hwe', 'h2we'])): ?>
-				<p class="text-xl font-alt font-normal text-inherit line-clamp-3">
+			<?php if (in_array($layout, ['v', 'hwe', 'hwexl', 'h2we'])): ?>
+				<p class="<?= $layout == 'hwexl' ? 'text-3xl' : 'text-xl' ?> font-alt font-normal line-clamp-3">
 					<?= wp_trim_words($excerpt, 99, '...') ?>
 				</p>
 			<?php endif; ?>
