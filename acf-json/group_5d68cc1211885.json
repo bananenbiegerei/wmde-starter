@@ -52,6 +52,27 @@
             "ui": 0,
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_643e95a756931",
+            "label": "Hide Button to all Projects",
+            "name": "hide_button_to_all_projects",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "translations": "copy_once",
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
         }
     ],
     "location": [
@@ -72,5 +93,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676288671
+    "modified": 1681823178
 }
