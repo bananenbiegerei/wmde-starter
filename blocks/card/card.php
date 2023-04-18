@@ -155,9 +155,9 @@ if ($link['title'] == '') {
 			</h2>
 
 			<?php if (in_array($layout, ['v', 'hwe', 'h2we'])): ?>
-				<div class="text-xl font-alt font-normal text-inherit">
-					<?= wp_trim_words($excerpt, 7, '...') ?>
-				</div>
+				<p class="text-xl font-alt font-normal text-inherit line-clamp-3">
+					<?= wp_trim_words($excerpt, 99, '...') ?>
+				</p>
 			<?php endif; ?>
 
 		</div>
