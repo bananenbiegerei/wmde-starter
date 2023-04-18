@@ -100,7 +100,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="flex space-x-1 py-3 transition-all duration-500 ease-in-out" x-bind:class="{ 'translate-x-0': !isScrolled, 'translate-x-10': isScrolled }">
+		<div class="navmenu flex space-x-1 py-3 transition-all duration-500 ease-in-out" x-bind:class="{ 'translate-x-0': !isScrolled, 'translate-x-10': isScrolled }">
 
 			<!-- Domain items -->
 			<template x-for="(domain,i) in nav">
