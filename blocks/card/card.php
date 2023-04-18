@@ -91,11 +91,11 @@ if ($layout == 'v' || $layout == 'vne') {
 	$layout_classes['container'] = 'flex-col';
 	$layout_classes['image'] = '';
 	$layout_classes['content'] = '';
-} elseif ($layout == 'h') {
+} elseif ($layout == 'h' || $layout == 'hwe') {
 	$layout_classes['container'] = 'flex-row';
 	$layout_classes['image'] = 'basis-1/2';
 	$layout_classes['content'] = 'basis-1/2 self-center';
-} elseif ($layout == 'h2') {
+} elseif ($layout == 'h2' || $layout == 'h2we') {
 	$layout_classes['container'] = 'flex-row';
 	$layout_classes['image'] = 'basis-1/3';
 	$layout_classes['content'] = 'basis-2/3';
