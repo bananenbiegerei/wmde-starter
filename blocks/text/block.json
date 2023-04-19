@@ -1,13 +1,13 @@
 {
 	"name": "acf/paragraph",
-	"title": "Paragraph",
-	"description": "Paragraph",
+	"title": "Text",
+	"description": "Block for text, lists und paragraphs",
 	"category": "wkmde-custom-blocks",
 	"icon": "editor-paragraph",
 	"keywords": [],
 	"acf": {
 		"mode": "false",
-		"renderTemplate": "paragraph.php"
+		"renderTemplate": "text.php"
 	},
 	"align": "full"
 }
