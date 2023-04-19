@@ -1,3 +1,3 @@
 <?php get_header();?>
-	<!-- see grid and cards in index.php -->
+	archive
 <?php get_footer(); ?>
