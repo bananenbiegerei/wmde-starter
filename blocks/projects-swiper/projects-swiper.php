@@ -25,7 +25,7 @@
 	<!-- Swiper -->
 	<div class="swiper-container relative mb-10">
 		<!-- Slides -->
-		<div class="swiper-wrapper h-full">
+		<div class="swiper-wrapper h-full flex">
 			<?php foreach (get_field('projects') as $project): ?>
 			<div class="swiper-slide rounded-2xl p-5 <?= $slide_bg ?> self-stretch"><!-- Slide size defined in block SCSS -->
 			<?php include( locate_template( 'template-parts/card-project-inner.php', false, false ) ); ?>
@@ -33,15 +33,19 @@
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<a class="btn btn-base btn-icon-left" href="<?php the_permalink('23'); ?>">
-		<?= bb_icon('arrow-right','icon-base'); ?>
-		<?= __('Alle Projekte', BB_TEXT_DOMAIN) ?>
-	</a>
+	<?php if ( get_field( 'hide_button_to_all_projects' ) == 1 ) : ?>
+		<?php // echo 'true'; ?>
+	<?php else : ?>
+		<a class="btn btn-base btn-icon-left" href="<?php the_permalink('23'); ?>">
+			<?= bb_icon('arrow-right','icon-base'); ?>
+			<?= __('Alle Projekte', BB_TEXT_DOMAIN) ?>
+		</a>
+	<?php endif; ?>
 </div>
 <script>
 	SwipersConfig['#<?= $block['id'] ?>'] = {
-		loop: true,
-		slidesPerView: '1',
+		loop: false,
+		slidesPerView: 'auto',
 		centeredSlides: false,
 		spaceBetween: 40,
 		grabCursor: true,
@@ -55,31 +59,6 @@
 		// 	delay: 4000,
 		// 	disableOnInteraction: true,
 		// },
-		breakpoints: {
-			// when window width is >= 320px
-			320: {
-			  slidesPerView: 1,
-			  spaceBetween: 20
-			},
-			// when window width is >= 480px
-			480: {
-			  slidesPerView: 1,
-			  spaceBetween: 30
-			},
-			// when window width is >= 640px
-			640: {
-			  slidesPerView: 2,
-			  spaceBetween: 40
-			},
-			1028: {
-			  slidesPerView: 3,
-			  spaceBetween: 40
-			},
-			1200: {
-			  slidesPerView: 4,
-			  spaceBetween: 40
-			}
-		  }
 	};
 </script>
 <?php else: ?>
