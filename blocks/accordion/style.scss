@@ -16,6 +16,12 @@
 			}
 			.accordion-content {
 				@apply text-xl;
+				ul {
+					list-style: disc;
+					li {
+						margin-left: 1em;
+					}
+				}
 			}
 		}
 	}
