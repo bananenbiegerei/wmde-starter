@@ -53,6 +53,7 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 
 // Override values if alt. versions are provided
 if (get_field('content')['alt_details'] ?? false) {
+	$excerpt = get_field('content')['excerpt'] ? get_field('content')['excerpt'] : $excerpt;
 	$alt_image_id = get_field('content')['image'];
 	$alt_theme = array_map(
 		function ($a) {
@@ -122,7 +123,10 @@ if ($link['title'] == '') {
 ?>
 
 <div class="bb-card-block rounded-3xl mb-10 lg:mb-5 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
+
+	<?php if (!is_admin()): ?>
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
+	<?php endif; ?>
 
 		<?php if ($post_type == 'projects' && $featured_image && !$alt_image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
@@ -162,5 +166,7 @@ if ($link['title'] == '') {
 
 		</div>
 
+	<?php if (!is_admin()): ?>
 	</a>
+	<?php endif; ?>
 </div>
