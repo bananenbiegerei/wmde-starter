@@ -21,6 +21,11 @@ add_action(
 			EOF;
 			wp_add_inline_script('site:defer', $script);
 		}
+		
+		// Threaded comment reply styles.
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
 
 		// Site style
 		wp_enqueue_style('style', get_template_directory_uri() . '/css/site.css', [], '', 'all');
@@ -40,3 +45,4 @@ add_action(
 	},
 	999,
 );
+
