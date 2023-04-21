@@ -91,6 +91,35 @@
 					"preview_size": "thumbnail"
 				},
 				{
+					"key": "field_64410302ab491",
+					"label": "Alt. Excerpt",
+					"name": "excerpt",
+					"aria-label": "",
+					"type": "textarea",
+					"instructions": "",
+					"required": 0,
+					"conditional_logic": [
+						[
+							{
+								"field": "field_63eb9f55d4bb9",
+								"operator": "==",
+								"value": "1"
+							}
+						]
+					],
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"translations": "translate",
+					"maxlength": "",
+					"rows": "",
+					"placeholder": "",
+					"new_lines": ""
+				},
+				{
 					"key": "field_63e0f87d28458",
 					"label": "Alt. Themes",
 					"name": "theme",
@@ -197,7 +226,8 @@
 						"gray": "Gray",
 						"red-50": "Red",
 						"green-50": "Green",
-						"primary-50": "Blue"
+						"primary-50": "Blue",
+						"neon": "Neon"
 					}
 				},
 				{
@@ -252,5 +282,5 @@
 	"active": true,
 	"description": "",
 	"show_in_rest": 0,
-	"modified": 1680092157
+	"modified": 1681982294
 }
