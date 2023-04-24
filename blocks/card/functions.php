@@ -34,11 +34,11 @@ class bbCard
 
 		$sites = [];
 		$sites[get_current_blog_id()] = null; // FIXME: why?
-		foreach ($wpdb->get_results("SELECT blog_id,domain,path FROM {$wpdb->prefix}blogs;", ARRAY_A) as $site) {
+		foreach ($wpdb->get_results("SELECT blog_id,domain,path FROM {$wpdb->base_prefix}blogs;", ARRAY_A) as $site) {
 			if ($site['blog_id'] == '1') {
-				$table = "{$wpdb->prefix}options";
+				$table = "{$wpdb->base_prefix}options";
 			} else {
-				$table = "{$wpdb->prefix}{$site['blog_id']}_options";
+				$table = "{$wpdb->base_prefix}{$site['blog_id']}_options";
 			}
 
 			$site['title'] = $wpdb->get_var("SELECT option_value FROM {$table} WHERE option_name='blogname';");

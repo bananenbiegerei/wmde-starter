@@ -106,7 +106,7 @@
 			<template x-for="(domain,i) in nav">
 				<!-- Domain name -->
 				<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }">
-					<a x-bind:href="domain.url"> <span x-text="domain.title"></span> </a>
+					<a x-bind:href="domain.url"> <span x-html="domain.title"></span> </a>
 				</button>
 			</template>
 
@@ -149,7 +149,7 @@
 												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 											</div>
 											<div class="">
-												<h4 class="text-base m-0" x-text="page.title"></h4>
+												<h4 class="text-base m-0" x-html="page.title"></h4>
 												<!-- <p class="mt-1 text-sm text-gray-500 block" x-html="page.excerpt"></p> -->
 											</div>
 										</a>
@@ -167,8 +167,8 @@
 							<template x-for="page in domain.pagesAndSections">
 								<li class="bg-white transition rounded-md"
 									x-bind:class="{'hover:bg-gray hover:drop-shadow-sm' : page.type == 'link', 'current': pageID == page.ID }">
-									<span class="inline-block text-sm font-bold pt-8 px-1.5 py-0.5 uppercase" x-text="page.title" x-show="page.type == 'section'"></span>
-									<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-text="page.title" x-show="page.type == 'link'"></a>
+									<span class="inline-block text-sm font-bold pt-8 px-1.5 py-0.5 uppercase" x-html="page.title" x-show="page.type == 'section'"></span>
+									<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title" x-show="page.type == 'link'"></a>
 								</li>
 							</template>
 
