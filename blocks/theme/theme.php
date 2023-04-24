@@ -19,7 +19,7 @@ $theme_url = get_the_permalink($theme);
 			<div class="col-span-8 flex flex-col">
 				<div class="pt-10">
 					<!-- Theme or format -->
-					<div class="uppercase text-primary font-bold text-base font-alt">
+					<div class="topline">
 						<?= __('Theme', BB_TEXT_DOMAIN) ?>
 					</div>
 					<!-- Title -->
@@ -76,7 +76,7 @@ $theme_url = get_the_permalink($theme);
 						<?php if ($terms = get_the_terms($related->ID, 'theme')): ?>
 						  <?php $term_names = []; ?>
 						  <?php /* prettier-ignore */ foreach ($terms as $term) { $term_names[] = $term->name; } ?>
-						  <div class="uppercase text-primary font-bold text-base font-alt"><?php echo implode(', ', $term_names); ?></div>
+						  <div class="topline"><?php echo implode(', ', $term_names); ?></div>
 						 <?php endif; ?>
 						<a href="<?php the_permalink(); ?>">
 							<h3 class="text-base lg:text-xl text-bg-related"><?php echo get_the_title($related->ID); ?></h3>

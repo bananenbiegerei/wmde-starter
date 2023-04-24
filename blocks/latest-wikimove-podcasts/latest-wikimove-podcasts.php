@@ -31,7 +31,7 @@ $podcasts = get_posts(['post_type' => 'podcast', 'numberposts' => 4]);
 						<?php endif; ?>
 					</div>
 					<div class="text-left">
-						<h2 class="uppercase text-primary font-bold text-xs font-alt"><?= $p->post_title ?></h2>
+						<h2 class="topline"><?= $p->post_title ?></h2>
 						<p class="text-xl font-alt font-normal text-inherit line-clamp-3">
 							<?= wp_trim_words(get_the_excerpt($p->ID), 99, '...') ?>
 						</p>

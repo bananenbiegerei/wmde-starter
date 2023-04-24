@@ -167,7 +167,7 @@
 							<template x-for="page in domain.pagesAndSections">
 								<li class="bg-white transition rounded-md"
 									x-bind:class="{'hover:bg-gray hover:drop-shadow-sm' : page.type == 'link', 'current': pageID == page.ID }">
-									<span class="inline-block font-bold pt-8 px-1.5 py-0.5 uppercase" x-text="page.title" x-show="page.type == 'section'"></span>
+									<span class="inline-block text-sm font-bold pt-8 px-1.5 py-0.5 uppercase" x-text="page.title" x-show="page.type == 'section'"></span>
 									<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-text="page.title" x-show="page.type == 'link'"></a>
 								</li>
 							</template>

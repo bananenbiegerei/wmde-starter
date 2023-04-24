@@ -16,7 +16,7 @@ $publications = get_posts(['post_type' => 'publications', 'numberposts' => $coun
 					<?php endif; ?>
 				</div>
 				<div class="text-center">
-					<h2 class="uppercase text-primary font-bold text-xs font-alt"><?php echo $p->post_title; ?></h2>
+					<h2 class="topline"><?php echo $p->post_title; ?></h2>
 					<div>
 						<a href="<?= get_field('pdf', $p->ID) ?>" class="btn btn-xs btn-hollow btn-icon-left">
 							<?= bb_icon('arrow-down', 'icon-xs') ?> <?php _e('Download', BB_TEXT_DOMAIN); ?>

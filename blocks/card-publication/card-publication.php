@@ -25,10 +25,10 @@ $post_download = get_field('pdf', $post_id);
 		</div>
 		<div>
 			<?php if (get_field('hide_excerpt')): ?>
-				<h2 class="uppercase text-primary font-bold text-xs font-alt"><?php echo $post_title; ?></h2>
+				<h2><?php echo $post_title; ?></h2>
 			<?php else: ?>
-				<h2 class="uppercase text-primary font-bold text-xs font-alt"><?php echo $post_title; ?></h2>
-				<p class="font-alt">
+				<h2><?php echo $post_title; ?></h2>
+				<p class="text-sm">
 					<?= $post_excerpt ?>
 				</p>
 			<?php endif; ?>

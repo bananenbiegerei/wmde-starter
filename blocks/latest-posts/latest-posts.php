@@ -27,14 +27,14 @@ if (is_multisite()) {
 
 <div class="bb-latest-posts-block mb-20">
 	<!-- Sticky posts -->
-		<div class="container grid grid-cols-<?= min(2, count($sticky_posts)) ?> gap-8">
+		<div class="container grid grid-cols-<?= min(2, count($sticky_posts)) ?> gap-10 mb-5">
 			<?php for ($i = 0; $i < min(2, count($sticky_posts)); $i++): ?>
 				<?php $layout = count($sticky_posts) == 1 ? 'hwexl' : 'v'; ?>
 				<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $sticky_posts[$i]->ID, 'layout' => $layout]); ?>
 		<?php endfor; ?>
 	</div>
 	<!-- Other posts -->
-	<div class="container grid grid-cols-1 lg:grid-cols-4 gap-8">
+	<div class="container grid grid-cols-1 lg:grid-cols-4 gap-10">
 			<?php for ($i = 0; $i < $count; $i++): ?>
 					<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $posts[$i]->ID, 'layout' => 'vne']); ?>
 		<?php endfor; ?>

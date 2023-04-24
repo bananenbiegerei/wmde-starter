@@ -125,7 +125,7 @@ if ($link['title'] == '') {
 <div class="bb-card-block rounded-3xl mb-10 lg:mb-5 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
 
 	<?php if (!is_admin()): ?>
-	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?>">
+	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?> text-hover-effect image-hover-effect">
 	<?php endif; ?>
 
 		<?php if ($post_type == 'projects' && $featured_image && !$alt_image_id): ?>
@@ -138,7 +138,7 @@ if ($link['title'] == '') {
 			</div>
 		<?php elseif ($featured_image): ?>
 			<div class="<?= $layout_classes['image'] ?>">
-				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
+				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden image-hover-effect">
 					<?= $featured_image ?>
 				</div>
 			</div>
@@ -147,19 +147,19 @@ if ($link['title'] == '') {
 		<div class="<?= $layout_classes['content'] ?> space-y-2 px-2 pb-2 card-content">
 
 			<?php if ($theme || $format): ?>
-				<div class="uppercase text-primary font-bold text-xs font-alt">
+				<div class="topline">
 					<?= strip_tags(join(', ', $theme)) ?>
 					<?= $theme && $format ? ' | ' : '' ?>
 					<?= strip_tags(join(', ', $format)) ?>
 				</div>
 			<?php endif; ?>
 
-			<h2 class="text-2xl font-alt">
+			<h2 class="<?= $layout == 'hwexl' ? 'text-3xl' : 'text-2xl' ?> font-alt">
 				<?= htmlspecialchars_decode(strip_tags($link['title'])) ?>
 			</h2>
 
 			<?php if (in_array($layout, ['v', 'hwe', 'hwexl', 'h2we'])): ?>
-				<p class="<?= $layout == 'hwexl' ? 'text-3xl' : 'text-xl' ?> font-alt font-normal line-clamp-3">
+				<p class="<?= $layout == 'hwexl' ? 'text-xl' : 'text-xl' ?> font-normal line-clamp-3">
 					<?= wp_trim_words($excerpt, 99, '...') ?>
 				</p>
 			<?php endif; ?>

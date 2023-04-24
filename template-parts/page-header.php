@@ -1,16 +1,18 @@
 <?php if ( is_singular('theme-releases') ): ?>
 
 <?php 
-$title_style = 'uppercase text-primary text-base'; 
+$title_style = 'topline'; 
 $excerpt_style = 'font-alt text-2xl lg:text-3xl font-normal';
 else: 
 $title_style = 'text-5xl my-5'; 
 $excerpt_style = 'font-alt text-2xl font-normal';
+$header_bg = 'bg-gray';
+
 ?>
 
 <?php endif; ?>
 <?php if (has_post_thumbnail()): ?>
-  <div class="bg-gray min-h-[12rem]">
+  <div class="<?php echo $header_bg; ?> min-h-[12rem]">
 	  <div class="container grid grid-cols-12">
 		  <div class="col-span-12 lg:col-span-10 lg:col-start-2">
 			  <?php get_template_part('template-parts/breadcrumbs'); ?>

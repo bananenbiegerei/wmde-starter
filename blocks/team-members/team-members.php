@@ -36,10 +36,10 @@ $meta_infos = get_field('show_meta_infos');
 											<?= $member['label_for_related_project'] ?>
 											<ul>
 												<?php foreach ($related_project as $post): ?>
-													<li><a class="uppercase text-sm text-primary font-bold text-sm font-alt" href="<?= get_permalink($post->ID) ?>"><?= get_the_title($post->ID) ?></a></li>
+													<li><a class="topline" href="<?= get_permalink($post->ID) ?>"><?= get_the_title($post->ID) ?></a></li>
 												<?php endforeach; ?>
 												<?php foreach ($related_project_ext as $title => $url): ?>
-													<li><a class="uppercase text-xs text-primary font-bold text-sm font-alt" href="<?= $url ?>"><?= $title ?></a></li>
+													<li><a class="topline" href="<?= $url ?>"><?= $title ?></a></li>
 												<?php endforeach; ?>
 											</ul>
 										<?php endif; ?>

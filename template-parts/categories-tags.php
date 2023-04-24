@@ -2,7 +2,7 @@
 	<?php
 	$cats = get_the_category($id);
 	foreach ( $cats as $cat ): ?>
-		<a class="uppercase text-primary font-alt font-bold text-sm" href="<?php echo get_category_link($cat->cat_ID); ?>">
+		<a class="topline" href="<?php echo get_category_link($cat->cat_ID); ?>">
 			<?php echo $cat->name; ?>
 		</a>
 	<?php endforeach; ?>

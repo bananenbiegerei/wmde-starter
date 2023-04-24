@@ -2,7 +2,7 @@
 	class="bb-newsletter-block rounded-3xl p-10 flex flex-col mb-10 h-full"
 	style="background-color: <?= get_field('bg_color') ?>;">
 
-		<div class="uppercase text-primary font-bold font-alt text-sm">
+		<div class="topline">
 			<?= esc_html(get_field('heading')) ?>
 		</div>
 

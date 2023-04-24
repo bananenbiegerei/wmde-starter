@@ -23,12 +23,14 @@
 				</div>
 	</div>
 	<!-- Swiper -->
-	<div class="swiper-container relative mb-10">
+	<div class="swiper-container relative mb-10 -mx-5">
 		<!-- Slides -->
 		<div class="swiper-wrapper h-full flex">
 			<?php foreach (get_field('projects') as $project): ?>
-			<div class="swiper-slide rounded-2xl p-5 <?= $slide_bg ?> self-stretch"><!-- Slide size defined in block SCSS -->
-			<?php include( locate_template( 'template-parts/card-project-inner.php', false, false ) ); ?>
+			<div class="swiper-slide self-stretch p-5"><!-- Slide size defined in block SCSS -->
+			<div class="rounded-2xl p-5 <?= $slide_bg ?> h-full">
+				<?php include( locate_template( 'template-parts/card-project-inner.php', false, false ) ); ?>
+			</div>
 			</div>
 			<?php endforeach; ?>
 		</div>
@@ -47,7 +49,7 @@
 		loop: false,
 		slidesPerView: 'auto',
 		centeredSlides: false,
-		spaceBetween: 40,
+		spaceBetween: 0,
 		grabCursor: true,
 		draggable: true,
 		navigation: {

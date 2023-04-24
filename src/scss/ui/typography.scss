@@ -28,7 +28,10 @@ h6 {
 p,
 ul,
 ol {
-	@apply leading-tight text-lg lg:text-xl font-normal mb-2;
+	@apply leading-tight text-lg lg:text-xl font-normal mb-5 max-w-4xl;
+}
+.topline {
+	@apply uppercase font-bold font-alt text-sm text-primary;
 }
 
 .main-content {

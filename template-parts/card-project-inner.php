@@ -1,5 +1,4 @@
-<div class="aspect-w-3 aspect-h-4">
-	<a class="flex flex-col gap-5" href="<?php echo get_post_permalink($project->ID); ?>">
+	<a class="flex flex-col gap-5 h-full" href="<?php echo get_post_permalink($project->ID); ?>">
 		<div class="basis-1/2">
 			<div class="w-full h-full flex items-center justify-center p-5">
 				<?php if (has_post_thumbnail($project->ID)): ?>
@@ -11,11 +10,10 @@
 			<h2 class="text-2xl font-sans font-medium">
 				<?php echo $project->post_title; ?>
 			</h2>
-			<div class="text-xl font-alt font-normal text-inherit">
+			<div class="text-xl font-normal text-inherit">
 				<p class="line-clamp-5">
 					<?php echo strip_tags(get_the_excerpt($project->ID)); ?>
 				</p>
 			</div>
 		</div>
 	</a>
-</div>

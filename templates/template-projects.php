@@ -47,7 +47,6 @@ get_header();?>
 					}, $terms ) );
 				endif;
 			?>
-			<?php $project = $projects; ?>
 			<?php include( locate_template( 'template-parts/card-project.php', false, false ) ); ?>
 		<?php endwhile; ?>
 	</div>
