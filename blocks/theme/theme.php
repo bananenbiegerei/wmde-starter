@@ -7,7 +7,7 @@ $theme_url = get_the_permalink($theme);
 ?>
 
 <div class="bb-theme-block mb-10 lg:mb-20">
-	<div class="rounded-3xl px-10 grid grid-cols-12 " style="background-color: <?= $color ?>;">
+	<div class="rounded-3xl px-10 grid grid-cols-12 overflow-hidden" style="background-color: <?= $color ?>;">
 		<!-- Image -->
 			<div class="col-span-4">
 				<div class="aspect-w-4 aspect-h-3 relative -translate-x-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
@@ -17,7 +17,7 @@ $theme_url = get_the_permalink($theme);
 				</div>
 			</div>
 			<div class="col-span-8 flex flex-col">
-				<div class="pt-10">
+				<div class="pt-8">
 					<!-- Theme or format -->
 					<div class="topline">
 						<?= __('Theme', BB_TEXT_DOMAIN) ?>
@@ -27,12 +27,12 @@ $theme_url = get_the_permalink($theme);
 				</div>
 
 				<!-- Text -->
-				<p class="font-normal flex-grow pr-5 pb-5 text-2xl text-bg-related">
+				<p class="font-normal flex-grow pr-5 pb-5 text-xl text-bg-related">
 					<?= $theme->post_excerpt ?>
 				</p>
 
 				<!-- Button and extra info -->
-				<div class="flex-1 flex items-end pb-10">
+				<div class="flex-1 flex items-end pb-8">
 					<a href="<?php echo $theme_url; ?>" class="btn btn-hollow">
 						<?= bb_icon('arrow-right',''); ?>
 						<?= __('Zum Thema', BB_TEXT_DOMAIN) ?>						

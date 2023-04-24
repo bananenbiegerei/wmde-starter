@@ -1,4 +1,4 @@
-	<a class="flex flex-col gap-5 h-full" href="<?php echo get_post_permalink($project->ID); ?>">
+	<a class="flex flex-col gap-5 h-full text-hover-effect image-hover-effect" href="<?php echo get_post_permalink($project->ID); ?>">
 		<div class="basis-1/2">
 			<div class="w-full h-full flex items-center justify-center p-5">
 				<?php if (has_post_thumbnail($project->ID)): ?>

@@ -8,8 +8,8 @@
 		@apply underline transition;
 	}
 }
-.image-hover-effect {
+.image-hover-effect:hover {
 	img {
-		@apply hover:opacity-90 transition;
+		@apply opacity-90 transition;
 	}
 }

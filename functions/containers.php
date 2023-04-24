@@ -31,17 +31,21 @@ add_filter(
 			'acf/facts' => ['default' => 'col-span-12'],
 			'acf/organigramm' => ['default' => 'col-span-12'],
 			'acf/latest-wikimove-podcasts' => ['default' => 'col-span-12'],
+			'acf/latest-publications' => ['default' => 'col-span-12'],
 			// Classes manually added to Columns blocks in Gutenberg editor (could be named differently...)
 			'core/columns' => [
 				'col-12' => 'col-span-12',
 				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
 				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
 			],
-			// Classes manually added to Group blocks in Gutenberg editor (could be named differently...)
 			'core/group' => [
 				'col-12' => 'col-span-12',
 				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
 				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
+			],
+			// FIXME: @eric I would like to add the feature to heading block to have it wide…
+			'acf/heading' => [
+				'col-12' => 'col-span-12',
 			],
 			// For other blocks with or without alignment settings
 			'default' => [

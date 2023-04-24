@@ -22,7 +22,7 @@ $meta_infos = get_field('show_meta_infos');
 		<div class="grid grid-cols-1 sm:grid-cols-<?php echo $columns ?> mb-16 gap-10">
 				<?php foreach ($members as $member): ?>
 							<div class="sm:flex sm:gap-5">
-								<div class="overflow-hidden basis-1/2 self-start">
+								<div class="overflow-hidden basis-1/2 self-start max-w-[18rem]">
 									<!-- <div class="aspect-h-1 aspect-w-1"> -->
 										<?= $member['photo'] ?>
 									<!-- </div> -->
@@ -45,9 +45,9 @@ $meta_infos = get_field('show_meta_infos');
 										<?php endif; ?>
 									<?php endif; ?>
 									
-										<h4 class="text-lg"><?= $member['name'] ?></h4>
-										<p class="margin-bottom-0 text-lg"><?= $member['details'] ?></p>
-										<p class="text-lg"><a href="mailto:<?= $member['email'] ?>">E-mail</a></p>
+										<h4 class="text-lg mb-1"><?= $member['name'] ?></h4>
+										<p class="mb-1 text-lg"><?= $member['details'] ?></p>
+										<p class="text-lg mb-1"><a href="mailto:<?= $member['email'] ?>">E-mail</a></p>
 								</div>
 							</div>
 				<?php endforeach; ?>

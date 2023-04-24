@@ -39,4 +39,10 @@ if (is_multisite()) {
 					<?php get_template_part('blocks/card/card', null, ['blog_id' => $blog_id, 'post_id' => $posts[$i]->ID, 'layout' => 'vne']); ?>
 		<?php endfor; ?>
 	</div>
+	<div class="container flex justify-center">
+		<a href="#site-url" class="btn btn-hollow btn-icon-left">
+			<?= bb_icon('arrow-right'); ?>
+			<?php _e('Alle Artikel') ?>
+		</a>
+	</div>
 </div>
