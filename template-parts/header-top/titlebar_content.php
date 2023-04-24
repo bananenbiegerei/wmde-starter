@@ -15,7 +15,7 @@
 				class="btn btn-red btn-hollow btn-sm btn-icon-left"
 				href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
 				<?= bb_icon('heart', 'heartbeat icon-sm') ?>
-				<?php pll_e('donate'); ?>
+				<?php_e('donate'); ?>
 			</a>
 		</li>
 		<?php endif; ?>
@@ -24,7 +24,7 @@
 			<a
 				class="btn btn-ghost btn-sm"
 				href="<?php echo esc_url(get_field('link_fur_mitmachen', 'option')); ?>">
-				<?php pll_e('Mitmachen'); ?>
+				<?php_e('Mitmachen'); ?>
 			</a>
 		</li>
 		<?php endif; ?>

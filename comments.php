@@ -68,7 +68,7 @@
 
 <?php if (!empty($post->post_password)) : ?>
 	<?php if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) : ?>
-			<p><?php pll_e('This post is password protected. Enter the password to view comments.'); ?></p>
+			<p><?php_e('This post is password protected. Enter the password to view comments.'); ?></p>
 	<?php endif; ?>
 <?php endif; ?>
 
@@ -85,16 +85,16 @@
 		?>
 	</ul>
 <?php else : ?>
-	<p><?php pll_e('No comments yet') ?></p>
-	<h3><?php pll_e('Leave a comment'); ?></h3>
+	<p><?php_e('No comments yet') ?></p>
+	<h3><?php_e('Leave a comment'); ?></h3>
 <?php endif; ?>
 
 <?php if (comments_open()) :
 $user_ID = get_current_user_id();
 ?>
 	<?php if (get_option('comment_registration') && !$user_ID) : ?>
-		<p><?php pll_e('You must be'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>"><?php pll_e('logged in') ?>
-			</a> <?php pll_e('to post a comment.'); ?>
+		<p><?php_e('You must be'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>"><?php_e('logged in') ?>
+			</a> <?php_e('to post a comment.'); ?>
 		</p>
 	<?php else : ?>
 		<?php
@@ -121,5 +121,5 @@ $user_ID = get_current_user_id();
 		?>
 	<?php endif; ?>
 <?php else : ?>
-	<p><?php pll_e('The comments are closed.'); ?></p>
+	<p><?php_e('The comments are closed.'); ?></p>
 <?php endif; ?>
