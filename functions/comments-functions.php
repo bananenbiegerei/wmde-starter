@@ -16,7 +16,7 @@ function wmde_comment($comment, $args, $depth) {
 		} ?>
 
 		<?php comment_text(); ?>
-		<p class="meta small"><?php comment_type(); ?> <?php_e('by') ?> <?php comment_author_link(); ?> <?php_e('on') ?> <?php comment_date(); ?> <?php_e('at') ?> <?php comment_time(); ?></p>
+		<p class="meta small"><?php comment_type(); ?> <?php _e('by') ?> <?php comment_author_link(); ?> <?php _e('on') ?> <?php comment_date(); ?> <?php _e('at') ?> <?php comment_time(); ?></p>
 
 		<div class="reply"><?php 
 				comment_reply_link( 
