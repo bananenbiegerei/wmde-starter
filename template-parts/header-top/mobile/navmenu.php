@@ -32,7 +32,7 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 				<a
 					x-bind:href="domain.url"
 					class="btn btn-menu h-16">
-					<span class="w-full" x-text="domain.title"></span>
+					<span class="w-full" x-html="domain.title"></span>
 				</a>
 				</div>
 
@@ -57,7 +57,7 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 										<div class="w-full h-full w-10 h-10 mr-2 flex justify-center items-center">
 											<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 										</div>
-										<span class="w-full" x-text="page.title"></span>
+										<span class="w-full" x-html="page.title"></span>
 									</a>
 								</li>
 							</template>
@@ -72,7 +72,7 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 									<a
 										x-bind:href="page.url"
 										class="btn btn-menu">
-										<span class="w-full" x-text="page.title"></span>
+										<span class="w-full" x-html="page.title"></span>
 									</a>
 								</li>
 							</template>
@@ -83,11 +83,11 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 					<template x-for="(section_pages, section_title) in domain.sections">
 						<ul class="border-t border-gray-200 py-4 px-2">
 								<li class="pl-6">
-									<span class="btn btn-menu-section" x-text="section_title.split('#')[0]"></span>
+									<span class="btn btn-menu-section" x-html="section_title.split('#')[0]"></span>
 									<ul>
 										<template x-for="page in section_pages">
 											<li  class="py-2" x-bind:class="{'current': pageID == page.ID }">
-												<a x-bind:href="page.url" x-text="page.title" class="btn btn-menu"></a>
+												<a x-bind:href="page.url" x-html="page.title" class="btn btn-menu"></a>
 											</li>
 										</template>
 									</ul>
