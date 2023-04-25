@@ -13,11 +13,11 @@
 <?php if (!is_admin()): ?>
 <div class="bb-projects-swiper-block mb-20 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
 	<!-- Headline and Navigation -->
-			<div class="flex mb-5">
+			<div class="flex mb-5 items-center">
 				<div class="grow">
-					<h2 class="text-5xl text-primary"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
+					<h2 class="text-3xl lg:text-5xl text-primary mb-0"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
 				</div>
-				<div class="relative hidden lg:flex space-x-2 items-center">
+				<div class="relative flex space-x-2 items-center">
 					<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
 					<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-hollow cursor-pointer') ?>
 				</div>

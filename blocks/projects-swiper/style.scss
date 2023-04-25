@@ -1,6 +1,6 @@
 .bb-projects-swiper-block {
 	@apply overflow-hidden;
 	.swiper-slide {
-		@apply h-auto w-1/4;
+		@apply h-auto w-full sm:w-1/2 lg:w-1/4;
 	}
 }
