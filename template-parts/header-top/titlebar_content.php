@@ -8,7 +8,7 @@
 </div>
 
 <div>
-	<ul class="flex items-center space-x-2 lg:space-x-5">
+	<ul class="flex items-center space-x-2 lg:space-x-5 mb-0">
 		<?php if (get_field('link_fur_spenden', 'option')): ?>
 		<li>
 			<a

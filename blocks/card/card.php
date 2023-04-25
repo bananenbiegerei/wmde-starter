@@ -93,13 +93,13 @@ if ($layout == 'v' || $layout == 'vne') {
 	$layout_classes['image'] = '';
 	$layout_classes['content'] = '';
 } elseif ($layout == 'h' || $layout == 'hwe' || $layout == 'hwexl') {
-	$layout_classes['container'] = 'flex-row';
+	$layout_classes['container'] = 'flex-row bg-red-500';
 	$layout_classes['image'] = 'basis-1/2';
 	$layout_classes['content'] = 'basis-1/2 self-center';
 } elseif ($layout == 'h2' || $layout == 'h2we') {
-	$layout_classes['container'] = 'flex-row';
-	$layout_classes['image'] = 'basis-1/3';
-	$layout_classes['content'] = 'basis-2/3';
+	$layout_classes['container'] = 'flex-col lg:flex-row';
+	$layout_classes['image'] = 'basis-full lg:basis-1/3';
+	$layout_classes['content'] = 'basis-full lg:basis-2/3';
 }
 
 // Add background color and padding

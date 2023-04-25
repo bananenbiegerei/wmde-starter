@@ -4,5 +4,6 @@
 	@apply overflow-hidden;
 	.swiper-pagination {
 		font-variant-numeric: tabular-nums;
+		@apply text-base;
 	}
 }
