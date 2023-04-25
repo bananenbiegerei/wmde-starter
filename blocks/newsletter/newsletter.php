@@ -1,5 +1,5 @@
 <div id="<?= $block['id'] ?>"
-	class="bb-newsletter-block rounded-3xl p-10 flex flex-col mb-10 h-full"
+	class="bb-newsletter-block rounded-3xl p-5 flex flex-col mb-10 h-full"
 	style="background-color: <?= get_field('bg_color') ?>;">
 
 		<div class="topline">
@@ -13,7 +13,7 @@
 		</div>
 		
 		<form action="https://t874ad7c5.emailsys1a.net/191/2155/d537ac9314/subscribe/form.html" method="post">
-					<ul class="grid grid-cols-2 gap-5">
+					<ul class="lg:grid lg:grid-cols-2 lg:gap-5">
 						<li style="position:absolute; z-index: -100; left:-6000px;" aria-hidden="true">
 							<label class="field_label required" for="rm_email"><?php pll_e('E-Mail:') ?> </label>
 							<input type="text" class="form_field" name="rm_email" id="rm_email" value="" tabindex="-1" />
@@ -28,7 +28,7 @@
 							<label id="firstname_label" class="field_label text-sm font-bold" for="firstname"><?php pll_e('Vorname:') ?> </label>
 							<input type="text" class="form_field" name="firstname" id="firstname" value="" />
 						</li>
-						<li id="lastname_form" class="basis-1/2">
+						<li id="lastname_form" class="basis-1/2 mb-5 lg:mb-5">
 							<label id="lastname_label" class="field_label text-sm font-bold" for="lastname"><?php pll_e('Nachname:') ?> </label>
 							<input type="text" class="form_field" name="lastname" id="lastname" value="" />
 						</li>
