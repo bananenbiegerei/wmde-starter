@@ -29,17 +29,19 @@
 			<?php foreach (get_field('projects') as $project): ?>
 			<div class="swiper-slide self-stretch p-5"><!-- Slide size defined in block SCSS -->
 			<div class="rounded-2xl p-5 <?= $slide_bg ?> h-full">
-				<?php include( locate_template( 'template-parts/card-project-inner.php', false, false ) ); ?>
+				<?php include locate_template('blocks/projects-swiper/project-card.php', false, false); ?>
 			</div>
 			</div>
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<?php if ( get_field( 'hide_button_to_all_projects' ) == 1 ) : ?>
-		<?php // echo 'true'; ?>
-	<?php else : ?>
+	<?php if (get_field('hide_button_to_all_projects') == 1): ?>
+		<?php
+ 	// echo 'true';
+ 	?>
+	<?php else: ?>
 		<a class="btn btn-base btn-icon-left" href="<?php the_permalink('23'); ?>">
-			<?= bb_icon('arrow-right','icon-base'); ?>
+			<?= bb_icon('arrow-right', 'icon-base') ?>
 			<?= __('Alle Projekte', BB_TEXT_DOMAIN) ?>
 		</a>
 	<?php endif; ?>
