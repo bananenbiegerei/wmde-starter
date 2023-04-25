@@ -160,7 +160,7 @@ if ($link['title'] == '') {
 
 			<?php if (in_array($layout, ['v', 'hwe', 'hwexl', 'h2we'])): ?>
 				<p class="<?= $layout == 'hwexl' ? 'text-xl' : 'text-xl' ?> font-normal line-clamp-3">
-					<?= wp_trim_words($excerpt, 99, '...') ?>
+					<?= $excerpt ?>
 				</p>
 			<?php endif; ?>
 
