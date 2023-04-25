@@ -1,7 +1,7 @@
 .menu {
 	@apply transition-all duration-500 ease-in-out;
 	&.horizontal {
-		@apply flex gap-5 items-baseline;
+		@apply lg:flex lg:gap-5 lg:items-baseline;
 	}
 	li {
 		a {
