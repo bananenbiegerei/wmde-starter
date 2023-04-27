@@ -202,6 +202,23 @@
                     "layout": "horizontal"
                 }
             ]
+        },
+        {
+            "key": "field_64494997675a0",
+            "label": "Headline Link",
+            "name": "headline_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "translations": "copy_once"
         }
     ],
     "location": [
@@ -222,5 +239,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1682410038
+    "modified": 1682524609
 }
