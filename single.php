@@ -12,7 +12,7 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 	<div class="container grid grid-cols-12 gap-10">
 		<div class="col-span-8 lg:col-span-10 lg:col-start-2">
 			<?php get_template_part('template-parts/categories-tags'); ?>
-			<h1 class="<?php echo $title_style; ?> my-5"><?php the_title(); ?></h1>
+			<h1 class="<?php echo $title_style; ?> my-5 mb-0"><?php the_title(); ?></h1>
 		</div>
 
 		<?php if (has_excerpt()): ?>

@@ -13,10 +13,30 @@ get_header();?>
 	
 	$projects = new WP_Query( $args );
 	?>
-<div class="container py-10">
-	<h1><?php the_title(); ?></h1>
-	<div class="max-w-4xl text-2xl">
-		<?php echo get_the_excerpt(); ?>
+<div class="pb-10">
+	<div class="container grid grid-cols-12">
+		<div class="col-span-12 pt-5">
+			<?php get_template_part('template-parts/breadcrumbs'); ?>
+			<h1 class="<?php echo $title_style; ?>"><?php the_title(); ?></h1>
+			<?php if (has_excerpt()): ?>
+			<div class="font-alt text-2xl font-normal mb-5">
+				<?php the_excerpt(); ?>
+			</div>
+			<?php endif; ?>
+			<?php if ( have_rows( 'call_to_actions_in_header' ) ) : ?>
+			<div class="">
+				<?php while ( have_rows( 'call_to_actions_in_header' ) ) : the_row(); ?>
+				<?php $cta_link = get_sub_field( 'cta_link' ); ?>
+				<?php if ( $cta_link ) : ?>
+				<a class="btn btn-base btn-icon-left" href="<?php echo esc_url( $cta_link['url'] ); ?>" target="<?php echo esc_attr( $cta_link['target'] ); ?>">
+					<?= bb_icon('arrow-right', 'icon-base'); ?>
+					<?php echo esc_html( $cta_link['title'] ); ?></a>
+				<?php endif; ?>
+				<?php endwhile; ?>
+			</div>
+			<?php endif; ?>
+		</div>
+
 	</div>
 </div>
 <?php the_content(); ?>
@@ -32,13 +52,13 @@ get_header();?>
 				) );
 				foreach ( $terms as $term ) :
 			?>
-		<button x-on:click="selectedFilter='<?php echo $term->slug; ?>'" class="btn btn-sm btn-hollow" :class="{'!bg-gray-200': selectedFilter == '<?php echo $term->slug; ?>'}" type="button"><?php echo $term->name; ?></button>
-		<?php endforeach; ?>
-	</div>
-	*/ ?>
-	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 container">
-		<?php while ( $projects->have_posts() ) : $projects->the_post(); ?>
-		<?php
+	<button x-on:click="selectedFilter='<?php echo $term->slug; ?>'" class="btn btn-sm btn-hollow" :class="{'!bg-gray-200': selectedFilter == '<?php echo $term->slug; ?>'}" type="button"><?php echo $term->name; ?></button>
+	<?php endforeach; ?>
+</div>
+*/ ?>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 container">
+	<?php while ( $projects->have_posts() ) : $projects->the_post(); ?>
+	<?php
 				$terms = get_the_terms( get_the_ID(), 'project_types' );
 				$classes = '';
 				if ( $terms && ! is_wp_error( $terms ) ) :
@@ -47,11 +67,11 @@ get_header();?>
 					}, $terms ) );
 				endif;
 			?>
-			<?php include( locate_template( 'template-parts/card-project.php', false, false ) ); ?>
-		<?php endwhile; ?>
-	</div>
-
-	<?php wp_reset_postdata(); ?>
+	<?php include( locate_template( 'template-parts/card-project.php', false, false ) ); ?>
+	<?php endwhile; ?>
 </div>
 
-	<?php get_footer(); ?>
+<?php wp_reset_postdata(); ?>
+</div>
+
+<?php get_footer(); ?>
