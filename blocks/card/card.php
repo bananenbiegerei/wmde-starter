@@ -75,7 +75,7 @@ if (get_field('content')['alt_details'] ?? false) {
 $featured_image = null;
 if ($post_type == 'projects' && !$alt_image_id && ($image_id = get_post_thumbnail_id($post_id))) {
 	// If it's a project w/o an alt. image
-	$featured_image = wp_get_attachment_image($image_id, 'full', false, ['class' => 'p-1 w-auto max-h-32']);
+	$featured_image = wp_get_attachment_image($image_id, 'full', false, ['class' => 'p-5 w-auto max-h-32']);
 } elseif ($alt_image_id) {
 	// If there's an alt. image, use it
 	$featured_image = wp_get_attachment_image($alt_image_id, 'full', false, ['class' => 'object-cover w-full h-full']);
@@ -93,7 +93,7 @@ if ($layout == 'v' || $layout == 'vne') {
 	$layout_classes['image'] = '';
 	$layout_classes['content'] = '';
 } elseif ($layout == 'h' || $layout == 'hwe' || $layout == 'hwexl') {
-	$layout_classes['container'] = 'flex-row bg-red-500';
+	$layout_classes['container'] = 'flex-row';
 	$layout_classes['image'] = 'basis-1/2';
 	$layout_classes['content'] = 'basis-1/2 self-center';
 } elseif ($layout == 'h2' || $layout == 'h2we') {
@@ -131,7 +131,7 @@ if ($link['title'] == '') {
 		<?php if ($post_type == 'projects' && $featured_image && !$alt_image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
 				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl">
-				<div class="w-full h-full flex items-center justify-center p-5">
+				<div class="flex items-center justify-center">
 					<?= $featured_image ?>
 				</div>
 				</div>

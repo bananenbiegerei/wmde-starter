@@ -29,7 +29,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks) {
 		return !str_starts_with($b, 'core/');
 	});
 	// Add the core blocks we're still using
-	$core_blocks = ['core/group', 'core/column', 'core/columns', 'core/html'];
+	$core_blocks = ['core/group', 'core/column', 'core/columns', 'core/html', 'core/file'];
 	return array_merge($blocks, $core_blocks);
 });
 

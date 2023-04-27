@@ -28,7 +28,7 @@ if (count($breadcrumbs) == 0) {
 }
 ?>
 
-<div class="flex items-center pt-8">
+<div class="flex items-center">
 	<ul class="flex gap-1">
 		<?= join('', $breadcrumbs) ?>
 	</ul>
