@@ -15,7 +15,7 @@
 	<!-- Headline and Navigation -->
 			<div class="flex mb-5 items-center">
 				<div class="grow">
-					<h2 class="text-3xl lg:text-5xl text-primary mb-0"><?= __('Projects', BB_TEXT_DOMAIN) ?></h2>
+					<h2 class="text-3xl lg:text-5xl text-primary mb-0"><?= __('Projekte', BB_TEXT_DOMAIN) ?></h2>
 				</div>
 				<div class="relative flex space-x-2 items-center">
 					<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
