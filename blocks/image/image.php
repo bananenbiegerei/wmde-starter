@@ -54,6 +54,20 @@ if ($image_id) {
 }
 ?>
 <div class="bb-image-block my-4">
+	<?php $image_link = get_field( 'image_link' ); ?>
+	<?php if ( $image_link ) : ?>
+		<a href="<?php echo esc_url( $image_link) ; ?>">
+			<figure class="<?= $figure_classes ?>" role="group">
+				<?= $image ?>
+				<?php if ($image_caption): ?>
+					<figcaption class="<?= $caption_classes ?>">
+						<?= bb_icon('info', 'flex-shrink-0') ?> <div class="self-center"><?= $image_caption ?></div>
+					</figcaption>
+				<?php endif; ?>
+			</figure>
+		</a>
+	<?php else: ?>
+	
 	<figure class="<?= $figure_classes ?>" role="group">
 		<?= $image ?>
 		<?php if ($image_caption): ?>
@@ -62,4 +76,6 @@ if ($image_id) {
 			</figcaption>
 		<?php endif; ?>
 	</figure>
+	
+	<?php endif; ?>
 </div>

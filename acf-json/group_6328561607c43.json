@@ -87,6 +87,23 @@
                     "prefix_name": 0
                 }
             ]
+        },
+        {
+            "key": "field_64494b1904bac",
+            "label": "Image Link",
+            "name": "image_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "translations": "copy_once"
         }
     ],
     "location": [
@@ -107,5 +124,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680096806
+    "modified": 1682524978
 }
