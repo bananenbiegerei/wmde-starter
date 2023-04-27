@@ -1,0 +1,13 @@
+div.wpforms-container [id^="wpforms-"] {
+	@apply border border-gray-200 p-10 rounded-lg w-full;
+	.wpforms-field-row.wpforms-field-medium,
+	input.wpforms-field-medium {
+		@apply max-w-full;
+	}
+	input {
+		@apply form-input rounded-xl bg-red-500;
+	}
+	button.wpforms-submit {
+		@apply btn btn-base w-auto cursor-pointer;
+	}
+}
