@@ -1,6 +1,5 @@
-<?php 
-$header_bg = get_field('color_for_theme', get_the_ID());
-?>
+<?php
+$header_bg = get_field('color_for_theme', get_the_ID()); ?>
 <?php if (has_post_thumbnail()): ?>
   <div class="min-h-[12rem] rounded-b-3xl"
   style="background-color:<?php echo $header_bg; ?>";
@@ -41,8 +40,8 @@ $header_bg = get_field('color_for_theme', get_the_ID());
 				  </div>
 				<?php endif; ?>
 		  </div>
-		  
+
 	  </div>
   </div>
 <?php endif; ?>
-<?php // FIXME: @EL get_template_part('template-parts/anchor-nav'); ?>
+<?php get_template_part('template-parts/anchor-nav'); ?>
