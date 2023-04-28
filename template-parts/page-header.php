@@ -9,16 +9,18 @@
 					<?php echo strip_tags(get_the_excerpt()); ?>
 				  </div>
 				<?php endif; ?>
-				<?php if ( have_rows( 'call_to_actions_in_header' ) ) : ?>
+				<?php if (have_rows('call_to_actions_in_header')): ?>
 					  <div class="mb-10">
-					  <?php while ( have_rows( 'call_to_actions_in_header' ) ) : the_row(); ?>
-						  <?php $cta_link = get_sub_field( 'cta_link' ); ?>
-						  <?php if ( $cta_link ) : ?>
-							  <a class="btn btn-base btn-icon-left" href="<?php echo esc_url( $cta_link['url'] ); ?>" target="<?php echo esc_attr( $cta_link['target'] ); ?>">
-							  <?= bb_icon('arrow-right', 'icon-base'); ?>
-							  <?php echo esc_html( $cta_link['title'] ); ?></a>
+					  <?php while (have_rows('call_to_actions_in_header')):
+       	the_row(); ?>
+						  <?php $cta_link = get_sub_field('cta_link'); ?>
+						  <?php if ($cta_link): ?>
+							  <a class="btn btn-base btn-icon-left" href="<?php echo esc_url($cta_link['url']); ?>" target="<?php echo esc_attr($cta_link['target']); ?>">
+							  <?= bb_icon('arrow-right', 'icon-base') ?>
+							  <?php echo esc_html($cta_link['title']); ?></a>
 						  <?php endif; ?>
-					  <?php endwhile; ?>
+					  <?php
+       endwhile; ?>
 					  </div>
 				  <?php endif; ?>
 		  </div>
@@ -38,21 +40,23 @@
 					<?php the_excerpt(); ?>
 				  </div>
 				<?php endif; ?>
-				<?php if ( have_rows( 'call_to_actions_in_header' ) ) : ?>
+				<?php if (have_rows('call_to_actions_in_header')): ?>
 					  <div class="">
-					  <?php while ( have_rows( 'call_to_actions_in_header' ) ) : the_row(); ?>
-						  <?php $cta_link = get_sub_field( 'cta_link' ); ?>
-						  <?php if ( $cta_link ) : ?>
-							  <a class="btn btn-base btn-icon-left" href="<?php echo esc_url( $cta_link['url'] ); ?>" target="<?php echo esc_attr( $cta_link['target'] ); ?>">
-							  <?= bb_icon('arrow-right', 'icon-base'); ?>
-							  <?php echo esc_html( $cta_link['title'] ); ?></a>
+					  <?php while (have_rows('call_to_actions_in_header')):
+       	the_row(); ?>
+						  <?php $cta_link = get_sub_field('cta_link'); ?>
+						  <?php if ($cta_link): ?>
+							  <a class="btn btn-base btn-icon-left" href="<?php echo esc_url($cta_link['url']); ?>" target="<?php echo esc_attr($cta_link['target']); ?>">
+							  <?= bb_icon('arrow-right', 'icon-base') ?>
+							  <?php echo esc_html($cta_link['title']); ?></a>
 						  <?php endif; ?>
-					  <?php endwhile; ?>
+					  <?php
+       endwhile; ?>
 					  </div>
 				  <?php endif; ?>
 		  </div>
-		  
+
 	  </div>
   </div>
 <?php endif; ?>
-<?php // FIXME: @EL get_template_part('template-parts/anchor-nav'); ?>
+<?php get_template_part('template-parts/anchor-nav'); ?>
