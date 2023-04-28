@@ -21,7 +21,7 @@ $meta_infos = get_field('show_meta_infos');
 ?>
 		<div class="grid grid-cols-1 sm:grid-cols-<?php echo $columns ?> mb-16 gap-10">
 				<?php foreach ($members as $member): ?>
-							<div class="sm:flex sm:gap-5">
+							<div class="sm:flex sm:gap-5 mb-3">
 								<div class="overflow-hidden basis-1/2 self-start max-w-[18rem]">
 									<!-- <div class="aspect-h-1 aspect-w-1"> -->
 										<?= $member['photo'] ?>

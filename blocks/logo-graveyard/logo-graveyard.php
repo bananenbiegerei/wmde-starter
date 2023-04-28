@@ -15,10 +15,3 @@
 		<?php endwhile; ?>
 	</div>
 </div>
-<?php
-$image = get_field('bild_anwendungsbeispiel');
-$size = 'six-columns';
-if ($image) {
-	echo wp_get_attachment_image($image, $size, '', ['class' => 'class']);
-}
- ?>
