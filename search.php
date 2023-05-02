@@ -35,8 +35,9 @@
 		<?php else : ?>
 			<div class="container py-20 flex justify-center items-center">
 				<div class="translate-y-5 max-w-4xl">
-					<h1>Nichts gefunden</h1>
-					<p class="mb-5">Es tut uns leid, aber nichts passte zu Ihren Suchbegriffen. Bitte versuchen Sie es noch einmal mit anderen Suchbegriffen.</p>
+					<h1><?php _e('Nichts gefunden', BB_TEXT_DOMAIN); ?></h1>
+					<p class="mb-5">
+						<?php _e('Es tut uns leid, aber nichts passte zu Ihren Suchbegriffen. Bitte versuchen Sie es noch einmal mit anderen Suchbegriffen.', BB_TEXT_DOMAIN); ?></p>
 					<div class="flex gap-5 items-center h-full">
 							<form class="flex gap-5" action="<?php echo home_url('/'); ?>" method="get">
 								<input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
