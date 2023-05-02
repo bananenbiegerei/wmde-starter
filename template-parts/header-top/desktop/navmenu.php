@@ -1,63 +1,41 @@
 <script>
 	function getCoords(elem) {
-		var box = elem.getBoundingClientRect();
-		var body = document.body;
-		var docEl = document.documentElement;
-		var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-		var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-		var clientTop = docEl.clientTop || body.clientTop || 0;
-		var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-		var top  = box.top +  scrollTop - clientTop;
-		var left = box.left + scrollLeft - clientLeft;
+		let box = elem.getBoundingClientRect();
+		let body = document.body;
+		let docEl = document.documentElement;
+		let scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+		let scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+		let clientTop = docEl.clientTop || body.clientTop || 0;
+		let clientLeft = docEl.clientLeft || body.clientLeft || 0;
+		let top  = box.top +  scrollTop - clientTop;
+		let left = box.left + scrollLeft - clientLeft;
 		return { top: Math.round(top), left: Math.round(left) };
 	}
 
 	// Prepare x-data for 'navMenu' component
 	document.addEventListener('alpine:init', () => {
 		Alpine.data('navMenu', () => ({
-			nav: [],
+			nav: WPNav,
 			isOpen: new Array(WPNav.length).fill(false),
 			idx: -1,
 			showPointer: false,
 			isScrolled: false,
-			curSection: 0,
 			init() {
-				// Build Nav structure: needs to be adapted to handle sections properly in template loop...
-				for(var domain of WPNav ) {
-					var dom = { 'ID': domain.ID, 'excerpt':domain.excerpt, 'title': domain.title, 'url': domain.url, 'featured': domain.featured };
-					var featured = domain.featured;
-					var pagesAndSections = [];
-					for(var page of domain.pages) {
-						page.type = 'link';
-						pagesAndSections.push(page);
-					}
-					for(var titleId in domain.sections) {
-						var section = { 'type': 'section', 'title': titleId.split('#')[0] };
-						pagesAndSections.push(section);
-						for(var page of domain.sections[titleId]) {
-							page.type = 'link';
-							pagesAndSections.push(page);
-						}
-					}
-					dom.pagesAndSections = pagesAndSections;
-					this.nav.push(dom);
-				}
 				// Slide-in logo when sticky navbar
 				window.addEventListener('scroll', () => {
-				const scrollPosition = window.scrollY;
-				const threshold = document.getElementById('titlebar_desktop').getBoundingClientRect().height;
-				if (scrollPosition >= threshold) {
-					this.isScrolled = true;
-				} else {
-					this.isScrolled = false;
-				}
+					const scrollPosition = window.scrollY;
+					const threshold = document.getElementById('titlebar_desktop').getBoundingClientRect().height;
+					if (scrollPosition >= threshold) {
+						this.isScrolled = true;
+					} else {
+						this.isScrolled = false;
+					}
 				});
 			},
 			openNav(n) {
-				var v = this.isOpen[n];
 				this.isOpen.fill(false);
 				this.idx = n;
-				if ((this.nav[n].featured.length + this.nav[n].pagesAndSections.length) > 0 ) {
+				if ((this.nav[n].featured.length + this.nav[n].pages.length + this.nav[n].sections.length) > 0 ) {
 					this.isOpen[n] = true;
 				}
 			},
@@ -67,20 +45,19 @@
 				this.showPointer = false;
 			},
 			movePointer() {
-				if (this.nav[this.idx].pagesAndSections.length == 0) {
+				if (this.nav[this.idx].pages.length  + this.nav[this.idx].sections.length == 0) {
 					this.showPointer = false;
 					return;
 				}
 				this.showPointer = true;
-				var bx = document.getElementById('domain_' + this.idx).getBoundingClientRect().left; // button x
-				var bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
-				var dxoff = getCoords(document.getElementById('navdropdown')).left; // dropdown h offset
-				var pw = 32; // pointer width
-				var pyoff = -20; // pointer v offset
-				var ddw = document.getElementById('menu_' + this.idx).offsetWidth;
-				var voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
-				var ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
-				//console.log({'bx': bx, 'bw': bw, 'dxoff': dxoff, 'ddw': ddw, 'voff': voff, 'ddx': ddx});
+				let bx = document.getElementById('domain_' + this.idx).getBoundingClientRect().left; // button x
+				let bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
+				let dxoff = getCoords(document.getElementById('navdropdown')).left; // dropdown h offset
+				let pw = 32; // pointer width
+				let pyoff = -20; // pointer v offset
+				let ddw = document.getElementById('menu_' + this.idx).offsetWidth;
+				let voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
+				let ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
 				document.getElementById('menu_' + this.idx).style.left = ddx + 'px';
 				document.getElementById('pointer').style.left = bx - dxoff + bw/2 - pw/2 + 'px';
 				document.getElementById('pointer').style.top = pyoff + 'px';
@@ -88,11 +65,14 @@
 		}));
 	});
 </script>
+
 <!-- Container for the whole desktop nav menu -->
 <div id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
 
-	<!-- Domains top bar -->
+	<!-- Top bar with logo, domains, and search -->
 	<div class="relative z-10 container overflow-hidden">
+
+		<!-- Logo -->
 		<div class="absolute left-5 top-2 overflow-hidden">
 			<div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
 				<a href="<?php echo get_home_url(); ?>">
@@ -100,18 +80,21 @@
 				</a>
 			</div>
 		</div>
+
+		<!-- Domains & search -->
 		<div class="flex items-center">
+
+			<!-- Domains -->
 			<div class="navmenu flex-none flex space-x-1 py-3 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
-			
 				<!-- Domain items -->
 				<template x-for="(domain,i) in nav">
-					<!-- Domain name -->
 					<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }">
 						<a x-bind:href="domain.url"> <span x-html="domain.title"></span> </a>
 					</button>
 				</template>
-			
 			</div>
+
+			<!-- Search -->
 			<div class="flex-1 flex justify-end gap-5 items-center h-full pl-12" x-data="{ open: false }">
 				<div class="w-full"
 					 x-show="open"
@@ -129,7 +112,7 @@
 				</div>
 				<button class="btn btn-ghost btn-icon-only !text-black"
 						x-on:click="open = ! open; $nextTick(() => $refs.searchInput.focus())">
-					<span class="sr-only">Toggle Search Input</span><?php echo bb_icon('search','icon-sm') ?>
+					<span class="sr-only">Toggle Search Input</span><?php echo bb_icon('search', 'icon-sm'); ?>
 				</button>
 			</div>
 
@@ -147,7 +130,7 @@
 		<!-- For each domain... -->
 		<template x-for="(domain,i) in nav">
 			<div
-				XXx-show="isOpen[i]"
+				show="isOpen[i]"
 				x-bind:id="'menu_'+ i"
 				class="absolute inset-x-0 z-10 transform shadow-lg bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar-dropdown p-5 overflow-hidden"
 				x-bind:class="{
@@ -183,25 +166,37 @@
 					</template>
 
 					<!-- Pages & sections -->
-					<nav class="max-h-screen-80 overflow-auto" aria-labelledby="solutions-heading">
-						<ul role="list" class="items-stretch justify-items-stretch"  x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0}" >
+					<nav class="max-h-screen-80 overflow-auto grid" x-bind:class="{ 'grid-cols-2' : domain.pages.length > 0 && domain.sections.length > 0 || domain.sections.length > 1 }">
 
-							<!-- Pages -->
-							<template x-for="page in domain.pagesAndSections">
-								<li class="bg-white transition rounded-md"
-									x-bind:class="{'hover:bg-gray hover:drop-shadow-sm' : page.type == 'link', 'current': pageID == page.ID }">
-									<span class="inline-block text-sm font-bold pt-8 px-1.5 py-0.5 uppercase" x-html="page.title" x-show="page.type == 'section'"></span>
-									<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title" x-show="page.type == 'link'"></a>
-								</li>
-							</template>
+						<!-- Pages -->
+						<template x-if="domain.pages.length > 0">
+							<ul role="list" class="items-stretch justify-items-stretch"  xxxx-bind:class="{ 'grid-cols-2' : domain.featured.length > 0}" >
+								<template x-for="page in domain.pages">
+									<li class="bg-white transition rounded-md"
+										x-bind:class="{'current': pageID == page.ID }">
+										<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
+									</li>
+								</template>
+							</ul>
+						</template>
 
-						</ul>
+						<!-- Sections -->
+						<template x-for="section in domain.sections">
+							<ul role="list" class="items-stretch justify-items-stretch">
+								<li class="bg-white transition rounded-md btn btn-menu-section btn-expanded" x-text="section.title"></li>
+								<template x-for="page in section.pages">
+									<li class="bg-white transition rounded-md"
+										x-bind:class="{'current': pageID == page.ID }">
+										<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
+									</li>
+								</template>
+							</ul>
+						</template>
+
 					</nav>
-
 				</div>
 			</div>
 		</template>
-		
-		</div>
 	</div>
+</div>
 

@@ -87,12 +87,12 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 					</template>
 
 					<!-- Sections -->
-					<template x-for="(section_pages, section_title) in domain.sections">
+					<template x-for="section in domain.sections">
 						<ul class="border-t border-gray-200 py-4 px-2">
 								<li class="pl-6">
-									<span class="btn btn-menu-section" x-html="section_title.split('#')[0]"></span>
+									<span class="btn btn-menu-section" x-html="section.title"></span>
 									<ul>
-										<template x-for="page in section_pages">
+										<template x-for="page in section.pages">
 											<li  class="py-2" x-bind:class="{'current': pageID == page.ID }">
 												<a x-bind:href="page.url" x-html="page.title" class="btn btn-menu"></a>
 											</li>
