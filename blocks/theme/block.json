@@ -1,7 +1,7 @@
 {
 	"name": "acf/theme",
-	"title": "Theme",
-	"description": "Theme",
+	"title": "Thema",
+	"description": "Select a topic",
 	"category": "wkmde-custom-blocks",
 	"icon": "excerpt-view",
 	"keywords": [],
