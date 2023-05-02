@@ -108,3 +108,9 @@
 .btn-expanded {
 	@apply w-full;
 }
+.btn-group {
+	@apply sm:flex sm:gap-5;
+	.btn {
+		@apply mb-2 w-full sm:w-auto;
+	}
+}

@@ -41,7 +41,7 @@ get_header();?>
 </div>
 <?php the_content(); ?>
 <div x-data="{selectedFilter: ''}">
-	<div class="flex justify-start my-6 space-x-5 container">
+	<div class="btn-group container">
 		<button x-on:click="selectedFilter=''" class="btn btn-sm btn-hollow" :class="{'!bg-gray': !selectedFilter}" type="button">All</button>
 
 		<?php
