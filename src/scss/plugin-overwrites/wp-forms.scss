@@ -10,4 +10,33 @@ div.wpforms-container [id^="wpforms-"] {
 	button.wpforms-submit {
 		@apply btn btn-base w-auto cursor-pointer;
 	}
+	[type='text'],
+	[type='email'],
+	[type='url'],
+	[type='password'],
+	[type='date'],
+	[type='datetime-local'],
+	[type='month'],
+	[type='search'],
+	[type='tel'],
+	[type='time'],
+	[type='week']
+	 {
+		@apply form-input;
+	}
+	textarea {
+		@apply form-textarea;
+	}
+	select {
+		@apply form-select;
+	}
+	select[multiple] {
+		@apply form-multiselect;
+	}
+	[type='checkbox'] {
+		@apply form-checkbox;
+	}
+	[type='radio'] {
+		@apply form-radio;
+	}
 }
