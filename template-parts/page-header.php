@@ -3,9 +3,9 @@
 	  <div class="container grid grid-cols-12">
 		  <div class="col-span-12 lg:col-span-10 lg:col-start-2">
 			  <?php get_template_part('template-parts/breadcrumbs'); ?>
-				<h1 class="text-5xl my-5 my-5"><?php the_title(); ?></h1>
+				<h1 class="text-2xl lg:text-5xl my-5 my-5"><?php the_title(); ?></h1>
 				<?php if (has_excerpt()): ?>
-				  <div class="font-alt text-2xl font-normal mb-10">
+				  <div class="font-alt text-xl lg:text-2xl font-normal mb-10">
 					<?php echo strip_tags(get_the_excerpt()); ?>
 				  </div>
 				<?php endif; ?>
@@ -36,7 +36,7 @@
 			  <?php get_template_part('template-parts/breadcrumbs'); ?>
 				<h1><?php the_title(); ?></h1>
 				<?php if (has_excerpt()): ?>
-				  <div class="font-alt text-2xl font-normal mb-5">
+				  <div class="font-alt text-xl lg:text-2xl font-normal mb-5">
 					<?php the_excerpt(); ?>
 				  </div>
 				<?php endif; ?>
