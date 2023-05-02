@@ -12,15 +12,13 @@ if ($color) {
 	$color = "text-{$color}";
 }
 
-//var_dump(get_fields());
 $title = get_field('anchor_title');
 $id = str_replace(' ', '_', esc_attr($title));
 ?>
 
 
 <div data-anchor-title="<?= $title ?>" class="bb-headline-block">
-	<div id="<?= $id ?>" class="-translate-y-20">
-	</div>
+	<div class="anchor-offset" id="<?= $id ?>"></div>
 	<?php if (get_field('headline_link')): ?>
 		<a class="hover:underline transition" href="<?php echo esc_url('headline_link'); ?>">
 			<<?= get_field('level') ?> class="<?= get_field('style')['headline_size'] ?? '' ?> mb-4 <?= $color ?>">

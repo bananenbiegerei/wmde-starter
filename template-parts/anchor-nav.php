@@ -1,56 +1,62 @@
 <script>
 
-// Check if an element is visible
-function isVisible(element) {
-	return element.offsetWidth > 0 || element.offsetHeight > 0;
-}
-
 // Calculate vertical offset of sticky anchor-nav
 function calcTopNavOffset() {
-	if (isVisible(document.getElementById('navmenu_desktop'))) {
-		return this.offset = document.getElementById('navmenu_desktop').getBoundingClientRect().height;
+	const navmenuDesktop = document.getElementById('navmenu_desktop');
+	const titlebarMobile = document.getElementById('titlebar_mobile');
+	const navmenuDesktopVisible = navmenuDesktop.offsetWidth > 0 || navmenuDesktop.offsetHeight > 0;
+
+	if (navmenuDesktopVisible) {
+		return this.offset = navmenuDesktop.getBoundingClientRect().height;
 	} else {
-		return this.offset = document.getElementById('titlebar_mobile').getBoundingClientRect().height;
+		return this.offset = titlebarMobile.getBoundingClientRect().height;
 	}
+}
+
+// Calculate vertical offset of anchor
+function getAnchorOffset() {
+	return calcTopNavOffset() +  document.getElementById('anchor-nav').getBoundingClientRect().height;
 }
 
 // Get position of element in page
 function getCoords(elem) {
-		var box = elem.getBoundingClientRect();
-		var body = document.body;
-		var docEl = document.documentElement;
-		var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-		var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-		var clientTop = docEl.clientTop || body.clientTop || 0;
-		var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-		var top  = box.top +  scrollTop - clientTop;
-		var left = box.left + scrollLeft - clientLeft;
+		let box = elem.getBoundingClientRect();
+		let body = document.body;
+		let docEl = document.documentElement;
+		let scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+		let scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+		let clientTop = docEl.clientTop || body.clientTop || 0;
+		let clientLeft = docEl.clientLeft || body.clientLeft || 0;
+		let top  = box.top +  scrollTop - clientTop;
+		let left = box.left + scrollLeft - clientLeft;
 		return { top: Math.round(top), left: Math.round(left) };
 }
 
 document.addEventListener('alpine:init', () => {
 	Alpine.data('anchorNav', () => ({
 		anchors: [],
-		buffer: 16,
-		justifyCenter: false,
 		// Init anchor-nav
 		init() {
 			// Find all headline blocks that have an anchor title
 			for (const h of document.querySelectorAll(".bb-headline-block:not([data-anchor-title=''])")) {
-				this.anchors.push({'id': h.id, 'title': h.getAttribute('data-anchor-title')});
+				this.anchors.push({'id': h.querySelector('.anchor-offset').id, 'title': h.getAttribute('data-anchor-title')});
 			}
 			if (this.anchors.length == 0) {
 				document.getElementById('anchor-nav').style.display = 'none';
 			}
 			// Adjust vertical offset of sticky anchor-nav
 			document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
+			// Adjust vertical offset of sticky anchor-nav and vertical offset of anchors (during window resize)
 			window.addEventListener('resize', function () {
 				document.getElementById('anchor-nav').style.top = calcTopNavOffset() + 'px';
+				for (const h of document.querySelectorAll(".bb-headline-block:not([data-anchor-title='']) .anchor-offset")) {
+					h.style.transform = 'translateY(-' + getAnchorOffset() + 'px)';
+				}
 			});
 		},
 		// Scroll to element on page
 		scrollTo(anchor) {
-			const pos = getCoords(document.getElementById(anchor.id)).top - calcTopNavOffset() - document.getElementById('anchor-nav').getBoundingClientRect().height - this.buffer;
+			const pos = getCoords(document.getElementById(anchor.id)).top;
 			window.scrollTo({ 'top': pos , 'behavior': 'smooth'});
 		}
 	}));
@@ -72,6 +78,14 @@ SwipersConfig['#anchor-nav'] = {
 		nextEl: '#anchor-nav .swiper-button-next',
 		prevEl: '#anchor-nav .swiper-button-prev',
 	},
+	on: {
+		init: function () {
+			// Adjust vertical offset of anchor
+			for (const h of document.querySelectorAll(".bb-headline-block:not([data-anchor-title='']) .anchor-offset")) {
+				h.style.transform = 'translateY(-' + getAnchorOffset() + 'px)';
+			}
+		}
+	}
 };
 </script>
 
