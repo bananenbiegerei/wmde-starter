@@ -41,7 +41,6 @@ get_header();?>
 </div>
 <?php the_content(); ?>
 <div x-data="{selectedFilter: ''}">
-	<?php /* Filter not needed according to Tjane
 	<div class="flex justify-start my-6 space-x-5 container">
 		<button x-on:click="selectedFilter=''" class="btn btn-sm btn-hollow" :class="{'!bg-gray': !selectedFilter}" type="button">All</button>
 
@@ -55,7 +54,6 @@ get_header();?>
 	<button x-on:click="selectedFilter='<?php echo $term->slug; ?>'" class="btn btn-sm btn-hollow" :class="{'!bg-gray-200': selectedFilter == '<?php echo $term->slug; ?>'}" type="button"><?php echo $term->name; ?></button>
 	<?php endforeach; ?>
 </div>
-*/ ?>
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 container">
 	<?php while ( $projects->have_posts() ) : $projects->the_post(); ?>
 	<?php

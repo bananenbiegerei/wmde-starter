@@ -7,7 +7,17 @@ $posts = get_posts(['post_type' => 'press-releases', 'numberposts' => $count]);
 <div class="bb-latest-press-releases-block mb-20">
 	<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mb-5">
 			<?php foreach ($posts as $p): ?>
-				<?php include( locate_template( 'template-parts/card-press-release.php', false, false ) ); ?>
+				<?php 
+				$post_title = get_the_title($p->ID); 
+				$post_date = get_the_date('d.m.Y', $p->ID);
+				$post_permalink = get_permalink($p->ID);
+				?>
+				<a href="<?php echo $post_permalink; ?>">
+				<div class="rounded-xl bg-gray p-5 flex flex-col">
+				  <p class="text-sm border-b pb-2"><?php echo $post_date; ?></p>
+				  <h2 class="text-base"><?php echo $post_title; ?></h2>
+				</div>
+				</a>
 			<?php endforeach; ?>
 	</div>
 	<?php if ( get_field( 'show_all' ) ): ?>	
