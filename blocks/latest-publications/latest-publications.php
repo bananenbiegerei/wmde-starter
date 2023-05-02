@@ -2,8 +2,8 @@
 $count = get_field('count');
 $publications = get_posts(['post_type' => 'publications', 'numberposts' => $count]);
 ?>
-<div class="bb-latest-publications-block mb-20">
-	<div class="grid grid-cols-1 sm: grid-cols-2 lg:grid-cols-5 gap-10 justify-center">
+<div class="bb-latest-publications-block mb-10 lg:mb-20">
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-10 justify-center">
 		<?php foreach ($publications as $p): ?>
 			<div class="">
 				<div class="rounded-3xl py-10">

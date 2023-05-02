@@ -11,11 +11,11 @@
 <?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>
 
 <?php if (!is_admin()): ?>
-<div class="bb-projects-swiper-block mb-20 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
+<div class="bb-projects-swiper-block mb-10 lg:mb-20 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
 	<!-- Headline and Navigation -->
-			<div class="flex mb-5 items-center">
+			<div class="flex lg:mb-5 items-center">
 				<div class="grow">
-					<h2 class="text-3xl lg:text-5xl text-primary mb-0"><?= __('Projekte', BB_TEXT_DOMAIN) ?></h2>
+					<h2 class="text-2xl lg:text-5xl text-primary mb-0"><?= __('Projekte', BB_TEXT_DOMAIN) ?></h2>
 				</div>
 				<div class="relative flex space-x-2 items-center">
 					<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-hollow cursor-pointer') ?>
@@ -23,7 +23,7 @@
 				</div>
 	</div>
 	<!-- Swiper -->
-	<div class="swiper-container relative mb-10 -mx-5">
+	<div class="swiper-container relative lg:mb-10 -mx-5">
 		<!-- Slides -->
 		<div class="swiper-wrapper h-full flex">
 			<?php foreach (get_field('projects') as $project): ?>

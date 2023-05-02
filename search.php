@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div class="grid grid-cols-12 container">
-	<div class="col-span-12 mb-20">
+	<div class="col-span-12 mb-10 lg:mb-20">
 		<?php if (have_posts()) : ?>
 			<h1 class="mt-6 mb-10"><?php printf(__('Suchergebnisse für: %s', 'wmde'), get_search_query()); ?></h1>
 			<div class="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-10">

@@ -93,9 +93,9 @@ if ($layout == 'v' || $layout == 'vne') {
 	$layout_classes['image'] = '';
 	$layout_classes['content'] = '';
 } elseif ($layout == 'h' || $layout == 'hwe' || $layout == 'hwexl') {
-	$layout_classes['container'] = 'flex-row';
-	$layout_classes['image'] = 'basis-1/2';
-	$layout_classes['content'] = 'basis-1/2 self-center';
+	$layout_classes['container'] = 'flex-col lg:flex-row';
+	$layout_classes['image'] = 'lg:basis-1/2';
+	$layout_classes['content'] = 'lg:basis-1/2 lg:self-center';
 } elseif ($layout == 'h2' || $layout == 'h2we') {
 	$layout_classes['container'] = 'flex-col lg:flex-row';
 	$layout_classes['image'] = 'basis-full lg:basis-1/3';
@@ -122,7 +122,7 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div class="bb-card-block rounded-3xl mb-10 lg:mb-5 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
+<div class="bb-card-block rounded-3xl mb-5 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
 
 	<?php if (!is_admin()): ?>
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?> text-hover-effect image-hover-effect">
@@ -154,12 +154,12 @@ if ($link['title'] == '') {
 				</div>
 			<?php endif; ?>
 
-			<h2 class="<?= $layout == 'hwexl' ? 'text-3xl' : 'text-2xl' ?> font-alt">
+			<h2 class="<?= $layout == 'hwexl' ? 'text-base lg:text-3xl' : 'text-base lg:text-2xl' ?> font-alt">
 				<?= htmlspecialchars_decode(strip_tags($link['title'])) ?>
 			</h2>
 
 			<?php if (in_array($layout, ['v', 'hwe', 'hwexl', 'h2we'])): ?>
-				<p class="<?= $layout == 'hwexl' ? 'text-xl' : 'text-xl' ?> font-normal line-clamp-3">
+				<p class="<?= $layout == 'hwexl' ? 'text-sm lg:text-xl' : 'text-sm lg:text-xl' ?> font-normal line-clamp-3">
 					<?= $excerpt ?>
 				</p>
 			<?php endif; ?>

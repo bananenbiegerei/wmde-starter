@@ -6,7 +6,7 @@ $images = get_field('images'); ?>
 <div class="bb-gallery-swiper-block" id="<?= $block['id'] ?>">
 		<div class="flex items-center">
 			<div class="grow">
-				<h2 class="text-5xl text-primary">
+				<h2 class="text-2xl lg:text-5xl text-primary">
 					<?= esc_html(get_field('headline')) ?>
 				</h2>
 			</div>

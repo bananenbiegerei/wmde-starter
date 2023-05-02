@@ -91,8 +91,8 @@ SwipersConfig['#anchor-nav'] = {
 
 <div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200 sticky z-30 bg-white" x-show="anchors.length > 0">
 	<div class="flex items-center container">
-		<div class="flex none md:hidden">
-			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-ghost cursor-pointer') ?>
+		<div class="flex-none md:hidden">
+			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-ghost cursor-pointer mt-2') ?>
 		</div>
 		<div class="flex-1 lg:flex-none overflow-hidden">
 			<div class="swiper-container">
@@ -104,7 +104,7 @@ SwipersConfig['#anchor-nav'] = {
 			</div>
 		</div>
 		<div class="flex-none md:hidden">
-			<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-ghost cursor-pointer') ?>
+			<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-ghost cursor-pointer mt-2') ?>
 		</div>
 	</div>
 </div>

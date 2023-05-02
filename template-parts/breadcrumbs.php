@@ -28,8 +28,8 @@ if (count($breadcrumbs) == 0) {
 }
 ?>
 
-<div class="flex items-center mt-5">
-	<ul class="flex gap-1">
+<div class="lg:flex lg:items-center mt-5">
+	<ul class="lg:flex lg:gap-1">
 		<?= join('', $breadcrumbs) ?>
 	</ul>
 </div>

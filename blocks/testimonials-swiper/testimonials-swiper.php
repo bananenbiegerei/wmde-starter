@@ -1,5 +1,5 @@
 <?php if (!is_admin()): ?>
-	<div class="bb-testimonials-swiper-block mb-20" id="<?= $block['id'] ?>">
+	<div class="bb-testimonials-swiper-block mb-10 lg:mb-20" id="<?= $block['id'] ?>">
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
 				<?php foreach (get_field('testimonials') as $testimonial): ?>
@@ -26,7 +26,7 @@
 			},
 			grabCursor: true,
 			draggable: true,
-			slidesPerView: 3,
+			slidesPerView: 1,
 			spaceBetween: 40,
 			// init: false,
 			breakpoints: {

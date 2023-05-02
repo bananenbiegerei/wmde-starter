@@ -10,17 +10,17 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 <?php if (has_post_thumbnail()): ?>
 <div class="bg-gray min-h-[12rem] pb-10">
 	<div class="container grid grid-cols-12 gap-10">
-		<div class="col-span-8 lg:col-span-10 lg:col-start-2">
+		<div class="col-span-12 lg:col-span-10 lg:col-start-2">
 			<?php get_template_part('template-parts/categories-tags'); ?>
 			<h1 class="<?php echo $title_style; ?> my-5 mb-0"><?php the_title(); ?></h1>
 		</div>
 
 		<?php if (has_excerpt()): ?>
-		<div class="<?php echo $excerpt_style; ?> text-xl col-span-5 col-start-2">
+		<div class="<?php echo $excerpt_style; ?> text-xl col-span-12 lg:col-span-5 lg:col-start-2">
 			<?php echo strip_tags(get_the_excerpt()); ?>
 		</div>
 		<?php endif; ?>
-		<div class="col-span-5">
+		<div class="col-span-12 lg:col-span-5">
 			<div class="bb-image-block aspect-w-16 aspect-h-9 bg-gray-200 rounded-xl overflow-hidden">
 				<figure class="w-full w-full">
 					<?php the_post_thumbnail('large', ['class' => 'object-cover w-full h-full overflow-hidden']); ?>
