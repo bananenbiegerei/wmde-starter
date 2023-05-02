@@ -61,7 +61,7 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 									<a
 										x-bind:href="page.url"
 										class="btn btn-menu">
-										<div class="w-full h-full w-10 h-10 mr-2 flex justify-center items-center">
+										<div class="w-10 h-10 mr-2 flex justify-center items-center">
 											<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 										</div>
 										<span class="w-full" x-html="page.title"></span>
