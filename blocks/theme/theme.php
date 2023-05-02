@@ -45,7 +45,7 @@ $theme_url = get_the_permalink($theme);
 			<!-- Related -->
 			<?php if ( have_rows( 'related_links' ) ) : ?>
 				<div class="col-span-12 my-10">
-				<div class="lg:grid lg:grid-cols-3 px-5 lg:px-0">
+				<div class="lg:grid lg:grid-cols-3 px-5 lg:px-0 gap-10">
 				<?php while ( have_rows( 'related_links' ) ) : the_row(); ?>
 					<?php $link = get_sub_field( 'link' ); ?>
 					<?php if ( $link ) : ?>
