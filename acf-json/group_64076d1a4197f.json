@@ -89,27 +89,6 @@
                     "parent_repeater": "field_644941cc2614f"
                 }
             ]
-        },
-        {
-            "key": "field_6450c6391779d",
-            "label": "White Type?",
-            "name": "white_type",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "translations": "copy_once",
-            "ui_on_text": "Yes",
-            "ui_off_text": "No",
-            "ui": 1
         }
     ],
     "location": [
@@ -130,5 +109,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683015348
+    "modified": 1683034117
 }

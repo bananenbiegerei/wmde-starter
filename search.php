@@ -15,7 +15,7 @@
 							<div class="">
 								<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
 									<?php if ($image_id) : ?>
-										<?php echo wp_get_attachment_image($image_id, [400, 0], false, ['class' => 'p-1 w-auto max-h-32']); ?>
+										<?php echo wp_get_attachment_image($image_id, [400, 0], false, ['class' => 'h-full w-full object-cover']); ?>
 									<?php endif; ?>
 								</div>
 							</div>
@@ -25,7 +25,7 @@
 						?>
 						<div class=" space-y-2 px-2 pb-2">
 							<h2 class="text-2xl font-alt"><?php the_title(); ?></h2>
-							<div class="text-xl font-alt font-normal text-inherit"><?= wp_trim_words(get_the_excerpt(), 7, '...') ?></div>
+							<div class="text-xl font-alt font-normal text-inherit"><?= wp_trim_words(get_the_excerpt(), 99, '...') ?></div>
 						</div>
 					</a>
 				</div>
