@@ -67,7 +67,7 @@ function esbuildProd() {
 		.pipe(dest('./js'));
 }
 
-function pacakgeTheme() {
+function packageTheme() {
 	return run('./mktheme.sh', { verbosity: 0 }).exec();
 }
 
@@ -85,9 +85,5 @@ function dev() {
 }
 
 exports.default = series(parallel(stylesDev, esbuildDev), dev);
-exports.build = series(stylesProd, esbuildProd, pacakgeTheme);
-exports.styles = stylesDev;
-exports.scripts = esbuildDev;
-exports.pstyles = stylesProd;
-exports.pscripts = esbuildProd;
-exports.pkg = pacakgeTheme;
+exports.build = series(stylesProd, esbuildProd);
+exports.package = series(stylesProd, esbuildProd, packageTheme);
