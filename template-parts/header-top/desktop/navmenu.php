@@ -112,7 +112,7 @@
 				</template>
 			
 			</div>
-			<div class="flex-1 flex justify-end gap-5 items-center h-full" x-data="{ open: false }">
+			<div class="flex-1 flex justify-end gap-5 items-center h-full pl-12" x-data="{ open: false }">
 				<div class="w-full"
 					 x-show="open"
 					 x-transition:enter="transition ease-out duration-300"
