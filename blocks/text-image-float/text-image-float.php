@@ -13,7 +13,7 @@
 // Create id attribute allowing for custom "anchor" value.
 $id = 'acf-block-text-image-float-' . $block['id'];
 if (!empty($block['anchor'])) {
-  $id = $block['anchor'];
+	$id = $block['anchor'];
 }
 
 $image = get_field('bild');
@@ -34,7 +34,7 @@ $align = get_field('bild_ausrichtung') == 'links' ? 'float-left mr-6 mb-2' : 'fl
         </style>
     <?php endif; ?>
 
-    <div class="acf-block-text-image-float clearfix">
+    <div class="bb-text-image-float-block clearfix">
 
         <?php if (get_field('link_auf_bild')): ?>
 
