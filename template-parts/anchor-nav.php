@@ -80,7 +80,7 @@ SwipersConfig['#anchor-nav'] = {
 		<div class="flex none md:hidden">
 			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-ghost cursor-pointer') ?>
 		</div>
-		<div class="flex-1 overflow-hidden">
+		<div class="flex-1 lg:flex-none overflow-hidden">
 			<div class="swiper-container">
 				<ul class="swiper-wrapper">
 					<template x-for="(anchor,i) in anchors">
