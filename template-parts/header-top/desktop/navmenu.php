@@ -100,15 +100,38 @@
 				</a>
 			</div>
 		</div>
-		<div class="navmenu flex space-x-1 py-3 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
-
-			<!-- Domain items -->
-			<template x-for="(domain,i) in nav">
-				<!-- Domain name -->
-				<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }">
-					<a x-bind:href="domain.url"> <span x-html="domain.title"></span> </a>
+		<div class="flex items-center">
+			<div class="navmenu flex-none flex space-x-1 py-3 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
+			
+				<!-- Domain items -->
+				<template x-for="(domain,i) in nav">
+					<!-- Domain name -->
+					<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }">
+						<a x-bind:href="domain.url"> <span x-html="domain.title"></span> </a>
+					</button>
+				</template>
+			
+			</div>
+			<div class="flex-1 flex justify-end gap-5 items-center h-full" x-data="{ open: false }">
+				<div class="w-full"
+					 x-show="open"
+					 x-transition:enter="transition ease-out duration-300"
+					 x-transition:enter-start="opacity-0 scale-90"
+					 x-transition:enter-end="opacity-100 scale-100"
+					 x-transition:leave="transition ease-in duration-300"
+					 x-transition:leave-start="opacity-100 scale-100"
+					 x-transition:leave-end="opacity-0 scale-90"
+					 @click.outside="open = false">
+					<form class="flex gap-5 form-sm w-full" action="<?php echo home_url('/'); ?>" method="get">
+						<input type="text" name="s" id="search" x-ref="searchInput" value="<?php the_search_query(); ?>" />
+						<input type="submit" alt="Search" value="Suchen" class="btn btn-sm" />
+					</form>
+				</div>
+				<button class="btn btn-ghost btn-icon-only !text-black"
+						x-on:click="open = ! open; $nextTick(() => $refs.searchInput.focus())">
+					<span class="sr-only">Toggle Search Input</span><?php echo bb_icon('search','icon-sm') ?>
 				</button>
-			</template>
+			</div>
 
 		</div>
 	</div>
@@ -178,7 +201,7 @@
 				</div>
 			</div>
 		</template>
-
+		
 		</div>
 	</div>
 
