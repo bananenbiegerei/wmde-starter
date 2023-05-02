@@ -4,12 +4,12 @@
     "fields": [
         {
             "key": "field_62a09fee1ea8d",
-            "label": "Image",
-            "name": "image",
+            "label": "Bild",
+            "name": "bild",
             "aria-label": "",
             "type": "image",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -17,8 +17,8 @@
                 "id": ""
             },
             "return_format": "id",
+            "preview_size": "medium",
             "library": "all",
-            "translations": "copy_once",
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -26,7 +26,7 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "preview_size": "medium"
+            "translations": "copy_once"
         },
         {
             "key": "field_62a0a0101ea8e",
@@ -35,7 +35,7 @@
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -43,16 +43,16 @@
                 "id": ""
             },
             "default_value": "",
+            "delay": 0,
             "translations": "translate",
             "tabs": "all",
             "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
+            "media_upload": 0
         },
         {
             "key": "field_62a0a01e1ea8f",
-            "label": "Image Direction",
-            "name": "image_direction",
+            "label": "Bild Ausrichtung",
+            "name": "bild_ausrichtung",
             "aria-label": "",
             "type": "button_group",
             "instructions": "",
@@ -64,19 +64,42 @@
                 "id": ""
             },
             "choices": {
-                "left": "left",
-                "right": "right"
+                "links": "links",
+                "rechts": "rechts"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "translations": "copy_once"
+        },
+        {
+            "key": "field_62fa496660496",
+            "label": "Bildgröße",
+            "name": "bildgrose",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Falls die Größe des Bild geändert werden soll, bitte hier eingeben. In Pixel.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
             "default_value": "",
-            "return_format": "value",
-            "translations": "copy_once",
-            "allow_null": 0,
-            "layout": "horizontal"
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "translations": "copy_once"
         },
         {
             "key": "field_63b614efa457c",
-            "label": "Link on Image",
-            "name": "link_on_image",
+            "label": "Link auf Bild",
+            "name": "link_auf_bild",
             "aria-label": "",
             "type": "link",
             "instructions": "",
@@ -96,7 +119,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/text-image-floating-box"
+                "value": "acf\/text-image-float"
             }
         ]
     ],
@@ -109,5 +132,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1680088259
+    "modified": 1683013738
 }
