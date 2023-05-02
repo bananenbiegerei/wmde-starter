@@ -76,13 +76,13 @@ SwipersConfig['#anchor-nav'] = {
 </script>
 
 <div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200 sticky z-30 bg-white" x-show="anchors.length > 0">
-	<div class="flex items-center">
+	<div class="flex items-center container">
 		<div class="flex none md:hidden">
 			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-ghost cursor-pointer') ?>
 		</div>
 		<div class="flex-1 overflow-hidden">
 			<div class="swiper-container">
-				<ul class="swiper-wrapper container">
+				<ul class="swiper-wrapper">
 					<template x-for="(anchor,i) in anchors">
 						<li class="swiper-slide !w-auto py-2 cursor-pointer"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
 					</template>

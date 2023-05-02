@@ -7,7 +7,7 @@
 	</a>
 </div>
 
-<div>
+<div class="flex gap-5">
 	<ul class="flex items-center space-x-2 lg:space-x-5 mb-0">
 		<?php if (get_field('link_fur_spenden', 'option')): ?>
 		<li>
@@ -28,5 +28,8 @@
 			</a>
 		</li>
 		<?php endif; ?>
+	</ul>
+	<ul class="menu language-switcher">
+	<?php pll_the_languages( array( 'show_flags' => 0,'show_names' => 1, 'hide_current' => 1, 'hide_if_no_translation' => 1) ); ?>
 	</ul>
 </div>
