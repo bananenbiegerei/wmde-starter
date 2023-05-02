@@ -1,14 +1,5 @@
 # BB Tailwind Starter Theme
 
-## Todo
-
-- @Eric: Add a `cleanUp` task to glup (to delete `css/*` and 'js/\*`)
-- @Eric: Add a `package` task to create a zip file of the theme ready to install on WordPress
-- @Eric: Add basic metadata in `head.php`
-- @Ingo: Do some cleanup of `src/scss/` to keep only the minimal required
-- @Ingo: Check that templates work to get a minimal functional site
-- @Ingo: Do some cleanup of template files to remove classes and styling
-
 ## Installation & Setup
 
 All required node modules will be installed when running `npm install`.
@@ -41,19 +32,19 @@ These are the files to be created and used:
   - file: `acf-json/group_5cff8a6c26332.json`
   - created automatically after local sync from WP backend
   - always make sure that you have an up-to-date version when pushing to git repo
-- ACF declaration:
-  - file: `functions/bb-blocks/accordion.php`
-  - will be **automatically** included by `functions/bb-blocks.php`
+  - also symlinked to `blocks/accordion/group_5cff8a6c26332.json`
+- block declaration:
+  - file: `blocks/block.json`
 - Styling:
-  - file: `src/scss/bb-blocks/accordion.scss`
-  - will be **automatically** included by `src/scss/styles.scss`
+  - file: `blocks/accordion/style.scss`
+  - will be **automatically** included by `src/scss/site.scss`
 - Render template:
-  - file: `template-parts/bb-blocks/accordion.php`
+  - file: `blocks/accordion.php`
 - JS code:
-  - file: `src/js/bb-blocks/accordion.js`
+  - file: `blocks/accordion.js`
   - needs to be **manually** imported in `site.js` and `site.js` to be extended as needed
 
-If you want to disable a block, move it to a `bb-bocks.disabled/` folder for example (create folder in `functions/` and `src/scss/` as needed).
+If you want to disable a block, move it to a `bocks.disabled/` folder for example.
 
 ## String Translations
 
@@ -69,8 +60,11 @@ When logged in the current page can be edited by pressing `CTLR-E`.
 
 For development start `npm run dev` or `npm run watch`.
 
-
 For building (for production site) start `npm run build`.
+
+## Creating Theme Archive
+
+A Zip file of the compiled theme can easily be created by running `./mktheme.sh` or `npm run package`. The file will be created in the `dist/` folder and timestamped with the current date.
 
 ## Files and Folder Structure:
 
@@ -91,11 +85,19 @@ For building (for production site) start `npm run build`.
 - static assets:
   - `img/`
   - `fonts/`
-- styles and scripts (pre-build):
-  - `src/scss/`
-  - `src/js/`
+- styles:
+  - pre-build: `src/scss/*`
+  - post-build: `css/*`
+- scripts:
+  - pre-build: `src/js/*`
+  - post-build: `js/*`
 - ACF block fields:
   - `acf-json/`
+- ACF blocks: `/bb-block/*`
+  - block definition: `block.json`
+  - functions: `functions.php`
+  - block template: `*.php`
+  - symlink to ACF group: `group_XXXXX.json --> ../../acf-json/group_XXXXX.json`
 - theme functions:
   - `functions.php`
   - `functions/*`
@@ -110,9 +112,7 @@ For building (for production site) start `npm run build`.
   - `page.php`
   - `search.php`
   - `single.php`
-- theme template parts:
-  - `template-parts/bb-block`: custom ACF blocks
-  - any other templates in `template-parts/`
+- theme template parts: `template-parts/`
 - theme localization: `languages/*`
 
 ## Deployment
@@ -120,12 +120,13 @@ For building (for production site) start `npm run build`.
 Make sure that the following files and folders are **excluded** when uploading
 the theme to the server:
 
-- `.git/`
-- `.nova/`
-- `node_modules/`
-- `src/`
 - `.env*`
+- `.git/`
 - `.gitignore`
+- `.nova/`
+- `blocks/group_*.json` (symlinks)
 - `gulpfile.js`
+- `node_modules/`
 - `package.*`
+- `src/`
 - `tailwind.config.js`
