@@ -38,9 +38,10 @@ module.exports = {
 		},
 		fontWeight: {
 			normal: 300,
+			robotonormal: 320,
 			medium: 400,
 			semibold: 500,
-			bold: 500,
+			bold: 700,
 		},
 		extend: {
 			boxShadow: {
@@ -128,9 +129,9 @@ module.exports = {
 							400: '#ff6688',
 							500: '#ff3164',
 							600: '#f21b5a',
-							DEFAULT: '#f21b5a',
+							650: '#f21b5a',
 							700: '#cb0544',
-							800: '#aa0740',
+							DEFAULT: '#B0003E',
 							900: '#910a3d',
 						},
 						gray: {

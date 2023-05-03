@@ -19,5 +19,7 @@ if ($text_size_query == 'small') {
 }
 ?>
 <div class="bb-paragraph-block mb-5 font-inherit <?= $text_color ?> <?= $text_size ?>">
-		<?= get_field('paragraph') ?>
+	<p>
+	<?= get_field('paragraph') ?>
+	</p>
 </div>
