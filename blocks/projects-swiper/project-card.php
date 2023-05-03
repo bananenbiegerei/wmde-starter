@@ -2,7 +2,7 @@
 	<div class="basis-1/2">
 		<div class="w-full h-full flex items-center justify-center p-5">
 			<?php if (has_post_thumbnail($project->ID)): ?>
-			<img class="h-40 object-contain mx-auto my-5 grayscale mix-blend-multiply hover:grayscale-0" src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>">
+				<img class="h-40 object-contain mx-auto my-5 grayscale mix-blend-multiply hover:grayscale-0" src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id($project->ID), '_wp_attachment_image_alt', true)); ?>">
 			<?php endif; ?>
 		</div>
 	</div>

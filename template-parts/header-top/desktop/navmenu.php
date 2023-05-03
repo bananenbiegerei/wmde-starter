@@ -73,9 +73,9 @@
 	<div class="relative z-10 container overflow-hidden">
 
 		<!-- Logo -->
-		<div class="absolute left-5 top-2 overflow-hidden">
+		<div class="absolute left-5 top-2 overflow-hidden" type="logo">
 			<div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
-				<a href="<?php echo get_home_url(); ?>">
+				<a href="<?php echo get_home_url(); ?>" aria-label="Homepage">
 					<img class="mini-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
 				</a>
 			</div>

@@ -2,7 +2,9 @@
 $theme = get_field('theme');
 $color = get_field('color_for_theme', $theme->ID);
 $related = get_field('related_links');
+$thumbnail_id = get_post_thumbnail_id($theme);
 $thumbnail_url = get_the_post_thumbnail_url($theme, 'medium');
+$thumbnail_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
 $theme_url = get_the_permalink($theme);
 ?>
 <div class="bb-theme-block mb-10 lg:mb-20">
@@ -11,9 +13,7 @@ $theme_url = get_the_permalink($theme);
 		<!-- Image -->
 			<div class="lg:col-span-4">
 				<div class="aspect-w-4 aspect-h-3 relative lg:-translate-x-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
-					<?php
-					  echo '<img class="w-full h-full object-cover" src="' . $thumbnail_url . '" />';
-					?>
+					<img class="w-full h-full object-cover" src="<?php echo $thumbnail_url; ?>" alt="<?php echo $thumbnail_alt; ?>">
 				</div>
 			</div>
 			<div class="lg:col-span-8 flex flex-col p-5 lg:p-0">

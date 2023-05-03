@@ -9,14 +9,14 @@
 	<div x-data="{ lightbox: false, imgModalSrc : '', imgModalAlt : '', imgModalCaption : '' }">
 		<div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-10 lg:mb-20">
 			<?php foreach (get_field('images') as $image): ?>
-				<div class="cursor-pointer aspect-w-4 aspect-h-3">
-					<img
-						class="block rounded object-cover h-full w-full"
-						@click="$dispatch('lightbox',  {  imgModalSrc: '<?= $image['url'] ?>', imgModalAlt: '<?= $image['alt'] ?>', imgModalCaption: '<?= $image['caption'] ?>' })"
-						src="<?= $image['sizes']['medium'] ?>"
-					>
-					<img style="width: 0; height: 0"  src="<?= $image['url'] ?>">
-				</div>
+			  <div class="cursor-pointer aspect-w-4 aspect-h-3">
+				<img class="block rounded object-cover h-full w-full"
+				  @click="$dispatch('lightbox', {imgModalSrc: '<?= $image['url'] ?>', imgModalAlt: '<?= $image['alt'] ?>', imgModalCaption: '<?= $image['caption'] ?>' })"
+				  src="<?= $image['sizes']['medium'] ?>"
+				  alt="<?= $image['alt'] ?>"
+				>
+				<img style="width: 0; height: 0" src="<?= $image['url'] ?>" alt="<?= $image['alt'] ?>">
+			  </div>
 			<?php endforeach; ?>
 		</div>
 

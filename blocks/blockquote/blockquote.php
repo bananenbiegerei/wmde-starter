@@ -15,7 +15,7 @@ if ($color) {
       <?= get_field('text') ?>
     </blockquote>
     <?php if (get_field('source')): ?>
-      <cite class="font-normal text-gray-400 block"><?= get_field('source') ?></cite>
+      <cite class="font-normal text-gray-600 block"><?= get_field('source') ?></cite>
     <?php endif; ?>
   </div>
 </div>
