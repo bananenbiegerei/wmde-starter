@@ -3,9 +3,6 @@
 	<?php the_post(); ?>
 	<div class="bg-gray min-h-[12rem] py-3 lg:py-10">
 		  <div class="container lg:grid lg:grid-cols-12 lg:gap-10">
-			  <div class="lg:col-span-12">
-				  <?php get_template_part('template-parts/breadcrumbs'); ?>
-			  </div>
 			  <div class="lg:col-span-3">
 					<div class="flex lg:justify-center mt-4">
 						  <?php the_post_thumbnail('large', ['class' => 'max-h-[12rem] w-auto max-w-[12rem] h-auto']); ?>
