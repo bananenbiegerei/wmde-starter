@@ -1,8 +1,15 @@
 <?php
-$header_bg = get_field('color_for_theme', get_the_ID()); ?>
+$header_bg = get_field('color_for_theme', get_the_ID());
+$color_contrast = get_field('has_dark_background_color', get_the_ID());
+$secondary_color = get_field('secondary_color', get_the_ID()); 
+?>
 <?php if (has_post_thumbnail()): ?>
   <div class="min-h-[12rem] rounded-b-3xl check-color-contrast" style="background-color:<?php echo $header_bg; ?>;">
-	  <div class="container grid grid-cols-12 gap-10">
+	  <div class="container grid grid-cols-12 gap-10
+	  <?php if( $color_contrast ):
+		  echo 'white-scheme';
+	  endif;?>
+	  ">
 		  <div class="col-span-12 lg:col-span-3">
 			  <div class="my-5 aspect-w-4 aspect-h-3 relative rounded-tl-3xl rounded-br-3xl overflow-hidden">
 				  <figure class="w-full w-full">
@@ -16,9 +23,20 @@ $header_bg = get_field('color_for_theme', get_the_ID()); ?>
 			  </div>
 		  </div>
 		  <div class="col-span-12 lg:col-span-9">
-				<h1 class="uppercase font-bold font-alt text-sm adjust-color-contrast my-5"><?php the_title(); ?></h1>
+			  	<?php if ( $secondary_color): ?>
+				  
+				  <h1 class="uppercase font-bold font-alt text-sm my-5"
+				  style="color:<?php echo $secondary_color ?>;"
+				  ><?php the_title(); ?></h1>
+				  
+				  <?php else: ?>
+				  
+				  <h1 class="uppercase font-bold font-alt text-sm my-5 text-primary"><?php the_title(); ?></h1>
+				  
+				  <?php endif; ?>
+				
 				<?php if (has_excerpt()): ?>
-				  <div class="font-alt text-2xl lg:text-3xl font-normal mb-10 adjust-color-contrast">
+				  <div class="font-alt text-2xl lg:text-3xl font-normal mb-10 text-black">
 					<?php echo strip_tags(get_the_excerpt()); ?>
 				  </div>
 				<?php endif; ?>
@@ -43,33 +61,4 @@ $header_bg = get_field('color_for_theme', get_the_ID()); ?>
   </div>
 <?php endif; ?>
 <?php get_template_part('template-parts/anchor-nav'); ?>
-<script>
-  // Get all the check-color-contrast elements
-  const checkColorContrasts = document.getElementsByClassName("check-color-contrast");
-
-  // Loop through each check-color-contrast element and set the text color of all adjust-color-contrast elements based on its background color
-  for (let i = 0; i < checkColorContrasts.length; i++) {
-	const checkColorContrast = checkColorContrasts[i];
-
-	// Get the background color of the check-color-contrast element
-	const backgroundColor = window.getComputedStyle(checkColorContrast).backgroundColor;
-
-	// Get all adjust-color-contrast elements of the current check-color-contrast element
-	const adjustColorContrasts = checkColorContrast.getElementsByClassName("adjust-color-contrast");
-
-	// Set the text color of all adjust-color-contrast elements based on the background color of the check-color-contrast
-	for (let j = 0; j < adjustColorContrasts.length; j++) {
-	  const adjustColorContrast = adjustColorContrasts[j];
-	  adjustColorContrast.style.color = getTextColor(backgroundColor);
-	}
-  }
-
-  // Function to determine the text color based on the background color
-  function getTextColor(backgroundColor) {
-	// Convert the background color to an RGB value
-	const rgb = backgroundColor.match(/\d+/g);
-	const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-	return brightness > 128 ? "black" : "white"; // Return black or white depending on the brightness of the background color
-  }
-</script>
 
