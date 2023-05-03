@@ -24,6 +24,9 @@
 		<!-- Using the Alpine.store ($store) to save the state of the site header. -->
 		<button class="btn btn-ghost btn-lg btn-icon" x-on:click="$store.open_mobile_nav = ! $store.open_mobile_nav; toggleNav()">
 			<?= bb_icon('menu-alt-2','') ?>
+			<span class="sr-only">
+				<?php _e('Menu'); ?>
+			</span>
 		</button>
 	</div>
 
