@@ -4,19 +4,20 @@ module.exports = {
 	content: ['./**/*.php'],
 	safelist: [
 		'grid',
-		'lg:text-2xl', 
-		{ 
-			pattern: /text-*/ 
-		}, 
-		{ 
-			pattern: /lg:text-*/ 
-		}, 
-		{ 
-			pattern: /justify-*/ 
-		}, 
-		{ 
-			pattern: /bg-*/ 
-		}],
+		'lg:text-2xl',
+		{
+			pattern: /text-*/
+		},
+		{
+			pattern: /lg:text-*/
+		},
+		{
+			pattern: /justify-*/
+		},
+		{
+			pattern: /bg-*/
+		}
+	],
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
 		fontSize: {
@@ -174,8 +175,7 @@ module.exports = {
 					},
 				},
 			},
-			themes: [
-				{
+			themes: [{
 					name: 'orga-scheme',
 					extend: {
 						colors: {
@@ -188,6 +188,32 @@ module.exports = {
 							blue: {
 								DEFAULT: '#3A25FF',
 								200: '#EEEAFF',
+							},
+						},
+					},
+				},
+				{
+					name: 'white-scheme',
+					extend: {
+						colors: {
+							primary: {
+								DEFAULT: '#fff',
+							},
+							black: {
+								DEFAULT: '#fff',
+							},
+						},
+					},
+				},
+				{
+					name: 'default-scheme',
+					extend: {
+						colors: {
+							primary: {
+								DEFAULT: '#000068',
+							},
+							black: {
+								DEFAULT: 'black',
 							},
 						},
 					},

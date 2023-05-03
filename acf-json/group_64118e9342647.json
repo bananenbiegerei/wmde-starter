@@ -22,9 +22,9 @@
             "translations": "copy_once"
         },
         {
-            "key": "field_6422aeedc4b5e",
-            "label": "Is dark Background Color",
-            "name": "is_dark_background_color",
+            "key": "field_64522d516c6f3",
+            "label": "Has dark background color",
+            "name": "has_dark_background_color",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -61,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1679994643
+    "modified": 1683107301
 }
