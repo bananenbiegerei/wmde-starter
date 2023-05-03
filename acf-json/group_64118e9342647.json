@@ -22,6 +22,25 @@
             "translations": "copy_once"
         },
         {
+            "key": "field_6452b33eec2be",
+            "label": "Secondary Color",
+            "name": "secondary_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "translations": "copy_once"
+        },
+        {
             "key": "field_64522d516c6f3",
             "label": "Has dark background color",
             "name": "has_dark_background_color",
@@ -61,5 +80,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683107301
+    "modified": 1683141470
 }
