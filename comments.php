@@ -1,67 +1,3 @@
-<style>
-	/* FIXME: @IS tailwind streamline */
-	/* Comments */
-	.comment {
-		color: $black;
-		border-radius: $global-radius;
-		overflow: hidden;
-	
-		.children {
-			list-style: none;
-	
-			.comment {
-				margin-left: $space-medium;
-			}
-		}
-	
-		&:not(:first-child) {
-			margin-top: $space-small;
-		}
-	
-		&-body {
-			background-color: $white;
-			padding: $space-small;
-	
-			.meta {
-				font-family: $header-font-family;
-			}
-	
-			.comment-reply-link {
-				@include button(false, $blue, $blue, $white !important, solid);
-				font-family: $header-font-family;
-			}
-		}
-	
-		.children {
-			margin-top: $space-small;
-		}
-	
-		& &-respond {
-			background-color: $white;
-			padding: $space-small;
-	
-		}
-	
-		&-reply-title {
-			display: flex;
-			justify-content: space-between;
-		}
-	
-		#cancel-comment-reply-link {   
-			@include button();
-			font-family: $header-font-family;
-		}
-	
-		&-form-cookies-consent {
-			display: flex;
-	
-			input#wp-comment-cookies-consent {
-				margin: 0;
-			}
-		}
-	}
-</style>
-
 <?php if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME'])) : ?>
 	<?php die('You can not access this page directly!'); ?>
 <?php endif; ?>
@@ -73,7 +9,7 @@
 <?php endif; ?>
 
 <?php if ($comments) : ?>
-	<ul class="no-bullet">
+	<ul class="list-none border rounded-xl my-20">
 		<?php
 		wp_list_comments(
 			array(
@@ -103,7 +39,7 @@ $user_ID = get_current_user_id();
 				'title_reply'        => esc_html__( 'Leave a comment' ),
 				'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
 				'title_reply_after'  => '</h3>',
-				'class_submit' => 'button',
+				'class_submit' => 'btn bnt-base',
 				'logged_in_as' => sprintf(
 					'<p class="logged-in-as">%s</p>',
 					sprintf(

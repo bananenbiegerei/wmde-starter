@@ -90,8 +90,18 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 
 <?php endif; ?>
 
-<div class="content pt-10">
+<div class="content py-10">
 	<?php the_content(); ?>
+</div>
+<div class="bg-gray">
+	<?php if ( comments_open() || get_comments_number() ) { ?>
+		<section class="comments-container lg:grid lg:grid-cols-12">
+					<div class="lg:col-span-8 lg:col-start-3">
+						<?php comments_template(); ?>
+					</div>
+		</section>
+	<?php }
+	?>
 </div>
 <?php endwhile; ?>
 <?php get_footer(); ?>
