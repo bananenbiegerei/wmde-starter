@@ -48,7 +48,7 @@ $user_ID = get_current_user_id();
 						get_edit_user_link(),
 						/** This filter is documented in wp-includes/link-template.php */
 						wp_logout_url( apply_filters( 'the_permalink', get_permalink( get_the_ID() ), get_the_ID() ) ),
-						pll__('Log out'),
+						__('Log out'),
 					),
 				),
 			)

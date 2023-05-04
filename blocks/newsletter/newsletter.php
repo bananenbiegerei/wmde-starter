@@ -15,25 +15,25 @@
 		<form action="https://t874ad7c5.emailsys1a.net/191/2155/d537ac9314/subscribe/form.html" method="post">
 					<ul class="lg:grid lg:grid-cols-2 lg:gap-5">
 						<li style="position:absolute; z-index: -100; left:-6000px;" aria-hidden="true">
-							<label class="field_label required" for="rm_email"><?php pll_e('E-Mail:') ?> </label>
+							<label class="field_label required" for="rm_email"><?php _e('E-Mail:') ?> </label>
 							<input type="text" class="form_field" name="rm_email" id="rm_email" value="" tabindex="-1" />
 							<label class="field_label required" for="rm_comment">Comment: </label>
 							<textarea class="form_field" name="rm_comment" tabindex="-1" id="rm_comment"></textarea>
 						</li>
 						<li class="col-span-2">
-							<label class="field_label required text-sm font-bold" for="email"><?php pll_e('E-Mail:') ?> * </label>
+							<label class="field_label required text-sm font-bold" for="email"><?php _e('E-Mail:') ?> * </label>
 							<input type="text" class="form_field" name="email" id="email" value="" />
 						</li>
 						<li id="firstname_form" class="basis-1/2">
-							<label id="firstname_label" class="field_label text-sm font-bold" for="firstname"><?php pll_e('Vorname:') ?> </label>
+							<label id="firstname_label" class="field_label text-sm font-bold" for="firstname"><?php _e('Vorname:') ?> </label>
 							<input type="text" class="form_field" name="firstname" id="firstname" value="" />
 						</li>
 						<li id="lastname_form" class="basis-1/2 mb-5 lg:mb-5">
-							<label id="lastname_label" class="field_label text-sm font-bold" for="lastname"><?php pll_e('Nachname:') ?> </label>
+							<label id="lastname_label" class="field_label text-sm font-bold" for="lastname"><?php _e('Nachname:') ?> </label>
 							<input type="text" class="form_field" name="lastname" id="lastname" value="" />
 						</li>
 						<li class="form_button">
-							<input type="submit" class="form_button_submit btn btn-lg" value="<?php pll_e('Anmelden') ?>" />
+							<input type="submit" class="form_button_submit btn btn-lg" value="<?php _e('Anmelden') ?>" />
 						</li>
 					</ul>
 		</form>
