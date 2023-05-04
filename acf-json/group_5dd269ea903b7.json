@@ -16,10 +16,11 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "layout": "row",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "collapsed": "",
             "button_label": "Add author",
             "rows_per_page": 20,
             "sub_fields": [
@@ -99,5 +100,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681909389
+    "modified": 1683190860
 }
