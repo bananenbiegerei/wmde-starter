@@ -1,6 +1,6 @@
 <script>
 // Get current page ID (used to set 'current' class to menu item)
-const pageID = <?php echo get_the_ID() || 'null'; ?>;
+const pageID = <?= get_the_ID() ?: 'null' ?>;
 // Get content of top-nav menu
 const WPNav = JSON.parse('<?php echo json_encode(bb_get_nav_menu()); ?>');
 // Default icon when featured page thumbnail is missing
