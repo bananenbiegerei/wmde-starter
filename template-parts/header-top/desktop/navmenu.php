@@ -67,7 +67,7 @@
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<div id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
+<div id="navmenu_desktop" aria-hidden="true" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
 
 	<!-- Top bar with logo, domains, and search -->
 	<div class="relative z-10 container overflow-hidden">
@@ -75,7 +75,7 @@
 		<!-- Logo -->
 		<div class="absolute left-5 top-2 overflow-hidden" type="logo">
 			<div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
-				<a href="<?php echo get_home_url(); ?>" aria-label="Homepage">
+				<a tabindex="-1"  href="<?php echo get_home_url(); ?>" aria-label="Homepage">
 					<img class="mini-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
 				</a>
 			</div>
@@ -87,11 +87,11 @@
 			<!-- Domains -->
 			<div class="navmenu flex-none flex space-x-1 py-3 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
 				<!-- Domain items -->
-				<template x-for="(domain,i) in nav">
-					<button type="button" class="btn btn-menu relative" aria-expanded="false" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }">
-						<a x-bind:href="domain.url"> <span x-html="domain.title"></span> </a>
-					</button>
-				</template>
+				<nav>
+					<template x-for="(domain,i) in nav">
+						<a tabindex="-1" class="btn btn-menu relative" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }" x-bind:href="domain.url" x-html="domain.title"></a>
+					</template>
+				</nav>
 			</div>
 
 			<!-- Search -->
@@ -110,7 +110,7 @@
 						<input type="submit" alt="Search" value="Suchen" class="btn btn-sm" />
 					</form>
 				</div>
-				<button class="btn btn-ghost btn-icon-only !text-black"
+				<button tabindex="-1" class="btn btn-ghost btn-icon-only !text-black"
 						x-on:click="open = ! open; $nextTick(() => $refs.searchInput.focus())">
 					<span class="sr-only">Toggle Search Input</span><?php echo bb_icon('search', 'icon-sm'); ?>
 				</button>
@@ -150,7 +150,7 @@
 							<ul role="list" class="flex flex-col max-h-screen-80 overflow-auto">
 								<template x-for="page in domain.featured">
 									<li class="" x-bind:class="{'current': pageID == page.ID }">
-										<a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4">
+										<a tabindex="-1"  x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4">
 											<div class="">
 												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 											</div>
@@ -174,7 +174,7 @@
 								<template x-for="page in domain.pages">
 									<li class="bg-white transition rounded-md"
 										x-bind:class="{'current': pageID == page.ID }">
-										<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
+										<a tabindex="-1"  x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
 									</li>
 								</template>
 							</ul>
@@ -187,7 +187,7 @@
 								<template x-for="page in section.pages">
 									<li class="bg-white transition rounded-md"
 										x-bind:class="{'current': pageID == page.ID }">
-										<a x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
+										<a tabindex="-1"  x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
 									</li>
 								</template>
 							</ul>
