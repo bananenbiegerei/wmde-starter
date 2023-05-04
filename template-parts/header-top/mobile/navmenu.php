@@ -28,82 +28,85 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 			</form>
 		</div>
 	</div>
-	<template x-for="(domain,i) in nav">
 
-		<div class="border-b border-gray-200">
+	<nav>
+		<template x-for="(domain,i) in nav">
 
-			<div  class="relative border-l-8 nav_item" x-bind:class="{ 'border-transparent' : !isOpen[i], 'border-blue-600' : isOpen[i] }" >
+			<div class="border-b border-gray-200">
 
-				<!-- Domain title -->
-				<div x-bind:class="{'current before:w-2 before:h-16 before:bg-primary-600 before:absolute before:-left-2 before:top-0': pageID == domain.ID }">
-				<a
-					x-bind:href="domain.url"
-					class="btn btn-menu h-16">
-					<span class="w-full" x-html="domain.title"></span>
-				</a>
-				</div>
+				<div  class="relative border-l-8 nav_item" x-bind:class="{ 'border-transparent' : !isOpen[i], 'border-blue-600' : isOpen[i] }" >
 
-				<template x-if="domain.pages.length > 0 || domain.featured.length > 0 ||  domain.sections.length > 0">
-					<div @click="toggleNav(i)" class="absolute top-5 right-5" x-bind:class="{ 'item_closed' : !isOpen[i], 'item_open' : isOpen[i] }" >
-						<?= bb_icon('menu_open', 'cursor-pointer open') ?>
-						<?= bb_icon('menu_close', 'cursor-pointer close') ?>
+					<!-- Domain title -->
+					<div x-bind:class="{'current before:w-2 before:h-16 before:bg-primary-600 before:absolute before:-left-2 before:top-0': pageID == domain.ID }">
+					<a
+						x-bind:href="domain.url"
+						class="btn btn-menu h-16">
+						<span class="w-full" x-html="domain.title"></span>
+					</a>
 					</div>
-				</template>
 
-				<!-- Wrapper for domain items -->
-				<div x-show="isOpen[i]" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
-
-					<!-- Featured pages -->
-					<template x-if="domain.featured.length >0">
-						<ul class="pb-5">
-							<template x-for="page in domain.featured">
-								<li class="px-5" x-bind:class="{'current': pageID == page.ID }">
-									<a
-										x-bind:href="page.url"
-										class="btn btn-menu">
-										<div class="w-10 h-10 mr-2 flex justify-center items-center">
-											<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
-										</div>
-										<span class="w-full" x-html="page.title"></span>
-									</a>
-								</li>
-							</template>
-						</ul>
+					<template x-if="domain.pages.length > 0 || domain.featured.length > 0 ||  domain.sections.length > 0">
+						<div aria-hidden="true" @click="toggleNav(i)" class="absolute top-5 right-5" x-bind:class="{ 'item_closed' : !isOpen[i], 'item_open' : isOpen[i] }" >
+							<?= bb_icon('menu_open', 'cursor-pointer open') ?>
+							<?= bb_icon('menu_close', 'cursor-pointer close') ?>
+						</div>
 					</template>
 
-					<!-- Pages -->
-					<template x-if="domain.pages.length > 0">
-						<ul class="border-t border-gray-200 py-4">
-							<template x-for="page in domain.pages">
-								<li class="px-5 py-2" x-bind:class="{'current': pageID == page.ID }">
-									<a
-										x-bind:href="page.url"
-										class="btn btn-menu">
-										<span class="w-full" x-html="page.title"></span>
-									</a>
-								</li>
-							</template>
-						</ul>
-					</template>
+					<!-- Wrapper for domain items -->
+					<div x-show="isOpen[i]" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
 
-					<!-- Sections -->
-					<template x-for="section in domain.sections">
-						<ul class="border-t border-gray-200 py-4 px-2">
-								<li class="pl-6">
-									<span class="btn btn-menu-section" x-html="section.title"></span>
-									<ul>
-										<template x-for="page in section.pages">
-											<li  class="py-2" x-bind:class="{'current': pageID == page.ID }">
-												<a x-bind:href="page.url" x-html="page.title" class="btn btn-menu"></a>
-											</li>
-										</template>
-									</ul>
-								</li>
-						</ul>
-					</template>
+						<!-- Featured pages -->
+						<template x-if="domain.featured.length >0">
+							<ul class="pb-5">
+								<template x-for="page in domain.featured">
+									<li class="px-5" x-bind:class="{'current': pageID == page.ID }">
+										<a
+											x-bind:href="page.url"
+											class="btn btn-menu">
+											<div class="w-10 h-10 mr-2 flex justify-center items-center">
+												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
+											</div>
+											<span class="w-full" x-html="page.title"></span>
+										</a>
+									</li>
+								</template>
+							</ul>
+						</template>
 
+						<!-- Pages -->
+						<template x-if="domain.pages.length > 0">
+							<ul class="border-t border-gray-200 py-4">
+								<template x-for="page in domain.pages">
+									<li class="px-5 py-2" x-bind:class="{'current': pageID == page.ID }">
+										<a
+											x-bind:href="page.url"
+											class="btn btn-menu">
+											<span class="w-full" x-html="page.title"></span>
+										</a>
+									</li>
+								</template>
+							</ul>
+						</template>
+
+						<!-- Sections -->
+						<template x-for="section in domain.sections">
+							<ul class="border-t border-gray-200 py-4 px-2">
+									<li class="pl-6">
+										<span class="btn btn-menu-section" x-html="section.title"></span>
+										<ul>
+											<template x-for="page in section.pages">
+												<li  class="py-2" x-bind:class="{'current': pageID == page.ID }">
+													<a x-bind:href="page.url" x-html="page.title" class="btn btn-menu"></a>
+												</li>
+											</template>
+										</ul>
+									</li>
+							</ul>
+						</template>
+
+					</div>
 				</div>
 			</div>
-		</div>
-	</template>
+		</template>
+	</nav>
 </div>

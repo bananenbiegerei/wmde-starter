@@ -16,17 +16,14 @@
 		}))});
 </script>
 
-<div id="titlebar_mobile" class="flex bg-white h-14 items-center py-1 px-5 left-0 right-0 fixed  border-b border-gray-200 block z-40 lg:hidden">
+<div aria-hidden="true" id="titlebar_mobile" class="flex bg-white h-14 items-center py-1 px-5 left-0 right-0 fixed  border-b border-gray-200 block z-40 lg:hidden">
 
 	<?php get_template_part('template-parts/header-top/titlebar_content'); ?>
 
 	<div class="block flex-none" x-data="navMenuMobileToggle">
 		<!-- Using the Alpine.store ($store) to save the state of the site header. -->
 		<button class="btn btn-ghost btn-lg btn-icon" x-on:click="$store.open_mobile_nav = ! $store.open_mobile_nav; toggleNav()">
-			<?= bb_icon('menu-alt-2','') ?>
-			<span class="sr-only">
-				<?php _e('Menu'); ?>
-			</span>
+			<?= bb_icon('menu-alt-2', '') ?>
 		</button>
 	</div>
 
