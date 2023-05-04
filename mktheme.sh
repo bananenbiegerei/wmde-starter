@@ -1,5 +1,5 @@
 #!/bin/sh
-mkdir dist
+mkdir -p dist
 
 # Update version number with build timestamp
 TS=`date +%Y%m%d%H%M%S`
