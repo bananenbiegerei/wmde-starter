@@ -1,11 +1,25 @@
 <header class="flex w-full items-center">
 	<div class="flex-1">
+		<?php if ( is_home() ): ?>
+		<!-- for blog -->
+		<a href="https://blog.wikimedia.de/" class="hidden lg:block" aria-labelledby="site-name">
+			<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo.svg" alt="Wikimedia Logo">
+		</a>
+		<a href="https://blog.wikimedia.de/" class="block lg:hidden" aria-labelledby="site-name">
+			<img class="w-6 h-auto" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Wikimedia Logo">
+		</a>
+		
+		<?php else: ?>
+		
 		<a href="<?php echo get_home_url(); ?>" class="hidden lg:block" aria-labelledby="site-name">
 			<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo.svg" alt="Wikimedia Logo">
 		</a>
 		<a href="<?php echo get_home_url(); ?>" class="block lg:hidden" aria-labelledby="site-name">
 			<img class="w-6 h-auto" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Wikimedia Logo">
 		</a>
+		
+		<?php endif; ?>
+		
 	</div>
 	
 	<div class="flex gap-5">
