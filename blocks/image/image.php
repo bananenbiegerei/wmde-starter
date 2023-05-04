@@ -41,7 +41,7 @@ if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
 }
 
 $figure_classes .= $image_caption ? '' : ' no_caption';
-$caption_classes = 'invisible flex absolute left-0 bottom-0 right-0 text-white bg-black w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all ' . ($rounded ? 'rounded-b-2xl' : '');
+$caption_classes = 'invisible flex absolute left-0 bottom-0 right-0 text-white bg-gray-900 w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all ' . ($rounded ? 'rounded-b-2xl' : '');
 
 // Create image tag
 if ($image_id) {

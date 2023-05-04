@@ -31,7 +31,7 @@
     <!-- Modal -->
     <div x-show="open" style="display: none" x-on:keydown.escape.prevent.stop="open = false" role="dialog" aria-modal="true" x-id="['dsgvo-modal']" :aria-labelledby="$id('dsgvo-modal')" class="fixed inset-0 z-10 overflow-y-auto">
         <!-- Overlay -->
-        <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+        <div x-show="open" x-transition.opacity class="fixed inset-0 bg-gray-900 bg-opacity-50"></div>
 
         <!-- Panel -->
         <div x-show="open" x-transition x-on:click="open = false" class="relative flex min-h-screen items-center justify-center p-4">
