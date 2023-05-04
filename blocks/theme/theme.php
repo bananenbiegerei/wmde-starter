@@ -68,34 +68,54 @@ $theme_url = get_the_permalink($theme);
 				<?php while ( have_rows( 'related_links' ) ) : the_row(); ?>
 					<?php $link = get_sub_field( 'link' ); ?>
 					<?php if ( $link ) : ?>
-						<a class="hover:underline underline-black transion" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
-						<?php if( get_sub_field('alt_meta_info') ): ?>
-							
-						<?php endif; ?>
-						
-						<?php if ( get_sub_field( 'alt_meta_info' ) ): ?>
-						
 						<?php if ( $secondary_color ): ?>
-						<p class="topline mb-0" style="color:<?php echo $secondary_color; ?>;">
-							<?php the_sub_field('alt_meta_info'); ?>
-						</p>
+							<a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
+							<?php if( get_sub_field('alt_meta_info') ): ?>
+							<?php endif; ?>
+							
+							<?php if ( get_sub_field( 'alt_meta_info' ) ): ?>
+							
+							<p class="topline mb-0" style="color:<?php echo $secondary_color; ?>;">
+								<?php the_sub_field('alt_meta_info'); ?>
+							</p>
+							<h3 class="text-base lg:text-xl text-black hover:underline decoration-white transition">
+							<?php echo esc_html( $link['title'] ); ?>
+							</h3>
+							<?php else: ?>
+						
+							<h3 class="text-base lg:text-xl text-black mt-5 hover:underline decoration-white transition">
+							<?php echo esc_html( $link['title'] ); ?>
+							</h3>
+						
+							<?php endif; ?>
+							
+							</a>
+						
 						<?php else: ?>
-						<p class="topline mb-0">
-							<?php the_sub_field('alt_meta_info'); ?>
-						</p>
+							<a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
+							<?php if( get_sub_field('alt_meta_info') ): ?>
+							<?php endif; ?>
+							
+							<?php if ( get_sub_field( 'alt_meta_info' ) ): ?>
+							
+							<p class="topline mb-0">
+								<?php the_sub_field('alt_meta_info'); ?>
+							</p>
+							<h3 class="text-base lg:text-xl text-black hover:underline decoration-black transition">
+							<?php echo esc_html( $link['title'] ); ?>
+							</h3>
+							<?php else: ?>
+							
+							<h3 class="text-base lg:text-xl text-black mt-5 hover:underline decoration-black transition">
+							<?php echo esc_html( $link['title'] ); ?>
+							</h3>
+							
+							<?php endif; ?>
+							
+							</a>
+						
 						<?php endif; ?>
-						<h3 class="text-base lg:text-xl text-black">
-						<?php echo esc_html( $link['title'] ); ?>
-						</h3>
-						<?php else: ?>
 						
-						<h3 class="text-base lg:text-xl text-black mt-5">
-						<?php echo esc_html( $link['title'] ); ?>
-						</h3>
-						
-						<?php endif; ?>
-						
-						</a>
 					<?php endif; ?>
 				<?php endwhile; ?>
 				</div>
