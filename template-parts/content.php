@@ -1,4 +1,4 @@
-<a href="<?php the_permalink(); ?>">
+<a class="text-hover-effect image-hover-effect" href="<?php the_permalink(); ?>">
 	<?php
 	if ( has_post_thumbnail() ) { ?>
 		<div class="aspect-w-16 aspect-h-9 mb-4">

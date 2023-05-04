@@ -1,16 +1,16 @@
 <?php if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME'])) : ?>
-	<?php die('You can not access this page directly!'); ?>
+<?php die('You can not access this page directly!'); ?>
 <?php endif; ?>
 
 <?php if (!empty($post->post_password)) : ?>
-	<?php if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) : ?>
-			<p><?php _e('This post is password protected. Enter the password to view comments.'); ?></p>
-	<?php endif; ?>
+<?php if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) : ?>
+<p><?php _e('This post is password protected. Enter the password to view comments.'); ?></p>
+<?php endif; ?>
 <?php endif; ?>
 
 <?php if ($comments) : ?>
-	<ul class="list-none border rounded-xl my-20">
-		<?php
+<ul class="list-none border rounded-xl my-20">
+	<?php
 		wp_list_comments(
 			array(
 				'style' => 'ul',
@@ -19,21 +19,20 @@
 			)
 		);
 		?>
-	</ul>
+</ul>
 <?php else : ?>
-	<p><?php _e('No comments yet') ?></p>
-	<h3><?php _e('Leave a comment'); ?></h3>
+<p><?php _e('No comments yet') ?></p>
 <?php endif; ?>
 
 <?php if (comments_open()) :
 $user_ID = get_current_user_id();
 ?>
-	<?php if (get_option('comment_registration') && !$user_ID) : ?>
-		<p><?php _e('You must be'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>"><?php _e('logged in') ?>
-			</a> <?php _e('to post a comment.'); ?>
-		</p>
-	<?php else : ?>
-		<?php
+<?php if (get_option('comment_registration') && !$user_ID) : ?>
+<p><?php _e('You must be'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>"><?php _e('logged in') ?>
+	</a> <?php _e('to post a comment.'); ?>
+</p>
+<?php else : ?>
+<?php
 		comment_form(
 			array(
 				'title_reply'        => esc_html__( 'Leave a comment' ),
@@ -55,7 +54,7 @@ $user_ID = get_current_user_id();
 			)
 		);
 		?>
-	<?php endif; ?>
+<?php endif; ?>
 <?php else : ?>
-	<p><?php _e('The comments are closed.'); ?></p>
+<p><?php _e('The comments are closed.'); ?></p>
 <?php endif; ?>
