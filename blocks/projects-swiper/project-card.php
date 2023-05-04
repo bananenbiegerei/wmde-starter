@@ -1,8 +1,10 @@
-<a class="flex flex-col gap-5 h-full text-hover-effect image-hover-effect" href="<?php echo get_post_permalink($project->ID); ?>">
+<a class="flex flex-col gap-5 h-full text-hover-effect image-hover-effect grayscale hover:grayscale-0 " href="<?php echo get_post_permalink($project->ID); ?>">
 	<div class="basis-1/2">
 		<div class="w-full h-full flex items-center justify-center p-5">
 			<?php if (has_post_thumbnail($project->ID)): ?>
-				<img class="h-40 object-contain mx-auto my-5 grayscale mix-blend-multiply hover:grayscale-0" src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id($project->ID), '_wp_attachment_image_alt', true)); ?>">
+				<img class="h-40 object-contain mx-auto my-5 mix-blend-multiply " src="<?php echo get_the_post_thumbnail_url($project->ID, 'medium'); ?>" alt="<?php echo esc_attr(
+	get_post_meta(get_post_thumbnail_id($project->ID), '_wp_attachment_image_alt', true),
+); ?>">
 			<?php endif; ?>
 		</div>
 	</div>
