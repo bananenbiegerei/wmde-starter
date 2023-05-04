@@ -32,7 +32,7 @@ if ($image_id) {
 // Get values for container and image classes
 if ($image_meta_data['width'] * 0.74 < $image_meta_data['height']) {
 	// For portrait
-	$figure_classes = 'flex flex-col relative justify-center bg-secondary overflow-hidden ' . ($rounded ? 'rounded-2xl ' : '');
+	$figure_classes = 'flex flex-col relative justify-center overflow-hidden ' . ($rounded ? 'rounded-2xl ' : '');
 	$image_classes = ['class' => 'h-auto max-w-2xl mx-auto w-full'];
 } else {
 	// For landscape
