@@ -8,12 +8,12 @@
 					the_post();
 					$image_id = get_post_thumbnail_id();
 				?>
-				<div class="bb-card-block bg-gray rounded-xl mb-10 lg:mb-5 p-5 z-10 hover:z-20 relative " data-post-id="" data-blog-id="29">
+				<div class="bb-card-block text-hover-effect image-hover-effect bg-gray rounded-xl overflow-hidden mb-10 lg:mb-5 z-10 hover:z-20 relative " data-post-id="" data-blog-id="29">
 					<a href="<?php the_permalink(); ?>" class="flex gap-5 flex-col">
 						<?php
 						if ( has_post_thumbnail() ) { ?>
 							<div class="">
-								<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden">
+								<div class="aspect-w-16 aspect-h-9 bg-gray-100 overflow-hidden">
 									<?php if ($image_id) : ?>
 										<?php echo wp_get_attachment_image($image_id, [400, 0], false, ['class' => 'h-full w-full object-cover']); ?>
 									<?php endif; ?>
@@ -23,7 +23,7 @@
 						else {
 						}
 						?>
-						<div class=" space-y-2 px-2 pb-2">
+						<div class=" space-y-2 px-10 pb-10">
 							<h2 class="text-2xl font-alt"><?php the_title(); ?></h2>
 							<div class="text-xl font-alt font-normal text-inherit"><?= wp_trim_words(get_the_excerpt(), 99, '...') ?></div>
 						</div>

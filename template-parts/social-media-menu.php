@@ -33,5 +33,4 @@
             <span class="sr-only">Mastodon</span>
         </a>
     </li>
-    
 </ul>
