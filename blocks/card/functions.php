@@ -323,6 +323,7 @@ class bbCard
 				} else {
 					// If the post is still not found, search with the last past of the post path
 					// NOTE: not sure why WP has trouble finding a post that has a parent slug... had the issue with abc_posts
+					// FIXME: Only variables should be passed by reference ???
 					$query['name'] = array_pop(explode('/', $query['name']));
 					$wpquery = new WP_Query($query);
 					if (!empty($wpquery->posts) && $wpquery->is_singular) {

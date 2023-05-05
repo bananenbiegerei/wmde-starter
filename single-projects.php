@@ -11,26 +11,33 @@
 			  <div class="lg:col-span-9">
 					<h1 class="my-5"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
-					  <div class="<?php echo $excerpt_style; ?> mb-10 text-xl lg:text-2xl font-alt font-normal">
+					  <div class="mb-10 text-xl lg:text-2xl font-alt font-normal">
 						<?php echo strip_tags(get_the_excerpt()); ?>
 					  </div>
 					<?php endif; ?>
 			  </div>
-			
+
 		  </div>
 	</div>
 
 	<div class="content pt-10 container lg:grid lg:grid-cols-12 gap-10">
 		<div class="lg:col-span-3 font-alt font-normal flex flex-col space-y-5">
-			<?php if ( have_rows( 'meta_infos' ) ) : ?>
-				<?php while ( have_rows( 'meta_infos' ) ) : the_row(); ?>
+			<?php if (have_rows('meta_infos')): ?>
+				<?php while (have_rows('meta_infos')):
+    	the_row(); ?>
 					<div>
-						<strong><?php the_sub_field( 'label' ); ?></strong>
-						<span class="text-sm text-inherit"><?php the_sub_field( 'text' ); ?></span>
+						<strong><?php the_sub_field('label'); ?></strong>
+						<span class="text-sm text-inherit"><?php the_sub_field('text'); ?></span>
 					</div>
-				<?php endwhile; ?>
-			<?php else : ?>
-				<?php // No rows found ?>
+				<?php
+    endwhile; ?>
+			<?php
+   	// No rows found
+   	// No rows found
+   	?>else: ?>
+				<?php
+   	// No rows found
+   	?>
 			<?php endif; ?>
 		</div>
 		<div class="lg:col-span-9 content">
