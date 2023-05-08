@@ -10,6 +10,11 @@
 }
 .image-hover-effect:hover {
 	img {
-		@apply opacity-90 transition;
+		@apply opacity-80 ease-in duration-300;
+	}
+}
+.image-hover-effect {
+	img {
+		@apply opacity-100 ease-in duration-300;
 	}
 }
