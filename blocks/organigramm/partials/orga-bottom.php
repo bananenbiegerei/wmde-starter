@@ -2,7 +2,7 @@
 	<div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5 gap-y-20 sm:gap-y-10">
 	
 	<?php while ( have_rows( 'chapters_bottom' ) ) : the_row(); ?>
-		<div class="space-y-3 w-3/4 sm:w-full mx-auto sm:mx-0">
+		<div class="space-y-3 w-full sm:w-full mx-auto sm:mx-0">
 		<div class="bg-blue aspect-h-1 aspect-w-1 rounded-full text-white">
 		<div class="flex justify-center items-center flex-col h-full w-full p-5">
 			<h4 class="text-center text-sm lg:text-base">

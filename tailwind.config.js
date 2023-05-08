@@ -189,6 +189,9 @@ module.exports = {
 								DEFAULT: '#3A25FF',
 								200: '#EEEAFF',
 							},
+							black: {
+								DEFAULT: '#000',
+							},
 						},
 					},
 				},

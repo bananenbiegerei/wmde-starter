@@ -2,18 +2,18 @@
 	<div class="flex flex-col sm:flex-row gap-5 items-center">
 	<?php while ( have_rows( 'middle_section' ) ) : the_row(); ?>
 		<?php if ( have_rows( 'circle_middle' ) ) : ?>
-			<div class="w-3/4 sm:w-1/2 lg:w-1/3 sm:order-2">
+			<div class="w-full sm:w-1/2 lg:w-1/3 sm:order-2">
 				<div class="bg-red aspect-h-1 aspect-w-1 rounded-full text-white">
 					<div class="w-full-h-full flex justify-center items-center">
 						<div class="text-center">
 						<?php while ( have_rows( 'circle_middle' ) ) : the_row(); ?>
-							<h3>
+							<h3 class="text-sm sm:text-2xl">
 								<?php the_sub_field( 'headline' ); ?>
 							</h3>
 							<?php if ( have_rows( 'people' ) ) : ?>
-								<div class="grid grid-cols-2 divide-x divide-white">
+								<div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 divide-x-0 sm:divide-x divide-white">
 								<?php while ( have_rows( 'people' ) ) : the_row(); ?>
-									<h4 class="p-5">
+									<h4 class="p-1 lg:p-5">
 										<?php the_sub_field( 'name' ); ?>
 									</h4>
 								<?php endwhile; ?>
