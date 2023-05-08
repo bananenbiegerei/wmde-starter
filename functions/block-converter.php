@@ -40,6 +40,7 @@ class bbBlockConverter
 		add_action('admin_menu', function () {
 			add_menu_page('Block Converter', 'Block Converter', 'edit_posts', 'bb_block_converter', [$this, 'block_converter_page'], 'dashicons-block-default');
 			add_submenu_page('bb_block_converter', 'Unsupported Blocks', 'Unsupported Blocks', 'edit_posts', 'bb_block_converter_audit', [$this, 'unsupported_blocks_page']);
+			// add_submenu_page('bb_block_converter', 'Blog Fix Old Posts', 'Blog Fix Old Posts', 'edit_posts', 'bb_block_blog_fix', [$this, 'blog_fix_page']);
 		});
 
 		add_action('wp_ajax_bb_block_converter', [$this, 'ajax_convert_posts']);
@@ -494,6 +495,40 @@ class bbBlockConverter
 		$query = $wpdb->prepare("UPDATE {$wpdb->prefix}posts SET post_content=%s WHERE ID=%d", $post_content, $post_id);
 		$result = $wpdb->query($query);
 		return $result;
+	}
+
+	function blog_fix_page()
+	{
+		$pre = '<div class="old_blog_outer"><div class="old_blog_inner">';
+		$post = '</div></div>';
+
+		echo '<div class="wrap">';
+		echo '<ul>';
+		echo '<h1>Fixing empty blog posts...</h1>';
+
+		$handle = fopen(get_template_directory() . '/posts.txt', 'r');
+		$n = 0;
+		for ($i = 0; ($row = fgetcsv($handle, null, ';')); ++$i) {
+			if ($n > 500) {
+				break;
+			}
+
+			$post_id = str_replace('(', '', $row[0]);
+			$content = $row[4];
+
+			if (get_post($post_id)->post_content != '') {
+				continue;
+			}
+
+			echo "<li>{$post_id}</li>";
+			$new_content = "{$pre}{$content}{$post}";
+			$this->db_update_post_content($post_id, $new_content);
+
+			$n++;
+		}
+		fclose($handle);
+		echo '</ul>';
+		echo '</div>';
 	}
 }
 
