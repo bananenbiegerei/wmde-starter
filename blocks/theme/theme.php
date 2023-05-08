@@ -1,5 +1,6 @@
 <?php
 $theme = get_field('theme');
+// FIXME: handle error if $theme is null
 $color = get_field('color_for_theme', $theme->ID);
 $secondary_color = get_field('secondary_color', $theme->ID);
 $color_contrast = get_field('has_dark_background_color', $theme->ID);
@@ -12,9 +13,9 @@ $theme_url = get_the_permalink($theme);
 
 <div class="bb-theme-block mb-10 lg:mb-20">
 	<div class="rounded-3xl lg:px-10 lg:grid lg:grid-cols-12 overflow-hidden
-	<?php if( $color_contrast ):
-		echo 'white-scheme';
-	endif;?>
+	<?php if ($color_contrast):
+ 	echo 'white-scheme';
+ endif; ?>
 	"
 	style="background-color: <?= $color ?>;">
 		<!-- Image -->
@@ -28,7 +29,7 @@ $theme_url = get_the_permalink($theme);
 			<div class="lg:col-span-8 flex flex-col p-5 lg:p-0">
 				<div class="pt-8">
 					<!-- Theme or format -->
-					<?php if ( $secondary_color ): ?>
+					<?php if ($secondary_color): ?>
 					<div class="topline">
 						<span style="color:<?php echo $secondary_color; ?>;">
 							<?= __('Theme', BB_TEXT_DOMAIN) ?>
@@ -53,71 +54,73 @@ $theme_url = get_the_permalink($theme);
 				<!-- Button and extra info -->
 				<div class="flex-1 flex items-end lg:pb-8 default-scheme">
 					<a href="<?php echo $theme_url; ?>" class="btn btn-hollow">
-						<?= bb_icon('arrow-right',''); ?>
-						<?= __('Zum Thema', BB_TEXT_DOMAIN) ?>						
+						<?= bb_icon('arrow-right', '') ?>
+						<?= __('Zum Thema', BB_TEXT_DOMAIN) ?>
 					</a>
 				</div>
 
 			</div>
-	
+
 			<!-- Related -->
 			<?php $secondary_color = get_field('secondary_color', $theme->ID); ?>
-			<?php if ( have_rows( 'related_links' ) ) : ?>
+			<?php if (have_rows('related_links')): ?>
 				<div class="col-span-12 my-10">
 				<div class="lg:grid lg:grid-cols-3 px-5 lg:px-0 gap-10">
-				<?php while ( have_rows( 'related_links' ) ) : the_row(); ?>
-					<?php $link = get_sub_field( 'link' ); ?>
-					<?php if ( $link ) : ?>
-						<?php if ( $secondary_color ): ?>
-							<a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
-							<?php if( get_sub_field('alt_meta_info') ): ?>
+				<?php while (have_rows('related_links')):
+    	the_row(); ?>
+					<?php $link = get_sub_field('link'); ?>
+					<?php if ($link): ?>
+						<?php if ($secondary_color): ?>
+							<a href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr($link['target']); ?>">
+							<?php if (get_sub_field('alt_meta_info')): ?>
 							<?php endif; ?>
-							
-							<?php if ( get_sub_field( 'alt_meta_info' ) ): ?>
-							
+
+							<?php if (get_sub_field('alt_meta_info')): ?>
+
 							<p class="topline mb-0" style="color:<?php echo $secondary_color; ?>;">
 								<?php the_sub_field('alt_meta_info'); ?>
 							</p>
 							<h3 class="text-base lg:text-xl text-black hover:underline decoration-black transition">
-							<?php echo esc_html( $link['title'] ); ?>
+							<?php echo esc_html($link['title']); ?>
 							</h3>
 							<?php else: ?>
-						
+
 							<h3 class="text-base lg:text-xl text-black mt-5 hover:underline decoration-black transition">
-							<?php echo esc_html( $link['title'] ); ?>
+							<?php echo esc_html($link['title']); ?>
 							</h3>
-						
+
 							<?php endif; ?>
-							
+
 							</a>
-						
+
 						<?php else: ?>
-							<a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>">
-							<?php if( get_sub_field('alt_meta_info') ): ?>
+							<a href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr($link['target']); ?>">
+							<?php if (get_sub_field('alt_meta_info')): ?>
 							<?php endif; ?>
-							
-							<?php if ( get_sub_field( 'alt_meta_info' ) ): ?>
-							
+
+							<?php if (get_sub_field('alt_meta_info')): ?>
+
 							<p class="topline mb-0">
 								<?php the_sub_field('alt_meta_info'); ?>
 							</p>
 							<h3 class="text-base lg:text-xl text-black hover:underline decoration-black transition">
-							<?php echo esc_html( $link['title'] ); ?>
+							<?php echo esc_html($link['title']); ?>
 							</h3>
 							<?php else: ?>
-							
+
 							<h3 class="text-base lg:text-xl text-black mt-5 hover:underline decoration-black transition">
-							<?php echo esc_html( $link['title'] ); ?>
+							<?php echo esc_html($link['title']); ?>
 							</h3>
-							
+
 							<?php endif; ?>
-							
+
 							</a>
-						
+
 						<?php endif; ?>
-						
+
 					<?php endif; ?>
-				<?php endwhile; ?>
+				<?php
+    endwhile; ?>
 				</div>
 				</div>
 			<?php endif; ?>

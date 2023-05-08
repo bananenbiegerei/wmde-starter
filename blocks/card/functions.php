@@ -73,6 +73,9 @@ class bbCard
 	{
 		if (!is_multisite()) {
 			$post_data = bbCard::get_post_data_from_url_for_blog($url);
+			if (!$post_data) {
+				return false;
+			}
 			$post_data['blog_id'] = 1;
 			return $post_data;
 		}
@@ -172,9 +175,10 @@ class bbCard
 
 		$wkc_image_url = get_field('wkc_featured_image_url', $post_id);
 		if ($wkc_image_url && class_exists('bbWikimediaCommonsMedia')) {
-			$data = bbWikimediaCommonsMedia::get_media($wkc_image_url);
-			$img = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$attr['class']}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
-			return $img;
+			if ($data = bbWikimediaCommonsMedia::get_media($wkc_image_url)) {
+				$img = "<img src=\"{$data['media_url']}\" alt=\"{$data['desc']}\" class=\" {$attr['class']}\" decoding=\"async\" srcset=\"{$data['srcset']}\">";
+				return $img;
+			}
 		}
 
 		$image_id = get_post_thumbnail_id($post_id);
