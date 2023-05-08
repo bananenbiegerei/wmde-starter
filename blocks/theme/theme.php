@@ -78,12 +78,12 @@ $theme_url = get_the_permalink($theme);
 							<p class="topline mb-0" style="color:<?php echo $secondary_color; ?>;">
 								<?php the_sub_field('alt_meta_info'); ?>
 							</p>
-							<h3 class="text-base lg:text-xl text-black hover:underline decoration-white transition">
+							<h3 class="text-base lg:text-xl text-black hover:underline decoration-black transition">
 							<?php echo esc_html( $link['title'] ); ?>
 							</h3>
 							<?php else: ?>
 						
-							<h3 class="text-base lg:text-xl text-black mt-5 hover:underline decoration-white transition">
+							<h3 class="text-base lg:text-xl text-black mt-5 hover:underline decoration-black transition">
 							<?php echo esc_html( $link['title'] ); ?>
 							</h3>
 						
