@@ -37,7 +37,7 @@ require_once get_template_directory() . '/functions/custom-taxonomies.php';
 require_once get_template_directory() . '/functions/excerpts.php';
 
 // Block converter and unsupported blocks
-require_once get_template_directory() . '/functions/block-converter.php';
+//require_once get_template_directory() . '/functions/block-converter.php';
 
 // Blog related
 require_once get_template_directory() . '/functions/comments-functions.php';

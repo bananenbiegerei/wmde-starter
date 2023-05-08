@@ -17,7 +17,7 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 		</div>
 
 		<?php if (has_excerpt()): ?>
-			<div class="<?php echo $excerpt_style; ?> lg:text-xl lg:col-span-5 lg:col-start-2">
+			<div class="lg:text-xl lg:col-span-5 lg:col-start-2">
 			<?php echo strip_tags(get_the_excerpt()); ?>
 		</div>
 		<?php endif; ?>
