@@ -23,7 +23,7 @@
 						else {
 						}
 						?>
-						<div class=" space-y-2 px-10 pb-10">
+						<div class=" space-y-2 px-10 py-10">
 							<h2 class="text-2xl font-alt"><?php the_title(); ?></h2>
 							<div class="text-xl font-alt font-normal text-inherit"><?= wp_trim_words(get_the_excerpt(), 99, '...') ?></div>
 						</div>
