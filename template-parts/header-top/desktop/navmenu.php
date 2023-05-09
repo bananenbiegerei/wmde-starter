@@ -1,23 +1,12 @@
 <script>
-	function getCoords(elem) {
-		let box = elem.getBoundingClientRect();
-		let body = document.body;
-		let docEl = document.documentElement;
-		let scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-		let scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-		let clientTop = docEl.clientTop || body.clientTop || 0;
-		let clientLeft = docEl.clientLeft || body.clientLeft || 0;
-		let top  = box.top +  scrollTop - clientTop;
-		let left = box.left + scrollLeft - clientLeft;
-		return { top: Math.round(top), left: Math.round(left) };
-	}
-
 	// Prepare x-data for 'navMenu' component
 	document.addEventListener('alpine:init', () => {
 		Alpine.data('navMenu', () => ({
 			nav: WPNav,
 			isOpen: new Array(WPNav.length).fill(false),
 			idx: -1,
+			items: null,
+			itemIdx: -1,
 			showPointer: false,
 			isScrolled: false,
 			init() {
@@ -31,18 +20,82 @@
 						this.isScrolled = false;
 					}
 				});
+				// Keyboard navigation (tab to switch domain, up/down to select sub items)
+				document.getElementById('navmenu_desktop').addEventListener('keydown', e  => {
+					const keyUP = e.keyCode === 38;
+					const keyDOWN = e.keyCode === 40;
+					const keyTAB = (e.keyCode === 9) && !e.shiftKey;;
+					const keySHIFT_TAB = (e.keyCode === 9) && e.shiftKey;
+					const domainOpen = this.idx != -1 ;
+					const firstDomain = this.idx == 0;
+					const lastDomain = this.idx == (this.nav.length-1);
+					if (keyDOWN) {
+							e.preventDefault();
+							this.focusNextItem();
+							return false;
+					}
+					if (keyUP) {
+							e.preventDefault();
+							this.focusPrevItem();
+							return false;
+					}
+					if (keyTAB && domainOpen && !lastDomain) {
+						e.preventDefault();
+						const n = this.idx + 1;
+						this.openNav(n);
+						document.getElementById(`domain_${n}`).focus();
+						this.movePointer();
+						return false;
+					}
+					if (keySHIFT_TAB && domainOpen && !firstDomain) {
+						e.preventDefault();
+						const n = this.idx - 1;
+						this.openNav(n);
+						document.getElementById(`domain_${n}`).focus();
+						this.movePointer();
+						return false;
+					}
+					if (domainOpen && (keySHIFT_TAB && firstDomain) || (keyTAB && lastDomain)) {
+						this.closeNav();
+						return false;
+					}
+					// Prevent scrolling with arrow keys when a domain dropdown is open
+					if((keyUP || keyDOWN) && domainOpen) {
+							e.preventDefault();
+							return false;
+					}
+				});
 			},
 			openNav(n) {
 				this.isOpen.fill(false);
 				this.idx = n;
+				this.itemIdx = -1;
 				if ((this.nav[n].featured.length + this.nav[n].pages.length + this.nav[n].sections.length) > 0 ) {
 					this.isOpen[n] = true;
+					this.items = document.querySelectorAll(`#menu_${n} li a`);
 				}
 			},
 			closeNav() {
 				this.isOpen.fill(false);
 				this.idx = -1;
+				this.itemIdx = -1;
 				this.showPointer = false;
+			},
+			focusPrevItem() {
+				if (this.itemIdx <= 0) {
+					return;
+				}
+				this.itemIdx = this.itemIdx - 1;
+				const item = this.items[this.itemIdx];
+				item.focus();
+			},
+			focusNextItem() {
+				if (this.itemIdx == this.items.length -1) {
+					return;
+				}
+				this.itemIdx = this.itemIdx + 1;
+				const item = this.items[this.itemIdx];
+				item.focus();
 			},
 			movePointer() {
 				if (this.nav[this.idx].pages.length  + this.nav[this.idx].sections.length == 0) {
@@ -52,7 +105,7 @@
 				this.showPointer = true;
 				let bx = document.getElementById('domain_' + this.idx).getBoundingClientRect().left; // button x
 				let bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
-				let dxoff = getCoords(document.getElementById('navdropdown')).left; // dropdown h offset
+				let dxoff = this.getNavDropdownOffset(); // dropdown h offset
 				let pw = 32; // pointer width
 				let pyoff = -20; // pointer v offset
 				let ddw = document.getElementById('menu_' + this.idx).offsetWidth;
@@ -62,6 +115,15 @@
 				document.getElementById('pointer').style.left = bx - dxoff + bw/2 - pw/2 + 'px';
 				document.getElementById('pointer').style.top = pyoff + 'px';
 			},
+			getNavDropdownOffset() {
+				let box = document.getElementById('navdropdown').getBoundingClientRect();
+				let body = document.body;
+				let docEl = document.documentElement;
+				let scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+				let clientLeft = docEl.clientLeft || body.clientLeft || 0;
+				let left = box.left + scrollLeft - clientLeft;
+				return Math.round(left);
+			}
 		}));
 	});
 </script>
@@ -89,7 +151,7 @@
 				<!-- Domain items -->
 				<nav>
 					<template x-for="(domain,i) in nav">
-						<a tabindex="-1" class="btn btn-menu relative" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }" x-bind:href="domain.url" x-html="domain.title"></a>
+						<a class="btn btn-menu relative" @focus="openNav(i); movePointer()" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }" x-bind:href="domain.url" x-html="domain.title"></a>
 					</template>
 				</nav>
 			</div>
@@ -149,8 +211,8 @@
 						<nav class="border-r border-gray-200 pr-5 mr-5">
 							<ul role="list" class="flex flex-col max-h-screen-80 overflow-auto">
 								<template x-for="page in domain.featured">
-									<li class="" x-bind:class="{'current': pageID == page.ID }">
-										<a tabindex="-1"  x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4">
+									<li class="p-1" x-bind:class="{'current': pageID == page.ID }">
+										<a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0">
 											<div class="">
 												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 											</div>
@@ -170,9 +232,9 @@
 
 						<!-- Pages -->
 						<template x-if="domain.pages.length > 0">
-							<ul role="list" class="items-stretch justify-items-stretch"  xxxx-bind:class="{ 'grid-cols-2' : domain.featured.length > 0}" >
+							<ul role="list" class="items-stretch justify-items-stretch">
 								<template x-for="page in domain.pages">
-									<li class="bg-white transition rounded-md"
+									<li class="bg-white transition rounded-md p-1"
 										x-bind:class="{'current': pageID == page.ID }">
 										<a tabindex="-1"  x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
 									</li>
@@ -183,9 +245,9 @@
 						<!-- Sections -->
 						<template x-for="section in domain.sections">
 							<ul role="list" class="items-stretch justify-items-stretch">
-								<li class="bg-white transition rounded-md btn btn-menu-section btn-expanded" x-text="section.title"></li>
+								<li class="bg-white transition rounded-md btn btn-menu-section btn-expanded"><span class="p-1" x-text="section.title"></span></li>
 								<template x-for="page in section.pages">
-									<li class="bg-white transition rounded-md"
+									<li class="bg-white transition rounded-md p-1"
 										x-bind:class="{'current': pageID == page.ID }">
 										<a tabindex="-1"  x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
 									</li>

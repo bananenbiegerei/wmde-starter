@@ -6,6 +6,18 @@
 			isOpen: new Array(WPNav.length).fill(false),
 			timeOutFunctionId: 0,
 			init() {
+				// Keyboard navigation
+				document.getElementById('navmenu_mobile').addEventListener('keydown', e  => {
+					const items = document.querySelectorAll('#navmenu_mobile a.btn');
+					const keyTAB = (e.keyCode === 9) && !e.shiftKey;
+					const isLastItem = e.target == items[items.length - 1];
+					// Jump back to menu hamburger button after the last item
+					if(isLastItem) {
+						e.preventDefault();
+						document.querySelector('[x-data="navMenuMobileToggle"] button').focus();
+						return false;
+					}
+				});
 			},
 			toggleNav(n) {
 				var v = this.isOpen[n];
@@ -40,6 +52,7 @@ x-transition:enter="transition ease-out duration-300" x-transition:enter-start="
 					<div x-bind:class="{'current before:w-2 before:h-16 before:bg-primary-600 before:absolute before:-left-2 before:top-0': pageID == domain.ID }">
 					<a
 						x-bind:href="domain.url"
+						@focus="toggleNav(i)"
 						class="btn btn-menu h-16">
 						<span class="w-full" x-html="domain.title"></span>
 					</a>
