@@ -1,5 +1,5 @@
 .btn {
-	@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1 text-xl text-white hover:bg-primary-900 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 transition font-sans font-robotonormal;
+	@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1 text-xl text-white hover:bg-primary-900 transition font-sans font-robotonormal;
 }
 
 // Sizes
@@ -25,23 +25,23 @@
 
 // Outline
 .btn-hollow {
-	@apply bg-white text-primary border border-primary hover:border-primary-800 hover:bg-white hover:text-primary-800 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0;
+	@apply bg-white text-primary border border-primary hover:border-primary-800 hover:bg-white hover:text-primary-800;
 }
 
 // Ghost
 .btn-ghost {
-	@apply bg-transparent text-primary border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-800;
+	@apply bg-transparent text-primary border-none hover:bg-transparent hover:text-primary-800;
 }
 
 .btn-menu {
-	@apply text-base bg-transparent rounded-none text-black font-alt font-medium border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-800;
+	@apply text-base bg-transparent rounded-md text-black font-alt font-medium border-none hover:bg-transparent hover:text-primary-800;
 	&.current {
 		@apply border-b border-t-0 border-l-0 border-r-0 border-primary-500 border-solid;
 	}
 }
 
 .btn-menu-section {
-	@apply text-base bg-transparent text-black font-alt font-bold  uppercase border-none hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 hover:text-primary-800;
+	@apply text-base bg-transparent text-black font-alt font-bold  uppercase border-none hover:bg-transparent hover:text-primary-800 rounded-md;
 }
 
 // Colors

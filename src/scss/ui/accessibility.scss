@@ -1,3 +1,5 @@
 *:focus {
-	@apply focus:outline-none focus:ring-1 focus:ring-focus focus:ring-offset-0;
+	@apply focus:outline-none focus:outline-none focus:underline focus:ring-2 focus:ring-primary-100 rounded-2xl	;
 }
+
+
