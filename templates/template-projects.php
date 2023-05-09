@@ -35,9 +35,10 @@ $projects = new WP_Query($args);
 
 	</div>
 </div>
+
 <?php the_content(); ?>
 <div x-data="{selectedFilter: ''}">
-	<div class="btn-group container">
+	<div class="btn-group container mb-5 lg:mb-10">
 		<button x-on:click="selectedFilter=''" class="btn btn-sm btn-hollow" :class="{'!bg-gray': !selectedFilter}" type="button">Alle</button>
 
 		<?php

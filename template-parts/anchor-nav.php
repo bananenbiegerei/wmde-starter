@@ -97,8 +97,13 @@ SwipersConfig['#anchor-nav'] = {
 		<div class="flex-1 lg:flex-none overflow-hidden">
 			<div class="swiper-container">
 				<ul class="swiper-wrapper">
+					<li class="flex items-center justify-center mr-3">
+						<div>
+							<?= bb_icon('arrow-down', 'icon-xs'); ?>
+						</div>
+					</li>
 					<template x-for="(anchor,i) in anchors">
-						<li class="swiper-slide !w-auto py-2 cursor-pointer"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
+						<li class="swiper-slide !w-auto py-2 cursor-pointer hover:underline transition"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
 					</template>
 				</ul>
 			</div>

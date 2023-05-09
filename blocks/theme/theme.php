@@ -52,7 +52,7 @@ $theme_url = get_the_permalink($theme);
 
 				<!-- Button and extra info -->
 				<div class="flex-1 flex items-end lg:pb-8 default-scheme">
-					<a href="<?php echo $theme_url; ?>" class="btn btn-hollow">
+					<a href="<?php echo $theme_url; ?>" class="btn btn-hollow btn-icon-left">
 						<?= bb_icon('arrow-right',''); ?>
 						<?= __('Zum Thema', BB_TEXT_DOMAIN) ?>						
 					</a>

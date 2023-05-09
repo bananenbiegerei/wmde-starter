@@ -132,7 +132,7 @@
 			<div
 				show="isOpen[i]"
 				x-bind:id="'menu_'+ i"
-				class="absolute inset-x-0 z-10 transform shadow-lg bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar-dropdown p-5 overflow-hidden"
+				class="absolute inset-x-0 z-10 transform bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar p-5 overflow-hidden"
 				x-bind:class="{
 					'max-w-6xl': domain.featured.length > 0,
 					'max-w-md': domain.featured.length == 0,

@@ -75,13 +75,13 @@ if (get_field('content')['alt_details'] ?? false) {
 $featured_image = null;
 if ($post_type == 'projects' && !$alt_image_id && ($image_id = get_post_thumbnail_id($post_id))) {
 	// If it's a project w/o an alt. image
-	$featured_image = wp_get_attachment_image($image_id, 'full', false, ['class' => 'p-5 w-auto max-h-32']);
+	$featured_image = wp_get_attachment_image($image_id, 'full', false, ['class' => 'p-5 w-auto max-h-32 rounded-2xl']);
 } elseif ($alt_image_id) {
 	// If there's an alt. image, use it
-	$featured_image = wp_get_attachment_image($alt_image_id, 'full', false, ['class' => 'object-cover w-full h-full']);
+	$featured_image = wp_get_attachment_image($alt_image_id, 'full', false, ['class' => 'object-cover w-full h-full rounded-2xl']);
 } else {
 	// Otherwise get the featured image of the post
-	$featured_image = bbCard::get_multisite_featured_image($blog_id, $post_id, 'full', ['class' => 'object-cover w-full h-full'], $placeholder);
+	$featured_image = bbCard::get_multisite_featured_image($blog_id, $post_id, 'full', ['class' => 'object-cover w-full h-full rounded-2xl'], $placeholder);
 }
 
 // Configure layout classes
@@ -122,7 +122,7 @@ if ($link['title'] == '') {
 }
 ?>
 
-<div class="bb-card-block rounded-3xl mb-5 lg:mb-10 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
+<div class="bb-card-block mb-5 lg:mb-10 z-10 relative <?= $bgcolor ?>" data-post-id="<?= $post_id ?>" data-blog-id="<?= $blog_id ?>" style="<?= $bgcolor_style ?>">
 
 	<?php if (!is_admin()): ?>
 	<a href="<?= $link['url'] ?>" class="flex gap-5 <?= $layout_classes['container'] ?> text-hover-effect image-hover-effect">
@@ -130,7 +130,7 @@ if ($link['title'] == '') {
 
 		<?php if ($post_type == 'projects' && $featured_image && !$alt_image_id): ?>
 			<div class="<?= $layout_classes['image'] ?>">
-				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-xl">
+				<div class="aspect-w-16 aspect-h-9">
 				<div class="flex items-center justify-center">
 					<?= $featured_image ?>
 				</div>
@@ -138,7 +138,7 @@ if ($link['title'] == '') {
 			</div>
 		<?php elseif ($featured_image): ?>
 			<div class="<?= $layout_classes['image'] ?>">
-				<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-2xl overflow-hidden image-hover-effect">
+				<div class="aspect-w-16 aspect-h-9">
 					<?= $featured_image ?>
 				</div>
 			</div>
