@@ -5,6 +5,7 @@ module.exports = {
 	safelist: [
 		'grid',
 		'lg:text-2xl',
+		'lg:justify-end',
 		{
 			pattern: /text-*/
 		},
@@ -45,11 +46,14 @@ module.exports = {
 			bold: 700,
 		},
 		extend: {
-			boxShadow: {
-				'navbar-dropdown': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px -10px 10px rgba(0, 0, 0, 0.04)',
+			dropShadow: {
+				'navbar': [
+					'0px 3px 8px rgba(0, 0, 0, 0.24)'
+				]
 			},
 			boxShadow: {
 				xl: '0 0px 60px -15px rgba(0, 0, 0, 0.3)',
+				navbar: '0 8px 30px rgb(0,0,0,0.12);'
 			},
 			maxWidth: {
 				32: '8rem',
@@ -137,7 +141,7 @@ module.exports = {
 						},
 						gray: {
 							50: '#f7f7f7',
-							100: '#f3f3f3',
+							100: '#DCDCDC',
 							200: '#c8c8c8',
 							300: '#a4a4a4',
 							400: '#797979',
