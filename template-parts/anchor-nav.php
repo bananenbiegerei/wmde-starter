@@ -57,14 +57,9 @@
 
 					const visibleAnchors = this.anchors.filter((a) => a.visible);
 					let activeAnchor = null;
-
-					// If anchors are visible, it's easy, pick according to scroll direction
+					// If some anchors are visible, pick the first one
 					if (visibleAnchors.length > 0) {
-						if (this.scrollDir === 'down') {
-							activeAnchor = visibleAnchors.shift();
-						} else {
-							activeAnchor = visibleAnchors.pop();
-						}
+						activeAnchor = visibleAnchors.shift();
 					}
 					// If there are no visible anchors we pick the last active one (scroll down) or the one just before the last active one
 					else {
