@@ -1,4 +1,4 @@
-<?php $pid = $project ? $project->ID : null; ?>
+<?php $pid = isset($project) ? $project->ID : null; ?>
 
 <a class="flex flex-col gap-5 h-full text-hover-effect image-hover-effect grayscale hover:grayscale-0 " href="<?php echo get_post_permalink($pid); ?>">
 	<div class="basis-1/2">

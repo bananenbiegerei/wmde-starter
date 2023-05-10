@@ -11,7 +11,7 @@ $projects = new WP_Query($args);
 	<div class="container grid grid-cols-12">
 		<div class="col-span-12 pt-5">
 			<?php get_template_part('template-parts/breadcrumbs'); ?>
-			<h1 class="<?php echo $title_style; ?>"><?php the_title(); ?></h1>
+			<h1 class=""><?php the_title(); ?></h1>
 			<?php if (has_excerpt()): ?>
 			<div class="font-alt text-2xl font-normal mb-5">
 				<?php the_excerpt(); ?>
