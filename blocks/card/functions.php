@@ -1,7 +1,5 @@
 <?php
 
-define('WKC_FEATURED_IMAGE', -1);
-
 class bbCard
 {
 	// List of all detected custom post types on network
@@ -115,7 +113,6 @@ class bbCard
 				'post_id' => $post_id,
 				'title' => $post->post_title,
 				'excerpt' => $post->post_excerpt,
-				// 'image_id' => get_field('wkc_featured_image_url', $post_id) ? WKC_FEATURED_IMAGE : get_post_thumbnail_id($post_id),
 				'post_type' => get_post_type($post_id),
 				'format' => $format,
 				'theme' => $theme,

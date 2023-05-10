@@ -4,9 +4,9 @@
 	<div class="basis-1/2">
 		<div class="w-full h-full flex items-center justify-center p-5">
 			<?php if (has_post_thumbnail($pid)): ?>
-				<img class="h-40 object-contain mx-auto my-5 mix-blend-multiply " src="<?php echo get_the_post_thumbnail_url($pid, 'medium'); ?>" alt="<?php echo esc_attr(
-	get_post_meta(get_post_thumbnail_id($pid), '_wp_attachment_image_alt', true),
-); ?>">
+				<img
+					class="h-40 object-contain mx-auto my-5 mix-blend-multiply "
+					src="<?= get_the_post_thumbnail_url($pid, 'medium') ?>" alt="<?= esc_attr(get_post_meta(get_post_thumbnail_id($pid), '_wp_attachment_image_alt', true)) ?>">
 			<?php endif; ?>
 		</div>
 	</div>
@@ -16,7 +16,7 @@
 		</h2>
 		<div class="text-xl font-normal text-inherit">
 			<p class="line-clamp-5">
-				<?php echo strip_tags(get_the_excerpt($pid)); ?>
+				<?= strip_tags(get_the_excerpt($pid)) ?>
 			</p>
 		</div>
 	</div>
