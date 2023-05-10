@@ -36,7 +36,7 @@
 .btn-menu {
 	@apply text-base bg-transparent rounded-md text-black font-alt font-medium border-none hover:bg-transparent hover:text-primary-800;
 	&.current {
-		@apply border-b border-t-0 border-l-0 border-r-0 border-primary-500 border-solid;
+		@apply border-b border-t-0 border-l-0 border-r-0 border-primary-500 border-solid rounded-none;
 	}
 }
 
