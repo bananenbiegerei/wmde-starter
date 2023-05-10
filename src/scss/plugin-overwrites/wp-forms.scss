@@ -1,5 +1,5 @@
 div.wpforms-container [id^="wpforms-"] {
-	@apply border border-gray-200 p-10 rounded-lg w-full;
+	@apply w-full;
 	.wpforms-field-row.wpforms-field-medium,
 	input.wpforms-field-medium {
 		@apply max-w-full;
@@ -7,8 +7,9 @@ div.wpforms-container [id^="wpforms-"] {
 	input {
 		@apply form-input rounded-xl bg-red-500;
 	}
-	button.wpforms-submit {
-		@apply btn btn-base w-auto cursor-pointer;
+	button.wpforms-submit,
+	button[type="submit"] {
+		@apply btn btn-base w-auto cursor-pointer #{!important};
 	}
 	[type='text'],
 	[type='email'],
@@ -38,5 +39,8 @@ div.wpforms-container [id^="wpforms-"] {
 	}
 	[type='radio'] {
 		@apply form-radio;
+	}
+	.wpforms-field-label {
+		@apply font-normal #{!important};
 	}
 }
