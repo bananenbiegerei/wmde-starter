@@ -12,19 +12,16 @@ $wmc_image_data = $args['wmc_data'] ?? false;
 if ($image_id) {
 	// If called from Image ACF block or Gallery Swiper block
 	$image_caption = strip_tags(wp_get_attachment_caption($image_id), ['a']);
-	$image_descripton = get_post($image_id)->post_content;
 	$image_meta_data = wp_get_attachment_metadata($image_id);
 	$rounded = get_field('style')['rounded'] ?? ($args['rounded'] ?? false);
 } elseif ($wmc_image_data) {
 	// If called from Wikimedia Commons Media block as get_template_part()
 	$image_caption = '<a href="' . esc_attr($wmc_image_data['url']) . '">' . $wmc_image_data['creator'] . ' - ' . $wmc_image_data['usageterms'] . '</a>';
-	$image_descripton = $wmc_image_data['desc'];
 	$dim = explode('x', $wmc_image_data['dim']);
 	$image_meta_data = ['width' => (int) $dim[0], 'height' => (int) $dim[1]];
 	$rounded = $args['rounded'] ?? false;
 } else {
 	$image_caption = 'Missing image!';
-	$image_descripton = '';
 	$image_meta_data = ['width' => 180, 'height' => 139];
 	$rounded = false;
 }
@@ -54,9 +51,9 @@ if ($image_id) {
 }
 ?>
 <div class="bb-image-block my-4">
-	<?php $image_link = get_field( 'image_link' ); ?>
-	<?php if ( $image_link ) : ?>
-		<a href="<?php echo esc_url( $image_link) ; ?>">
+	<?php $image_link = get_field('image_link'); ?>
+	<?php if ($image_link): ?>
+		<a href="<?php echo esc_url($image_link); ?>">
 			<figure class="<?= $figure_classes ?>" role="group">
 				<?= $image ?>
 				<?php if ($image_caption): ?>
@@ -67,7 +64,7 @@ if ($image_id) {
 			</figure>
 		</a>
 	<?php else: ?>
-	
+
 	<figure class="<?= $figure_classes ?>" role="group">
 		<?= $image ?>
 		<?php if ($image_caption): ?>
@@ -76,6 +73,6 @@ if ($image_id) {
 			</figcaption>
 		<?php endif; ?>
 	</figure>
-	
+
 	<?php endif; ?>
 </div>
