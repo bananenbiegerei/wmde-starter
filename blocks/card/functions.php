@@ -329,7 +329,8 @@ class bbCard
 					// NOTE: not sure why WP has trouble finding a post that has a parent slug... had the issue with abc_posts
 					// FIXME: Only variables should be passed by reference ???
 					if (isset($query['name'])) {
-						$query['name'] = array_pop(explode('/', $query['name']));
+						$expl = explode('/', $query['name']);
+						$query['name'] = array_pop($expl);
 						$wpquery = new WP_Query($query);
 						if (!empty($wpquery->posts) && $wpquery->is_singular) {
 							return $wpquery->post->ID;
