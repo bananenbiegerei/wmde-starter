@@ -14,7 +14,7 @@
 		<div class="mx-10 lg:mx-0 fixed bottom-10 lg:right-10 bg-neon rounded-xl p-5 drop-shadow-xl z-50 flex flex-col justify-center max-w-sm" x-data="{ close: true }" x-show="close">
 			<div class="flex gap-5">
 				<p class="mb-0">
-					Wie gefällt Ihnen unser Redesign? Ihre Meinung ist uns wichtig.
+					Wie gefällt Ihnen das neue Design unserer Website? Ihre Meinung ist uns wichtig.
 				</p>
 				<div>
 					<button x-on:click="close = ! close; setC();">
