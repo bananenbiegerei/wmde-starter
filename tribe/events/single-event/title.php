@@ -13,5 +13,5 @@
  *
  */
 ?>
-
-<?php the_title( '<h1 class="text-2xl lg:text-5xl my-5 my-5">', '</h1>' );
+<p class="topline mt-5 mb-0"><?php _e('Veranstaltung', BB_TEXT_DOMAIN); ?></p>
+<?php the_title( '<h1 class="text-2xl lg:text-5xl mb-5">', '</h1>' );

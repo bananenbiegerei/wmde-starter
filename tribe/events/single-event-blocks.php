@@ -41,7 +41,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
                     <?php endif; ?>
               </div>
             <div class="col-span-12 lg:col-span-8 lg:col-start-3">
-                <?php //get_template_part('template-parts/featured-image'); ?>
+                <?php get_template_part('template-parts/featured-image'); ?>
             </div>
           </div>
       </div>

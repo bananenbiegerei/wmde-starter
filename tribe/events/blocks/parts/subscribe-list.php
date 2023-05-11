@@ -21,36 +21,22 @@ if ( empty( $items ) ) {
 remove_filter( 'the_content', 'do_blocks', 9 );
 ?>
 	<div class="tribe-block tribe-block__events-link">
-		<div class="tribe-events tribe-common">
-			<div class="tribe-events-c-subscribe-dropdown__container">
-				<div class="tribe-events-c-subscribe-dropdown">
-					<div class="flex items-center gap-3" tabindex="0">
-						<?php /* $this->template( 'v2/components/icons/cal-export', [ 'classes' => [ 'tribe-events-c-subscribe-dropdown__export-icon' ] ] ); */ ?>
-						<button class="tribe-events-c-subscribe-dropdown__button-text underline">
-							<?php echo esc_html__( 'Add to calendar', 'the-events-calendar' ); ?>
-						</button>
-						<?php $this->template( 'v2/components/icons/caret-down', [ 'classes' => [ 'tribe-events-c-subscribe-dropdown__button-icon' ] ] ); ?>
-					</div>
-					<div class="tribe-events-c-subscribe-dropdown__content">
-						<ul class="tribe-events-c-subscribe-dropdown__list bg-gray rounded" tabindex="0">
-							<?php foreach ( $items as $item ) : ?>
-								<li class="tribe-events-c-subscribe-dropdown__list-item">
-									<a
-										href="<?php echo esc_url( $item->get_uri( null ) ); ?>"
-										class="tribe-events-c-subscribe-dropdown__list-item-link"
-										tabindex="0"
-										target="_blank"
-										rel="noopener noreferrer nofollow noindex"
-									>
-										<?php echo esc_html( $item->get_label( null ) ); ?>
-									</a>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<p class="font-medium font-alt mb-2"><?php _e('Zum Kalender hinzufügen', BB_TEXT_DOMAIN); ?></p>
+		<ul class="bg-gray text-base p-5 w-full rounded" tabindex="0">
+			<?php foreach ( $items as $item ) : ?>
+				<li class="tribe-events-c-subscribe-dropdown__list-item">
+					<a
+						href="<?php echo esc_url( $item->get_uri( null ) ); ?>"
+						class="tribe-events-c-subscribe-dropdown__list-item-link"
+						tabindex="0"
+						target="_blank"
+						rel="noopener noreferrer nofollow noindex"
+					>
+						<?php echo esc_html( $item->get_label( null ) ); ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
 	</div>
 
 <?php add_filter( 'the_content', 'do_blocks', 9 );
