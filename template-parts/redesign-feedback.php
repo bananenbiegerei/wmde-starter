@@ -11,10 +11,10 @@
 	</script>
 
 	<div x-data="{ showObject: false }" x-show="showObject" x-init="() => { window.addEventListener('scroll', () => { if (window.scrollY > (window.innerHeight / 2)) { showObject = true; } }); }">
-		<div class="mx-10 lg:mx-0 fixed bottom-10 lg:right-10 bg-neon rounded-xl p-5 drop-shadow-xl z-50 flex flex-col justify-center max-w-sm" x-data="{ close: true }" x-show="close">
+		<div class="fixed bottom-10 right-10 bg-neon rounded-xl p-5 drop-shadow-xl z-50 flex flex-col justify-center max-w-sm" x-data="{ close: true }" x-show="close">
 			<div class="flex gap-5">
 				<p class="mb-0">
-					Wie gefällt Ihnen das neue Design unserer Website? Ihre Meinung ist uns wichtig.
+					Wie gefällt Ihnen unser Redesign? Ihre Meinung ist uns wichtig.
 				</p>
 				<div>
 					<button x-on:click="close = ! close; setC();">
@@ -30,6 +30,6 @@
 			</div>
 		</div>
 	</div>
-<?php else: ?>
-	<?php setcookie('redesign_feedback', 1, time() + YEAR_IN_SECONDS, '/'); ?>
+<?php elseif ($_COOKIE['redesign_feedback'] == 1): ?>
+	<?php setcookie('redesign_feedback', 2, time() + YEAR_IN_SECONDS, '/'); ?>
 <?php endif; ?>
