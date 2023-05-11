@@ -3,7 +3,7 @@
 <?php if (!isset($_COOKIE['redesign_feedback'])): ?>
 	<script>
 		function setC() {
-			document.cookie = 'redesign_feedback=1;expires=Tue, 19 Jan 2038 03:14:07 GMT';
+			document.cookie = 'redesign_feedback=1;expires=Tue, 19 Jan 2038 03:14:07 GMT;path="/"';
 		}
 		window.addEventListener('load', ( ) => {
 			document.querySelector('#redesign-feedback-form button[type="submit"]').addEventListener('click', () => { setC(); });
@@ -31,5 +31,5 @@
 		</div>
 	</div>
 <?php else: ?>
-	<?php setcookie('redesign_feedback', 1, time() + YEAR_IN_SECONDS); ?>
+	<?php setcookie('redesign_feedback', 1, time() + YEAR_IN_SECONDS, '/'); ?>
 <?php endif; ?>
