@@ -1,4 +1,5 @@
-div.wpforms-container [id^="wpforms-"] {
+div.wpforms-container [id^="wpforms-"],
+div.wpforms-container-full [id^="wpforms-"] {
 	@apply w-full;
 	.wpforms-field-row.wpforms-field-medium,
 	input.wpforms-field-medium {
@@ -8,8 +9,9 @@ div.wpforms-container [id^="wpforms-"] {
 		@apply form-input rounded-xl bg-red-500;
 	}
 	button.wpforms-submit,
-	button[type="submit"] {
-		@apply btn btn-base w-auto cursor-pointer #{!important};
+	button[type="submit"],
+	.wpforms-form button[type="submit"] {
+		@apply btn btn-base w-auto cursor-pointer;
 	}
 	[type='text'],
 	[type='email'],

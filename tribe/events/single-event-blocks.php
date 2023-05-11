@@ -26,8 +26,8 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 
 <div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
     <div class="bg-gray min-h-[12rem]">
-          <div class="container grid grid-cols-12 gap-10">
-              <div class="col-span-12 col-span-10 col-start-2">
+          <div class="container lg:grid lg:rid-cols-12 lg:gap-10">
+              <div class="col-span-12 lg:col-span-10 lg:col-start-2">
                   <?php //$this->template( 'single-event/back-link' ); ?>
                   <?php $this->template( 'single-event/notices' ); ?>
                   <?php $this->template( 'single-event/title' ); ?>
@@ -40,7 +40,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
                       </div>
                     <?php endif; ?>
               </div>
-            <div class="col-span-12 lg:col-span-8 lg:col-start-3">
+            <div class="lg:col-span-12 lg:col-span-8 lg:col-start-3">
                 <?php get_template_part('template-parts/featured-image'); ?>
             </div>
           </div>
