@@ -31,5 +31,5 @@
 		</div>
 	</div>
 <?php else: ?>
-	<?php setcookie('redesign_feedback', 1, time() + 31536000); ?>
+	<?php setcookie('redesign_feedback', 1, time() + YEAR_IN_SECONDS); ?>
 <?php endif; ?>
