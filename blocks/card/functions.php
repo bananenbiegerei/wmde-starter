@@ -1,4 +1,7 @@
 <?php
+// FIXME: Might need to have an option to flush the cache if there are conflicts after a URL has changed.
+define('BB_CARD_URL_TO_ID_PREFIX', 'bb_card_');
+define('BB_CARD_URL_TO_ID_TIMEOUT', 24 * HOUR_IN_SECONDS);
 
 class bbCard
 {
@@ -69,12 +72,19 @@ class bbCard
 	// Find a matching post in any of the network sites from its URL
 	static function get_post_data_from_url($url)
 	{
+		$md5 = md5($url);
+		$cached = get_transient(BB_CARD_URL_TO_ID_PREFIX . $md5);
+		if ($cached) {
+			return $cached;
+		}
+
 		if (!is_multisite()) {
 			$post_data = bbCard::get_post_data_from_url_for_blog($url);
 			if (!$post_data) {
 				return false;
 			}
 			$post_data['blog_id'] = 1;
+			set_transient(BB_CARD_URL_TO_ID_PREFIX . $md5, $post_data, BB_CARD_URL_TO_ID_TIMEOUT);
 			return $post_data;
 		}
 
@@ -90,6 +100,8 @@ class bbCard
 				restore_current_blog();
 			}
 		}
+
+		set_transient(BB_CARD_URL_TO_ID_PREFIX . $md5, $post_data, BB_CARD_URL_TO_ID_TIMEOUT);
 		return $post_data;
 	}
 
@@ -196,6 +208,7 @@ class bbCard
 	static function url_to_postid($url)
 	{
 		global $wp_rewrite;
+		$wp_rewrite->init();
 		$url = apply_filters('url_to_postid', $url);
 		$url_host = parse_url($url, PHP_URL_HOST);
 		if (is_string($url_host)) {

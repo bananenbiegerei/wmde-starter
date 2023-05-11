@@ -89,11 +89,12 @@ class bbWikimediaCommonsMedia
 	static function get_media($file, $lang = 'en')
 	{
 		$file = stripcslashes(bbWikimediaCommonsMedia::sanitize_uri($file));
-		$img = get_transient(BBWKC_TRANSIENT_PREFIX . $file);
+		$md5 = md5($file);
+		$img = get_transient(BBWKC_TRANSIENT_PREFIX . $md5);
 		if (!$img) {
 			$img = bbWikimediaCommonsMedia::get_media_query($file, $lang);
 			if ($img) {
-				set_transient(BBWKC_TRANSIENT_PREFIX . $file, $img, BBWKC_CACHE_TIME);
+				set_transient(BBWKC_TRANSIENT_PREFIX . $md5, $img, BBWKC_CACHE_TIME);
 			}
 		}
 		return $img;
