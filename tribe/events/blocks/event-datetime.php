@@ -77,7 +77,7 @@ $event_id = $this->get( 'post_id' );
 
 		<?php if ( ! $is_all_day ) : ?>
 			<span class="tribe-events-schedule__separator tribe-events-schedule__separator--date">
-				<?php echo esc_html( $separator_date ); ?>
+				<?php //echo esc_html( $separator_date ); ?>
 			</span>
 			<span class="tribe-events-schedule__time tribe-events-schedule__time--start text-2xl">
 				<?php echo esc_html( $formatted_start_time ); ?>
@@ -100,7 +100,7 @@ $event_id = $this->get( 'post_id' );
 
 				<?php if ( ! $is_all_day ) : ?>
 					<span class="tribe-events-schedule__separator tribe-events-schedule__separator--date">
-						<?php echo esc_html( $separator_date ); ?>
+						<?php //echo esc_html( $separator_date ); ?>
 					</span>
 					<span class="tribe-events-schedule__time tribe-events-schedule__time--end text-2xl">
 						<?php echo esc_html( $formatted_end_time ); ?>
