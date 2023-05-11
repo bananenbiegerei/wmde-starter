@@ -1,5 +1,6 @@
 div.wpforms-container [id^="wpforms-"],
-div.wpforms-container-full [id^="wpforms-"] {
+div.wpforms-container-full [id^="wpforms-"],
+div.wpforms-container-full#wpforms-59433 {
 	@apply w-full;
 	.wpforms-field-row.wpforms-field-medium,
 	input.wpforms-field-medium {
@@ -44,5 +45,8 @@ div.wpforms-container-full [id^="wpforms-"] {
 	}
 	.wpforms-field-label {
 		@apply font-normal #{!important};
+	}
+	.wpforms-confirmation-container-full {
+		@apply rounded-xl border-none bg-white;
 	}
 }
