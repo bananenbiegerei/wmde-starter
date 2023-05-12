@@ -74,7 +74,7 @@ class bbCard
 	{
 		$md5 = md5($url);
 		$cached = get_transient(BB_CARD_URL_TO_ID_PREFIX . $md5);
-		if ($cached) {
+		if ($cached && !current_user_can('edit_posts')) {
 			return $cached;
 		}
 
@@ -108,6 +108,18 @@ class bbCard
 	// Get the matching post in a subsite from its URL
 	static function get_post_data_from_url_for_blog($url)
 	{
+		// NOTE: If the rewrite rules for that blog are empty the wrong rewrite rules will be created. So we prevent that by asking the user to click on the link themselves which will create the right rules...
+		if (bbCard::checkRW() == 0) {
+			return [
+				'post_id' => -1,
+				'title' => 'Permalink Error',
+				'excerpt' => 'Please first access the URL',
+				'post_type' => 'post',
+				'format' => [],
+				'theme' => [],
+			];
+		}
+
 		if ($post_id = bbCard::url_to_postid($url)) {
 			$post = get_post($post_id);
 			$theme = [];
@@ -202,6 +214,14 @@ class bbCard
 		}
 
 		return $img;
+	}
+
+	static function checkRW()
+	{
+		global $wpdb;
+		$table = $wpdb->prefix . 'options';
+		$rw = $wpdb->get_var("SELECT `option_value` FROM {$table} WHERE `option_name` = 'rewrite_rules'");
+		return strlen($rw);
 	}
 
 	// This is a rewrite of url_to_postid with support for custom post types and with a fix/hack for posts with a parent page
