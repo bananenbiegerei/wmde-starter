@@ -5,6 +5,7 @@ foreach (get_field('team_members') as $member_id) {
 		'name' => get_the_title($member_id),
 		'details' => get_field('details', $member_id),
 		'email' => get_field('email', $member_id),
+		'phone' => get_field('phone', $member_id),
 		'label_for_related_project' => get_field('label_for_related_project', $member_id),
 		'related_project' => get_field('related_project', $member_id) ? get_field('related_project', $member_id) : [],
 		'photo' => get_the_post_thumbnail($member_id, 'medium', ['class' => 'rounded-3xl h-full object-cover w-full']),
@@ -47,6 +48,7 @@ $meta_infos = get_field('show_meta_infos');
 									
 										<h4 class="text-lg mb-1"><?= $member['name'] ?></h4>
 										<p class="mb-1 text-lg"><?= $member['details'] ?></p>
+										<p class="mb-1 text-lg"><a href="tel:<?= $member['phone'] ?>"><?= $member['phone'] ?></a></p>
 										<p class="text-lg mb-1"><a href="mailto:<?= $member['email'] ?>">E-mail</a></p>
 								</div>
 							</div>
