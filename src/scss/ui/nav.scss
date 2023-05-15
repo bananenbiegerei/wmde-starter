@@ -1,27 +1,9 @@
-.menu {
-	@apply transition-all duration-500 ease-in-out;
-	&.horizontal {
-		@apply lg:flex lg:gap-5 lg:items-baseline;
+#navdropdown {
+	& > div.invisible {
+		opacity: 0;
 	}
-	li {
-		a {
-			@apply inline-flex items-center text-base py-1 px-2 hover:bg-primary-50 rounded transition font-alt;
-		}
-		&.current-menu-item {
-			a {
-				@apply bg-white;
-			}
-		}
-	}
-	&.dropdown {
-		@apply flex flex-col space-y-2;
-		li {
-			a {
-				@apply w-full text-base py-1 px-2 hover:bg-primary-50 rounded transition;
-			}
-		}
-	}
-	.dropdown-toggle {
-		@apply inline-flex items-center text-base py-1 px-2 hover:bg-primary-50 rounded transition;
+	& > div.visible {
+		opacity: 1;
+		transition: opacity 0.2s;
 	}
 }
