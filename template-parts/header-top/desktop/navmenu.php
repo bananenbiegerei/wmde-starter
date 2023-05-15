@@ -106,8 +106,8 @@
 				let bx = document.getElementById('domain_' + this.idx).getBoundingClientRect().left; // button x
 				let bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
 				let dxoff = this.getNavDropdownOffset(); // dropdown h offset
-				let pw = 32; // pointer width
-				let pyoff = -20; // pointer v offset
+				let pw = 30; // pointer width
+				let pyoff = 0; // pointer v offset
 				let ddw = document.getElementById('menu_' + this.idx).offsetWidth;
 				let voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
 				let ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
@@ -185,8 +185,8 @@
 	<div id="navdropdown" class="relative block container">
 
 		<!-- Pointer to domain button -->
-		<div class="z-20 absolute pointer-events-none w-8 h-6" id="pointer" x-show="showPointer">
-			<img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/pointer-top.png" alt="Logo">
+		<div class="z-20 absolute -top-5 pointer-events-none w-20 h-10 bg-red-500 flex items-end justify-center" id="pointer" xXX-show="showPointer">
+			<img class="w-8 h-6 drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/pointer-top.png" alt="Logo">
 		</div>
 
 		<!-- For each domain... -->
@@ -194,7 +194,7 @@
 			<div
 				show="isOpen[i]"
 				x-bind:id="'menu_'+ i"
-				class="absolute inset-x-0 z-10 transform bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar p-5 overflow-hidden"
+				class="absolute inset-x-0 z-10 transform bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar p-5 overflow-hidden top-6"
 				x-bind:class="{
 					'max-w-6xl': domain.featured.length > 0,
 					'max-w-md': domain.featured.length == 0,

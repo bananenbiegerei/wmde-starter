@@ -1,5 +1,5 @@
 .btn {
-	@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1 text-xl text-white hover:bg-primary-900 transition font-sans font-robotonormal;
+	@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1 text-xl text-white hover:bg-primary-900 transition font-sans font-robotonormal ease-in-out duration-300;
 }
 
 // Sizes
@@ -34,7 +34,7 @@
 }
 
 .btn-menu {
-	@apply text-base bg-transparent rounded-md text-black font-alt font-medium border-none hover:bg-transparent hover:text-primary-800;
+	@apply text-base bg-transparent rounded-md text-black font-alt font-medium border-white hover:bg-transparent hover:border-b hover:border-white hover:border-b-primary-500 hover:border-solid hover:rounded-none;
 	&.current {
 		@apply border-b border-t-0 border-l-0 border-r-0 border-primary-500 border-solid rounded-none;
 	}
