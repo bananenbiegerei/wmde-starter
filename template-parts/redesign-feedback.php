@@ -5,7 +5,12 @@
 		document.cookie = 'redesign_feedback=1;expires=Tue, 19 Jan 2038 03:14:07 GMT;path="/"';
 	}
 	window.addEventListener('load', ( ) => {
-		document.querySelector('#redesign-feedback-form button[type="submit"]').addEventListener('click', () => { setC(); });
+		try {
+			document.querySelector('#redesign-feedback form button[type="submit"]').addEventListener('click', () => { setC(); });
+		} catch (e) { }
+		if (!getCookie('redesign_feedback')) {
+			document.querySelector('#redesign-feedback').style.display = 'block';
+		}
 	});
 
 	function getCookie(name) {
@@ -23,7 +28,7 @@
 <div x-data="{ showObject: false }" x-show="showObject"
 	x-init="() => { window.addEventListener('scroll', () => {
 		if (window.scrollY > (window.innerHeight / 2) && !getCookie('redesign_feedback') ) { showObject = true; } });
-	}">
+	}" style="display: none" id="redesign-feedback">
 	<div class="fixed bottom-10 right-10 bg-neon rounded-xl p-5 drop-shadow-xl z-50 flex flex-col justify-center max-w-sm" x-data="{ close: true }" x-show="close">
 		<div class="flex gap-5">
 			<p class="mb-0">
@@ -38,7 +43,7 @@
 					</button>
 			</div>
 		</div>
-		<div id="redesign-feedback-form" >
+		<div>
 			<?php echo do_shortcode("[wpforms id='{$FORMID}' title='false']"); ?>
 		</div>
 	</div>
