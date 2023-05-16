@@ -52,3 +52,14 @@ add_filter(
 	},
 	999,
 );
+
+// Allow administrators to insert iframes to posts
+add_action(
+	'init',
+	function () {
+		if (in_array('administrator', (array) wp_get_current_user()->roles)) {
+			kses_remove_filters();
+		}
+	},
+	11,
+);
