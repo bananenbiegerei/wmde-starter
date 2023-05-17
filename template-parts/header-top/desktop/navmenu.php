@@ -107,7 +107,7 @@
 				let bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
 				let dxoff = this.getNavDropdownOffset(); // dropdown h offset
 				let pw = 32; // pointer width
-				let pyoff = -15; // pointer v offset
+				let pyoff = -20; // pointer v offset
 				let ddw = document.getElementById('menu_' + this.idx).offsetWidth;
 				let voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
 				let ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
@@ -116,7 +116,7 @@
 				document.getElementById('pointer').style.top = pyoff + 'px';
 			},
 			getNavDropdownOffset() {
-				let box = document.getElementById('navdropdown').getBoundingClientRect();
+				let box = document.getElementById('navmenu_desktop_dropdown').getBoundingClientRect();
 				let body = document.body;
 				let docEl = document.documentElement;
 				let scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
@@ -135,7 +135,7 @@
 	<div class="relative z-10 container overflow-hidden">
 
 		<!-- Logo -->
-		<div class="absolute left-7 top-2 overflow-hidden" type="logo">
+		<div class="absolute left-5 top-2 overflow-hidden" type="logo">
 			<div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
 				<a tabindex="-1"  href="<?php echo get_home_url(); ?>" aria-label="Homepage">
 					<img class="mini-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
@@ -149,9 +149,9 @@
 			<!-- Domains -->
 			<div class="navmenu flex-none flex space-x-1 py-3 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
 				<!-- Domain items -->
-				<nav>
+				<nav id="navmenu_desktop_domains">
 					<template x-for="(domain,i) in nav">
-						<a class="btn btn-menu relative" @focus="openNav(i); movePointer()" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID }" x-bind:href="domain.url" x-html="domain.title"></a>
+						<a class="btn btn-menu relative" @focus="openNav(i); movePointer()" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID || domain.children.includes(pageID) }" x-bind:href="domain.url" x-html="domain.title"></a>
 					</template>
 				</nav>
 			</div>
@@ -182,7 +182,7 @@
 	</div>
 
 	<!-- Submenus items go below the navigation bar -->
-	<div id="navdropdown" class="relative block container">
+	<div id="navmenu_desktop_dropdown" class="relative block container">
 
 		<!-- Pointer to domain button -->
 		<div class="z-20 absolute pointer-events-none w-8 h-6" id="pointer" x-show="showPointer">
@@ -212,7 +212,7 @@
 							<ul role="list" class="flex flex-col max-h-screen-80 overflow-auto">
 								<template x-for="page in domain.featured">
 									<li class="p-1" x-bind:class="{'current': pageID == page.ID }">
-										<a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray rounded-xl h-16 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0">
+										<a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0">
 											<div class="">
 												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 											</div>
