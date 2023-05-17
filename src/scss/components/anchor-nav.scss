@@ -1,4 +1,5 @@
-#anchor-nav .swiper-wrapper li.active {
-	// FIXME: @ingo please style
-	background: red;
+#anchor-nav .swiper-wrapper li {
+	&.active {
+		@apply bg-gray-200;	
+	}
 }

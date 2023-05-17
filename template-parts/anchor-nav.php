@@ -167,7 +167,7 @@ SwipersConfig['#anchor-nav'] = {
 			<div class="swiper-container">
 				<ul class="swiper-wrapper">
 					<template x-for="(anchor,i) in anchors">
-						<li class="swiper-slide !w-auto py-2 cursor-pointer" x-bind:data-title="anchor.id"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
+						<li class="swiper-slide !w-auto py-2 cursor-pointer px-2" x-bind:data-title="anchor.id"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
 					</template>
 				</ul>
 			</div>
