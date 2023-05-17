@@ -1,4 +1,23 @@
-#navdropdown {
+// Domains
+#navmenu_desktop_domains {
+	a {
+		&.current {
+			// Current domain or top-level page
+		}
+	}
+}
+
+// Menu items in dropdown
+#navmenu_desktop_dropdown {
+	li {
+		&.current {
+			// Current page
+		}
+	}
+}
+
+// Dropdown animations (could not get them to work with AlpineJS)
+#navmenu_desktop_dropdown {
 	& > div.invisible {
 		opacity: 0;
 	}
