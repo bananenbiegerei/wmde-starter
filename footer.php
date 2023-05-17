@@ -1,5 +1,4 @@
 </main>
-<?php get_template_part("template-parts/redesign-feedback"); ?>
 <footer class="bg-white text-primary mt-36 site-footer" aria-labelledby="footer-heading">
 	<h2 id="footer-heading" class="sr-only">Footer</h2>
 	<div class="border-t-2 border-b border-b-gray-200 py-8 mb-12 lg:mb-0">
