@@ -34,9 +34,9 @@
 }
 
 .btn-menu {
-	@apply text-base bg-transparent rounded-md text-black font-alt font-medium border-white hover:bg-transparent hover:border-b hover:border-white hover:border-b-primary-500 hover:border-solid hover:rounded-none;
+	@apply text-base bg-transparent text-black font-alt font-medium border-white hover:bg-transparent hover:border-b hover:border-white hover:border-b-primary-500 hover:border-solid rounded-none;
 	&.current {
-		@apply border-b border-t-0 border-l-0 border-r-0 border-primary-500 border-solid rounded-none;
+		@apply border-b border-t-0 border-l-0 border-r-0 border-primary-500 border-solid;
 	}
 }
 

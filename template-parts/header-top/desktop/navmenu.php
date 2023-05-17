@@ -107,7 +107,7 @@
 				let bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
 				let dxoff = this.getNavDropdownOffset(); // dropdown h offset
 				let pw = 32; // pointer width
-				let pyoff = -20; // pointer v offset
+				let pyoff = -15; // pointer v offset
 				let ddw = document.getElementById('menu_' + this.idx).offsetWidth;
 				let voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
 				let ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
@@ -212,7 +212,7 @@
 							<ul role="list" class="flex flex-col max-h-screen-80 overflow-auto">
 								<template x-for="page in domain.featured">
 									<li class="p-1" x-bind:class="{'current': pageID == page.ID }">
-										<a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0">
+										<a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray rounded-xl h-16 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0">
 											<div class="">
 												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 											</div>
