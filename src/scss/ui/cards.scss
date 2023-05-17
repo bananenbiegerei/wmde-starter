@@ -5,16 +5,11 @@
 	h4,
 	h5,
 	p {
-		@apply underline transition;
+		@apply underline transition underline-offset-2 decoration-1;
 	}
 }
 .image-hover-effect:hover {
-	img {
-		@apply opacity-80 ease-in duration-300;
-	}
-}
-.image-hover-effect {
-	img {
-		@apply opacity-100 ease-in duration-300;
+	.aspect-w-16.aspect-h-9 {
+		@apply after:content-['_'] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-white after:via-white/50 after:to-transparent after:opacity-80;
 	}
 }

@@ -40,7 +40,7 @@ ol:not([class]) {
 	ol a,
 	a.link
 	 {
-		@apply underline hover:text-primary-300 transition;
+		@apply underline transition underline-offset-2 decoration-1 hover:text-primary-300 transition;
 	}
 }
 

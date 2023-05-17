@@ -20,7 +20,7 @@ $id = str_replace(' ', '_', esc_attr($title));
 <div data-anchor-title="<?= $title ?>" class="bb-headline-block">
 	<div class="anchor-offset" id="<?= $id ?>"></div>
 	<?php if (get_field('headline_link')): ?>
-		<a class="hover:underline transition" href="<?php echo esc_url('headline_link'); ?>">
+		<a class="hover:underline transition underline-offset-2 decoration-1 transition" href="<?php echo esc_url('headline_link'); ?>">
 			<<?= get_field('level') ?> class="<?= get_field('style')['headline_size'] ?? '' ?> <?= $color ?>">
 				<span class="<?= $bgcolor ?>">
 					<?= get_field('headline') ?>
