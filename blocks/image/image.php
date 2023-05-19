@@ -3,7 +3,7 @@
 	Image Block: also used by Gallery Swiper block and Wikimedia Commons Media block via `get_template_part()`.
 */
 
-// If called from Image block or Gallery Swiper block
+// If called from Image block, Gallery Swiper block, or Text-Image-Float block
 $image_id = get_field('image') ? get_field('image') : $args['image']['id'] ?? false;
 // If called from Wikimedia Commons Media block
 $wmc_image_data = $args['wmc_data'] ?? false;
