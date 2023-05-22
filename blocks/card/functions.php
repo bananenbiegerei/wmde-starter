@@ -79,6 +79,10 @@ class bbCard
 	// Find a matching post in any of the network sites from its URL
 	static function get_post_data_from_url($url)
 	{
+		if (filter_var($url, FILTER_VALIDATE_URL) === false) {
+			error_log("BB_CARD_WARNING: incorrect url (\"{$url}\")");
+		}
+
 		$md5 = md5($url);
 		$cached = get_transient(BB_CARD_URL_TO_ID_PREFIX . $md5);
 		// Cache is only used for end users
