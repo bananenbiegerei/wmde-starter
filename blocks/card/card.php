@@ -1,16 +1,14 @@
 <?php
 
-// FIXME: re-implement excerpt and add option to show excerpt
-
 /* ACF BLOCK: Card
  * Notes:
- * - Title, excerpt, image, and theme & format will be fetched for link to a post that is on any subsite of the same network instance
- * - If there are issues with links, try refreshing permalinks on that subsite
+ * - Title, excerpt, image, and theme & format will be fetched for link to a post that is on any sub-site of the same
+ *   network instance. Check `functions.php`.
+ * - This block render template is also used by `blocks/latest-posts`.
  */
 
 // Get link from ACF or show an error
-// FIXME: this is way to obscure...
-$link = get_field('content')['link'] ?? false ? get_field('content')['link'] ?? false : ['title' => __('Missing Link!', BB_TEXT_DOMAIN), 'url' => '#'];
+$link = get_field('content')['link'] ?? false ?: ['title' => __('Missing Link!', BB_TEXT_DOMAIN), 'url' => '#'];
 
 // Set default values
 $blog_id = get_current_blog_id();
@@ -26,7 +24,7 @@ $alt_image_id = false;
 if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 	// If card is loaded from the Card ACF block, see if there's a post with this URL
 	// Use the title from the post if it has not been manually set
-	$link['title'] = $link['title'] != '' ? $link['title'] : $post_data['title'];
+	$link['title'] = $link['title'] != '' ?: $post_data['title'];
 	// Get other values from post
 	$post_id = $post_data['post_id'];
 	$blog_id = $post_data['blog_id'];
@@ -53,22 +51,22 @@ if ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 
 // Override values if alt. versions are provided
 if (get_field('content')['alt_details'] ?? false) {
-	$excerpt = get_field('content')['excerpt'] ? get_field('content')['excerpt'] : $excerpt;
+	$excerpt = get_field('content')['excerpt'] ?: $excerpt;
 	$alt_image_id = get_field('content')['image'];
 	$alt_theme = array_map(
 		function ($a) {
 			return $a->name;
 		},
-		get_field('content')['theme'] ? get_field('content')['theme'] : [],
+		get_field('content')['theme'] ?: [],
 	);
 	$theme = $alt_theme ? $alt_theme : $theme;
 	$alt_format = array_map(
 		function ($a) {
 			return $a->name;
 		},
-		get_field('content')['format'] ? get_field('content')['format'] : [],
+		get_field('content')['format'] ?: [],
 	);
-	$format = $alt_format ? $alt_format : $format;
+	$format = $alt_format ?: $format;
 }
 
 // Set featured image

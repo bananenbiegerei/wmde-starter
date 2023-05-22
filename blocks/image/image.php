@@ -1,12 +1,17 @@
 <?php
-/*
-	Image Block: also used by Gallery Swiper block and Wikimedia Commons Media block via `get_template_part()`.
-*/
+/* ACF Block: Image
+ *	Notes:
+ *  - Also used by Gallery Swiper block, Wikimedia Commons Media, and Text Image Float blocks via `get_template_part()`.
+ *  -
+ */
 
 // If called from Image block, Gallery Swiper block, or Text-Image-Float block
-$image_id = get_field('image') ? get_field('image') : $args['image']['id'] ?? false;
-// If called from Wikimedia Commons Media block
+$image_id = get_field('image') ?: $args['image']['id'] ?? false;
+
+// If called from Wikimedia Commons Media block (`wmc_data` contains image meta-data from Wikimedia Commons)
 $wmc_image_data = $args['wmc_data'] ?? false;
+
+clog($args);
 
 // Setup image parameters
 if ($image_id) {
@@ -14,16 +19,20 @@ if ($image_id) {
 	$image_caption = strip_tags(wp_get_attachment_caption($image_id), ['a']);
 	$image_meta_data = wp_get_attachment_metadata($image_id);
 	$rounded = get_field('style')['rounded'] ?? ($args['rounded'] ?? false);
+	$image_link = get_field('image_link');
 } elseif ($wmc_image_data) {
 	// If called from Wikimedia Commons Media block as get_template_part()
-	$image_caption = '<a href="' . esc_attr($wmc_image_data['url']) . '">' . $wmc_image_data['creator'] . ' - ' . $wmc_image_data['usageterms'] . '</a>';
+	$image_caption = '<a href="' . esc_attr($wmc_image_data['url']) . '">' . ($wmc_image_data['creator'] ?: 'N/A') . ', ' . $wmc_image_data['usageterms'] . '</a>';
 	$dim = explode('x', $wmc_image_data['dim']);
 	$image_meta_data = ['width' => (int) $dim[0], 'height' => (int) $dim[1]];
 	$rounded = $args['rounded'] ?? false;
+	$image_link = $args['image_link'] ?? false;
 } else {
+	// Fallback to an error
 	$image_caption = 'Missing image!';
 	$image_meta_data = ['width' => 180, 'height' => 139];
 	$rounded = false;
+	$image_link = false;
 }
 
 // Get values for container and image classes
@@ -49,11 +58,19 @@ if ($image_id) {
 	$placeholder = esc_url(get_template_directory_uri() . '/blocks/image/placeholder.svg');
 	$image = "<img src='{$placeholder}' class='{$image_classes['class']}'>";
 }
+
+// Wrap image in A tag if needed
+$link_open = '';
+$link_close = '';
+if ($image_link) {
+	$link_open = '<a href="' . esc_url($image_link) . '">';
+	$link_close = '</a>';
+}
 ?>
+
 <div class="bb-image-block my-4">
 	<?php $image_link = get_field('image_link'); ?>
-	<?php if ($image_link): ?>
-		<a href="<?php echo esc_url($image_link); ?>">
+		<?= $link_open ?>
 			<figure class="<?= $figure_classes ?>" role="group">
 				<?= $image ?>
 				<?php if ($image_caption): ?>
@@ -62,17 +79,5 @@ if ($image_id) {
 					</figcaption>
 				<?php endif; ?>
 			</figure>
-		</a>
-	<?php else: ?>
-
-	<figure class="<?= $figure_classes ?>" role="group">
-		<?= $image ?>
-		<?php if ($image_caption): ?>
-			<figcaption class="<?= $caption_classes ?>">
-				<?= bb_icon('info', 'flex-shrink-0') ?> <div class="self-center"><?= $image_caption ?></div>
-			</figcaption>
-		<?php endif; ?>
-	</figure>
-
-	<?php endif; ?>
+		<?= $link_close ?>
 </div>
