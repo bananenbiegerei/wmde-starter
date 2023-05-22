@@ -39,7 +39,7 @@ if (($args['post_id'] ?? false) && ($args['blog_id'] ?? false)) {
 } elseif ($post_data = bbCard::get_post_data_from_url($link['url'])) {
 	// If card is loaded from the Card ACF block, see if there's a post with this URL
 	// Use the title from the post if it has not been manually set
-	$link['title'] = $link['title'] != '' ? $link['title'] : $post_data['title'];
+	$link['title'] = $link['title'] ?: $post_data['title'];
 	// Get other values from post
 	$post_id = $post_data['post_id'];
 	$blog_id = $post_data['blog_id'];
@@ -52,20 +52,20 @@ if (($args['post_id'] ?? false) && ($args['blog_id'] ?? false)) {
 
 // Override values if alt. versions are provided
 if (get_field('content')['alt_details'] ?? false) {
-	$excerpt = get_field('content')['excerpt'] ? get_field('content')['excerpt'] : $excerpt;
+	$excerpt = get_field('content')['excerpt'] ?: $excerpt;
 	$alt_image_id = get_field('content')['image'];
 	$alt_theme = array_map(
 		function ($a) {
 			return $a->name;
 		},
-		get_field('content')['theme'] ? get_field('content')['theme'] : [],
+		get_field('content')['theme'] ?: [],
 	);
 	$theme = $alt_theme ? $alt_theme : $theme;
 	$alt_format = array_map(
 		function ($a) {
 			return $a->name;
 		},
-		get_field('content')['format'] ? get_field('content')['format'] : [],
+		get_field('content')['format'] ?: [],
 	);
 	$format = $alt_format ? $alt_format : $format;
 }
