@@ -27,11 +27,15 @@ if (get_field('link_auf_bild')) {
   <div class="clearfix">
     <?php if (get_field('link_auf_bild')): ?>
       <a href="<?= esc_url($link_url) ?>" target="<?= esc_attr($link_target) ?>">
-        <div class="<?= $align ?>"><?= wp_get_attachment_image($image, $size, '') ?></div>
+        <div class="<?= $align ?>">
+          <?php get_template_part('blocks/image/image', null, ['image' => ['id' => $image], 'rounded' => false]); ?>
+        </div>
       </a>
       <?php the_field('text'); ?>
     <?php else: ?>
-    <div class="<?= $align ?>"><?= wp_get_attachment_image($image, $size, '') ?></div>
+    <div class="<?= $align ?>">
+      <?php get_template_part('blocks/image/image', null, ['image' => ['id' => $image], 'rounded' => false]); ?>
+    </div>
       <?php the_field('text'); ?>
     <?php endif; ?>
   </div>

@@ -1,7 +1,14 @@
 <?php
-// FIXME: Might need to have an option to flush the cache if there are conflicts after a URL has changed.
+
+/* Notes:
+ * - Lookup of URL to post data is cached to reduce load. Cache entries are not used & updated in Gutenberg editor
+ *   (see `get_post_data_from_url()`).
+ * - `url_to_postid()` has a bug that will mess up rewrite rules on multisite instances if for some reason the rules
+ *   are empty. This is prevented with a little workaround (see below).
+ */
+
 define('BB_CARD_URL_TO_ID_PREFIX', 'bb_card_');
-define('BB_CARD_URL_TO_ID_TIMEOUT', 24 * HOUR_IN_SECONDS);
+define('BB_CARD_URL_TO_ID_TIMEOUT', 72 * HOUR_IN_SECONDS);
 
 class bbCard
 {
@@ -72,9 +79,14 @@ class bbCard
 	// Find a matching post in any of the network sites from its URL
 	static function get_post_data_from_url($url)
 	{
+		if (filter_var($url, FILTER_VALIDATE_URL) === false) {
+			error_log("BB_CARD_WARNING: incorrect url (\"{$url}\")");
+		}
+
 		$md5 = md5($url);
 		$cached = get_transient(BB_CARD_URL_TO_ID_PREFIX . $md5);
-		if ($cached && !current_user_can('edit_posts')) {
+		// Cache is only used for end users
+		if ($cached && !is_admin()) {
 			return $cached;
 		}
 

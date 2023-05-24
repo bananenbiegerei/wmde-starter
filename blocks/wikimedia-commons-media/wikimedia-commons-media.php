@@ -9,6 +9,7 @@ if ($image_data && $image_data['type'] == 'image') {
 		'wmc_data' => $image_data,
 		'wide' => get_field('style')['wide'] ?? false,
 		'rounded' => get_field('style')['rounded'] ?? false,
+		'image_link' => get_field('image_link'),
 	]);
 } elseif ($image_data && $image_data['type'] == 'video') {
 	// FIXME: set correct container for video..
