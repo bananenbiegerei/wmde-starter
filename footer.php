@@ -31,7 +31,7 @@
 			<?php wp_nav_menu(array(
 			'container' => 'nav',
 			'menu' => 'footer',
-			'menu_class' => 'menu horizontal',
+			'menu_class' => 'flex flex-col lg:flex-row gap-5',
 			'theme_location' => 'footer',
 			)); ?>
 		</div>

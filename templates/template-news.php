@@ -6,7 +6,6 @@ get_header(); ?>
 <?php while (have_posts()): ?>
 <?php the_post(); ?>
 	<?php if (has_post_thumbnail()): ?>
-
 	  <div class="min-h-[12rem]">
 		  <div class="container grid grid-cols-12">
 			  <div class="col-span-12">
@@ -37,7 +36,7 @@ get_header(); ?>
 		  <div class="container grid grid-cols-12">
 			  <div class="col-span-12">
 				  <?php get_template_part('template-parts/breadcrumbs'); ?>
-					<h1 class="text-5xl"><?php the_title(); ?></h1>
+					<h1 class="text-2xl lg:text-5xl"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
 					  <div class="font-alt text-xl font-normal">
 						<?php the_excerpt(); ?>
