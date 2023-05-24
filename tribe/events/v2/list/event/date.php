@@ -28,5 +28,5 @@ $event_date_attr = $event->dates->start->format( Dates::DBDATEFORMAT );
 	<time class="topline !text-lg" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
 		<?php echo $event->schedule_details->value(); ?>
 	</time>
-	<?php $this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
+	<?php //$this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
 </div>

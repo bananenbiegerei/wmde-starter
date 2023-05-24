@@ -18,15 +18,15 @@ $label = sprintf( __( 'Previous %1$s', 'the-events-calendar' ), tribe_get_event_
 /* translators: %s: Event (plural or singular). */
 $events_mobile_friendly_label = sprintf( __( 'Previous %1$s', 'the-events-calendar' ), '<span class="tribe-events-c-nav__prev-label-plural tribe-common-a11y-visual-hide">' . tribe_get_event_label_plural() . '</span>' );
 ?>
-<li class="tribe-events-c-nav__list-item tribe-events-c-nav__list-item--prev">
+<li class="opacity-30">
 	<button
-		class="tribe-events-c-nav__prev tribe-common-b2 tribe-common-b1--min-medium"
+		class="flex items-center"
 		aria-label="<?php echo esc_attr( $label ); ?>"
 		title="<?php echo esc_attr( $label ); ?>"
 		disabled
 	>
 		<?php $this->template( 'components/icons/caret-left', [ 'classes' => [ 'tribe-events-c-nav__prev-icon-svg' ] ] ); ?>
-		<span class="tribe-events-c-nav__prev-label">
+		<span class="">
 			<?php echo wp_kses( $events_mobile_friendly_label, [ 'span' => [ 'class' => [] ] ] ); ?>
 		</span>
 	</button>

@@ -64,7 +64,7 @@ if ( empty( $disable_event_search ) ) {
 	
 			<?php // $this->template( 'components/filter-bar' ); ?>
 	
-			<div class="tribe-events-calendar-list flex flex-col gap-10">
+			<div class="tribe-events-calendar-list flex flex-col gap-10 !mb-20">
 	
 				<?php foreach ( $events as $event ) : ?>
 					

@@ -18,7 +18,7 @@
  */
 ?>
 <nav class="tribe-events-calendar-list-nav tribe-events-c-nav">
-	<ul class="tribe-events-c-nav__list">
+	<ul class="flex justify-between">
 		<?php
 		if ( ! empty( $prev_url ) ) {
 			$this->template( 'list/nav/prev', [ 'link' => $prev_url ] );
