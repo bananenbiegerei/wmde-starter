@@ -29,6 +29,7 @@ add_filter(
 			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
 			'acf/theme' => ['default' => 'col-span-12'],
 			'acf/facts' => ['default' => 'col-span-12'],
+			'acf/featured-events' => ['default' => 'col-span-12'],
 			'acf/organigramm' => ['default' => 'col-span-12'],
 			'acf/latest-wikimove-podcasts' => ['default' => 'col-span-12'],
 			'acf/latest-publications' => ['default' => 'col-span-12'],
