@@ -16,16 +16,20 @@
  * @see tribe_get_event() For the format of the event object.
  */
 ?>
-<h3 class="!pb-3">
-	<a
-		href="<?php echo esc_url( $event->permalink ); ?>"
-		title="<?php echo esc_attr( $event->title ); ?>"
-		rel="bookmark"
-		class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin"
-	>
-		<?php
-		// phpcs:ignore
-		echo $event->title;
-		?>
-	</a>
-</h3>
+<div class="!pb-3">
+    <h3>
+        <a
+            href="<?php echo esc_url( $event->permalink ); ?>"
+            title="<?php echo esc_attr( $event->title ); ?>"
+            rel="bookmark"
+            class="tribe-events-calendar-list__event-title-link tribe-common-anchor-thin"
+        >
+            <?php
+            // phpcs:ignore
+            echo $event->title;
+            ?>
+        </a>
+    </h3>
+    <?php $this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
+</div>
+

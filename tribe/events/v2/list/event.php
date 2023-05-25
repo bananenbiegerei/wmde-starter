@@ -24,7 +24,7 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event' ], 
 <div <?php tribe_classes( $container_classes ); ?>>
 
 	<?php // $this->template( 'list/event/date-tag', [ 'event' => $event ] ); ?>
-	<div class="">
+	<div class="image-hover-effect">
 		
 		<article <?php tribe_classes( $event_classes ) ?>>
 			<?php 

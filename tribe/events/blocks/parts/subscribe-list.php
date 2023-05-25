@@ -20,9 +20,9 @@ if ( empty( $items ) ) {
 
 remove_filter( 'the_content', 'do_blocks', 9 );
 ?>
-	<div class="tribe-block tribe-block__events-link p-0">
+	<div class="tribe-block tribe-block__events-link p-0 bg-gray rounded p-5 h-full">
 		<p class="font-medium font-alt mb-2"><?php _e('Zum Kalender hinzufügen', BB_TEXT_DOMAIN); ?></p>
-		<ul class="bg-gray text-base p-3 w-full rounded" tabindex="0">
+		<ul class="text-base w-full" tabindex="0">
 			<?php foreach ( $items as $item ) : ?>
 				<li class="tribe-events-c-subscribe-dropdown__list-item">
 					<a

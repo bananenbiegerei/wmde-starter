@@ -23,9 +23,9 @@ $website = tribe_get_venue_website_link();
 
 ?>
 
-<div class="tribe-block__venue__meta">
+<div class="tribe-block__venue__meta bg-gray rounded p-5 h-full">
 	<h3>Ort</h3>
-	<div class=" bg-gray rounded p-3">
+	<div class="">
 		<div class="tribe-block__venue__name">
 			<h3><?php echo tribe_get_venue_link() ?></h3>
 		</div>
