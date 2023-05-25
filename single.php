@@ -94,11 +94,11 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 	<div class="container lg:grid lg:grid-cols-12 lg:gap-10">
 		<div class="lg:col-span-10 lg:col-start-2">
 			<?php if( get_field('topline') ): ?>
-				<h2 class="topline mb-0">
-					<?php the_field('topline'); ?>
-				</h2>
+			<h2 class="topline mb-0">
+				<?php the_field('topline'); ?>
+			</h2>
 			<?php endif; ?>
-			
+
 			<h1 class="lg:mb-0"><?php the_title(); ?></h1>
 			<p class="text-base">
 				<?php the_author(); ?><br>
@@ -112,13 +112,13 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 <div class="content py-10">
 	<?php the_content(); ?>
 </div>
-	<div class="container">
-		<section class="lg:grid lg:grid-cols-12">
-			<div class="lg:col-span-8 lg:col-start-3">
-				<?php get_template_part('template-parts/categories-tags'); ?>
-			</div>
-		</section>
-	</div>
+<div class="container">
+	<section class="lg:grid lg:grid-cols-12">
+		<div class="lg:col-span-8 lg:col-start-3">
+			<?php get_template_part('template-parts/categories-tags'); ?>
+		</div>
+	</section>
+</div>
 <div class="bg-gray py-5">
 	<div class="container">
 		<?php if (comments_open() || get_comments_number()) { ?>

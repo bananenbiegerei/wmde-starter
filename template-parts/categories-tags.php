@@ -1,9 +1,9 @@
-<div class="flex gap-2 my-4">
+<div class="flex gap-2 mb-10">
 	<?php
 	$cats = get_the_category($id);
 	foreach ( $cats as $cat ): ?>
-		<a class="topline" href="<?php echo get_category_link($cat->cat_ID); ?>">
-			<?php echo $cat->name; ?>
+		<a class="btn btn-hollow btn-sm" href="<?php echo get_category_link($cat->cat_ID); ?>">
+			#<?php echo $cat->name; ?>
 		</a>
 	<?php endforeach; ?>
 	<?php /*
