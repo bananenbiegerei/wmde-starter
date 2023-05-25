@@ -127,7 +127,9 @@ class bbWikimediaCommonsMedia
 		$url = $endPoint . '?' . http_build_query($params);
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		if (!is_production_server()) {
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		}
 		$output = curl_exec($ch);
 		curl_close($ch);
 		$data = json_decode($output, true);
