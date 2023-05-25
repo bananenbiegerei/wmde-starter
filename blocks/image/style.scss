@@ -8,15 +8,13 @@
 
 	// Caption always visible and below image for touch devices
 	@media only screen and (hover: none) {
-		padding-bottom: unset !important;
-
 		figure {
-			position: unset !important;
 			img {
+				@apply rounded-none rounded-b-none rounded-2xl;
 			}
 			figcaption {
 				visibility: visible;
-				position: relative;
+				//	position: relative;
 			}
 
 			&.no_caption {
