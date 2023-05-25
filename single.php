@@ -12,7 +12,12 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 	<div class="container lg:grid lg:grid-cols-12 lg:gap-10">
 
 		<div class="lg:col-span-10 lg:col-start-2">
-			<?php //get_template_part('template-parts/categories-tags'); ?>
+			<a class="flex items-center gap-2" href="<?php echo get_home_url(); ?>"><?=bb_icon('arrow-left', 'icon-xs'); ?> <?php _e('zurück'); ?></a>
+			<?php if( get_field('topline') ): ?>
+			<h2 class="topline mb-0">
+				<?php the_field('topline'); ?>
+			</h2>
+			<?php endif; ?>
 			<h1 class="lg:mb-0"><?php the_title(); ?></h1>
 		</div>
 
