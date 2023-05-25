@@ -1,12 +1,11 @@
 .text-hover-effect:hover {
-	@apply transition duration-300;
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	p {
-		@apply transition duration-300 border-b border-b-red-500 inline-block;
+		@apply underline transition underline-offset-2 decoration-1;
 	}
 }
 .image-hover-effect:hover {
