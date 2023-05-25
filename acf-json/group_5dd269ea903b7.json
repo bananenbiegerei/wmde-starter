@@ -3,6 +3,28 @@
     "title": "Post Type: Posts",
     "fields": [
         {
+            "key": "field_646f1f60968c4",
+            "label": "Topline",
+            "name": "topline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "wp-typography": "title",
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_5dd269ef820be",
             "label": "Custom Authors",
             "name": "custom_authors",
@@ -100,5 +122,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683190860
+    "modified": 1685004151
 }

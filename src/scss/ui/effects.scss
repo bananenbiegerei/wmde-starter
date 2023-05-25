@@ -1,0 +1,24 @@
+.text-hover-effect:hover {
+	@apply transition duration-300;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	p {
+		@apply transition duration-300 border-b border-b-red-500 inline-block;
+	}
+}
+.image-hover-effect:hover {
+	@apply relative;
+	.aspect-w-16.aspect-h-9 {
+		@apply transition duration-300 after:content-['_'] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-gradient-to-t after:from-white after:via-white/50 after:to-transparent after:opacity-50;
+	}
+}
+
+.image-hover-effect-simple:hover {
+	@apply transition duration-300;
+	img {
+		@apply opacity-50 transition duration-300;
+	}
+}
