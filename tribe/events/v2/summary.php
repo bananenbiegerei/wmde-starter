@@ -30,6 +30,67 @@ if ( empty( $disable_event_search ) ) {
 	$header_classes[] = 'tribe-events-header--has-event-search';
 }
 ?>
+<h1>votwgbh24t0jg40j5tovpk</h1>
+<div
+	<?php tribe_classes( $container_classes ); ?>
+	data-js="tribe-events-view"
+	data-view-rest-nonce="<?php echo esc_attr( $rest_nonce ); ?>"
+	data-view-rest-url="<?php echo esc_url( $rest_url ); ?>"
+	data-view-rest-method="<?php echo esc_attr( $rest_method ); ?>"
+	data-view-manage-url="<?php echo esc_attr( $should_manage_url ); ?>"
+	<?php foreach ( $container_data as $key => $value ) : ?>
+		data-view-<?php echo esc_attr( $key ) ?>="<?php echo esc_attr( $value ) ?>"
+	<?php endforeach; ?>
+	<?php if ( ! empty( $breakpoint_pointer ) ) : ?>
+		data-view-breakpoint-pointer="<?php echo esc_attr( $breakpoint_pointer ); ?>"
+	<?php endif; ?>
+>
+	<div class="tribe-common-l-container tribe-events-l-container">
+		<?php $this->template( 'components/loader', [ 'text' => __( 'Loading...', 'tribe-events-calendar-pro' ) ] ); ?>
 
+		<?php $this->template( 'components/json-ld-data' ); ?>
+
+		<?php $this->template( 'components/data' ); ?>
+
+		<?php $this->template( 'components/before' ); ?>
+
+		<header <?php tribe_classes( $header_classes ); ?>>
+			<?php $this->template( 'components/messages' ); ?>
+
+			<?php $this->template( 'components/breadcrumbs' ); ?>
+
+			<?php //$this->template( 'components/events-bar' ); ?>
+
+			<?php //$this->template( 'summary/top-bar' ); ?>
+		</header>
+
+		<?php //$this->template( 'components/filter-bar' ); ?>
+
+		<div class="tribe-events-pro-summary">
+
+			<?php foreach ( $events_by_date as $group_date => $events_data ) : ?>
+				<?php
+					if ( empty( $events_data ) ) {
+						continue;
+					}
+					$event = current( $events_data );
+					$this->setup_postdata( $event );
+					$group_date = Dates::build_date_object( $group_date );
+				?>
+				<?php $this->template( 'summary/month-separator', [ 'events' => $events, 'event' => $event, 'group_date' => $group_date ] ); ?>
+				<?php $this->template( 'summary/date-separator', [ 'events' => $events, 'event' => $event, 'group_date' => $group_date ] ); ?>
+				<?php $this->template( 'summary/date-group', [ 'events_for_date' => $events_data, 'group_date' => $group_date ] ); ?>
+			<?php endforeach; ?>
+
+		</div>
+
+		<?php $this->template( 'summary/nav' ); ?>
+
+		<?php $this->template( 'components/ical-link' ); ?>
+
+		<?php $this->template( 'components/after' ); ?>
+
+	</div>
+</div>
 
 <?php $this->template( 'components/breakpoints' ); ?>
