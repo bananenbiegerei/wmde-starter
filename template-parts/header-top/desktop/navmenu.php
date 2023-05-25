@@ -186,7 +186,7 @@
 
 		<!-- Pointer to domain button -->
 		<div class="z-20 absolute pointer-events-none w-8 h-6" id="pointer" x-show="showPointer">
-			<img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/icons/pointer-top.png" alt="Logo">
+			<img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-top/pointer-top.svg" alt="Logo">
 		</div>
 
 		<!-- For each domain... -->
