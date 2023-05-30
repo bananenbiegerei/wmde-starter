@@ -29,7 +29,7 @@
 </script>
 
 <!-- Container for the whole mobile nav menu -->
-<div id="navmenu_mobile" x-data="navMenuMobile" class="z-40 block bg-white fixed left-0 right-0  bottom-0 top-14 block lg:hidden overflow-scroll" x-show="$store.open_mobile_nav"
+<div id="navmenu_mobile" x-data="navMenuMobile" class="z-40 block bg-white fixed left-0 right-0  bottom-0 top-14 block md:hidden overflow-scroll" x-show="$store.open_mobile_nav"
 x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90"
 >
 	<div class="flex-1 flex justify-end gap-5 items-center p-3 border-b border-gray-200" x-data="{ open: false }">

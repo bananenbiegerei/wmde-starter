@@ -129,7 +129,7 @@
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<div id="navmenu_desktop" aria-hidden="true" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden lg:block" @mouseleave="closeNav()" >
+<div id="navmenu_desktop" aria-hidden="true" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden md:block" @mouseleave="closeNav()" >
 
 	<!-- Top bar with logo, domains, and search -->
 	<div class="relative z-10 container overflow-hidden">
