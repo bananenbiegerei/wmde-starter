@@ -7,8 +7,8 @@
 */
 ?>
 <?php define('EXCERPT_LENGTH', 30); ?>
-<?php $swiper_bg = get_field('background') == 'white' ? 'bg-white' : 'bg-gray-100'; ?>
-<?php $slide_bg = get_field('background') == 'white' ? 'bg-gray-100' : ' bg-white'; ?>
+<?php $swiper_bg = get_field('background') == 'white' ? 'bg-white' : 'bg-gray'; ?>
+<?php $slide_bg = get_field('background') == 'white' ? 'bg-gray' : ' bg-white'; ?>
 
 <?php if (!is_admin()): ?>
 <div class="bb-projects-swiper-block mb-10 lg:mb-20 <?= $swiper_bg ?>" id="<?= $block['id'] ?>">
