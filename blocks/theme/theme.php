@@ -16,17 +16,17 @@ $thumbnail_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
 $theme_url = get_the_permalink($theme);
 ?>
 
-<div class="bb-theme-block mb-10 lg:mb-20">
-	<div class="rounded-3xl lg:px-10 lg:grid lg:grid-cols-12 overflow-hidden <?= $color_contrast ? 'white-scheme' : '' ?>" style="background-color: <?= $color ?>;">
+<div class="bb-theme-block mb-10 md:mb-20">
+	<div class="rounded-3xl md:px-10 md:grid md:grid-cols-12 overflow-hidden <?= $color_contrast ? 'white-scheme' : '' ?>" style="background-color: <?= $color ?>;">
 		<!-- Image -->
-			<div class="lg:col-span-4">
-				<div class="aspect-w-4 aspect-h-3 relative lg:-translate-x-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
+			<div class="md:col-span-6 lg:col-span-4">
+				<div class="aspect-w-16 aspect-h-9 md:aspect-w-4 md:aspect-h-3 relative md:-translate-x-10 rounded-tl-3xl rounded-br-3xl overflow-hidden">
 					<a href="<?= $theme_url ?>">
 					<img class="w-full h-full object-cover" src="<?= $thumbnail_url ?>" alt="<?= $thumbnail_alt ?>">
 					</a>
 				</div>
 			</div>
-			<div class="lg:col-span-8 flex flex-col p-5 lg:p-0">
+			<div class="md:col-span-6 lg:col-span-8 flex flex-col p-5 md:p-0">
 				<div class="pt-8">
 					<!-- Theme or format -->
 					<?php if ($secondary_color): ?>
@@ -42,7 +42,7 @@ $theme_url = get_the_permalink($theme);
 					<?php endif; ?>
 					<!-- Title -->
 					<a href="<?php echo $theme_url; ?>">
-					<h2 class="text-2xl lg:text-3xl text-black"><?= esc_html($theme->post_title) ?></h2>
+					<h2 class="text-2xl md:text-3xl text-black"><?= esc_html($theme->post_title) ?></h2>
 					</a>
 				</div>
 
@@ -52,7 +52,7 @@ $theme_url = get_the_permalink($theme);
 				</p>
 
 				<!-- Button and extra info -->
-				<div class="flex-1 flex items-end lg:pb-8 default-scheme">
+				<div class="flex-1 flex items-end md:pb-8 default-scheme">
 					<a href="<?= $theme_url ?>" class="btn btn-hollow btn-icon-left">
 						<?= bb_icon('arrow-right', '') ?>
 						<?= __('Zum Thema', BB_TEXT_DOMAIN) ?>
@@ -65,7 +65,7 @@ $theme_url = get_the_permalink($theme);
 			<?php $secondary_color = get_field('secondary_color', $theme->ID); ?>
 			<?php if (have_rows('related_links')): ?>
 				<div class="col-span-12 my-10">
-				<div class="lg:grid lg:grid-cols-3 px-5 lg:px-0 gap-10">
+				<div class="md:grid md:grid-cols-3 px-5 md:px-0 gap-10">
 
 				<?php while (have_rows('related_links')): ?>
     			<?php the_row(); ?>
@@ -76,11 +76,11 @@ $theme_url = get_the_permalink($theme);
 							<a href="<?= esc_url($link['url']) ?>" target="<?= esc_attr($link['target']) ?>">
 								<?php if (get_sub_field('alt_meta_info')): ?>
 									<p class="topline mb-0" style="color:<?= $secondary_color ?>;"><?php the_sub_field('alt_meta_info'); ?></p>
-									<h3 class="text-base lg:text-xl text-black hover:underline transition underline-offset-2 decoration-1 decoration-black transition">
+									<h3 class="text-base md:text-xl text-black hover:underline transition underline-offset-2 decoration-1 decoration-black transition">
 										<?= esc_html($link['title']) ?>
 									</h3>
 								<?php else: ?>
-									<h3 class="text-base lg:text-xl text-black mt-5 hover:underline transition underline-offset-2 decoration-1 decoration-black transition"><?= esc_html($link['title']) ?></h3>
+									<h3 class="text-base md:text-xl text-black mt-5 hover:underline transition underline-offset-2 decoration-1 decoration-black transition"><?= esc_html($link['title']) ?></h3>
 								<?php endif; ?>
 							</a>
 
@@ -88,11 +88,11 @@ $theme_url = get_the_permalink($theme);
 							<a href="<?= esc_url($link['url']) ?>" target="<?= esc_attr($link['target']) ?>">
 								<?php if (get_sub_field('alt_meta_info')): ?>
 									<p class="topline mb-0"><?php the_sub_field('alt_meta_info'); ?></p>
-									<h3 class="text-base lg:text-xl text-black hover:underline transition underline-offset-2 decoration-1 decoration-black transition">
+									<h3 class="text-base md:text-xl text-black hover:underline transition underline-offset-2 decoration-1 decoration-black transition">
 										<?= esc_html($link['title']) ?>
 									</h3>
 								<?php else: ?>
-									<h3 class="text-base lg:text-xl text-black mt-5 hover:underline transition underline-offset-2 decoration-1 decoration-black transition">
+									<h3 class="text-base md:text-xl text-black mt-5 hover:underline transition underline-offset-2 decoration-1 decoration-black transition">
 										<?= esc_html($link['title']) ?>
 									</h3>
 								<?php endif; ?>

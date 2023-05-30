@@ -92,13 +92,13 @@ if ($layout == 'v' || $layout == 'vne') {
 	$layout_classes['image'] = '';
 	$layout_classes['content'] = '';
 } elseif ($layout == 'h' || $layout == 'hwe' || $layout == 'hwexl') {
-	$layout_classes['container'] = 'flex-col md:flex-row';
-	$layout_classes['image'] = 'md:basis-1/2';
-	$layout_classes['content'] = 'md:basis-1/2 md:self-center';
+	$layout_classes['container'] = 'flex-col lg:flex-row';
+	$layout_classes['image'] = 'lg:basis-1/2';
+	$layout_classes['content'] = 'lg:basis-1/2 lg:self-center';
 } elseif ($layout == 'h2' || $layout == 'h2we') {
-	$layout_classes['container'] = 'flex-col md:flex-row';
-	$layout_classes['image'] = 'basis-full md:basis-1/3';
-	$layout_classes['content'] = 'basis-full md:basis-2/3';
+	$layout_classes['container'] = 'flex-col lg:flex-row';
+	$layout_classes['image'] = 'basis-full lg:basis-1/3';
+	$layout_classes['content'] = 'basis-full lg:basis-2/3';
 }
 
 // Add background color and padding
