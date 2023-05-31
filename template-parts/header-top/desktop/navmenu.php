@@ -107,7 +107,7 @@
 				let bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
 				let dxoff = this.getNavDropdownOffset(); // dropdown h offset
 				let pw = 32; // pointer width
-				let pyoff = -20; // pointer v offset
+				let pyoff = -31; // pointer v offset
 				let ddw = document.getElementById('menu_' + this.idx).offsetWidth;
 				let voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
 				let ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
@@ -185,7 +185,7 @@
 	<div id="navmenu_desktop_dropdown" class="relative block container">
 
 		<!-- Pointer to domain button -->
-		<div class="z-20 absolute pointer-events-none w-8 h-6" id="pointer" x-show="showPointer">
+		<div class="z-20 absolute pointer-events-none" id="pointer" x-show="showPointer">
 			<img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-top/pointer-top.svg" alt="Logo">
 		</div>
 
