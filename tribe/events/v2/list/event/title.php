@@ -30,6 +30,6 @@
             ?>
         </a>
     </h3>
-    <?php //$this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
+    <?php $this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
 </div>
 
