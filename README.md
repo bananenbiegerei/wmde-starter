@@ -10,6 +10,21 @@ All required node modules will be installed when running `npm install`.
 
 The `wmde-blocks` submodule is installed by running `git submodule update --init`;
 
+If you make changes to blocks you'll have to sync them to the repo:
+
+```
+cd blocks
+git commit -a -m 'Test update'
+git push
+```
+
+To update the submodule from the repo, run the following:
+
+```
+cd blocks
+git pull
+```
+
 ### BrowserSync
 
 To setup BrowserSync copy the file `.env-example` to `.env` and edit accordingly:
