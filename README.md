@@ -24,27 +24,7 @@ The Prettier config is defined in `package.json` under the `prettier` key and sh
 
 ## Reusable Custom ACF Blocks (BB Blocks)
 
-For custom ACF blocks that we may want to reuse a modular structure is recommended. For now there's an example with the block called `accordion`.
-
-These are the files to be created and used:
-
-- ACF fields:
-  - file: `acf-json/group_5cff8a6c26332.json`
-  - created automatically after local sync from WP backend
-  - always make sure that you have an up-to-date version when pushing to git repo
-  - also symlinked to `blocks/accordion/group_5cff8a6c26332.json`
-- block declaration:
-  - file: `blocks/block.json`
-- Styling:
-  - file: `blocks/accordion/style.scss`
-  - will be **automatically** included by `src/scss/site.scss`
-- Render template:
-  - file: `blocks/accordion.php`
-- JS code:
-  - file: `blocks/accordion.js`
-  - needs to be **manually** imported in `site.js` and `site.js` to be extended as needed
-
-If you want to disable a block, move it to a `bocks.disabled/` folder for example.
+**TBD**
 
 ## String Translations
 
