@@ -47,16 +47,18 @@ The Prettier config is defined in `package.json` under the `prettier` key and sh
 
 The `/blocks` directory contains the ACF blocks from the `wmde-blocks` submodule.
 
-NOTE: The blocks ACF groups are _not_ in the `/acf-json` directory. They are loaded from the corresponding directories in `/blocks`.
+The blocks ACF groups are _not_ in the `/acf-json` directory. They are loaded from the corresponding directories in `/blocks`.
 
-If you wish to edit the fields of a block then make a symlink. For example for the Card block:
+If you wish to edit the fields of a block then use symlinks. For example for the Card block:
 
 ```
 ln -s blocks/card/group_63da65f585957.json acf-json/
 
 ```
 
-This will make the fields importable in the backend and changes will be mirrored to the file in `/blocks/card`.
+This will make the fields importable in the backend and all changes will be mirrored to `/blocks/card/group_63da65f585957.json`.
+
+Once you're done with the changes, delete the group in the backend. It will be removed from the DB, the symlink will be deleted, but the block will remain active.
 
 NOTE: _Make sure to NOT commit the symlinks to the repo!_
 
