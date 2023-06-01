@@ -1,4 +1,7 @@
 <script>
+	const pw = 20; // pointer width
+	const pyoff = -19; // pointer v offset
+
 	// Prepare x-data for 'navMenu' component
 	document.addEventListener('alpine:init', () => {
 		Alpine.data('navMenu', () => ({
@@ -106,8 +109,8 @@
 				let bx = document.getElementById('domain_' + this.idx).getBoundingClientRect().left; // button x
 				let bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
 				let dxoff = this.getNavDropdownOffset(); // dropdown h offset
-				let pw = 32; // pointer width
-				let pyoff = -31; // pointer v offset
+				// let pw = 32; // pointer width
+				// let pyoff = -31; // pointer v offset
 				let ddw = document.getElementById('menu_' + this.idx).offsetWidth;
 				let voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
 				let ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
@@ -245,7 +248,7 @@
 						<!-- Sections -->
 						<template x-for="section in domain.sections">
 							<ul role="list" class="items-stretch justify-items-stretch">
-								<li class="bg-white transition rounded-md btn btn-menu-section btn-expanded"><span class="p-1" x-text="section.title"></span></li>
+								<li class="bg-white transition rounded-md btn btn-menu-section btn-expanded hover:text-black"><span class="p-1" x-text="section.title"></span></li>
 								<template x-for="page in section.pages">
 									<li class="bg-white transition rounded-md p-1"
 										x-bind:class="{'current': pageID == page.ID }">

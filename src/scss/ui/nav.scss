@@ -13,6 +13,9 @@
 		&.current {
 			// Current page
 		}
+		&.current {
+			@apply text-primary-500;
+		}
 	}
 }
 
