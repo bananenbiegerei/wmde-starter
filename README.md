@@ -58,6 +58,8 @@ ln -s blocks/card/group_63da65f585957.json acf-json/
 
 This will make the fields importable in the backend and changes will be mirrored to the file in `/blocks/card`.
 
+NOTE: _Make sure to NOT commit the symlinks to the repo!_
+
 ## String Translations
 
 The theme will set the constant `BB_TEXT_DOMAIN` to the value setup in `style.css`. When using localization functions, make sure to use `BB_TEXT_DOMAIN` as the text domain. For example:
