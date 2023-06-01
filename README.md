@@ -1,10 +1,16 @@
-# BB Tailwind Starter Theme
+# BB WMDE Theme
 
 ## Installation & Setup
 
+### Node Modules
+
 All required node modules will be installed when running `npm install`.
 
-Update the theme metadata in `style.css`. Don't forget to set `Text Domain` to the value of the theme slug.
+### ACF Blocks Submodule
+
+The `wmde-blocks` submodule is installed by running `git submodule update --init`;
+
+### BrowserSync
 
 To setup BrowserSync copy the file `.env-example` to `.env` and edit accordingly:
 
@@ -22,9 +28,20 @@ The Prettier config is defined in `package.json` under the `prettier` key and sh
 - "phpVersion": "8.0" (among others will convert `array()` to `[]`...)
 - "singleQuote" and "jsxSingleQuote": true (use single quotes by default)
 
-## Reusable Custom ACF Blocks (BB Blocks)
+## ACF Blocks
 
-**TBD**
+The `/blocks` directory contains the ACF blocks from the `wmde-blocks` submodule.
+
+NOTE: The blocks ACF groups are _not_ in the `/acf-json` directory. They are loaded from the corresponding directories in `/blocks`.
+
+If you wish to edit the fields of a block then make a symlink. For example for the Card block:
+
+```
+ln -s blocks/card/group_63da65f585957.json acf-json/
+
+```
+
+This will make the fields importable in the backend and changes will be mirrored to the file in `/blocks/card`.
 
 ## String Translations
 
@@ -38,13 +55,13 @@ When logged in the current page can be edited by pressing `CTLR-E`.
 
 ## Development and Build
 
-For development start `npm run dev` or `npm run watch`.
+For development run `npm run dev`.
 
-For building (for production site) start `npm run build`.
+For building (for production site) run `npm run build`.
 
-## Creating Theme Archive
+For creating an archive to install the theme run `npm run package`. A zip will be created in `/dist` with a timestamped theme version.
 
-A Zip file of the compiled theme can easily be created by running `./mktheme.sh` or `npm run package`. The file will be created in the `dist/` folder and timestamped with the current date.
+_Do not manually upload files to the live server. Install the theme in the backend with the zipfile (unless it's for an emergency fix)._
 
 ## Files and Folder Structure:
 
@@ -71,13 +88,13 @@ A Zip file of the compiled theme can easily be created by running `./mktheme.sh`
 - scripts:
   - pre-build: `src/js/*`
   - post-build: `js/*`
-- ACF block fields:
+- ACF fields (not for blocks):
   - `acf-json/`
 - ACF blocks: `/bb-block/*`
   - block definition: `block.json`
   - functions: `functions.php`
   - block template: `*.php`
-  - symlink to ACF group: `group_XXXXX.json --> ../../acf-json/group_XXXXX.json`
+  - ACF groups: `group_XXXXX.json`
 - theme functions:
   - `functions.php`
   - `functions/*`
@@ -89,9 +106,9 @@ A Zip file of the compiled theme can easily be created by running `./mktheme.sh`
   - `head.php`
   - `header.php`
   - `index.php`
-  - `page.php`
+  - `page*.php`
   - `search.php`
-  - `single.php`
+  - `single*.php`
 - theme template parts: `template-parts/`
 - theme localization: `languages/*`
 
@@ -104,7 +121,6 @@ the theme to the server:
 - `.git/`
 - `.gitignore`
 - `.nova/`
-- `blocks/group_*.json` (symlinks)
 - `gulpfile.js`
 - `node_modules/`
 - `package.*`
