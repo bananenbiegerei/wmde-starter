@@ -4,26 +4,13 @@
 
 ### Node Modules
 
-All required node modules will be installed when running `npm install`.
+The first thing to do after cloning the repo is to install node modules for the project: `npm install`.
 
 ### ACF Blocks Submodule
 
-The `wmde-blocks` submodule is installed by running `git submodule update --init`;
+Our ACF blocks are now have their own repository: [wmde-blocks](https://bitbucket.org/bbteam2016/wmde-blocks/). They can be added to any theme as a submodule.
 
-If you make changes to blocks you'll have to sync them to the repo:
-
-```
-cd blocks
-git commit -a -m 'Test update'
-git push
-```
-
-To update the submodule from the repo, run the following:
-
-```
-cd blocks
-git pull
-```
+The `wmde-blocks` submodule is installed by running `git submodule update --init` from the project directory.
 
 ### BrowserSync
 
@@ -45,20 +32,39 @@ The Prettier config is defined in `package.json` under the `prettier` key and sh
 
 ## ACF Blocks
 
-The `/blocks` directory contains the ACF blocks from the `wmde-blocks` submodule.
+### Managing Changes
 
-The blocks ACF groups are _not_ in the `/acf-json` directory. They are loaded from the corresponding directories in `/blocks`.
+The `blocks` directory contains the ACF blocks from the `wmde-blocks` submodule. It behaves as its own git project.
 
-If you wish to edit the fields of a block then use symlinks. For example for the Card block:
+If you make changes to blocks you can sync them to the repo:
+
+```
+cd blocks
+git commit -a -m 'Your commit message'
+git push
+```
+
+To update the submodule from the repo to the latest remote version, run the following:
+
+```
+cd blocks
+git pull
+```
+
+### ACF-JSON
+
+The ACF-JSON files for the blocks are _not located_ in the `acf-json` directory. They are loaded from the corresponding directories in `blocks`. This means the fields cannot directly be imported and edited in the backend.
+
+If you wish to do that use symlinks. For example for the Card block you would do this (from the project top directory):
 
 ```
 ln -s blocks/card/group_63da65f585957.json acf-json/
 
 ```
 
-This will make the fields importable in the backend and all changes will be mirrored to `/blocks/card/group_63da65f585957.json`.
+This will create a symbolic link and make the fields importable in the backend. All changes to the symlink will be mirrored to `blocks/card/group_63da65f585957.json`.
 
-Once you're done with the changes, delete the group in the backend. It will be removed from the DB, the symlink will be deleted, but the block will remain active.
+Once you're done with the changes, delete the group in the backend. It will be removed from the DB, the symlink will be deleted. The file `blocks/card/group_63da65f585957.json` will still be there and the block will remain active.
 
 NOTE: _Make sure to NOT commit the symlinks to the repo!_
 
@@ -78,70 +84,6 @@ For development run `npm run dev`.
 
 For building (for production site) run `npm run build`.
 
-For creating an archive to install the theme run `npm run package`. A zip will be created in `/dist` with a timestamped theme version.
+For creating an archive to install the theme run `npm run package`. A zip will be created in `dist` with a timestamped theme version. Note that this will also delete all symbolic links in the `acf-json` directory.
 
 _Do not manually upload files to the live server. Install the theme in the backend with the zipfile (unless it's for an emergency fix)._
-
-## Files and Folder Structure:
-
-### Configuration and Build
-
-- config files:
-  - `.env`
-  - `tailwindconfig.js`
-- build files:
-  - `package.json` and `package-lock.json`
-  - `gulpfile.js`
-
-### Theme Files
-
-- theme metadata:
-  - `style.css`
-  - `screenshot.png`
-- static assets:
-  - `img/`
-  - `fonts/`
-- styles:
-  - pre-build: `src/scss/*`
-  - post-build: `css/*`
-- scripts:
-  - pre-build: `src/js/*`
-  - post-build: `js/*`
-- ACF fields (not for blocks):
-  - `acf-json/`
-- ACF blocks: `/bb-block/*`
-  - block definition: `block.json`
-  - functions: `functions.php`
-  - block template: `*.php`
-  - ACF groups: `group_XXXXX.json`
-- theme functions:
-  - `functions.php`
-  - `functions/*`
-- theme templates in project root:
-  - `404.php`
-  - `archive.php`
-  - `footer.php`
-  - `front-page.php`
-  - `head.php`
-  - `header.php`
-  - `index.php`
-  - `page*.php`
-  - `search.php`
-  - `single*.php`
-- theme template parts: `template-parts/`
-- theme localization: `languages/*`
-
-## Deployment
-
-Make sure that the following files and folders are **excluded** when uploading
-the theme to the server:
-
-- `.env*`
-- `.git/`
-- `.gitignore`
-- `.nova/`
-- `gulpfile.js`
-- `node_modules/`
-- `package.*`
-- `src/`
-- `tailwind.config.js`
