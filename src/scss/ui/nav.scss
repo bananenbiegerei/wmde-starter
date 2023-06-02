@@ -33,7 +33,7 @@
 }
 
 .btn-menu {
-	@apply text-base p-2 bg-transparent text-black font-alt font-medium border-white hover:bg-gray;
+	@apply text-base p-2 bg-transparent text-black font-alt font-medium border-white duration-100 hover:bg-gray;
 	&.current {
 		@apply text-primary-500;
 	}
