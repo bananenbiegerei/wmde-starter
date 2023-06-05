@@ -6,7 +6,25 @@ TS=`date +%Y%m%d%H%M%S`
 VERSION=`grep Version style.css | awk '{ print $3 }' | cut -d . -f -1,2`.$TS
 sed  -i '' -e "s/Version:.*/Version:        $VERSION/" style.css
 
+# Delete symlinks in acf-json
+ find acf-json -type link -exec rm {} \;
+
 # Creates a zip file of the theme ready to upload to WordPress
 cd ..
-zip wmde-$TS.zip wmde -rv -x wmde/node_modules/\* -x wmde/package\*.json -x wmde/src/\* wmde/gulpfile.js -x wmde/.git\* -x  wmde/mktheme.sh -x wmde/acf-json_TBD/\* -x wmde/blocks.disabled/\* -x wmde/.env\* -x \*/.DS_Store -x wmde/.nova/\* -x wmde/README.md -x wmde/dist/\*
+zip wmde-$TS.zip wmde -rv \
+	-x \*/.DS_Store \
+	-x wmde/.babelrc \
+	-x wmde/.env\* \
+	-x wmde/.git\* \
+	-x wmde/.nova/\* \
+	-x wmde/blocks/.git\* \
+	-x wmde/blocks/\*/style.scss \
+	-x wmde/dist/\* \
+	-x wmde/gulpfile.js \
+	-x wmde/mktheme.sh \
+	-x wmde/node_modules/\* \
+	-x wmde/package\*.json \
+	-x wmde/\*.md \
+	-x wmde/\*/\*.md \
+	-x wmde/src/\*
 mv wmde-$TS.zip wmde/dist/

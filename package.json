@@ -39,9 +39,7 @@
 		"@fullhuman/postcss-purgecss": "^5.0.0"
 	},
 	"scripts": {
-		"start": "gulp",
 		"dev": "gulp",
-		"watch": "gulp",
 		"build": "gulp build",
 		"package": "gulp package"
 	},

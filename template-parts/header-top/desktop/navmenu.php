@@ -1,4 +1,7 @@
 <script>
+	const pw = 20; // pointer width
+	const pyoff = -19; // pointer v offset
+
 	// Prepare x-data for 'navMenu' component
 	document.addEventListener('alpine:init', () => {
 		Alpine.data('navMenu', () => ({
@@ -106,8 +109,8 @@
 				let bx = document.getElementById('domain_' + this.idx).getBoundingClientRect().left; // button x
 				let bw = document.getElementById('domain_' + this.idx).offsetWidth; // button width
 				let dxoff = this.getNavDropdownOffset(); // dropdown h offset
-				let pw = 32; // pointer width
-				let pyoff = -20; // pointer v offset
+				// let pw = 32; // pointer width
+				// let pyoff = -31; // pointer v offset
 				let ddw = document.getElementById('menu_' + this.idx).offsetWidth;
 				let voff = parseInt(window.getComputedStyle(document.querySelector('#navmenu_desktop .container')).getPropertyValue("margin-left").match(/\d+/).pop());
 				let ddx = Math.max(dxoff, bx + bw/2 - ddw/2) -voff;
@@ -147,11 +150,11 @@
 		<div class="flex items-center">
 
 			<!-- Domains -->
-			<div class="navmenu flex-none flex space-x-1 py-3 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
+			<div class="navmenu flex-none flex space-x-1 py-1 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
 				<!-- Domain items -->
 				<nav id="navmenu_desktop_domains">
 					<template x-for="(domain,i) in nav">
-						<a class="btn btn-menu relative" @focus="openNav(i); movePointer()" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID || domain.children.includes(pageID) }" x-bind:href="domain.url" x-html="domain.title"></a>
+						<a class="btn btn-menu" @focus="openNav(i); movePointer()" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID || domain.children.includes(pageID) }" x-bind:href="domain.url" x-html="domain.title"></a>
 					</template>
 				</nav>
 			</div>
@@ -185,7 +188,7 @@
 	<div id="navmenu_desktop_dropdown" class="relative block container">
 
 		<!-- Pointer to domain button -->
-		<div class="z-20 absolute pointer-events-none w-8 h-6" id="pointer" x-show="showPointer">
+		<div class="z-20 absolute pointer-events-none" id="pointer" x-show="showPointer">
 			<img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-top/pointer-top.svg" alt="Logo">
 		</div>
 
@@ -212,13 +215,15 @@
 							<ul role="list" class="flex flex-col max-h-screen-80 overflow-auto">
 								<template x-for="page in domain.featured">
 									<li class="p-1" x-bind:class="{'current': pageID == page.ID }">
-										<a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0">
+										<a
+											x-bind:href="page.url"
+											class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0"
+										>
 											<div class="">
 												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
 											</div>
 											<div class="">
 												<h4 class="text-base m-0" x-html="page.title"></h4>
-												<!-- <p class="mt-1 text-sm text-gray-500 block" x-html="page.excerpt"></p> -->
 											</div>
 										</a>
 									</li>
@@ -245,7 +250,7 @@
 						<!-- Sections -->
 						<template x-for="section in domain.sections">
 							<ul role="list" class="items-stretch justify-items-stretch">
-								<li class="bg-white transition rounded-md btn btn-menu-section btn-expanded"><span class="p-1" x-text="section.title"></span></li>
+								<li class="bg-white transition rounded-md btn btn-menu-section btn-expanded hover:text-black"><span class="p-1" x-text="section.title"></span></li>
 								<template x-for="page in section.pages">
 									<li class="bg-white transition rounded-md p-1"
 										x-bind:class="{'current': pageID == page.ID }">

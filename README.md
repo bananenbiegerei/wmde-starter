@@ -1,10 +1,18 @@
-# BB Tailwind Starter Theme
+# BB WMDE Theme
 
 ## Installation & Setup
 
-All required node modules will be installed when running `npm install`.
+### Node Modules
 
-Update the theme metadata in `style.css`. Don't forget to set `Text Domain` to the value of the theme slug.
+The first thing to do after cloning the repo is to install node modules for the project: `npm install`.
+
+### ACF Blocks Submodule
+
+Our ACF blocks are now have their own repository: [wmde-blocks](https://bitbucket.org/bbteam2016/wmde-blocks/). They can be added to any theme as a submodule.
+
+The `wmde-blocks` submodule is installed by running `git submodule update --init` from the project directory.
+
+### BrowserSync
 
 To setup BrowserSync copy the file `.env-example` to `.env` and edit accordingly:
 
@@ -22,29 +30,43 @@ The Prettier config is defined in `package.json` under the `prettier` key and sh
 - "phpVersion": "8.0" (among others will convert `array()` to `[]`...)
 - "singleQuote" and "jsxSingleQuote": true (use single quotes by default)
 
-## Reusable Custom ACF Blocks (BB Blocks)
+## ACF Blocks
 
-For custom ACF blocks that we may want to reuse a modular structure is recommended. For now there's an example with the block called `accordion`.
+### Managing Changes
 
-These are the files to be created and used:
+The `blocks` directory contains the ACF blocks from the `wmde-blocks` submodule. It behaves as its own git project.
 
-- ACF fields:
-  - file: `acf-json/group_5cff8a6c26332.json`
-  - created automatically after local sync from WP backend
-  - always make sure that you have an up-to-date version when pushing to git repo
-  - also symlinked to `blocks/accordion/group_5cff8a6c26332.json`
-- block declaration:
-  - file: `blocks/block.json`
-- Styling:
-  - file: `blocks/accordion/style.scss`
-  - will be **automatically** included by `src/scss/site.scss`
-- Render template:
-  - file: `blocks/accordion.php`
-- JS code:
-  - file: `blocks/accordion.js`
-  - needs to be **manually** imported in `site.js` and `site.js` to be extended as needed
+If you make changes to blocks you can sync them to the repo:
 
-If you want to disable a block, move it to a `bocks.disabled/` folder for example.
+```
+cd blocks
+git commit -a -m 'Your commit message'
+git push
+```
+
+To update the submodule from the repo to the latest remote version, run the following:
+
+```
+cd blocks
+git pull
+```
+
+### ACF-JSON
+
+The ACF-JSON files for the blocks are _not located_ in the `acf-json` directory. They are loaded from the corresponding directories in `blocks`. This means the fields cannot directly be imported and edited in the backend.
+
+If you wish to do that use symlinks. For example for the Card block you would do this (from the project top directory):
+
+```
+ln -s blocks/card/group_63da65f585957.json acf-json/
+
+```
+
+This will create a symbolic link and make the fields importable in the backend. All changes to the symlink will be mirrored to `blocks/card/group_63da65f585957.json`.
+
+Once you're done with the changes, delete the group in the backend. It will be removed from the DB, the symlink will be deleted. The file `blocks/card/group_63da65f585957.json` will still be there and the block will remain active.
+
+NOTE: _Make sure to NOT commit the symlinks to the repo!_
 
 ## String Translations
 
@@ -58,75 +80,10 @@ When logged in the current page can be edited by pressing `CTLR-E`.
 
 ## Development and Build
 
-For development start `npm run dev` or `npm run watch`.
+For development run `npm run dev`.
 
-For building (for production site) start `npm run build`.
+For building (for production site) run `npm run build`.
 
-## Creating Theme Archive
+For creating an archive to install the theme run `npm run package`. A zip will be created in `dist` with a timestamped theme version. Note that this will also delete all symbolic links in the `acf-json` directory.
 
-A Zip file of the compiled theme can easily be created by running `./mktheme.sh` or `npm run package`. The file will be created in the `dist/` folder and timestamped with the current date.
-
-## Files and Folder Structure:
-
-### Configuration and Build
-
-- config files:
-  - `.env`
-  - `tailwindconfig.js`
-- build files:
-  - `package.json` and `package-lock.json`
-  - `gulpfile.js`
-
-### Theme Files
-
-- theme metadata:
-  - `style.css`
-  - `screenshot.png`
-- static assets:
-  - `img/`
-  - `fonts/`
-- styles:
-  - pre-build: `src/scss/*`
-  - post-build: `css/*`
-- scripts:
-  - pre-build: `src/js/*`
-  - post-build: `js/*`
-- ACF block fields:
-  - `acf-json/`
-- ACF blocks: `/bb-block/*`
-  - block definition: `block.json`
-  - functions: `functions.php`
-  - block template: `*.php`
-  - symlink to ACF group: `group_XXXXX.json --> ../../acf-json/group_XXXXX.json`
-- theme functions:
-  - `functions.php`
-  - `functions/*`
-- theme templates in project root:
-  - `404.php`
-  - `archive.php`
-  - `footer.php`
-  - `front-page.php`
-  - `head.php`
-  - `header.php`
-  - `index.php`
-  - `page.php`
-  - `search.php`
-  - `single.php`
-- theme template parts: `template-parts/`
-- theme localization: `languages/*`
-
-## Deployment
-
-Make sure that the following files and folders are **excluded** when uploading
-the theme to the server:
-
-- `.env*`
-- `.git/`
-- `.gitignore`
-- `.nova/`
-- `blocks/group_*.json` (symlinks)
-- `gulpfile.js`
-- `node_modules/`
-- `package.*`
-- `src/`
-- `tailwind.config.js`
+_Do not manually upload files to the live server. Install the theme in the backend with the zipfile (unless it's for an emergency fix)._
