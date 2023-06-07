@@ -87,7 +87,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 
 				<?php echo $title; ?>
 				
-				<div class="grid grid-cols-2 gap-5">
+				<div class="grid grid-cols-2 gap-10">
 					<div>
 						<div class="mt-2">
 							<?php echo tribe_events_event_schedule_details( $event_id, '<h2 class="font-normal text-2xl">', '</h2>' ); ?>
@@ -116,7 +116,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 								<!-- Event content -->
 								<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 								<div class="tribe-events-single-event-description tribe-events-content">
-									<?php the_excerpt(); ?>
+									<?php echo get_the_excerpt(); ?>
 								</div>
 								<!-- .tribe-events-single-event-description -->
 								<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>

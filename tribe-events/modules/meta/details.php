@@ -119,7 +119,7 @@ $website_title = tribe_events_get_event_website_title();
 				<abbr class="tribe-events-start-date published dtstart no-underline" title="<?php echo esc_attr( $start_ts ); ?>"> <?php echo esc_html( $start_date ); ?> </abbr>
 			</dd>
 
-			<dt class="tribe-events-start-time-label text-base"> <?php echo esc_html( $time_title ); ?> </dt>
+			<dt class=""> <?php echo esc_html( $time_title ); ?> </dt>
 			<dd class="mb-3">
 				<div class="tribe-events-start-time published dtstart" title="<?php echo esc_attr( $end_ts ); ?>">
 					<?php echo $time_formatted; ?>

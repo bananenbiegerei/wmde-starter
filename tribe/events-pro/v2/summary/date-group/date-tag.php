@@ -31,7 +31,7 @@ $display_date = empty( $is_past ) && ! empty( $request_date )
 	: $group_date;
 
 $event_week_day  = $display_date->format_i18n( 'l' );
-$event_day_num   = $display_date->format_i18n( 'm' );
+$event_day_num   = $display_date->format_i18n( 'd' );
 $event_date_attr = $display_date->format( Dates::DBDATEFORMAT );
 ?>
 <div class="!mb-2 text-2xl">
