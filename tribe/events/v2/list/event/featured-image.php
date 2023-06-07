@@ -42,7 +42,7 @@ if ( ! $event->thumbnail->exists ) {
 				<?php if ( ! empty( $event->thumbnail->title ) ) : ?>
 					title="<?php echo esc_attr( $event->thumbnail->title ); ?>"
 				<?php endif; ?>
-				class="rounded-xl"
+				class="rounded-xl !max-w-sm"
 			/>
 	</a>
 </div>

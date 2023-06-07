@@ -19,15 +19,12 @@ if ( empty( $items ) ) {
 }
 ?>
 <div class="tribe-events-c-subscribe-dropdown__container">
-	<div class="tribe-events-c-subscribe-dropdown">
-		<div class="tribe-common-c-btn-border tribe-events-c-subscribe-dropdown__button" tabindex="0">
-			<button class="tribe-events-c-subscribe-dropdown__button-text">
-				<?php //echo esc_html__( 'Subscribe to calendar', 'the-events-calendar' ); ?>
-			</button>
-			<?php $this->template( 'components/icons/caret-down', [ 'classes' => [ 'tribe-events-c-subscribe-dropdown__button-icon' ] ] ); ?>
+	<div class="">
+		<div class="text-gray-500 !mb-2" tabindex="0">
+			<?php echo esc_html__( 'Subscribe to calendar', 'the-events-calendar' ); ?>
 		</div>
-		<div class="tribe-events-c-subscribe-dropdown__content">
-			<ul class="tribe-events-c-subscribe-dropdown__list" tabindex="0">
+		<div class="">
+			<ul class="" tabindex="0">
 				<?php foreach ( $items as $item ) : ?>
 					<?php $this->template( 'components/subscribe-links/item', [ 'item' => $item ] ); ?>
 				<?php endforeach; ?>

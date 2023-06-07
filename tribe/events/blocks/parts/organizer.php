@@ -26,7 +26,7 @@ $email = tribe_get_organizer_email();
 $website = tribe_get_organizer_website_link();
 ?>
 
-<div class="tribe-events-meta-group tribe-events-meta-group-organizer">
+<div class="tribe-events-meta-group-organizer">
 	<h3 class="tribe-events-single-section-title">
 		<?php if ( empty( $attributes['organizerTitle'] ) ) : ?>
 			<?php echo tribe_get_organizer_label( ! $multiple ); ?>

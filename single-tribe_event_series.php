@@ -1,9 +1,19 @@
 <?php get_header(); ?>
 <?php while (have_posts()): ?>
 <?php the_post(); ?>
-no idea why nav is not loading wrtgrt
-	<?php //get_template_part('template-parts/page-header'); ?>
-	<div class="content pt-10">
+	<div class="pb-10 rounded-b-3xl bg-gray">
+		  <div class="container grid grid-cols-12">
+			  <div class="col-span-12 pt-5">
+					<h1><?php the_title(); ?></h1>
+					<?php if (has_excerpt()): ?>
+					  <div class="font-alt text-xl lg:text-2xl font-normal mb-5">
+						<?php the_excerpt(); ?>
+					  </div>
+					<?php endif; ?>
+			  </div>
+		  </div>
+	</div>
+	<div class="container pt-10">
 		<?php the_content(); ?>
 	</div>
 <?php endwhile; ?>

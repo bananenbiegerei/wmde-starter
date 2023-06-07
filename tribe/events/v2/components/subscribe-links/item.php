@@ -28,8 +28,7 @@ if( ! $item->is_visible( $view ) ) {
 ?>
 
 <li class="">
-	<div class="aspect-h-1 aspect-w-1">
-        <div class="flex justify-center items-center bg-white rounded-xl text-center p-5">
+        <div class="">
             <a
                 href="<?php echo esc_url( $item->get_uri( $view ) ); ?>"
                 class=""
@@ -40,5 +39,4 @@ if( ! $item->is_visible( $view ) ) {
                 <?php echo esc_html( $item->get_label( $view ) ); ?>
             </a>
         </div>
-    </div>
 </li>

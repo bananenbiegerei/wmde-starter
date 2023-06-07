@@ -20,10 +20,10 @@ $set_venue_apart = apply_filters( 'tribe_events_single_event_the_meta_group_venu
 ?>
 
 <?php if ( $not_skeleton ) : ?>
-	<div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix">
-<?php endif; ?>
+<div class="lg:grid lg:grid-cols-3 gap-5 border-t pt-5">
+	<?php endif; ?>
 
-<?php
+	<?php
 do_action( 'tribe_events_single_event_meta_primary_section_start' );
 
 // Always include the main event details in this first section
@@ -37,7 +37,7 @@ if ( tribe_get_venue_id() ) {
 	} elseif ( ! $set_venue_apart && ! tribe_has_organizer() && tribe_embed_google_map() ) {
 		// If we have no organizer, no need to separate the venue but we have a map to embed...
 		tribe_get_template_part( 'modules/meta/venue' );
-		echo '<div class="tribe-events-meta-group tribe-events-meta-group-gmap">';
+		echo '<div class="">';
 		tribe_get_template_part( 'modules/meta/map' );
 		echo '</div>';
 	} else {
@@ -54,14 +54,14 @@ if ( tribe_has_organizer() ) {
 do_action( 'tribe_events_single_event_meta_primary_section_end' );
 ?>
 
-<?php if ( $not_skeleton ) : ?>
-	</div>
+	<?php if ( $not_skeleton ) : ?>
+</div>
 <?php endif; ?>
 
 
 <?php if ( $set_venue_apart ) : ?>
-	<?php if ( $not_skeleton ) : ?>
-		<div class="tribe-events-single-section tribe-events-event-meta secondary tribe-clearfix">
+<?php if ( $not_skeleton ) : ?>
+<div class="tribe-events-single-section tribe-events-event-meta secondary tribe-clearfix">
 	<?php endif; ?>
 	<?php
 	do_action( 'tribe_events_single_event_meta_secondary_section_start' );
@@ -73,8 +73,8 @@ do_action( 'tribe_events_single_event_meta_primary_section_end' );
 	?>
 	<?php
 	if ( $not_skeleton ) : ?>
-		</div>
-	<?php endif; ?>
+</div>
+<?php endif; ?>
 <?php
 endif;
 do_action( 'tribe_events_single_meta_after' );
