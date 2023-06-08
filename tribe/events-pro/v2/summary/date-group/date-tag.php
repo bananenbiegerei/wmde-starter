@@ -31,16 +31,17 @@ $display_date = empty( $is_past ) && ! empty( $request_date )
 	: $group_date;
 
 $event_week_day  = $display_date->format_i18n( 'l' );
-$event_day_num   = $display_date->format_i18n( 'd' );
+$event_day_num   = $display_date->format_i18n( 'd. F' );
 $event_date_attr = $display_date->format( Dates::DBDATEFORMAT );
 ?>
-<div class="!mb-2 text-2xl">
+<div class="!mb-2 text-xl">
 	<time class="" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
         <span class="">
-            <?php echo esc_html( $event_day_num ); ?> – 
+                <?php echo esc_html( $event_week_day ); ?>
+        </span>      
+        <span class="">
+            <?php echo esc_html( $event_day_num ); ?> 
         </span>
-		<span class="">
-			<?php echo esc_html( $event_week_day ); ?>
-		</span>
+		
 	</time>
 </div>

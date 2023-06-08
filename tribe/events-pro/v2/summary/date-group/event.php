@@ -25,8 +25,9 @@ $event_classes['tribe-events-pro-summary__event-row--featured'] = $event->featur
 	<div class="">
 
 		<header class="">
+            <?php get_template_part("tribe/events/v2/components/tribe-cats"); ?>
+            <?php $this->template( 'summary/date-group/event/title', [ 'event' => $event ] ); ?>
 			<?php $this->template( 'summary/date-group/event/date', [ 'event' => $event, 'group_date' => $group_date ] ); ?>
-			<?php $this->template( 'summary/date-group/event/title', [ 'event' => $event ] ); ?>
 		</header>
 
 	</div>

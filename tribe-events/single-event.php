@@ -80,21 +80,18 @@ $cost  = tribe_get_formatted_cost( $event_id );
 				<div class="mb-5">
 					<a class="!no-underline text-sm font-normal" href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html_x( 'All %s', '%s Events plural label', 'the-events-calendar' ), $events_label_plural ); ?></a>
 				</div>
-
-				
-				<!-- Notices -->
-				<?php tribe_the_notices() ?>
-
+				<?php get_template_part("tribe/events/v2/components/tribe-cats"); ?>
 				<?php echo $title; ?>
 				
 				<div class="grid grid-cols-2 gap-10">
 					<div>
-						<div class="mt-2">
+							<div>
+								<?php tribe_the_notices() ?>
+							</div>							
 							<?php echo tribe_events_event_schedule_details( $event_id, '<h2 class="font-normal text-2xl">', '</h2>' ); ?>
 							<?php if ( ! empty( $cost ) ) : ?>
 							<p class="text-2xl"><?php echo esc_html( $cost ) ?></p>
 							<?php endif; ?>
-						</div>
 						<?php /* 
 						<!-- Event header -->
 						<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
