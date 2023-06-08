@@ -25,6 +25,7 @@ add_filter(
 		// These blocks get multiple options
 		$inner_container_classes_rules = [
 			// Default for specific blocks
+			'acf/hero-block' => ['default' => 'col-span-12'],
 			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
 			'acf/theme' => ['default' => 'col-span-12'],
