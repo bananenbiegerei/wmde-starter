@@ -3,7 +3,7 @@
 <?php get_template_part('head'); ?>
 <body <?php body_class('flex flex-col min-h-screen'); ?>>
   <?php get_template_part('template-parts/header-top/main'); ?>
-  <main class="main-content flex-grow pt-12 lg:pt-0">
+  <main class="main-content flex-grow">
   <?php if (is_front_page()) { ?>
     <h1 class="sr-only">
       <?php
