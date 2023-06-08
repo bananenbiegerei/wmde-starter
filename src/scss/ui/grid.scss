@@ -1,7 +1,9 @@
 .container {
 	@apply max-w-screen-2xl mx-auto px-6;
 }
-
+.mobile-grid {
+	@apply grid grid-cols-2 gap-10;
+}
 // .content {
 // 	> * {
 // 		@apply mb-10 lg:mb-20;
