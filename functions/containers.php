@@ -42,6 +42,7 @@ add_filter(
 			],
 			// Classes manually added to Group block in Gutenberg editor (could be named differently...)
 			'core/group' => [
+				'full' => '',
 				'col-12' => 'col-span-12',
 				'col-10' => 'col-span-12 lg:col-span-10 lg:col-start-2',
 				'col-8' => 'col-span-12 lg:col-span-8 lg:col-start-3',
