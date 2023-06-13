@@ -12,7 +12,7 @@ $secondary_color = get_field('secondary_color', get_the_ID());
 	  ">
 		  <div class="col-span-12 lg:col-span-3">
 			  <div class="my-5 aspect-w-4 aspect-h-3 relative rounded-tl-3xl rounded-br-3xl overflow-hidden">
-				  <figure class="w-full w-full">
+				  <figure class="w-full h-full">
 					  <?php the_post_thumbnail('large', ['class' => 'object-cover w-full h-full']); ?>
 					  <?php if (bbWikimediaCommonsMedia::has_post_thumbnail_caption()): ?>
 						  <figcaption class="invisible flex absolute left-0 bottom-0 right-0 text-white bg-gray-900 w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all">
