@@ -10,7 +10,7 @@ module.exports = {
 			pattern: /text-(xs|sm|lg|xl)/,
 		},
 		{
-			pattern: /(text|bg)-(black|white|primary|gray|gray-700|primary-50|primary-600|red|red-50|green-50|green-700)/,
+			pattern: /(text|bg)-(black|white|primary|gray|gray-700|primary-50|primary-600|red|red-50|green-50|green-700|neon|neon-800)/,
 		},
 	],
 	theme: {
