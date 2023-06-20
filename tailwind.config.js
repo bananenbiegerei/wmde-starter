@@ -3,21 +3,15 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
 	content: ['./**/*.php'],
 	safelist: [
-		'grid',
-		'lg:text-2xl',
-		'lg:justify-end',
 		{
-			pattern: /text-*/
+			pattern: /(sm:|md:|lg:|)justify-*/,
 		},
 		{
-			pattern: /lg:text-*/
+			pattern: /text-(xs|sm|lg|xl)/,
 		},
 		{
-			pattern: /justify-*/
+			pattern: /(text|bg)-(black|white|primary|gray|gray-700|primary-50|primary-600|red|red-50|green-50|green-700|neon|neon-800)/,
 		},
-		{
-			pattern: /bg-*/
-		}
 	],
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
@@ -47,13 +41,11 @@ module.exports = {
 		},
 		extend: {
 			dropShadow: {
-				'navbar': [
-					'0px 3px 8px rgba(0, 0, 0, 0.24)'
-				]
+				navbar: ['0px 3px 8px rgba(0, 0, 0, 0.24)'],
 			},
 			boxShadow: {
 				xl: '0 0px 60px -15px rgba(0, 0, 0, 0.3)',
-				navbar: '0 8px 30px rgb(0,0,0,0.12);'
+				navbar: '0 8px 30px rgb(0,0,0,0.12);',
 			},
 			maxWidth: {
 				32: '8rem',
@@ -179,7 +171,8 @@ module.exports = {
 					},
 				},
 			},
-			themes: [{
+			themes: [
+				{
 					name: 'orga-scheme',
 					extend: {
 						colors: {
