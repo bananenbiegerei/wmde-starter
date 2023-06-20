@@ -40,7 +40,8 @@ $sep_date = empty( $is_past ) && ! empty( $request_date )
 	? max( $event->dates->start_display, $request_date )
 	: $event->dates->start_display;
 ?>
-<h2 class="">
+<hr class="">
+<h2>
 	<time
 		class=""
 		datetime="<?php

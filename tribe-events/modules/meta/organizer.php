@@ -18,9 +18,9 @@ $website = tribe_get_organizer_website_link();
 $website_title = tribe_events_get_organizer_website_title();
 ?>
 
-<div class="tribe-events-meta-group tribe-events-meta-group-organizer">
-	<h2 class="tribe-events-single-section-title"><?php echo tribe_get_organizer_label( ! $multiple ); ?></h2>
-	<dl>
+<div class="tribe-events-meta-group-organizer">
+	<h2 class="topline"><?php echo tribe_get_organizer_label( ! $multiple ); ?></h2>
+	<dl class="text-xl font-normal">
 		<?php
 		do_action( 'tribe_events_single_meta_organizer_section_start' );
 
@@ -32,7 +32,7 @@ $website_title = tribe_events_get_organizer_website_title();
 			?>
 			<dt style="display:none;"><?php // This element is just to make sure we have a valid HTML ?></dt>
 			<dd class="tribe-organizer">
-				<?php echo tribe_get_organizer_link( $organizer ) ?>
+				<?php echo tribe_get_organizer( $organizer ) ?>
 			</dd>
 			<?php
 		}

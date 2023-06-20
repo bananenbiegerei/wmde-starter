@@ -1,11 +1,32 @@
+:root {
+  --tec-font-family-sans-serif: 'Roboto', sans-serif;
+  --tec-color-accent-primary: #0008ff;
+}
+
+
 .tribe-events-notices {
 	@apply bg-red-200 text-black border-none;
 	text-shadow: none;
 }
 
-
 .main-content .tribe-events {
 	.tribe-events-calendar-series-archive__link {
 		@apply text-primary;
+	}
+}
+
+/* Single Events */
+#tribe-events-pg-template {
+	@apply max-w-full m-0 p-0;
+	.tribe-events-event-image {
+		@apply mb-0;
+	}
+	.tribe-organizer-url,
+	dl,
+	.tribe-events-nav-previous,
+	.tribe-events-nav-next {
+		a {
+			@apply text-primary-600 hover:text-primary transition no-underline;
+		}
 	}
 }

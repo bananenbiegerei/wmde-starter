@@ -24,36 +24,41 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event' ], 
 <div <?php tribe_classes( $container_classes ); ?>>
 
 	<?php // $this->template( 'list/event/date-tag', [ 'event' => $event ] ); ?>
-	<div class="image-hover-effect">
+	<div class="image-hover-effect max-w-5xl">
 		
 		<article <?php tribe_classes( $event_classes ) ?>>
 			<?php 
 			if (! $event->thumbnail->exists) { ?>
 				<div class="">
 					<header class="">
-						<?php $this->template( 'list/event/date', [ 'event' => $event ] ); ?>
 						<?php $this->template( 'list/event/title', [ 'event' => $event ] ); ?>
+						<?php $this->template( 'list/event/date', [ 'event' => $event ] ); ?>
+						<div>
+							<?php $this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
+						</div>
 						<?php $this->template( 'list/event/venue', [ 'event' => $event ] ); ?>
 					</header>
 					<?php // $this->template( 'list/event/description', [ 'event' => $event ] ); ?>
-					<?php $this->template( 'list/event/cost', [ 'event' => $event ] ); ?>
+					<?php // $this->template( 'list/event/cost', [ 'event' => $event ] ); ?>
 				</div>
 			<?php }
 			if ($event->thumbnail->exists) { ?>
-				<div class="lg:grid lg:grid-cols-12 lg:gap-10">
-					<div class="lg:col-span-4">
-						<?php
-						$this->template( 'list/event/featured-image', [ 'event' => $event ] );
-						?>
-					</div>
-					<div class="lg:col-span-8">
+				<div class="lg:flex gap-5">
+					<?php
+					$this->template( 'list/event/featured-image', [ 'event' => $event ] );
+					?>
+					<div>
 						<header class="">
-							<?php $this->template( 'list/event/date', [ 'event' => $event ] ); ?>
+							<?php get_template_part("tribe/events/v2/components/tribe-cats"); ?>
 							<?php $this->template( 'list/event/title', [ 'event' => $event ] ); ?>
+							<?php $this->template( 'list/event/date', [ 'event' => $event ] ); ?>
+							<div>
+								<?php $this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
+							</div>
 							<?php $this->template( 'list/event/venue', [ 'event' => $event ] ); ?>
 						</header>
-						<?php // $this->template( 'list/event/description', [ 'event' => $event ] ); ?>
-						<?php $this->template( 'list/event/cost', [ 'event' => $event ] ); ?>
+						<?php //$this->template( 'list/event/description', [ 'event' => $event ] ); ?>
+						<?php //$this->template( 'list/event/cost', [ 'event' => $event ] ); ?>
 					</div>
 				</div>
 			<?php }
