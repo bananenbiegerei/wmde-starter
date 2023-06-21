@@ -33,6 +33,17 @@ if (function_exists('acf_add_options_page')) {
 	acf_add_options_page();
 }
 
+//Remove JQuery migrate
+add_action('wp_default_scripts', function ($scripts) {
+	if (!is_admin() && isset($scripts->registered['jquery'])) {
+		$script = $scripts->registered['jquery'];
+		if ($script->deps) {
+			// Check whether the script has any dependencies
+			$script->deps = array_diff($script->deps, ['jquery-migrate']);
+		}
+	}
+});
+
 // Disable admin bar in site view
 show_admin_bar(false);
 
