@@ -1,5 +1,6 @@
 <?php
 
+// FIXME: should be moved to blocks submodule?
 function bb_icon($name, $classes = '')
 {
 	if ($name == 'none') {
