@@ -21,7 +21,7 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 		</div>
 
 		<?php if (has_excerpt()): ?>
-		<div class="lg:text-xl lg:col-span-5 lg:col-start-2">
+		<div class="lg:text-2xl text-xl lg:col-span-5 lg:col-start-2">
 			<?php echo strip_tags(get_the_excerpt()); ?>
 		</div>
 		<?php endif; ?>
@@ -69,17 +69,19 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 				</p>
 				<?php else: ?>
 				<div class="flex flex-col gap-1">
+					<?php if ($portrait) { ?>
 					<div class="w-24 h-24 rounded overflow-hidden">
 						<div class="aspect-w-1 aspect-h-1">
-							<?php if ($portrait) {
-							$portrait_image = $portrait['url'];
+							
+							<?php $portrait_image = $portrait['url'];
 							$portrait_alt = $portrait['alt'];
 							?>
 							<img class="w-full h-full object-cover" src="<?php echo esc_url($portrait_image); ?>" alt="<?php echo esc_attr($portrait_alt); ?>">
-							<?php
-							} ?>
+							
 						</div>
 					</div>
+					<?php
+					} ?>
 					<p class="mb-0 font-bold text-sm">
 						<?php the_author(); ?>
 					</p>
