@@ -1,7 +1,4 @@
-div.wpforms-container [id^="wpforms-"],
-div.wpforms-container-full [id^="wpforms-"],
-div.wpforms-container-full#wpforms-59433,
-div.wpforms-container-full#wpforms-45555 {
+[id^='wpforms-'] {
 	@apply w-full;
 	.wpforms-field-row.wpforms-field-medium,
 	input.wpforms-field-medium {
@@ -11,8 +8,8 @@ div.wpforms-container-full#wpforms-45555 {
 		@apply form-input rounded-xl bg-red-500;
 	}
 	button.wpforms-submit,
-	button[type="submit"],
-	.wpforms-form button[type="submit"],
+	button[type='submit'],
+	.wpforms-form button[type='submit'],
 	button.wpforms-page-button {
 		@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1 text-xl text-white hover:bg-primary-900 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0 transition px-2 py-0.5 text-lg lg:px-2 lg:py-1 lg:text-xl w-auto cursor-pointer #{!important};
 	}
