@@ -24,9 +24,9 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 }
 ?>
 <div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
-    <div class="bg-gray min-h-[12rem] pt-5">
+    <div class="bg-gray min-h-[12rem] pt-5 pb-10 pt-5">
           <div class="container lg:grid lg:grid-cols-12 lg:gap-10">
-              <div class="col-span-12 lg:col-span-10 lg:col-start-2">
+                <div class="col-span-12 lg:col-span-10">
                   <?php $this->template( 'single-event/back-link' ); ?>
                   <?php $this->template( 'single-event/title' ); ?>
                   <?php $this->template( 'single-event/notices' ); ?>
@@ -38,10 +38,35 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
                         <?php echo strip_tags(get_the_excerpt()); ?>
                       </div>
                     <?php endif; ?>
-              </div>
-            <div class="lg:col-span-12 lg:col-span-8 lg:col-start-3">
-                <?php get_template_part('template-parts/featured-image'); ?>
-            </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <?php echo tribe_events_event_schedule_details( $event_id, '<h2 class="font-normal text-2xl">', '</h2>' ); ?>
+                    <?php if ( ! empty( $cost ) ) : ?>
+                    <p class="text-2xl"><?php echo esc_html( $cost ) ?></p>
+                    <?php endif; ?>
+                    <?php while ( have_posts() ) :  the_post(); ?>
+                    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    
+                        <!-- Event content -->
+                        <?php do_action( 'tribe_events_single_event_before_the_content' ); ?>
+                        <div class="tribe-events-single-event-description tribe-events-content">
+                            <?php
+                                $excerpt = get_the_excerpt();
+                                $excerpt = wp_trim_words( $excerpt, 99 ); // Set your desired length here
+                                echo $excerpt;
+                            ?>
+                        </div>
+                        <!-- .tribe-events-single-event-description -->
+                        <?php do_action( 'tribe_events_single_event_after_the_content' ); ?>
+
+
+                    
+                    </div> <!-- #post-x -->
+                    <?php endwhile; ?>
+                </div>
+                <div class="lg:col-span-6">
+                    <?php get_template_part('template-parts/featured-image-rounded'); ?>
+                </div>
           </div>
       </div>
       
