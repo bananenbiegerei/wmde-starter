@@ -78,6 +78,56 @@ The theme will set the constant `BB_TEXT_DOMAIN` to the value setup in `style.cs
 
 When logged in the current page can be edited by pressing `CTLR-E`.
 
+## Colors
+
+The colors used in the theme must be declared in (at least) two locations: the Tailwind configuration and a script to load the colors values into the ACF fields.
+
+### Tailwind Config
+
+In `tailwind.config.js`:
+
+```
+module.exports = {
+	safelist: [
+		{
+			pattern: /(text|bg)-(black|white|primary|gray|gray-700|primary-50|primary-600|red|red-50|green-50|green-700|neon|neon-800)/,
+		},
+	],
+}
+```
+
+### ACF Fields:
+
+In `acf-blocks.php`:
+
+```
+add_filter('acf/load_field/name=color_light', function ($field) {
+	$field['choices'] = [
+		'default' => 'Default',
+		'white' => 'White',
+		'gray' => 'Gray',
+		'red-50' => 'Red',
+		'green-50' => 'Green',
+		'primary-50' => 'Blue',
+		'neon' => 'Neon',
+	];
+	return $field;
+});
+
+add_filter('acf/load_field/name=color_dark', function ($field) {
+	$field['choices'] = [
+		'default' => 'Default',
+		'black' => 'Black',
+		'gray-700' => 'Gray',
+		'red' => 'Red',
+		'green-700' => 'Green',
+		'primary' => 'Blue',
+		'neon-800' => 'Neon',
+	];
+	return $field;
+});
+```
+
 ## Development and Build
 
 For development run `npm run dev`.
