@@ -10,7 +10,6 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 <?php if (has_post_thumbnail()): ?>
 <div class="bg-gray min-h-[12rem] py-10">
 	<div class="container lg:grid lg:grid-cols-12 lg:gap-10">
-
 		<div class="lg:col-span-10 lg:col-start-2">
 			<a class="flex items-center gap-2" href="<?php echo get_home_url(); ?>"><?=bb_icon('arrow-left', 'icon-xs'); ?> <?php _e('zurück'); ?></a>
 			<?php if( get_field('topline') ): ?>
@@ -45,52 +44,51 @@ $portrait = get_field('portrait', 'user_' . $author_id);
 		<div class="col-span-8 lg:col-span-10 lg:col-start-2">
 			<div class="flex gap-10 mb-2">
 				<?php if (get_field('custom_authors')): ?>
-				<?php while (have_rows('custom_authors')): ?>
-				<?php the_row(); ?>
-				<div class="flex flex-col gap-1">
-					<?php
-       $image = get_sub_field('portrait');
-       $size = 'thumb';
-       if ($image) { ?>
-					<div class="w-24 h-24 rounded overflow-hidden">
-						<div class="aspect-w-1 aspect-h-1">
-							<?php echo wp_get_attachment_image($image, $size, '', ['class' => 'w-full h-full object-cover']); ?>
-						</div>
-					</div>
-					<?php }
-       ?>
-					<p class="mb-0 font-bold text-sm">
-						<?php the_sub_field('author'); ?>
-					</p>
-
-				</div>
-				<?php endwhile; ?>
-			</div>
-			<p class="text-base">
-				<?php echo get_the_date(); ?>
-			</p>
-			<?php else: ?>
-			<div class="flex flex-col gap-1">
-				<div class="w-24 h-24 rounded overflow-hidden">
-					<div class="aspect-w-1 aspect-h-1">
-						<?php if ($portrait) {
-
-       	$portrait_image = $portrait['url'];
-       	$portrait_alt = $portrait['alt'];
-       	?>
-						<img class="w-full h-full object-cover" src="<?php echo esc_url($portrait_image); ?>" alt="<?php echo esc_attr($portrait_alt); ?>">
+					<?php while (have_rows('custom_authors')): ?>
+					<?php the_row(); ?>
+					<div class="flex flex-col gap-1">
 						<?php
-       } ?>
+							$image = get_sub_field('portrait');
+						   $size = 'thumb';
+						   if ($image) { ?>
+						<div class="w-24 h-24 rounded overflow-hidden">
+							<div class="aspect-w-1 aspect-h-1">
+								<?php echo wp_get_attachment_image($image, $size, '', ['class' => 'w-full h-full object-cover']); ?>
+							</div>
+						</div>
+						<?php }
+							?>
+						<p class="mb-0 font-bold text-sm">
+							<?php the_sub_field('author'); ?>
+						</p>
 					</div>
+					<?php endwhile; ?>
 				</div>
-				<p class="mb-0 font-bold text-sm">
-					<?php the_author(); ?>
-				</p>
 				<p class="text-base">
 					<?php echo get_the_date(); ?>
 				</p>
+				<?php else: ?>
+				<div class="flex flex-col gap-1">
+					<div class="w-24 h-24 rounded overflow-hidden">
+						<div class="aspect-w-1 aspect-h-1">
+							<?php if ($portrait) {
+							$portrait_image = $portrait['url'];
+							$portrait_alt = $portrait['alt'];
+							?>
+							<img class="w-full h-full object-cover" src="<?php echo esc_url($portrait_image); ?>" alt="<?php echo esc_attr($portrait_alt); ?>">
+							<?php
+							} ?>
+						</div>
+					</div>
+					<p class="mb-0 font-bold text-sm">
+						<?php the_author(); ?>
+					</p>
+					<p class="text-base">
+						<?php echo get_the_date(); ?>
+					</p>
+				</div>
+				<?php endif; ?>
 			</div>
-			<?php endif; ?>
 		</div>
 	</div>
 </div>
