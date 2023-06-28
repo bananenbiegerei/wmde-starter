@@ -18,14 +18,14 @@
             },
             "wp-typography": "none",
             "choices": {
-                "purple-dark": "purple-dark",
-                "purple": "purple",
-                "orange": "orange",
-                "green": "green",
-                "red": "red",
-                "blue": "blue",
-                "green-light": "green-light",
-                "gray": "gray"
+                "gray": "Gray",
+                "purpledark": "Purple dark - Vorstand",
+                "purple": "Purple - Kommunikation und Events",
+                "orange": "Orange",
+                "green": "Green - Software-Entwicklung",
+                "red": "Red - Zentrale Dienste",
+                "blue": "Blue",
+                "greeanlight": "Green Light"
             },
             "default_value": "gray",
             "return_format": "value",
@@ -55,5 +55,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687941548
+    "modified": 1687942373
 }
