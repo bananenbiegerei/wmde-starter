@@ -7,7 +7,7 @@
             "label": "Team Section Color",
             "name": "team_section_color",
             "aria-label": "",
-            "type": "color_picker",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,10 +17,24 @@
                 "id": ""
             },
             "wp-typography": "none",
-            "default_value": "",
-            "enable_opacity": 0,
-            "return_format": "string",
-            "translations": "copy_once"
+            "choices": {
+                "purple-dark": "purple-dark",
+                "purple": "purple",
+                "orange": "orange",
+                "green": "green",
+                "red": "red",
+                "blue": "blue",
+                "green-light": "green-light",
+                "gray": "gray"
+            },
+            "default_value": "gray",
+            "return_format": "value",
+            "multiple": 0,
+            "translations": "copy_once",
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -41,5 +55,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687940766
+    "modified": 1687941548
 }
