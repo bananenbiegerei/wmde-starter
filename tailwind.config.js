@@ -218,6 +218,34 @@ module.exports = {
 						},
 					},
 				},
+				{
+					name: 'team-scheme',
+					extend: {
+						colors: {
+							purpledark: {
+								DEFAULT: '#D4D2D7',
+							},
+							purple: {
+								DEFAULT: '#DED4FC',
+							},
+							orange: {
+								DEFAULT: '#F4DBBA',
+							},
+							green: {
+								DEFAULT: '#D8E8DF',
+							},
+							red: {
+								DEFAULT: '#EED3D3',
+							},
+							blue: {
+								DEFAULT: '#C5D7F1',
+							},
+							greenlight: {
+								DEFAULT: '#E7F8D9',
+							},
+						},
+					},
+				},
 			],
 		}),
 	],
