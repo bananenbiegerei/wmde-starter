@@ -24,8 +24,8 @@ register_taxonomy('project_types', 'projects', [
 
 register_taxonomy('team_category', 'team', [
 	'labels' => [
-		'name' => __('Categories', BB_TEXT_DOMAIN),
-		'singular_name' => __('Category', BB_TEXT_DOMAIN),
+		'name' => __('Team sections', BB_TEXT_DOMAIN),
+		'singular_name' => __('Team section', BB_TEXT_DOMAIN),
 	],
 	'public' => true,
 	'publicly_queryable' => true,
