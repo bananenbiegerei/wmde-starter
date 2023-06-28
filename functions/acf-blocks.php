@@ -32,3 +32,18 @@ add_filter('acf/load_field/name=color_dark', function ($field) {
 	];
 	return $field;
 });
+
+// BG colors for team members
+add_filter('acf/load_field/name=team_section_color', function ($field) {
+	$field['choices'] = [
+		'gray' => 'Gray',
+		'purpledark' => 'Purple dark - Vorstand',
+		'purple' => 'Purple - Kommunikation und Events',
+		'orange' => 'Orange',
+		'green' => 'Green - Software-Entwicklung',
+		'red' => 'Red - Zentrale Dienste',
+		'blue' => 'Blue',
+		'greenlight' => 'Green Light',
+	];
+	return $field;
+});

@@ -12,6 +12,10 @@ module.exports = {
 		{
 			pattern: /(text|bg)-(black|white|primary|gray|gray-700|primary-50|primary-600|red|red-50|green-50|green-700|neon|neon-800)$/,
 		},
+		{
+			// BG colors for team members
+			pattern: /bg-(gray|purpledark|purple|orange|green|red|blue|greenlight)$/,
+		},
 	],
 	theme: {
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
@@ -74,10 +78,7 @@ module.exports = {
 		require('@tailwindcss/forms'),
 		require('tailwindcss-themer')({
 			defaultTheme: {
-				// put the default values of any config you want themed
-				// just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
 				extend: {
-					// colors is used here for demonstration purposes <--- ????
 					colors: {
 						primary: {
 							50: '#e5eeff',
@@ -168,6 +169,28 @@ module.exports = {
 							800: '#4d670d',
 							900: '#415710',
 						},
+						// Added colors here otherwise I could not get them in the CSS
+						purpledark: {
+							DEFAULT: '#D4D2D7',
+						},
+						purple: {
+							DEFAULT: '#DED4FC',
+						},
+						orange: {
+							DEFAULT: '#F4DBBA',
+						},
+						green: {
+							DEFAULT: '#D8E8DF',
+						},
+						red: {
+							DEFAULT: '#EED3D3',
+						},
+						blue: {
+							DEFAULT: '#C5D7F1',
+						},
+						greenlight: {
+							DEFAULT: '#E7F8D9',
+						},
 					},
 				},
 			},
@@ -218,34 +241,35 @@ module.exports = {
 						},
 					},
 				},
-				{
-					name: 'team-scheme',
-					extend: {
-						colors: {
-							purpledark: {
-								DEFAULT: '#D4D2D7',
-							},
-							purple: {
-								DEFAULT: '#DED4FC',
-							},
-							orange: {
-								DEFAULT: '#F4DBBA',
-							},
-							green: {
-								DEFAULT: '#D8E8DF',
-							},
-							red: {
-								DEFAULT: '#EED3D3',
-							},
-							blue: {
-								DEFAULT: '#C5D7F1',
-							},
-							greenlight: {
-								DEFAULT: '#E7F8D9',
-							},
-						},
-					},
-				},
+				// Not sure why this should be here? I can't get the colors if they're here
+				// {
+				// 	name: 'team-scheme',
+				// 	extend: {
+				// 		colors: {
+				// 			purpledark: {
+				// 				DEFAULT: '#D4D2D7',
+				// 			},
+				// 			purple: {
+				// 				DEFAULT: '#DED4FC',
+				// 			},
+				// 			orange: {
+				// 				DEFAULT: '#F4DBBA',
+				// 			},
+				// 			green: {
+				// 				DEFAULT: '#D8E8DF',
+				// 			},
+				// 			red: {
+				// 				DEFAULT: '#EED3D3',
+				// 			},
+				// 			blue: {
+				// 				DEFAULT: '#C5D7F1',
+				// 			},
+				// 			greenlight: {
+				// 				DEFAULT: '#E7F8D9',
+				// 			},
+				// 		},
+				// 	},
+				// },
 			],
 		}),
 	],
