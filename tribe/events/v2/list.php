@@ -81,7 +81,7 @@ if ( empty( $disable_event_search ) ) {
 					</div>
 			
 					<?php $this->template( 'list/nav' ); ?>
-			
+					<hr class="my-10">
 					<?php $this->template( 'components/ical-link' ); ?>
 			
 					<?php $this->template( 'components/after' ); ?>
