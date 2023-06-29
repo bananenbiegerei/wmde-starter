@@ -42,14 +42,14 @@
 				<span class="tribe-events-c-top-bar__datepicker-mobile">
 					<?php echo esc_html( $now_label_mobile ); ?>
 				</span>
-				<span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+				<span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden sr-only">
 					<?php echo esc_html( $now_label ); ?>
 				</span>
 			<?php else : ?>
 				<span class="tribe-events-c-top-bar__datepicker-mobile">
 					<?php echo esc_html( $selected_start_date_mobile ); ?>
 				</span>
-				<span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+				<span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden sr-only">
 					<?php echo esc_html( $selected_start_date_label ); ?>
 				</span>
 			<?php endif; ?>
@@ -63,7 +63,7 @@
 				<span class="tribe-events-c-top-bar__datepicker-mobile">
 					<?php echo esc_html( $selected_end_date_mobile ); ?>
 				</span>
-				<span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden">
+				<span class="tribe-events-c-top-bar__datepicker-desktop tribe-common-a11y-hidden sr-only">
 					<?php echo esc_html( $selected_end_date_label ); ?>
 				</span>
 			</time>
@@ -71,14 +71,14 @@
 		<?php $this->template( 'components/icons/caret-down', [ 'classes' => [ 'tribe-events-c-top-bar__datepicker-button-icon-svg' ] ] ); ?>
 	</button>
 	<label
-		class="tribe-events-c-top-bar__datepicker-label tribe-common-a11y-visual-hide"
+		class="tribe-events-c-top-bar__datepicker-label tribe-common-a11y-hidden sr-only"
 		for="tribe-events-top-bar-date"
 	>
 		<?php esc_html_e( 'Select date.', 'tribe-events-calendar-pro' ); ?>
 	</label>
 	<input
 		type="text"
-		class="tribe-events-c-top-bar__datepicker-input tribe-common-a11y-visual-hide"
+		class="tribe-events-c-top-bar__datepicker-input tribe-common-a11y-hidden sr-only"
 		data-js="tribe-events-top-bar-date"
 		id="tribe-events-top-bar-date"
 		name="tribe-events-views[tribe-bar-date]"

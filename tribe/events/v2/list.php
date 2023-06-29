@@ -42,7 +42,7 @@ if ( empty( $disable_event_search ) ) {
 		data-view-breakpoint-pointer="<?php echo esc_attr( $breakpoint_pointer ); ?>"
 	<?php endif; ?>
 >
-	<div class="tribe-common-l-container tribe-events-l-container">
+	<div class="tribe-common-l-container tribe-events-l-container container">
 		<?php $this->template( 'components/loader', [ 'text' => __( 'Loading...', 'the-events-calendar' ) ] ); ?>
 
 		<?php $this->template( 'components/json-ld-data' ); ?>
@@ -55,16 +55,15 @@ if ( empty( $disable_event_search ) ) {
 			<?php $this->template( 'components/messages' ); ?>
 			<?php $this->template( 'components/messages', [ 'classes' => [ 'tribe-events-header__messages--mobile' ] ] ); ?>
 
-			<?php $this->template( 'components/breadcrumbs' ); ?>
+			<?php //$this->template( 'components/breadcrumbs' ); ?>
 
 			<?php $this->template( 'components/events-bar' ); ?>
 
-			<?php $this->template( 'list/top-bar' ); ?>
+			<?php // $this->template( 'list/top-bar' ); ?>
 		</header>
 
 		<?php $this->template( 'components/filter-bar' ); ?>
-		test templates
-		<div class="tribe-events-calendar-list">
+		<div class="tribe-events-calendar-list !w-full">
 
 			<?php foreach ( $events as $event ) : ?>
 				<?php $this->setup_postdata( $event ); ?>

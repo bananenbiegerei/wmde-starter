@@ -3,6 +3,29 @@
   --tec-color-accent-primary: #0008ff;
 }
 
+// Loader
+.tribe-events .tribe-events-view-loader {
+	// align-items: flex-start;
+	// background-color: var(--tec-color-background-transparent);
+	// bottom: 0;
+	// display: flex;
+	// justify-content: center;
+	// left: 0;
+	// position: absolute;
+	// right: 0;
+	// top: 0;
+	// z-index: var(--tec-z-index-spinner-container)
+	@apply bg-red-500;
+}
+
+// Buttons
+
+// Forms
+
+// .tribe-common-form-control-text__input.tribe-events-c-search__input {
+// 	@apply !p-0;
+// }
+
 
 .tribe-events-notices {
 	@apply bg-red-200 text-black border-none;
