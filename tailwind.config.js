@@ -14,7 +14,7 @@ module.exports = {
 		},
 		{
 			// BG colors for team members
-			pattern: /bg-(gray|purpledark|purple|orange|green|red|blue|greenlight)$/,
+			pattern: /bg-pale(rose|purple|peach|cyan|pink|blue|green)$/,
 		},
 	],
 	theme: {
@@ -169,32 +169,38 @@ module.exports = {
 							800: '#4d670d',
 							900: '#415710',
 						},
-						// Added colors here otherwise I could not get them in the CSS
-						purpledark: {
-							DEFAULT: '#D4D2D7',
-						},
-						purple: {
-							DEFAULT: '#DED4FC',
-						},
-						orange: {
-							DEFAULT: '#F4DBBA',
-						},
-						green: {
-							DEFAULT: '#D8E8DF',
-						},
-						red: {
-							DEFAULT: '#EED3D3',
-						},
-						blue: {
-							DEFAULT: '#C5D7F1',
-						},
-						greenlight: {
-							DEFAULT: '#E7F8D9',
-						},
 					},
 				},
 			},
 			themes: [
+				{
+					name: 'team-members-scheme',
+					extend: {
+						colors: {
+							palerose: {
+								DEFAULT: '#FBC5B4',
+							},
+							palepurple: {
+								DEFAULT: '#E0D3FF',
+							},
+							palepeach: {
+								DEFAULT: '#FADAB6',
+							},
+							palecyan: {
+								DEFAULT: '#D4E9DE',
+							},
+							palepink: {
+								DEFAULT: '#F7DAEF',
+							},
+							paleblue: {
+								DEFAULT: '#C0D8F4',
+							},
+							palegreen: {
+								DEFAULT: '#E3F9D6',
+							},
+						},
+					},
+				},
 				{
 					name: 'orga-scheme',
 					extend: {
@@ -241,35 +247,6 @@ module.exports = {
 						},
 					},
 				},
-				// Not sure why this should be here? I can't get the colors if they're here
-				// {
-				// 	name: 'team-scheme',
-				// 	extend: {
-				// 		colors: {
-				// 			purpledark: {
-				// 				DEFAULT: '#D4D2D7',
-				// 			},
-				// 			purple: {
-				// 				DEFAULT: '#DED4FC',
-				// 			},
-				// 			orange: {
-				// 				DEFAULT: '#F4DBBA',
-				// 			},
-				// 			green: {
-				// 				DEFAULT: '#D8E8DF',
-				// 			},
-				// 			red: {
-				// 				DEFAULT: '#EED3D3',
-				// 			},
-				// 			blue: {
-				// 				DEFAULT: '#C5D7F1',
-				// 			},
-				// 			greenlight: {
-				// 				DEFAULT: '#E7F8D9',
-				// 			},
-				// 		},
-				// 	},
-				// },
 			],
 		}),
 	],
