@@ -44,7 +44,7 @@ $description_id = "tribe-filter-bar__form-description--$breakpoint_pointer";
 	aria-hidden="<?php echo esc_attr( $aria_hidden ); ?>"
 >
 	<form
-		class="tribe-filter-bar__form"
+		class="tribe-filter-bar__form bg-gray"
 		method="post"
 		action=""
 		aria-labelledby="<?php echo esc_attr( $heading_id ); ?>"
@@ -67,7 +67,7 @@ $description_id = "tribe-filter-bar__form-description--$breakpoint_pointer";
 
 		<?php $this->template( 'filter-bar/selections', [ 'selected_filters' => $selected_filters ] ); ?>
 
-		<?php $this->template( 'filter-bar/actions' ); ?>
+		<?php //$this->template( 'filter-bar/actions' ); ?>
 
 		<?php $this->template( 'filter-bar/filters', [ 'layout' => $layout, 'filters' => $filters ] ); ?>
 

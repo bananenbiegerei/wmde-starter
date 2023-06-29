@@ -25,8 +25,8 @@ if ( ! empty( $classes ) ) {
 	type="reset"
 	data-js="tribe-filter-bar-c-clear-button"
 >
-	<?php $this->template( 'components/icons/reset', [ 'classes' => [ 'tribe-filter-bar-c-clear-button__reset-icon' ] ] ); ?>
-	<span class="tribe-filter-bar-c-clear-button__text">
+	<?php //$this->template( 'components/icons/reset', [ 'classes' => [ 'tribe-filter-bar-c-clear-button__reset-icon' ] ] ); ?>
+	<span class="tribe-filter-bar-c-clear-button__text btn btn-base">
 		<?php esc_html_e( 'Clear', 'tribe-events-filter-view' ); ?>
 	</span>
 </button>

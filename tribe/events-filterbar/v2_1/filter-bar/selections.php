@@ -20,7 +20,7 @@ if ( empty( $selected_filters ) ) {
 	return;
 }
 ?>
-<div class="tribe-filter-bar__selected-filters">
+<div class="tribe-filter-bar__selected-filters bg-red-600 flex gap-5 items-center my-5">
 
 	<header class="tribe-filter-bar__selected-filters-header">
 		<span class="tribe-filter-bar__selected-filters-label tribe-common-h7">

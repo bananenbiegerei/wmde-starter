@@ -55,14 +55,14 @@ if ( ! empty( $type ) ) {
 <div <?php tribe_classes( $classes ); ?>>
 	<div class="tribe-filter-bar-c-filter__toggle-wrapper">
 		<button
-			class="tribe-filter-bar-c-filter__toggle"
+			class="tribe-filter-bar-c-filter__toggle flex bg-fuchsia-300 w-full"
 			id="<?php echo esc_attr( $toggle_id ); ?>"
 			type="button"
 			aria-controls="<?php echo esc_attr( $container_id ); ?>"
 			aria-expanded="<?php echo esc_attr( $is_open ? 'true' : 'false' ); ?>"
 			data-js="tribe-events-accordion-trigger tribe-filter-bar-c-filter-toggle"
 		>
-			<div class="tribe-filter-bar-c-filter__toggle-text">
+			<div class="tribe-filter-bar-c-filter__toggle-text flex-1 bg-yellow-100 text-left">
 				<span class="tribe-filter-bar-c-filter__toggle-label"><?php echo esc_html( $label ); ?></span><span class="tribe-filter-bar-c-filter__toggle-label-colon">:</span>
 				<?php if ( ! empty( $selections_count ) ) : ?>
 					<span class="tribe-filter-bar-c-filter__toggle-selections-count">
@@ -75,7 +75,7 @@ if ( ! empty( $type ) ) {
 			</div>
 
 			<span class="tribe-filter-bar-c-filter__toggle-icon tribe-filter-bar-c-filter__toggle-icon--plus">
-				<?php $this->template( 'components/icons/plus', [ 'classes' => [ 'tribe-filter-bar-c-filter__toggle-plus-icon' ] ] ); ?>
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z"/></svg>
 				<span class="tribe-filter-bar-c-filter__toggle-icon-text tribe-common-a11y-hidden sr-only">
 					<?php esc_html_e( 'Open filter', 'tribe-events-filter-view' ); ?>
 				</span>
