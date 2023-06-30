@@ -17,13 +17,18 @@
 		<a href="<?php echo get_home_url(); ?>" class="block md:hidden" aria-labelledby="site-name">
 			<img class="w-6 h-auto" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Wikimedia Logo">
 		</a>
-
+		
 		<?php endif; ?>
 
 	</div>
 
 	<div class="flex gap-5">
 		<ul class="flex items-center space-x-2 md:space-x-5 mb-0">
+			<li class="hidden md:block">
+				<a href="#main-content" class="btn btn-hollow btn-sm sr-only focus:not-sr-only">
+            		Skip to main Content
+        		</a>
+			</li>
 			<?php if (get_field('link_fur_spenden', 'option')): ?>
 			<li>
 				<a
