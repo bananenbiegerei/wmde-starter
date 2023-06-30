@@ -40,7 +40,7 @@
 						<?php _e('Es tut uns leid, aber nichts passte zu Ihren Suchbegriffen. Bitte versuchen Sie es noch einmal mit anderen Suchbegriffen.', BB_TEXT_DOMAIN); ?></p>
 					<div class="flex gap-5 items-center h-full">
 							<form class="flex gap-5" action="<?php echo home_url('/'); ?>" method="get">
-								<input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
+								<input class="!mb-0" type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
 								<input type="submit" alt="Search" value="Suchen" class="btn btn-sm" />
 							</form>
 						</div>
