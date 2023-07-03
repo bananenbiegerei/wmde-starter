@@ -23,21 +23,12 @@
 	<div class="content pt-10 container lg:grid lg:grid-cols-12 gap-10">
 		<div class="lg:col-span-3 font-alt font-normal flex flex-col space-y-5">
 			<?php if (have_rows('meta_infos')): ?>
-				<?php while (have_rows('meta_infos')):
-    	the_row(); ?>
+				<?php while (have_rows('meta_infos')): the_row(); ?>
 					<div>
 						<strong><?php the_sub_field('label'); ?></strong>
 						<span class="text-sm text-inherit"><?php the_sub_field('text'); ?></span>
 					</div>
-				<?php
-    endwhile; ?>
-			<?php
-   	// No rows found
-   	// No rows found
-   	?>else: ?>
-				<?php
-   	// No rows found
-   	?>
+				<?php endwhile; ?>
 			<?php endif; ?>
 		</div>
 		<div class="lg:col-span-9 content">
