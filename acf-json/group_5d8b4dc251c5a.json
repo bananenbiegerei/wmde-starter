@@ -74,7 +74,7 @@
             "name": "logo",
             "aria-label": "",
             "type": "image",
-            "instructions": "Without Logotype",
+            "instructions": "Without Logotype, main usage: dropdown menu",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -82,6 +82,7 @@
                 "class": "",
                 "id": ""
             },
+            "wp-typography": "none",
             "return_format": "id",
             "library": "all",
             "translations": "copy_once",
@@ -113,5 +114,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683544144
+    "modified": 1688371694
 }
