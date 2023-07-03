@@ -161,9 +161,9 @@
 
 			<!-- Search -->
 			<div class="flex-1 flex justify-end gap-5 items-center h-full pl-12" x-data="{ open: false }">
-				<?php get_template_part("template-parts/search-slide-out"); ?>
-				<?php get_template_part("template-parts/search-modal"); ?>
-			</div>			
+				<?php get_template_part('template-parts/search-slide-out'); ?>
+				<?php get_template_part('template-parts/search-modal'); ?>
+			</div>
 		</div>
 	</div>
 
@@ -203,7 +203,7 @@
 											class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0"
 										>
 											<div class="">
-												<img class="h-auto w-10" x-bind:src="page.thumbnail || defaultIcon"/>
+												<img class="h-auto w-10" x-bind:src="page.logo || page.thumbnail || defaultIcon"/>
 											</div>
 											<div class="">
 												<h4 class="text-base m-0" x-html="page.title"></h4>

@@ -58,6 +58,10 @@ function bb_get_nav_menu($location = 'nav')
 				// If it's a featured page, add it to the domain's featured pages
 				$page->excerpt = wp_strip_all_tags(get_the_excerpt($m->object_id), true);
 				$page->thumbnail = get_the_post_thumbnail_url($m->object_id, 'medium');
+				// Projects can have a logo ACF (logo w/o logotype)
+				if ($logo = get_field('logo', $page->ID)) {
+					$page->logo = wp_get_attachment_url($logo);
+				}
 				$domain->featured[] = $page;
 			} elseif ($m->menu_item_parent == $section_title_id['id']) {
 				// If it's part of a section, add it to the current section
