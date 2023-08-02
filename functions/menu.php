@@ -1,5 +1,9 @@
 <?php
 
+define('BB_NAV_MENU_FEATURED', 'Featured');
+define('BB_NAV_MENU_CACHE', 'bb_nav_menu_');
+define('BB_NAV_MENU_CACHE_TIMEOUT', 72 * HOUR_IN_SECONDS);
+
 // Register navigation menus
 add_action('init', function () {
   $locations = [
@@ -9,17 +13,19 @@ add_action('init', function () {
   register_nav_menus($locations);
 });
 
-
 // Replace menu editor with notice
-add_action(
-  'admin_enqueue_scripts',
-  function () {
-    wp_register_script('bb-admin', false, false, false, true);
-    wp_enqueue_script('bb-admin');
-    $script = "jQuery('.wp-admin.nav-menus-php .wrap').html('<div class=\"wrap\"><h2>Menus</h2><p>" . __('Please edit the menus on the main site.', BB_TEXT_DOMAIN)   .   "</p></div>');";
-    wp_add_inline_script('bb-admin', $script);
-  }
-);
+if (is_multisite() && get_current_blog_id() != 1) {
+  add_action(
+    'admin_enqueue_scripts',
+    function () {
+      wp_register_script('bb-admin', false, false, false, true);
+      wp_enqueue_script('bb-admin');
+      $script = "jQuery('.wp-admin.nav-menus-php .wrap').html('<div class=\"wrap\"><h2>Menus</h2><p>" . __('Please edit the menus on the <a href="' . network_site_url() . 'wp-admin/nav-menus.php">main site</a>.', BB_TEXT_DOMAIN)   .   "</p></div>');";
+      wp_add_inline_script('bb-admin', $script);
+    }
+  );
+}
+
 
 // Get the menus from the main site
 function bb_wp_nav_menu($args)
@@ -35,12 +41,16 @@ function bb_wp_nav_menu($args)
   }
 }
 
-// For new top navigation
-define('BB_NAV_MENU_FEATURED', 'Featured');
-
 // Get menu data in a JSON structure for the dropdown menu
 function bb_get_nav_menu($location = 'nav', $use_main = true)
 {
+
+  // Return cached value for non editors (Polylang pro makes a lot of DB queries!)
+  $cached = get_transient(BB_NAV_MENU_CACHE . $location);
+  if ($cached && !current_user_can('edit_posts')) {
+    return $cached;
+  }
+
   if ($use_main && is_multisite()) {
     switch_to_blog(1);
   }
@@ -118,6 +128,7 @@ function bb_get_nav_menu($location = 'nav', $use_main = true)
     restore_current_blog();
   }
 
+  set_transient(BB_NAV_MENU_CACHE . $location, $nav, BB_NAV_MENU_CACHE_TIMEOUT);
   return $nav;
 }
 
