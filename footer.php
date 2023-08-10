@@ -24,7 +24,7 @@
   </div>
   <?php endif; ?>
   <div class="md:flex-1 flex justify-start xl:justify-end items-start">
-    <?php echo do_shortcode('[cookie_settings]'); ?>
+    <?php echo shortcode_exists('cookie_settings') ? do_shortcode('[cookie_settings]') : ''; ?>
   </div>
   </div>
   </div>
