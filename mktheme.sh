@@ -28,3 +28,4 @@ zip wmde-$TS.zip wmde -rv \
 	-x wmde/\*/\*.md \
 	-x wmde/src/\*
 mv wmde-$TS.zip wmde/dist/
+cp wmde/dist/wmde-$TS.zip wmde/dist/wmde.zip
