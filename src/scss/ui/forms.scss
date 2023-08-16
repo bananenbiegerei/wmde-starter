@@ -1,6 +1,7 @@
-input[type="text"],
-input[type="email"],
-input[type="date"] {
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'] {
 	@apply block w-full rounded-md border-gray-300 shadow-sm focus:border-focus-300 focus:ring focus:ring-focus-200 focus:ring-opacity-50 mb-2;
 }
 
@@ -12,9 +13,9 @@ textarea {
 	@apply block w-full rounded-md border-gray-300 shadow-sm focus:border-focus-300 focus:ring focus:ring-focus-200 focus:ring-opacity-50;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
 	@apply rounded border-gray-300 text-primary shadow-sm focus:border-focus-300 focus:ring focus:ring-offset-0 focus:ring-focus-200 focus:ring-opacity-50;
 }
-input[type="submit"] {
+input[type='submit'] {
 	@apply btn btn-base;
-} 
+}
