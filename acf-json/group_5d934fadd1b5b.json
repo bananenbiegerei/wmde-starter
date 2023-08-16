@@ -179,7 +179,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Wikimedia folgen",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -356,5 +356,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692172991
+    "modified": 1692177138
 }
