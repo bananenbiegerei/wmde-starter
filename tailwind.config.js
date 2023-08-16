@@ -4,7 +4,8 @@ module.exports = {
 	content: ['./**/*.php'],
 	safelist: [
 		{
-			pattern: /(sm:|md:|lg:|)justify-*/,
+			pattern: /justify-/,
+			variants: ['sm', 'md', 'lg'],
 		},
 		{
 			pattern: /text-(xs|sm|lg|xl)/,
