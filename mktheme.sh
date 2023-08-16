@@ -2,7 +2,7 @@
 mkdir -p dist
 
 # Update version number with build timestamp
-TS=`date +%Y%m%d%H%M%S`
+TS=`date +%y%j%H%M`
 VERSION=`grep Version style.css | awk '{ print $3 }' | cut -d . -f -1,2`.$TS
 sed  -i '' -e "s/Version:.*/Version:        $VERSION/" style.css
 
