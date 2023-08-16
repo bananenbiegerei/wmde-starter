@@ -11,15 +11,13 @@ add_action(
     if (current_user_can('edit_post', get_the_ID())) {
       $post_edit_url = get_edit_post_link(get_the_ID(), '&');
       $script = <<<EOF
-      var postEditURL = "$post_edit_url";
-      document.addEventListener('keydown', function (event) {
-      event = event || window.event;
-      if(event.keyCode == 69 && event.ctrlKey) {
-      window.open(postEditURL, '_blank');
-      }
-      });
-    EOF;
-      wp_add_inline_script('site:defer', $script);
+  var postEditURL = "$post_edit_url";
+  document.addEventListener('keydown', function (event) {
+  event = event || window.event;
+  if(event.keyCode == 69 && event.ctrlKey) { window.open(postEditURL, '_blank'); }
+  });
+  EOF;
+      wp_add_inline_script('site', $script);
     }
 
     // Threaded comment reply styles.
