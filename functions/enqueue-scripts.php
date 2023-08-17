@@ -5,8 +5,7 @@ add_action(
   'wp_enqueue_scripts',
   function () {
     // Site javascript, loaded with defer
-    wp_enqueue_script('site', get_template_directory_uri() . '/js/site.js', ['jquery'], '', ['strategy' => 'defer']);
-
+    wp_enqueue_script('site', get_template_directory_uri() . '/js/site.js', ['jquery'], '', ['in_footer' => true, 'strategy' => 'defer']);
     // Allow easy editing of post with `CTLR-E`
     if (current_user_can('edit_post', get_the_ID())) {
       $post_edit_url = get_edit_post_link(get_the_ID(), '&');
