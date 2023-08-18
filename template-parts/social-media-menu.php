@@ -16,7 +16,7 @@
   <?php if ($url = get_field('social_twitter', 'options')): ?>
   <li>
   <a class="btn btn-ghost btn-icon-only" href="<?= $url ?>" target="_blank">
-    <svg class="w-6 h-6" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="w-5 h-5" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="40" height="40" rx="8" fill="currentColor" />
     <g clip-path="url(#clip0_3220_2834)">
       <path d="M22.5597 18.2499L30.7143 8.57141H28.7819L21.7013 16.9751L16.0461 8.57141H9.52344L18.0753 21.2792L9.52344 31.4286H11.4559L18.9332 22.554L24.9055 31.4286H31.4282L22.5597 18.2499ZM19.913 21.3912L19.0465 20.1258L12.1522 10.0568H15.1204L20.6841 18.1828L21.5506 19.4482L28.7828 30.0108H25.8147L19.913 21.3912Z" fill="white" />
