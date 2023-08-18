@@ -8,10 +8,10 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
 <header class="flex w-full items-center">
   <div class="flex-1">
   <a href="<?= $home_url ?>" class="hidden md:block" aria-labelledby="site-name">
-    <img class="logo" src="<?= $logo_big ?>" alt="Logo">
+    <img class="logo" style="max-height: 41px" src="<?= $logo_big ?>" alt="Logo">
   </a>
   <a href="<?= $home_url ?>" class="block md:hidden" aria-labelledby="site-name">
-    <img xclass="h-auto" src="<?= $logo_small ?>" alt="Logo">
+    <img style="max-height: 41px" src="<?= $logo_small ?>" alt="Logo">
   </a>
   </div>
 

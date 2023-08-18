@@ -1,3 +1,4 @@
+<?php $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_directory_uri() . "/img/wikimedia-logo-mini.svg"); ?>
 <script>
 const pw = 20; // pointer width
 const pyoff = -19; // pointer v offset
@@ -135,13 +136,13 @@ document.addEventListener('alpine:init', () => {
 <div id="navmenu_desktop" aria-hidden="true" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @mouseleave="closeNav()">
 
   <!-- Top bar with logo, domains, and search -->
-  <div class="relative z-10 container overflow-x-scroll overflow-y-hidden">
+  <div class="relative z-10 container overflow-x-scroll">
 
   <!-- Logo -->
   <div class="absolute left-5 top-2 overflow-hidden" type="logo">
     <div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
     <a tabindex="-1" href="<?php echo get_home_url(); ?>" aria-label="Homepage">
-      <img class="mini-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimedia-logo-mini.svg" alt="Logo">
+      <img class="mini-logo" style="max-height: 41px" src="<?= $logo_small ?>" alt="Logo">
     </a>
     </div>
   </div>
@@ -178,11 +179,11 @@ document.addEventListener('alpine:init', () => {
   <!-- For each domain... -->
   <template x-for="(domain,i) in nav">
     <div show="isOpen[i]" x-bind:id="'menu_'+ i" class="absolute inset-x-0 z-10 transform bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar p-5 overflow-hidden" x-bind:class="{
-      'max-w-6xl': domain.featured.length > 0,
-      'max-w-md': domain.featured.length == 0,
-      'visible': isOpen[i],
-      'invisible': !isOpen[i]
-    }">
+  'max-w-6xl': domain.featured.length > 0,
+  'max-w-md': domain.featured.length == 0,
+  'visible': isOpen[i],
+  'invisible': !isOpen[i]
+  }">
 
     <!-- If there are featured pages: 2 columns with featured pages + pages -->
     <div class="relative mx-auto grid" x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0, 'grid-cols-1': domain.featured.length == 0}">
