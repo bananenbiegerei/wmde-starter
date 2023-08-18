@@ -14,11 +14,12 @@ add_filter('the_content', function ($content) {
   // Break down content in blocks
   $content_a = explode("\n", $content);
   $new_content_a = [];
+
   foreach ($content_a as $block) {
     if (str_contains($block, "<!-- wp:acf/paragraph")) {
-      // Extract the paragraph text
-      $txt = preg_replace('/<!-- wp:acf\/paragraph {"name":"acf\/paragraph","data":{"field_6332e57c9e5c2":"/', '', $block);
-      $txt = preg_replace('/","field_6332e7ddefe75":"default"},"mode":"auto"} \/-->/', '', $txt);
+      // Extract the paragraph text from the block
+      $txt = preg_replace('/<!-- wp:acf\/paragraph {"name":"acf\/paragraph","data":{"(field_6332e57c9e5c2|paragraph)":"/', '', $block);
+      $txt = preg_replace('/","(field|_paragraph).*?\/-->/', '', $txt);
       // Break it down in chunks
       $bb = explode('\n\n', $txt);
       // Check if there are repeating paragraphs
