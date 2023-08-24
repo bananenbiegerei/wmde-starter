@@ -56,9 +56,14 @@ function bb_get_nav_menu($location = 'nav', $use_main = true)
   }
 
   $menu = wp_get_nav_menu_name($location);
+
   if ($menu === '') {
+    if ($use_main && is_multisite()) {
+      restore_current_blog();
+    }
     return [];
   }
+
   $nav = [];
   $featured_id = null;
   $section_title_id = ['title' => null, 'id' => null];
