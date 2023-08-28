@@ -9,9 +9,11 @@
 		"useTabs": true,
 		"phpVersion": "8.0",
 		"singleQuote": true,
-		"jsxSingleQuote": true
+		"jsxSingleQuote": true,
+		"trailingCommaPHP": false
 	},
 	"devDependencies": {
+		"@fullhuman/postcss-purgecss": "^5.0.0",
 		"@prettier/plugin-php": "^0.19.4",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/forms": "^0.5.2",
@@ -35,8 +37,7 @@
 		"tailwindcss": "^3.3.1",
 		"tailwindcss-themer": "^2.0.3",
 		"tslib": "^2.4.1",
-		"webpack-stream": "^7.0.0",
-		"@fullhuman/postcss-purgecss": "^5.0.0"
+		"webpack-stream": "^7.0.0"
 	},
 	"scripts": {
 		"dev": "gulp",

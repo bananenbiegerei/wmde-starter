@@ -37,7 +37,6 @@
                 "class": "",
                 "id": ""
             },
-            "wp-typography": "title",
             "default_value": "",
             "translations": "translate",
             "maxlength": "",
@@ -64,5 +63,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688371895
+    "modified": 1692280918
 }

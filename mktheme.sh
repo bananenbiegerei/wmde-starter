@@ -2,7 +2,7 @@
 mkdir -p dist
 
 # Update version number with build timestamp
-TS=`date +%Y%m%d%H%M%S`
+TS=`date +%y%j%H%M`
 VERSION=`grep Version style.css | awk '{ print $3 }' | cut -d . -f -1,2`.$TS
 sed  -i '' -e "s/Version:.*/Version:        $VERSION/" style.css
 
@@ -28,3 +28,4 @@ zip wmde-$TS.zip wmde -rv \
 	-x wmde/\*/\*.md \
 	-x wmde/src/\*
 mv wmde-$TS.zip wmde/dist/
+cp wmde/dist/wmde-$TS.zip wmde/dist/wmde.zip

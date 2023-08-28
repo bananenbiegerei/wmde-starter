@@ -15,24 +15,15 @@ add_action(
 			'menu_icon' => 'dashicons-clipboard',
 		]);
 
-		register_post_type('team', [
-			'labels' => [
-				'name' => __('Team Members', BB_TEXT_DOMAIN),
-				'singular_name' => __('Team Member', BB_TEXT_DOMAIN),
-			],
-			'public' => true,
-			'has_archive' => true,
-			'supports' => ['title', 'thumbnail'],
-			'show_in_rest' => true,
-			'menu_icon' => 'dashicons-groups',
-		]);
+		// NOTE: CPT declaration 'team' moved to blocks/team-members/
 
 		register_post_type('testimonials', [
 			'labels' => [
 				'name' => __('Testimonials', BB_TEXT_DOMAIN),
 				'singular_name' => __('Testimonial', BB_TEXT_DOMAIN),
 			],
-			'public' => true,
+			'public' => false,
+			'show_ui' => true,
 			'has_archive' => true,
 			'supports' => ['title', 'editor', 'thumbnail'],
 			'show_in_rest' => true,

@@ -1,10 +1,67 @@
 {
     "key": "group_5d934fadd1b5b",
-    "title": "Options",
+    "title": "Theme Options",
     "fields": [
         {
+            "key": "field_63ee387b9db6a",
+            "label": "Kontakte",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_63ee38899db6b",
+            "label": "Kontakt Spendenservice",
+            "name": "kontakt_spendenservice",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_63ee38b99db6c",
+            "label": "Kontakt",
+            "name": "kontakt",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_5d934fb5e5a95",
-            "label": "\"Call to Action\" Links für Buttons",
+            "label": "Call to Action Links",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -92,8 +149,8 @@
             "translations": "copy_once"
         },
         {
-            "key": "field_63ee387b9db6a",
-            "label": "Kontakte",
+            "key": "field_64dc7dcb6aefe",
+            "label": "Social Media",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -109,11 +166,11 @@
             "endpoint": 0
         },
         {
-            "key": "field_63ee38899db6b",
-            "label": "Kontakt Spendenservice",
-            "name": "kontakt_spendenservice",
+            "key": "field_64dc7dea6aeff",
+            "label": "Headline",
+            "name": "social_headline",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -122,72 +179,163 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0,
-            "translations": "translate"
-        },
-        {
-            "key": "field_63ee38b99db6c",
-            "label": "Kontakt",
-            "name": "kontakt",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0,
-            "translations": "translate"
-        },
-        {
-            "key": "field_645cab94847a6",
-            "label": "ReDesign Feedback Form",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_645caba9847a7",
-            "label": "Form ID",
-            "name": "redesign_feedback_form_id",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "min": "",
-            "max": "",
+            "default_value": "Wikimedia folgen",
+            "maxlength": "",
             "placeholder": "",
-            "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_64dc7e306af00",
+            "label": "Instagram",
+            "name": "social_instagram",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.instagram.com\/wikimedia_de\/",
+            "placeholder": ""
+        },
+        {
+            "key": "field_64dc7e496af01",
+            "label": "Twitter",
+            "name": "social_twitter",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/twitter.com\/WikimediaDE",
+            "placeholder": ""
+        },
+        {
+            "key": "field_64dc7e5c6af02",
+            "label": "LinkedIn",
+            "name": "social_linkedin",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.linkedin.com\/company\/wikimedia-deutschland-e-v-\/",
+            "placeholder": ""
+        },
+        {
+            "key": "field_64dc7e736af03",
+            "label": "Facebook",
+            "name": "social_facebook",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/www.facebook.com\/WikimediaDE",
+            "placeholder": ""
+        },
+        {
+            "key": "field_64dc7e9d6af04",
+            "label": "Mastodon",
+            "name": "social_mastodon",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/social.wikimedia.de\/@wikimediaDE\/",
+            "placeholder": ""
+        },
+        {
+            "key": "field_64dc8273fb503",
+            "label": "Logos",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_64dc827efb504",
+            "label": "Big",
+            "name": "logo_big",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "full"
+        },
+        {
+            "key": "field_64dc82adfb505",
+            "label": "Small",
+            "name": "logo_small",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "full"
         }
     ],
     "location": [
@@ -199,7 +347,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 2,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -208,5 +356,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683794897
+    "modified": 1692177138
 }

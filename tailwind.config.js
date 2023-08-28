@@ -4,7 +4,8 @@ module.exports = {
 	content: ['./**/*.php'],
 	safelist: [
 		{
-			pattern: /(sm:|md:|lg:|)justify-*/,
+			pattern: /justify-/,
+			variants: ['sm', 'md', 'lg'],
 		},
 		{
 			pattern: /text-(xs|sm|lg|xl)/,
@@ -14,7 +15,7 @@ module.exports = {
 		},
 		{
 			// BG colors for team members
-			pattern: /bg-pale(rose|purple|peach|cyan|pink|blue|green)$/,
+			pattern: /bg-(pale(rose|purple|peach|cyan|pink|blue|green)|default)$/,
 		},
 	],
 	theme: {
@@ -197,6 +198,9 @@ module.exports = {
 							},
 							palegreen: {
 								DEFAULT: '#E3F9D6',
+							},
+							default: {
+								DEFAULT: '#d5d2d7',
 							},
 						},
 					},
