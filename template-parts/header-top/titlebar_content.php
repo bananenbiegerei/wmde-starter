@@ -21,14 +21,14 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
     <li>
     <a class="btn btn-red btn-hollow btn-sm btn-icon-left" href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
       <?= bb_icon('heart', 'heartbeat icon-sm') ?>
-      <?php _e('donate'); ?>
+      <?php _e('donate', BB_TEXT_DOMAIN); ?>
     </a>
     </li>
     <?php endif; ?>
     <?php if (get_field('link_fur_mitmachen', 'options')): ?>
     <li class="hidden md:block">
     <a class="btn btn-ghost btn-sm" href="<?php echo esc_url(get_field('link_fur_mitmachen', 'option')); ?>">
-      <?php _e('Mitmachen'); ?>
+      <?php _e('Mitmachen', BB_TEXT_DOMAIN); ?>
     </a>
     </li>
     <?php endif; ?>
