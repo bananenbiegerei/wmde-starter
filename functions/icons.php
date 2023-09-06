@@ -10,5 +10,5 @@ function bb_icon($name, $classes = '')
 	if (!file_exists($filename)) {
 		return esc_html("{$name} not found");
 	}
-	return "<div class='bb-icon {$classes}'>" . file_get_contents($filename) . '</div>';
+	return "<span class='bb-icon {$classes}'>" . file_get_contents($filename) . '</span>';
 }
