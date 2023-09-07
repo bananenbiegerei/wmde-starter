@@ -6,16 +6,16 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
 
 
 <header class="flex w-full items-center">
-  <div class="flex-1">
-  <a href="<?= $home_url ?>" class="hidden md:block" aria-labelledby="site-name">
-    <img class="logo" style="max-height: 41px" src="<?= $logo_big ?>" alt="Logo">
+  <div>
+  <a href="<?= $home_url ?>" class="hidden md:block" aria-labelledby="site-name and link to homepage">
+    <img class="logo" style="max-height: 41px" src="<?= $logo_big ?>" alt="Logo" aria-labelledby="site logo">
   </a>
-  <a href="<?= $home_url ?>" class="block md:hidden" aria-labelledby="site-name">
-    <img style="max-height: 41px" src="<?= $logo_small ?>" alt="Logo">
+  <a href="<?= $home_url ?>" class="block md:hidden" aria-labelledby="site-name and link to homepage">
+    <img style="max-height: 41px" src="<?= $logo_small ?>" alt="Logo" aria-labelledby="site logo">
   </a>
   </div>
 
-  <div class="flex gap-5">
+  <div class="flex justify-end grow gap-5">
   <ul class="flex items-center space-x-2 md:space-x-5 mb-0">
     <?php if (get_field('link_fur_spenden', 'options')): ?>
     <li>

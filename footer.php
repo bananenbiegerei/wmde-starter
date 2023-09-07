@@ -1,5 +1,5 @@
 </main>
-<footer class="bg-white text-primary mt-36 site-footer" aria-labelledby="footer-heading">
+<footer class="bg-white text-primary mt-36 site-footer" role="contentinfo" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="border-t-2 border-b border-b-gray-200 py-8 mb-12 lg:mb-0">
   <div class="container grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-wrap gap-10 xl:gap-20">

@@ -153,7 +153,7 @@ document.addEventListener('alpine:init', () => {
     <!-- Domains -->
     <div class="navmenu flex-none flex space-x-1 py-1 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
     <!-- Domain items -->
-    <nav id="navmenu_desktop_domains">
+    <nav id="navmenu_desktop_domains" role="navigation">
       <template x-for="(domain,i) in nav">
       <a class="btn btn-menu" @focus="openNav(i); movePointer()" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID || domain.children.includes(pageID) }" x-bind:href="domain.url" x-html="domain.title"></a>
       </template>

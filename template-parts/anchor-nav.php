@@ -164,13 +164,13 @@ SwipersConfig['#anchor-nav'] = {
 			<?= bb_icon('chevron-left', 'swiper-button-prev btn btn-icon-only btn-ghost cursor-pointer mt-2') ?>
 		</div>
 		<div class="flex-1 lg:flex-none overflow-hidden">
-			<div class="swiper-container">
-				<ul class="swiper-wrapper">
+			<nav class="swiper-container">
+				<ul class="swiper-wrapper" aria-label="Navigation Anchor Menu">
 					<template x-for="(anchor,i) in anchors">
-						<li class="swiper-slide !w-auto py-2 cursor-pointer px-2" x-bind:data-title="anchor.id"><span x-text="anchor.title" @click="scrollTo(anchor)"></span></li>
+						<li class="swiper-slide !w-auto py-2 cursor-pointer px-2" x-bind:data-title="anchor.id"  role="menuitem"><span x-text="anchor.title" @click="scrollTo(anchor)"  tabindex="0"></span></li>
 					</template>
 				</ul>
-			</div>
+			</nav>
 		</div>
 		<div class="flex-none md:hidden">
 			<?= bb_icon('chevron-right', 'swiper-button-next btn btn-icon-only btn-ghost cursor-pointer mt-2') ?>

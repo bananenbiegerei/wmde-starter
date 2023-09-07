@@ -10,5 +10,13 @@ function bb_icon($name, $classes = '')
 	if (!file_exists($filename)) {
 		return esc_html("{$name} not found");
 	}
-	return "<span class='bb-icon {$classes}'>" . file_get_contents($filename) . '</span>';
+
+	// Read the SVG content from the file
+	$svgContent = file_get_contents($filename);
+
+	// Add role="presentation" and aria-hidden="true" attributes to the root <svg> element
+	$svgContent = preg_replace('/<svg(.*?)>/i', '<svg$1 role="presentation" aria-hidden="true">', $svgContent);
+
+	// Return the modified SVG within the <span> element
+	return "<span class='bb-icon {$classes}'>{$svgContent}</span>";
 }

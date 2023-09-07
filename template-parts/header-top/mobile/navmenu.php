@@ -39,7 +39,7 @@ document.addEventListener('alpine:init', () => {
 		</div>
 	</div>
 
-	<nav>
+	<nav role="navigation">
 		<template x-for="(domain,i) in nav">
 
 			<div class="border-b border-gray-200">

@@ -36,7 +36,7 @@
 
 				<!-- Content -->
 				<form class="flex gap-5 form-sm w-full" action="<?php echo home_url('/'); ?>" method="get">
-				  <input class="!mb-0" type="text" name="s" id="search" x-ref="searchInput" value="<?php the_search_query(); ?>" />
+				  <input class="!mb-0" type="text" name="s" id="search-form" x-ref="searchInput" value="<?php the_search_query(); ?>" />
 				  <input type="submit" alt="Search" value="Suchen" class="btn btn-sm mb-0" />
 				</form>
 
