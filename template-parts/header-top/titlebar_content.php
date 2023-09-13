@@ -5,7 +5,7 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
 ?>
 
 
-<header class="flex w-full items-center">
+<div class="flex w-full items-center">
   <div>
   <a href="<?= $home_url ?>" class="hidden md:block" aria-labelledby="site-name and link to homepage">
     <img class="logo" style="max-height: 41px" src="<?= $logo_big ?>" alt="Logo" aria-labelledby="site logo">
@@ -34,5 +34,4 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
     <?php endif; ?>
   </ul>
   </div>
-
-</header>
+</div>
