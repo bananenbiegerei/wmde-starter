@@ -64,6 +64,9 @@ module.exports = {
 			scale: {
 				cards: '1.01',
 			},
+			containers: {
+				'2xs': '13.125rem', // 210px
+			},
 		},
 	},
 	corePlugins: {
@@ -71,6 +74,7 @@ module.exports = {
 	},
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/container-queries'),
 		// plugin(function ({ addBase }) {
 		// 	addBase({
 		// 		//				html: { fontSize: '6px' },
