@@ -142,7 +142,7 @@ document.addEventListener('alpine:init', () => {
   <div class="absolute left-5 top-2 overflow-hidden" type="logo">
     <div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
     <a tabindex="-1" href="<?php echo get_home_url(); ?>" aria-label="Homepage">
-      <img class="mini-logo" style="max-height: 41px" src="<?= $logo_small ?>" alt="Logo">
+      <img class="mini-logo" style="max-height: 33px" src="<?= $logo_small ?>" alt="Logo">
     </a>
     </div>
   </div>
