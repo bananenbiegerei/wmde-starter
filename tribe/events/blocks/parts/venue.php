@@ -34,7 +34,34 @@ $website = tribe_get_venue_website_link();
 		
 		<?php if ( tribe_address_exists() ) : ?>
 			<address class="tribe-block__venue__address">
-				<?php echo tribe_get_full_address(); ?>
+				
+				<?php
+				$full_address = tribe_get_full_address(); // Get the full address
+				
+				// Split the full address into parts based on the comma (assuming the standard format "Street, City, State Zip")
+				$address_parts = explode(',', $full_address);
+				
+				// Check if we have at least three parts (city, state, and zip)
+				if (count($address_parts) >= 3) {
+					$zip_state = trim(array_pop($address_parts)); // Get the last part as zip code and state
+					$city = trim(array_shift($address_parts)); // Get the first part as city
+					$state_zip_parts = explode(' ', $zip_state); // Split zip code and state
+					$zip_code = trim($state_zip_parts[0]); // Get the zip code
+					$state = trim($state_zip_parts[1]); // Get the state
+				
+					// Output the zip code, state, city
+					echo $zip_code;
+					echo $state;
+					echo $city;
+				} else {
+					// If there are less than three parts, just output the original full address
+					echo $full_address;
+				}
+				?>
+
+
+				
+				<?php //echo tribe_get_full_address(); ?>
 		
 				<?php if ( tribe_show_google_map_link() ) : ?>
 					<?php echo tribe_get_map_link_html(); ?>

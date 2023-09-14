@@ -44,6 +44,18 @@ ol:not([class]) {
 	}
 }
 
+.home {
+	.main-content {
+		p a,
+		ul a,
+		ol a,
+		a.link
+		 {
+			@apply hover:text-gray-100;
+		}
+	}
+}
+
 
 strong {
 	@apply font-semibold;
