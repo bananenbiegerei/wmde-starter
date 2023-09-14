@@ -35,21 +35,31 @@
 
 // NOTE: .btn-menu and .btn-menu-section moved to nav.scss
 
-// Colors
-.btn-red {
-	@apply bg-red;
-
-	&.btn-hollow {
-		@apply bg-white text-red border border-red hover:bg-white hover:border-red-900 hover:text-red-900;
+// Colors for buttons
+// They must match those in tailwind config and functions/acf-blocks.php
+$btn-colors: 'default', 'black', 'gray-700', 'red', 'green-700', 'neon-800';
+@each $color in $btn-colors {
+	.btn-#{$color} {
+		@apply bg-#{$color};
 	}
 }
 
+// Other static button classes
+.btn-primary {
+	@apply bg-primary;
+	&.btn-hollow {
+		@apply bg-white text-primary border border-primary hover:bg-white hover:border-primary-900 hover:text-primary-900;
+	}
+}
 .btn-secondary {
 	@apply bg-secondary;
-
 	&.btn-hollow {
 		@apply bg-white text-secondary border border-secondary hover:bg-white hover:border-secondary-900 hover:text-secondary-900;
 	}
+}
+
+.btn-spenden {
+	@apply bg-white text-red border border-red hover:bg-white hover:border-red hover:text-red;
 }
 
 // Only Icon FIXME: @IS NOT finished only one size
