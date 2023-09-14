@@ -124,6 +124,9 @@ module.exports = {
 							800: '#0038c4',
 							900: '#0b3aa4',
 						},
+						black: {
+							DEFAULT: 'black',
+						},
 						red: {
 							50: '#fff0f2',
 							100: '#ffe2e6',

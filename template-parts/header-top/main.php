@@ -8,7 +8,7 @@
   // Default icon when featured page thumbnail is missing
   const defaultIcon = "<?= get_stylesheet_directory_uri() ?>/img/placeholders/wiki-logo-icon.png";
 </script>
-<header class="container flex">
+<header role="banner" class="container flex">
   <a href="#main-content" class="sr-only focus:not-sr-only m-2"><?= __('Skip to Content', BB_TEXT_DOMAIN) ?></a>
 </header>
 <?php get_template_part('template-parts/header-top/mobile/titlebar'); ?>

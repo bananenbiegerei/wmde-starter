@@ -19,7 +19,7 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
   <ul class="flex items-center space-x-2 md:space-x-5 mb-0">
     <?php if (get_field('link_fur_spenden', 'options')): ?>
     <li>
-    <a class="btn btn-red btn-hollow btn-sm btn-icon-left" href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
+    <a class="btn btn-spenden btn-sm btn-icon-left" href="<?php echo esc_url(get_field('link_fur_spenden', 'option')); ?>">
       <?= bb_icon('heart', 'heartbeat icon-sm') ?>
       <?php _e('donate', BB_TEXT_DOMAIN); ?>
     </a>
