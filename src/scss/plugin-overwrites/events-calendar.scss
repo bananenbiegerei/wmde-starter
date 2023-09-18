@@ -53,3 +53,23 @@
 		}
 	}
 }
+
+/* Filter Bar */
+.tribe-events--has-filter-bar {
+	.tribe-events-c-messages__message--notice {
+		@apply rounded-xl bg-red-100  border border-red-500 p-5;
+		.tribe-common-c-svgicon--messages-not-found {
+			@apply hidden;
+		}
+	}
+	.tribe-filter-bar__selected-filter {
+		@apply flex items-center;
+	}
+	.select2-selection__rendered,
+	.select2-search {
+		@apply hidden;
+	}
+	ul.select2-results__options {
+		@apply flex flex-col gap-3;
+	}
+}

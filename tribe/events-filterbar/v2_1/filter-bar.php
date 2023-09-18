@@ -44,7 +44,7 @@ $description_id = "tribe-filter-bar__form-description--$breakpoint_pointer";
 	aria-hidden="<?php echo esc_attr( $aria_hidden ); ?>"
 >
 	<form
-		class="tribe-filter-bar__form bg-gray"
+		class="tribe-filter-bar__form bg-gray p-5 rounded-xl my-10"
 		method="post"
 		action=""
 		aria-labelledby="<?php echo esc_attr( $heading_id ); ?>"

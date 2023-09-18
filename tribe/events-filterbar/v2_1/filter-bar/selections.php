@@ -20,38 +20,36 @@ if ( empty( $selected_filters ) ) {
 	return;
 }
 ?>
-<div class="tribe-filter-bar__selected-filters bg-red-600 flex gap-5 items-center my-5">
+<div class="tribe-filter-bar__selected-filters bg-primary-100 flex gap-5 items-center mb-5 p-5 rounded-xl">
 
-	<header class="tribe-filter-bar__selected-filters-header">
-		<span class="tribe-filter-bar__selected-filters-label tribe-common-h7">
+	<div class="tribe-filter-bar__selected-filters-header flex gap-5 items-center">
+		<div class="tribe-filter-bar__selected-filters-label tribe-common-h7">
 			<?php esc_html_e( 'Your selections', 'tribe-events-filter-view' ); ?>
-		</span>
-		<?php $this->template( 'components/clear-button', [ 'classes' => [ 'tribe-filter-bar__selected-filters-clear-button' ] ] ); ?>
-	</header>
-
-	<div class="tribe-filter-bar__selected-filters-list-container">
-		<div class="tribe-filter-bar__selected-filters-list">
-
-			<?php foreach ( $selected_filters as $filter ) : ?>
-				<div class="tribe-filter-bar__selected-filters-list-item">
-					<?php
-					$this->template(
-						'components/pill',
-						[
-							'classes'    => [ 'tribe-filter-bar__selected-filter' ],
-							'attrs'      => [
-								'data-js'          => 'tribe-filter-bar__selected-filter',
-								'data-filter-name' => Arr::get( $filter, 'name', '' ),
-							],
-							'label'      => Arr::get( $filter, 'label', '' ),
-							'selections' => Arr::get( $filter, 'selections', '' ),
-						]
-					);
-					?>
-				</div>
-			<?php endforeach; ?>
-
 		</div>
+		<div class="tribe-filter-bar__selected-filters-list-container">
+			<div class="tribe-filter-bar__selected-filters-list">
+		
+				<?php foreach ( $selected_filters as $filter ) : ?>
+					<div class="tribe-filter-bar__selected-filters-list-item font-bold">
+						<?php
+						$this->template(
+							'components/pill',
+							[
+								'classes'    => [ 'tribe-filter-bar__selected-filter' ],
+								'attrs'      => [
+									'data-js'          => 'tribe-filter-bar__selected-filter',
+									'data-filter-name' => Arr::get( $filter, 'name', '' ),
+								],
+								'label'      => Arr::get( $filter, 'label', '' ),
+								'selections' => Arr::get( $filter, 'selections', '' ),
+							]
+						);
+						?>
+					</div>
+				<?php endforeach; ?>
+		
+			</div>
+		</div>
+		<?php $this->template( 'components/clear-button', [ 'classes' => [ 'tribe-filter-bar__selected-filters-clear-button' ] ] ); ?>
 	</div>
-
 </div>

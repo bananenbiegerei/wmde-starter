@@ -31,7 +31,7 @@ if ( 'horizontal' === $layout ) {
 	class="tribe-filter-bar__filters-container"
 	data-js="tribe-filter-bar-filters-container"
 >
-	<div class="tribe-filter-bar__filters grid grid-cols-4 gap-10">
+	<div class="tribe-filter-bar__filters grid md:grid-cols-2 xl:grid-cols-4 gap-10">
 		<?php foreach ( $filters as $filter ) : ?>
 			<?php
 			if ( empty( $filter['toggle_id'] || empty( $filter['container_id'] ) ) ) {

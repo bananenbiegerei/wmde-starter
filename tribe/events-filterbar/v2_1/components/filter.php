@@ -52,17 +52,18 @@ if ( ! empty( $type ) ) {
 	$classes[] = "tribe-filter-bar-c-filter--$type";
 }
 ?>
-<div <?php tribe_classes( $classes ); ?>>
+
+<div <?php tribe_classes( $classes ); ?>  x-data="{ open: false } ">
 	<div class="tribe-filter-bar-c-filter__toggle-wrapper">
 		<button
-			class="tribe-filter-bar-c-filter__toggle flex bg-fuchsia-300 w-full"
+			class="tribe-filter-bar-c-filter__toggle flex btn btn-hollow w-full"
 			id="<?php echo esc_attr( $toggle_id ); ?>"
 			type="button"
 			aria-controls="<?php echo esc_attr( $container_id ); ?>"
 			aria-expanded="<?php echo esc_attr( $is_open ? 'true' : 'false' ); ?>"
-			data-js="tribe-events-accordion-trigger tribe-filter-bar-c-filter-toggle"
+			x-on:click="open = ! open"
 		>
-			<div class="tribe-filter-bar-c-filter__toggle-text flex-1 bg-yellow-100 text-left">
+			<div class="tribe-filter-bar-c-filter__toggle-text flex-1 text-left">
 				<span class="tribe-filter-bar-c-filter__toggle-label"><?php echo esc_html( $label ); ?></span><span class="tribe-filter-bar-c-filter__toggle-label-colon">:</span>
 				<?php if ( ! empty( $selections_count ) ) : ?>
 					<span class="tribe-filter-bar-c-filter__toggle-selections-count">
@@ -100,10 +101,17 @@ if ( ! empty( $type ) ) {
 	</div>
 
 	<div
-		class="tribe-filter-bar-c-filter__container"
+		class="tribe-filter-bar-c-filter__container p-5 rounded-xl border border-gray-100 mt-5"
 		id="<?php echo esc_attr( $container_id ); ?>"
 		aria-hidden="<?php echo esc_attr( $is_open ? 'false' : 'true' ); ?>"
 		aria-labelledby="<?php echo esc_attr( $container_labelledby ); ?>"
+		x-show="open" 
+		x-transition:enter="transition ease-out duration-300"
+		x-transition:enter-start="opacity-0 scale-90"
+		x-transition:enter-end="opacity-100 scale-100"
+		x-transition:leave="transition ease-in duration-300"
+		x-transition:leave-start="opacity-100 scale-100"
+		x-transition:leave-end="opacity-0 scale-90"
 	>
 		<fieldset class="tribe-filter-bar-c-filter__filters-fieldset">
 			<legend class="tribe-filter-bar-c-filter__filters-legend tribe-common-h6 tribe-common-h--alt tribe-common-a11y-hidden sr-only">
