@@ -36,7 +36,7 @@ if ( ! empty( $classes ) ) {
 	</div>
 	<button class="tribe-filter-bar-c-pill__remove-button" data-js="tribe-filter-bar-c-pill__remove-button" type="button">
 		<?php $this->template( 'components/icons/close-alt', [ 'classes' => [ 'tribe-filter-bar-c-pill__remove-button-icon' ] ] ); ?>
-		<span class="tribe-filter-bar-c-pill__remove-button-text tribe-common-a11y-visual-hide">
+		<span class="tribe-filter-bar-c-pill__remove-button-text tribe-common-a11y-hidden sr-only">
 			<?php esc_html_e( 'Remove filters', 'tribe-events-filter-view' ); ?>
 		</span>
 	</button>

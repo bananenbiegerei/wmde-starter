@@ -18,7 +18,8 @@
 $aria_expanded = 'closed' === $filterbar_state ? 'false' : 'true';
 ?>
 <div class="tribe-filter-bar__actions">
-	<button
+	<?php /*
+    <button
 		class="tribe-filter-bar__action-done tribe-common-c-btn-border tribe-common-c-btn-border--secondary"
 		data-js="tribe-filter-bar__action-done"
 		type="button"
@@ -27,5 +28,6 @@ $aria_expanded = 'closed' === $filterbar_state ? 'false' : 'true';
 	>
 		<?php esc_html_e( 'Done', 'tribe-events-filter-view' ); ?>
 	</button>
+    */ ?>
 	<?php $this->template( 'components/clear-button', [ 'classes' => [ 'tribe-filter-bar__action-clear' ] ] ); ?>
 </div>

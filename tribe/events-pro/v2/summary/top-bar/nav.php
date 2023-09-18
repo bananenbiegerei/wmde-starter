@@ -16,7 +16,7 @@
  */
 
 ?>
-<nav class="tribe-events-c-top-bar__nav tribe-common-a11y-hidden">
+<nav class="tribe-events-c-top-bar__nav tribe-common-a11y-hidden sr-only">
 	<ul class="tribe-events-c-top-bar__nav-list">
 		<?php
 		if ( empty( $prev_url ) ) {

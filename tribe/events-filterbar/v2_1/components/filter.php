@@ -52,17 +52,18 @@ if ( ! empty( $type ) ) {
 	$classes[] = "tribe-filter-bar-c-filter--$type";
 }
 ?>
-<div <?php tribe_classes( $classes ); ?>>
+
+<div <?php tribe_classes( $classes ); ?>  x-data="{ open: false } ">
 	<div class="tribe-filter-bar-c-filter__toggle-wrapper">
 		<button
-			class="tribe-filter-bar-c-filter__toggle"
+			class="tribe-filter-bar-c-filter__toggle flex btn btn-hollow w-full"
 			id="<?php echo esc_attr( $toggle_id ); ?>"
 			type="button"
 			aria-controls="<?php echo esc_attr( $container_id ); ?>"
 			aria-expanded="<?php echo esc_attr( $is_open ? 'true' : 'false' ); ?>"
-			data-js="tribe-events-accordion-trigger tribe-filter-bar-c-filter-toggle"
+			x-on:click="open = ! open"
 		>
-			<div class="tribe-filter-bar-c-filter__toggle-text">
+			<div class="tribe-filter-bar-c-filter__toggle-text flex-1 text-left">
 				<span class="tribe-filter-bar-c-filter__toggle-label"><?php echo esc_html( $label ); ?></span><span class="tribe-filter-bar-c-filter__toggle-label-colon">:</span>
 				<?php if ( ! empty( $selections_count ) ) : ?>
 					<span class="tribe-filter-bar-c-filter__toggle-selections-count">
@@ -75,15 +76,15 @@ if ( ! empty( $type ) ) {
 			</div>
 
 			<span class="tribe-filter-bar-c-filter__toggle-icon tribe-filter-bar-c-filter__toggle-icon--plus">
-				<?php $this->template( 'components/icons/plus', [ 'classes' => [ 'tribe-filter-bar-c-filter__toggle-plus-icon' ] ] ); ?>
-				<span class="tribe-filter-bar-c-filter__toggle-icon-text tribe-common-a11y-visual-hide">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 12.998h-6v6h-2v-6H5v-2h6v-6h2v6h6z"/></svg>
+				<span class="tribe-filter-bar-c-filter__toggle-icon-text tribe-common-a11y-hidden sr-only">
 					<?php esc_html_e( 'Open filter', 'tribe-events-filter-view' ); ?>
 				</span>
 			</span>
 
 			<span class="tribe-filter-bar-c-filter__toggle-icon tribe-filter-bar-c-filter__toggle-icon--minus">
 				<?php $this->template( 'components/icons/minus', [ 'classes' => [ 'tribe-filter-bar-c-filter__toggle-minus-icon' ] ] ); ?>
-				<span class="tribe-filter-bar-c-filter__toggle-icon-text tribe-common-a11y-visual-hide">
+				<span class="tribe-filter-bar-c-filter__toggle-icon-text tribe-common-a11y-hidden sr-only">
 					<?php esc_html_e( 'Close filter', 'tribe-events-filter-view' ); ?>
 				</span>
 			</span>
@@ -92,7 +93,7 @@ if ( ! empty( $type ) ) {
 		<?php if ( $is_pill_style ) : ?>
 			<button class="tribe-filter-bar-c-filter__remove-button" type="button">
 				<?php $this->template( 'components/icons/close-alt', [ 'classes' => [ 'tribe-filter-bar-c-filter__remove-button-icon' ] ] ); ?>
-				<span class="tribe-filter-bar-c-filter__remove-button-text tribe-common-a11y-visual-hide">
+				<span class="tribe-filter-bar-c-filter__remove-button-text tribe-common-a11y-hidden sr-only">
 					<?php esc_html_e( 'Remove filters', 'tribe-events-filter-view' ); ?>
 				</span>
 			</button>
@@ -100,13 +101,20 @@ if ( ! empty( $type ) ) {
 	</div>
 
 	<div
-		class="tribe-filter-bar-c-filter__container"
+		class="tribe-filter-bar-c-filter__container p-5 rounded-xl border border-gray-100 mt-5"
 		id="<?php echo esc_attr( $container_id ); ?>"
 		aria-hidden="<?php echo esc_attr( $is_open ? 'false' : 'true' ); ?>"
 		aria-labelledby="<?php echo esc_attr( $container_labelledby ); ?>"
+		x-show="open" 
+		x-transition:enter="transition ease-out duration-300"
+		x-transition:enter-start="opacity-0 scale-90"
+		x-transition:enter-end="opacity-100 scale-100"
+		x-transition:leave="transition ease-in duration-300"
+		x-transition:leave-start="opacity-100 scale-100"
+		x-transition:leave-end="opacity-0 scale-90"
 	>
 		<fieldset class="tribe-filter-bar-c-filter__filters-fieldset">
-			<legend class="tribe-filter-bar-c-filter__filters-legend tribe-common-h6 tribe-common-h--alt tribe-common-a11y-visual-hide">
+			<legend class="tribe-filter-bar-c-filter__filters-legend tribe-common-h6 tribe-common-h--alt tribe-common-a11y-hidden sr-only">
 				<?php echo esc_html( $label ); ?>
 			</legend>
 
@@ -117,7 +125,7 @@ if ( ! empty( $type ) ) {
 					data-js="tribe-filter-bar-c-filter-close"
 				>
 					<?php $this->template( 'components/icons/close', [ 'classes' => [ 'tribe-filter-bar-c-filter__filters-close-icon' ] ] ); ?>
-					<span class="tribe-filter-bar-c-filter__filters-close-text tribe-common-a11y-visual-hide">
+					<span class="tribe-filter-bar-c-filter__filters-close-text tribe-common-a11y-hidden sr-only">
 						<?php esc_html_e( 'Close filter', 'tribe-events-filter-view' ); ?>
 					</span>
 				</button>

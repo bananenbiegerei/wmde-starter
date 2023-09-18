@@ -44,7 +44,7 @@ $description_id = "tribe-filter-bar__form-description--$breakpoint_pointer";
 	aria-hidden="<?php echo esc_attr( $aria_hidden ); ?>"
 >
 	<form
-		class="tribe-filter-bar__form"
+		class="tribe-filter-bar__form bg-gray p-5 rounded-xl my-10"
 		method="post"
 		action=""
 		aria-labelledby="<?php echo esc_attr( $heading_id ); ?>"
@@ -52,14 +52,14 @@ $description_id = "tribe-filter-bar__form-description--$breakpoint_pointer";
 	>
 
 		<h2
-			class="tribe-filter-bar__form-heading tribe-common-h5 tribe-common-h--alt tribe-common-a11y-visual-hide"
+			class="tribe-filter-bar__form-heading tribe-common-h5 tribe-common-h--alt tribe-common-a11y-hidden sr-only"
 			id="<?php echo esc_attr( $heading_id ); ?>"
 		>
 			<?php esc_html_e( 'Filters', 'tribe-events-filter-view' ); ?>
 		</h2>
 
 		<p
-			class="tribe-filter-bar__form-description tribe-common-a11y-visual-hide"
+			class="tribe-filter-bar__form-description tribe-common-a11y-hidden sr-only"
 			id="<?php echo esc_attr( $description_id ); ?>"
 		>
 			<?php esc_html_e( 'Changing any of the form inputs will cause the list of events to refresh with the filtered results.', 'tribe-events-filter-view' ); ?>
@@ -67,7 +67,7 @@ $description_id = "tribe-filter-bar__form-description--$breakpoint_pointer";
 
 		<?php $this->template( 'filter-bar/selections', [ 'selected_filters' => $selected_filters ] ); ?>
 
-		<?php $this->template( 'filter-bar/actions' ); ?>
+		<?php //$this->template( 'filter-bar/actions' ); ?>
 
 		<?php $this->template( 'filter-bar/filters', [ 'layout' => $layout, 'filters' => $filters ] ); ?>
 

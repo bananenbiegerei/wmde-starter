@@ -41,3 +41,6 @@ require_once get_template_directory() . '/functions/fixes.php';
 
 // Blog related
 require_once get_template_directory() . '/functions/comments-functions.php';
+
+// Events related
+require_once get_template_directory() . '/functions/events-calendar.php';

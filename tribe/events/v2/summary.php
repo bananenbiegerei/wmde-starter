@@ -1,35 +1,36 @@
 <?php
 /**
- * View: List View
+ * View: Summary View
  *
  * Override this template in your own theme by creating a file at:
- * [your-theme]/tribe/events/v2/list.php
+ * [your-theme]/tribe/events-pro/v2/summary.php
  *
  * See more documentation about our views templating system.
  *
  * @link http://evnt.is/1aiy
  *
- * @version 5.2.1
+ * @version 5.7.0
  *
  * @var array    $events               The array containing the events.
+ * @var array    $events_by_date       An array containing the events indexed by date.
  * @var string   $rest_url             The REST URL.
  * @var string   $rest_method          The HTTP method, either `POST` or `GET`, the View will use to make requests.
  * @var string   $rest_nonce           The REST nonce.
- * @var int      $should_manage_url    int containing if it should manage the URL.
+ * @var int      $should_manage_url    Int containing if it should manage the URL.
  * @var bool     $disable_event_search Boolean on whether to disable the event search.
  * @var string[] $container_classes    Classes used for the container of the view.
  * @var array    $container_data       An additional set of container `data` attributes.
  * @var string   $breakpoint_pointer   String we use as pointer to the current view we are setting up with breakpoints.
  */
 
+use Tribe__Date_Utils as Dates;
+
 $header_classes = [ 'tribe-events-header' ];
 if ( empty( $disable_event_search ) ) {
 	$header_classes[] = 'tribe-events-header--has-event-search';
 }
-
 ?>
-<!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+<h1>votwgbh24t0jg40j5tovpk</h1>
 <div
 	<?php tribe_classes( $container_classes ); ?>
 	data-js="tribe-events-view"
@@ -44,8 +45,8 @@ if ( empty( $disable_event_search ) ) {
 		data-view-breakpoint-pointer="<?php echo esc_attr( $breakpoint_pointer ); ?>"
 	<?php endif; ?>
 >
-	<div class="tribe-common-l-container tribe-events-l-container container">
-		<?php $this->template( 'components/loader', [ 'text' => __( 'Loading...', 'the-events-calendar' ) ] ); ?>
+	<div class="tribe-common-l-container tribe-events-l-container">
+		<?php $this->template( 'components/loader', [ 'text' => __( 'Loading...', 'tribe-events-calendar-pro' ) ] ); ?>
 
 		<?php $this->template( 'components/json-ld-data' ); ?>
 
@@ -55,30 +56,35 @@ if ( empty( $disable_event_search ) ) {
 
 		<header <?php tribe_classes( $header_classes ); ?>>
 			<?php $this->template( 'components/messages' ); ?>
-			<?php $this->template( 'components/messages', [ 'classes' => [ 'tribe-events-header__messages--mobile' ] ] ); ?>
 
-			<?php //$this->template( 'components/breadcrumbs' ); ?>
+			<?php $this->template( 'components/breadcrumbs' ); ?>
 
-			<?php $this->template( 'components/events-bar' ); ?>
+			<?php //$this->template( 'components/events-bar' ); ?>
 
-			<?php // $this->template( 'list/top-bar' ); ?>
+			<?php //$this->template( 'summary/top-bar' ); ?>
 		</header>
 
-		<?php $this->template( 'components/filter-bar' ); ?>
-		<div class="tribe-events-calendar-list !w-full">
+		<?php //$this->template( 'components/filter-bar' ); ?>
 
-			<?php foreach ( $events as $event ) : ?>
-				<?php $this->setup_postdata( $event ); ?>
+		<div class="tribe-events-pro-summary">
 
-				<?php $this->template( 'list/month-separator', [ 'event' => $event ] ); ?>
-
-				<?php $this->template( 'list/event', [ 'event' => $event ] ); ?>
-
+			<?php foreach ( $events_by_date as $group_date => $events_data ) : ?>
+				<?php
+					if ( empty( $events_data ) ) {
+						continue;
+					}
+					$event = current( $events_data );
+					$this->setup_postdata( $event );
+					$group_date = Dates::build_date_object( $group_date );
+				?>
+				<?php $this->template( 'summary/month-separator', [ 'events' => $events, 'event' => $event, 'group_date' => $group_date ] ); ?>
+				<?php $this->template( 'summary/date-separator', [ 'events' => $events, 'event' => $event, 'group_date' => $group_date ] ); ?>
+				<?php $this->template( 'summary/date-group', [ 'events_for_date' => $events_data, 'group_date' => $group_date ] ); ?>
 			<?php endforeach; ?>
 
 		</div>
 
-		<?php $this->template( 'list/nav' ); ?>
+		<?php $this->template( 'summary/nav' ); ?>
 
 		<?php $this->template( 'components/ical-link' ); ?>
 

@@ -30,6 +30,6 @@ if ( empty( $event->featured ) ) {
 >
 	<?php $this->template( 'components/icons/featured', [ 'classes' => [ 'tribe-events-pro-summary__event-title-featured-icon-svg' ] ] ); ?>
 </em>
-<span class="tribe-events-pro-summary__event-title-featured-text tribe-common-a11y-visual-hide">
+<span class="tribe-events-pro-summary__event-title-featured-text tribe-common-a11y-hidden sr-only">
 	<?php esc_html_e( 'Featured', 'tribe-events-calendar-pro' ); ?>
 </span>

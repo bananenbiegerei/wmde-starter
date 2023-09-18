@@ -18,7 +18,7 @@
 $label = sprintf( __( 'Previous %1$s', 'tribe-events-calendar-pro' ), tribe_get_event_label_plural() );
 
 /* translators: %s: Event (plural or singular). */
-$events_mobile_friendly_label = sprintf( __( 'Previous %1$s', 'tribe-events-calendar-pro' ), '<span class="tribe-events-c-nav__prev-label-plural tribe-common-a11y-visual-hide">' . tribe_get_event_label_plural() . '</span>' );
+$events_mobile_friendly_label = sprintf( __( 'Previous %1$s', 'tribe-events-calendar-pro' ), '<span class="tribe-events-c-nav__prev-label-plural tribe-common-a11y-hidden sr-only">' . tribe_get_event_label_plural() . '</span>' );
 ?>
 <li class="tribe-events-c-nav__list-item tribe-events-c-nav__list-item--prev">
 	<a

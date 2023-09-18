@@ -35,7 +35,7 @@ if ( empty( $filterbar_state ) || 'closed' === $filterbar_state ) {
 		data-js="tribe-events-filter-button"
 	>
 		<?php $this->template( 'components/icons/filter', [ 'classes' => [ 'tribe-events-c-events-bar__filter-button-icon' ] ] ); ?>
-		<span class="tribe-events-c-events-bar__filter-button-text tribe-common-b2 tribe-common-a11y-visual-hide">
+		<span class="tribe-events-c-events-bar__filter-button-text tribe-common-b2 tribe-common-a11y-hidden sr-only">
 			<?php echo esc_html( $button_text ); ?>
 		</span>
 	</button>
