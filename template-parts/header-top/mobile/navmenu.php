@@ -44,7 +44,7 @@ document.addEventListener('alpine:init', () => {
 
     <div class="border-b border-gray-200">
 
-    <div class="relative border-l-8 nav_item" x-bind:class="{ 'border-transparent' : !isOpen[i], 'border-blue-600' : isOpen[i] }">
+    <div class="relative border-l-8 nav_item" x-bind:class="{ 'border-transparent' : !isOpen[i], 'border-primary-600' : isOpen[i] }">
 
       <!-- Domain title -->
       <div x-bind:class="{'current before:w-2 before:h-16 before:bg-primary-600 before:absolute before:-left-2 before:top-0': pageID == domain.ID }">
