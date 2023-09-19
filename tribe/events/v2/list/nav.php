@@ -17,7 +17,7 @@
  *
  */
 ?>
-<nav class="tribe-events-calendar-list-nav tribe-events-c-nav">
+<nav class="tribe-events-calendar-list-nav tribe-events-c-nav my-10">
 	<ul class="flex justify-between">
 		<?php
 		if ( ! empty( $prev_url ) ) {
