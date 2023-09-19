@@ -133,7 +133,7 @@ document.addEventListener('alpine:init', () => {
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<header role="banner" id="navmenu_desktop" aria-hidden="true" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @mouseleave="closeNav()">
+<header role="banner" id="navmenu_desktop" aria-hidden="true" tabindex='-1' x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @mouseleave="closeNav()">
 
   <!-- Top bar with logo, domains, and search -->
   <div class="relative z-10 container overflow-hidden">
@@ -142,7 +142,7 @@ document.addEventListener('alpine:init', () => {
   <div class="absolute left-5 top-2 overflow-hidden" type="logo">
     <div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
     <a tabindex="-1" href="<?php echo get_home_url(); ?>" aria-label="Homepage">
-      <img class="mini-logo" style="max-height: 33px" src="<?= $logo_small ?>" alt="Logo">
+      <img class="mini-logo" style="max-height: 33px" src="<?= $logo_small ?>" alt="Wikimedia Logo">
     </a>
     </div>
   </div>
@@ -173,7 +173,7 @@ document.addEventListener('alpine:init', () => {
 
   <!-- Pointer to domain button -->
   <div class="z-20 absolute pointer-events-none" id="pointer" x-show="showPointer">
-    <img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-top/pointer-top.svg" alt="Logo">
+    <img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-top/pointer-top.svg" alt="Wikimedia Logo">
   </div>
 
   <!-- For each domain... -->

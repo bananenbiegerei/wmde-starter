@@ -54,7 +54,7 @@ document.addEventListener('alpine:init', () => {
       </div>
 
       <template x-if="domain.pages.length > 0 || domain.featured.length > 0 ||	domain.sections.length > 0">
-      <div aria-hidden="true" @click="toggleNav(i)" class="absolute top-5 right-5" x-bind:class="{ 'item_closed' : !isOpen[i], 'item_open' : isOpen[i] }">
+      <div aria-hidden="true" tabindex='-1' @click="toggleNav(i)" class="absolute top-5 right-5" x-bind:class="{ 'item_closed' : !isOpen[i], 'item_open' : isOpen[i] }">
         <?= bb_icon('menu_open', 'cursor-pointer open') ?>
         <?= bb_icon('menu_close', 'cursor-pointer close') ?>
       </div>
