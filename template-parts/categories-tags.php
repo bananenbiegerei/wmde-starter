@@ -1,4 +1,4 @@
-<div class="flex gap-2 mb-10">
+<div class="flex gap-2 mb-10 flex-wrap">
 	<?php
 	$cats = get_the_category($id);
 	foreach ( $cats as $cat ): ?>
