@@ -174,7 +174,7 @@ SwipersConfig['#anchor-nav'] = {
   </div>
   <div class="flex-1 lg:flex-none overflow-hidden">
     <nav class="swiper-container">
-    <ul class="swiper-wrapper" aria-label="Navigation Anchor Menu">
+    <ul class="swiper-wrapper" aria-label="Navigation Anchor Menu" role="menu">
       <template x-for="(anchor,i) in anchors">
       <li class="swiper-slide !w-auto py-2 cursor-pointer px-2" x-bind:data-title="anchor.id" role="menuitem"><span x-text="anchor.title" @click="scrollTo(anchor)" tabindex="0"></span></li>
       </template>

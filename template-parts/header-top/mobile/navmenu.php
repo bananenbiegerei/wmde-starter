@@ -29,7 +29,7 @@ document.addEventListener('alpine:init', () => {
 </script>
 
 <!-- Container for the whole mobile nav menu -->
-<header role="banner" id="navmenu_mobile" x-data="navMenuMobile" class="z-40 block bg-white fixed left-0 right-0	bottom-0 top-14 block md:hidden nohover:block overflow-scroll" x-show="$store.open_mobile_nav" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
+<header role="banner"  aria-labelledby="mobile navigation" id="navmenu_mobile" x-data="navMenuMobile" class="z-40 block bg-white fixed left-0 right-0	bottom-0 top-14 block md:hidden nohover:block overflow-scroll" x-show="$store.open_mobile_nav" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
   <div class="flex-1 flex justify-end gap-5 items-center p-3 border-b border-gray-200" x-data="{ open: false }">
   <div class="w-full">
     <form class="flex gap-5 form-sm w-full" action="<?php echo home_url('/'); ?>" method="get">

@@ -133,7 +133,7 @@ document.addEventListener('alpine:init', () => {
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<header role="banner" id="navmenu_desktop" aria-hidden="true" tabindex='-1' x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @mouseleave="closeNav()">
+<header role="banner" aria-labelledby="desktop navigation" id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @mouseleave="closeNav()">
 
   <!-- Top bar with logo, domains, and search -->
   <div class="relative z-10 container overflow-hidden">
