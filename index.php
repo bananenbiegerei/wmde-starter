@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<h1 class="sr-only"><?php _e('News', BB_DOMAIN_NAME); ?></h1>
+<h1 class="sr-only"><?= _e('News', BB_TEXT_DOMAIN) ?></h1>
 <div class="mt-20 container flex flex-col space-y-20">
   <?php
  // First loop to output sticky posts
