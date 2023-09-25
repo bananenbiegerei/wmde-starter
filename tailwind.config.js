@@ -217,7 +217,7 @@ module.exports = {
 					extend: {
 						colors: {
 							red: {
-								DEFAULT: '#FA4A28',
+								DEFAULT: '#D04425',
 							},
 							cyan: {
 								DEFAULT: '#00B9FF',
