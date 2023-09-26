@@ -31,6 +31,7 @@ if ( empty( $disable_event_search ) ) {
 <h1 class="my-10">
 	<?php _e('Veranstlatungen', BB_TEXT_DOMAIN); ?>
 </h1>
+<?php /* 
 <div
 	<?php tribe_classes( $classes ); ?>
 	data-js="tribe-events-events-bar"
@@ -54,4 +55,4 @@ if ( empty( $disable_event_search ) ) {
 
 	<?php //$this->template( 'components/events-bar/views' ); ?>
 
-</div>
+</div> */ ?>
