@@ -30,7 +30,6 @@ if ( empty( $disable_event_search ) ) {
 	$header_classes[] = 'tribe-events-header--has-event-search';
 }
 ?>
-<h1>votwgbh24t0jg40j5tovpk</h1>
 <div
 	<?php tribe_classes( $container_classes ); ?>
 	data-js="tribe-events-view"

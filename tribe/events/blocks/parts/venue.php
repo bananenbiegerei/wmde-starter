@@ -35,8 +35,10 @@ $website = tribe_get_venue_website_link();
 		<?php if ( tribe_address_exists() ) : ?>
 			<address class="tribe-block__venue__address">
 				
-				<?php echo tribe_get_full_address(); ?>
-		
+				<?php //echo tribe_get_full_address(); ?>
+				<?php echo tribe_get_city(); ?>
+				<?php echo tribe_get_zip(); ?>
+				<?php echo tribe_get_country(); ?>
 				<?php if ( tribe_show_google_map_link() ) : ?>
 					<?php echo tribe_get_map_link_html(); ?>
 				<?php endif; ?>
