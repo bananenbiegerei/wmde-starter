@@ -21,7 +21,7 @@ if ( ! $event->thumbnail->exists ) {
 }
 
 ?>
-<div>
+<div class="mb-2">
 	<a
 		href="<?php echo esc_url( $event->permalink ); ?>"
 		title="<?php echo esc_attr( $event->title ); ?>"

@@ -26,27 +26,17 @@ $append_after_address = array_filter( array_map( 'trim', [ $venue->state_provinc
 $address              = $venue->address . ( $venue->address && ( $append_after_address || $venue->city ) ? $separator : '' );
 ?>
 <address class="not-italic">
-	<p class="text-base">
+	<p class="text-base mb-0 font-bold">
 		<?php echo wp_kses_post( $venue->post_title ); ?>
 	</p>
-	<p class="text-base">
-		<?php 
-		echo esc_html( $address ); 
-
-		if ( ! empty( $venue->city ) ) : 
-			echo esc_html( $venue->city );
-			if ( $append_after_address ) :
-				echo $separator;
-			endif;
-		endif;
-
-		if ( $append_after_address ) : 
-			echo esc_html( reset( $append_after_address ) ); 
-		endif;
-
-		if ( ! empty( $venue->country ) ):
-			echo $separator . esc_html( $venue->country );
-		endif;
-		?>
+	<p class="text-base mb-0 ">
+		<?php echo tribe_get_address (); ?>
 	</p>
+	<p class="text-base mb-0 ">
+		<?php echo tribe_get_zip(); ?> <?php echo tribe_get_city(); ?>
+	</p>
+	<p class="text-base mb-0 ">
+		<?php echo tribe_get_country (); ?>
+	</p>
+	
 </address>

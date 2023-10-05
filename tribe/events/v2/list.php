@@ -61,7 +61,7 @@ if ( empty( $disable_event_search ) ) {
 
 			<?php $this->template( 'components/events-bar' ); ?>
 
-			<?php // $this->template( 'list/top-bar' ); ?>
+			<?php //$this->template( 'list/top-bar' ); ?>
 		</header>
 
 		<?php $this->template( 'components/filter-bar' ); ?>

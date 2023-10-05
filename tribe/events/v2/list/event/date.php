@@ -25,5 +25,7 @@ $event_date_attr = $event->dates->start->format( Dates::DBDATEFORMAT );
 ?>
 	<?php // $this->template( 'list/event/date/featured' ); ?>
 	<time class="text-2xl" datetime="<?php echo esc_attr( $event_date_attr ); ?>">
-		<?php echo $event->schedule_details->value(); ?>
+		<div class="mb-4">
+			<?php echo $event->schedule_details->value(); ?>
+		</div>
 	</time>

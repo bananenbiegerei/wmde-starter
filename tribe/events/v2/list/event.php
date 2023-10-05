@@ -33,9 +33,7 @@ $event_classes = tribe_get_post_class( [ 'tribe-events-calendar-list__event' ], 
 					<header class="">
 						<?php $this->template( 'list/event/title', [ 'event' => $event ] ); ?>
 						<?php $this->template( 'list/event/date', [ 'event' => $event ] ); ?>
-						<div>
-							<?php $this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
-						</div>
+						<?php $this->template( 'list/event/date/meta', [ 'event' => $event ] ); ?>
 						<?php $this->template( 'list/event/venue', [ 'event' => $event ] ); ?>
 					</header>
 					<?php // $this->template( 'list/event/description', [ 'event' => $event ] ); ?>
