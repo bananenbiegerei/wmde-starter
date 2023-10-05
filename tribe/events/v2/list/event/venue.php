@@ -38,5 +38,4 @@ $address              = $venue->address . ( $venue->address && ( $append_after_a
 	<p class="text-base mb-0 ">
 		<?php echo tribe_get_country (); ?>
 	</p>
-	
 </address>
