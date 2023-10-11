@@ -14,6 +14,9 @@
     "agent": null,
     "allow": [],
     "ignore": [
+        ".vscode",
+        ".git",
+        ".DS_Store",
     ],
     "generatedFiles": {
         "extensionsToInclude": [

@@ -35,7 +35,8 @@ $website = tribe_get_venue_website_link();
 		<?php if ( tribe_address_exists() ) : ?>
 			<address class="tribe-block__venue__address">
 				
-				<?php //echo tribe_get_full_address(); ?>
+				
+				<?php echo tribe_get_address(); ?><br>
 				<?php echo tribe_get_city(); ?>
 				<?php echo tribe_get_zip(); ?>
 				<?php echo tribe_get_country(); ?>
@@ -50,7 +51,7 @@ $website = tribe_get_venue_website_link();
 		<?php endif ?>
 		
 		<?php if ( ! empty( $website ) ) : ?>
-			<span class="tribe-block__venue__website"><?php echo $website ?></span><br />
+			<span class="tribe-block__venue__website underline"><?php echo $website ?></span><br />
 		<?php endif ?>
 		
 		<?php do_action( 'tribe_events_single_meta_venue_section_end' ) ?>
