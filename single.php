@@ -75,6 +75,7 @@
   <section class="lg:grid lg:grid-cols-12">
   <div class="lg:col-span-8 lg:col-start-3">
     <?php get_template_part('template-parts/categories-tags'); ?>
+    <?php get_template_part('template-parts/related-posts'); ?>
   </div>
   </section>
 </div>
@@ -93,29 +94,5 @@
 </div>
 
 <?php endwhile; ?>
-<?php
-// Assuming you have the current post's category ID stored in $current_category_id
-// You can retrieve it using get_the_category() or other methods
-
-// Query the last three related posts from the same category
-$related_posts = new WP_Query(array(
-    'category__in' => array($current_category_id), // Specify the category ID
-    'posts_per_page' => 3, // Number of posts to retrieve
-    'post__not_in' => array(get_the_ID()), // Exclude the current post
-    'orderby' => 'date', // Order by date
-    'order' => 'DESC' // Descending order
-));
-
-if ($related_posts->have_posts()) :
-    while ($related_posts->have_posts()) : $related_posts->the_post();
-        // Display the related post content here
-        the_title();
-        the_content();
-    endwhile;
-endif;
-
-// Restore the main query loop
-wp_reset_postdata();
-?>
 
 <?php get_footer(); ?>
