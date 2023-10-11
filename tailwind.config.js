@@ -19,6 +19,15 @@ module.exports = {
 		},
 	],
 	theme: {
+		screens: {
+      		'xxs': '120px',
+			'xs': '320px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1536px',
+    	},
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
 		fontSize: {
 			xs: '0.75rem', // 12px
