@@ -5,13 +5,13 @@ $secondary_color = get_field('secondary_color', get_the_ID());
 ?>
 <?php if (has_post_thumbnail()): ?>
   <div class="min-h-[12rem] rounded-b-3xl check-color-contrast" style="background-color:<?php echo $header_bg; ?>;">
-	  <div class="container grid grid-cols-12 gap-10
+	  <div class="container md:grid grid-cols-12 gap-10
 	  <?php if( $color_contrast ):
 		  echo 'white-scheme';
 	  endif;?>
 	  ">
-		  <div class="col-span-12 lg:col-span-3">
-			  <div class="my-5 aspect-w-4 aspect-h-3 relative rounded-tl-3xl rounded-br-3xl overflow-hidden">
+		  <div class="md:col-span-6 lg:col-span-3">
+			  <div class="my-5 aspect-w-4 aspect-h-3 relative rounded-tl-3xl rounded-br-3xl overflow-hidden -translate-x-6 -mr-12 md:-translate-y-6">
 				  <figure class="w-full h-full">
 					  <?php the_post_thumbnail('large', ['class' => 'object-cover w-full h-full']); ?>
 					  <?php if (bbWikimediaCommonsMedia::has_post_thumbnail_caption()): ?>
@@ -22,7 +22,7 @@ $secondary_color = get_field('secondary_color', get_the_ID());
 				  </figure>
 			  </div>
 		  </div>
-		  <div class="col-span-12 lg:col-span-9">
+		  <div class="md:col-span-6 lg:col-span-9">
 			  	<?php if ( $secondary_color): ?>
 				  
 				  <h1 class="uppercase font-bold font-alt text-sm my-5"
@@ -36,7 +36,7 @@ $secondary_color = get_field('secondary_color', get_the_ID());
 				  <?php endif; ?>
 				
 				<?php if (has_excerpt()): ?>
-				  <div class="font-alt text-2xl lg:text-3xl font-normal mb-10 text-black">
+				  <div class="font-alt text-lg lg:text-3xl font-normal mb-10 text-black pb-6">
 					<?php echo strip_tags(get_the_excerpt()); ?>
 				  </div>
 				<?php endif; ?>
