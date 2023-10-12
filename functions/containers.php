@@ -49,12 +49,12 @@ add_filter(
 								// For other blocks with or without alignment settings
 								'default' => [
 												// Options defined in ACF: Clone Library / Alignment
-												'default' => 'col-span-12 lg:col-span-8 lg:col-start-3',
-												'wide' => 'col-span-12',
-												'right' => 'col-span-12 lg:col-span-8 lg:col-start-5',
+												'default' => 'default',
+												'wide' => 'wide',
+												'right' => 'right',
 								],
 				];
-				$outer_container_classes = 'grid grid-cols-12 container';
+				$outer_container_classes = 'outer-container';
 
 				// Get alignment values
 				if ($block['blockName'] == 'core/columns' || $block['blockName'] == 'core/group') {

@@ -73,7 +73,6 @@ add_action(
 				'singular_name' => _x('Thema', 'Post Type Singular Name', BB_TEXT_DOMAIN),
 			],
 			'supports' => ['title', 'editor', 'thumbnail', 'custom-fields', 'excerpt'],
-			'taxonomies' => ['category', 'post_tag'],
 			'hierarchical' => false,
 			'public' => true,
 			'show_ui' => true,
