@@ -62,7 +62,7 @@ register_taxonomy(
 
 register_taxonomy(
 	'theme',
-	['post', 'page', 'projects', 'tribe_events', 'theme-releases'],
+	['post', 'page', 'projects', 'tribe_events', 'theme-releases', 'publications'],
 	[
 		'labels' => [
 			'name' => __('Thema', BB_TEXT_DOMAIN),
