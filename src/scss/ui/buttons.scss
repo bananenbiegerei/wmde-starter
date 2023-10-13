@@ -23,66 +23,47 @@
 	@apply px-2 py-1 text-2xl lg:px-2 lg:py-1 lg:text-3xl;
 }
 
+// Colors for buttons
+// They must match those in tailwind config and functions/acf-blocks.php
+$btn-colors: 'primary', 'red', 'neon';
+
+@each $color in $btn-colors {
+	.btn-#{$color} {
+		@apply bg-#{$color} hover:bg-#{$color}-800;
+	}
+
+	.btn.btn-neon {
+		@apply text-black hover:bg-#{$color}-300;
+	}
+	// Outline
+	.btn-#{$color}.btn-hollow {
+		@apply border-#{$color} text-#{$color} hover:border-#{$color}-800 hover:text-#{$color}-800;
+	}
+	.btn-neon.btn-hollow {
+		@apply border-#{$color}-800 hover:border-#{$color}-500 text-#{$color}-800 hover:text-#{$color}-500 hover:bg-white;
+	}
+	// Ghost
+	.btn-#{$color}.btn-ghost {
+		@apply text-#{$color} hover:text-#{$color}-800;
+	}
+	.btn-neon.btn-ghost {
+		@apply text-#{$color}-800 hover:text-#{$color}-500 hover:bg-transparent;
+	}
+}
+
 // Outline
 .btn-hollow {
-	@apply bg-white text-primary border border-primary hover:border-primary-800 hover:bg-white hover:text-primary-800;
+	@apply bg-white hover:bg-white border;
 }
 
 // Ghost
 .btn-ghost {
-	@apply bg-transparent text-primary border-none hover:bg-transparent hover:text-primary-800;
+	@apply bg-transparent border-none hover:bg-transparent;
 }
 
-// NOTE: .btn-menu and .btn-menu-section moved to nav.scss
-
-// Colors for buttons
-// They must match those in tailwind config and functions/acf-blocks.php
-$btn-colors: 'default', 'black', 'gray-700', 'red', 'green-700', 'neon-800';
-@each $color in $btn-colors {
-	.btn-#{$color} {
-		@apply bg-#{$color};
-	}
-}
-
-// Other static button classes
-.btn-primary {
-	@apply bg-primary;
-	&.btn-hollow {
-		@apply bg-white text-primary border border-primary hover:bg-white hover:border-primary-900 hover:text-primary-900;
-	}
-}
-.btn-secondary {
-	@apply bg-secondary;
-	&.btn-hollow {
-		@apply bg-white text-secondary border border-secondary hover:bg-white hover:border-secondary-900 hover:text-secondary-900;
-	}
-}
 
 .btn-spenden {
 	@apply bg-white text-red border border-red hover:bg-white hover:border-red hover:text-red;
-}
-
-// Only Icon FIXME: @IS NOT finished only one size
-.btn-icon-only {
-	@apply rounded-full flex items-center justify-center p-1;
-	svg {
-		@apply h-auto;
-	}
-	&.btn-xs {
-	}
-
-	&.btn-sm {
-	}
-
-	&.btn {
-		@apply w-10 h-10;
-	}
-
-	&.btn-lg {
-	}
-
-	&.btn-xl {
-	}
 }
 
 // With icon, but the size of the icon is defined in bb_icon

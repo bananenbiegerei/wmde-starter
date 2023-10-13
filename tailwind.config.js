@@ -11,7 +11,7 @@ module.exports = {
 			pattern: /text-(xs|sm|lg|xl)/,
 		},
 		{
-			pattern: /(text|bg)-(black|white|primary|gray|gray-700|primary-50|primary-600|red|red-50|green-50|green-700|neon|neon-800)$/,
+			pattern: /(text|bg)-(black|white|primary|gray|gray-700|primary-50|primary-600|red|red-50|red-800|green-50|green-700|neon|neon-800)$/,
 		},
 		{
 			// BG colors for team members
@@ -142,11 +142,11 @@ module.exports = {
 							200: '#ffc9d4',
 							300: '#ff9db1',
 							400: '#ff6688',
-							500: '#ff3164',
+							DEFAULT: '#ff3164',
 							600: '#f21b5a',
 							650: '#f21b5a',
 							700: '#cb0544',
-							DEFAULT: '#B0003E',
+							800: '#B0003E',
 							900: '#910a3d',
 						},
 						gray: {

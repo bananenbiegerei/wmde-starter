@@ -25,9 +25,9 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_643e8e48abb7a",
-                    "label": "CTA Link",
-                    "name": "cta_link",
+                    "key": "field_6529110f991fa",
+                    "label": "Link",
+                    "name": "link",
                     "aria-label": "",
                     "type": "link",
                     "instructions": "",
@@ -40,6 +40,70 @@
                     },
                     "return_format": "array",
                     "translations": "copy_once",
+                    "parent_repeater": "field_643e8e2babb79"
+                },
+                {
+                    "key": "field_6529110f991ff",
+                    "label": "Style",
+                    "name": "display",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "wp-typography": "none",
+                    "layout": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_6529110f9bded",
+                            "label": "Icon",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_63fdddbc600fd"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_6529110f9bdf1",
+                            "label": "Color",
+                            "name": "color",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_642400595d82a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
                     "parent_repeater": "field_643e8e2babb79"
                 }
             ]
@@ -63,5 +127,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681821460
+    "modified": 1697190312
 }
