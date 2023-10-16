@@ -13,7 +13,7 @@
 		  </div>
 		<div class="col-span-12 lg:col-span-8 lg:col-start-3 relative">
 			<?php get_template_part('template-parts/featured-image'); ?>
-			<div class="absolute bottom-4 left-16">
+			<div class="absolute -bottom-4 left-6">
 				<?php if (have_rows('call_to_actions_in_header')): ?>
 					  <div class="mb-10">
 					  <?php while (have_rows('call_to_actions_in_header')): the_row(); ?>
