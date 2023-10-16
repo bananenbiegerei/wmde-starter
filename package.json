@@ -13,6 +13,7 @@
 		"trailingCommaPHP": false
 	},
 	"devDependencies": {
+		"@alpinejs/focus": "^3.13.1",
 		"@fullhuman/postcss-purgecss": "^5.0.0",
 		"@prettier/plugin-php": "^0.19.7",
 		"@tailwindcss/aspect-ratio": "^0.4.2",

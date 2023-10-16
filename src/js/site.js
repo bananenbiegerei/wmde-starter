@@ -1,9 +1,11 @@
 import * as TW from './tailwindhelpers';
 import Alpine from 'alpinejs';
+import focus from '@alpinejs/focus';
 import Swiper, { Navigation, Autoplay, Pagination, Mousewheel } from 'swiper';
 
 // Init Alpine
 window.Alpine = Alpine;
+Alpine.plugin(focus);
 Alpine.start();
 
 // Make Tailwind config available outside of package
