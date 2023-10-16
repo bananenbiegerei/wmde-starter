@@ -1,4 +1,5 @@
-.btn {
+.btn,
+.btn.btn-solid {
 	@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1 text-xl text-white hover:bg-primary-900 transition font-sans font-robotonormal ease-in-out duration-300 cursor-pointer;
 }
 

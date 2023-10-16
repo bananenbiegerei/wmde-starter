@@ -39,7 +39,7 @@ $projects = new WP_Query($args);
 <?php the_content(); ?>
 <div x-data="{selectedFilter: ''}">
 	<div class="btn-group container mb-5 lg:mb-10">
-		<button x-on:click="selectedFilter=''" class="btn btn-sm btn-hollow" :class="{'!bg-gray': !selectedFilter}" type="button">Alle</button>
+		<button x-on:click="selectedFilter=''" class="btn btn-primary btn-sm btn-hollow" :class="{'!bg-primary !text-white': !selectedFilter}" type="button">Alle</button>
 
 		<?php
   $terms = get_terms([
@@ -47,7 +47,7 @@ $projects = new WP_Query($args);
   	'hide_empty' => true,
   ]);
   foreach ($terms as $term): ?>
-	<button x-on:click="selectedFilter='<?php echo $term->slug; ?>'" class="btn btn-sm btn-hollow" :class="{'!bg-gray-200': selectedFilter == '<?php echo $term->slug; ?>'}" type="button"><?php echo $term->name; ?></button>
+	<button x-on:click="selectedFilter='<?php echo $term->slug; ?>'" class="btn btn-primary btn-sm btn-hollow" :class="{'!bg-primary !text-white': selectedFilter == '<?php echo $term->slug; ?>'}" type="button"><?php echo $term->name; ?></button>
 	<?php endforeach;
   ?>
 </div>
