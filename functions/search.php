@@ -2,7 +2,7 @@
 
 // Alter search count of posts per page for search
 add_filter('pre_get_posts', function ($query) {
-  if ($query->is_search) {
+  if ($query->is_search && empty($query->query['posts_per_page'])) {
     $query->set('posts_per_page', '-1');
   }
   return $query;

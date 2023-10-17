@@ -1,5 +1,9 @@
 <?php
 
+// Limit the amount of blog posts in results
+// Pagination from multiple sources is hard. Let's avoid it.
+$max_blog_posts = 100;
+
 // Redirect to main site search page if needed
 if (is_multisite() && get_current_blog_id() !== 1) {
   wp_redirect(bb_search_url(). '?s=' . get_search_query());
@@ -44,13 +48,10 @@ while ($wp_query->have_posts()) {
 
 // Search in other site
 if (is_multisite()) {
-  // Find ID of other site to get results from
-  $bb_blog_id = bb_get_id_of_blog(); // ID of WMDE Blog site
-  $other_site_id = get_current_blog_id() === $bb_blog_id ? 1 : $bb_blog_id;
-  switch_to_blog($other_site_id); // Blog --> Main, or Main --> Blog
-  $xtd_search = new WP_Query([ 's' => get_query_var('s')]);
-  while ($xtd_search->have_posts()) {
-    $xtd_search->the_post();
+  switch_to_blog(bb_get_id_of_blog());
+  $blog_search = new WP_Query([ 's' => get_query_var('s'), 'posts_per_page' => $max_blog_posts]);
+  while ($blog_search->have_posts()) {
+    $blog_search->the_post();
     $results[] = get_search_result_array();
   }
   restore_current_blog();
