@@ -1,37 +1,43 @@
 <?php
 
 // Limit the amount of blog posts in results
-// Pagination from multiple sources is hard. Let's avoid it.
+// Pagination from multiple sources is hard. Let's avoid it if we can...
 $max_blog_posts = 100;
+
+// Length of the post excerpt
+$excerpt_length = 30;
+
+// Post types for which the date will be shown
+$show_date_for = ['post', 'press-releases'];
 
 // Redirect to main site search page if needed
 if (is_multisite() && get_current_blog_id() !== 1) {
   wp_redirect(bb_search_url(). '?s=' . get_search_query());
 }
 
-// Post types for which the date will be shown
-$show_date_for = ['post', 'press-releases'];
-
 // Add search results to a big array
 function get_search_result_array()
 {
-  global $show_date_for, $post_types, $count;
+  global $show_date_for, $post_types, $count, $excerpt_length;
+  // Keep track of post types
   $post_type = get_post_type();
   $post_type_label = get_post_type_object($post_type)->label;
   $post_types[$post_type] = $post_type_label;
   $count[$post_type] = ($count[$post_type] ?? 0) + 1;
+  // Find a suitable thumbnail ID for the post (post or front page or blog page)
+  $thumbnail_id = get_post_thumbnail_id() ?: get_post_thumbnail_id(get_option('page_on_front')) ?: get_post_thumbnail_id(get_option('page_for_posts'));
   return [
   'blog_id' => get_current_blog_id(),
   'post_id' => get_the_ID(),
   'title' => get_the_title(),
   'post_type' => $post_type,
   'post_type_label' => get_post_type_object($post_type)->labels->singular_name,
-  'excerpt' => wp_trim_words(get_the_excerpt(), 99, '...'),
+  'excerpt' => wp_trim_words(get_the_excerpt(), $excerpt_length, '...'),
   'permalink' => get_permalink(),
   'date' => in_array(get_post_type(), $show_date_for) ? get_the_date() : null,
   'timestamp' => get_post_timestamp(),
   'has_thumbnail' => has_post_thumbnail(),
-  'thumbnail' => wp_get_attachment_image(get_post_thumbnail_id(), [400, 0], false, ['class' => 'h-full w-full object-cover'])
+  'thumbnail' => wp_get_attachment_image($thumbnail_id, [400, 0], false, ['class' => 'h-full w-full object-cover'])
   ];
 }
 
@@ -86,28 +92,31 @@ asort($post_types);
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 container">
 
     <?php foreach($results as $result): ?>
+
     <div class="bb-card-block text-hover-effect image-hover-effect bg-gray rounded-xl overflow-hidden mb-10 lg:mb-5 z-10 hover:z-20 relative" x-show="!selectedFilter || '<?= $result['post_type'] ?>' == selectedFilter">
 
       <div class="px-2 rounded-full bg-white text-xs border border-gray-400 absolute top-4 right-4 z-10" x-show="!selectedFilter">
       <?= $result['post_type_label'] ?>
       </div>
 
-      <a href="<?= $result['permalink'] ?>" class="flex gap-5 flex-col">
-      <?php if ($result['has_thumbnail']): ?>
+      <a href="<?= $result['permalink'] ?>" class="flex flex-col">
+
       <div class="">
         <div class="aspect-w-16 aspect-h-9 bg-gray-100 overflow-hidden">
         <?= $result['thumbnail'] ?>
         </div>
       </div>
-      <?php endif; ?>
-      <div class=" space-y-2 px-10 py-10">
-        <h2 class="text-2xl font-alt"><?= $result['title'] ?></h2>
+
+      <div class="space-y-2 p-4">
+        <h2 class="text-xl font-alt"><?= $result['title'] ?></h2>
         <?php if ($result['date']): ?>
         <div class="text-sm"><?= $result['date'] ?></div>
         <?php endif; ?>
-        <div class="text-xl font-alt font-normal text-inherit"><?= $result['excerpt'] ?></div>
+        <div class="text-sm font-alt font-normal"><?= $result['excerpt'] ?></div>
       </div>
+
       </a>
+
     </div>
     <?php endforeach; ?>
 
