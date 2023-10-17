@@ -15,44 +15,44 @@
  * @var bool $disable_event_search Boolean on whether to disable the event search.
  */
 
-if ( empty( $display_events_bar ) ) {
-	return;
+if (empty($display_events_bar)) {
+  return;
 }
 
 $heading = $disable_event_search
-	? __( 'Views Navigation', 'the-events-calendar' )
-	: sprintf( __( '%s Search and Views Navigation', 'the-events-calendar' ), tribe_get_event_label_plural() );
+  ? __('Views Navigation', 'the-events-calendar')
+  : sprintf(__('%s Search and Views Navigation', 'the-events-calendar'), tribe_get_event_label_plural());
 
 $classes = [ 'tribe-events-header__events-bar', 'tribe-events-c-events-bar' ];
-if ( empty( $disable_event_search ) ) {
-	$classes[] = 'tribe-events-c-events-bar--border';
+if (empty($disable_event_search)) {
+  $classes[] = 'tribe-events-c-events-bar--border';
 }
 ?>
 <h1 class="my-10">
-	<?php _e('Veranstlatungen', BB_TEXT_DOMAIN); ?>
+  <?php _e('Veranstaltungen', BB_TEXT_DOMAIN); ?>
 </h1>
-<?php /* 
+<?php /*
 <div
-	<?php tribe_classes( $classes ); ?>
-	data-js="tribe-events-events-bar"
+  <?php tribe_classes( $classes ); ?>
+  data-js="tribe-events-events-bar"
 >
 
-	<h2 class="tribe-common-a11y-hidden sr-only">
-		<?php echo esc_html( $heading ); ?>
-	</h2>
+  <h2 class="tribe-common-a11y-hidden sr-only">
+  <?php echo esc_html( $heading ); ?>
+  </h2>
 
-	<?php if ( empty( $disable_event_search ) ) : ?>
-		<?php $this->template( 'components/events-bar/search-button' ); ?>
+  <?php if ( empty( $disable_event_search ) ) : ?>
+  <?php $this->template( 'components/events-bar/search-button' ); ?>
 
-		<div
-			class="tribe-events-c-events-bar__search-container"
-			id="tribe-events-search-container"
-			data-js="tribe-events-search-container"
-		>
-			<?php $this->template( 'components/events-bar/search' ); ?>
-		</div>
-	<?php endif; ?>
+  <div
+    class="tribe-events-c-events-bar__search-container"
+    id="tribe-events-search-container"
+    data-js="tribe-events-search-container"
+  >
+    <?php $this->template( 'components/events-bar/search' ); ?>
+  </div>
+  <?php endif; ?>
 
-	<?php //$this->template( 'components/events-bar/views' ); ?>
+  <?php //$this->template( 'components/events-bar/views' ); ?>
 
 </div> */ ?>
