@@ -20,7 +20,7 @@
 		  </div>
 	</div>
 
-	<div class="content pt-10 container lg:grid lg:grid-cols-12 gap-10">
+	<div class="content pt-10 container lg:grid lg:grid-cols-12 gap-10 no-container-styles">
 		<div class="lg:col-span-3 font-alt font-normal flex flex-col space-y-5">
 			<?php if (have_rows('meta_infos')): ?>
 				<?php while (have_rows('meta_infos')): the_row(); ?>
@@ -31,7 +31,7 @@
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</div>
-		<div class="lg:col-span-9 content">
+		<div class="lg:col-span-9">
 			<?php the_content(); ?>
 		</div>
 	</div>

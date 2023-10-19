@@ -27,7 +27,7 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
     <?php endif; ?>
     <?php if (get_field('link_fur_mitmachen', 'options')): ?>
     <li class="hidden md:block">
-    <a class="btn btn-ghost btn-sm" href="<?php echo esc_url(get_field('link_fur_mitmachen', 'option')); ?>">
+    <a class="btn btn-primary btn-ghost btn-sm" href="<?php echo esc_url(get_field('link_fur_mitmachen', 'option')); ?>">
       <?php _e('Mitmachen', BB_TEXT_DOMAIN); ?>
     </a>
     </li>
