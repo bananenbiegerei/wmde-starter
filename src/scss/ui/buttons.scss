@@ -54,14 +54,13 @@ $btn-colors: 'primary', 'red', 'neon';
 
 // Outline
 .btn-hollow {
-	@apply bg-transparent hover:bg-transparent border;
+	@apply bg-transparent hover:bg-transparent border-primary text-primary;
 }
 
 // Ghost
 .btn-primary.btn-ghost {
 	@apply bg-transparent border-none hover:bg-transparent;
 }
-
 
 .btn-spenden {
 	@apply bg-white text-red border border-red hover:bg-white hover:border-red hover:text-red;
