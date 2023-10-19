@@ -15,11 +15,11 @@
 	<button type="button" class="btn btn-xl btn-hollow">Button text</button>
 	<hr>
 	<h4>Default Buttons ghost</h4>
-	<button type="button" class="btn btn-xs btn-ghost">Button text</button>
-	<button type="button" class="btn btn-sm btn-ghost">Button text</button>
-	<button type="button" class="btn btn-ghost">Button text</button>
-	<button type="button" class="btn btn-lg btn-ghost">Button text</button>
-	<button type="button" class="btn btn-xl btn-ghost">Button text</button>
+	<button type="button" class="btn btn-xs btn-primary btn-ghost">Button text</button>
+	<button type="button" class="btn btn-sm btn-primary btn-ghost">Button text</button>
+	<button type="button" class="btn btn-primary btn-ghost">Button text</button>
+	<button type="button" class="btn btn-lg btn-primary btn-ghost">Button text</button>
+	<button type="button" class="btn btn-xl btn-primary btn-ghost">Button text</button>
 	<hr>
 	<h4>Default Buttons with icons</h4>
 	<button type="button" class="btn btn-xs btn-icon-left">

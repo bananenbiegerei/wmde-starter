@@ -10,7 +10,7 @@ if (is_multisite() && get_current_blog_id() !== 1) {
 <div x-data="{ open: false }" class="flex justify-center hidden md:block lg:hidden">
   <!-- Trigger -->
   <span x-on:click="open = true">
-  <button type="button" class="btn btn-ghost btn-icon-only !text-black">
+  <button type="button" class="btn btn-primary btn-ghost btn-icon-only !text-black">
     <span class="sr-only">Toggle Search Input</span><?php echo bb_icon('search', 'icon-sm'); ?>
   </button>
   </span>
@@ -34,7 +34,7 @@ if (is_multisite() && get_current_blog_id() !== 1) {
 
     <!-- Buttons -->
     <div class="">
-      <button type="button" x-on:click="open = false" class="btn btn-base btn-ghost absolute top-2 right-2">
+      <button type="button" x-on:click="open = false" class="btn btn-base btn-primary btn-ghost absolute top-2 right-2">
       <?= bb_icon('x', 'icon-xs'); ?>
       </button>
     </div>

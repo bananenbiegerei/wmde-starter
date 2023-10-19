@@ -45,7 +45,7 @@ $btn-colors: 'primary', 'red', 'neon';
 	}
 	// Ghost
 	.btn-#{$color}.btn-ghost {
-		@apply text-#{$color} hover:text-#{$color}-800;
+		@apply text-#{$color} hover:text-#{$color}-800 bg-transparent;
 	}
 	.btn-neon.btn-ghost {
 		@apply text-#{$color}-800 hover:text-#{$color}-500 hover:bg-transparent;
@@ -58,7 +58,7 @@ $btn-colors: 'primary', 'red', 'neon';
 }
 
 // Ghost
-.btn-ghost {
+.btn-primary.btn-ghost {
 	@apply bg-transparent border-none hover:bg-transparent;
 }
 
