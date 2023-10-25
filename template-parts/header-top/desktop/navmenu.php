@@ -151,7 +151,7 @@ document.addEventListener('alpine:init', () => {
   <div class="flex items-center">
 
     <!-- Domains -->
-    <div class="navmenu flex-none flex space-x-1 py-1 transition-all duration-500 ease-in-out ml-10" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
+    <div class="navmenu flex-none flex space-x-1 py-1 transition-all duration-500 ease-in-out ml-10 -translate-x-12" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
     <!-- Domain items -->
     <nav id="navmenu_desktop_domains" role="navigation">
       <template x-for="(domain,i) in nav">

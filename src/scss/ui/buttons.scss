@@ -26,6 +26,7 @@
 
 // Colors for buttons
 // They must match those in tailwind config and functions/acf-blocks.php
+// FIXME: this needs a lot of work it's very wonky!
 $btn-colors: 'primary', 'red', 'neon';
 
 @each $color in $btn-colors {
