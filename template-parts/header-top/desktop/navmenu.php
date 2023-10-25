@@ -162,8 +162,8 @@ document.addEventListener('alpine:init', () => {
 
     <!-- Search -->
     <div class="flex-1 flex justify-end gap-5 items-center h-full pl-12" x-data="{ open: false }">
-    <?php get_template_part('template-parts/search-slide-out'); ?>
-    <?php get_template_part('template-parts/search-modal'); ?>
+    <?php get_template_part('template-parts/header-top/desktop/search-slide-out'); ?>
+    <?php get_template_part('template-parts/header-top/desktop/search-modal'); ?>
     </div>
   </div>
   </div>
