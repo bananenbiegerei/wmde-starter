@@ -6,6 +6,6 @@
   </form>
   </div>
   <button class="btn btn-primary btn-ghost btn-icon-only !text-black" x-on:click="open = ! open; $nextTick(() => $refs.searchInput.focus())">
-  <span class="sr-only">Toggle Search Input</span><?php echo bb_icon('search', 'icon-sm'); ?>
+  <?php echo bb_icon('search', 'icon-sm'); ?>
   </button>
 </div>

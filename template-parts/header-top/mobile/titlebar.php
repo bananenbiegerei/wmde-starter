@@ -16,7 +16,7 @@ document.addEventListener('alpine:init', () => {
 });
 </script>
 
-<header role="banner" aria-hidden="true" tabindex='-1' id="titlebar_mobile" class="flex bg-white h-14 items-center py-1 px-5 left-0 right-0 fixed  border-b border-gray-200 z-40  md:hidden nohover:flex">
+<header aria-hidden="true" tabindex='-1' id="titlebar_mobile" class="flex bg-white h-14 items-center py-1 px-5 left-0 right-0 fixed  border-b border-gray-200 z-40  md:hidden nohover:flex">
   <?php get_template_part('template-parts/header-top/titlebar_content'); ?>
   <div class="block flex-none" x-data="navMenuMobileToggle">
   <!-- Using the Alpine.store ($store) to save the state of the site header. -->
