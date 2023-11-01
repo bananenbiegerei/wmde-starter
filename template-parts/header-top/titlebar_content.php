@@ -7,11 +7,11 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
 
 <div class="flex w-full items-center">
   <div>
-  <a href="<?= $home_url ?>" class="hidden md:block" aria-labelledby="site-name and link to homepage">
-    <img class="logo" style="max-height: 41px" src="<?= $logo_big ?>" alt="Wikimedia Logo" aria-labelledby="site logo">
+  <a href="<?= $home_url ?>" class="hidden md:block">
+    <img class="logo" style="max-height: 41px" src="<?= $logo_big ?>" alt="Wikimedia Logo">
   </a>
-  <a href="<?= $home_url ?>" class="block md:hidden" aria-labelledby="site-name and link to homepage">
-    <img style="max-height: 41px" src="<?= $logo_small ?>" alt="Wikimedia Logo" aria-labelledby="site logo">
+  <a href="<?= $home_url ?>" class="block md:hidden">
+    <img style="max-height: 41px" src="<?= $logo_small ?>" alt="Wikimedia Logo">
   </a>
   </div>
 
