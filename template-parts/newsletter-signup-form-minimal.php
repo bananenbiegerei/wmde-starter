@@ -14,7 +14,7 @@
                 <input type="text" class="form_field form-input" name="email" id="email" value="" placeholder="E-mail" />
             </li>
             <li class="form_button absolute right-1 bottom-1">
-                <input type="submit" class="form_button_submit btn btn-primary btn-sm" value="<?php _e('Anmelden'); ?>" />
+                <input type="submit" class="form_button_submit btn  btn-sm" value="<?php _e('Anmelden'); ?>" />
             </li>
         </ul>
     </form>
@@ -45,7 +45,7 @@
 
                 <!-- Buttons -->
                 <div class="mt-8 flex space-x-2">
-                    <button type="button" x-on:click="open = false" class="btn btn-primary">
+                    <button type="button" x-on:click="open = false" class="btn">
                         <?php _e('Close'); ?>
                     </button>
                 </div>

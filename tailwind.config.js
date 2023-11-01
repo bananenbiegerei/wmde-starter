@@ -20,14 +20,14 @@ module.exports = {
 	],
 	theme: {
 		screens: {
-      		'xxs': '120px',
-			'xs': '320px',
-			'sm': '640px',
-			'md': '768px',
-			'lg': '1024px',
-			'xl': '1280px',
+			xxs: '120px',
+			xs: '320px',
+			sm: '640px',
+			md: '768px',
+			lg: '1024px',
+			xl: '1280px',
 			'2xl': '1536px',
-    	},
+		},
 		// Helper pixel to rem calc: https://nekocalc.com/de/px-zu-rem-umrechner
 		fontSize: {
 			xs: '0.75rem', // 12px
@@ -185,6 +185,19 @@ module.exports = {
 							700: '#608308',
 							800: '#4d670d',
 							900: '#415710',
+						},
+						orange: {
+							50: '#fffaec',
+							100: '#fff3d3',
+							200: '#ffe4a5',
+							300: '#ffce6d',
+							400: '#ffae32',
+							500: '#ff930a',
+							DEFAULT: '#ff7b00',
+							700: '#cc5902',
+							800: '#a1450b',
+							900: '#823b0c',
+							950: '#461b04',
 						},
 					},
 				},

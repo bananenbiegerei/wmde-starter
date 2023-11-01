@@ -31,14 +31,3 @@
 		transition: opacity 0.2s;
 	}
 }
-
-.btn-menu {
-	@apply text-base p-2 bg-transparent text-black font-alt font-medium border-white duration-100 hover:bg-gray;
-	&.current {
-		@apply text-primary-500;
-	}
-}
-
-.btn-menu-section {
-	@apply text-base bg-transparent text-black font-alt font-bold  uppercase border-none hover:bg-transparent hover:text-primary-800 rounded-md;
-}

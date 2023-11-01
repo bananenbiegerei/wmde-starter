@@ -16,22 +16,24 @@
 			<div class="absolute -bottom-4 left-6">
 				<?php if (have_rows('call_to_actions_in_header')): ?>
 					  <div class="mb-10">
-					  <?php while (have_rows('call_to_actions_in_header')): the_row(); ?>
+					  <?php while (have_rows('call_to_actions_in_header')):
+       	the_row(); ?>
 						<?php
-						$link = get_sub_field('link') ? get_sub_field('link') : ['title' => 'Missing Link!', 'url' => '#', 'target' => '_self'];
-						$icon = get_sub_field('display')['icon'];
-						$color = get_sub_field('display')['color_dark'] ?? 'primary';
-						if ($color == 'default') {
-							$color = 'primary';
-						}
-						?>
+      $link = get_sub_field('link') ? get_sub_field('link') : ['title' => 'Missing Link!', 'url' => '#', 'target' => '_self'];
+      $icon = get_sub_field('display')['icon'];
+      $color = get_sub_field('display')['color_dark'] ?? 'primary';
+      if ($color == 'default') {
+      	$color = 'primary';
+      }
+      ?>
 						<div class="flex">
-						<a class="btn btn-<?= $color ?> <?= $icon ? 'btn-icon-left' : '' ?>" href="<?= esc_url($link['url']) ?>" target="<?= esc_attr($link['target']) ?>">
+						<a class="btn btn-<?= $color ?> <?= $icon ? '' : '' ?>" href="<?= esc_url($link['url']) ?>" target="<?= esc_attr($link['target']) ?>">
 						<?= bb_icon($icon, 'icon-sm') ?>
 						<?= esc_html($link['title']) ?>
 						</a>
 						</div>
-					  <?php endwhile; ?>
+					  <?php
+       endwhile; ?>
 					  </div>
 				  <?php endif; ?>
 			</div>
@@ -55,7 +57,7 @@
        	the_row(); ?>
 						  <?php $cta_link = get_sub_field('cta_link'); ?>
 						  <?php if ($cta_link): ?>
-							  <a class="btn btn-base btn-icon-left" href="<?php echo esc_url($cta_link['url']); ?>" target="<?php echo esc_attr($cta_link['target']); ?>">
+							  <a class="btn " href="<?php echo esc_url($cta_link['url']); ?>" target="<?php echo esc_attr($cta_link['target']); ?>">
 							  <?= bb_icon('arrow-right', 'icon-base') ?>
 							  <?php echo esc_html($cta_link['title']); ?></a>
 						  <?php endif; ?>

@@ -38,7 +38,7 @@
   'title_reply'        => esc_html__('Leave a comment', BB_TEXT_DOMAIN),
   'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
   'title_reply_after'  => '</h3>',
-  'class_submit' => 'btn bnt-base',
+  'class_submit' => 'btn',
   'logged_in_as' => sprintf(
     '<p class="logged-in-as">%s</p>',
     sprintf(

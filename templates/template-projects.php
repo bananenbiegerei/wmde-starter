@@ -23,7 +23,7 @@ $projects = new WP_Query($args);
     	the_row(); ?>
 				<?php $cta_link = get_sub_field('cta_link'); ?>
 				<?php if ($cta_link): ?>
-				<a class="btn btn-base btn-icon-left" href="<?php echo esc_url($cta_link['url']); ?>" target="<?php echo esc_attr($cta_link['target']); ?>">
+				<a class="btn " href="<?php echo esc_url($cta_link['url']); ?>" target="<?php echo esc_attr($cta_link['target']); ?>">
 					<?= bb_icon('arrow-right', 'icon-base') ?>
 					<?php echo esc_html($cta_link['title']); ?></a>
 				<?php endif; ?>
@@ -39,15 +39,15 @@ $projects = new WP_Query($args);
 <?php the_content(); ?>
 <div x-data="{selectedFilter: ''}">
 	<div class="btn-group container mb-5 lg:mb-10">
-		<button x-on:click="selectedFilter=''" class="btn btn-primary btn-sm btn-hollow" :class="{'!bg-primary !text-white': !selectedFilter}" type="button">Alle</button>
+		<button x-on:click="selectedFilter=''" class="btn btn-outline" :class="{'btn-active': !selectedFilter}" type="button">Alle</button>
 
 		<?php
   $terms = get_terms([
   	'taxonomy' => 'project_types',
-  	'hide_empty' => true,
+  	'hide_empty' => true
   ]);
   foreach ($terms as $term): ?>
-	<button x-on:click="selectedFilter='<?php echo $term->slug; ?>'" class="btn btn-primary btn-sm btn-hollow" :class="{'!bg-primary !text-white': selectedFilter == '<?php echo $term->slug; ?>'}" type="button"><?php echo $term->name; ?></button>
+	<button x-on:click="selectedFilter='<?php echo $term->slug; ?>'" class="btn btn-outline" :class="{'btn-active': selectedFilter == '<?php echo $term->slug; ?>'}" type="button"><?php echo $term->name; ?></button>
 	<?php endforeach;
   ?>
 </div>
@@ -62,7 +62,7 @@ $projects = new WP_Query($args);
  		' ',
  		array_map(function ($term) {
  			return $term->slug;
- 		}, $terms),
+ 		}, $terms)
  	);
  endif;
  ?>

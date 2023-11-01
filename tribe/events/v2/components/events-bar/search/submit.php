@@ -14,9 +14,9 @@
  */
 ?>
 <button
-	class="tribe-common-c-btn tribe-events-c-search__button btn btn-base m-0"
+	class="tribe-common-c-btn tribe-events-c-search__button btn m-0"
 	type="submit"
 	name="submit-bar"
 >
-	<?php printf( esc_html__( 'Find %s', 'the-events-calendar' ), tribe_get_event_label_plural() ); ?>
+	<?php printf(esc_html__('Find %s', 'the-events-calendar'), tribe_get_event_label_plural()); ?>
 </button>

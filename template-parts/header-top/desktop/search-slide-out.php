@@ -5,7 +5,7 @@
     <input type="submit" alt="Search" value="Suchen" class="btn btn-sm mb-0" />
   </form>
   </div>
-  <button class="btn btn-primary btn-ghost btn-icon-only !text-black" x-on:click="open = ! open; $nextTick(() => $refs.searchInput.focus())">
+  <button class="btn  btn-ghost !text-black" x-on:click="open = ! open; $nextTick(() => $refs.searchInput.focus())">
   <span class="sr-only">Toggle Search Input</span><?php echo bb_icon('search', 'icon-sm'); ?>
   </button>
 </div>

@@ -17,5 +17,5 @@ input[type='checkbox'] {
 	@apply rounded border-gray-300 text-primary shadow-sm focus:border-focus-300 focus:ring focus:ring-offset-0 focus:ring-focus-200 focus:ring-opacity-50;
 }
 input[type='submit'] {
-	@apply btn btn-base;
+	@apply btn;
 }

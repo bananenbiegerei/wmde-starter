@@ -18,7 +18,7 @@
 		}
 
 		.comment-reply-link {
-			@apply btn btn-base no-underline;
+			@apply btn no-underline;
 		}
 	}
 
@@ -35,7 +35,7 @@
 	}
 
 	#cancel-comment-reply-link {   
-		@apply btn btn-base no-underline btn-hollow;
+		@apply btn no-underline btn-outline;
 	}
 
 	&-form-cookies-consent {

@@ -20,7 +20,7 @@ document.addEventListener('alpine:init', () => {
   <?php get_template_part('template-parts/header-top/titlebar_content'); ?>
   <div class="block flex-none" x-data="navMenuMobileToggle">
   <!-- Using the Alpine.store ($store) to save the state of the site header. -->
-  <button class="btn btn-primary btn-ghost btn-lg btn-icon" x-on:click="$store.open_mobile_nav = ! $store.open_mobile_nav; toggleNav()">
+  <button class="btn  btn-ghost btn-lg btn-icon" x-on:click="$store.open_mobile_nav = ! $store.open_mobile_nav; toggleNav()">
     <?= bb_icon('menu-alt-2', '') ?>
   </button>
   </div>

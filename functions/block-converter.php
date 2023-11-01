@@ -30,7 +30,7 @@ class bbBlockConverter
 		'core-embed/youtube',
 		'freeform',
 		'gallery',
-		'media-text',
+		'media-text'
 	];
 	// Number of 'core/paragraph' blocks to bundle together in an 'acf/paragraph' block
 	private $paragraph_buffer_block_max_length = 4;
@@ -231,10 +231,10 @@ class bbBlockConverter
 							'field_63ef9861a9a68' => $match[3] ?? null, // ID for anchor nav
 							'field_6399a788bde81' => 'default', // size
 							'field_63f346930b9b5' => 0, // has_bg_color
-							'field_63e3a8189c006' => '#ffffff', // bg_color
+							'field_63e3a8189c006' => '#ffffff' // bg_color
 						],
-						'mode' => 'auto',
-					],
+						'mode' => 'auto'
+					]
 				];
 				break;
 
@@ -245,10 +245,10 @@ class bbBlockConverter
 						'name' => 'acf/paragraph',
 						'data' => [
 							'field_6332e57c9e5c2' => trim($block['innerHTML']),
-							'field_6332e7ddefe75' => 'default',
+							'field_6332e7ddefe75' => 'default'
 						],
-						'mode' => 'auto',
-					],
+						'mode' => 'auto'
+					]
 				];
 				break;
 
@@ -261,10 +261,10 @@ class bbBlockConverter
 						'name' => 'acf/paragraph',
 						'data' => [
 							'field_6332e57c9e5c2' => trim(render_block($block)),
-							'field_6332e7ddefe75' => 'default',
+							'field_6332e7ddefe75' => 'default'
 						],
-						'mode' => 'auto',
-					],
+						'mode' => 'auto'
+					]
 				];
 				break;
 
@@ -275,10 +275,10 @@ class bbBlockConverter
 						'name' => 'acf/image',
 						'data' => [
 							'image' => $block['attrs']['id'],
-							'_image' => 'field_6328565a67504',
+							'_image' => 'field_6328565a67504'
 						],
-						'mode' => 'auto',
-					],
+						'mode' => 'auto'
+					]
 				];
 				break;
 
@@ -295,10 +295,10 @@ class bbBlockConverter
 						'name' => 'acf/blockquote',
 						'data' => [
 							'field_632dac8f25165' => $quote,
-							'field_63fc870875578' => $source,
+							'field_63fc870875578' => $source
 						],
-						'mode' => 'auto',
-					],
+						'mode' => 'auto'
+					]
 				];
 				break;
 
@@ -308,10 +308,10 @@ class bbBlockConverter
 					'attrs' => [
 						'name' => 'acf/spacer',
 						'data' => [
-							'field_63ee0802c943c' => 'base', // height
+							'field_63ee0802c943c' => 'base' // height
 						],
-						'mode' => 'auto',
-					],
+						'mode' => 'auto'
+					]
 				];
 				break;
 
@@ -341,12 +341,12 @@ class bbBlockConverter
 							'display_color' => 'primary',
 							'display_icon' => 'none',
 							'display_position' => 'justify-start',
-							'display_size' => 'btn-base',
+							'display_size' => '',
 							'display_style' => 'btn',
-							'link' => ['title' => strip_tags($match[3]) ?? 'Missing Title', 'url' => $match[2] ?? '#', 'target' => ''],
+							'link' => ['title' => strip_tags($match[3]) ?? 'Missing Title', 'url' => $match[2] ?? '#', 'target' => '']
 						],
-						'mode' => 'auto',
-					],
+						'mode' => 'auto'
+					]
 				];
 				break;
 
@@ -369,10 +369,10 @@ class bbBlockConverter
 							'display_position' => 'justify-start',
 							'display_size' => 'btn-base',
 							'display_style' => 'btn',
-							'link' => $block['attrs']['data']['link'],
+							'link' => $block['attrs']['data']['link']
 						],
-						'mode' => 'auto',
-					],
+						'mode' => 'auto'
+					]
 				];
 				break;
 

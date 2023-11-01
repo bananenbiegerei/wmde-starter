@@ -8,18 +8,18 @@
 	<button type="button" class="btn btn-xl">Button text</button>
 	<hr>
 	<h4>Default Buttons hollow</h4>
-	<button type="button" class="btn btn-xs btn-hollow">Button text</button>
-	<button type="button" class="btn btn-sm btn-hollow">Button text</button>
-	<button type="button" class="btn btn-hollow">Button text</button>
-	<button type="button" class="btn btn-lg btn-hollow">Button text</button>
-	<button type="button" class="btn btn-xl btn-hollow">Button text</button>
+	<button type="button" class="btn btn-xs btn-outline">Button text</button>
+	<button type="button" class="btn btn-sm btn-outline">Button text</button>
+	<button type="button" class="btn btn-outline">Button text</button>
+	<button type="button" class="btn btn-lg btn-outline">Button text</button>
+	<button type="button" class="btn btn-xl btn-outline">Button text</button>
 	<hr>
 	<h4>Default Buttons ghost</h4>
-	<button type="button" class="btn btn-xs btn-primary btn-ghost">Button text</button>
-	<button type="button" class="btn btn-sm btn-primary btn-ghost">Button text</button>
-	<button type="button" class="btn btn-primary btn-ghost">Button text</button>
-	<button type="button" class="btn btn-lg btn-primary btn-ghost">Button text</button>
-	<button type="button" class="btn btn-xl btn-primary btn-ghost">Button text</button>
+	<button type="button" class="btn btn-xs  btn-ghost">Button text</button>
+	<button type="button" class="btn btn-sm  btn-ghost">Button text</button>
+	<button type="button" class="btn  btn-ghost">Button text</button>
+	<button type="button" class="btn btn-lg  btn-ghost">Button text</button>
+	<button type="button" class="btn btn-xl  btn-ghost">Button text</button>
 	<hr>
 	<h4>Default Buttons with icons</h4>
 	<button type="button" class="btn btn-xs btn-icon">
@@ -58,19 +58,19 @@
 		Button text
 	</button>
 	<h4>Default Buttons</h4>
-	<button type="button" class="btn btn-xs btn-icon-only">
+	<button type="button" class="btn btn-xs ">
 		<svg class="icon-xs" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-sm btn-icon-only">
+	<button type="button" class="btn btn-sm ">
 		<svg  class="icon-sm" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-icon-only">
+	<button type="button" class="btn ">
 		<svg class="" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-lg btn-icon-only">
+	<button type="button" class="btn btn-lg ">
 		<svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
-	<button type="button" class="btn btn-xl btn-icon-only">
+	<button type="button" class="btn btn-xl ">
 		<svg class="icon-xl" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.5v15m7.5-7.5h-15"/></svg>
 	</button>
 	<hr>
