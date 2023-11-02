@@ -99,7 +99,7 @@
 
     /* Menu */
     &-menu {
-        @apply rounded-md inline-flex select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent text-black font-alt font-medium border-white hover:bg-gray;
+        @apply rounded-md inline-flex select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent text-black font-alt font-medium hover:bg-gray hover:border-gray;
 
         &.current {
             @apply text-primary-500;
@@ -317,9 +317,9 @@
 }
 
 /* group */
-// .btn-menu-section {
-//     @apply text-base bg-transparent text-black font-alt font-bold uppercase border-none hover:bg-transparent hover:text-primary-800 rounded-md;
-// }
+.btn-menu-section {
+    @apply text-sm bg-transparent text-black font-alt font-bold uppercase border-none hover:bg-transparent hover:text-primary-800 rounded-md;
+}
 
 .btn-group {
     @apply gap-2;
