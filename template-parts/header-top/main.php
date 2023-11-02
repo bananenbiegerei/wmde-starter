@@ -11,14 +11,14 @@
 </script>
 
 <!-- Header for screen readers -->
-<header role="banner" aria-label="<?= __('Menü', BB_TEXT_DOMAIN) ?>" class="container flex sr-only">
+<header role="banner" aria-label="<?= __('Menü', BB_TEXT_DOMAIN) ?>" class="sr-only">
   <!-- Navigation menu -->
   <?php wp_nav_menu([ 'walker' => new Aria_Walker_Nav_Menu(),'menu' => 'top', 'container' => false, 'items_wrap' => '<ul role="navigation" aria-label="' . __('Navigationsmenü', BB_TEXT_DOMAIN) . '">%3$s</ul>' ]); ?>
   <!-- Search -->
   <form action="<?= $search_url ?>" method="get" aria-label="<?= __('Wikimedia Deutschland suchen', BB_TEXT_DOMAIN)?>">
   <label for="aria_search"><?= __('Suchanfrage', BB_TEXT_DOMAIN)?></label>
   <input id="aria_search" type="text" name="s" value="<?php the_search_query(); ?>" />
-  <input type="submit" value="Suchen" class="btn btn-sm mb-0" />
+  <input type="submit" value="Suchen" />
   </form>
   <!-- Jump to main content -->
   <a href="#main-content"><?= __('Zum Inhalt überspringen', BB_TEXT_DOMAIN) ?></a>
