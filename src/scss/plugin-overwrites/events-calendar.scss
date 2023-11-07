@@ -72,4 +72,19 @@
 	ul.select2-results__options {
 		@apply flex flex-col gap-3;
 	}
+	.tribe-filter-bar-c-filter__toggle-icon {
+		&.tribe-filter-bar-c-filter__toggle-icon--minus {
+			@apply hidden;
+		}
+	}
+}
+
+// Notices
+.tribe-events-c-messages__message {
+	&.tribe-events-c-messages__message--notice {
+		@apply rounded-xl bg-red-100 border border-red p-5 my-10;
+		svg {
+				@apply hidden;
+			}
+	}
 }
