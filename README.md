@@ -135,5 +135,7 @@ For development run `npm run dev`.
 For building (for production site) run `npm run build`.
 
 For creating an archive to install the theme run `npm run package`. A zip will be created in `dist` with a timestamped theme version. Note that this will also delete all symbolic links in the `acf-json` directory.
+Upload zip file to bb server. You wll find a directory called updates/themes. Upload and rename the zip file on server to only "wmde".
+Go to wordpress instance -> themes. Mark the theme and check for updates. Then update.
 
 _Do not manually upload files to the live server. Install the theme in the backend with the zipfile (unless it's for an emergency fix)._
