@@ -139,3 +139,12 @@ Upload zip file to bb server. You wll find a directory called updates/themes. Up
 Go to wordpress instance -> themes. Mark the theme and check for updates. Then update.
 
 _Do not manually upload files to the live server. Install the theme in the backend with the zipfile (unless it's for an emergency fix)._
+
+## Fork for WMDE projects
+
+To recycle the wmde theme for different projects you can for the wmde theme.
+
+1. Fork the main repo: got to bitbucket and fork there
+2. Clone the forked repo
+3. Install blocks submodule: ``` git submodule update --init --recursive ```
+4. Cleanup unecessary file
