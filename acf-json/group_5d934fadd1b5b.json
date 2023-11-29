@@ -166,11 +166,11 @@
             "endpoint": 0
         },
         {
-            "key": "field_64dc7dea6aeff",
-            "label": "Headline",
-            "name": "social_headline",
+            "key": "field_6566f888ab70b",
+            "label": "Social Media Links",
+            "name": "social_media_links",
             "aria-label": "",
-            "type": "text",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -179,96 +179,60 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Wikimedia folgen",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_64dc7e306af00",
-            "label": "Instagram",
-            "name": "social_instagram",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "https:\/\/www.instagram.com\/wikimedia_de\/",
-            "placeholder": ""
-        },
-        {
-            "key": "field_64dc7e496af01",
-            "label": "Twitter",
-            "name": "social_twitter",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "https:\/\/twitter.com\/WikimediaDE",
-            "placeholder": ""
-        },
-        {
-            "key": "field_64dc7e5c6af02",
-            "label": "LinkedIn",
-            "name": "social_linkedin",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "https:\/\/www.linkedin.com\/company\/wikimedia-deutschland-e-v-\/",
-            "placeholder": ""
-        },
-        {
-            "key": "field_64dc7e736af03",
-            "label": "Facebook",
-            "name": "social_facebook",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "https:\/\/www.facebook.com\/WikimediaDE",
-            "placeholder": ""
-        },
-        {
-            "key": "field_64dc7e9d6af04",
-            "label": "Mastodon",
-            "name": "social_mastodon",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "https:\/\/social.wikimedia.de\/@wikimediaDE\/",
-            "placeholder": ""
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Eintrag hinzufügen",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_6566f89dab70c",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_6566f888ab70b"
+                },
+                {
+                    "key": "field_6566f8c5ab70d",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "translations": "copy_once",
+                    "parent_repeater": "field_6566f888ab70b"
+                }
+            ]
         },
         {
             "key": "field_64dc8273fb503",
@@ -356,5 +320,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692177138
+    "modified": 1701249965
 }
