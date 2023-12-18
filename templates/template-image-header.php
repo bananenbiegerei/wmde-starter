@@ -5,10 +5,7 @@ Template Name: Big Image Header
 get_header(); ?>
 <?php while (have_posts()): ?>
 <?php the_post(); ?>
-<h1>display test</h1>
-<?php
-	//get_template_part('template-parts/page-header-image');
-	?>
+<?php get_template_part('template-parts/page-header-image'); ?>
 <div class="content pt-10">
     <?php the_content(); ?>
 </div>
