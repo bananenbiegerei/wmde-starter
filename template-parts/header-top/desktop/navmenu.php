@@ -232,7 +232,7 @@ document.addEventListener('alpine:init', () => {
 
                         <!-- Pages -->
                         <template x-if="domain.pages.length > 0">
-                            <ul class="items-stretch justify-items-stretch">
+                            <ul class="items-stretch justify-items-stretch py-1">
                                 <template x-for="page in domain.pages">
                                     <li class="bg-white transition rounded-md"
                                         x-bind:class="{'current': pageID == page.ID }">

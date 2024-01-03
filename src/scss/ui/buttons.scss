@@ -81,7 +81,7 @@
     &:active:hover,
     &:active:focus {
         animation: button-pop 0s ease-out;
-        transform: scale(var(--btn-600-scale, 0.97));
+        transform: scale(var(--btn-600-scale, 0.98));
     }
 
     /* default btn */
