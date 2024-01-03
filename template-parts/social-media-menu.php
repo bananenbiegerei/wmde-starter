@@ -1,5 +1,5 @@
 <?php if (have_rows('social_media_links', 'option')): ?>
-<ul class="list-none flex items-center">
+<ul class="list-none flex items-center -mx-3 lg:mx-0">
     <?php while (have_rows('social_media_links', 'option')):
     	the_row(); ?>
     <?php
