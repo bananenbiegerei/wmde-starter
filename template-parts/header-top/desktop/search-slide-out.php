@@ -11,11 +11,11 @@
             <input type="submit" alt="Search" value="Suchen" class="btn btn-sm mb-0" />
         </form>
     </div>
-    <button class="btn btn-secondary ml-3" x-on:click="open = ! open; $nextTick(() => $refs.searchInput.focus())">
+    <button class="btn btn-ghost ml-3" x-on:click="open = ! open; $nextTick(() => $refs.searchInput.focus())">
         <span class="sr-only">Toggle Search Input</span><?php echo bb_icon('search', 'icon-sm'); ?>
-        <span class="border rounded border-gray-200 text-gray-400 p-1 text-sm flex items-center">
+        <?/*<span class="border rounded border-gray-200 text-gray-400 p-1 text-sm flex items-center">
             <?php echo bb_icon('command', 'icon-xs'); ?>
-            <span>K</span>
-        </span>
+        <span>K</span>
+        </span>*/?>
     </button>
 </div>
