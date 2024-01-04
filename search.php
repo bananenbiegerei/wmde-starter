@@ -38,7 +38,7 @@ function bb_search_get_result_array()
   $post_types[$post_type] = $post_type_label;
   $count[$post_type] = ($count[$post_type] ?? 0) + 1;
   // Find a suitable thumbnail ID for the post (post or front page or blog page)
-  $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail() : $fallback_thumbnail;
+  $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail(null, 'medium', ['class' => 'rounded-t-3xl object-cover w-full h-full overflow-hidden']) : $fallback_thumbnail;
   return [
     'blog_id' => get_current_blog_id(),
     'post_id' => get_the_ID(),
