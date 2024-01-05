@@ -5,6 +5,9 @@
 		display: none !important;
 	}
 
+	.nohover\:flex {
+		display: flex !important;
+	}
 	.nohover\:pt-12.md\:pt-0 {
 		@apply pt-12;
 	}
@@ -15,9 +18,5 @@
 
 	.md\:hidden.nohover\:block {
 		display: block;
-	}
-
-	.nohover\:mb-16 {
-		@apply mb-16;
 	}
 }
