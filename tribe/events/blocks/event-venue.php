@@ -13,15 +13,15 @@
  *
  */
 
-$event_id = $this->get( 'post_id' );
+$event_id = $this->get('post_id');
 
 $map = tribe_embed_google_map() ? 'tribe-block__venue--has-map' : '';
 ?>
-<div class="tribe-block tribe-block__venue border-0 p-0 <?php echo esc_attr( $map ); ?>">
-	<?php do_action( 'tribe_events_single_event_meta_secondary_section_start' ); ?>
+<div class="tribe-block tribe-block__venue border-0 m-0 p-0 <?php echo esc_attr($map); ?>">
+    <?php do_action('tribe_events_single_event_meta_secondary_section_start'); ?>
 
-	<?php $this->template( 'blocks/parts/venue' ); ?>
-	<?php $this->template( 'blocks/parts/map' ); ?>
+    <?php $this->template('blocks/parts/venue'); ?>
+    <?php $this->template('blocks/parts/map'); ?>
 
-	<?php do_action( 'tribe_events_single_event_meta_secondary_section_end' ); ?>
+    <?php do_action('tribe_events_single_event_meta_secondary_section_end'); ?>
 </div>

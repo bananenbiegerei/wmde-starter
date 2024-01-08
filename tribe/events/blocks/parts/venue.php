@@ -13,47 +13,46 @@
  *
  */
 
-if ( ! tribe_get_venue_id() ) {
+if (!tribe_get_venue_id()) {
 	return;
 }
-$attributes = $this->get( 'attributes', [] );
+$attributes = $this->get('attributes', []);
 
-$phone   = tribe_get_phone();
+$phone = tribe_get_phone();
 $website = tribe_get_venue_website_link();
-
 ?>
 
 <div class="tribe-block__venue__meta bg-gray rounded p-5 h-full">
-	<h3>Ort</h3>
-	<div class="">
-		<div class="tribe-block__venue__name">
-			<h3><?php echo tribe_get_venue_link() ?></h3>
-		</div>
-		
-		<?php do_action( 'tribe_events_single_meta_venue_section_start' ) ?>
-		
-		<?php if ( tribe_address_exists() ) : ?>
-			<address class="tribe-block__venue__address">
-				
-				
-				<?php echo tribe_get_address(); ?><br>
-				<?php echo tribe_get_city(); ?>
-				<?php echo tribe_get_zip(); ?>
-				<?php echo tribe_get_country(); ?>
-				<?php if ( tribe_show_google_map_link() ) : ?>
-					<?php echo tribe_get_map_link_html(); ?>
-				<?php endif; ?>
-			</address>
-		<?php endif; ?>
-		
-		<?php if ( ! empty( $phone ) ) : ?>
-			<span class="tribe-block__venue__phone"><?php echo $phone ?></span><br />
-		<?php endif ?>
-		
-		<?php if ( ! empty( $website ) ) : ?>
-			<span class="tribe-block__venue__website underline"><?php echo $website ?></span><br />
-		<?php endif ?>
-		
-		<?php do_action( 'tribe_events_single_meta_venue_section_end' ) ?>
-	</div>
+    <h3><?php _e('Ort', BB_TEXT_DOMAIN); ?></h3>
+    <div class="">
+        <div class="tribe-block__venue__name">
+            <h3><?php echo tribe_get_venue_link(); ?></h3>
+        </div>
+
+        <?php do_action('tribe_events_single_meta_venue_section_start'); ?>
+
+        <?php if (tribe_address_exists()): ?>
+        <address class="tribe-block__venue__address">
+
+
+            <?php echo tribe_get_address(); ?><br>
+            <?php echo tribe_get_city(); ?>
+            <?php echo tribe_get_zip(); ?>
+            <?php echo tribe_get_country(); ?>
+            <?php if (tribe_show_google_map_link()): ?>
+            <?php echo tribe_get_map_link_html(); ?>
+            <?php endif; ?>
+        </address>
+        <?php endif; ?>
+
+        <?php if (!empty($phone)): ?>
+        <span class="tribe-block__venue__phone"><?php echo $phone; ?></span><br />
+        <?php endif; ?>
+
+        <?php if (!empty($website)): ?>
+        <span class="tribe-block__venue__website underline"><?php echo $website; ?></span><br />
+        <?php endif; ?>
+
+        <?php do_action('tribe_events_single_meta_venue_section_end'); ?>
+    </div>
 </div>

@@ -17,15 +17,15 @@
                 <?php if (have_rows('call_to_actions_in_header')): ?>
                 <div class="mb-10">
                     <?php while (have_rows('call_to_actions_in_header')):
-       	the_row(); ?>
+                    	the_row(); ?>
                     <?php
-      $link = get_sub_field('link') ? get_sub_field('link') : ['title' => 'Missing Link!', 'url' => '#', 'target' => '_self'];
-      $icon = get_sub_field('display')['icon'];
-      $color = get_sub_field('display')['color_dark'] ?? 'primary';
-      if ($color == 'default') {
-      	$color = 'primary';
-      }
-      ?>
+                    $link = get_sub_field('link') ? get_sub_field('link') : ['title' => 'Missing Link!', 'url' => '#', 'target' => '_self'];
+                    $icon = get_sub_field('display')['icon'];
+                    $color = get_sub_field('display')['color_dark'] ?? 'primary';
+                    if ($color == 'default') {
+                    	$color = 'primary';
+                    }
+                    ?>
                     <div class="flex">
                         <a class="btn btn-<?= $color ?> <?= $icon ? '' : '' ?>" href="<?= esc_url($link['url']) ?>"
                             target="<?= esc_attr($link['target']) ?>">
@@ -34,7 +34,7 @@
                         </a>
                     </div>
                     <?php
-       endwhile; ?>
+                    endwhile; ?>
                 </div>
                 <?php endif; ?>
             </div>
@@ -55,7 +55,7 @@
             <?php if (have_rows('call_to_actions_in_header')): ?>
             <div class="">
                 <?php while (have_rows('call_to_actions_in_header')):
-       	the_row(); ?>
+                	the_row(); ?>
                 <?php $cta_link = get_sub_field('cta_link'); ?>
                 <?php if ($cta_link): ?>
                 <a class="btn " href="<?php echo esc_url($cta_link['url']); ?>"
@@ -64,7 +64,7 @@
                     <?php echo esc_html($cta_link['title']); ?></a>
                 <?php endif; ?>
                 <?php
-       endwhile; ?>
+                endwhile; ?>
             </div>
             <?php endif; ?>
         </div>
