@@ -1,14 +1,14 @@
 <?php
 get_header(); ?>
-<div class="bg-primary p-5">
+<div class="bg-primary py-5 nohover:mt-20">
     <div class="container">
         <a href="<?php echo get_permalink('123'); ?>">
-            <img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimove/wikimove-logo.png"
-                alt="Logo">
+            <img class="max-w-[160px] lg:max-w-xs h-auto max-h-[80px] lg:max-h-44 w-auto"
+                src="<?php echo get_stylesheet_directory_uri(); ?>/img/wikimove/wikimove-logo.png" alt="Logo">
         </a>
     </div>
 </div>
-<div class="bg-primary-200 p-5">
+<div class="bg-primary-200 py-5">
     <div class="container">
         <h1 class="h4 uppercase"><?php the_title(); ?></h1>
         <?php if (get_field('embeded_player')): ?>

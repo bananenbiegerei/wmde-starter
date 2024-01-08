@@ -41,72 +41,41 @@
                     "return_format": "array",
                     "translations": "copy_once",
                     "parent_repeater": "field_643e8e2babb79"
-                },
-                {
-                    "key": "field_6529110f991ff",
-                    "label": "Style",
-                    "name": "display",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "wp-typography": "none",
-                    "layout": "row",
-                    "sub_fields": [
-                        {
-                            "key": "field_6529110f9bded",
-                            "label": "Icon",
-                            "name": "icon",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_63fdddbc600fd"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_6529110f9bdf1",
-                            "label": "Color",
-                            "name": "color",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_642400595d82a"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "parent_repeater": "field_643e8e2babb79"
                 }
             ]
+        },
+        {
+            "key": "field_659c20f4c6117",
+            "label": "Page Logo",
+            "name": "page_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "If there is a custom logo – e.g. Wikimove – you could add that here.\r\nPlease also use only for page template with big image.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_643e8e2babb79",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "translations": "copy_once",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -127,5 +96,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1697190312
+    "modified": 1704732892
 }
