@@ -7,12 +7,6 @@ function clog($var)
   echo "<script>console.log($json)</script>";
 }
 
-// Test if this is a production server
-function is_production_server()
-{
-  return !file_exists(ABSPATH . '#NOT_PROD#');
-}
-
 // Enable ACF options page
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page();
