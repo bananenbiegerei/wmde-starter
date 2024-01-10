@@ -51,6 +51,32 @@
             "translations": "copy_once",
             "allow_null": 0,
             "layout": "horizontal"
+        },
+        {
+            "key": "field_659e6454bbc89",
+            "label": "Page Logo",
+            "name": "page_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "If there is a specific logo for that page it can be placed on the header image.\r\nAs needed for Wikimove start page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "translations": "copy_once",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -71,5 +97,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1704733989
+    "modified": 1704879385
 }
