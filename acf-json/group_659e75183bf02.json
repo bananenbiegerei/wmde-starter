@@ -1,10 +1,10 @@
 {
-    "key": "group_62ac6e3547d3b",
-    "title": "Posts: Wikimove Podcasts",
+    "key": "group_659e75183bf02",
+    "title": "Post Type: Podcasts",
     "fields": [
         {
-            "key": "field_62b2b84710767",
-            "label": "embeded player",
+            "key": "field_659e7518587d2",
+            "label": "Embeded Player",
             "name": "embeded_player",
             "aria-label": "",
             "type": "textarea",
@@ -17,9 +17,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "translations": "translate",
             "maxlength": "",
             "rows": "",
+            "placeholder": "",
             "new_lines": ""
         }
     ],
@@ -32,7 +33,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 1,
     "position": "side",
     "style": "default",
     "label_placement": "top",
@@ -41,5 +42,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1702899717
+    "modified": 1704883632
 }
