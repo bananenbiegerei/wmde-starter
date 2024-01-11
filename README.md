@@ -68,6 +68,10 @@ Once you're done with the changes, delete the group in the backend. It will be r
 
 NOTE: _Make sure to NOT commit the symlinks to the repo!_
 
+Adding new Blocks:
+@EL ?
+@EL, do I have to edit init.json if I add new blocks?
+
 ## String Translations
 
 The theme will set the constant `BB_TEXT_DOMAIN` to the value setup in `style.css`. When using localization functions, make sure to use `BB_TEXT_DOMAIN` as the text domain. For example:
