@@ -2,6 +2,25 @@ import * as TW from './tailwindhelpers';
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
 import Swiper, { Navigation, Autoplay, Pagination, Mousewheel } from 'swiper';
+import Swup from 'swup';
+import SwupFragmentPlugin from '@swup/fragment-plugin';
+
+new Swup({
+	containers: ['#main-content'],
+	// plugins: [
+	// 	new SwupFragmentPlugin({
+	// 		debug: true,
+	// 		rules: [
+	// 			{
+	// 				from: '/',
+	// 				to: '/',
+	// 				containers: ['#main-content'],
+	// 				name: 'open-modal',
+	// 			},
+	// 		],
+	// 	}),
+	// ],
+});
 
 // Init Alpine
 window.Alpine = Alpine;

@@ -1,0 +1,9 @@
+/* Define a transition duration during page visits */
+html.is-changing .transition-fade {
+    @apply transition-opacity duration-100 opacity-100;
+}
+
+/* Define the styles for the unloaded pages */
+html.is-animating .transition-fade {
+    @apply opacity-0;
+}
