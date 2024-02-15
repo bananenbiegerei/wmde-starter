@@ -1,5 +1,12 @@
 <?php
 
+/* Menus
+  In this theme the content main menu will always be fetched from the main site.
+
+  FIXME: Add an option to disable defaulting to menu from main site?
+
+*/
+
 define('BB_NAV_MENU_FEATURED', 'Featured');
 define('BB_NAV_MENU_CACHE', 'bb_nav_menu_');
 define('BB_NAV_MENU_CACHE_TIMEOUT', 72 * HOUR_IN_SECONDS);
@@ -13,7 +20,8 @@ add_action('init', function () {
   register_nav_menus($locations);
 });
 
-// Replace menu editor with notice
+
+// Replace menu editor with notice to edit menu on the main site
 if (is_multisite() && get_current_blog_id() != 1) {
   add_action(
     'admin_enqueue_scripts',
@@ -26,8 +34,7 @@ if (is_multisite() && get_current_blog_id() != 1) {
   );
 }
 
-
-// Get the menus from the main site
+// Get the menus from the main site (used for the footer menu)
 function bb_wp_nav_menu($args)
 {
   if (is_multisite()) {
@@ -41,7 +48,7 @@ function bb_wp_nav_menu($args)
   }
 }
 
-// Get menu data in a JSON structure for the dropdown menu
+// Get menu data in a JSON structure for the nav top dropdown menu
 function bb_get_nav_menu($location = 'nav', $use_main = true)
 {
 
