@@ -7,19 +7,30 @@ import SwupFragmentPlugin from '@swup/fragment-plugin';
 
 new Swup({
 	containers: ['#main-content'],
-	// plugins: [
-	// 	new SwupFragmentPlugin({
-	// 		debug: true,
-	// 		rules: [
-	// 			{
-	// 				from: '/',
-	// 				to: '/',
-	// 				containers: ['#main-content'],
-	// 				name: 'open-modal',
-	// 			},
-	// 		],
-	// 	}),
-	// ],
+	plugins: [
+		new SwupFragmentPlugin({
+			debug: true,
+			rules: [
+				{
+					from: '/',
+					to: '/detail-(.*)',
+					containers: ['#modal'],
+					name: 'open-modal',
+				},
+				{
+					from: '/detail-(.*)',
+					to: '/',
+					containers: ['#modal'],
+					name: 'close-modal',
+				},
+				{
+					from: '/detail-(.*)',
+					to: '/detail-(.*)',
+					containers: ['#detail'],
+				},
+			],
+		}),
+	],
 });
 
 // Init Alpine
