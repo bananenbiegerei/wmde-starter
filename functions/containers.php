@@ -25,6 +25,7 @@ add_filter(
 		// These blocks get multiple options
 		$inner_container_classes_rules = [
 			// Default for specific blocks
+			'acf/timeline' => ['default' => 'col-span-12'],
 			'acf/livestream' => ['default' => 'col-span-12'],
 			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
