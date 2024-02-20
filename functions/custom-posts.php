@@ -90,14 +90,14 @@ add_action(
 			'show_in_rest' => true
 		]);
 
-		$labels = [
+		$podcasts_labels = [
 			'name' => esc_html__('Podcasts', 'wikimove-podcasts'),
 			'singular_name' => esc_html__('Podcast', 'wikimove-podcasts')
 		];
 
-		$args = [
+		$podcasts_args = [
 			'label' => esc_html__('Podcasts', 'wikimove-podcasts'),
-			'labels' => $labels,
+			'labels' => $podcasts_labels,
 			'description' => '',
 			'public' => true,
 			'publicly_queryable' => true,
@@ -122,7 +122,7 @@ add_action(
 			'show_in_graphql' => false
 		];
 
-		register_post_type('podcast', $args);
+		register_post_type('podcast', $podcasts_args);
 	},
 	0
 );
