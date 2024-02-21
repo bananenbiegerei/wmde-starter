@@ -7,3 +7,13 @@ html.is-changing .transition-fade {
 html.is-animating .transition-fade {
     @apply opacity-0;
 }
+
+
+
+#modal.is-changing {
+    transition: opacity 250ms;
+}
+
+#modal.is-animating {
+    opacity: 0;
+}

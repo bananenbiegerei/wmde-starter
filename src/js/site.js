@@ -13,20 +13,15 @@ new Swup({
 			rules: [
 				{
 					from: '/',
-					to: '/detail-(.*)',
+					to: '/timeline-(.*)',
 					containers: ['#modal'],
 					name: 'open-modal',
 				},
 				{
-					from: '/detail-(.*)',
+					from: '/timeline-(.*)',
 					to: '/',
 					containers: ['#modal'],
 					name: 'close-modal',
-				},
-				{
-					from: '/detail-(.*)',
-					to: '/detail-(.*)',
-					containers: ['#detail'],
 				},
 			],
 		}),
