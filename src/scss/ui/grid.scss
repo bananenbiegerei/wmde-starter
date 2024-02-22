@@ -22,4 +22,7 @@
 	.default {
 		@apply col-start-1 col-span-12;
 	}
+	.outer-container {
+		@apply px-0;
+	}
 }
