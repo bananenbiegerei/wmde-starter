@@ -61,7 +61,7 @@
                     },
                     "default_value": "",
                     "tabs": "all",
-                    "toolbar": "basic",
+                    "toolbar": "wmde",
                     "media_upload": 0,
                     "delay": 0,
                     "parent_repeater": "field_5d8de54e7ce94"

@@ -35,7 +35,7 @@
             },
             "default_value": "",
             "tabs": "all",
-            "toolbar": "basic",
+            "toolbar": "wmde",
             "media_upload": 0,
             "delay": 0
         },
@@ -55,7 +55,7 @@
             },
             "default_value": "",
             "tabs": "all",
-            "toolbar": "basic",
+            "toolbar": "wmde",
             "media_upload": 0,
             "delay": 0
         },
