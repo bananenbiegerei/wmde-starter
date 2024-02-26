@@ -23,11 +23,8 @@ $website = tribe_get_venue_website_link();
 ?>
 
 <div class="tribe-block__venue__meta bg-gray rounded p-5 h-full mb-10">
-    <h3><?php _e('Ort', BB_TEXT_DOMAIN); ?></h3>
     <div class="">
-        <div class="tribe-block__venue__name">
-            <h3><?php echo tribe_get_venue_link(); ?></h3>
-        </div>
+        <h3><?php _e('Ort', BB_TEXT_DOMAIN); ?>: <?php echo tribe_get_venue(); ?></h3>
 
         <?php do_action('tribe_events_single_meta_venue_section_start'); ?>
 
