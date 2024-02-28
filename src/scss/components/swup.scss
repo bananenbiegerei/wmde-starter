@@ -8,10 +8,6 @@ html.is-animating .transition-fade {
     @apply opacity-0;
 }
 
-#swup-modal {
-    @apply fixed top-0 left-0 w-full h-full z-50 bg-red-500;
-}
-
 #swup-modal.is-changing {
     transition: opacity 250ms;
 }

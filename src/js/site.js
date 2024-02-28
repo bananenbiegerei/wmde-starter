@@ -13,12 +13,12 @@ const swup = new Swup({
 			rules: [
 				{
 					from: '/timeline/',
-					to: '/timeline-(.*)',
+					to: '/timeline-item(.*)',
 					containers: ['#swup-modal'],
 					name: 'open-modal',
 				},
 				{
-					from: '/timeline-(.*)',
+					from: '/timeline-item(.*)',
 					to: '/timeline/',
 					containers: ['#swup-modal'],
 					name: 'close-modal',
