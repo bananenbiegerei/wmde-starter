@@ -12,3 +12,4 @@
             <?= get_bloginfo('name') ?>
         </h1>
         <?php endif; ?>
+        <template id="swup-modal"></template>

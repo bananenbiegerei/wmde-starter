@@ -199,6 +199,12 @@ module.exports = {
 							900: '#823b0c',
 							950: '#461b04',
 						},
+						wmde20: {
+							green: '#7CA88B',
+							yellow: '#FAE49B',
+							purple: '#A59DD8',
+							DEFAULT: '#A59DD8',
+						},
 					},
 				},
 			},

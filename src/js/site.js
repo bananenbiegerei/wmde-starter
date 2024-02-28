@@ -5,29 +5,31 @@ import Swiper, { Navigation, Autoplay, Pagination, Mousewheel } from 'swiper';
 import Swup from 'swup';
 import SwupFragmentPlugin from '@swup/fragment-plugin';
 
-new Swup({
+const swup = new Swup({
 	containers: ['#main-content'],
 	plugins: [
 		new SwupFragmentPlugin({
 			debug: true,
 			rules: [
 				{
-					from: '/',
+					from: '/timeline/',
 					to: '/timeline-(.*)',
-					containers: ['#modal'],
+					containers: ['#swup-modal'],
 					name: 'open-modal',
 				},
 				{
 					from: '/timeline-(.*)',
-					to: '/',
-					containers: ['#modal'],
+					to: '/timeline/',
+					containers: ['#swup-modal'],
 					name: 'close-modal',
 				},
 			],
 		}),
 	],
 });
-
+swup.hooks.on('visit:start', (visit) => {
+	console.log(visit);
+});
 // Init Alpine
 window.Alpine = Alpine;
 Alpine.plugin(focus);
