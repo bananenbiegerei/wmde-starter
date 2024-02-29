@@ -4,7 +4,8 @@
         <!-- Back, Post Title & Top Line -->
         <div class="lg:col-span-10 lg:col-start-2">
             <a class="flex items-center gap-2"
-                href="<?php echo get_home_url(); ?>"><?= bb_icon('arrow-left', 'icon-xs') ?> <?php _e('zurück'); ?></a>
+                href="javascript:window.history.back();"><?= bb_icon('arrow-left', 'icon-xs') ?>
+                <?php _e('zurück'); ?></a>
             <?php if (get_field('topline')): ?>
             <h2 class="topline mb-0 mt-5"><?php the_field('topline'); ?></h2>
             <?php endif; ?>
