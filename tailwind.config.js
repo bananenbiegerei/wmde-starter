@@ -17,6 +17,10 @@ module.exports = {
 			// BG colors for team members
 			pattern: /bg-(pale(rose|purple|peach|cyan|pink|blue|green)|default)$/,
 		},
+		{
+			// BG for 20 years wmde birthday
+			pattern: /bg-wmde20-(green|yellow|purple|white)$/,
+		},
 	],
 	theme: {
 		screens: {
@@ -60,6 +64,7 @@ module.exports = {
 			boxShadow: {
 				xl: '0 0px 60px -15px rgba(0, 0, 0, 0.3)',
 				navbar: '0 8px 30px rgb(0,0,0,0.12);',
+				hard: '-10px 10px 0 0 rgb(0,0,0,1);',
 			},
 			maxWidth: {
 				32: '8rem',
@@ -203,6 +208,7 @@ module.exports = {
 							green: '#7CA88B',
 							yellow: '#FAE49B',
 							purple: '#A59DD8',
+							white: '#fff',
 							DEFAULT: '#A59DD8',
 						},
 					},
