@@ -1,6 +1,6 @@
 {
     "key": "group_65ce2550142f5",
-    "title": "Template: Timeline Item",
+    "title": "Post Type: Timeline Item",
     "fields": [
         {
             "key": "field_65ce25509a38a",
@@ -22,9 +22,56 @@
             "translations": "copy_once"
         },
         {
-            "key": "field_65d372a6b3fa5",
-            "label": "Audio",
+            "key": "field_65df54d6b4e94",
+            "label": "Custom Color",
+            "name": "custom_color",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "white",
+                "green": "green",
+                "yellow": "yellow",
+                "purple": "purple"
+            },
+            "default_value": "white",
+            "return_format": "value",
+            "translations": "copy_once",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_65df63b6d7362",
+            "label": "audio",
             "name": "audio",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "translations": "copy_once",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_65df63dcd7363",
+            "label": "video",
+            "name": "video",
             "aria-label": "",
             "type": "file",
             "instructions": "",
@@ -46,9 +93,9 @@
     "location": [
         [
             {
-                "param": "post_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "templates\/template-timeline-item.php"
+                "value": "timeline-item"
             }
         ]
     ],
@@ -61,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1708356314
+    "modified": 1709138918
 }
