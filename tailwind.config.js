@@ -72,6 +72,9 @@ module.exports = {
 			minHeight: {
 				32: '8rem',
 			},
+			height: {
+				specialscreen: 'calc(100vh - 5rem)',
+			},
 			maxHeight: {
 				'screen-80': '80vh',
 			},
