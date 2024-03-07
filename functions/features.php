@@ -32,6 +32,8 @@ add_action('after_setup_theme', function () {
 	add_theme_support('post-thumbnails', ['post', 'page', 'projects', 'team', 'theme-releases', 'publications', 'tribe_events', 'podcast']);
 	add_post_type_support('projects', 'excerpt');
 	add_post_type_support('page', 'excerpt');
+	add_theme_support('post-thumbnails', ['timeline-item']);
+	add_post_type_support('timeline-item', 'excerpt');
 });
 
 // Set custom excerpt length

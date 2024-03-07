@@ -7,7 +7,7 @@
             "label": "Date",
             "name": "date",
             "aria-label": "",
-            "type": "date_picker",
+            "type": "text",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -16,10 +16,119 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d. M Y",
-            "return_format": "d. M Y",
-            "first_day": 1,
-            "translations": "copy_once"
+            "default_value": "",
+            "translations": "translate",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65df63dcd7363",
+            "label": "Video",
+            "name": "video",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "translations": "copy_once",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_65e96b9d2f0fb",
+            "label": "Audio",
+            "name": "audio",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_65df63b6d7362",
+                    "label": "Audio File",
+                    "name": "audio_file",
+                    "aria-label": "",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ".mp3"
+                },
+                {
+                    "key": "field_65e96bcd2f0fc",
+                    "label": "Audio Source Text",
+                    "name": "audio_source_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "translations": "translate",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_65e96bf12f0fd",
+                    "label": "Audio Source Image",
+                    "name": "audio_source_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "translations": "copy_once",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "thumbnail"
+                }
+            ]
         },
         {
             "key": "field_65df54d6b4e94",
@@ -46,48 +155,6 @@
             "translations": "copy_once",
             "allow_null": 0,
             "layout": "horizontal"
-        },
-        {
-            "key": "field_65df63b6d7362",
-            "label": "audio",
-            "name": "audio",
-            "aria-label": "",
-            "type": "file",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "translations": "copy_once",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_65df63dcd7363",
-            "label": "video",
-            "name": "video",
-            "aria-label": "",
-            "type": "file",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "translations": "copy_once",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
         }
     ],
     "location": [
@@ -104,9 +171,12 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "excerpt",
+        "featured_image"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1709544325
+    "modified": 1709801254
 }
