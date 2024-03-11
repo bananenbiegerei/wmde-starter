@@ -6,7 +6,7 @@ import Swup from 'swup';
 import SwupFragmentPlugin from '@swup/fragment-plugin';
 
 const swup = new Swup({
-	containers: ['#main-content'],
+	containers: ['#swup'],
 	plugins: [
 		new SwupFragmentPlugin({
 			debug: true,

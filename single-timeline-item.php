@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php while (have_posts()): ?>
 <?php the_post(); ?>
-<div id="main-content">
+<div id="swup">
     <div class="fixed top-0 left-0 w-full h-full z-40 content" id="swup-modal">
         <div class="relative h-full w-full p-10">
             <a class="block absolute top-0 left-0 w-full h-full bg-black bg-opacity-60" href="/timeline/"></a>
