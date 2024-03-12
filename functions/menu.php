@@ -3,8 +3,7 @@
 /* Menus
   In this theme the content main menu will always be fetched from the main site.
 
-  FIXME: Add an option to disable defaulting to menu from main site?
-
+  FIXME: Add an option to disable defaulting to menu from main site? ($use_main is confusing too...)
 */
 
 define('BB_NAV_MENU_FEATURED', 'Featured');
@@ -52,7 +51,7 @@ function bb_wp_nav_menu($args)
 function bb_get_nav_menu($location = 'nav', $use_main = true)
 {
 
-  // Return cached value for non editors (Polylang pro makes a lot of DB queries!)
+  // Return cached value, except for editors (Polylang pro makes a lot of DB queries!)
   $cached = get_transient(BB_NAV_MENU_CACHE . $location);
   if ($cached && !current_user_can('edit_posts')) {
     return $cached;
