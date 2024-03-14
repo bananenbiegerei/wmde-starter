@@ -6,20 +6,20 @@ import Swup from 'swup';
 import SwupFragmentPlugin from '@swup/fragment-plugin';
 
 const swup = new Swup({
-	containers: ['#swup'],
+	containers: ['#swup', '#main-content'],
 	plugins: [
 		new SwupFragmentPlugin({
 			debug: true,
 			rules: [
 				{
-					from: '/timeline',
+					from: '/timeline(.*)',
 					to: '/timeline-item(.*)',
 					containers: ['#swup-modal'],
 					name: 'open-modal',
 				},
 				{
 					from: '/timeline-item(.*)',
-					to: '/timeline',
+					to: '/timeline(.*)',
 					containers: ['#swup-modal'],
 					name: 'close-modal',
 				},
