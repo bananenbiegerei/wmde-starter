@@ -3,6 +3,7 @@
 	the_post(); ?>
 <?php
 $date = get_field('date');
+$video_title = get_field('video_title');
 $video = get_field('video');
 $audio_group = get_field('audio');
 $color = get_field('custom_color');
