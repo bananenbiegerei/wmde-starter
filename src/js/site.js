@@ -6,20 +6,24 @@ import Swup from 'swup';
 import SwupFragmentPlugin from '@swup/fragment-plugin';
 import JSConfetti from 'js-confetti';
 
-const canvas = document.getElementById('custom_canvas');
-const button = document.getElementById('button');
+const canvas = document.getElementById('confetti-canvas');
+const button = document.getElementById('confetti-button');
 
-const jsConfetti = new JSConfetti({ canvas });
+if (canvas && button) {
+	const jsConfetti = new JSConfetti({ canvas });
 
-setTimeout(() => {
-	jsConfetti.addConfetti();
-}, 500);
+	setTimeout(() => {
+		jsConfetti.addConfetti({
+			confettiColors: ['#7A75DF', '#F3BD2C', '#5FA87D', '#BCDEC6', '#F9E48E', '#CED3F7', '#3E3877', '#743713', '#1A3A2B'],
+		});
+	}, 500);
 
-button.addEventListener('click', () => {
-	jsConfetti.addConfetti();
-});
-
-jsConfetti.clearCanvas();
+	button.addEventListener('click', () => {
+		jsConfetti.addConfetti({
+			confettiColors: ['#7A75DF', '#F3BD2C', '#5FA87D', '#BCDEC6', '#F9E48E', '#CED3F7', '#3E3877', '#743713', '#1A3A2B'],
+		});
+	});
+}
 
 const swup = new Swup({
 	containers: ['#swup', '#main-content'],
