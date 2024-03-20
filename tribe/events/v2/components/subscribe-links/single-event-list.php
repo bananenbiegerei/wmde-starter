@@ -19,20 +19,20 @@ if ( empty( $items ) ) {
 }
 ?>
 <div class="">
-	<div>
-		<div class="tribe-events-c-subscribe-dropdown">
-			<div class="text-gray-400 mb-2" tabindex="0">
-				<?php // $this->template( 'components/icons/cal-export', [ 'classes' => [ 'tribe-events-c-subscribe-dropdown__export-icon' ] ] ); ?>
-				<?php echo esc_html__( 'Add to calendar', 'the-events-calendar' ); ?>
-				<?php // $this->template( 'components/icons/caret-down', [ 'classes' => [ 'tribe-events-c-subscribe-dropdown__button-icon' ] ] ); ?>
-			</div>
-			<div class="p-0 m-0">
-				<ul class="" tabindex="0">
-					<?php foreach ( $items as $item ) : ?>
-						<?php $this->template( 'components/subscribe-links/item', [ 'item' => $item ] ); ?>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-		</div>
-	</div>
+    <div>
+        <div class="tribe-events-c-subscribe-dropdown mb-4">
+            <div class="text-gray-400 mb-2" tabindex="0">
+                <?php // $this->template( 'components/icons/cal-export', [ 'classes' => [ 'tribe-events-c-subscribe-dropdown__export-icon' ] ] ); ?>
+                <?php echo esc_html__( 'Add to calendar', 'the-events-calendar' ); ?>
+                <?php // $this->template( 'components/icons/caret-down', [ 'classes' => [ 'tribe-events-c-subscribe-dropdown__button-icon' ] ] ); ?>
+            </div>
+            <div class="p-0 m-0">
+                <ul class="" tabindex="0">
+                    <?php foreach ( $items as $item ) : ?>
+                    <?php $this->template( 'components/subscribe-links/item', [ 'item' => $item ] ); ?>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

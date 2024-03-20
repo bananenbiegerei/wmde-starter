@@ -18,8 +18,8 @@
  */
 
 ?>
-<span class="tribe-event-date-start text-2xl">
-	<?php echo esc_html( $event->summary_view->start_time ); ?>
-</span> - <span class="tribe-event-date-end text-2xl">
-	<?php echo esc_html( $event->summary_view->end_time ); ?>
+<span class="tribe-event-date-start text-base lg:text-2xl">
+    <?php echo esc_html( $event->summary_view->start_time ); ?>
+</span> - <span class="tribe-event-date-end text-base lg:text-2xl">
+    <?php echo esc_html( $event->summary_view->end_time ); ?>
 </span>

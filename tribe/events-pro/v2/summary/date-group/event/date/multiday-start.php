@@ -16,15 +16,13 @@
  *
  * @see tribe_get_event() For the format of the event object.
  */
-
 ?>
-<span class="tribe-event-date-start">
-	<?php echo esc_html(
-		sprintf(
-			/* Translators: %1$s: The event time. */
-			_x( '%1$s onwards', '"onwards" as in "from TIME onwards"', 'tribe-events-calendar-pro' ),
-			$event->summary_view->start_time
-		)
-	);
-	?>
+<span class="tribe-event-date-start text-base lg:text-2xl">
+    <?php echo esc_html(
+    	sprintf(
+    		/* Translators: %1$s: The event time. */
+    		_x('%1$s onwards', '"onwards" as in "from TIME onwards"', 'tribe-events-calendar-pro'),
+    		$event->summary_view->start_time
+    	)
+    ); ?>
 </span>
