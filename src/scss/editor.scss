@@ -58,3 +58,9 @@ html :where(.wp-block) {
 		@apply after:content-['_spacer'] after:absolute after:top-2 after:right-8 after:bg-gray-200 after:py-1 after:px-3 text-xs after:rounded-full after:block border border-gray-200 rounded-xl border-dotted;
 	}
 }
+
+// Missing somehow...?
+// Doesn't seem to affect layout on site but it breaks the layout in the editor for text-image-float
+.clearfix {
+	overflow: auto;
+}
