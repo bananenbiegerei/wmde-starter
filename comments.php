@@ -1,60 +1,65 @@
-<?php if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME'])) : ?>
-<?php die('You can not access this page directly!'); ?>
-<?php endif; ?>
-
-<?php if (!empty($post->post_password)) : ?>
-<?php if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) : ?>
-<p><?php _e('This post is password protected. Enter the password to view comments.'); ?></p>
-<?php endif; ?>
-<?php endif; ?>
-
-<?php if ($comments) : ?>
-<ul class="list-none border rounded-xl my-20">
-  <?php
-  wp_list_comments(
-  array(
-    'style' => 'ul',
-    'type' => 'comment',
-    'callback' => 'wmde_comment',
-    )
-  );
-  ?>
-</ul>
-<?php else : ?>
-<p><?php _e('No comments yet', BB_TEXT_DOMAIN) ?></p>
-<?php endif; ?>
-
-<?php if (comments_open()) :
-  $user_ID = get_current_user_id();
-  ?>
-  <?php if (get_option('comment_registration') && !$user_ID) : ?>
-  <p><?php _e('You must be'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>"><?php _e('logged in') ?>
-    </a> <?php _e('to post a comment.'); ?>
-  </p>
-  <?php else : ?>
 <?php
-  comment_form(
-    array(
-  'title_reply'        => esc_html__('Leave a comment', BB_TEXT_DOMAIN),
-  'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
-  'title_reply_after'  => '</h3>',
-  'class_submit' => 'btn',
-  'logged_in_as' => sprintf(
-    '<p class="logged-in-as">%s</p>',
-    sprintf(
-      /* translators: 1: User name, 2: Edit user link, 3: Logout URL. */
-      __('Logged in as <a href="%2$s">%1$s</a><br><a class="button margin-top-1" href="%3$s">%4$s</a>'),
-      $user_identity,
-      get_edit_user_link(),
-      /** This filter is documented in wp-includes/link-template.php */
-      wp_logout_url(apply_filters('the_permalink', get_permalink(get_the_ID()), get_the_ID())),
-      __('Log out'),
-    ),
-  ),
-  )
-  );
-  ?>
-  <?php endif; ?>
-  <?php else : ?>
-   <p><?php _e('The comments are closed.', BB_TEXT_DOMAIN); ?></p>
-   <?php endif; ?>
+if (post_password_required()) {
+	return;
+} ?>
+
+<div id="comments" class="comments-area">
+
+    <?php if (have_comments()): ?>
+    <h2 class="comments-title">
+        <?php _e('Kommentare'); ?>
+    </h2>
+
+    <ol class="comment-list flex flex-col gap-4 mb-12">
+        <?php wp_list_comments([
+        	'style' => 'ol',
+        	'short_ping' => true,
+        	'callback' => function ($comment, $args, $depth) {
+        		?>
+        <li <?php comment_class('border rounded p-4'); ?> id="li-comment-<?php comment_ID(); ?>">
+            <div id="comment-<?php comment_ID(); ?>">
+                <?php if ($comment->comment_approved == '0'): ?>
+                <em
+                    class="block bg-warning-300 p-4 rounded"><?php _e('Your comment is awaiting moderation.', BB_TEXT_DOMAIN); ?></em>
+                <br />
+                <?php endif; ?>
+                <div class="comment-author flex gap-4 mb-4">
+                    <?php printf(__('<cite class="font-bold">%s</cite>'), get_comment_author_link()); ?>
+                    <div class="comment-meta text-gray-500">
+                        <?php
+                        printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time());
+                        edit_comment_link(__('(Edit)'), '  ', '');
+                        ?>
+                    </div>
+                </div>
+
+                <?php comment_text(); ?>
+
+                <div class="reply mb-4">
+                    <?php comment_reply_link(array_merge($args, ['depth' => $depth, 'max_depth' => $args['max_depth']])); ?>
+                </div>
+            </div>
+        </li>
+        <?php
+        	}
+        ]); ?>
+    </ol>
+
+    <?php if (get_comment_pages_count() > 1 && get_option('page_comments')): ?>
+    <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+        <div class="nav-previous"><?php previous_comments_link(__('&larr; Older Comments', BB_TEXT_DOMAIN)); ?></div>
+        <div class="nav-next"><?php next_comments_link(__('Newer Comments &rarr;', BB_TEXT_DOMAIN)); ?></div>
+    </nav>
+    <?php endif; ?>
+
+    <?php endif; ?>
+
+    <?php // If comments are closed and there are comments, let's leave a little note
+
+if (!comments_open() && '0' != get_comments_number() && post_type_supports(get_post_type(), 'comments')): ?>
+    <p class="no-comments"><?php _e('Comments are closed.', BB_TEXT_DOMAIN); ?></p>
+    <?php endif; ?>
+
+    <?php comment_form(); ?>
+
+</div>
