@@ -77,6 +77,7 @@ module.exports = {
 			},
 			maxHeight: {
 				'screen-80': '80vh',
+				'screen-1/2': '50vh',
 			},
 			scale: {
 				cards: '1.01',

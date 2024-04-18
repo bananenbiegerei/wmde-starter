@@ -16,7 +16,7 @@ if (canvas && button) {
 		jsConfetti.addConfetti({
 			confettiColors: ['#7A75DF', '#F3BD2C', '#5FA87D', '#BCDEC6', '#F9E48E', '#CED3F7', '#3E3877', '#743713', '#1A3A2B'],
 		});
-	}, 500);
+	}, 1500);
 
 	button.addEventListener('click', () => {
 		jsConfetti.addConfetti({
