@@ -15,12 +15,12 @@ $audio_image = $audio_group['audio_source_image'];
     <div class="fixed top-0 left-0 w-full h-full z-40 content" id="swup-modal">
         <div class="relative h-full w-full p-10">
             <a class="block absolute top-0 left-0 w-full h-full bg-black bg-opacity-60" href="/timeline/"></a>
-            <div
-                class="relative max-w-7xl h-specialscreen overflow-auto mx-auto z-10 bg-white border-4 border-black p-6 bg-wmde20-<?= $color ?>">
-                <a class="btn btn-ghost absolute top-2 right-2" href="/timeline/"><?php
-                _e('Close', BB_TEXT_DOMAIN);
-                bb_icon('x', 'icon-xs');
-                ?></a>
+            <div class="relative max-w-7xl h-specialscreen overflow-auto mx-auto z-10 bg-white border-4 border-black p-6 bg-wmde20-<?= $color ?>">
+                <div class="absolute top-2 right-2">
+                  <a onclick="cardSwipe(-1)" class="btn btn-ghost"><?= bb_icon('arrow-left', 'icon-s') ?></a>
+                  <a onclick="cardSwipe(1)" class="btn btn-ghost"><?= bb_icon('arrow-right', 'icon-s') ?></a>
+                  <a class="btn btn-ghost" href="/timeline/"><?= bb_icon('x', 'icon-s') ?></a>
+                </div>
                 <?php if ($date): ?>
                 <time><?= $date ?></time>
                 <?php endif; ?>

@@ -47,9 +47,8 @@ const swup = new Swup({
 		}),
 	],
 });
-swup.hooks.on('visit:start', (visit) => {
-	console.log(visit);
-});
+window.swup = swup;
+
 // Init Alpine
 window.Alpine = Alpine;
 Alpine.plugin(focus);
