@@ -13,7 +13,7 @@
             <li>
                 <label class="field_label required sr-only" for="email"><?php _e('E-Mail:'); ?> * </label>
                 <input type="text" class="form_field form-input" name="email" id="email" value=""
-                    placeholder="E-mail" />
+                    placeholder="E-Mail" />
             </li>
             <li class="form_button absolute right-1 bottom-1">
                 <input type="submit" class="form_button_submit btn btn" value="<?php _e('Anmelden'); ?>" />
