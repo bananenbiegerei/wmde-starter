@@ -16,7 +16,7 @@ add_filter(
 	'render_block',
 	function ($block_content, $block) {
 		// These blocks always get fullwidth with no container
-		$always_fullwidth = ['acf/latest-posts', null];
+		$always_fullwidth = ['acf/latest-posts', 'acf/timeline', null];
 
 		// These blocks always get a small padding
 		$always_fullwidth_with_padding = ['core/xxx', 'acf/xx'];
@@ -25,7 +25,7 @@ add_filter(
 		// These blocks get multiple options
 		$inner_container_classes_rules = [
 			// Default for specific blocks
-			'acf/timeline' => ['default' => 'col-span-12'],
+			//'acf/timeline' => ['default' => 'col-span-12'],
 			'acf/livestream' => ['default' => 'col-span-12'],
 			'acf/projects-swiper' => ['default' => 'col-span-12'],
 			'acf/testimonials-swiper' => ['default' => 'col-span-12'],
