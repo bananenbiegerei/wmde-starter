@@ -25,8 +25,8 @@
 			<?php if (have_rows('meta_infos')): ?>
 				<?php while (have_rows('meta_infos')): the_row(); ?>
 					<div>
-						<strong><?php the_sub_field('label'); ?></strong>
-						<span class="text-sm text-inherit"><?php the_sub_field('text'); ?></span>
+						<strong><?= get_sub_field('label'); ?></strong>
+						<span class="text-sm text-inherit"><?= get_sub_field('text'); ?></span>
 					</div>
 				<?php endwhile; ?>
 			<?php endif; ?>
