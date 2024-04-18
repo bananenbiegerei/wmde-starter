@@ -16,7 +16,7 @@ add_filter(
 	'render_block',
 	function ($block_content, $block) {
 		// These blocks always get fullwidth with no container
-		$always_fullwidth = ['acf/latest-posts', 'acf/timeline', null];
+		$always_fullwidth = ['acf/latest-posts', null];
 
 		// These blocks always get a small padding
 		$always_fullwidth_with_padding = ['core/xxx', 'acf/xx'];
