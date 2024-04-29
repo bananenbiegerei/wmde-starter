@@ -47,6 +47,7 @@
 	},
 	"dependencies": {
 		"@swup/fragment-plugin": "^1.0.0",
+		"@swup/preload-plugin": "^3.2.10",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"jquery": "^3.5.1",
 		"js-confetti": "^0.12.0",

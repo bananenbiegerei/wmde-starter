@@ -3,6 +3,7 @@ import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
 import Swiper, { Navigation, Autoplay, Pagination, Mousewheel } from 'swiper';
 import Swup from 'swup';
+import SwupPreloadPlugin from '@swup/preload-plugin';
 import SwupFragmentPlugin from '@swup/fragment-plugin';
 import JSConfetti from 'js-confetti';
 
@@ -28,6 +29,7 @@ if (canvas && button) {
 const swup = new Swup({
 	containers: ['#swup', '#main-content'],
 	plugins: [
+		new SwupPreloadPlugin({ preloadVisibleLinks: false, preloadInitialPage: false }),
 		new SwupFragmentPlugin({
 			debug: true,
 			rules: [
