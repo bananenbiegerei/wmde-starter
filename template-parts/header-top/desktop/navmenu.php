@@ -138,17 +138,14 @@ document.addEventListener('alpine:init', () => {
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<header aria-hidden="true" id="navmenu_desktop" x-data="navMenu"
-    class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden"
-    @mouseleave="closeNav()">
+<header aria-hidden="true" id="navmenu_desktop" x-data="navMenu" class="border-b border-gray-200 sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @mouseleave="closeNav()">
 
     <!-- Top bar with logo, domains, and search -->
     <div class="relative z-10 container overflow-hidden">
 
         <!-- Logo -->
         <div class="absolute left-5 top-2 overflow-hidden" type="logo">
-            <div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10"
-                x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
+            <div class="transition-all duration-500 ease-in-out opacity-0 -translate-x-10" x-bind:class="{ 'opacity-0 -translate-x-10': !isScrolled, 'opacity-100 translate-x-0': isScrolled }">
                 <a tabindex="-1" href="<?php echo get_home_url(); ?>">
                     <img class="mini-logo" style="max-height: 33px" src="<?= $logo_small ?>" alt="Wikimedia Logo">
                 </a>
@@ -159,15 +156,11 @@ document.addEventListener('alpine:init', () => {
         <div class="flex items-center">
 
             <!-- Domains -->
-            <div class="navmenu flex-none flex space-x-1 py-1 transition-all duration-500 ease-in-out ml-10 -translate-x-12"
-                x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
+            <div class="navmenu flex-none flex space-x-1 py-1 transition-all duration-500 ease-in-out ml-10 -translate-x-12" x-bind:class="{ '-translate-x-12': !isScrolled, 'translate-x-10': isScrolled }">
                 <!-- Domain items -->
                 <nav id="navmenu_desktop_domains">
                     <template x-for="(domain,i) in nav">
-                        <a class="btn btn-menu" @focus="openNav(i); movePointer()"
-                            @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i"
-                            x-bind:class="{'current': pageID == domain.ID || domain.children.includes(pageID) }"
-                            x-bind:href="domain.url" x-html="domain.title"></a>
+                        <a class="btn btn-menu" @focus="openNav(i); movePointer()" @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i" x-bind:class="{'current': pageID == domain.ID || domain.children.includes(pageID) }" x-bind:href="domain.url" x-html="domain.title"></a>
                     </template>
                 </nav>
             </div>
@@ -185,24 +178,15 @@ document.addEventListener('alpine:init', () => {
 
         <!-- Pointer to domain button -->
         <div class="z-20 absolute pointer-events-none" id="pointer" x-show="showPointer">
-            <img class="object-cover h-full w-full drop-shadow-xs"
-                src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-top/pointer-top.svg" alt="Wikimedia Logo">
+            <img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-top/pointer-top.svg" alt="Wikimedia Logo">
         </div>
 
         <!-- For each domain... -->
         <template x-for="(domain,i) in nav">
-            <div show="isOpen[i]" x-bind:id="'menu_'+ i"
-                class="absolute inset-x-0 z-10 transform bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar p-2 overflow-hidden"
-                x-bind:class="{
-  'max-w-6xl': domain.featured.length > 0,
-  'max-w-md': domain.featured.length == 0,
-  'visible': isOpen[i],
-  'invisible': !isOpen[i]
-  }">
+            <div show="isOpen[i]" x-bind:id="'menu_'+ i" class="absolute inset-x-0 z-10 transform bg-white border border-gray-100 max-h-screen-80 rounded-xl shadow-navbar p-2 overflow-hidden" x-bind:class="{ 'max-w-6xl': domain.featured.length > 0, 'max-w-md': domain.featured.length == 0, 'visible': isOpen[i], 'invisible': !isOpen[i] }">
 
                 <!-- If there are featured pages: 2 columns with featured pages + pages -->
-                <div class="relative mx-auto grid"
-                    x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0, 'grid-cols-1': domain.featured.length == 0}">
+                <div class="relative mx-auto grid" x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0, 'grid-cols-1': domain.featured.length == 0}">
 
                     <!-- Featured pages -->
                     <template x-if="domain.featured.length > 0">
@@ -210,11 +194,9 @@ document.addEventListener('alpine:init', () => {
                             <ul class="flex flex-col max-h-screen-80 overflow-auto">
                                 <template x-for="page in domain.featured">
                                     <li class="p-1" x-bind:class="{'current': pageID == page.ID }">
-                                        <a x-bind:href="page.url"
-                                            class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0">
+                                        <a x-bind:href="page.url" class="flex items-center gap-5 transition hover:bg-gray p-1 rounded-xl h-12 p-4 focus:outline-none focus:ring-2 focus:ring-focus focus:ring-offset-0">
                                             <div class="">
-                                                <img class="h-auto w-10 p-1"
-                                                    x-bind:src="page.logo || page.thumbnail || defaultIcon" />
+                                                <img class="h-auto w-10 p-1" x-bind:src="page.logo || page.thumbnail || defaultIcon" />
                                             </div>
                                             <div class="">
                                                 <h4 class="text-base m-0" x-html="page.title"></h4>
@@ -227,17 +209,14 @@ document.addEventListener('alpine:init', () => {
                     </template>
 
                     <!-- Pages & sections -->
-                    <nav class="max-h-screen-80 overflow-auto grid"
-                        x-bind:class="{ 'grid-cols-2' : domain.pages.length > 0 && domain.sections.length > 0 || domain.sections.length > 1 }">
+                    <nav class="max-h-screen-80 overflow-auto grid" x-bind:class="{ 'grid-cols-2' : domain.pages.length > 0 && domain.sections.length > 0 || domain.sections.length > 1 }">
 
                         <!-- Pages -->
                         <template x-if="domain.pages.length > 0">
                             <ul class="items-stretch justify-items-stretch py-1">
                                 <template x-for="page in domain.pages">
-                                    <li class="bg-white transition rounded-md"
-                                        x-bind:class="{'current': pageID == page.ID }">
-                                        <a tabindex="-1" x-bind:href="page.url"
-                                            class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
+                                    <li class="p-1 bg-white transition rounded-md" x-bind:class="{'current': pageID == page.ID }">
+                                        <a tabindex="-1" x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
                                     </li>
                                 </template>
                             </ul>
@@ -246,15 +225,12 @@ document.addEventListener('alpine:init', () => {
                         <!-- Sections -->
                         <template x-for="section in domain.sections">
                             <ul class="items-stretch justify-items-stretch">
-                                <li
-                                    class="bg-white transition rounded-md btn btn-menu-section btn-expanded hover:text-black">
+                                <li class="bg-white transition rounded-md btn btn-menu-section btn-expanded hover:text-black">
                                     <span class="p-1" x-text="section.title"></span>
                                 </li>
                                 <template x-for="page in section.pages">
-                                    <li class="bg-white transition rounded-md"
-                                        x-bind:class="{'current': pageID == page.ID }">
-                                        <a tabindex="-1" x-bind:href="page.url"
-                                            class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
+                                    <li class="p-1 bg-white transition rounded-md" x-bind:class="{'current': pageID == page.ID }">
+                                        <a tabindex="-1" x-bind:href="page.url" class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
                                     </li>
                                 </template>
                             </ul>
