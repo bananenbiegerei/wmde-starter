@@ -2,7 +2,7 @@
   <div class="container lg:grid lg:grid-cols-12 lg:gap-10">
   <!-- Back, Post Title & Top Line -->
   <div class="lg:col-span-10 lg:col-start-2">
-    <a class="flex items-center gap-2" href="<?php echo get_the_permalink( '34127'); ?>"><?= bb_icon('arrow-left', 'icon-xs') ?>
+    <a class="flex items-center gap-2" href="https://blog.wikimedia.de"><?= bb_icon('arrow-left', 'icon-xs') ?>
     <?php _e('zur Artikelübersicht'); ?></a>
     <?php if (get_field('topline')): ?>
     <h2 class="topline mb-0 mt-5"><?php echo get_field('topline'); ?></h2>
