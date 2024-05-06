@@ -37,8 +37,9 @@ html :where(.wp-block) {
 	font-size: inherit;
 }
 
-.editor-styles-wrapper {
-	@apply container;
+.editor-styles-wrapper,
+:where(.editor-styles-wrapper) {
+	@apply container font-sans bg-transparent;
 	.bb-facts-block {
 		> div {
 			height: 8rem;
@@ -51,6 +52,7 @@ html :where(.wp-block) {
 		}
 		p {
 			line-height: 0;
+			@apply font-sans;
 		}
 	}
 

@@ -40,13 +40,13 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
                     <?php endif; ?>
                 </div>
                 <div class="lg:col-span-6">
-                    <?php echo tribe_events_event_schedule_details( $event_id, '<h2 class="font-normal text-2xl">', '</h2>' ); ?>
+                    <?php echo tribe_events_event_schedule_details( $event_id, '<h2 class="font-normal text-2xl">', ' ' . __( 'Uhr', BB_TEXT_DOMAIN ) . '</h2>' ); ?>
                     <?php if ( ! empty( $cost ) ) : ?>
                     <p class="text-2xl"><?php echo esc_html( $cost ) ?></p>
                     <?php endif; ?>
                     <?php while ( have_posts() ) :  the_post(); ?>
                     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    
+
                         <!-- Event content -->
                         <?php do_action( 'tribe_events_single_event_before_the_content' ); ?>
                         <div class="tribe-events-single-event-description tribe-events-content">
@@ -60,7 +60,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
                         <?php do_action( 'tribe_events_single_event_after_the_content' ); ?>
 
 
-                    
+
                     </div> <!-- #post-x -->
                     <?php endwhile; ?>
                 </div>
@@ -69,14 +69,14 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
                 </div>
           </div>
       </div>
-      
+
       <?php while (have_posts()): ?>
       <?php the_post(); ?>
           <div class="content pt-10">
               <?php the_content(); ?>
           </div>
       <?php endwhile; ?>
-	
+
 	<?php //$this->template( 'single-event/comments' ); ?>
 	<?php // $this->template( 'single-event/footer' ); ?>
 </div>
