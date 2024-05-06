@@ -26,8 +26,7 @@ $event_classes = tribe_get_post_class(['tribe-events-calendar-list__event'], $ev
     <?php
 // $this->template( 'list/event/date-tag', [ 'event' => $event ] );
 ?>
-    <div class="image-hover-effect max-w-5xl">
-
+    <div class="image-hover-effect bg-gray rounded-xl p-5">
         <article <?php tribe_classes($event_classes); ?>>
             <?php
             if (!$event->thumbnail->exists) { ?>
@@ -48,8 +47,10 @@ $event_classes = tribe_get_post_class(['tribe-events-calendar-list__event'], $ev
             <?php }
             if ($event->thumbnail->exists) { ?>
             <div class="lg:flex gap-5">
+                <div class="basis-1/3">
                 <?php $this->template('list/event/featured-image', ['event' => $event]); ?>
-                <div>
+                </div>
+                <div class="basis-2/3">
                     <header class="">
                         <?php get_template_part('tribe/events/v2/components/tribe-cats'); ?>
                         <?php $this->template('list/event/title', ['event' => $event]); ?>

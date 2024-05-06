@@ -40,13 +40,13 @@ $sep_date = empty( $is_past ) && ! empty( $request_date )
 	? max( $event->dates->start_display, $request_date )
 	: $event->dates->start_display;
 ?>
-<hr class="mb-10">
 <h2>
 	<time
-		class=""
+		class="block"
 		datetime="<?php
 		echo esc_attr( $sep_date->format( 'Y-m' ) ); ?>"
 	>
 		<?php echo esc_html( $sep_date->format_i18n( 'F Y' ) ); ?>
 	</time>
 </h2>
+<hr class="mb-10">

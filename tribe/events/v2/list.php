@@ -30,61 +30,58 @@ if ( empty( $disable_event_search ) ) {
 ?>
 <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
-<div
-	<?php tribe_classes( $container_classes ); ?>
-	data-js="tribe-events-view"
-	data-view-rest-nonce="<?php echo esc_attr( $rest_nonce ); ?>"
-	data-view-rest-url="<?php echo esc_url( $rest_url ); ?>"
-	data-view-rest-method="<?php echo esc_attr( $rest_method ); ?>"
-	data-view-manage-url="<?php echo esc_attr( $should_manage_url ); ?>"
-	<?php foreach ( $container_data as $key => $value ) : ?>
-		data-view-<?php echo esc_attr( $key ) ?>="<?php echo esc_attr( $value ) ?>"
-	<?php endforeach; ?>
-	<?php if ( ! empty( $breakpoint_pointer ) ) : ?>
-		data-view-breakpoint-pointer="<?php echo esc_attr( $breakpoint_pointer ); ?>"
-	<?php endif; ?>
->
-	<div class="tribe-common-l-container tribe-events-l-container container">
-		<?php $this->template( 'components/loader', [ 'text' => __( 'Loading...', 'the-events-calendar' ) ] ); ?>
+<div <?php tribe_classes( $container_classes ); ?> data-js="tribe-events-view"
+    data-view-rest-nonce="<?php echo esc_attr( $rest_nonce ); ?>"
+    data-view-rest-url="<?php echo esc_url( $rest_url ); ?>"
+    data-view-rest-method="<?php echo esc_attr( $rest_method ); ?>"
+    data-view-manage-url="<?php echo esc_attr( $should_manage_url ); ?>"
+    <?php foreach ( $container_data as $key => $value ) : ?>
+    data-view-<?php echo esc_attr( $key ) ?>="<?php echo esc_attr( $value ) ?>" <?php endforeach; ?>
+    <?php if ( ! empty( $breakpoint_pointer ) ) : ?>
+    data-view-breakpoint-pointer="<?php echo esc_attr( $breakpoint_pointer ); ?>" <?php endif; ?>>
+    <div class="tribe-common-l-container tribe-events-l-container container grid grid-cols-12 gap-5">
+        <div class="col-span-12 lg:col-span-8 lg:col-start-3">
+            <?php $this->template( 'components/loader', [ 'text' => __( 'Loading...', 'the-events-calendar' ) ] ); ?>
 
-		<?php $this->template( 'components/json-ld-data' ); ?>
+            <?php $this->template( 'components/json-ld-data' ); ?>
 
-		<?php $this->template( 'components/data' ); ?>
+            <?php $this->template( 'components/data' ); ?>
 
-		<?php $this->template( 'components/before' ); ?>
+            <?php $this->template( 'components/before' ); ?>
 
-		<header <?php tribe_classes( $header_classes ); ?>>
-			<?php $this->template( 'components/messages' ); ?>
-			<?php // $this->template( 'components/messages', [ 'classes' => [ 'tribe-events-header__messages--mobile' ] ] ); ?>
+            <header <?php tribe_classes( $header_classes ); ?>>
+                <?php $this->template( 'components/messages' ); ?>
+                <?php // $this->template( 'components/messages', [ 'classes' => [ 'tribe-events-header__messages--mobile' ] ] ); ?>
 
-			<?php //$this->template( 'components/breadcrumbs' ); ?>
+                <?php //$this->template( 'components/breadcrumbs' ); ?>
 
-			<?php $this->template( 'components/events-bar' ); ?>
+                <?php $this->template( 'components/events-bar' ); ?>
 
-			<?php //$this->template( 'list/top-bar' ); ?>
-		</header>
+                <?php //$this->template( 'list/top-bar' ); ?>
+            </header>
 
-		<?php $this->template( 'components/filter-bar' ); ?>
-		<div class="tribe-events-calendar-list !w-full">
+            <?php $this->template( 'components/filter-bar' ); ?>
+            <div class="tribe-events-calendar-list !w-full">
 
-			<?php foreach ( $events as $event ) : ?>
-				<?php $this->setup_postdata( $event ); ?>
+                <?php foreach ( $events as $event ) : ?>
+                <?php $this->setup_postdata( $event ); ?>
 
-				<?php $this->template( 'list/month-separator', [ 'event' => $event ] ); ?>
+                <?php $this->template( 'list/month-separator', [ 'event' => $event ] ); ?>
 
-				<?php $this->template( 'list/event', [ 'event' => $event ] ); ?>
+                <?php $this->template( 'list/event', [ 'event' => $event ] ); ?>
 
-			<?php endforeach; ?>
+                <?php endforeach; ?>
 
-		</div>
+            </div>
 
-		<?php $this->template( 'list/nav' ); ?>
+            <?php $this->template( 'list/nav' ); ?>
 
-		<?php $this->template( 'components/ical-link' ); ?>
+            <?php $this->template( 'components/ical-link' ); ?>
 
-		<?php $this->template( 'components/after' ); ?>
+            <?php $this->template( 'components/after' ); ?>
+        </div>
 
-	</div>
+    </div>
 </div>
 
 <?php $this->template( 'components/breakpoints' ); ?>
