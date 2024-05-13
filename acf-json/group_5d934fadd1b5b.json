@@ -300,6 +300,44 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "full"
+        },
+        {
+            "key": "field_6641f284c9b1b",
+            "label": "Menu",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6641f28fc9b1c",
+            "label": "Sync menus with main site",
+            "name": "sync_menus",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Only relevant for sites other than the main site.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "translations": "copy_once",
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -320,5 +358,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701249965
+    "modified": 1715601386
 }
