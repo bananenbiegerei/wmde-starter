@@ -49,14 +49,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 
                         <!-- Event content -->
                         <?php do_action( 'tribe_events_single_event_before_the_content' ); ?>
-                        <div class="tribe-events-single-event-description tribe-events-content">
-                            <?php
-                                $excerpt = get_the_excerpt();
-                                $excerpt = wp_trim_words( $excerpt, 99 ); // Set your desired length here
-                                echo $excerpt;
-                            ?>
-                        </div>
-                        <!-- .tribe-events-single-event-description -->
+
                         <?php do_action( 'tribe_events_single_event_after_the_content' ); ?>
 
 
