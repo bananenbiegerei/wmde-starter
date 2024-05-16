@@ -27,7 +27,7 @@ if (canvas && button) {
 }
 
 const swup = new Swup({
-	containers: ['#swup', '#main-content'],
+	containers: ['#swup'],
 	plugins: [
 		new SwupPreloadPlugin({ preloadVisibleLinks: false, preloadInitialPage: false }),
 		new SwupFragmentPlugin({
