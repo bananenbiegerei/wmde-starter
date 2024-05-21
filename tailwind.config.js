@@ -78,6 +78,7 @@ module.exports = {
 			maxHeight: {
 				'screen-80': '80vh',
 				'screen-1/2': '50vh',
+				specialscreen: 'calc(100vh - 5rem)',
 			},
 			scale: {
 				cards: '1.01',
