@@ -59,14 +59,16 @@ function bb_get_nav_menu($location = 'nav')
         return $cached;
     }
 
-    if (get_field('sync_menus', 'options') && is_multisite() && get_current_blog_id() != 1) {
+    $switched = false;
+    if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
         switch_to_blog(1);
+        $switched = true;
     }
 
     $menu = wp_get_nav_menu_name($location);
 
     if ($menu === '') {
-        if (get_field('sync_menus', 'options') && is_multisite() && get_current_blog_id() != 1) {
+        if ($switched) {
             restore_current_blog();
         }
         return [];
@@ -137,7 +139,7 @@ function bb_get_nav_menu($location = 'nav')
         unset($domain->t_sections);
     }
 
-    if (get_field('sync_menus', 'options') && is_multisite() && get_current_blog_id() != 1) {
+    if ($switched) {
         restore_current_blog();
     }
 
