@@ -74,7 +74,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 ?>
 
 <div id="tribe-events-content">
-	<div class="bg-gray min-h-[12rem] pt-5 pb-10">
+	<div class="bg-neutral min-h-[12rem] pt-5 pb-10">
 		<div class="container lg:grid lg:grid-cols-12 lg:gap-5">
 			<div class="col-span-12">
 				<div class="mb-5">
@@ -82,17 +82,17 @@ $cost  = tribe_get_formatted_cost( $event_id );
 				</div>
 				<?php get_template_part("tribe/events/v2/components/tribe-cats"); ?>
 				<?php echo $title; ?>
-				
+
 				<div class="grid grid-cols-2 gap-10">
 					<div>
 							<div>
 								<?php tribe_the_notices() ?>
-							</div>							
+							</div>
 							<?php echo tribe_events_event_schedule_details( $event_id, '<h2 class="font-normal text-2xl">', '</h2>' ); ?>
 							<?php if ( ! empty( $cost ) ) : ?>
 							<p class="text-2xl"><?php echo esc_html( $cost ) ?></p>
 							<?php endif; ?>
-						<?php /* 
+						<?php /*
 						<!-- Event header -->
 						<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
 							<!-- Navigation -->
@@ -109,7 +109,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 						<div>
 							<?php while ( have_posts() ) :  the_post(); ?>
 							<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							
+
 								<!-- Event content -->
 								<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 								<div class="tribe-events-single-event-description tribe-events-content">
@@ -117,7 +117,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 								</div>
 								<!-- .tribe-events-single-event-description -->
 								<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
-							
+
 							</div> <!-- #post-x -->
 							<?php endwhile; ?>
 						</div>
@@ -143,7 +143,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 				</div>
 				<!-- .tribe-events-single-event-description -->
 				<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
-				
+
 				<!-- Event meta -->
 				<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
 				<?php tribe_get_template_part( 'modules/meta' ); ?>
@@ -164,7 +164,7 @@ $cost  = tribe_get_formatted_cost( $event_id );
 				<!-- #tribe-events-footer -->
 			</div>
 		</div>
-		
+
 	</div> <!-- #post-x -->
 	<?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
 	<?php endwhile; ?>

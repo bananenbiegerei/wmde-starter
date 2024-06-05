@@ -1,4 +1,4 @@
-<div class="rounded-b-3xl min-h-[12rem] py-10 bg-gray">
+<div class="rounded-b-3xl min-h-[12rem] py-10 bg-neutral">
 	  <div class="container grid grid-cols-12">
 		  <div class="col-span-12">
 			  	<p class="text-sm"><?php echo get_the_date('d.m.Y'); ?></p>

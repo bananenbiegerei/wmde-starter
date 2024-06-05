@@ -18,4 +18,4 @@
  * @see tribe_get_event() For the format of the event object.
  */
 ?>
-<div class="h-[1px] bg-gray-200 w-full !mb-5"></div>
+<div class="h-[1px] bg-neutral-200 w-full !mb-5"></div>

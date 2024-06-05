@@ -4,7 +4,7 @@ $img_horizontal_position = get_field('header_image_position_horizontal');
 $img_position = 'object-' . $img_horizontal_position . '-' . $img_vertical_position;
 ?>
 <div
-    class="nohover:mt-12 rounded-bl-xl rounded-br-xl bg-gray-light mb-10 h-auto lg:h-[30rem] rounded-bl-xl rounded-br-xl overflow-hidden relative text-white">
+    class="nohover:mt-12 rounded-bl-xl rounded-br-xl bg-neutral-light mb-10 h-auto lg:h-[30rem] rounded-bl-xl rounded-br-xl overflow-hidden relative text-white">
     <div class="container py-5 lg:py-10 grid grid-cols-1 content-between h-full">
         <div class="mb-10">
             <?php $page_logo = get_field('page_logo'); ?>
@@ -24,7 +24,7 @@ $img_position = 'object-' . $img_horizontal_position . '-' . $img_vertical_posit
         </div>
     </div>
     <?php if (has_post_thumbnail()) { ?>
-    <div class="absolute top-0 left-0 w-full h-full -z-10 bg-red-500">
+    <div class="absolute top-0 left-0 w-full h-full -z-10 bg-warning-500">
         <?php the_post_thumbnail('full', ['class' => 'object-cover bg-yellow-300 w-full h-full ' . $img_position]); ?>
     </div>
     <?php } ?>

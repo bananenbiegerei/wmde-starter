@@ -5,7 +5,7 @@
 <?php if (get_field('article_info_box')): ?>
 <div class="grid grid-cols-1 gap-5 md:grid-cols-3 relative container">
   <div class="order-first md:order-last">
-  <div class="bg-gray rounded-xl p-5 md:sticky md:top-24 max-h-screen">
+  <div class="bg-neutral rounded-xl p-5 md:sticky md:top-24 max-h-screen">
     <?php echo get_field('article_info_box'); ?>
   </div>
   </div>
@@ -30,7 +30,7 @@
 </div>
 
 <!-- Comments -->
-<div class="bg-gray py-5">
+<div class="bg-neutral py-5">
   <div class="container">
   <?php if (comments_open() || get_comments_number()): ?>
   <section class="comments-container lg:grid lg:grid-cols-12">

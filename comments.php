@@ -25,7 +25,7 @@ if (post_password_required()) {
                 <?php endif; ?>
                 <div class="comment-author flex gap-4 mb-4">
                     <?php printf(__('<cite class="font-bold">%s</cite>'), get_comment_author_link()); ?>
-                    <div class="comment-meta text-gray-500">
+                    <div class="comment-meta text-neutral-500">
                         <?php
                         printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time());
                         edit_comment_link(__('(Edit)'), '  ', '');

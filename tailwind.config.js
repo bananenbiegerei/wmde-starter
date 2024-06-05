@@ -11,16 +11,8 @@ module.exports = {
 			pattern: /text-(xs|sm|lg|xl)/,
 		},
 		{
-			pattern: /(text|bg)-(black|white|primary|gray|gray-700|primary-50|primary-600|red|red-50|red-800|green-50|green-700|neon|neon-800)$/,
-		},
-		{
-			// BG colors for team members
-			pattern: /bg-(pale(rose|purple|peach|cyan|pink|blue|green)|default)$/,
-		},
-		{
-			// BG for 20 years wmde birthday
-			pattern: /bg-wmde20-(green|yellow|purple|white)$/,
-		},
+            pattern: /(bg|text)-(primary|secondary|neutral|accent|warning|success|error)-/,
+        },
 	],
 	theme: {
 		screens: {
@@ -130,7 +122,7 @@ module.exports = {
 							800: '#383838',
 							900: '#000000',
 						},
-						focus: {
+						accent: {
 							50: '#e7f6ff',
 							100: '#d3efff',
 							200: '#b0dfff',
@@ -146,12 +138,13 @@ module.exports = {
 						black: {
 							DEFAULT: 'black',
 						},
-						red: {
+						error: {
 							50: '#fff0f2',
 							100: '#ffe2e6',
 							200: '#ffc9d4',
 							300: '#ff9db1',
 							400: '#ff6688',
+							500: '#ff3164',
 							DEFAULT: '#ff3164',
 							600: '#f21b5a',
 							650: '#f21b5a',
@@ -159,7 +152,7 @@ module.exports = {
 							800: '#B0003E',
 							900: '#910a3d',
 						},
-						gray: {
+						neutral: {
 							50: '#f7f7f7',
 							100: '#DCDCDC',
 							200: '#c8c8c8',
@@ -172,7 +165,7 @@ module.exports = {
 							800: '#383838',
 							900: '#313131',
 						},
-						green: {
+						success: {
 							50: '#edfcf4',
 							100: '#d2f9e2',
 							200: '#a9f1cb',
@@ -184,7 +177,7 @@ module.exports = {
 							800: '#095c3f',
 							900: '#084c35',
 						},
-						neon: {
+						accent: {
 							50: '#fcffe5',
 							100: '#f5ffc8',
 							DEFAULT: '#ebff9a',
@@ -196,7 +189,7 @@ module.exports = {
 							800: '#4d670d',
 							900: '#415710',
 						},
-						orange: {
+						warning: {
 							50: '#fffaec',
 							100: '#fff3d3',
 							200: '#ffe4a5',
@@ -209,13 +202,13 @@ module.exports = {
 							900: '#823b0c',
 							950: '#461b04',
 						},
-						wmde20: {
-							green: '#7CA88B',
-							yellow: '#FAE49B',
-							purple: '#A59DD8',
-							white: '#fff',
-							DEFAULT: '#A59DD8',
-						},
+						// wmde20: {
+						// 	green: '#7CA88B',
+						// 	yellow: '#FAE49B',
+						// 	purple: '#A59DD8',
+						// 	white: '#fff',
+						// 	DEFAULT: '#A59DD8',
+						// },
 					},
 				},
 			},

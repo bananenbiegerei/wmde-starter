@@ -1,7 +1,7 @@
 <?php if ( have_rows( 'audio_posts' ) ) : ?>
 <div class="border bg-white px-2 border-black border-4">
     <h3 class="mb-0 h5 sr-only"><?php _e('Audio Beitrag', BB_TEXT_DOMAIN); ?></h3>
-    <div class="flex flex-col divide-y divide-gray-400">
+    <div class="flex flex-col divide-y divide-neutral-400">
         <?php while ( have_rows( 'audio_posts' ) ) : the_row(); ?>
         <div class="py-4">
             <div class="flex gap-2 mb-2">

@@ -4,18 +4,18 @@
 <?php get_template_part('template-parts/page-header-team'); ?>
 <div class="content pt-10">
   <div class="grid grid-cols-2 gap-10 container">
-  <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-xl">
+  <div class="aspect-w-16 aspect-h-9 bg-neutral-200 rounded-xl">
     <figure class="w-full w-full">
     <?php the_post_thumbnail('large', ['class' => 'rounded-xl object-cover w-full h-full overflow-hidden']); ?>
     <?php if (bbWikimediaCommonsMedia::has_post_thumbnail_caption()): ?>
-    <figcaption class="invisible flex absolute left-0 bottom-0 right-0 text-white bg-gray-900 w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all">
+    <figcaption class="invisible flex absolute left-0 bottom-0 right-0 text-white bg-neutral-900 w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all">
       <?= bb_icon('info', 'flex-shrink-0') ?> <div class="self-center"><?php the_post_thumbnail_caption(); ?></div>
     </figcaption>
     <?php endif; ?>
     </figure>
   </div>
 
-  <div class="flex flex-col divide-y divide-gray-300">
+  <div class="flex flex-col divide-y divide-neutral-300">
     <?php if(get_field('email')): ?>
     <div class="py-2">
     <a class="link" href="mailto:<?php echo esc_attr(get_field('email')); ?>"><?php echo esc_attr(get_field('email')); ?></a>

@@ -12,7 +12,7 @@ require_once get_template_directory() . '/functions/localization.php';
 require_once get_template_directory() . '/functions/features.php';
 
 // Load ACF blocks
-require_once get_template_directory() . '/functions/acf-blocks.php';
+// require_once get_template_directory() . '/functions/acf-blocks.php';
 
 // Wrap blocks with containers for page layout
 require_once get_template_directory() . '/functions/containers.php';

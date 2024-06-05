@@ -6,6 +6,7 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
 
 
 <div class="flex w-full items-center">
+  check if logos exist else button to admin
   <div>
   <a href="<?= $home_url ?>" class="hidden md:block">
     <img class="logo" style="max-height: 41px" src="<?= $logo_big ?>" alt="Wikimedia Logo">

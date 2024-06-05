@@ -99,7 +99,7 @@ if (!empty($type)) {
         <?php endif; ?>
     </div>
 
-    <div class="tribe-filter-bar-c-filter__container p-2 rounded-md border border-gray-100 mt-3 bg-white"
+    <div class="tribe-filter-bar-c-filter__container p-2 rounded-md border border-neutral-100 mt-3 bg-white"
         id="<?php echo esc_attr($container_id); ?>" aria-hidden="<?php echo esc_attr($is_open ? 'false' : 'true'); ?>"
         aria-labelledby="<?php echo esc_attr($container_labelledby); ?>" x-show="open"
         x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"

@@ -3,8 +3,8 @@
         <table class="table-fixed w-full">
             <thead>
                 <tr>
-                    <th class="w-1/2 py-2 px-4 bg-gray-800 text-white">Screen Size</th>
-                    <th class="w-1/2 py-2 px-4 bg-gray-800 text-white">Breakpoint (Width)</th>
+                    <th class="w-1/2 py-2 px-4 bg-neutral-800 text-white">Screen Size</th>
+                    <th class="w-1/2 py-2 px-4 bg-neutral-800 text-white">Breakpoint (Width)</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,4 +60,3 @@
             </tbody>
         </table>
     </div>
-

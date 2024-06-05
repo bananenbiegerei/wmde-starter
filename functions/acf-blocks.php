@@ -1,6 +1,6 @@
 <?php
 
-require_once get_template_directory() . '/blocks/init.php';
+require_once get_template_directory() . '/bb-blocks/init.php';
 
 // TODO: migrate all clone fields to normal fields with acf/load filters for values
 

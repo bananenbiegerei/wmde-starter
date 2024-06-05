@@ -22,7 +22,7 @@ $phone = tribe_get_phone();
 $website = tribe_get_venue_website_link();
 ?>
 
-<div class="tribe-block__venue__meta bg-gray rounded p-5 h-full mb-10">
+<div class="tribe-block__venue__meta bg-neutral rounded p-5 h-full mb-10">
     <div class="">
         <h3><?php _e('Ort', BB_TEXT_DOMAIN); ?>: <?php echo tribe_get_venue(); ?></h3>
 

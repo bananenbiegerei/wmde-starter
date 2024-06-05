@@ -167,7 +167,7 @@ SwipersConfig['#anchor-nav'] = {
 };
 </script>
 
-<div id="anchor-nav" x-data="anchorNav" class="border-b border-gray-200 sticky z-30 bg-white" x-show="anchors.length > 0">
+<div id="anchor-nav" x-data="anchorNav" class="border-b border-neutral-200 sticky z-30 bg-white" x-show="anchors.length > 0">
   <div class="flex items-center container overflow-hidden">
   <div class="flex-none md:hidden">
     <?= bb_icon('chevron-left', 'swiper-button-prev btn icon-xl btn-ghost cursor-pointer mt-2') ?>

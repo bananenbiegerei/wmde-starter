@@ -11,9 +11,9 @@ $color = get_field('custom_color');
             <a class="block absolute top-0 left-0 w-full h-full bg-black bg-opacity-60" href="/timeline/"></a>
             <div class="relative max-w-7xl max-h-specialscreen overflow-auto mx-auto z-10 border-4 border-black p-6 bg-wmde20-<?= $color ?>">
                 <div class="absolute top-0 right-0 text-white text-wmde20-<?= $color ?> bg-black flex">
-                  <a onclick="cardSwipe(-1)" class="hover:bg-gray-800 flex justify-center items-center h-10 w-10"><?= bb_icon('arrow-left', 'icon-s') ?></a>
-                  <a onclick="cardSwipe(1)" class="hover:bg-gray-800 flex justify-center items-center h-10 w-10"><?= bb_icon('arrow-right', 'icon-s') ?></a>
-                  <a class="hover:bg-gray-800 flex justify-center items-center h-10 w-10" href="/timeline/"><?= bb_icon('x', 'icon-s') ?></a>
+                  <a onclick="cardSwipe(-1)" class="hover:bg-neutral-800 flex justify-center items-center h-10 w-10"><?= bb_icon('arrow-left', 'icon-s') ?></a>
+                  <a onclick="cardSwipe(1)" class="hover:bg-neutral-800 flex justify-center items-center h-10 w-10"><?= bb_icon('arrow-right', 'icon-s') ?></a>
+                  <a class="hover:bg-neutral-800 flex justify-center items-center h-10 w-10" href="/timeline/"><?= bb_icon('x', 'icon-s') ?></a>
                 </div>
                 <?php if ($date): ?>
                 <time><?= $date ?></time>

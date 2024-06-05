@@ -15,7 +15,7 @@
 	// right: 0;
 	// top: 0;
 	// z-index: var(--tec-z-index-spinner-container)
-	@apply bg-red-500;
+	@apply bg-warning-500;
 }
 
 // Buttons
@@ -28,7 +28,7 @@
 
 
 .tribe-events-notices {
-	@apply bg-red-200 text-black border-none;
+	@apply bg-warning-200 text-black border-none;
 	text-shadow: none;
 }
 
@@ -57,7 +57,7 @@
 /* Filter Bar */
 .tribe-events--has-filter-bar {
 	.tribe-events-c-messages__message--notice {
-		@apply rounded-xl bg-red-100  border border-red-500 p-5 my-10;
+		@apply rounded-xl bg-warning-100  border border-warning-500 p-5 my-10;
 		.tribe-common-c-svgicon--messages-not-found {
 			@apply hidden;
 		}
@@ -82,7 +82,7 @@
 // Notices
 .tribe-events-c-messages__message {
 	&.tribe-events-c-messages__message--notice {
-		@apply rounded-xl bg-red-100 border border-red p-5 my-10;
+		@apply rounded-xl bg-warning-100 border border-warning p-5 my-10;
 		svg {
 				@apply hidden;
 			}

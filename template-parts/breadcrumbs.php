@@ -12,7 +12,7 @@ if ($post->post_parent) {
 	foreach ($anc as $k => $ancestor) {
 		$breadcrumbs[] =
 			'<li class="flex items-center">' .
-			($k > 0 ? bb_icon('caret-right', 'text-red-500 icon-xs') : '') .
+			($k > 0 ? bb_icon('caret-right', 'text-warning-500 icon-xs') : '') .
 			'<a class="text-base !no-underline" href="' .
 			get_permalink($ancestor) .
 			'">' .

@@ -26,7 +26,7 @@ $event_classes = tribe_get_post_class(['tribe-events-calendar-list__event'], $ev
     <?php
 // $this->template( 'list/event/date-tag', [ 'event' => $event ] );
 ?>
-    <div class="image-hover-effect bg-gray rounded-xl p-5">
+    <div class="image-hover-effect bg-neutral rounded-xl p-5">
         <article <?php tribe_classes($event_classes); ?>>
             <?php
             if (!$event->thumbnail->exists) { ?>

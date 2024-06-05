@@ -105,15 +105,15 @@ asort($post_types);
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 <?php foreach ($results as $result): ?>
                 <a href="<?php echo $result['permalink']; ?>"
-                    class="bb-card-block text-hover-effect image-hover-effect bg-gray rounded-xl overflow-hidden mb-10 lg:mb-5 z-10 hover:z-20 relative"
+                    class="bb-card-block text-hover-effect image-hover-effect bg-neutral rounded-xl overflow-hidden mb-10 lg:mb-5 z-10 hover:z-20 relative"
                     x-show="!selectedFilter || '<?php echo $result['post_type']; ?>' == selectedFilter">
-                    <div class="px-2 rounded-full bg-white text-xs border border-gray-400 absolute top-4 right-4 z-10"
+                    <div class="px-2 rounded-full bg-white text-xs border border-neutral-400 absolute top-4 right-4 z-10"
                         x-show="!selectedFilter">
                         <?php echo $result['post_type_label']; ?>
                     </div>
                     <div class="flex flex-col">
                         <div class="">
-                            <div class="aspect-w-16 aspect-h-9 bg-gray-100 overflow-hidden">
+                            <div class="aspect-w-16 aspect-h-9 bg-neutral-100 overflow-hidden">
                                 <?php echo $result['thumbnail']; ?>
                             </div>
                         </div>

@@ -99,7 +99,7 @@
 
     /* Menu */
     &-menu {
-        @apply rounded-md inline-flex select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent text-black font-alt font-medium hover:bg-gray hover:border-gray;
+        @apply rounded-md inline-flex select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent text-black font-alt font-medium hover:bg-neutral hover:border-neutral;
 
         &.current {
             @apply text-primary-500;
@@ -116,7 +116,7 @@
     }
 
     &-secondary {
-        @apply border-gray bg-gray text-black outline-gray hover:border-gray-200 hover:bg-gray-200;
+        @apply border-neutral bg-neutral text-black outline-neutral hover:border-neutral-200 hover:bg-neutral-200;
 
         &.btn-active {
             @apply border-black bg-black;
@@ -124,66 +124,66 @@
     }
 
         &-neutral {
-            @apply border-black bg-black text-white outline-black hover:border-gray-700 hover:bg-gray-700;
-    
+            @apply border-black bg-black text-white outline-black hover:border-neutral-700 hover:bg-neutral-700;
+
             &.btn-active {
                 @apply border-black bg-black;
             }
         }
 
     &-accent,
-    &-neon {
-        @apply border-neon bg-neon text-neon-900 outline-neon;
+    &-accent {
+        @apply border-accent bg-accent text-accent-900 outline-accent;
 
         @media (hover: hover) {
             &:hover {
-                @apply border-neon-400 bg-neon-400;
+                @apply border-accent-400 bg-accent-400;
             }
         }
 
         &.btn-active {
-            @apply border-neon-400 bg-neon-400;
+            @apply border-accent-400 bg-accent-400;
         }
     }
 
     &-disabled {
-        @apply border-gray bg-gray text-gray-700 outline-gray;
+        @apply border-neutral bg-neutral text-neutral-700 outline-neutral;
 
         @media (hover: hover) {
             &:hover {
-                @apply border-gray-600 bg-gray-600;
+                @apply border-neutral-600 bg-neutral-600;
             }
         }
 
         &.btn-active {
-            @apply border-gray-600 bg-gray-600;
+            @apply border-neutral-600 bg-neutral-600;
         }
     }
 
     /* btn with state colors */
 
     &-success {
-        @apply border-green bg-green text-white outline-green hover:border-green-500 hover:bg-green-500;
+        @apply border-success bg-success text-white outline-success hover:border-success-500 hover:bg-success-500;
 
         &.btn-active {
-            @apply border-green bg-green;
+            @apply border-success bg-success;
         }
     }
 
     &-warning {
-        @apply border-orange bg-orange text-white outline-orange hover:border-orange-400 hover:bg-orange-400;
+        @apply border-warning bg-warning text-white outline-warning hover:border-warning-400 hover:bg-warning-400;
 
         &.btn-active {
-            @apply border-orange bg-orange;
+            @apply border-warning bg-warning;
         }
     }
 
     &-error,
-    &-red {
-        @apply border-red bg-red text-white outline-red hover:border-red-400 hover:bg-red-400;
+    &-warning {
+        @apply border-warning bg-warning text-white outline-warning hover:border-warning-400 hover:bg-warning-400;
 
         &.btn-active {
-            @apply border-red bg-red;
+            @apply border-warning bg-warning;
         }
     }
 
@@ -196,7 +196,7 @@
         }
 
         &.btn-secondary {
-            @apply text-gray-800 hover:border-gray-500 hover:bg-gray-500 hover:text-white;
+            @apply text-neutral-800 hover:border-neutral-500 hover:bg-neutral-500 hover:text-white;
 
             &.btn-active {
                 @apply border-secondary-600 bg-secondary-600 text-secondary-700;
@@ -204,36 +204,36 @@
         }
 
         &.btn-accent,
-        &.btn-neon {
-            @apply text-neon-800 hover:border-neon hover:bg-neon;
+        &.btn-accent {
+            @apply text-accent-800 hover:border-accent hover:bg-accent;
 
             &.btn-active {
-                @apply border-neon-600 bg-neon-600 text-neon-700;
+                @apply border-accent-600 bg-accent-600 text-accent-700;
             }
         }
 
         &.btn-success {
-            @apply text-green hover:border-green hover:bg-green hover:text-white;
+            @apply text-success hover:border-success hover:bg-success hover:text-white;
 
             &.btn-active {
-                @apply border-green bg-green text-white;
+                @apply border-success bg-success text-white;
             }
         }
 
         &.btn-warning {
-            @apply text-orange hover:border-orange hover:bg-orange hover:text-white;
+            @apply text-warning hover:border-warning hover:bg-warning hover:text-white;
 
             &.btn-active {
-                @apply border-orange bg-orange text-white;
+                @apply border-warning bg-warning text-white;
             }
         }
 
         &.btn-error,
-        &.btn-red {
-            @apply text-red hover:border-red hover:bg-red hover:text-white;
+        &.btn-warning {
+            @apply text-warning hover:border-warning hover:bg-warning hover:text-white;
 
             &.btn-active {
-                @apply border-red bg-red text-white;
+                @apply border-warning bg-warning text-white;
             }
         }
     }
@@ -261,7 +261,7 @@
         }
 
         &.btn-neutral {
-            @apply text-black hover:border-black hover:bg-gray-200 hover:text-black;
+            @apply text-black hover:border-black hover:bg-neutral-200 hover:text-black;
 
             &.btn-active {
                 @apply border-secondary-600 bg-secondary-600 text-secondary-700;
@@ -269,44 +269,44 @@
         }
 
                 &.btn-secondary {
-                    @apply text-gray-800 hover:border-gray-500 hover:bg-gray-500 hover:text-white;
-        
+                    @apply text-neutral-800 hover:border-neutral-500 hover:bg-neutral-500 hover:text-white;
+
                     &.btn-active {
                         @apply border-secondary-600 bg-secondary-600 text-secondary-700;
                     }
                 }
 
         &.btn-accent,
-        &.btn-neon {
-            @apply text-neon-800 hover:border-neon hover:bg-neon;
+        &.btn-accent {
+            @apply text-accent-800 hover:border-accent hover:bg-accent;
 
             &.btn-active {
-                @apply border-neon-600 bg-neon-600 text-neon-700;
+                @apply border-accent-600 bg-accent-600 text-accent-700;
             }
         }
 
         &.btn-success {
-            @apply text-green hover:border-green hover:bg-green hover:text-white;
+            @apply text-success hover:border-success hover:bg-success hover:text-white;
 
             &.btn-active {
-                @apply border-green bg-green text-white;
+                @apply border-success bg-success text-white;
             }
         }
 
         &.btn-warning {
-            @apply text-orange hover:border-orange hover:bg-orange hover:text-white;
+            @apply text-warning hover:border-warning hover:bg-warning hover:text-white;
 
             &.btn-active {
-                @apply border-orange bg-orange text-white;
+                @apply border-warning bg-warning text-white;
             }
         }
 
         &.btn-error,
-        &.btn-red {
-            @apply text-red hover:border-red hover:bg-red hover:text-white;
+        &.btn-warning {
+            @apply text-warning hover:border-warning hover:bg-warning hover:text-white;
 
             &.btn-active {
-                @apply border-red bg-red text-white;
+                @apply border-warning bg-warning text-white;
             }
         }
     }
@@ -319,7 +319,7 @@
     &.btn-disabled,
     &[disabled],
     &:disabled {
-        @apply bg-gray text-primary-700 border-opacity-0 bg-opacity-20 text-opacity-20;
+        @apply bg-neutral text-primary-700 border-opacity-0 bg-opacity-20 text-opacity-20;
     }
 
     @media (hover: hover) {
@@ -327,7 +327,7 @@
         &-disabled:hover,
         &[disabled]:hover,
         &:disabled:hover {
-            @apply bg-gray text-primary-700 border-opacity-0 bg-opacity-20 text-opacity-20;
+            @apply bg-neutral text-primary-700 border-opacity-0 bg-opacity-20 text-opacity-20;
         }
     }
 }

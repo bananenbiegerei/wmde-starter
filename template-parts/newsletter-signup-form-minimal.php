@@ -35,7 +35,7 @@
         aria-modal="true" x-id="['dsgvo-modal']" :aria-labelledby="$id('dsgvo-modal')"
         class="fixed inset-0 z-10 overflow-y-auto">
         <!-- Overlay -->
-        <div x-show="open" x-transition.opacity class="fixed inset-0 bg-gray-900 bg-opacity-50"></div>
+        <div x-show="open" x-transition.opacity class="fixed inset-0 bg-neutral-900 bg-opacity-50"></div>
 
         <!-- Panel -->
         <div x-show="open" x-transition x-on:click="open = false"

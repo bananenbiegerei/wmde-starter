@@ -20,7 +20,7 @@ if ( empty( $items ) ) {
 ?>
 <div class="tribe-events-c-subscribe-dropdown__container">
 	<div class="">
-		<div class="text-gray-500 !mb-2" tabindex="0">
+		<div class="text-neutral-500 !mb-2" tabindex="0">
 			<?php echo esc_html__( 'Subscribe to calendar', 'the-events-calendar' ); ?>
 		</div>
 		<div class="">

@@ -1,5 +1,5 @@
-has-red-50-color {
-	@apply text-red-50;
+has-warning-50-color {
+	@apply text-warning-50;
 }
 has-white-color {
 	@apply text-white;
@@ -7,21 +7,21 @@ has-white-color {
 has-primary-50-color {
 	@appply text-primary-50;
 }
-has-gray-color {
-	@apply text-gray;
+has-neutral-color {
+	@apply text-neutral;
 }
 
-has-red-50-background-color {
-	@apply bg-red-50;
+has-warning-50-background-color {
+	@apply bg-warning-50;
 }
 has-white-background-color {
-	@apply bg-red-50;
+	@apply bg-warning-50;
 }
 
 has-primary-50-background-color {
 	@appply bg-primary-50;
 }
 
-has-gray-background-color {
-	@apply bg-gray;
+has-neutral-background-color {
+	@apply bg-neutral;
 }

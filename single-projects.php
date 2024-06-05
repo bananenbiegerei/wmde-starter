@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php while (have_posts()): ?>
 	<?php the_post(); ?>
-	<div class="bg-gray min-h-[12rem] py-3 lg:py-10">
+	<div class="bg-neutral min-h-[12rem] py-3 lg:py-10">
 		  <div class="container lg:grid lg:grid-cols-12 lg:gap-10">
 			  <div class="lg:col-span-3">
 					<div class="flex lg:justify-center mt-4">

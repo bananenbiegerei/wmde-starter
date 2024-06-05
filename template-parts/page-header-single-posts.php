@@ -1,4 +1,4 @@
-<div class="bg-gray min-h-[12rem] py-10 mb-10">
+<div class="bg-neutral min-h-[12rem] py-10 mb-10">
   <div class="container lg:grid lg:grid-cols-12 lg:gap-10">
   <!-- Back, Post Title & Top Line -->
   <div class="lg:col-span-10 lg:col-start-2">
@@ -27,7 +27,7 @@
             'class' => 'object-cover w-full h-full overflow-hidden'
           ]); ?>
       <?php if (bbWikimediaCommonsMedia::has_post_thumbnail_caption()): ?>
-      <figcaption class="invisible flex absolute left-0 bottom-0 right-0 text-white bg-gray-900 w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all">
+      <figcaption class="invisible flex absolute left-0 bottom-0 right-0 text-white bg-neutral-900 w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all">
       <?= bb_icon('info', 'flex-shrink-0') ?> <div class="self-center">
         <?php the_post_thumbnail_caption(); ?></div>
       </figcaption>

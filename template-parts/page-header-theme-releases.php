@@ -11,7 +11,7 @@ $secondary_color = get_field('secondary_color', get_the_ID());
 				  <figure class="w-full h-full">
 					  <?php the_post_thumbnail('large', ['class' => 'object-contain w-full h-full']); ?>
 					  <?php if (bbWikimediaCommonsMedia::has_post_thumbnail_caption()): ?>
-						  <figcaption class="invisible flex absolute left-0 bottom-0 right-0 text-white bg-gray-900 w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all">
+						  <figcaption class="invisible flex absolute left-0 bottom-0 right-0 text-white bg-neutral-900 w-auto h-auto z-20 p-2 text-sm flex items-start gap-4 break-all">
 							  <?= bb_icon('info', 'flex-shrink-0') ?> <div class="self-center"><?php the_post_thumbnail_caption(); ?></div>
 						  </figcaption>
 					  <?php endif; ?>
@@ -48,4 +48,3 @@ $secondary_color = get_field('secondary_color', get_the_ID());
   </div>
 <?php endif; ?>
 <?php get_template_part('template-parts/anchor-nav'); ?>
-

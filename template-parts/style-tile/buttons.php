@@ -64,26 +64,26 @@
 	<span class="bb-icon icon-base"><!--?xml version="1.0" encoding="utf-8"?-->
 <svg width="20" height="20" viewBox="0 0 20 20" role="presentation" aria-hidden="true">
   <path d="M17 9.96296L12.1601 17H10.3128L14.4877 10.7407H2V9.22222H14.4877L10.3128 3H12.1601L17 9.96296Z" fill="currentColor"></path>
-</svg></span>	
+</svg></span>
 	Normal
 </button>
 	<button class="btn btn-sm">
 	<span class="bb-icon icon-sm"><!--?xml version="1.0" encoding="utf-8"?-->
 <svg width="20" height="20" viewBox="0 0 20 20" role="presentation" aria-hidden="true">
   <path d="M17 9.96296L12.1601 17H10.3128L14.4877 10.7407H2V9.22222H14.4877L10.3128 3H12.1601L17 9.96296Z" fill="currentColor"></path>
-</svg></span>	
+</svg></span>
 	Small
 </button>
 	<button class="btn btn-xs">
 	<span class="bb-icon icon-xs"><!--?xml version="1.0" encoding="utf-8"?-->
 <svg width="20" height="20" viewBox="0 0 20 20" role="presentation" aria-hidden="true">
   <path d="M17 9.96296L12.1601 17H10.3128L14.4877 10.7407H2V9.22222H14.4877L10.3128 3H12.1601L17 9.96296Z" fill="currentColor"></path>
-</svg></span>	
+</svg></span>
 	Tiny
 </button>
 	<hr>
 	<h4 class="mb-0">Buttons with different HTML Tags</h4>
-	<code class="bg-red-100 rounded block p-2">
+	<code class="bg-warning-100 rounded block p-2">
 		Radio and checkbox not refinded yet. Because of complications with forms.
 		Let's see if we need it.
 	</code>

@@ -53,7 +53,7 @@
     ?>
 
 
-    <div class="flex items-center justify-between border-t border-gray-200 bg-white py-3">
+    <div class="flex items-center justify-between border-t border-neutral-200 bg-white py-3">
         <div class="flex flex-1 justify-between sm:hidden">
             <?php previous_posts_link('Previous'); ?>
             <?php next_posts_link('Next'); ?>

@@ -24,7 +24,7 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 }
 ?>
 <div id="tribe-events-content" class="tribe-events-single tribe-blocks-editor">
-    <div class="bg-gray min-h-[12rem] pt-5 pb-10 pt-5">
+    <div class="bg-neutral min-h-[12rem] pt-5 pb-10 pt-5">
           <div class="container lg:grid lg:grid-cols-12 lg:gap-10">
                 <div class="col-span-12 lg:col-span-10">
                   <?php $this->template( 'single-event/back-link' ); ?>
