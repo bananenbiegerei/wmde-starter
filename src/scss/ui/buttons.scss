@@ -50,7 +50,7 @@
 
 /* group */
 .btn-group {
-    @apply inline-flex flex-wrap;
+    @apply flex items-center gap-x-2 flex-wrap;
 
     &>input[type="radio"].btn {
         @apply appearance-none;
@@ -335,18 +335,6 @@
 /* group */
 .btn-menu-section {
     @apply text-sm bg-transparent text-black font-alt font-bold uppercase border-none hover:bg-transparent hover:text-primary-800 rounded-md;
-}
-
-.btn-group {
-    @apply gap-2;
-    //     &>input[type="radio"]:checked.btn,
-    //     &>.btn-active {
-    //         @apply border-primary bg-primary text-white;
-
-    //         &:focus-visible {
-    //             @apply outline-primary outline outline-2;
-    //         }
-    //     }
 }
 
 /* radio input and checkbox as button */
