@@ -37,7 +37,7 @@
 			<div>
 				<button x-on:click="close = ! close; setC();">
 					<span class="sr-only">
-						<?php _e('schliessen'); ?>
+						<?php _e('Schliessen', BB_TEXT_DOMAIN); ?>
 					</span>
 					<?= bb_icon('x', 'icon-xs') ?>
 					</button>

@@ -28,7 +28,7 @@ add_action(
 
             wp_register_script('bb-admin', false, false, false, true);
             wp_enqueue_script('bb-admin');
-            $script = "jQuery('.wp-admin.nav-menus-php .wrap').html('<div class=\"wrap\"><h2>Menus</h2><p>" . __('Please edit the menus on the <a href="' . network_site_url() . 'wp-admin/nav-menus.php">main site</a>.', BB_TEXT_DOMAIN)   .   "</p></div>');";
+            $script = "jQuery('.wp-admin.nav-menus-php .wrap').html('<div class=\"wrap\"><h2>Menus</h2><p>" . __('Bitte Menüs auf der <a href="' . network_site_url() . 'wp-admin/nav-menus.php"> Hauptseite</a> bearbeiten.', BB_TEXT_DOMAIN)   .   "</p></div>');";
             wp_add_inline_script('bb-admin', $script);
         }
     }
