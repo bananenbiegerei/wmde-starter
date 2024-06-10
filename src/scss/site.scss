@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Styles for BB-Blocks */
+@import '../../bb-blocks/**/style.scss';
+
 /* UI Basic components */
 @import './ui/*';
 
@@ -16,6 +19,3 @@
 
 /* Templates */
 @import './templates/*';
-
-/* ACF blocks */
-@import '../../blocks/**/style.scss';
