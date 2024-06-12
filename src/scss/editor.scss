@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+// List of colors as defined in tailwind.config.js
+$bb_colors: 'primary', 'secondary';
+
+@import '../../bb-blocks/**/style.scss';
+
 @import './ui/*';
 @import './components/*';
 @import './gutenberg-overwrites/*';
-@import '../../blocks/**/style.scss';
 
 html :where(.editor-styles-wrapper) {
 	h1,
