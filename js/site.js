@@ -287,9 +287,9 @@
   // node_modules/picocolors/picocolors.browser.js
   var require_picocolors_browser = __commonJS({
     "node_modules/picocolors/picocolors.browser.js"(exports, module) {
-      var x2 = String;
+      var x = String;
       var create = function() {
-        return { isColorSupported: false, reset: x2, bold: x2, dim: x2, italic: x2, underline: x2, inverse: x2, hidden: x2, strikethrough: x2, black: x2, red: x2, green: x2, yellow: x2, blue: x2, magenta: x2, cyan: x2, white: x2, gray: x2, bgBlack: x2, bgRed: x2, bgGreen: x2, bgYellow: x2, bgBlue: x2, bgMagenta: x2, bgCyan: x2, bgWhite: x2 };
+        return { isColorSupported: false, reset: x, bold: x, dim: x, italic: x, underline: x, inverse: x, hidden: x, strikethrough: x, black: x, red: x, green: x, yellow: x, blue: x, magenta: x, cyan: x, white: x, gray: x, bgBlack: x, bgRed: x, bgGreen: x, bgYellow: x, bgBlue: x, bgMagenta: x, bgCyan: x, bgWhite: x };
       };
       module.exports = create();
       module.exports.createColors = create;
@@ -743,16 +743,16 @@
       });
       function defaults(target, ...sources) {
         for (let source of sources) {
-          for (let k2 in source) {
+          for (let k in source) {
             var _target_hasOwnProperty;
-            if (!(target === null || target === void 0 ? void 0 : (_target_hasOwnProperty = target.hasOwnProperty) === null || _target_hasOwnProperty === void 0 ? void 0 : _target_hasOwnProperty.call(target, k2))) {
-              target[k2] = source[k2];
+            if (!(target === null || target === void 0 ? void 0 : (_target_hasOwnProperty = target.hasOwnProperty) === null || _target_hasOwnProperty === void 0 ? void 0 : _target_hasOwnProperty.call(target, k))) {
+              target[k] = source[k];
             }
           }
-          for (let k2 of Object.getOwnPropertySymbols(source)) {
+          for (let k of Object.getOwnPropertySymbols(source)) {
             var _target_hasOwnProperty1;
-            if (!(target === null || target === void 0 ? void 0 : (_target_hasOwnProperty1 = target.hasOwnProperty) === null || _target_hasOwnProperty1 === void 0 ? void 0 : _target_hasOwnProperty1.call(target, k2))) {
-              target[k2] = source[k2];
+            if (!(target === null || target === void 0 ? void 0 : (_target_hasOwnProperty1 = target.hasOwnProperty) === null || _target_hasOwnProperty1 === void 0 ? void 0 : _target_hasOwnProperty1.call(target, k))) {
+              target[k] = source[k];
             }
           }
         }
@@ -866,7 +866,7 @@
           return;
         }
         if (experimentalFlagsEnabled(config).length > 0) {
-          let changes = experimentalFlagsEnabled(config).map((s3) => _picocolors.default.yellow(s3)).join(", ");
+          let changes = experimentalFlagsEnabled(config).map((s) => _picocolors.default.yellow(s)).join(", ");
           _log.default.warn("experimental-flags-enabled", [
             `You have enabled experimental features: ${changes}`,
             "Experimental features in Tailwind CSS are not covered by semver, may introduce breaking changes, and can change at any time."
@@ -1191,9 +1191,9 @@
           return value.map((child) => cloneDeep(child));
         }
         if (typeof value === "object" && value !== null) {
-          return Object.fromEntries(Object.entries(value).map(([k2, v2]) => [
-            k2,
-            cloneDeep(v2)
+          return Object.fromEntries(Object.entries(value).map(([k, v]) => [
+            k,
+            cloneDeep(v)
           ]));
         }
         return value;
@@ -2034,18 +2034,18 @@
         if (value in _colorNames.default) {
           return {
             mode: "rgb",
-            color: _colorNames.default[value].map((v2) => v2.toString())
+            color: _colorNames.default[value].map((v) => v.toString())
           };
         }
-        let hex = value.replace(SHORT_HEX, (_3, r4, g3, b3, a4) => [
+        let hex = value.replace(SHORT_HEX, (_, r, g, b, a) => [
           "#",
-          r4,
-          r4,
-          g3,
-          g3,
-          b3,
-          b3,
-          a4 ? a4 + a4 : ""
+          r,
+          r,
+          g,
+          g,
+          b,
+          b,
+          a ? a + a : ""
         ].join("")).match(HEX);
         if (hex !== null) {
           return {
@@ -2054,23 +2054,23 @@
               parseInt(hex[1], 16),
               parseInt(hex[2], 16),
               parseInt(hex[3], 16)
-            ].map((v2) => v2.toString()),
+            ].map((v) => v.toString()),
             alpha: hex[4] ? (parseInt(hex[4], 16) / 255).toString() : void 0
           };
         }
         var _value_match;
-        let match2 = (_value_match = value.match(RGB)) !== null && _value_match !== void 0 ? _value_match : value.match(HSL);
-        if (match2 === null) {
+        let match = (_value_match = value.match(RGB)) !== null && _value_match !== void 0 ? _value_match : value.match(HSL);
+        if (match === null) {
           return null;
         }
         let color = [
-          match2[2],
-          match2[3],
-          match2[4]
-        ].filter(Boolean).map((v2) => v2.toString());
+          match[2],
+          match[3],
+          match[4]
+        ].filter(Boolean).map((v) => v.toString());
         if (color.length === 2 && color[0].startsWith("var(")) {
           return {
-            mode: match2[1],
+            mode: match[1],
             color: [
               color[0]
             ],
@@ -2084,9 +2084,9 @@
           return null;
         }
         return {
-          mode: match2[1],
+          mode: match[1],
           color,
-          alpha: (_match_ = match2[5]) === null || _match_ === void 0 ? void 0 : (_match__toString = _match_.toString) === null || _match__toString === void 0 ? void 0 : _match__toString.call(_match_)
+          alpha: (_match_ = match[5]) === null || _match_ === void 0 ? void 0 : (_match__toString = _match_.toString) === null || _match__toString === void 0 ? void 0 : _match__toString.call(_match_)
         };
       }
       function formatColor({ mode, color, alpha }) {
@@ -2144,9 +2144,9 @@
         if (typeof color === "function") {
           return {
             [variable]: "1",
-            ...Object.fromEntries(properties.map((p3) => {
+            ...Object.fromEntries(properties.map((p) => {
               return [
-                p3,
+                p,
                 color({
                   opacityVariable: variable,
                   opacityValue: `var(${variable})`
@@ -2157,22 +2157,22 @@
         }
         const parsed = (0, _color.parseColor)(color);
         if (parsed === null) {
-          return Object.fromEntries(properties.map((p3) => [
-            p3,
+          return Object.fromEntries(properties.map((p) => [
+            p,
             color
           ]));
         }
         if (parsed.alpha !== void 0) {
-          return Object.fromEntries(properties.map((p3) => [
-            p3,
+          return Object.fromEntries(properties.map((p) => [
+            p,
             color
           ]));
         }
         return {
           [variable]: "1",
-          ...Object.fromEntries(properties.map((p3) => {
+          ...Object.fromEntries(properties.map((p) => {
             return [
-              p3,
+              p,
               (0, _color.formatColor)({
                 ...parsed,
                 alpha: `var(${variable})`
@@ -2414,11 +2414,11 @@
         return value;
       }
       function normalizeMathOperatorSpacing(value) {
-        return value.replace(/(calc|min|max|clamp)\(.+\)/g, (match2) => {
+        return value.replace(/(calc|min|max|clamp)\(.+\)/g, (match) => {
           let vars = [];
-          return match2.replace(/var\((--.+?)[,)]/g, (match3, g1) => {
+          return match.replace(/var\((--.+?)[,)]/g, (match2, g1) => {
             vars.push(g1);
-            return match3.replace(g1, placeholder);
+            return match2.replace(g1, placeholder);
           }).replace(/(-?\d*\.?\d(?!\b-\d.+[,)](?![^+\-/*])\D)(?:%|[a-z]+)?|\))([+\-/*])/g, "$1 $2 ").replace(placeholderRe, () => vars.shift());
         });
       }
@@ -2884,8 +2884,8 @@
           }
         }
         let matches2 = getMatchingTypes(types, modifier, options, tailwindConfig2);
-        for (let match2 of matches2) {
-          return match2;
+        for (let match of matches2) {
+          return match;
         }
         return [];
       }
@@ -2984,16 +2984,16 @@
       function mergeWith(target, ...sources) {
         let customizer = sources.pop();
         for (let source of sources) {
-          for (let k2 in source) {
-            let merged = customizer(target[k2], source[k2]);
+          for (let k in source) {
+            let merged = customizer(target[k], source[k]);
             if (merged === void 0) {
-              if ((0, _isPlainObject.default)(target[k2]) && (0, _isPlainObject.default)(source[k2])) {
-                target[k2] = mergeWith({}, target[k2], source[k2], customizer);
+              if ((0, _isPlainObject.default)(target[k]) && (0, _isPlainObject.default)(source[k])) {
+                target[k] = mergeWith({}, target[k], source[k], customizer);
               } else {
-                target[k2] = source[k2];
+                target[k] = source[k];
               }
             } else {
-              target[k2] = merged;
+              target[k] = merged;
             }
           }
         }
@@ -3070,7 +3070,7 @@
           return (resolveThemePath, utils) => mergeWith({}, ...[
             themeValue,
             ...extensions
-          ].map((e2) => value(e2, resolveThemePath, utils)), mergeExtensionCustomizer);
+          ].map((e) => value(e, resolveThemePath, utils)), mergeExtensionCustomizer);
         });
       }
       function* toPaths(key) {
@@ -3188,9 +3188,9 @@
           theme: resolveFunctionKeys(mergeExtensions(mergeThemes(allConfigs.map((t) => {
             return (_t_theme = t === null || t === void 0 ? void 0 : t.theme) !== null && _t_theme !== void 0 ? _t_theme : {};
           })))),
-          corePlugins: resolveCorePlugins(allConfigs.map((c3) => c3.corePlugins)),
-          plugins: resolvePluginLists(configs.map((c3) => {
-            return (_c_plugins = c3 === null || c3 === void 0 ? void 0 : c3.plugins) !== null && _c_plugins !== void 0 ? _c_plugins : [];
+          corePlugins: resolveCorePlugins(allConfigs.map((c) => c.corePlugins)),
+          plugins: resolvePluginLists(configs.map((c) => {
+            return (_c_plugins = c === null || c === void 0 ? void 0 : c.plugins) !== null && _c_plugins !== void 0 ? _c_plugins : [];
           }))
         }, ...allConfigs));
       }
@@ -4386,7 +4386,7 @@
         }
       };
       var aspectRatio = plugin2(
-        function({ addComponents, matchComponents, theme: theme2, variants, e: e2 }) {
+        function({ addComponents, matchComponents, theme: theme2, variants, e }) {
           const values = theme2("aspectRatio");
           if (matchComponents) {
             matchComponents(
@@ -4408,10 +4408,10 @@
             return;
           }
           const baseSelectors = Object.entries(values).map(([key, value]) => {
-            return `.${e2(`aspect-w-${key}`)}`;
+            return `.${e(`aspect-w-${key}`)}`;
           }).join(",\n");
           const childSelectors = Object.entries(values).map(([key, value]) => {
-            return `.${e2(`aspect-w-${key}`)} > *`;
+            return `.${e(`aspect-w-${key}`)} > *`;
           }).join(",\n");
           addComponents(
             [
@@ -4422,14 +4422,14 @@
               noneComponent,
               Object.entries(values).map(([key, value]) => {
                 return {
-                  [`.${e2(`aspect-w-${key}`)}`]: {
+                  [`.${e(`aspect-w-${key}`)}`]: {
                     "--tw-aspect-w": value
                   }
                 };
               }),
               Object.entries(values).map(([key, value]) => {
                 return {
-                  [`.${e2(`aspect-h-${key}`)}`]: {
+                  [`.${e(`aspect-h-${key}`)}`]: {
                     "--tw-aspect-h": value
                   }
                 };
@@ -4512,12 +4512,12 @@
         }, {
           values,
           sort: function sort(aVariant, zVariant) {
-            var a4 = parseFloat(aVariant.value);
+            var a = parseFloat(aVariant.value);
             var z = parseFloat(zVariant.value);
-            if (a4 === null || z === null)
+            if (a === null || z === null)
               return 0;
-            if (a4 - z !== 0)
-              return a4 - z;
+            if (a - z !== 0)
+              return a - z;
             var _aVariant_modifier;
             var aLabel = (_aVariant_modifier = aVariant.modifier) !== null && _aVariant_modifier !== void 0 ? _aVariant_modifier : "";
             var _zVariant_modifier;
@@ -4637,8 +4637,8 @@
         });
         return string;
       }
-      function specialHexEncode(match2) {
-        switch (match2) {
+      function specialHexEncode(match) {
+        switch (match) {
           case "%20":
             return " ";
           case "%3D":
@@ -4648,7 +4648,7 @@
           case "%2F":
             return "/";
           default:
-            return match2.toLowerCase();
+            return match.toLowerCase();
         }
       }
       function svgToTinyDataUri(svgString) {
@@ -5089,57 +5089,57 @@
               exports2.__esModule = true;
             }
           }
-          return function(id, v2) {
-            return exports2[id] = previous ? previous(id, v2) : v2;
+          return function(id, v) {
+            return exports2[id] = previous ? previous(id, v) : v;
           };
         }
       })(function(exporter) {
-        var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d3, b3) {
-          d3.__proto__ = b3;
-        } || function(d3, b3) {
-          for (var p3 in b3)
-            if (Object.prototype.hasOwnProperty.call(b3, p3))
-              d3[p3] = b3[p3];
+        var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d, b) {
+          d.__proto__ = b;
+        } || function(d, b) {
+          for (var p in b)
+            if (Object.prototype.hasOwnProperty.call(b, p))
+              d[p] = b[p];
         };
-        __extends = function(d3, b3) {
-          if (typeof b3 !== "function" && b3 !== null)
-            throw new TypeError("Class extends value " + String(b3) + " is not a constructor or null");
-          extendStatics(d3, b3);
+        __extends = function(d, b) {
+          if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+          extendStatics(d, b);
           function __() {
-            this.constructor = d3;
+            this.constructor = d;
           }
-          d3.prototype = b3 === null ? Object.create(b3) : (__.prototype = b3.prototype, new __());
+          d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
         };
         __assign = Object.assign || function(t) {
-          for (var s3, i4 = 1, n4 = arguments.length; i4 < n4; i4++) {
-            s3 = arguments[i4];
-            for (var p3 in s3)
-              if (Object.prototype.hasOwnProperty.call(s3, p3))
-                t[p3] = s3[p3];
+          for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s)
+              if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
           }
           return t;
         };
-        __rest = function(s3, e2) {
+        __rest = function(s, e) {
           var t = {};
-          for (var p3 in s3)
-            if (Object.prototype.hasOwnProperty.call(s3, p3) && e2.indexOf(p3) < 0)
-              t[p3] = s3[p3];
-          if (s3 != null && typeof Object.getOwnPropertySymbols === "function")
-            for (var i4 = 0, p3 = Object.getOwnPropertySymbols(s3); i4 < p3.length; i4++) {
-              if (e2.indexOf(p3[i4]) < 0 && Object.prototype.propertyIsEnumerable.call(s3, p3[i4]))
-                t[p3[i4]] = s3[p3[i4]];
+          for (var p in s)
+            if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+              t[p] = s[p];
+          if (s != null && typeof Object.getOwnPropertySymbols === "function")
+            for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+              if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
             }
           return t;
         };
         __decorate = function(decorators, target, key, desc) {
-          var c3 = arguments.length, r4 = c3 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d3;
+          var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
           if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-            r4 = Reflect.decorate(decorators, target, key, desc);
+            r = Reflect.decorate(decorators, target, key, desc);
           else
-            for (var i4 = decorators.length - 1; i4 >= 0; i4--)
-              if (d3 = decorators[i4])
-                r4 = (c3 < 3 ? d3(r4) : c3 > 3 ? d3(target, key, r4) : d3(target, key)) || r4;
-          return c3 > 3 && r4 && Object.defineProperty(target, key, r4), r4;
+            for (var i = decorators.length - 1; i >= 0; i--)
+              if (d = decorators[i])
+                r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+          return c > 3 && r && Object.defineProperty(target, key, r), r;
         };
         __param = function(paramIndex, decorator) {
           return function(target, key) {
@@ -5147,43 +5147,43 @@
           };
         };
         __esDecorate = function(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
-          function accept(f3) {
-            if (f3 !== void 0 && typeof f3 !== "function")
+          function accept(f) {
+            if (f !== void 0 && typeof f !== "function")
               throw new TypeError("Function expected");
-            return f3;
+            return f;
           }
           var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
           var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
           var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
-          var _3, done = false;
-          for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
+          var _, done = false;
+          for (var i = decorators.length - 1; i >= 0; i--) {
             var context = {};
-            for (var p3 in contextIn)
-              context[p3] = p3 === "access" ? {} : contextIn[p3];
-            for (var p3 in contextIn.access)
-              context.access[p3] = contextIn.access[p3];
-            context.addInitializer = function(f3) {
+            for (var p in contextIn)
+              context[p] = p === "access" ? {} : contextIn[p];
+            for (var p in contextIn.access)
+              context.access[p] = contextIn.access[p];
+            context.addInitializer = function(f) {
               if (done)
                 throw new TypeError("Cannot add initializers after decoration has completed");
-              extraInitializers.push(accept(f3 || null));
+              extraInitializers.push(accept(f || null));
             };
-            var result = (0, decorators[i4])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+            var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
             if (kind === "accessor") {
               if (result === void 0)
                 continue;
               if (result === null || typeof result !== "object")
                 throw new TypeError("Object expected");
-              if (_3 = accept(result.get))
-                descriptor.get = _3;
-              if (_3 = accept(result.set))
-                descriptor.set = _3;
-              if (_3 = accept(result.init))
-                initializers.unshift(_3);
-            } else if (_3 = accept(result)) {
+              if (_ = accept(result.get))
+                descriptor.get = _;
+              if (_ = accept(result.set))
+                descriptor.set = _;
+              if (_ = accept(result.init))
+                initializers.unshift(_);
+            } else if (_ = accept(result)) {
               if (kind === "field")
-                initializers.unshift(_3);
+                initializers.unshift(_);
               else
-                descriptor[key] = _3;
+                descriptor[key] = _;
             }
           }
           if (target)
@@ -5192,42 +5192,42 @@
         };
         __runInitializers = function(thisArg, initializers, value) {
           var useValue = arguments.length > 2;
-          for (var i4 = 0; i4 < initializers.length; i4++) {
-            value = useValue ? initializers[i4].call(thisArg, value) : initializers[i4].call(thisArg);
+          for (var i = 0; i < initializers.length; i++) {
+            value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
           }
           return useValue ? value : void 0;
         };
-        __propKey = function(x2) {
-          return typeof x2 === "symbol" ? x2 : "".concat(x2);
+        __propKey = function(x) {
+          return typeof x === "symbol" ? x : "".concat(x);
         };
-        __setFunctionName = function(f3, name, prefix2) {
+        __setFunctionName = function(f, name, prefix2) {
           if (typeof name === "symbol")
             name = name.description ? "[".concat(name.description, "]") : "";
-          return Object.defineProperty(f3, "name", { configurable: true, value: prefix2 ? "".concat(prefix2, " ", name) : name });
+          return Object.defineProperty(f, "name", { configurable: true, value: prefix2 ? "".concat(prefix2, " ", name) : name });
         };
         __metadata = function(metadataKey, metadataValue) {
           if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
             return Reflect.metadata(metadataKey, metadataValue);
         };
-        __awaiter = function(thisArg, _arguments, P2, generator) {
+        __awaiter = function(thisArg, _arguments, P, generator) {
           function adopt(value) {
-            return value instanceof P2 ? value : new P2(function(resolve) {
+            return value instanceof P ? value : new P(function(resolve) {
               resolve(value);
             });
           }
-          return new (P2 || (P2 = Promise))(function(resolve, reject) {
+          return new (P || (P = Promise))(function(resolve, reject) {
             function fulfilled(value) {
               try {
                 step(generator.next(value));
-              } catch (e2) {
-                reject(e2);
+              } catch (e) {
+                reject(e);
               }
             }
             function rejected(value) {
               try {
                 step(generator["throw"](value));
-              } catch (e2) {
-                reject(e2);
+              } catch (e) {
+                reject(e);
               }
             }
             function step(result) {
@@ -5237,27 +5237,27 @@
           });
         };
         __generator = function(thisArg, body) {
-          var _3 = { label: 0, sent: function() {
+          var _ = { label: 0, sent: function() {
             if (t[0] & 1)
               throw t[1];
             return t[1];
-          }, trys: [], ops: [] }, f3, y3, t, g3;
-          return g3 = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g3[Symbol.iterator] = function() {
+          }, trys: [], ops: [] }, f, y, t, g;
+          return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() {
             return this;
-          }), g3;
-          function verb(n4) {
-            return function(v2) {
-              return step([n4, v2]);
+          }), g;
+          function verb(n) {
+            return function(v) {
+              return step([n, v]);
             };
           }
           function step(op) {
-            if (f3)
+            if (f)
               throw new TypeError("Generator is already executing.");
-            while (g3 && (g3 = 0, op[0] && (_3 = 0)), _3)
+            while (g && (g = 0, op[0] && (_ = 0)), _)
               try {
-                if (f3 = 1, y3 && (t = op[0] & 2 ? y3["return"] : op[0] ? y3["throw"] || ((t = y3["return"]) && t.call(y3), 0) : y3.next) && !(t = t.call(y3, op[1])).done)
+                if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done)
                   return t;
-                if (y3 = 0, t)
+                if (y = 0, t)
                   op = [op[0] & 2, t.value];
                 switch (op[0]) {
                   case 0:
@@ -5265,159 +5265,159 @@
                     t = op;
                     break;
                   case 4:
-                    _3.label++;
+                    _.label++;
                     return { value: op[1], done: false };
                   case 5:
-                    _3.label++;
-                    y3 = op[1];
+                    _.label++;
+                    y = op[1];
                     op = [0];
                     continue;
                   case 7:
-                    op = _3.ops.pop();
-                    _3.trys.pop();
+                    op = _.ops.pop();
+                    _.trys.pop();
                     continue;
                   default:
-                    if (!(t = _3.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
-                      _3 = 0;
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                      _ = 0;
                       continue;
                     }
                     if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
-                      _3.label = op[1];
+                      _.label = op[1];
                       break;
                     }
-                    if (op[0] === 6 && _3.label < t[1]) {
-                      _3.label = t[1];
+                    if (op[0] === 6 && _.label < t[1]) {
+                      _.label = t[1];
                       t = op;
                       break;
                     }
-                    if (t && _3.label < t[2]) {
-                      _3.label = t[2];
-                      _3.ops.push(op);
+                    if (t && _.label < t[2]) {
+                      _.label = t[2];
+                      _.ops.push(op);
                       break;
                     }
                     if (t[2])
-                      _3.ops.pop();
-                    _3.trys.pop();
+                      _.ops.pop();
+                    _.trys.pop();
                     continue;
                 }
-                op = body.call(thisArg, _3);
-              } catch (e2) {
-                op = [6, e2];
-                y3 = 0;
+                op = body.call(thisArg, _);
+              } catch (e) {
+                op = [6, e];
+                y = 0;
               } finally {
-                f3 = t = 0;
+                f = t = 0;
               }
             if (op[0] & 5)
               throw op[1];
             return { value: op[0] ? op[1] : void 0, done: true };
           }
         };
-        __exportStar = function(m3, o4) {
-          for (var p3 in m3)
-            if (p3 !== "default" && !Object.prototype.hasOwnProperty.call(o4, p3))
-              __createBinding(o4, m3, p3);
+        __exportStar = function(m, o) {
+          for (var p in m)
+            if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p))
+              __createBinding(o, m, p);
         };
-        __createBinding = Object.create ? function(o4, m3, k2, k22) {
-          if (k22 === void 0)
-            k22 = k2;
-          var desc = Object.getOwnPropertyDescriptor(m3, k2);
-          if (!desc || ("get" in desc ? !m3.__esModule : desc.writable || desc.configurable)) {
+        __createBinding = Object.create ? function(o, m, k, k2) {
+          if (k2 === void 0)
+            k2 = k;
+          var desc = Object.getOwnPropertyDescriptor(m, k);
+          if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
             desc = { enumerable: true, get: function() {
-              return m3[k2];
+              return m[k];
             } };
           }
-          Object.defineProperty(o4, k22, desc);
-        } : function(o4, m3, k2, k22) {
-          if (k22 === void 0)
-            k22 = k2;
-          o4[k22] = m3[k2];
+          Object.defineProperty(o, k2, desc);
+        } : function(o, m, k, k2) {
+          if (k2 === void 0)
+            k2 = k;
+          o[k2] = m[k];
         };
-        __values = function(o4) {
-          var s3 = typeof Symbol === "function" && Symbol.iterator, m3 = s3 && o4[s3], i4 = 0;
-          if (m3)
-            return m3.call(o4);
-          if (o4 && typeof o4.length === "number")
+        __values = function(o) {
+          var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+          if (m)
+            return m.call(o);
+          if (o && typeof o.length === "number")
             return {
               next: function() {
-                if (o4 && i4 >= o4.length)
-                  o4 = void 0;
-                return { value: o4 && o4[i4++], done: !o4 };
+                if (o && i >= o.length)
+                  o = void 0;
+                return { value: o && o[i++], done: !o };
               }
             };
-          throw new TypeError(s3 ? "Object is not iterable." : "Symbol.iterator is not defined.");
+          throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
         };
-        __read = function(o4, n4) {
-          var m3 = typeof Symbol === "function" && o4[Symbol.iterator];
-          if (!m3)
-            return o4;
-          var i4 = m3.call(o4), r4, ar = [], e2;
+        __read = function(o, n) {
+          var m = typeof Symbol === "function" && o[Symbol.iterator];
+          if (!m)
+            return o;
+          var i = m.call(o), r, ar = [], e;
           try {
-            while ((n4 === void 0 || n4-- > 0) && !(r4 = i4.next()).done)
-              ar.push(r4.value);
+            while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
+              ar.push(r.value);
           } catch (error2) {
-            e2 = { error: error2 };
+            e = { error: error2 };
           } finally {
             try {
-              if (r4 && !r4.done && (m3 = i4["return"]))
-                m3.call(i4);
+              if (r && !r.done && (m = i["return"]))
+                m.call(i);
             } finally {
-              if (e2)
-                throw e2.error;
+              if (e)
+                throw e.error;
             }
           }
           return ar;
         };
         __spread = function() {
-          for (var ar = [], i4 = 0; i4 < arguments.length; i4++)
-            ar = ar.concat(__read(arguments[i4]));
+          for (var ar = [], i = 0; i < arguments.length; i++)
+            ar = ar.concat(__read(arguments[i]));
           return ar;
         };
         __spreadArrays = function() {
-          for (var s3 = 0, i4 = 0, il = arguments.length; i4 < il; i4++)
-            s3 += arguments[i4].length;
-          for (var r4 = Array(s3), k2 = 0, i4 = 0; i4 < il; i4++)
-            for (var a4 = arguments[i4], j2 = 0, jl = a4.length; j2 < jl; j2++, k2++)
-              r4[k2] = a4[j2];
-          return r4;
+          for (var s = 0, i = 0, il = arguments.length; i < il; i++)
+            s += arguments[i].length;
+          for (var r = Array(s), k = 0, i = 0; i < il; i++)
+            for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+              r[k] = a[j];
+          return r;
         };
         __spreadArray = function(to, from, pack) {
           if (pack || arguments.length === 2)
-            for (var i4 = 0, l4 = from.length, ar; i4 < l4; i4++) {
-              if (ar || !(i4 in from)) {
+            for (var i = 0, l = from.length, ar; i < l; i++) {
+              if (ar || !(i in from)) {
                 if (!ar)
-                  ar = Array.prototype.slice.call(from, 0, i4);
-                ar[i4] = from[i4];
+                  ar = Array.prototype.slice.call(from, 0, i);
+                ar[i] = from[i];
               }
             }
           return to.concat(ar || Array.prototype.slice.call(from));
         };
-        __await = function(v2) {
-          return this instanceof __await ? (this.v = v2, this) : new __await(v2);
+        __await = function(v) {
+          return this instanceof __await ? (this.v = v, this) : new __await(v);
         };
         __asyncGenerator = function(thisArg, _arguments, generator) {
           if (!Symbol.asyncIterator)
             throw new TypeError("Symbol.asyncIterator is not defined.");
-          var g3 = generator.apply(thisArg, _arguments || []), i4, q3 = [];
-          return i4 = {}, verb("next"), verb("throw"), verb("return"), i4[Symbol.asyncIterator] = function() {
+          var g = generator.apply(thisArg, _arguments || []), i, q = [];
+          return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
             return this;
-          }, i4;
-          function verb(n4) {
-            if (g3[n4])
-              i4[n4] = function(v2) {
-                return new Promise(function(a4, b3) {
-                  q3.push([n4, v2, a4, b3]) > 1 || resume(n4, v2);
+          }, i;
+          function verb(n) {
+            if (g[n])
+              i[n] = function(v) {
+                return new Promise(function(a, b) {
+                  q.push([n, v, a, b]) > 1 || resume(n, v);
                 });
               };
           }
-          function resume(n4, v2) {
+          function resume(n, v) {
             try {
-              step(g3[n4](v2));
-            } catch (e2) {
-              settle(q3[0][3], e2);
+              step(g[n](v));
+            } catch (e) {
+              settle(q[0][3], e);
             }
           }
-          function step(r4) {
-            r4.value instanceof __await ? Promise.resolve(r4.value.v).then(fulfill, reject) : settle(q3[0][2], r4);
+          function step(r) {
+            r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
           }
           function fulfill(value) {
             resume("next", value);
@@ -5425,41 +5425,41 @@
           function reject(value) {
             resume("throw", value);
           }
-          function settle(f3, v2) {
-            if (f3(v2), q3.shift(), q3.length)
-              resume(q3[0][0], q3[0][1]);
+          function settle(f, v) {
+            if (f(v), q.shift(), q.length)
+              resume(q[0][0], q[0][1]);
           }
         };
-        __asyncDelegator = function(o4) {
-          var i4, p3;
-          return i4 = {}, verb("next"), verb("throw", function(e2) {
-            throw e2;
-          }), verb("return"), i4[Symbol.iterator] = function() {
+        __asyncDelegator = function(o) {
+          var i, p;
+          return i = {}, verb("next"), verb("throw", function(e) {
+            throw e;
+          }), verb("return"), i[Symbol.iterator] = function() {
             return this;
-          }, i4;
-          function verb(n4, f3) {
-            i4[n4] = o4[n4] ? function(v2) {
-              return (p3 = !p3) ? { value: __await(o4[n4](v2)), done: false } : f3 ? f3(v2) : v2;
-            } : f3;
+          }, i;
+          function verb(n, f) {
+            i[n] = o[n] ? function(v) {
+              return (p = !p) ? { value: __await(o[n](v)), done: false } : f ? f(v) : v;
+            } : f;
           }
         };
-        __asyncValues = function(o4) {
+        __asyncValues = function(o) {
           if (!Symbol.asyncIterator)
             throw new TypeError("Symbol.asyncIterator is not defined.");
-          var m3 = o4[Symbol.asyncIterator], i4;
-          return m3 ? m3.call(o4) : (o4 = typeof __values === "function" ? __values(o4) : o4[Symbol.iterator](), i4 = {}, verb("next"), verb("throw"), verb("return"), i4[Symbol.asyncIterator] = function() {
+          var m = o[Symbol.asyncIterator], i;
+          return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function() {
             return this;
-          }, i4);
-          function verb(n4) {
-            i4[n4] = o4[n4] && function(v2) {
+          }, i);
+          function verb(n) {
+            i[n] = o[n] && function(v) {
               return new Promise(function(resolve, reject) {
-                v2 = o4[n4](v2), settle(resolve, reject, v2.done, v2.value);
+                v = o[n](v), settle(resolve, reject, v.done, v.value);
               });
             };
           }
-          function settle(resolve, reject, d3, v2) {
-            Promise.resolve(v2).then(function(v3) {
-              resolve({ value: v3, done: d3 });
+          function settle(resolve, reject, d, v) {
+            Promise.resolve(v).then(function(v2) {
+              resolve({ value: v2, done: d });
             }, reject);
           }
         };
@@ -5471,19 +5471,19 @@
           }
           return cooked;
         };
-        var __setModuleDefault = Object.create ? function(o4, v2) {
-          Object.defineProperty(o4, "default", { enumerable: true, value: v2 });
-        } : function(o4, v2) {
-          o4["default"] = v2;
+        var __setModuleDefault = Object.create ? function(o, v) {
+          Object.defineProperty(o, "default", { enumerable: true, value: v });
+        } : function(o, v) {
+          o["default"] = v;
         };
         __importStar = function(mod) {
           if (mod && mod.__esModule)
             return mod;
           var result = {};
           if (mod != null) {
-            for (var k2 in mod)
-              if (k2 !== "default" && Object.prototype.hasOwnProperty.call(mod, k2))
-                __createBinding(result, mod, k2);
+            for (var k in mod)
+              if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+                __createBinding(result, mod, k);
           }
           __setModuleDefault(result, mod);
           return result;
@@ -5491,21 +5491,21 @@
         __importDefault = function(mod) {
           return mod && mod.__esModule ? mod : { "default": mod };
         };
-        __classPrivateFieldGet = function(receiver, state, kind, f3) {
-          if (kind === "a" && !f3)
+        __classPrivateFieldGet = function(receiver, state, kind, f) {
+          if (kind === "a" && !f)
             throw new TypeError("Private accessor was defined without a getter");
-          if (typeof state === "function" ? receiver !== state || !f3 : !state.has(receiver))
+          if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver))
             throw new TypeError("Cannot read private member from an object whose class did not declare it");
-          return kind === "m" ? f3 : kind === "a" ? f3.call(receiver) : f3 ? f3.value : state.get(receiver);
+          return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
         };
-        __classPrivateFieldSet = function(receiver, state, value, kind, f3) {
+        __classPrivateFieldSet = function(receiver, state, value, kind, f) {
           if (kind === "m")
             throw new TypeError("Private method is not writable");
-          if (kind === "a" && !f3)
+          if (kind === "a" && !f)
             throw new TypeError("Private accessor was defined without a setter");
-          if (typeof state === "function" ? receiver !== state || !f3 : !state.has(receiver))
+          if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver))
             throw new TypeError("Cannot write private member to an object whose class did not declare it");
-          return kind === "a" ? f3.call(receiver, value) : f3 ? f3.value = value : state.set(receiver, value), value;
+          return kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
         };
         __classPrivateFieldIn = function(state, receiver) {
           if (receiver === null || typeof receiver !== "object" && typeof receiver !== "function")
@@ -5536,12 +5536,12 @@
           return value;
         };
         var _SuppressedError = typeof SuppressedError === "function" ? SuppressedError : function(error2, suppressed, message) {
-          var e2 = new Error(message);
-          return e2.name = "SuppressedError", e2.error = error2, e2.suppressed = suppressed, e2;
+          var e = new Error(message);
+          return e.name = "SuppressedError", e.error = error2, e.suppressed = suppressed, e;
         };
         __disposeResources = function(env) {
-          function fail(e2) {
-            env.error = env.hasError ? new _SuppressedError(e2, env.error, "An error was suppressed during disposal.") : e2;
+          function fail(e) {
+            env.error = env.hasError ? new _SuppressedError(e, env.error, "An error was suppressed during disposal.") : e;
             env.hasError = true;
           }
           function next2() {
@@ -5550,12 +5550,12 @@
               try {
                 var result = rec.dispose && rec.dispose.call(rec.value);
                 if (rec.async)
-                  return Promise.resolve(result).then(next2, function(e2) {
-                    fail(e2);
+                  return Promise.resolve(result).then(next2, function(e) {
+                    fail(e);
                     return next2();
                   });
-              } catch (e2) {
-                fail(e2);
+              } catch (e) {
+                fail(e);
               }
             }
             if (env.hasError)
@@ -5617,8 +5617,8 @@
         }
         var result = [], duplicate, seenNaN, lastAdded;
         var len = arr.length;
-        for (var i4 = 0; i4 < len; i4++) {
-          var elem = arr[i4];
+        for (var i = 0; i < len; i++) {
+          var elem = arr[i];
           if (typeof elem == "number" && isNaN(elem)) {
             duplicate = seenNaN;
             seenNaN = true;
@@ -5639,8 +5639,8 @@
       function stringUnique(arr) {
         var lookup = {};
         var len = arr.length;
-        for (var i4 = 0; i4 < len; i4++) {
-          lookup[arr[i4]] = true;
+        for (var i = 0; i < len; i++) {
+          lookup[arr[i]] = true;
         }
         return Object.keys(lookup);
       }
@@ -5657,14 +5657,14 @@
       var just_unique_1 = tslib_1.__importDefault(require_just_unique());
       exports.defaultThemeName = "__default";
       var validateOptions = ({ themes = [] }) => {
-        if (themes.some((x2) => !x2.name)) {
+        if (themes.some((x) => !x.name)) {
           throw new Error("Every theme in the themes array in the multiThemePlugin options must have a name property set to a unique string");
         }
-        const names = themes.map((x2) => x2.name);
+        const names = themes.map((x) => x.name);
         if ((0, just_unique_1.default)(names).length != names.length) {
           throw new Error("Every theme in the themes array in the multiThemePlugin options must have a unique name");
         }
-        if (themes.some((x2) => x2.name === exports.defaultThemeName)) {
+        if (themes.some((x) => x.name === exports.defaultThemeName)) {
           throw new Error(`No theme in the themes array in the multiThemePlugin options cannot have a name of "${exports.defaultThemeName}"`);
         }
       };
@@ -5674,7 +5674,7 @@
         const { defaultTheme, themes = [] } = options;
         return [
           Object.assign(Object.assign({ extend: {} }, defaultTheme), { name: exports.defaultThemeName }),
-          ...themes.map((x2) => Object.assign({ extend: {} }, x2))
+          ...themes.map((x) => Object.assign({ extend: {} }, x))
         ];
       };
       exports.getThemesFromOptions = getThemesFromOptions;
@@ -5738,7 +5738,7 @@
             return types;
           }
           return freeProcess && freeProcess.binding && freeProcess.binding("util");
-        } catch (e2) {
+        } catch (e) {
         }
       }();
       var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -5755,9 +5755,9 @@
         }
         return func.apply(thisArg, args);
       }
-      function baseTimes(n4, iteratee) {
-        var index2 = -1, result = Array(n4);
-        while (++index2 < n4) {
+      function baseTimes(n, iteratee) {
+        var index2 = -1, result = Array(n);
+        while (++index2 < n) {
           result[index2] = iteratee(index2);
         }
         return result;
@@ -5804,7 +5804,7 @@
           var func = getNative(Object, "defineProperty");
           func({}, "", {});
           return func;
-        } catch (e2) {
+        } catch (e) {
         }
       }();
       var nativeIsBuffer = Buffer2 ? Buffer2.isBuffer : void 0;
@@ -6223,7 +6223,7 @@
         try {
           value[symToStringTag] = void 0;
           var unmasked = true;
-        } catch (e2) {
+        } catch (e) {
         }
         var result = nativeObjectToString.call(value);
         if (unmasked) {
@@ -6321,11 +6321,11 @@
         if (func != null) {
           try {
             return funcToString.call(func);
-          } catch (e2) {
+          } catch (e) {
           }
           try {
             return func + "";
-          } catch (e2) {
+          } catch (e) {
           }
         }
         return "";
@@ -6456,7 +6456,7 @@
             return types;
           }
           return freeProcess && freeProcess.binding && freeProcess.binding("util");
-        } catch (e2) {
+        } catch (e) {
         }
       }();
       var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -6473,9 +6473,9 @@
         }
         return func.apply(thisArg, args);
       }
-      function baseTimes(n4, iteratee) {
-        var index2 = -1, result = Array(n4);
-        while (++index2 < n4) {
+      function baseTimes(n, iteratee) {
+        var index2 = -1, result = Array(n);
+        while (++index2 < n) {
           result[index2] = iteratee(index2);
         }
         return result;
@@ -6522,7 +6522,7 @@
           var func = getNative(Object, "defineProperty");
           func({}, "", {});
           return func;
-        } catch (e2) {
+        } catch (e) {
         }
       }();
       var nativeIsBuffer = Buffer2 ? Buffer2.isBuffer : void 0;
@@ -6941,7 +6941,7 @@
         try {
           value[symToStringTag] = void 0;
           var unmasked = true;
-        } catch (e2) {
+        } catch (e) {
         }
         var result = nativeObjectToString.call(value);
         if (unmasked) {
@@ -7039,11 +7039,11 @@
         if (func != null) {
           try {
             return funcToString.call(func);
-          } catch (e2) {
+          } catch (e) {
           }
           try {
             return func + "";
-          } catch (e2) {
+          } catch (e) {
           }
         }
         return "";
@@ -7295,8 +7295,8 @@
       var slice = Array.prototype.slice;
       var swizzle = module.exports = function swizzle2(args) {
         var results = [];
-        for (var i4 = 0, len = args.length; i4 < len; i4++) {
-          var arg = args[i4];
+        for (var i = 0, len = args.length; i < len; i++) {
+          var arg = args[i];
           if (isArrayish(arg)) {
             results = concat.call(results, slice.call(arg));
           } else {
@@ -7363,65 +7363,65 @@
         var per = /^rgba?\(\s*([+-]?[\d\.]+)\%\s*,?\s*([+-]?[\d\.]+)\%\s*,?\s*([+-]?[\d\.]+)\%\s*(?:[,|\/]\s*([+-]?[\d\.]+)(%?)\s*)?\)$/;
         var keyword = /^(\w+)$/;
         var rgb = [0, 0, 0, 1];
-        var match2;
-        var i4;
+        var match;
+        var i;
         var hexAlpha;
-        if (match2 = string.match(hex)) {
-          hexAlpha = match2[2];
-          match2 = match2[1];
-          for (i4 = 0; i4 < 3; i4++) {
-            var i22 = i4 * 2;
-            rgb[i4] = parseInt(match2.slice(i22, i22 + 2), 16);
+        if (match = string.match(hex)) {
+          hexAlpha = match[2];
+          match = match[1];
+          for (i = 0; i < 3; i++) {
+            var i2 = i * 2;
+            rgb[i] = parseInt(match.slice(i2, i2 + 2), 16);
           }
           if (hexAlpha) {
             rgb[3] = parseInt(hexAlpha, 16) / 255;
           }
-        } else if (match2 = string.match(abbr)) {
-          match2 = match2[1];
-          hexAlpha = match2[3];
-          for (i4 = 0; i4 < 3; i4++) {
-            rgb[i4] = parseInt(match2[i4] + match2[i4], 16);
+        } else if (match = string.match(abbr)) {
+          match = match[1];
+          hexAlpha = match[3];
+          for (i = 0; i < 3; i++) {
+            rgb[i] = parseInt(match[i] + match[i], 16);
           }
           if (hexAlpha) {
             rgb[3] = parseInt(hexAlpha + hexAlpha, 16) / 255;
           }
-        } else if (match2 = string.match(rgba)) {
-          for (i4 = 0; i4 < 3; i4++) {
-            rgb[i4] = parseInt(match2[i4 + 1], 0);
+        } else if (match = string.match(rgba)) {
+          for (i = 0; i < 3; i++) {
+            rgb[i] = parseInt(match[i + 1], 0);
           }
-          if (match2[4]) {
-            if (match2[5]) {
-              rgb[3] = parseFloat(match2[4]) * 0.01;
+          if (match[4]) {
+            if (match[5]) {
+              rgb[3] = parseFloat(match[4]) * 0.01;
             } else {
-              rgb[3] = parseFloat(match2[4]);
+              rgb[3] = parseFloat(match[4]);
             }
           }
-        } else if (match2 = string.match(per)) {
-          for (i4 = 0; i4 < 3; i4++) {
-            rgb[i4] = Math.round(parseFloat(match2[i4 + 1]) * 2.55);
+        } else if (match = string.match(per)) {
+          for (i = 0; i < 3; i++) {
+            rgb[i] = Math.round(parseFloat(match[i + 1]) * 2.55);
           }
-          if (match2[4]) {
-            if (match2[5]) {
-              rgb[3] = parseFloat(match2[4]) * 0.01;
+          if (match[4]) {
+            if (match[5]) {
+              rgb[3] = parseFloat(match[4]) * 0.01;
             } else {
-              rgb[3] = parseFloat(match2[4]);
+              rgb[3] = parseFloat(match[4]);
             }
           }
-        } else if (match2 = string.match(keyword)) {
-          if (match2[1] === "transparent") {
+        } else if (match = string.match(keyword)) {
+          if (match[1] === "transparent") {
             return [0, 0, 0, 0];
           }
-          if (!hasOwnProperty2.call(colorNames, match2[1])) {
+          if (!hasOwnProperty2.call(colorNames, match[1])) {
             return null;
           }
-          rgb = colorNames[match2[1]];
+          rgb = colorNames[match[1]];
           rgb[3] = 1;
           return rgb;
         } else {
           return null;
         }
-        for (i4 = 0; i4 < 3; i4++) {
-          rgb[i4] = clamp(rgb[i4], 0, 255);
+        for (i = 0; i < 3; i++) {
+          rgb[i] = clamp(rgb[i], 0, 255);
         }
         rgb[3] = clamp(rgb[3], 0, 1);
         return rgb;
@@ -7431,14 +7431,14 @@
           return null;
         }
         var hsl = /^hsla?\(\s*([+-]?(?:\d{0,3}\.)?\d+)(?:deg)?\s*,?\s*([+-]?[\d\.]+)%\s*,?\s*([+-]?[\d\.]+)%\s*(?:[,|\/]\s*([+-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d*)?(?:[eE][+-]?\d+)?)\s*)?\)$/;
-        var match2 = string.match(hsl);
-        if (match2) {
-          var alpha = parseFloat(match2[4]);
-          var h3 = (parseFloat(match2[1]) % 360 + 360) % 360;
-          var s3 = clamp(parseFloat(match2[2]), 0, 100);
-          var l4 = clamp(parseFloat(match2[3]), 0, 100);
-          var a4 = clamp(isNaN(alpha) ? 1 : alpha, 0, 1);
-          return [h3, s3, l4, a4];
+        var match = string.match(hsl);
+        if (match) {
+          var alpha = parseFloat(match[4]);
+          var h = (parseFloat(match[1]) % 360 + 360) % 360;
+          var s = clamp(parseFloat(match[2]), 0, 100);
+          var l = clamp(parseFloat(match[3]), 0, 100);
+          var a = clamp(isNaN(alpha) ? 1 : alpha, 0, 1);
+          return [h, s, l, a];
         }
         return null;
       };
@@ -7447,14 +7447,14 @@
           return null;
         }
         var hwb = /^hwb\(\s*([+-]?\d{0,3}(?:\.\d+)?)(?:deg)?\s*,\s*([+-]?[\d\.]+)%\s*,\s*([+-]?[\d\.]+)%\s*(?:,\s*([+-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d*)?(?:[eE][+-]?\d+)?)\s*)?\)$/;
-        var match2 = string.match(hwb);
-        if (match2) {
-          var alpha = parseFloat(match2[4]);
-          var h3 = (parseFloat(match2[1]) % 360 + 360) % 360;
-          var w3 = clamp(parseFloat(match2[2]), 0, 100);
-          var b3 = clamp(parseFloat(match2[3]), 0, 100);
-          var a4 = clamp(isNaN(alpha) ? 1 : alpha, 0, 1);
-          return [h3, w3, b3, a4];
+        var match = string.match(hwb);
+        if (match) {
+          var alpha = parseFloat(match[4]);
+          var h = (parseFloat(match[1]) % 360 + 360) % 360;
+          var w = clamp(parseFloat(match[2]), 0, 100);
+          var b = clamp(parseFloat(match[3]), 0, 100);
+          var a = clamp(isNaN(alpha) ? 1 : alpha, 0, 1);
+          return [h, w, b, a];
         }
         return null;
       };
@@ -7468,10 +7468,10 @@
       };
       cs.to.rgb.percent = function() {
         var rgba = swizzle(arguments);
-        var r4 = Math.round(rgba[0] / 255 * 100);
-        var g3 = Math.round(rgba[1] / 255 * 100);
-        var b3 = Math.round(rgba[2] / 255 * 100);
-        return rgba.length < 4 || rgba[3] === 1 ? "rgb(" + r4 + "%, " + g3 + "%, " + b3 + "%)" : "rgba(" + r4 + "%, " + g3 + "%, " + b3 + "%, " + rgba[3] + ")";
+        var r = Math.round(rgba[0] / 255 * 100);
+        var g = Math.round(rgba[1] / 255 * 100);
+        var b = Math.round(rgba[2] / 255 * 100);
+        return rgba.length < 4 || rgba[3] === 1 ? "rgb(" + r + "%, " + g + "%, " + b + "%)" : "rgba(" + r + "%, " + g + "%, " + b + "%, " + rgba[3] + ")";
       };
       cs.to.hsl = function() {
         var hsla = swizzle(arguments);
@@ -7479,11 +7479,11 @@
       };
       cs.to.hwb = function() {
         var hwba = swizzle(arguments);
-        var a4 = "";
+        var a = "";
         if (hwba.length >= 4 && hwba[3] !== 1) {
-          a4 = ", " + hwba[3];
+          a = ", " + hwba[3];
         }
-        return "hwb(" + hwba[0] + ", " + hwba[1] + "%, " + hwba[2] + "%" + a4 + ")";
+        return "hwb(" + hwba[0] + ", " + hwba[1] + "%, " + hwba[2] + "%" + a + ")";
       };
       cs.to.keyword = function(rgb) {
         return reverseNames[rgb.slice(0, 3)];
@@ -7541,99 +7541,99 @@
         Object.defineProperty(convert[model], "labels", { value: labels });
       }
       convert.rgb.hsl = function(rgb) {
-        const r4 = rgb[0] / 255;
-        const g3 = rgb[1] / 255;
-        const b3 = rgb[2] / 255;
-        const min = Math.min(r4, g3, b3);
-        const max = Math.max(r4, g3, b3);
+        const r = rgb[0] / 255;
+        const g = rgb[1] / 255;
+        const b = rgb[2] / 255;
+        const min = Math.min(r, g, b);
+        const max = Math.max(r, g, b);
         const delta = max - min;
-        let h3;
-        let s3;
+        let h;
+        let s;
         if (max === min) {
-          h3 = 0;
-        } else if (r4 === max) {
-          h3 = (g3 - b3) / delta;
-        } else if (g3 === max) {
-          h3 = 2 + (b3 - r4) / delta;
-        } else if (b3 === max) {
-          h3 = 4 + (r4 - g3) / delta;
+          h = 0;
+        } else if (r === max) {
+          h = (g - b) / delta;
+        } else if (g === max) {
+          h = 2 + (b - r) / delta;
+        } else if (b === max) {
+          h = 4 + (r - g) / delta;
         }
-        h3 = Math.min(h3 * 60, 360);
-        if (h3 < 0) {
-          h3 += 360;
+        h = Math.min(h * 60, 360);
+        if (h < 0) {
+          h += 360;
         }
-        const l4 = (min + max) / 2;
+        const l = (min + max) / 2;
         if (max === min) {
-          s3 = 0;
-        } else if (l4 <= 0.5) {
-          s3 = delta / (max + min);
+          s = 0;
+        } else if (l <= 0.5) {
+          s = delta / (max + min);
         } else {
-          s3 = delta / (2 - max - min);
+          s = delta / (2 - max - min);
         }
-        return [h3, s3 * 100, l4 * 100];
+        return [h, s * 100, l * 100];
       };
       convert.rgb.hsv = function(rgb) {
         let rdif;
         let gdif;
         let bdif;
-        let h3;
-        let s3;
-        const r4 = rgb[0] / 255;
-        const g3 = rgb[1] / 255;
-        const b3 = rgb[2] / 255;
-        const v2 = Math.max(r4, g3, b3);
-        const diff = v2 - Math.min(r4, g3, b3);
-        const diffc = function(c3) {
-          return (v2 - c3) / 6 / diff + 1 / 2;
+        let h;
+        let s;
+        const r = rgb[0] / 255;
+        const g = rgb[1] / 255;
+        const b = rgb[2] / 255;
+        const v = Math.max(r, g, b);
+        const diff = v - Math.min(r, g, b);
+        const diffc = function(c) {
+          return (v - c) / 6 / diff + 1 / 2;
         };
         if (diff === 0) {
-          h3 = 0;
-          s3 = 0;
+          h = 0;
+          s = 0;
         } else {
-          s3 = diff / v2;
-          rdif = diffc(r4);
-          gdif = diffc(g3);
-          bdif = diffc(b3);
-          if (r4 === v2) {
-            h3 = bdif - gdif;
-          } else if (g3 === v2) {
-            h3 = 1 / 3 + rdif - bdif;
-          } else if (b3 === v2) {
-            h3 = 2 / 3 + gdif - rdif;
+          s = diff / v;
+          rdif = diffc(r);
+          gdif = diffc(g);
+          bdif = diffc(b);
+          if (r === v) {
+            h = bdif - gdif;
+          } else if (g === v) {
+            h = 1 / 3 + rdif - bdif;
+          } else if (b === v) {
+            h = 2 / 3 + gdif - rdif;
           }
-          if (h3 < 0) {
-            h3 += 1;
-          } else if (h3 > 1) {
-            h3 -= 1;
+          if (h < 0) {
+            h += 1;
+          } else if (h > 1) {
+            h -= 1;
           }
         }
         return [
-          h3 * 360,
-          s3 * 100,
-          v2 * 100
+          h * 360,
+          s * 100,
+          v * 100
         ];
       };
       convert.rgb.hwb = function(rgb) {
-        const r4 = rgb[0];
-        const g3 = rgb[1];
-        let b3 = rgb[2];
-        const h3 = convert.rgb.hsl(rgb)[0];
-        const w3 = 1 / 255 * Math.min(r4, Math.min(g3, b3));
-        b3 = 1 - 1 / 255 * Math.max(r4, Math.max(g3, b3));
-        return [h3, w3 * 100, b3 * 100];
+        const r = rgb[0];
+        const g = rgb[1];
+        let b = rgb[2];
+        const h = convert.rgb.hsl(rgb)[0];
+        const w = 1 / 255 * Math.min(r, Math.min(g, b));
+        b = 1 - 1 / 255 * Math.max(r, Math.max(g, b));
+        return [h, w * 100, b * 100];
       };
       convert.rgb.cmyk = function(rgb) {
-        const r4 = rgb[0] / 255;
-        const g3 = rgb[1] / 255;
-        const b3 = rgb[2] / 255;
-        const k2 = Math.min(1 - r4, 1 - g3, 1 - b3);
-        const c3 = (1 - r4 - k2) / (1 - k2) || 0;
-        const m3 = (1 - g3 - k2) / (1 - k2) || 0;
-        const y3 = (1 - b3 - k2) / (1 - k2) || 0;
-        return [c3 * 100, m3 * 100, y3 * 100, k2 * 100];
+        const r = rgb[0] / 255;
+        const g = rgb[1] / 255;
+        const b = rgb[2] / 255;
+        const k = Math.min(1 - r, 1 - g, 1 - b);
+        const c = (1 - r - k) / (1 - k) || 0;
+        const m = (1 - g - k) / (1 - k) || 0;
+        const y = (1 - b - k) / (1 - k) || 0;
+        return [c * 100, m * 100, y * 100, k * 100];
       };
-      function comparativeDistance(x2, y3) {
-        return (x2[0] - y3[0]) ** 2 + (x2[1] - y3[1]) ** 2 + (x2[2] - y3[2]) ** 2;
+      function comparativeDistance(x, y) {
+        return (x[0] - y[0]) ** 2 + (x[1] - y[1]) ** 2 + (x[2] - y[2]) ** 2;
       }
       convert.rgb.keyword = function(rgb) {
         const reversed = reverseKeywords[rgb];
@@ -7656,53 +7656,53 @@
         return cssKeywords[keyword];
       };
       convert.rgb.xyz = function(rgb) {
-        let r4 = rgb[0] / 255;
-        let g3 = rgb[1] / 255;
-        let b3 = rgb[2] / 255;
-        r4 = r4 > 0.04045 ? ((r4 + 0.055) / 1.055) ** 2.4 : r4 / 12.92;
-        g3 = g3 > 0.04045 ? ((g3 + 0.055) / 1.055) ** 2.4 : g3 / 12.92;
-        b3 = b3 > 0.04045 ? ((b3 + 0.055) / 1.055) ** 2.4 : b3 / 12.92;
-        const x2 = r4 * 0.4124 + g3 * 0.3576 + b3 * 0.1805;
-        const y3 = r4 * 0.2126 + g3 * 0.7152 + b3 * 0.0722;
-        const z = r4 * 0.0193 + g3 * 0.1192 + b3 * 0.9505;
-        return [x2 * 100, y3 * 100, z * 100];
+        let r = rgb[0] / 255;
+        let g = rgb[1] / 255;
+        let b = rgb[2] / 255;
+        r = r > 0.04045 ? ((r + 0.055) / 1.055) ** 2.4 : r / 12.92;
+        g = g > 0.04045 ? ((g + 0.055) / 1.055) ** 2.4 : g / 12.92;
+        b = b > 0.04045 ? ((b + 0.055) / 1.055) ** 2.4 : b / 12.92;
+        const x = r * 0.4124 + g * 0.3576 + b * 0.1805;
+        const y = r * 0.2126 + g * 0.7152 + b * 0.0722;
+        const z = r * 0.0193 + g * 0.1192 + b * 0.9505;
+        return [x * 100, y * 100, z * 100];
       };
       convert.rgb.lab = function(rgb) {
         const xyz = convert.rgb.xyz(rgb);
-        let x2 = xyz[0];
-        let y3 = xyz[1];
+        let x = xyz[0];
+        let y = xyz[1];
         let z = xyz[2];
-        x2 /= 95.047;
-        y3 /= 100;
+        x /= 95.047;
+        y /= 100;
         z /= 108.883;
-        x2 = x2 > 8856e-6 ? x2 ** (1 / 3) : 7.787 * x2 + 16 / 116;
-        y3 = y3 > 8856e-6 ? y3 ** (1 / 3) : 7.787 * y3 + 16 / 116;
+        x = x > 8856e-6 ? x ** (1 / 3) : 7.787 * x + 16 / 116;
+        y = y > 8856e-6 ? y ** (1 / 3) : 7.787 * y + 16 / 116;
         z = z > 8856e-6 ? z ** (1 / 3) : 7.787 * z + 16 / 116;
-        const l4 = 116 * y3 - 16;
-        const a4 = 500 * (x2 - y3);
-        const b3 = 200 * (y3 - z);
-        return [l4, a4, b3];
+        const l = 116 * y - 16;
+        const a = 500 * (x - y);
+        const b = 200 * (y - z);
+        return [l, a, b];
       };
       convert.hsl.rgb = function(hsl) {
-        const h3 = hsl[0] / 360;
-        const s3 = hsl[1] / 100;
-        const l4 = hsl[2] / 100;
+        const h = hsl[0] / 360;
+        const s = hsl[1] / 100;
+        const l = hsl[2] / 100;
         let t2;
         let t3;
         let val;
-        if (s3 === 0) {
-          val = l4 * 255;
+        if (s === 0) {
+          val = l * 255;
           return [val, val, val];
         }
-        if (l4 < 0.5) {
-          t2 = l4 * (1 + s3);
+        if (l < 0.5) {
+          t2 = l * (1 + s);
         } else {
-          t2 = l4 + s3 - l4 * s3;
+          t2 = l + s - l * s;
         }
-        const t1 = 2 * l4 - t2;
+        const t1 = 2 * l - t2;
         const rgb = [0, 0, 0];
-        for (let i4 = 0; i4 < 3; i4++) {
-          t3 = h3 + 1 / 3 * -(i4 - 1);
+        for (let i = 0; i < 3; i++) {
+          t3 = h + 1 / 3 * -(i - 1);
           if (t3 < 0) {
             t3++;
           }
@@ -7718,213 +7718,213 @@
           } else {
             val = t1;
           }
-          rgb[i4] = val * 255;
+          rgb[i] = val * 255;
         }
         return rgb;
       };
       convert.hsl.hsv = function(hsl) {
-        const h3 = hsl[0];
-        let s3 = hsl[1] / 100;
-        let l4 = hsl[2] / 100;
-        let smin = s3;
-        const lmin = Math.max(l4, 0.01);
-        l4 *= 2;
-        s3 *= l4 <= 1 ? l4 : 2 - l4;
+        const h = hsl[0];
+        let s = hsl[1] / 100;
+        let l = hsl[2] / 100;
+        let smin = s;
+        const lmin = Math.max(l, 0.01);
+        l *= 2;
+        s *= l <= 1 ? l : 2 - l;
         smin *= lmin <= 1 ? lmin : 2 - lmin;
-        const v2 = (l4 + s3) / 2;
-        const sv = l4 === 0 ? 2 * smin / (lmin + smin) : 2 * s3 / (l4 + s3);
-        return [h3, sv * 100, v2 * 100];
+        const v = (l + s) / 2;
+        const sv = l === 0 ? 2 * smin / (lmin + smin) : 2 * s / (l + s);
+        return [h, sv * 100, v * 100];
       };
       convert.hsv.rgb = function(hsv) {
-        const h3 = hsv[0] / 60;
-        const s3 = hsv[1] / 100;
-        let v2 = hsv[2] / 100;
-        const hi = Math.floor(h3) % 6;
-        const f3 = h3 - Math.floor(h3);
-        const p3 = 255 * v2 * (1 - s3);
-        const q3 = 255 * v2 * (1 - s3 * f3);
-        const t = 255 * v2 * (1 - s3 * (1 - f3));
-        v2 *= 255;
+        const h = hsv[0] / 60;
+        const s = hsv[1] / 100;
+        let v = hsv[2] / 100;
+        const hi = Math.floor(h) % 6;
+        const f = h - Math.floor(h);
+        const p = 255 * v * (1 - s);
+        const q = 255 * v * (1 - s * f);
+        const t = 255 * v * (1 - s * (1 - f));
+        v *= 255;
         switch (hi) {
           case 0:
-            return [v2, t, p3];
+            return [v, t, p];
           case 1:
-            return [q3, v2, p3];
+            return [q, v, p];
           case 2:
-            return [p3, v2, t];
+            return [p, v, t];
           case 3:
-            return [p3, q3, v2];
+            return [p, q, v];
           case 4:
-            return [t, p3, v2];
+            return [t, p, v];
           case 5:
-            return [v2, p3, q3];
+            return [v, p, q];
         }
       };
       convert.hsv.hsl = function(hsv) {
-        const h3 = hsv[0];
-        const s3 = hsv[1] / 100;
-        const v2 = hsv[2] / 100;
-        const vmin = Math.max(v2, 0.01);
+        const h = hsv[0];
+        const s = hsv[1] / 100;
+        const v = hsv[2] / 100;
+        const vmin = Math.max(v, 0.01);
         let sl;
-        let l4;
-        l4 = (2 - s3) * v2;
-        const lmin = (2 - s3) * vmin;
-        sl = s3 * vmin;
+        let l;
+        l = (2 - s) * v;
+        const lmin = (2 - s) * vmin;
+        sl = s * vmin;
         sl /= lmin <= 1 ? lmin : 2 - lmin;
         sl = sl || 0;
-        l4 /= 2;
-        return [h3, sl * 100, l4 * 100];
+        l /= 2;
+        return [h, sl * 100, l * 100];
       };
       convert.hwb.rgb = function(hwb) {
-        const h3 = hwb[0] / 360;
+        const h = hwb[0] / 360;
         let wh = hwb[1] / 100;
         let bl = hwb[2] / 100;
         const ratio = wh + bl;
-        let f3;
+        let f;
         if (ratio > 1) {
           wh /= ratio;
           bl /= ratio;
         }
-        const i4 = Math.floor(6 * h3);
-        const v2 = 1 - bl;
-        f3 = 6 * h3 - i4;
-        if ((i4 & 1) !== 0) {
-          f3 = 1 - f3;
+        const i = Math.floor(6 * h);
+        const v = 1 - bl;
+        f = 6 * h - i;
+        if ((i & 1) !== 0) {
+          f = 1 - f;
         }
-        const n4 = wh + f3 * (v2 - wh);
-        let r4;
-        let g3;
-        let b3;
-        switch (i4) {
+        const n = wh + f * (v - wh);
+        let r;
+        let g;
+        let b;
+        switch (i) {
           default:
           case 6:
           case 0:
-            r4 = v2;
-            g3 = n4;
-            b3 = wh;
+            r = v;
+            g = n;
+            b = wh;
             break;
           case 1:
-            r4 = n4;
-            g3 = v2;
-            b3 = wh;
+            r = n;
+            g = v;
+            b = wh;
             break;
           case 2:
-            r4 = wh;
-            g3 = v2;
-            b3 = n4;
+            r = wh;
+            g = v;
+            b = n;
             break;
           case 3:
-            r4 = wh;
-            g3 = n4;
-            b3 = v2;
+            r = wh;
+            g = n;
+            b = v;
             break;
           case 4:
-            r4 = n4;
-            g3 = wh;
-            b3 = v2;
+            r = n;
+            g = wh;
+            b = v;
             break;
           case 5:
-            r4 = v2;
-            g3 = wh;
-            b3 = n4;
+            r = v;
+            g = wh;
+            b = n;
             break;
         }
-        return [r4 * 255, g3 * 255, b3 * 255];
+        return [r * 255, g * 255, b * 255];
       };
       convert.cmyk.rgb = function(cmyk) {
-        const c3 = cmyk[0] / 100;
-        const m3 = cmyk[1] / 100;
-        const y3 = cmyk[2] / 100;
-        const k2 = cmyk[3] / 100;
-        const r4 = 1 - Math.min(1, c3 * (1 - k2) + k2);
-        const g3 = 1 - Math.min(1, m3 * (1 - k2) + k2);
-        const b3 = 1 - Math.min(1, y3 * (1 - k2) + k2);
-        return [r4 * 255, g3 * 255, b3 * 255];
+        const c = cmyk[0] / 100;
+        const m = cmyk[1] / 100;
+        const y = cmyk[2] / 100;
+        const k = cmyk[3] / 100;
+        const r = 1 - Math.min(1, c * (1 - k) + k);
+        const g = 1 - Math.min(1, m * (1 - k) + k);
+        const b = 1 - Math.min(1, y * (1 - k) + k);
+        return [r * 255, g * 255, b * 255];
       };
       convert.xyz.rgb = function(xyz) {
-        const x2 = xyz[0] / 100;
-        const y3 = xyz[1] / 100;
+        const x = xyz[0] / 100;
+        const y = xyz[1] / 100;
         const z = xyz[2] / 100;
-        let r4;
-        let g3;
-        let b3;
-        r4 = x2 * 3.2406 + y3 * -1.5372 + z * -0.4986;
-        g3 = x2 * -0.9689 + y3 * 1.8758 + z * 0.0415;
-        b3 = x2 * 0.0557 + y3 * -0.204 + z * 1.057;
-        r4 = r4 > 31308e-7 ? 1.055 * r4 ** (1 / 2.4) - 0.055 : r4 * 12.92;
-        g3 = g3 > 31308e-7 ? 1.055 * g3 ** (1 / 2.4) - 0.055 : g3 * 12.92;
-        b3 = b3 > 31308e-7 ? 1.055 * b3 ** (1 / 2.4) - 0.055 : b3 * 12.92;
-        r4 = Math.min(Math.max(0, r4), 1);
-        g3 = Math.min(Math.max(0, g3), 1);
-        b3 = Math.min(Math.max(0, b3), 1);
-        return [r4 * 255, g3 * 255, b3 * 255];
+        let r;
+        let g;
+        let b;
+        r = x * 3.2406 + y * -1.5372 + z * -0.4986;
+        g = x * -0.9689 + y * 1.8758 + z * 0.0415;
+        b = x * 0.0557 + y * -0.204 + z * 1.057;
+        r = r > 31308e-7 ? 1.055 * r ** (1 / 2.4) - 0.055 : r * 12.92;
+        g = g > 31308e-7 ? 1.055 * g ** (1 / 2.4) - 0.055 : g * 12.92;
+        b = b > 31308e-7 ? 1.055 * b ** (1 / 2.4) - 0.055 : b * 12.92;
+        r = Math.min(Math.max(0, r), 1);
+        g = Math.min(Math.max(0, g), 1);
+        b = Math.min(Math.max(0, b), 1);
+        return [r * 255, g * 255, b * 255];
       };
       convert.xyz.lab = function(xyz) {
-        let x2 = xyz[0];
-        let y3 = xyz[1];
+        let x = xyz[0];
+        let y = xyz[1];
         let z = xyz[2];
-        x2 /= 95.047;
-        y3 /= 100;
+        x /= 95.047;
+        y /= 100;
         z /= 108.883;
-        x2 = x2 > 8856e-6 ? x2 ** (1 / 3) : 7.787 * x2 + 16 / 116;
-        y3 = y3 > 8856e-6 ? y3 ** (1 / 3) : 7.787 * y3 + 16 / 116;
+        x = x > 8856e-6 ? x ** (1 / 3) : 7.787 * x + 16 / 116;
+        y = y > 8856e-6 ? y ** (1 / 3) : 7.787 * y + 16 / 116;
         z = z > 8856e-6 ? z ** (1 / 3) : 7.787 * z + 16 / 116;
-        const l4 = 116 * y3 - 16;
-        const a4 = 500 * (x2 - y3);
-        const b3 = 200 * (y3 - z);
-        return [l4, a4, b3];
+        const l = 116 * y - 16;
+        const a = 500 * (x - y);
+        const b = 200 * (y - z);
+        return [l, a, b];
       };
       convert.lab.xyz = function(lab) {
-        const l4 = lab[0];
-        const a4 = lab[1];
-        const b3 = lab[2];
-        let x2;
-        let y3;
+        const l = lab[0];
+        const a = lab[1];
+        const b = lab[2];
+        let x;
+        let y;
         let z;
-        y3 = (l4 + 16) / 116;
-        x2 = a4 / 500 + y3;
-        z = y3 - b3 / 200;
-        const y22 = y3 ** 3;
-        const x22 = x2 ** 3;
+        y = (l + 16) / 116;
+        x = a / 500 + y;
+        z = y - b / 200;
+        const y2 = y ** 3;
+        const x2 = x ** 3;
         const z2 = z ** 3;
-        y3 = y22 > 8856e-6 ? y22 : (y3 - 16 / 116) / 7.787;
-        x2 = x22 > 8856e-6 ? x22 : (x2 - 16 / 116) / 7.787;
+        y = y2 > 8856e-6 ? y2 : (y - 16 / 116) / 7.787;
+        x = x2 > 8856e-6 ? x2 : (x - 16 / 116) / 7.787;
         z = z2 > 8856e-6 ? z2 : (z - 16 / 116) / 7.787;
-        x2 *= 95.047;
-        y3 *= 100;
+        x *= 95.047;
+        y *= 100;
         z *= 108.883;
-        return [x2, y3, z];
+        return [x, y, z];
       };
       convert.lab.lch = function(lab) {
-        const l4 = lab[0];
-        const a4 = lab[1];
-        const b3 = lab[2];
-        let h3;
-        const hr = Math.atan2(b3, a4);
-        h3 = hr * 360 / 2 / Math.PI;
-        if (h3 < 0) {
-          h3 += 360;
+        const l = lab[0];
+        const a = lab[1];
+        const b = lab[2];
+        let h;
+        const hr = Math.atan2(b, a);
+        h = hr * 360 / 2 / Math.PI;
+        if (h < 0) {
+          h += 360;
         }
-        const c3 = Math.sqrt(a4 * a4 + b3 * b3);
-        return [l4, c3, h3];
+        const c = Math.sqrt(a * a + b * b);
+        return [l, c, h];
       };
       convert.lch.lab = function(lch) {
-        const l4 = lch[0];
-        const c3 = lch[1];
-        const h3 = lch[2];
-        const hr = h3 / 360 * 2 * Math.PI;
-        const a4 = c3 * Math.cos(hr);
-        const b3 = c3 * Math.sin(hr);
-        return [l4, a4, b3];
+        const l = lch[0];
+        const c = lch[1];
+        const h = lch[2];
+        const hr = h / 360 * 2 * Math.PI;
+        const a = c * Math.cos(hr);
+        const b = c * Math.sin(hr);
+        return [l, a, b];
       };
       convert.rgb.ansi16 = function(args, saturation = null) {
-        const [r4, g3, b3] = args;
+        const [r, g, b] = args;
         let value = saturation === null ? convert.rgb.hsv(args)[2] : saturation;
         value = Math.round(value / 50);
         if (value === 0) {
           return 30;
         }
-        let ansi = 30 + (Math.round(b3 / 255) << 2 | Math.round(g3 / 255) << 1 | Math.round(r4 / 255));
+        let ansi = 30 + (Math.round(b / 255) << 2 | Math.round(g / 255) << 1 | Math.round(r / 255));
         if (value === 2) {
           ansi += 60;
         }
@@ -7934,19 +7934,19 @@
         return convert.rgb.ansi16(convert.hsv.rgb(args), args[2]);
       };
       convert.rgb.ansi256 = function(args) {
-        const r4 = args[0];
-        const g3 = args[1];
-        const b3 = args[2];
-        if (r4 === g3 && g3 === b3) {
-          if (r4 < 8) {
+        const r = args[0];
+        const g = args[1];
+        const b = args[2];
+        if (r === g && g === b) {
+          if (r < 8) {
             return 16;
           }
-          if (r4 > 248) {
+          if (r > 248) {
             return 231;
           }
-          return Math.round((r4 - 8) / 247 * 24) + 232;
+          return Math.round((r - 8) / 247 * 24) + 232;
         }
-        const ansi = 16 + 36 * Math.round(r4 / 255 * 5) + 6 * Math.round(g3 / 255 * 5) + Math.round(b3 / 255 * 5);
+        const ansi = 16 + 36 * Math.round(r / 255 * 5) + 6 * Math.round(g / 255 * 5) + Math.round(b / 255 * 5);
         return ansi;
       };
       convert.ansi16.rgb = function(args) {
@@ -7959,22 +7959,22 @@
           return [color, color, color];
         }
         const mult = (~~(args > 50) + 1) * 0.5;
-        const r4 = (color & 1) * mult * 255;
-        const g3 = (color >> 1 & 1) * mult * 255;
-        const b3 = (color >> 2 & 1) * mult * 255;
-        return [r4, g3, b3];
+        const r = (color & 1) * mult * 255;
+        const g = (color >> 1 & 1) * mult * 255;
+        const b = (color >> 2 & 1) * mult * 255;
+        return [r, g, b];
       };
       convert.ansi256.rgb = function(args) {
         if (args >= 232) {
-          const c3 = (args - 232) * 10 + 8;
-          return [c3, c3, c3];
+          const c = (args - 232) * 10 + 8;
+          return [c, c, c];
         }
         args -= 16;
         let rem;
-        const r4 = Math.floor(args / 36) / 5 * 255;
-        const g3 = Math.floor((rem = args % 36) / 6) / 5 * 255;
-        const b3 = rem % 6 / 5 * 255;
-        return [r4, g3, b3];
+        const r = Math.floor(args / 36) / 5 * 255;
+        const g = Math.floor((rem = args % 36) / 6) / 5 * 255;
+        const b = rem % 6 / 5 * 255;
+        return [r, g, b];
       };
       convert.rgb.hex = function(args) {
         const integer = ((Math.round(args[0]) & 255) << 16) + ((Math.round(args[1]) & 255) << 8) + (Math.round(args[2]) & 255);
@@ -7982,28 +7982,28 @@
         return "000000".substring(string.length) + string;
       };
       convert.hex.rgb = function(args) {
-        const match2 = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
-        if (!match2) {
+        const match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
+        if (!match) {
           return [0, 0, 0];
         }
-        let colorString = match2[0];
-        if (match2[0].length === 3) {
+        let colorString = match[0];
+        if (match[0].length === 3) {
           colorString = colorString.split("").map((char) => {
             return char + char;
           }).join("");
         }
         const integer = parseInt(colorString, 16);
-        const r4 = integer >> 16 & 255;
-        const g3 = integer >> 8 & 255;
-        const b3 = integer & 255;
-        return [r4, g3, b3];
+        const r = integer >> 16 & 255;
+        const g = integer >> 8 & 255;
+        const b = integer & 255;
+        return [r, g, b];
       };
       convert.rgb.hcg = function(rgb) {
-        const r4 = rgb[0] / 255;
-        const g3 = rgb[1] / 255;
-        const b3 = rgb[2] / 255;
-        const max = Math.max(Math.max(r4, g3), b3);
-        const min = Math.min(Math.min(r4, g3), b3);
+        const r = rgb[0] / 255;
+        const g = rgb[1] / 255;
+        const b = rgb[2] / 255;
+        const max = Math.max(Math.max(r, g), b);
+        const min = Math.min(Math.min(r, g), b);
         const chroma = max - min;
         let grayscale;
         let hue;
@@ -8014,125 +8014,125 @@
         }
         if (chroma <= 0) {
           hue = 0;
-        } else if (max === r4) {
-          hue = (g3 - b3) / chroma % 6;
-        } else if (max === g3) {
-          hue = 2 + (b3 - r4) / chroma;
+        } else if (max === r) {
+          hue = (g - b) / chroma % 6;
+        } else if (max === g) {
+          hue = 2 + (b - r) / chroma;
         } else {
-          hue = 4 + (r4 - g3) / chroma;
+          hue = 4 + (r - g) / chroma;
         }
         hue /= 6;
         hue %= 1;
         return [hue * 360, chroma * 100, grayscale * 100];
       };
       convert.hsl.hcg = function(hsl) {
-        const s3 = hsl[1] / 100;
-        const l4 = hsl[2] / 100;
-        const c3 = l4 < 0.5 ? 2 * s3 * l4 : 2 * s3 * (1 - l4);
-        let f3 = 0;
-        if (c3 < 1) {
-          f3 = (l4 - 0.5 * c3) / (1 - c3);
+        const s = hsl[1] / 100;
+        const l = hsl[2] / 100;
+        const c = l < 0.5 ? 2 * s * l : 2 * s * (1 - l);
+        let f = 0;
+        if (c < 1) {
+          f = (l - 0.5 * c) / (1 - c);
         }
-        return [hsl[0], c3 * 100, f3 * 100];
+        return [hsl[0], c * 100, f * 100];
       };
       convert.hsv.hcg = function(hsv) {
-        const s3 = hsv[1] / 100;
-        const v2 = hsv[2] / 100;
-        const c3 = s3 * v2;
-        let f3 = 0;
-        if (c3 < 1) {
-          f3 = (v2 - c3) / (1 - c3);
+        const s = hsv[1] / 100;
+        const v = hsv[2] / 100;
+        const c = s * v;
+        let f = 0;
+        if (c < 1) {
+          f = (v - c) / (1 - c);
         }
-        return [hsv[0], c3 * 100, f3 * 100];
+        return [hsv[0], c * 100, f * 100];
       };
       convert.hcg.rgb = function(hcg) {
-        const h3 = hcg[0] / 360;
-        const c3 = hcg[1] / 100;
-        const g3 = hcg[2] / 100;
-        if (c3 === 0) {
-          return [g3 * 255, g3 * 255, g3 * 255];
+        const h = hcg[0] / 360;
+        const c = hcg[1] / 100;
+        const g = hcg[2] / 100;
+        if (c === 0) {
+          return [g * 255, g * 255, g * 255];
         }
         const pure = [0, 0, 0];
-        const hi = h3 % 1 * 6;
-        const v2 = hi % 1;
-        const w3 = 1 - v2;
+        const hi = h % 1 * 6;
+        const v = hi % 1;
+        const w = 1 - v;
         let mg = 0;
         switch (Math.floor(hi)) {
           case 0:
             pure[0] = 1;
-            pure[1] = v2;
+            pure[1] = v;
             pure[2] = 0;
             break;
           case 1:
-            pure[0] = w3;
+            pure[0] = w;
             pure[1] = 1;
             pure[2] = 0;
             break;
           case 2:
             pure[0] = 0;
             pure[1] = 1;
-            pure[2] = v2;
+            pure[2] = v;
             break;
           case 3:
             pure[0] = 0;
-            pure[1] = w3;
+            pure[1] = w;
             pure[2] = 1;
             break;
           case 4:
-            pure[0] = v2;
+            pure[0] = v;
             pure[1] = 0;
             pure[2] = 1;
             break;
           default:
             pure[0] = 1;
             pure[1] = 0;
-            pure[2] = w3;
+            pure[2] = w;
         }
-        mg = (1 - c3) * g3;
+        mg = (1 - c) * g;
         return [
-          (c3 * pure[0] + mg) * 255,
-          (c3 * pure[1] + mg) * 255,
-          (c3 * pure[2] + mg) * 255
+          (c * pure[0] + mg) * 255,
+          (c * pure[1] + mg) * 255,
+          (c * pure[2] + mg) * 255
         ];
       };
       convert.hcg.hsv = function(hcg) {
-        const c3 = hcg[1] / 100;
-        const g3 = hcg[2] / 100;
-        const v2 = c3 + g3 * (1 - c3);
-        let f3 = 0;
-        if (v2 > 0) {
-          f3 = c3 / v2;
+        const c = hcg[1] / 100;
+        const g = hcg[2] / 100;
+        const v = c + g * (1 - c);
+        let f = 0;
+        if (v > 0) {
+          f = c / v;
         }
-        return [hcg[0], f3 * 100, v2 * 100];
+        return [hcg[0], f * 100, v * 100];
       };
       convert.hcg.hsl = function(hcg) {
-        const c3 = hcg[1] / 100;
-        const g3 = hcg[2] / 100;
-        const l4 = g3 * (1 - c3) + 0.5 * c3;
-        let s3 = 0;
-        if (l4 > 0 && l4 < 0.5) {
-          s3 = c3 / (2 * l4);
-        } else if (l4 >= 0.5 && l4 < 1) {
-          s3 = c3 / (2 * (1 - l4));
+        const c = hcg[1] / 100;
+        const g = hcg[2] / 100;
+        const l = g * (1 - c) + 0.5 * c;
+        let s = 0;
+        if (l > 0 && l < 0.5) {
+          s = c / (2 * l);
+        } else if (l >= 0.5 && l < 1) {
+          s = c / (2 * (1 - l));
         }
-        return [hcg[0], s3 * 100, l4 * 100];
+        return [hcg[0], s * 100, l * 100];
       };
       convert.hcg.hwb = function(hcg) {
-        const c3 = hcg[1] / 100;
-        const g3 = hcg[2] / 100;
-        const v2 = c3 + g3 * (1 - c3);
-        return [hcg[0], (v2 - c3) * 100, (1 - v2) * 100];
+        const c = hcg[1] / 100;
+        const g = hcg[2] / 100;
+        const v = c + g * (1 - c);
+        return [hcg[0], (v - c) * 100, (1 - v) * 100];
       };
       convert.hwb.hcg = function(hwb) {
-        const w3 = hwb[1] / 100;
-        const b3 = hwb[2] / 100;
-        const v2 = 1 - b3;
-        const c3 = v2 - w3;
-        let g3 = 0;
-        if (c3 < 1) {
-          g3 = (v2 - c3) / (1 - c3);
+        const w = hwb[1] / 100;
+        const b = hwb[2] / 100;
+        const v = 1 - b;
+        const c = v - w;
+        let g = 0;
+        if (c < 1) {
+          g = (v - c) / (1 - c);
         }
-        return [hwb[0], c3 * 100, g3 * 100];
+        return [hwb[0], c * 100, g * 100];
       };
       convert.apple.rgb = function(apple) {
         return [apple[0] / 65535 * 255, apple[1] / 65535 * 255, apple[2] / 65535 * 255];
@@ -8176,8 +8176,8 @@
       function buildGraph() {
         const graph = {};
         const models = Object.keys(conversions);
-        for (let len = models.length, i4 = 0; i4 < len; i4++) {
-          graph[models[i4]] = {
+        for (let len = models.length, i = 0; i < len; i++) {
+          graph[models[i]] = {
             distance: -1,
             parent: null
           };
@@ -8191,8 +8191,8 @@
         while (queue2.length) {
           const current = queue2.pop();
           const adjacents = Object.keys(conversions[current]);
-          for (let len = adjacents.length, i4 = 0; i4 < len; i4++) {
-            const adjacent = adjacents[i4];
+          for (let len = adjacents.length, i = 0; i < len; i++) {
+            const adjacent = adjacents[i];
             const node = graph[adjacent];
             if (node.distance === -1) {
               node.distance = graph[current].distance + 1;
@@ -8224,8 +8224,8 @@
         const graph = deriveBFS(fromModel);
         const conversion = {};
         const models = Object.keys(graph);
-        for (let len = models.length, i4 = 0; i4 < len; i4++) {
-          const toModel = models[i4];
+        for (let len = models.length, i = 0; i < len; i++) {
+          const toModel = models[i];
           const node = graph[toModel];
           if (node.parent === null) {
             continue;
@@ -8271,8 +8271,8 @@
           }
           const result = fn(args);
           if (typeof result === "object") {
-            for (let len = result.length, i4 = 0; i4 < len; i4++) {
-              result[i4] = Math.round(result[i4]);
+            for (let len = result.length, i = 0; i < len; i++) {
+              result[i] = Math.round(result[i]);
             }
           }
           return result;
@@ -8323,7 +8323,7 @@
         if (model && !(model in convert)) {
           throw new Error("Unknown model: " + model);
         }
-        let i4;
+        let i;
         let channels;
         if (object == null) {
           this.model = "rgb";
@@ -8370,17 +8370,17 @@
           this.model = hashedModelKeys[hashedKeys];
           const { labels } = convert[this.model];
           const color = [];
-          for (i4 = 0; i4 < labels.length; i4++) {
-            color.push(object[labels[i4]]);
+          for (i = 0; i < labels.length; i++) {
+            color.push(object[labels[i]]);
           }
           this.color = zeroArray(color);
         }
         if (limiters[this.model]) {
           channels = convert[this.model].channels;
-          for (i4 = 0; i4 < channels; i4++) {
-            const limit = limiters[this.model][i4];
+          for (i = 0; i < channels; i++) {
+            const limit = limiters[this.model][i];
             if (limit) {
-              this.color[i4] = limit(this.color[i4]);
+              this.color[i] = limit(this.color[i]);
             }
           }
         }
@@ -8414,8 +8414,8 @@
           const result = {};
           const { channels } = convert[this.model];
           const { labels } = convert[this.model];
-          for (let i4 = 0; i4 < channels; i4++) {
-            result[labels[i4]] = this.color[i4];
+          for (let i = 0; i < channels; i++) {
+            result[labels[i]] = this.color[i];
           }
           if (this.valpha !== 1) {
             result.alpha = this.valpha;
@@ -8504,9 +8504,9 @@
         luminosity() {
           const rgb = this.rgb().color;
           const lum = [];
-          for (const [i4, element] of rgb.entries()) {
+          for (const [i, element] of rgb.entries()) {
             const chan = element / 255;
-            lum[i4] = chan <= 0.04045 ? chan / 12.92 : ((chan + 0.055) / 1.055) ** 2.4;
+            lum[i] = chan <= 0.04045 ? chan / 12.92 : ((chan + 0.055) / 1.055) ** 2.4;
           }
           return 0.2126 * lum[0] + 0.7152 * lum[1] + 0.0722 * lum[2];
         },
@@ -8535,8 +8535,8 @@
         },
         negate() {
           const rgb = this.rgb();
-          for (let i4 = 0; i4 < 3; i4++) {
-            rgb.color[i4] = 255 - rgb.color[i4];
+          for (let i = 0; i < 3; i++) {
+            rgb.color[i] = 255 - rgb.color[i];
           }
           return rgb;
         },
@@ -8595,16 +8595,16 @@
           }
           const color1 = mixinColor.rgb();
           const color2 = this.rgb();
-          const p3 = weight === void 0 ? 0.5 : weight;
-          const w3 = 2 * p3 - 1;
-          const a4 = color1.alpha() - color2.alpha();
-          const w1 = ((w3 * a4 === -1 ? w3 : (w3 + a4) / (1 + w3 * a4)) + 1) / 2;
-          const w22 = 1 - w1;
+          const p = weight === void 0 ? 0.5 : weight;
+          const w = 2 * p - 1;
+          const a = color1.alpha() - color2.alpha();
+          const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2;
+          const w2 = 1 - w1;
           return Color.rgb(
-            w1 * color1.red() + w22 * color2.red(),
-            w1 * color1.green() + w22 * color2.green(),
-            w1 * color1.blue() + w22 * color2.blue(),
-            color1.alpha() * p3 + color2.alpha() * (1 - p3)
+            w1 * color1.red() + w2 * color2.red(),
+            w1 * color1.green() + w2 * color2.green(),
+            w1 * color1.blue() + w2 * color2.blue(),
+            color1.alpha() * p + color2.alpha() * (1 - p)
           );
         }
       };
@@ -8640,8 +8640,8 @@
       }
       function getset(model, channel, modifier) {
         model = Array.isArray(model) ? model : [model];
-        for (const m3 of model) {
-          (limiters[m3] || (limiters[m3] = []))[channel] = modifier;
+        for (const m of model) {
+          (limiters[m] || (limiters[m] = []))[channel] = modifier;
         }
         model = model[0];
         return function(value) {
@@ -8662,17 +8662,17 @@
         };
       }
       function maxfn(max) {
-        return function(v2) {
-          return Math.max(0, Math.min(max, v2));
+        return function(v) {
+          return Math.max(0, Math.min(max, v));
         };
       }
       function assertArray(value) {
         return Array.isArray(value) ? value : [value];
       }
       function zeroArray(array, length) {
-        for (let i4 = 0; i4 < length; i4++) {
-          if (typeof array[i4] !== "number") {
-            array[i4] = 0;
+        for (let i = 0; i < length; i++) {
+          if (typeof array[i] !== "number") {
+            array[i] = 0;
           }
         }
         return array;
@@ -8690,8 +8690,8 @@
       var tslib_1 = require_tslib();
       var color_1 = tslib_1.__importDefault(require_color2());
       var toRgb = (value) => {
-        const [r4, g3, b3] = (0, color_1.default)(value).rgb().array();
-        return `${r4}, ${g3}, ${b3}`;
+        const [r, g, b] = (0, color_1.default)(value).rgb().array();
+        return `${r}, ${g}, ${b}`;
       };
       exports.toRgb = toRgb;
       var withOpacity = (customPropName) => ({ opacityVariable, opacityValue }) => {
@@ -8738,8 +8738,8 @@
       exports.toCustomPropValue = toCustomPropValue;
       var whitespaceRegex = /\s/g;
       var toCustomPropName = (valuePath) => {
-        if (valuePath.some((x2) => whitespaceRegex.test(x2))) {
-          throw new Error(`cannot have whitespace in any property in a theme config, found "${valuePath.find((x2) => whitespaceRegex.test(x2))}"`);
+        if (valuePath.some((x) => whitespaceRegex.test(x))) {
+          throw new Error(`cannot have whitespace in any property in a theme config, found "${valuePath.find((x) => whitespaceRegex.test(x))}"`);
         }
         return `--${valuePath.filter((step) => step.toLowerCase() !== "default").join("-")}`;
       };
@@ -8766,9 +8766,9 @@
       var lodash_merge_1 = tslib_1.__importDefault(require_lodash());
       var lodash_mergewith_1 = tslib_1.__importDefault(require_lodash2());
       var customPropUtils_1 = require_customPropUtils();
-      var resolveThemeExtensionAsCustomPropsRecursionHelper = (themeExtensionValue, api, pathSteps = []) => typeof themeExtensionValue === "undefined" || themeExtensionValue === null ? {} : Array.isArray(themeExtensionValue) ? themeExtensionValue.map((x2, i4) => resolveThemeExtensionAsCustomPropsRecursionHelper(x2, api, [
+      var resolveThemeExtensionAsCustomPropsRecursionHelper = (themeExtensionValue, api, pathSteps = []) => typeof themeExtensionValue === "undefined" || themeExtensionValue === null ? {} : Array.isArray(themeExtensionValue) ? themeExtensionValue.map((x, i) => resolveThemeExtensionAsCustomPropsRecursionHelper(x, api, [
         ...pathSteps,
-        i4.toString()
+        i.toString()
       ])).reduce((acc, curr) => Object.assign(Object.assign({}, acc), curr), {}) : typeof themeExtensionValue === "function" ? (() => {
         if (pathSteps.length === 1) {
           return resolveThemeExtensionAsCustomPropsRecursionHelper(themeExtensionValue({ theme: api.theme }), api, pathSteps);
@@ -8789,9 +8789,9 @@
         const config = value(theme2);
         return resolveThemeExtensionsAsTailwindExtensionRecursionHelper(config, valuePath);
       };
-      var resolveThemeExtensionsAsTailwindExtensionRecursionHelper = (themeExtensionValue, pathSteps = []) => typeof themeExtensionValue === "undefined" || themeExtensionValue === null ? themeExtensionValue : Array.isArray(themeExtensionValue) ? themeExtensionValue.map((x2, i4) => resolveThemeExtensionsAsTailwindExtensionRecursionHelper(x2, [
+      var resolveThemeExtensionsAsTailwindExtensionRecursionHelper = (themeExtensionValue, pathSteps = []) => typeof themeExtensionValue === "undefined" || themeExtensionValue === null ? themeExtensionValue : Array.isArray(themeExtensionValue) ? themeExtensionValue.map((x, i) => resolveThemeExtensionsAsTailwindExtensionRecursionHelper(x, [
         ...pathSteps,
-        i4.toString()
+        i.toString()
       ])) : typeof themeExtensionValue === "function" ? (() => {
         if (pathSteps.length === 1) {
           return toThemeExtensionResolverCallback(themeExtensionValue, pathSteps);
@@ -8822,7 +8822,7 @@
         }
       };
       var resolveThemeExtensionsAsTailwindExtension = (themes) => {
-        const mergedThemeExtension = (0, lodash_mergewith_1.default)({}, ...themes.map((x2) => x2.extend), mergeAndResolveCallbacks);
+        const mergedThemeExtension = (0, lodash_mergewith_1.default)({}, ...themes.map((x) => x.extend), mergeAndResolveCallbacks);
         return resolveThemeExtensionsAsTailwindExtensionRecursionHelper(mergedThemeExtension);
       };
       exports.resolveThemeExtensionsAsTailwindExtension = resolveThemeExtensionsAsTailwindExtension;
@@ -8841,12 +8841,12 @@
         defaultTheme: { extend: {} },
         themes: []
       };
-      var addThemeVariants = (themes, { addVariant, e: e2 }) => void themes.map(({ name }) => addVariant(name === optionsUtils_1.defaultThemeName ? "defaultTheme" : name, `.${e2(name === optionsUtils_1.defaultThemeName ? "defaultTheme" : name)} &`));
+      var addThemeVariants = (themes, { addVariant, e }) => void themes.map(({ name }) => addVariant(name === optionsUtils_1.defaultThemeName ? "defaultTheme" : name, `.${e(name === optionsUtils_1.defaultThemeName ? "defaultTheme" : name)} &`));
       var addThemeStyles = (themes, api) => {
-        const { addBase, e: e2 } = api;
+        const { addBase, e } = api;
         themes.forEach(({ name, extend: extend3 }) => {
           addBase({
-            [name === optionsUtils_1.defaultThemeName ? ":root" : `.${e2(name)}`]: (0, themeUtils_1.resolveThemeExtensionAsCustomProps)(extend3, api)
+            [name === optionsUtils_1.defaultThemeName ? ":root" : `.${e(name)}`]: (0, themeUtils_1.resolveThemeExtensionAsCustomProps)(extend3, api)
           });
         });
       };
@@ -8878,7 +8878,7 @@
             pattern: /text-(xs|sm|lg|xl)/
           },
           {
-            pattern: /(bg|text)-(primary|secondary|neutral|accent|warning|success|error)-/
+            pattern: /(bg|text|border)-(white|black|primary|secondary|neutral|accent|warning|success|error)/
           }
         ],
         theme: {
@@ -8957,7 +8957,16 @@
             defaultTheme: {
               extend: {
                 colors: {
+                  black: {
+                    DEFAULT: "black"
+                  },
+                  white: {
+                    DEFAULT: "white"
+                  },
                   primary: {
+                    DEFAULT: "#000099",
+                    light: "#000033",
+                    dark: "#0000ff",
                     50: "#e5eeff",
                     100: "#cfe0ff",
                     200: "#a9c3ff",
@@ -8967,12 +8976,13 @@
                     600: "#0008ff",
                     700: "#0009ff",
                     800: "#0008e3",
-                    900: "#000094",
-                    DEFAULT: "#000068"
+                    900: "#000094"
                   },
                   secondary: {
+                    DEFAULT: "#009900",
+                    light: "#003300",
+                    dark: "#00ff00",
                     50: "#f7f7f7",
-                    DEFAULT: "#f7f7f7",
                     100: "#e3e3e3",
                     200: "#c8c8c8",
                     300: "#a4a4a4",
@@ -8983,21 +8993,35 @@
                     800: "#383838",
                     900: "#000000"
                   },
+                  neutral: {
+                    light: "#F8f8f8",
+                    DEFAULT: "#F6F6F6",
+                    dark: "#a0a0a0",
+                    50: "#f7f7f7",
+                    100: "#DCDCDC",
+                    200: "#c8c8c8",
+                    300: "#a4a4a4",
+                    400: "#797979",
+                    500: "#666666",
+                    600: "#515151",
+                    700: "#434343",
+                    800: "#383838",
+                    900: "#313131"
+                  },
                   accent: {
+                    light: "#2878ff",
+                    DEFAULT: "#2878ff",
+                    dark: "#2878ff",
                     50: "#e7f6ff",
                     100: "#d3efff",
                     200: "#b0dfff",
                     300: "#81c8ff",
                     400: "#4fa1ff",
                     500: "#2878ff",
-                    DEFAULT: "#2878ff",
                     600: "#044bff",
                     700: "#0049ff",
                     800: "#0038c4",
                     900: "#0b3aa4"
-                  },
-                  black: {
-                    DEFAULT: "black"
                   },
                   error: {
                     50: "#fff0f2",
@@ -9013,19 +9037,6 @@
                     800: "#B0003E",
                     900: "#910a3d"
                   },
-                  neutral: {
-                    50: "#f7f7f7",
-                    100: "#DCDCDC",
-                    200: "#c8c8c8",
-                    300: "#a4a4a4",
-                    400: "#797979",
-                    DEFAULT: "#F6F6F6",
-                    500: "#666666",
-                    600: "#515151",
-                    700: "#434343",
-                    800: "#383838",
-                    900: "#313131"
-                  },
                   success: {
                     50: "#edfcf4",
                     100: "#d2f9e2",
@@ -9037,18 +9048,6 @@
                     DEFAULT: "#087951",
                     800: "#095c3f",
                     900: "#084c35"
-                  },
-                  accent: {
-                    50: "#fcffe5",
-                    100: "#f5ffc8",
-                    DEFAULT: "#ebff9a",
-                    300: "#d8fb5b",
-                    400: "#c4f229",
-                    500: "#a5d80a",
-                    600: "#80ad03",
-                    700: "#608308",
-                    800: "#4d670d",
-                    900: "#415710"
                   },
                   warning: {
                     50: "#fffaec",
@@ -9065,86 +9064,7 @@
                   }
                 }
               }
-            },
-            themes: [
-              {
-                name: "team-members-scheme",
-                extend: {
-                  colors: {
-                    palerose: {
-                      DEFAULT: "#FBC5B4"
-                    },
-                    palepurple: {
-                      DEFAULT: "#E0D3FF"
-                    },
-                    palepeach: {
-                      DEFAULT: "#FADAB6"
-                    },
-                    palecyan: {
-                      DEFAULT: "#D4E9DE"
-                    },
-                    palepink: {
-                      DEFAULT: "#F7DAEF"
-                    },
-                    paleblue: {
-                      DEFAULT: "#C0D8F4"
-                    },
-                    palegreen: {
-                      DEFAULT: "#E3F9D6"
-                    },
-                    default: {
-                      DEFAULT: "#d5d2d7"
-                    }
-                  }
-                }
-              },
-              {
-                name: "orga-scheme",
-                extend: {
-                  colors: {
-                    red: {
-                      DEFAULT: "#D04425"
-                    },
-                    cyan: {
-                      DEFAULT: "#00B9FF"
-                    },
-                    blue: {
-                      DEFAULT: "#3A25FF",
-                      200: "#EEEAFF"
-                    },
-                    black: {
-                      DEFAULT: "#000"
-                    }
-                  }
-                }
-              },
-              {
-                name: "white-scheme",
-                extend: {
-                  colors: {
-                    primary: {
-                      DEFAULT: "#fff"
-                    },
-                    black: {
-                      DEFAULT: "#fff"
-                    }
-                  }
-                }
-              },
-              {
-                name: "default-scheme",
-                extend: {
-                  colors: {
-                    primary: {
-                      DEFAULT: "#000068"
-                    },
-                    black: {
-                      DEFAULT: "black"
-                    }
-                  }
-                }
-              }
-            ]
+            }
           })
         ]
       };
@@ -9214,9 +9134,9 @@
   function flushJobs() {
     flushPending = false;
     flushing = true;
-    for (let i4 = 0; i4 < queue.length; i4++) {
-      queue[i4]();
-      lastFlushedIndex = i4;
+    for (let i = 0; i < queue.length; i++) {
+      queue[i]();
+      lastFlushedIndex = i;
     }
     queue.length = 0;
     lastFlushedIndex = -1;
@@ -9255,7 +9175,7 @@
       if (!el._x_effects) {
         el._x_effects = /* @__PURE__ */ new Set();
         el._x_runEffects = () => {
-          el._x_effects.forEach((i4) => i4());
+          el._x_effects.forEach((i) => i());
         };
       }
       el._x_effects.add(effectReference);
@@ -9364,7 +9284,7 @@
     deferHandlingDirectives(() => {
       walker(el, (el2, skip) => {
         intercept(el2, skip);
-        initInterceptors.forEach((i4) => i4(el2, skip));
+        initInterceptors.forEach((i) => i(el2, skip));
         directives(el2, el2.attributes).forEach((handle) => handle());
         el2._x_ignore && skip();
       });
@@ -9407,7 +9327,7 @@
       return;
     Object.entries(el._x_attributeCleanups).forEach(([name, value]) => {
       if (names === void 0 || names.includes(name)) {
-        value.forEach((i4) => i4());
+        value.forEach((i) => i());
         delete el._x_attributeCleanups[name];
       }
     });
@@ -9472,17 +9392,17 @@
     let removedNodes = [];
     let addedAttributes = /* @__PURE__ */ new Map();
     let removedAttributes = /* @__PURE__ */ new Map();
-    for (let i4 = 0; i4 < mutations.length; i4++) {
-      if (mutations[i4].target._x_ignoreMutationObserver)
+    for (let i = 0; i < mutations.length; i++) {
+      if (mutations[i].target._x_ignoreMutationObserver)
         continue;
-      if (mutations[i4].type === "childList") {
-        mutations[i4].addedNodes.forEach((node) => node.nodeType === 1 && addedNodes.push(node));
-        mutations[i4].removedNodes.forEach((node) => node.nodeType === 1 && removedNodes.push(node));
+      if (mutations[i].type === "childList") {
+        mutations[i].addedNodes.forEach((node) => node.nodeType === 1 && addedNodes.push(node));
+        mutations[i].removedNodes.forEach((node) => node.nodeType === 1 && removedNodes.push(node));
       }
-      if (mutations[i4].type === "attributes") {
-        let el = mutations[i4].target;
-        let name = mutations[i4].attributeName;
-        let oldValue = mutations[i4].oldValue;
+      if (mutations[i].type === "attributes") {
+        let el = mutations[i].target;
+        let name = mutations[i].attributeName;
+        let oldValue = mutations[i].oldValue;
         let add2 = () => {
           if (!addedAttributes.has(el))
             addedAttributes.set(el, []);
@@ -9507,12 +9427,12 @@
       cleanupAttributes(el, attrs);
     });
     addedAttributes.forEach((attrs, el) => {
-      onAttributeAddeds.forEach((i4) => i4(el, attrs));
+      onAttributeAddeds.forEach((i) => i(el, attrs));
     });
     for (let node of removedNodes) {
       if (addedNodes.includes(node))
         continue;
-      onElRemoveds.forEach((i4) => i4(node));
+      onElRemoveds.forEach((i) => i(node));
       destroyTree(node);
     }
     addedNodes.forEach((node) => {
@@ -9526,7 +9446,7 @@
         continue;
       delete node._x_ignoreSelf;
       delete node._x_ignore;
-      onElAddeds.forEach((i4) => i4(node));
+      onElAddeds.forEach((i) => i(node));
       node._x_ignore = true;
       node._x_ignoreSelf = true;
     }
@@ -9545,7 +9465,7 @@
   function addScopeToNode(node, data2, referenceNode) {
     node._x_dataStack = [data2, ...closestDataStack(referenceNode || node)];
     return () => {
-      node._x_dataStack = node._x_dataStack.filter((i4) => i4 !== data2);
+      node._x_dataStack = node._x_dataStack.filter((i) => i !== data2);
     };
   }
   function closestDataStack(node) {
@@ -9565,7 +9485,7 @@
   var mergeProxyTrap = {
     ownKeys({ objects }) {
       return Array.from(
-        new Set(objects.flatMap((i4) => Object.keys(i4)))
+        new Set(objects.flatMap((i) => Object.keys(i)))
       );
     },
     has({ objects }, name) {
@@ -9693,8 +9613,8 @@
   function tryCatch(el, expression, callback, ...args) {
     try {
       return callback(...args);
-    } catch (e2) {
-      handleError(e2, el, expression);
+    } catch (e) {
+      handleError(e, el, expression);
     }
   }
   function handleError(error2, el, expression = void 0) {
@@ -9791,12 +9711,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (shouldAutoEvaluateFunctions && typeof value === "function") {
       let result = value.apply(scope2, params);
       if (result instanceof Promise) {
-        result.then((i4) => runIfTypeOfFunction(receiver, i4, scope2, params)).catch((error2) => handleError(error2, el, value));
+        result.then((i) => runIfTypeOfFunction(receiver, i, scope2, params)).catch((error2) => handleError(error2, el, value));
       } else {
         receiver(result);
       }
     } else if (typeof value === "object" && value instanceof Promise) {
-      value.then((i4) => receiver(i4));
+      value.then((i) => receiver(i));
     } else {
       receiver(value);
     }
@@ -9881,7 +9801,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       evaluateLater: evaluateLater.bind(evaluateLater, el),
       evaluate: evaluate.bind(evaluate, el)
     };
-    let doCleanup = () => cleanups.forEach((i4) => i4());
+    let doCleanup = () => cleanups.forEach((i) => i());
     return [utilities, doCleanup];
   }
   function getDirectiveHandler(el, directive2) {
@@ -9905,7 +9825,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       name = name.replace(subject, replacement);
     return { name, value };
   };
-  var into = (i4) => i4;
+  var into = (i) => i;
   function toTransformedAttributes(callback = () => {
   }) {
     return ({ name, value }) => {
@@ -9934,7 +9854,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       return {
         type: typeMatch ? typeMatch[1] : null,
         value: valueMatch ? valueMatch[1] : null,
-        modifiers: modifiers.map((i4) => i4.replace(".", "")),
+        modifiers: modifiers.map((i) => i.replace(".", "")),
         expression: value,
         original
       };
@@ -9957,9 +9877,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     DEFAULT,
     "teleport"
   ];
-  function byPriority(a4, b3) {
-    let typeA = directiveOrder.indexOf(a4.type) === -1 ? DEFAULT : a4.type;
-    let typeB = directiveOrder.indexOf(b3.type) === -1 ? DEFAULT : b3.type;
+  function byPriority(a, b) {
+    let typeA = directiveOrder.indexOf(a.type) === -1 ? DEFAULT : a.type;
+    let typeB = directiveOrder.indexOf(b.type) === -1 ? DEFAULT : b.type;
     return directiveOrder.indexOf(typeA) - directiveOrder.indexOf(typeB);
   }
   var tickStack = [];
@@ -9998,7 +9918,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function setClassesFromString(el, classString) {
     let split = (classString2) => classString2.split(" ").filter(Boolean);
-    let missingClasses = (classString2) => classString2.split(" ").filter((i4) => !el.classList.contains(i4)).filter(Boolean);
+    let missingClasses = (classString2) => classString2.split(" ").filter((i) => !el.classList.contains(i)).filter(Boolean);
     let addClassesAndReturnUndo = (classes) => {
       el.classList.add(...classes);
       return () => {
@@ -10014,21 +9934,21 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let forRemove = Object.entries(classObject).flatMap(([classString, bool]) => !bool ? split(classString) : false).filter(Boolean);
     let added = [];
     let removed = [];
-    forRemove.forEach((i4) => {
-      if (el.classList.contains(i4)) {
-        el.classList.remove(i4);
-        removed.push(i4);
+    forRemove.forEach((i) => {
+      if (el.classList.contains(i)) {
+        el.classList.remove(i);
+        removed.push(i);
       }
     });
-    forAdd.forEach((i4) => {
-      if (!el.classList.contains(i4)) {
-        el.classList.add(i4);
-        added.push(i4);
+    forAdd.forEach((i) => {
+      if (!el.classList.contains(i)) {
+        el.classList.add(i);
+        added.push(i);
       }
     });
     return () => {
-      removed.forEach((i4) => el.classList.add(i4));
-      added.forEach((i4) => el.classList.remove(i4));
+      removed.forEach((i) => el.classList.add(i));
+      added.forEach((i) => el.classList.remove(i));
     };
   }
   function setStyles(el, value) {
@@ -10118,10 +10038,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let transitioningIn = doesntSpecify || modifiers.includes("in") || ["enter"].includes(stage);
     let transitioningOut = doesntSpecify || modifiers.includes("out") || ["leave"].includes(stage);
     if (modifiers.includes("in") && !doesntSpecify) {
-      modifiers = modifiers.filter((i4, index2) => index2 < modifiers.indexOf("out"));
+      modifiers = modifiers.filter((i, index2) => index2 < modifiers.indexOf("out"));
     }
     if (modifiers.includes("out") && !doesntSpecify) {
-      modifiers = modifiers.filter((i4, index2) => index2 > modifiers.indexOf("out"));
+      modifiers = modifiers.filter((i, index2) => index2 > modifiers.indexOf("out"));
     }
     let wantsAll = !modifiers.includes("opacity") && !modifiers.includes("scale");
     let wantsOpacity = wantsAll || modifiers.includes("opacity");
@@ -10222,14 +10142,14 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
             let carry = Promise.all([
               el2._x_hidePromise,
               ...(el2._x_hideChildren || []).map(hideAfterChildren)
-            ]).then(([i4]) => i4());
+            ]).then(([i]) => i());
             delete el2._x_hidePromise;
             delete el2._x_hideChildren;
             return carry;
           };
-          hideAfterChildren(el).catch((e2) => {
-            if (!e2.isFromCancelledTransition)
-              throw e2;
+          hideAfterChildren(el).catch((e) => {
+            if (!e.isFromCancelledTransition)
+              throw e;
           });
         });
       }
@@ -10341,9 +10261,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         return fallback;
     }
     if (key === "duration" || key === "delay") {
-      let match2 = rawValue.match(/([0-9]+)ms/);
-      if (match2)
-        return match2[1];
+      let match = rawValue.match(/([0-9]+)ms/);
+      if (match)
+        return match[1];
     }
     if (key === "origin") {
       if (["top", "right", "left", "center", "bottom"].includes(modifiers[modifiers.indexOf(key) + 2])) {
@@ -10510,7 +10430,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     });
   }
   function camelCase(subject) {
-    return subject.toLowerCase().replace(/-(\w)/g, (match2, char) => char.toUpperCase());
+    return subject.toLowerCase().replace(/-(\w)/g, (match, char) => char.toUpperCase());
   }
   function checkedAttrLooseCompare(valueA, valueB) {
     return valueA == valueB;
@@ -10632,7 +10552,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function plugin(callback) {
     let callbacks = Array.isArray(callback) ? callback : [callback];
-    callbacks.forEach((i4) => i4(alpine_default));
+    callbacks.forEach((i) => i(alpine_default));
   }
   var stores = {};
   var isReactive = false;
@@ -10785,8 +10705,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function makeMap(str, expectsLowerCase) {
     const map = /* @__PURE__ */ Object.create(null);
     const list = str.split(",");
-    for (let i4 = 0; i4 < list.length; i4++) {
-      map[list[i4]] = true;
+    for (let i = 0; i < list.length; i++) {
+      map[list[i]] = true;
     }
     return expectsLowerCase ? (val) => !!map[val.toLowerCase()] : (val) => !!map[val];
   }
@@ -10816,7 +10736,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   };
   var camelizeRE = /-(\w)/g;
   var camelize = cacheStringFunction((str) => {
-    return str.replace(camelizeRE, (_3, c3) => c3 ? c3.toUpperCase() : "");
+    return str.replace(camelizeRE, (_, c) => c ? c.toUpperCase() : "");
   });
   var hyphenateRE = /\B([A-Z])/g;
   var hyphenate = cacheStringFunction((str) => str.replace(hyphenateRE, "-$1").toLowerCase());
@@ -10882,8 +10802,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function cleanup(effect3) {
     const { deps } = effect3;
     if (deps.length) {
-      for (let i4 = 0; i4 < deps.length; i4++) {
-        deps[i4].delete(effect3);
+      for (let i = 0; i < deps.length; i++) {
+        deps[i].delete(effect3);
       }
       deps.length = 0;
     }
@@ -11010,8 +10930,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     ["includes", "indexOf", "lastIndexOf"].forEach((key) => {
       instrumentations[key] = function(...args) {
         const arr = toRaw(this);
-        for (let i4 = 0, l4 = this.length; i4 < l4; i4++) {
-          track(arr, "get", i4 + "");
+        for (let i = 0, l = this.length; i < l; i++) {
+          track(arr, "get", i + "");
         }
         const res = arr[key](...args);
         if (res === -1 || res === false) {
@@ -11133,7 +11053,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   var toReactive = (value) => isObject(value) ? reactive2(value) : value;
   var toReadonly = (value) => isObject(value) ? readonly(value) : value;
   var toShallow = (value) => value;
-  var getProto = (v2) => Reflect.getPrototypeOf(v2);
+  var getProto = (v) => Reflect.getPrototypeOf(v);
   function get$1(target, key, isReadonly = false, isShallow = false) {
     target = target["__v_raw"];
     const rawTarget = toRaw(target);
@@ -11443,8 +11363,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function toRaw(observed) {
     return observed && toRaw(observed["__v_raw"]) || observed;
   }
-  function isRef(r4) {
-    return Boolean(r4 && r4.__v_isRef === true);
+  function isRef(r) {
+    return Boolean(r && r.__v_isRef === true);
   }
   magic("nextTick", () => nextTick);
   magic("dispatch", (el) => dispatch.bind(dispatch, el));
@@ -11518,7 +11438,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let func = evaluateLater2(expression);
     let innerGet = () => {
       let result;
-      func((i4) => result = i4);
+      func((i) => result = i);
       return result;
     };
     let evaluateInnerSet = evaluateLater2(`${expression} = __placeholder`);
@@ -11564,9 +11484,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     clone2.setAttribute("data-teleport-target", true);
     if (el._x_forwardEvents) {
       el._x_forwardEvents.forEach((eventName) => {
-        clone2.addEventListener(eventName, (e2) => {
-          e2.stopPropagation();
-          el.dispatchEvent(new e2.constructor(e2.type, e2));
+        clone2.addEventListener(eventName, (e) => {
+          e.stopPropagation();
+          el.dispatchEvent(new e.constructor(e.type, e));
         });
       });
     }
@@ -11616,9 +11536,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   directive("effect", (el, { expression }, { effect: effect3 }) => effect3(evaluateLater(el, expression)));
   function on(el, event2, modifiers, callback) {
     let listenerTarget = el;
-    let handler4 = (e2) => callback(e2);
+    let handler4 = (e) => callback(e);
     let options = {};
-    let wrapHandler = (callback2, wrapper) => (e2) => wrapper(callback2, e2);
+    let wrapHandler = (callback2, wrapper) => (e) => wrapper(callback2, e);
     if (modifiers.includes("dot"))
       event2 = dotSyntax(event2);
     if (modifiers.includes("camel"))
@@ -11642,46 +11562,46 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       handler4 = throttle(handler4, wait);
     }
     if (modifiers.includes("prevent"))
-      handler4 = wrapHandler(handler4, (next2, e2) => {
-        e2.preventDefault();
-        next2(e2);
+      handler4 = wrapHandler(handler4, (next2, e) => {
+        e.preventDefault();
+        next2(e);
       });
     if (modifiers.includes("stop"))
-      handler4 = wrapHandler(handler4, (next2, e2) => {
-        e2.stopPropagation();
-        next2(e2);
+      handler4 = wrapHandler(handler4, (next2, e) => {
+        e.stopPropagation();
+        next2(e);
       });
     if (modifiers.includes("self"))
-      handler4 = wrapHandler(handler4, (next2, e2) => {
-        e2.target === el && next2(e2);
+      handler4 = wrapHandler(handler4, (next2, e) => {
+        e.target === el && next2(e);
       });
     if (modifiers.includes("away") || modifiers.includes("outside")) {
       listenerTarget = document;
-      handler4 = wrapHandler(handler4, (next2, e2) => {
-        if (el.contains(e2.target))
+      handler4 = wrapHandler(handler4, (next2, e) => {
+        if (el.contains(e.target))
           return;
-        if (e2.target.isConnected === false)
+        if (e.target.isConnected === false)
           return;
         if (el.offsetWidth < 1 && el.offsetHeight < 1)
           return;
         if (el._x_isShown === false)
           return;
-        next2(e2);
+        next2(e);
       });
     }
     if (modifiers.includes("once")) {
-      handler4 = wrapHandler(handler4, (next2, e2) => {
-        next2(e2);
+      handler4 = wrapHandler(handler4, (next2, e) => {
+        next2(e);
         listenerTarget.removeEventListener(event2, handler4, options);
       });
     }
-    handler4 = wrapHandler(handler4, (next2, e2) => {
+    handler4 = wrapHandler(handler4, (next2, e) => {
       if (isKeyEvent(event2)) {
-        if (isListeningForASpecificKeyThatHasntBeenPressed(e2, modifiers)) {
+        if (isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers)) {
           return;
         }
       }
-      next2(e2);
+      next2(e);
     });
     listenerTarget.addEventListener(event2, handler4, options);
     return () => {
@@ -11692,7 +11612,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     return subject.replace(/-/g, ".");
   }
   function camelCase2(subject) {
-    return subject.toLowerCase().replace(/-(\w)/g, (match2, char) => char.toUpperCase());
+    return subject.toLowerCase().replace(/-(\w)/g, (match, char) => char.toUpperCase());
   }
   function isNumeric(subject) {
     return !Array.isArray(subject) && !isNaN(subject);
@@ -11707,9 +11627,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function isKeyEvent(event2) {
     return ["keydown", "keyup"].includes(event2);
   }
-  function isListeningForASpecificKeyThatHasntBeenPressed(e2, modifiers) {
-    let keyModifiers = modifiers.filter((i4) => {
-      return !["window", "document", "prevent", "stop", "once", "capture"].includes(i4);
+  function isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers) {
+    let keyModifiers = modifiers.filter((i) => {
+      return !["window", "document", "prevent", "stop", "once", "capture"].includes(i);
     });
     if (keyModifiers.includes("debounce")) {
       let debounceIndex = keyModifiers.indexOf("debounce");
@@ -11721,19 +11641,19 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     if (keyModifiers.length === 0)
       return false;
-    if (keyModifiers.length === 1 && keyToModifiers(e2.key).includes(keyModifiers[0]))
+    if (keyModifiers.length === 1 && keyToModifiers(e.key).includes(keyModifiers[0]))
       return false;
     const systemKeyModifiers = ["ctrl", "shift", "alt", "meta", "cmd", "super"];
     const selectedSystemKeyModifiers = systemKeyModifiers.filter((modifier) => keyModifiers.includes(modifier));
-    keyModifiers = keyModifiers.filter((i4) => !selectedSystemKeyModifiers.includes(i4));
+    keyModifiers = keyModifiers.filter((i) => !selectedSystemKeyModifiers.includes(i));
     if (selectedSystemKeyModifiers.length > 0) {
       const activelyPressedKeyModifiers = selectedSystemKeyModifiers.filter((modifier) => {
         if (modifier === "cmd" || modifier === "super")
           modifier = "meta";
-        return e2[`${modifier}Key`];
+        return e[`${modifier}Key`];
       });
       if (activelyPressedKeyModifiers.length === selectedSystemKeyModifiers.length) {
-        if (keyToModifiers(e2.key).includes(keyModifiers[0]))
+        if (keyToModifiers(e.key).includes(keyModifiers[0]))
           return false;
       }
     }
@@ -11805,8 +11725,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     var event2 = el.tagName.toLowerCase() === "select" || ["checkbox", "radio"].includes(el.type) || modifiers.includes("lazy") ? "change" : "input";
     let removeListener = isCloning ? () => {
-    } : on(el, event2, modifiers, (e2) => {
-      setValue(getInputValue(el, modifiers, e2, getValue()));
+    } : on(el, event2, modifiers, (e) => {
+      setValue(getInputValue(el, modifiers, e, getValue()));
     });
     if (modifiers.includes("fill")) {
       if ([null, ""].includes(getValue()) || el.type === "checkbox" && Array.isArray(getValue())) {
@@ -11818,7 +11738,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     el._x_removeModelListeners["default"] = removeListener;
     cleanup2(() => el._x_removeModelListeners["default"]());
     if (el.form) {
-      let removeResetListener = on(el.form, "reset", [], (e2) => {
+      let removeResetListener = on(el.form, "reset", [], (e) => {
         nextTick(() => el._x_model && el._x_model.set(el.value));
       });
       cleanup2(() => removeResetListener());
@@ -12036,11 +11956,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     });
   });
   function loop(el, iteratorNames, evaluateItems, evaluateKey) {
-    let isObject22 = (i4) => typeof i4 === "object" && !Array.isArray(i4);
+    let isObject22 = (i) => typeof i === "object" && !Array.isArray(i);
     let templateEl = el;
     evaluateItems((items) => {
       if (isNumeric3(items) && items >= 0) {
-        items = Array.from(Array(items).keys(), (i4) => i4 + 1);
+        items = Array.from(Array(items).keys(), (i) => i + 1);
       }
       if (items === void 0)
         items = [];
@@ -12055,9 +11975,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           scopes.push(scope2);
         });
       } else {
-        for (let i4 = 0; i4 < items.length; i4++) {
-          let scope2 = getIterationScopeVariables(iteratorNames, items[i4], i4, items);
-          evaluateKey((value) => keys.push(value), { scope: { index: i4, ...scope2 } });
+        for (let i = 0; i < items.length; i++) {
+          let scope2 = getIterationScopeVariables(iteratorNames, items[i], i, items);
+          evaluateKey((value) => keys.push(value), { scope: { index: i, ...scope2 } });
           scopes.push(scope2);
         }
       }
@@ -12065,23 +11985,23 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       let moves = [];
       let removes = [];
       let sames = [];
-      for (let i4 = 0; i4 < prevKeys.length; i4++) {
-        let key = prevKeys[i4];
+      for (let i = 0; i < prevKeys.length; i++) {
+        let key = prevKeys[i];
         if (keys.indexOf(key) === -1)
           removes.push(key);
       }
       prevKeys = prevKeys.filter((key) => !removes.includes(key));
       let lastKey = "template";
-      for (let i4 = 0; i4 < keys.length; i4++) {
-        let key = keys[i4];
+      for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
         let prevIndex = prevKeys.indexOf(key);
         if (prevIndex === -1) {
-          prevKeys.splice(i4, 0, key);
-          adds.push([lastKey, i4]);
-        } else if (prevIndex !== i4) {
-          let keyInSpot = prevKeys.splice(i4, 1)[0];
+          prevKeys.splice(i, 0, key);
+          adds.push([lastKey, i]);
+        } else if (prevIndex !== i) {
+          let keyInSpot = prevKeys.splice(i, 1)[0];
           let keyForSpot = prevKeys.splice(prevIndex - 1, 1)[0];
-          prevKeys.splice(i4, 0, keyForSpot);
+          prevKeys.splice(i, 0, keyForSpot);
           prevKeys.splice(prevIndex, 0, keyInSpot);
           moves.push([keyInSpot, keyForSpot]);
         } else {
@@ -12089,8 +12009,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         }
         lastKey = key;
       }
-      for (let i4 = 0; i4 < removes.length; i4++) {
-        let key = removes[i4];
+      for (let i = 0; i < removes.length; i++) {
+        let key = removes[i];
         if (!!lookup[key]._x_effects) {
           lookup[key]._x_effects.forEach(dequeueJob);
         }
@@ -12098,8 +12018,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         lookup[key] = null;
         delete lookup[key];
       }
-      for (let i4 = 0; i4 < moves.length; i4++) {
-        let [keyInSpot, keyForSpot] = moves[i4];
+      for (let i = 0; i < moves.length; i++) {
+        let [keyInSpot, keyForSpot] = moves[i];
         let elInSpot = lookup[keyInSpot];
         let elForSpot = lookup[keyForSpot];
         let marker = document.createElement("div");
@@ -12115,8 +12035,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         });
         elForSpot._x_refreshXForScope(scopes[keys.indexOf(keyForSpot)]);
       }
-      for (let i4 = 0; i4 < adds.length; i4++) {
-        let [lastKey2, index2] = adds[i4];
+      for (let i = 0; i < adds.length; i++) {
+        let [lastKey2, index2] = adds[i];
         let lastEl = lastKey2 === "template" ? templateEl : lookup[lastKey2];
         if (lastEl._x_currentIfEl)
           lastEl = lastEl._x_currentIfEl;
@@ -12139,8 +12059,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         }
         lookup[key] = clone2;
       }
-      for (let i4 = 0; i4 < sames.length; i4++) {
-        lookup[sames[i4]]._x_refreshXForScope(scopes[keys.indexOf(sames[i4])]);
+      for (let i = 0; i < sames.length; i++) {
+        lookup[sames[i]]._x_refreshXForScope(scopes[keys.indexOf(sames[i])]);
       }
       templateEl._x_prevKeys = keys;
     });
@@ -12170,12 +12090,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function getIterationScopeVariables(iteratorNames, item, index2, items) {
     let scopeVariables = {};
     if (/^\[.*\]$/.test(iteratorNames.item) && Array.isArray(item)) {
-      let names = iteratorNames.item.replace("[", "").replace("]", "").split(",").map((i4) => i4.trim());
-      names.forEach((name, i4) => {
-        scopeVariables[name] = item[i4];
+      let names = iteratorNames.item.replace("[", "").replace("]", "").split(",").map((i) => i.trim());
+      names.forEach((name, i) => {
+        scopeVariables[name] = item[i];
       });
     } else if (/^\{.*\}$/.test(iteratorNames.item) && !Array.isArray(item) && typeof item === "object") {
-      let names = iteratorNames.item.replace("{", "").replace("}", "").split(",").map((i4) => i4.trim());
+      let names = iteratorNames.item.replace("{", "").replace("}", "").split(",").map((i) => i.trim());
       names.forEach((name) => {
         scopeVariables[name] = item[name];
       });
@@ -12251,9 +12171,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (!el._x_forwardEvents.includes(value))
         el._x_forwardEvents.push(value);
     }
-    let removeListener = on(el, value, modifiers, (e2) => {
+    let removeListener = on(el, value, modifiers, (e) => {
       evaluate2(() => {
-      }, { scope: { "$event": e2 }, params: [e2] });
+      }, { scope: { "$event": e }, params: [e] });
     });
     cleanup2(() => removeListener());
   }));
@@ -12337,8 +12257,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     return node.tabIndex;
   };
-  var sortOrderedTabbables = function sortOrderedTabbables2(a4, b3) {
-    return a4.tabIndex === b3.tabIndex ? a4.documentOrder - b3.documentOrder : a4.tabIndex - b3.tabIndex;
+  var sortOrderedTabbables = function sortOrderedTabbables2(a, b) {
+    return a.tabIndex === b.tabIndex ? a.documentOrder - b.documentOrder : a.tabIndex - b.tabIndex;
   };
   var isInput = function isInput2(node) {
     return node.tagName === "INPUT";
@@ -12347,15 +12267,15 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     return isInput(node) && node.type === "hidden";
   };
   var isDetailsWithSummary = function isDetailsWithSummary2(node) {
-    var r4 = node.tagName === "DETAILS" && Array.prototype.slice.apply(node.children).some(function(child) {
+    var r = node.tagName === "DETAILS" && Array.prototype.slice.apply(node.children).some(function(child) {
       return child.tagName === "SUMMARY";
     });
-    return r4;
+    return r;
   };
   var getCheckedRadio = function getCheckedRadio2(nodes, form) {
-    for (var i4 = 0; i4 < nodes.length; i4++) {
-      if (nodes[i4].checked && nodes[i4].form === form) {
-        return nodes[i4];
+    for (var i = 0; i < nodes.length; i++) {
+      if (nodes[i].checked && nodes[i].form === form) {
+        return nodes[i];
       }
     }
   };
@@ -12434,8 +12354,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       var parentNode = node.parentElement;
       while (parentNode) {
         if (parentNode.tagName === "FIELDSET" && parentNode.disabled) {
-          for (var i4 = 0; i4 < parentNode.children.length; i4++) {
-            var child = parentNode.children.item(i4);
+          for (var i = 0; i < parentNode.children.length; i++) {
+            var child = parentNode.children.item(i);
             if (child.tagName === "LEGEND") {
               return matches.call(parentNode, "fieldset[disabled] *") ? true : !child.contains(node);
             }
@@ -12469,7 +12389,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   var sortByOrder = function sortByOrder2(candidates) {
     var regularTabbables = [];
     var orderedTabbables = [];
-    candidates.forEach(function(item, i4) {
+    candidates.forEach(function(item, i) {
       var isScope = !!item.scope;
       var element = isScope ? item.scope : item;
       var candidateTabindex = getTabindex(element, isScope);
@@ -12478,7 +12398,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         isScope ? regularTabbables.push.apply(regularTabbables, elements) : regularTabbables.push(element);
       } else {
         orderedTabbables.push({
-          documentOrder: i4,
+          documentOrder: i,
           tabIndex: candidateTabindex,
           item,
           isScope,
@@ -12552,9 +12472,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     return keys;
   }
   function _objectSpread2(target) {
-    for (var i4 = 1; i4 < arguments.length; i4++) {
-      var source = null != arguments[i4] ? arguments[i4] : {};
-      i4 % 2 ? ownKeys2(Object(source), true).forEach(function(key) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = null != arguments[i] ? arguments[i] : {};
+      i % 2 ? ownKeys2(Object(source), true).forEach(function(key) {
         _defineProperty(target, key, source[key]);
       }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys2(Object(source)).forEach(function(key) {
         Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
@@ -12607,20 +12527,20 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   var isSelectableInput = function isSelectableInput2(node) {
     return node.tagName && node.tagName.toLowerCase() === "input" && typeof node.select === "function";
   };
-  var isEscapeEvent = function isEscapeEvent2(e2) {
-    return e2.key === "Escape" || e2.key === "Esc" || e2.keyCode === 27;
+  var isEscapeEvent = function isEscapeEvent2(e) {
+    return e.key === "Escape" || e.key === "Esc" || e.keyCode === 27;
   };
-  var isTabEvent = function isTabEvent2(e2) {
-    return e2.key === "Tab" || e2.keyCode === 9;
+  var isTabEvent = function isTabEvent2(e) {
+    return e.key === "Tab" || e.keyCode === 9;
   };
   var delay = function delay2(fn) {
     return setTimeout(fn, 0);
   };
   var findIndex = function findIndex2(arr, fn) {
     var idx = -1;
-    arr.every(function(value, i4) {
+    arr.every(function(value, i) {
       if (fn(value)) {
-        idx = i4;
+        idx = i;
         return false;
       }
       return true;
@@ -12722,19 +12642,19 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           lastTabbableNode: tabbableNodes.length > 0 ? tabbableNodes[tabbableNodes.length - 1] : null,
           nextTabbableNode: function nextTabbableNode(node) {
             var forward = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : true;
-            var nodeIdx = focusableNodes.findIndex(function(n4) {
-              return n4 === node;
+            var nodeIdx = focusableNodes.findIndex(function(n) {
+              return n === node;
             });
             if (nodeIdx < 0) {
               return void 0;
             }
             if (forward) {
-              return focusableNodes.slice(nodeIdx + 1).find(function(n4) {
-                return isTabbable(n4, config.tabbableOptions);
+              return focusableNodes.slice(nodeIdx + 1).find(function(n) {
+                return isTabbable(n, config.tabbableOptions);
               });
             }
-            return focusableNodes.slice(0, nodeIdx).reverse().find(function(n4) {
-              return isTabbable(n4, config.tabbableOptions);
+            return focusableNodes.slice(0, nodeIdx).reverse().find(function(n) {
+              return isTabbable(n, config.tabbableOptions);
             });
           }
         };
@@ -12769,48 +12689,48 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       var node = getNodeForOption("setReturnFocus", previousActiveElement);
       return node ? node : node === false ? false : previousActiveElement;
     };
-    var checkPointerDown = function checkPointerDown2(e2) {
-      var target = getActualTarget(e2);
+    var checkPointerDown = function checkPointerDown2(e) {
+      var target = getActualTarget(e);
       if (findContainerIndex(target) >= 0) {
         return;
       }
-      if (valueOrHandler(config.clickOutsideDeactivates, e2)) {
+      if (valueOrHandler(config.clickOutsideDeactivates, e)) {
         trap.deactivate({
           returnFocus: config.returnFocusOnDeactivate && !isFocusable(target, config.tabbableOptions)
         });
         return;
       }
-      if (valueOrHandler(config.allowOutsideClick, e2)) {
+      if (valueOrHandler(config.allowOutsideClick, e)) {
         return;
       }
-      e2.preventDefault();
+      e.preventDefault();
     };
-    var checkFocusIn = function checkFocusIn2(e2) {
-      var target = getActualTarget(e2);
+    var checkFocusIn = function checkFocusIn2(e) {
+      var target = getActualTarget(e);
       var targetContained = findContainerIndex(target) >= 0;
       if (targetContained || target instanceof Document) {
         if (targetContained) {
           state.mostRecentlyFocusedNode = target;
         }
       } else {
-        e2.stopImmediatePropagation();
+        e.stopImmediatePropagation();
         tryFocus(state.mostRecentlyFocusedNode || getInitialFocusNode());
       }
     };
-    var checkTab = function checkTab2(e2) {
-      var target = getActualTarget(e2);
+    var checkTab = function checkTab2(e) {
+      var target = getActualTarget(e);
       updateTabbableNodes();
       var destinationNode = null;
       if (state.tabbableGroups.length > 0) {
         var containerIndex = findContainerIndex(target);
         var containerGroup = containerIndex >= 0 ? state.containerGroups[containerIndex] : void 0;
         if (containerIndex < 0) {
-          if (e2.shiftKey) {
+          if (e.shiftKey) {
             destinationNode = state.tabbableGroups[state.tabbableGroups.length - 1].lastTabbableNode;
           } else {
             destinationNode = state.tabbableGroups[0].firstTabbableNode;
           }
-        } else if (e2.shiftKey) {
+        } else if (e.shiftKey) {
           var startOfGroupIndex = findIndex(state.tabbableGroups, function(_ref2) {
             var firstTabbableNode = _ref2.firstTabbableNode;
             return target === firstTabbableNode;
@@ -12841,34 +12761,34 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         destinationNode = getNodeForOption("fallbackFocus");
       }
       if (destinationNode) {
-        e2.preventDefault();
+        e.preventDefault();
         tryFocus(destinationNode);
       }
     };
-    var checkKey = function checkKey2(e2) {
-      if (isEscapeEvent(e2) && valueOrHandler(config.escapeDeactivates, e2) !== false) {
-        e2.preventDefault();
+    var checkKey = function checkKey2(e) {
+      if (isEscapeEvent(e) && valueOrHandler(config.escapeDeactivates, e) !== false) {
+        e.preventDefault();
         trap.deactivate();
         return;
       }
-      if (isTabEvent(e2)) {
-        checkTab(e2);
+      if (isTabEvent(e)) {
+        checkTab(e);
         return;
       }
     };
-    var checkClick = function checkClick2(e2) {
-      var target = getActualTarget(e2);
+    var checkClick = function checkClick2(e) {
+      var target = getActualTarget(e);
       if (findContainerIndex(target) >= 0) {
         return;
       }
-      if (valueOrHandler(config.clickOutsideDeactivates, e2)) {
+      if (valueOrHandler(config.clickOutsideDeactivates, e)) {
         return;
       }
-      if (valueOrHandler(config.allowOutsideClick, e2)) {
+      if (valueOrHandler(config.allowOutsideClick, e)) {
         return;
       }
-      e2.preventDefault();
-      e2.stopImmediatePropagation();
+      e.preventDefault();
+      e.stopImmediatePropagation();
     };
     var addListeners = function addListeners2() {
       if (!state.active) {
@@ -13399,9 +13319,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function arrayUnique(arr) {
     const uniqueArray = [];
-    for (let i4 = 0; i4 < arr.length; i4 += 1) {
-      if (uniqueArray.indexOf(arr[i4]) === -1)
-        uniqueArray.push(arr[i4]);
+    for (let i = 0; i < arr.length; i += 1) {
+      if (uniqueArray.indexOf(arr[i]) === -1)
+        uniqueArray.push(arr[i]);
     }
     return uniqueArray;
   }
@@ -13409,12 +13329,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (typeof selector !== "string") {
       return [selector];
     }
-    const a4 = [];
+    const a = [];
     const res = context.querySelectorAll(selector);
-    for (let i4 = 0; i4 < res.length; i4 += 1) {
-      a4.push(res[i4]);
+    for (let i = 0; i < res.length; i += 1) {
+      a.push(res[i]);
     }
-    return a4;
+    return a;
   }
   function $(selector, context) {
     const window2 = getWindow();
@@ -13442,8 +13362,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           toCreate = "select";
         const tempParent = document2.createElement(toCreate);
         tempParent.innerHTML = html2;
-        for (let i4 = 0; i4 < tempParent.childNodes.length; i4 += 1) {
-          arr.push(tempParent.childNodes[i4]);
+        for (let i = 0; i < tempParent.childNodes.length; i += 1) {
+          arr.push(tempParent.childNodes[i]);
         }
       } else {
         arr = qsa(selector.trim(), context || document2);
@@ -13459,21 +13379,21 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   $.fn = Dom7.prototype;
   function addClass(...classes) {
-    const classNames = arrayFlat(classes.map((c3) => c3.split(" ")));
+    const classNames = arrayFlat(classes.map((c) => c.split(" ")));
     this.forEach((el) => {
       el.classList.add(...classNames);
     });
     return this;
   }
   function removeClass(...classes) {
-    const classNames = arrayFlat(classes.map((c3) => c3.split(" ")));
+    const classNames = arrayFlat(classes.map((c) => c.split(" ")));
     this.forEach((el) => {
       el.classList.remove(...classNames);
     });
     return this;
   }
   function toggleClass(...classes) {
-    const classNames = arrayFlat(classes.map((c3) => c3.split(" ")));
+    const classNames = arrayFlat(classes.map((c) => c.split(" ")));
     this.forEach((el) => {
       classNames.forEach((className) => {
         el.classList.toggle(className);
@@ -13481,7 +13401,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     });
   }
   function hasClass(...classes) {
-    const classNames = arrayFlat(classes.map((c3) => c3.split(" ")));
+    const classNames = arrayFlat(classes.map((c) => c.split(" ")));
     return arrayFilter(this, (el) => {
       return classNames.filter((className) => el.classList.contains(className)).length > 0;
     }).length > 0;
@@ -13492,33 +13412,33 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         return this[0].getAttribute(attrs);
       return void 0;
     }
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
+    for (let i = 0; i < this.length; i += 1) {
       if (arguments.length === 2) {
-        this[i4].setAttribute(attrs, value);
+        this[i].setAttribute(attrs, value);
       } else {
         for (const attrName in attrs) {
-          this[i4][attrName] = attrs[attrName];
-          this[i4].setAttribute(attrName, attrs[attrName]);
+          this[i][attrName] = attrs[attrName];
+          this[i].setAttribute(attrName, attrs[attrName]);
         }
       }
     }
     return this;
   }
   function removeAttr(attr2) {
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      this[i4].removeAttribute(attr2);
+    for (let i = 0; i < this.length; i += 1) {
+      this[i].removeAttribute(attr2);
     }
     return this;
   }
   function transform(transform2) {
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      this[i4].style.transform = transform2;
+    for (let i = 0; i < this.length; i += 1) {
+      this[i].style.transform = transform2;
     }
     return this;
   }
   function transition2(duration) {
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      this[i4].style.transitionDuration = typeof duration !== "string" ? `${duration}ms` : duration;
+    for (let i = 0; i < this.length; i += 1) {
+      this[i].style.transitionDuration = typeof duration !== "string" ? `${duration}ms` : duration;
     }
     return this;
   }
@@ -13530,38 +13450,38 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     if (!capture)
       capture = false;
-    function handleLiveEvent(e2) {
-      const target = e2.target;
+    function handleLiveEvent(e) {
+      const target = e.target;
       if (!target)
         return;
-      const eventData = e2.target.dom7EventData || [];
-      if (eventData.indexOf(e2) < 0) {
-        eventData.unshift(e2);
+      const eventData = e.target.dom7EventData || [];
+      if (eventData.indexOf(e) < 0) {
+        eventData.unshift(e);
       }
       if ($(target).is(targetSelector))
         listener.apply(target, eventData);
       else {
         const parents2 = $(target).parents();
-        for (let k2 = 0; k2 < parents2.length; k2 += 1) {
-          if ($(parents2[k2]).is(targetSelector))
-            listener.apply(parents2[k2], eventData);
+        for (let k = 0; k < parents2.length; k += 1) {
+          if ($(parents2[k]).is(targetSelector))
+            listener.apply(parents2[k], eventData);
         }
       }
     }
-    function handleEvent(e2) {
-      const eventData = e2 && e2.target ? e2.target.dom7EventData || [] : [];
-      if (eventData.indexOf(e2) < 0) {
-        eventData.unshift(e2);
+    function handleEvent(e) {
+      const eventData = e && e.target ? e.target.dom7EventData || [] : [];
+      if (eventData.indexOf(e) < 0) {
+        eventData.unshift(e);
       }
       listener.apply(this, eventData);
     }
     const events2 = eventType.split(" ");
-    let j2;
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      const el = this[i4];
+    let j;
+    for (let i = 0; i < this.length; i += 1) {
+      const el = this[i];
       if (!targetSelector) {
-        for (j2 = 0; j2 < events2.length; j2 += 1) {
-          const event2 = events2[j2];
+        for (j = 0; j < events2.length; j += 1) {
+          const event2 = events2[j];
           if (!el.dom7Listeners)
             el.dom7Listeners = {};
           if (!el.dom7Listeners[event2])
@@ -13573,8 +13493,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           el.addEventListener(event2, handleEvent, capture);
         }
       } else {
-        for (j2 = 0; j2 < events2.length; j2 += 1) {
-          const event2 = events2[j2];
+        for (j = 0; j < events2.length; j += 1) {
+          const event2 = events2[j];
           if (!el.dom7LiveListeners)
             el.dom7LiveListeners = {};
           if (!el.dom7LiveListeners[event2])
@@ -13598,10 +13518,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (!capture)
       capture = false;
     const events2 = eventType.split(" ");
-    for (let i4 = 0; i4 < events2.length; i4 += 1) {
-      const event2 = events2[i4];
-      for (let j2 = 0; j2 < this.length; j2 += 1) {
-        const el = this[j2];
+    for (let i = 0; i < events2.length; i += 1) {
+      const event2 = events2[i];
+      for (let j = 0; j < this.length; j += 1) {
+        const el = this[j];
         let handlers;
         if (!targetSelector && el.dom7Listeners) {
           handlers = el.dom7Listeners[event2];
@@ -13609,17 +13529,17 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           handlers = el.dom7LiveListeners[event2];
         }
         if (handlers && handlers.length) {
-          for (let k2 = handlers.length - 1; k2 >= 0; k2 -= 1) {
-            const handler4 = handlers[k2];
+          for (let k = handlers.length - 1; k >= 0; k -= 1) {
+            const handler4 = handlers[k];
             if (listener && handler4.listener === listener) {
               el.removeEventListener(event2, handler4.proxyListener, capture);
-              handlers.splice(k2, 1);
+              handlers.splice(k, 1);
             } else if (listener && handler4.listener && handler4.listener.dom7proxy && handler4.listener.dom7proxy === listener) {
               el.removeEventListener(event2, handler4.proxyListener, capture);
-              handlers.splice(k2, 1);
+              handlers.splice(k, 1);
             } else if (!listener) {
               el.removeEventListener(event2, handler4.proxyListener, capture);
-              handlers.splice(k2, 1);
+              handlers.splice(k, 1);
             }
           }
         }
@@ -13631,10 +13551,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     const window2 = getWindow();
     const events2 = args[0].split(" ");
     const eventData = args[1];
-    for (let i4 = 0; i4 < events2.length; i4 += 1) {
-      const event2 = events2[i4];
-      for (let j2 = 0; j2 < this.length; j2 += 1) {
-        const el = this[j2];
+    for (let i = 0; i < events2.length; i += 1) {
+      const event2 = events2[i];
+      for (let j = 0; j < this.length; j += 1) {
+        const el = this[j];
         if (window2.CustomEvent) {
           const evt = new window2.CustomEvent(event2, {
             detail: eventData,
@@ -13652,10 +13572,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function transitionEnd(callback) {
     const dom = this;
-    function fireCallBack(e2) {
-      if (e2.target !== this)
+    function fireCallBack(e) {
+      if (e.target !== this)
         return;
-      callback.call(this, e2);
+      callback.call(this, e);
       dom.off("transitionend", fireCallBack);
     }
     if (callback) {
@@ -13709,23 +13629,23 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function css(props, value) {
     const window2 = getWindow();
-    let i4;
+    let i;
     if (arguments.length === 1) {
       if (typeof props === "string") {
         if (this[0])
           return window2.getComputedStyle(this[0], null).getPropertyValue(props);
       } else {
-        for (i4 = 0; i4 < this.length; i4 += 1) {
+        for (i = 0; i < this.length; i += 1) {
           for (const prop in props) {
-            this[i4].style[prop] = props[prop];
+            this[i].style[prop] = props[prop];
           }
         }
         return this;
       }
     }
     if (arguments.length === 2 && typeof props === "string") {
-      for (i4 = 0; i4 < this.length; i4 += 1) {
-        this[i4].style[props] = value;
+      for (i = 0; i < this.length; i += 1) {
+        this[i].style[props] = value;
       }
       return this;
     }
@@ -13747,8 +13667,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (typeof html2 === "undefined") {
       return this[0] ? this[0].innerHTML : null;
     }
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      this[i4].innerHTML = html2;
+    for (let i = 0; i < this.length; i += 1) {
+      this[i].innerHTML = html2;
     }
     return this;
   }
@@ -13756,8 +13676,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (typeof text2 === "undefined") {
       return this[0] ? this[0].textContent.trim() : null;
     }
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      this[i4].textContent = text2;
+    for (let i = 0; i < this.length; i += 1) {
+      this[i].textContent = text2;
     }
     return this;
   }
@@ -13766,7 +13686,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     const document2 = getDocument();
     const el = this[0];
     let compareWith;
-    let i4;
+    let i;
     if (!el || typeof selector === "undefined")
       return false;
     if (typeof selector === "string") {
@@ -13777,8 +13697,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (el.msMatchesSelector)
         return el.msMatchesSelector(selector);
       compareWith = $(selector);
-      for (i4 = 0; i4 < compareWith.length; i4 += 1) {
-        if (compareWith[i4] === el)
+      for (i = 0; i < compareWith.length; i += 1) {
+        if (compareWith[i] === el)
           return true;
       }
       return false;
@@ -13791,8 +13711,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     if (selector.nodeType || selector instanceof Dom7) {
       compareWith = selector.nodeType ? [selector] : selector;
-      for (i4 = 0; i4 < compareWith.length; i4 += 1) {
-        if (compareWith[i4] === el)
+      for (i = 0; i < compareWith.length; i += 1) {
+        if (compareWith[i] === el)
           return true;
       }
       return false;
@@ -13801,14 +13721,14 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function index() {
     let child = this[0];
-    let i4;
+    let i;
     if (child) {
-      i4 = 0;
+      i = 0;
       while ((child = child.previousSibling) !== null) {
         if (child.nodeType === 1)
-          i4 += 1;
+          i += 1;
       }
-      return i4;
+      return i;
     }
     return void 0;
   }
@@ -13830,21 +13750,21 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function append(...els) {
     let newChild;
     const document2 = getDocument();
-    for (let k2 = 0; k2 < els.length; k2 += 1) {
-      newChild = els[k2];
-      for (let i4 = 0; i4 < this.length; i4 += 1) {
+    for (let k = 0; k < els.length; k += 1) {
+      newChild = els[k];
+      for (let i = 0; i < this.length; i += 1) {
         if (typeof newChild === "string") {
           const tempDiv = document2.createElement("div");
           tempDiv.innerHTML = newChild;
           while (tempDiv.firstChild) {
-            this[i4].appendChild(tempDiv.firstChild);
+            this[i].appendChild(tempDiv.firstChild);
           }
         } else if (newChild instanceof Dom7) {
-          for (let j2 = 0; j2 < newChild.length; j2 += 1) {
-            this[i4].appendChild(newChild[j2]);
+          for (let j = 0; j < newChild.length; j += 1) {
+            this[i].appendChild(newChild[j]);
           }
         } else {
-          this[i4].appendChild(newChild);
+          this[i].appendChild(newChild);
         }
       }
     }
@@ -13852,21 +13772,21 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function prepend(newChild) {
     const document2 = getDocument();
-    let i4;
-    let j2;
-    for (i4 = 0; i4 < this.length; i4 += 1) {
+    let i;
+    let j;
+    for (i = 0; i < this.length; i += 1) {
       if (typeof newChild === "string") {
         const tempDiv = document2.createElement("div");
         tempDiv.innerHTML = newChild;
-        for (j2 = tempDiv.childNodes.length - 1; j2 >= 0; j2 -= 1) {
-          this[i4].insertBefore(tempDiv.childNodes[j2], this[i4].childNodes[0]);
+        for (j = tempDiv.childNodes.length - 1; j >= 0; j -= 1) {
+          this[i].insertBefore(tempDiv.childNodes[j], this[i].childNodes[0]);
         }
       } else if (newChild instanceof Dom7) {
-        for (j2 = 0; j2 < newChild.length; j2 += 1) {
-          this[i4].insertBefore(newChild[j2], this[i4].childNodes[0]);
+        for (j = 0; j < newChild.length; j += 1) {
+          this[i].insertBefore(newChild[j], this[i].childNodes[0]);
         }
       } else {
-        this[i4].insertBefore(newChild, this[i4].childNodes[0]);
+        this[i].insertBefore(newChild, this[i].childNodes[0]);
       }
     }
     return this;
@@ -13934,13 +13854,13 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function parent(selector) {
     const parents2 = [];
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      if (this[i4].parentNode !== null) {
+    for (let i = 0; i < this.length; i += 1) {
+      if (this[i].parentNode !== null) {
         if (selector) {
-          if ($(this[i4].parentNode).is(selector))
-            parents2.push(this[i4].parentNode);
+          if ($(this[i].parentNode).is(selector))
+            parents2.push(this[i].parentNode);
         } else {
-          parents2.push(this[i4].parentNode);
+          parents2.push(this[i].parentNode);
         }
       }
     }
@@ -13948,8 +13868,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function parents(selector) {
     const parents2 = [];
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      let parent2 = this[i4].parentNode;
+    for (let i = 0; i < this.length; i += 1) {
+      let parent2 = this[i].parentNode;
       while (parent2) {
         if (selector) {
           if ($(parent2).is(selector))
@@ -13974,30 +13894,30 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
   function find(selector) {
     const foundElements = [];
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      const found = this[i4].querySelectorAll(selector);
-      for (let j2 = 0; j2 < found.length; j2 += 1) {
-        foundElements.push(found[j2]);
+    for (let i = 0; i < this.length; i += 1) {
+      const found = this[i].querySelectorAll(selector);
+      for (let j = 0; j < found.length; j += 1) {
+        foundElements.push(found[j]);
       }
     }
     return $(foundElements);
   }
   function children(selector) {
     const children2 = [];
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      const childNodes = this[i4].children;
-      for (let j2 = 0; j2 < childNodes.length; j2 += 1) {
-        if (!selector || $(childNodes[j2]).is(selector)) {
-          children2.push(childNodes[j2]);
+    for (let i = 0; i < this.length; i += 1) {
+      const childNodes = this[i].children;
+      for (let j = 0; j < childNodes.length; j += 1) {
+        if (!selector || $(childNodes[j]).is(selector)) {
+          children2.push(childNodes[j]);
         }
       }
     }
     return $(children2);
   }
   function remove() {
-    for (let i4 = 0; i4 < this.length; i4 += 1) {
-      if (this[i4].parentNode)
-        this[i4].parentNode.removeChild(this[i4]);
+    for (let i = 0; i < this.length; i += 1) {
+      if (this[i].parentNode)
+        this[i].parentNode.removeChild(this[i]);
     }
     return this;
   }
@@ -14005,12 +13925,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function shortcut(name) {
     function eventHandler(...args) {
       if (typeof args[0] === "undefined") {
-        for (let i4 = 0; i4 < this.length; i4 += 1) {
+        for (let i = 0; i < this.length; i += 1) {
           if (noTrigger.indexOf(name) < 0) {
-            if (name in this[i4])
-              this[i4][name]();
+            if (name in this[i])
+              this[i][name]();
             else {
-              $(this[i4]).trigger(name);
+              $(this[i]).trigger(name);
             }
           }
         }
@@ -14096,11 +14016,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     Object.keys(object).forEach((key) => {
       try {
         object[key] = null;
-      } catch (e2) {
+      } catch (e) {
       }
       try {
         delete object[key];
-      } catch (e2) {
+      } catch (e) {
       }
     });
   }
@@ -14133,7 +14053,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (window2.WebKitCSSMatrix) {
       curTransform = curStyle.transform || curStyle.webkitTransform;
       if (curTransform.split(",").length > 6) {
-        curTransform = curTransform.split(", ").map((a4) => a4.replace(",", ".")).join(", ");
+        curTransform = curTransform.split(", ").map((a) => a.replace(",", ".")).join(", ");
       }
       transformMatrix = new window2.WebKitCSSMatrix(curTransform === "none" ? "" : curTransform);
     } else {
@@ -14158,8 +14078,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     return curTransform || 0;
   }
-  function isObject3(o4) {
-    return typeof o4 === "object" && o4 !== null && o4.constructor && Object.prototype.toString.call(o4).slice(8, -1) === "Object";
+  function isObject3(o) {
+    return typeof o === "object" && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === "Object";
   }
   function isNode(node) {
     if (typeof window !== "undefined" && typeof window.HTMLElement !== "undefined") {
@@ -14170,8 +14090,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function extend2(...args) {
     const to = Object(args[0]);
     const noExtend = ["__proto__", "constructor", "prototype"];
-    for (let i4 = 1; i4 < args.length; i4 += 1) {
-      const nextSource = args[i4];
+    for (let i = 1; i < args.length; i += 1) {
+      const nextSource = args[i];
       if (nextSource !== void 0 && nextSource !== null && !isNode(nextSource)) {
         const keysArray = Object.keys(Object(nextSource)).filter((key) => noExtend.indexOf(key) < 0);
         for (let nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
@@ -14267,7 +14187,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
             }
           });
           window2.addEventListener("testPassiveListener", null, opts);
-        } catch (e2) {
+        } catch (e) {
         }
         return supportsPassive;
       }(),
@@ -14451,8 +14371,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         return;
       if (swiper.params.observeParents) {
         const containerParents = swiper.$el.parents();
-        for (let i4 = 0; i4 < containerParents.length; i4 += 1) {
-          attach(containerParents[i4]);
+        for (let i = 0; i < containerParents.length; i += 1) {
+          attach(containerParents[i]);
         }
       }
       attach(swiper.$el[0], {
@@ -14688,17 +14608,17 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     const shouldResetSlideSize = params.slidesPerView === "auto" && params.breakpoints && Object.keys(params.breakpoints).filter((key) => {
       return typeof params.breakpoints[key].slidesPerView !== "undefined";
     }).length > 0;
-    for (let i4 = 0; i4 < slidesLength; i4 += 1) {
+    for (let i = 0; i < slidesLength; i += 1) {
       slideSize = 0;
-      const slide = slides.eq(i4);
+      const slide = slides.eq(i);
       if (gridEnabled) {
-        swiper.grid.updateSlide(i4, slide, slidesLength, getDirectionLabel);
+        swiper.grid.updateSlide(i, slide, slidesLength, getDirectionLabel);
       }
       if (slide.css("display") === "none")
         continue;
       if (params.slidesPerView === "auto") {
         if (shouldResetSlideSize) {
-          slides[i4].style[getDirectionLabel("width")] = ``;
+          slides[i].style[getDirectionLabel("width")] = ``;
         }
         const slideStyles = getComputedStyle(slide[0]);
         const currentTransform = slide[0].style.transform;
@@ -14740,19 +14660,19 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         slideSize = (swiperSize - (params.slidesPerView - 1) * spaceBetween) / params.slidesPerView;
         if (params.roundLengths)
           slideSize = Math.floor(slideSize);
-        if (slides[i4]) {
-          slides[i4].style[getDirectionLabel("width")] = `${slideSize}px`;
+        if (slides[i]) {
+          slides[i].style[getDirectionLabel("width")] = `${slideSize}px`;
         }
       }
-      if (slides[i4]) {
-        slides[i4].swiperSlideSize = slideSize;
+      if (slides[i]) {
+        slides[i].swiperSlideSize = slideSize;
       }
       slidesSizesGrid.push(slideSize);
       if (params.centeredSlides) {
         slidePosition = slidePosition + slideSize / 2 + prevSlideSize / 2 + spaceBetween;
-        if (prevSlideSize === 0 && i4 !== 0)
+        if (prevSlideSize === 0 && i !== 0)
           slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
-        if (i4 === 0)
+        if (i === 0)
           slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
         if (Math.abs(slidePosition) < 1 / 1e3)
           slidePosition = 0;
@@ -14789,11 +14709,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     if (!params.centeredSlides) {
       const newSlidesGrid = [];
-      for (let i4 = 0; i4 < snapGrid.length; i4 += 1) {
-        let slidesGridItem = snapGrid[i4];
+      for (let i = 0; i < snapGrid.length; i += 1) {
+        let slidesGridItem = snapGrid[i];
         if (params.roundLengths)
           slidesGridItem = Math.floor(slidesGridItem);
-        if (snapGrid[i4] <= swiper.virtualSize - swiperSize) {
+        if (snapGrid[i] <= swiper.virtualSize - swiperSize) {
           newSlidesGrid.push(slidesGridItem);
         }
       }
@@ -14806,7 +14726,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       snapGrid = [0];
     if (params.spaceBetween !== 0) {
       const key = swiper.isHorizontal() && rtl ? "marginLeft" : getDirectionLabel("marginRight");
-      slides.filter((_3, slideIndex) => {
+      slides.filter((_, slideIndex) => {
         if (!params.cssMode)
           return true;
         if (slideIndex === slides.length - 1) {
@@ -14859,8 +14779,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       setCSSProperty(swiper.wrapperEl, "--swiper-centered-offset-after", `${swiper.size / 2 - slidesSizesGrid[slidesSizesGrid.length - 1] / 2}px`);
       const addToSnapGrid = -swiper.snapGrid[0];
       const addToSlidesGrid = -swiper.slidesGrid[0];
-      swiper.snapGrid = swiper.snapGrid.map((v2) => v2 + addToSnapGrid);
-      swiper.slidesGrid = swiper.slidesGrid.map((v2) => v2 + addToSlidesGrid);
+      swiper.snapGrid = swiper.snapGrid.map((v) => v + addToSnapGrid);
+      swiper.slidesGrid = swiper.slidesGrid.map((v) => v + addToSlidesGrid);
     }
     if (slidesLength !== previousSlidesLength) {
       swiper.emit("slidesLengthChange");
@@ -14884,7 +14804,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     const activeSlides = [];
     const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
     let newHeight = 0;
-    let i4;
+    let i;
     if (typeof speed === "number") {
       swiper.setTransition(speed);
     } else if (speed === true) {
@@ -14902,8 +14822,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           activeSlides.push(slide);
         });
       } else {
-        for (i4 = 0; i4 < Math.ceil(swiper.params.slidesPerView); i4 += 1) {
-          const index2 = swiper.activeIndex + i4;
+        for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
+          const index2 = swiper.activeIndex + i;
           if (index2 > swiper.slides.length && !isVirtual)
             break;
           activeSlides.push(getSlideByIndex(index2));
@@ -14912,9 +14832,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     } else {
       activeSlides.push(getSlideByIndex(swiper.activeIndex));
     }
-    for (i4 = 0; i4 < activeSlides.length; i4 += 1) {
-      if (typeof activeSlides[i4] !== "undefined") {
-        const height = activeSlides[i4].offsetHeight;
+    for (i = 0; i < activeSlides.length; i += 1) {
+      if (typeof activeSlides[i] !== "undefined") {
+        const height = activeSlides[i].offsetHeight;
         newHeight = height > newHeight ? height : newHeight;
       }
     }
@@ -14926,8 +14846,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function updateSlidesOffset() {
     const swiper = this;
     const slides = swiper.slides;
-    for (let i4 = 0; i4 < slides.length; i4 += 1) {
-      slides[i4].swiperSlideOffset = swiper.isHorizontal() ? slides[i4].offsetLeft : slides[i4].offsetTop;
+    for (let i = 0; i < slides.length; i += 1) {
+      slides[i].swiperSlideOffset = swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop;
     }
   }
 
@@ -14950,8 +14870,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     slides.removeClass(params.slideVisibleClass);
     swiper.visibleSlidesIndexes = [];
     swiper.visibleSlides = [];
-    for (let i4 = 0; i4 < slides.length; i4 += 1) {
-      const slide = slides[i4];
+    for (let i = 0; i < slides.length; i += 1) {
+      const slide = slides[i];
       let slideOffset = slide.swiperSlideOffset;
       if (params.cssMode && params.centeredSlides) {
         slideOffset -= slides[0].swiperSlideOffset;
@@ -14959,12 +14879,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       const slideProgress = (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide.swiperSlideSize + params.spaceBetween);
       const originalSlideProgress = (offsetCenter - snapGrid[0] + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide.swiperSlideSize + params.spaceBetween);
       const slideBefore = -(offsetCenter - slideOffset);
-      const slideAfter = slideBefore + swiper.slidesSizesGrid[i4];
+      const slideAfter = slideBefore + swiper.slidesSizesGrid[i];
       const isVisible = slideBefore >= 0 && slideBefore < swiper.size - 1 || slideAfter > 1 && slideAfter <= swiper.size || slideBefore <= 0 && slideAfter >= swiper.size;
       if (isVisible) {
         swiper.visibleSlides.push(slide);
-        swiper.visibleSlidesIndexes.push(i4);
-        slides.eq(i4).addClass(params.slideVisibleClass);
+        swiper.visibleSlidesIndexes.push(i);
+        slides.eq(i).addClass(params.slideVisibleClass);
       }
       slide.progress = rtl ? -slideProgress : slideProgress;
       slide.originalProgress = rtl ? -originalSlideProgress : originalSlideProgress;
@@ -15082,15 +15002,15 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let activeIndex = newActiveIndex;
     let snapIndex;
     if (typeof activeIndex === "undefined") {
-      for (let i4 = 0; i4 < slidesGrid.length; i4 += 1) {
-        if (typeof slidesGrid[i4 + 1] !== "undefined") {
-          if (translate >= slidesGrid[i4] && translate < slidesGrid[i4 + 1] - (slidesGrid[i4 + 1] - slidesGrid[i4]) / 2) {
-            activeIndex = i4;
-          } else if (translate >= slidesGrid[i4] && translate < slidesGrid[i4 + 1]) {
-            activeIndex = i4 + 1;
+      for (let i = 0; i < slidesGrid.length; i += 1) {
+        if (typeof slidesGrid[i + 1] !== "undefined") {
+          if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1] - (slidesGrid[i + 1] - slidesGrid[i]) / 2) {
+            activeIndex = i;
+          } else if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1]) {
+            activeIndex = i + 1;
           }
-        } else if (translate >= slidesGrid[i4]) {
-          activeIndex = i4;
+        } else if (translate >= slidesGrid[i]) {
+          activeIndex = i;
         }
       }
       if (params.normalizeSlideIndex) {
@@ -15131,17 +15051,17 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
 
   // node_modules/swiper/core/update/updateClickedSlide.js
-  function updateClickedSlide(e2) {
+  function updateClickedSlide(e) {
     const swiper = this;
     const params = swiper.params;
-    const slide = dom_default(e2).closest(`.${params.slideClass}`)[0];
+    const slide = dom_default(e).closest(`.${params.slideClass}`)[0];
     let slideFound = false;
     let slideIndex;
     if (slide) {
-      for (let i4 = 0; i4 < swiper.slides.length; i4 += 1) {
-        if (swiper.slides[i4] === slide) {
+      for (let i = 0; i < swiper.slides.length; i += 1) {
+        if (swiper.slides[i] === slide) {
           slideFound = true;
-          slideIndex = i4;
+          slideIndex = i;
           break;
         }
       }
@@ -15207,25 +15127,25 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       wrapperEl,
       progress
     } = swiper;
-    let x2 = 0;
-    let y3 = 0;
+    let x = 0;
+    let y = 0;
     const z = 0;
     if (swiper.isHorizontal()) {
-      x2 = rtl ? -translate : translate;
+      x = rtl ? -translate : translate;
     } else {
-      y3 = translate;
+      y = translate;
     }
     if (params.roundLengths) {
-      x2 = Math.floor(x2);
-      y3 = Math.floor(y3);
+      x = Math.floor(x);
+      y = Math.floor(y);
     }
     if (params.cssMode) {
-      wrapperEl[swiper.isHorizontal() ? "scrollLeft" : "scrollTop"] = swiper.isHorizontal() ? -x2 : -y3;
+      wrapperEl[swiper.isHorizontal() ? "scrollLeft" : "scrollTop"] = swiper.isHorizontal() ? -x : -y;
     } else if (!params.virtualTranslate) {
-      $wrapperEl.transform(`translate3d(${x2}px, ${y3}px, ${z}px)`);
+      $wrapperEl.transform(`translate3d(${x}px, ${y}px, ${z}px)`);
     }
     swiper.previousTranslate = swiper.translate;
-    swiper.translate = swiper.isHorizontal() ? x2 : y3;
+    swiper.translate = swiper.isHorizontal() ? x : y;
     let newProgress;
     const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
     if (translatesDiff === 0) {
@@ -15306,10 +15226,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (!swiper.animating) {
         swiper.animating = true;
         if (!swiper.onTranslateToWrapperTransitionEnd) {
-          swiper.onTranslateToWrapperTransitionEnd = function transitionEnd3(e2) {
+          swiper.onTranslateToWrapperTransitionEnd = function transitionEnd3(e) {
             if (!swiper || swiper.destroyed)
               return;
-            if (e2.target !== this)
+            if (e.target !== this)
               return;
             swiper.$wrapperEl[0].removeEventListener("transitionend", swiper.onTranslateToWrapperTransitionEnd);
             swiper.$wrapperEl[0].removeEventListener("webkitTransitionEnd", swiper.onTranslateToWrapperTransitionEnd);
@@ -15464,18 +15384,18 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     const translate = -snapGrid[snapIndex];
     swiper.updateProgress(translate);
     if (params.normalizeSlideIndex) {
-      for (let i4 = 0; i4 < slidesGrid.length; i4 += 1) {
+      for (let i = 0; i < slidesGrid.length; i += 1) {
         const normalizedTranslate = -Math.floor(translate * 100);
-        const normalizedGrid = Math.floor(slidesGrid[i4] * 100);
-        const normalizedGridNext = Math.floor(slidesGrid[i4 + 1] * 100);
-        if (typeof slidesGrid[i4 + 1] !== "undefined") {
+        const normalizedGrid = Math.floor(slidesGrid[i] * 100);
+        const normalizedGridNext = Math.floor(slidesGrid[i + 1] * 100);
+        if (typeof slidesGrid[i + 1] !== "undefined") {
           if (normalizedTranslate >= normalizedGrid && normalizedTranslate < normalizedGridNext - (normalizedGridNext - normalizedGrid) / 2) {
-            slideIndex = i4;
+            slideIndex = i;
           } else if (normalizedTranslate >= normalizedGrid && normalizedTranslate < normalizedGridNext) {
-            slideIndex = i4 + 1;
+            slideIndex = i + 1;
           }
         } else if (normalizedTranslate >= normalizedGrid) {
-          slideIndex = i4;
+          slideIndex = i;
         }
       }
     }
@@ -15553,10 +15473,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     } else if (!swiper.animating) {
       swiper.animating = true;
       if (!swiper.onSlideToWrapperTransitionEnd) {
-        swiper.onSlideToWrapperTransitionEnd = function transitionEnd3(e2) {
+        swiper.onSlideToWrapperTransitionEnd = function transitionEnd3(e) {
           if (!swiper || swiper.destroyed)
             return;
-          if (e2.target !== this)
+          if (e.target !== this)
             return;
           swiper.$wrapperEl[0].removeEventListener("transitionend", swiper.onSlideToWrapperTransitionEnd);
           swiper.$wrapperEl[0].removeEventListener("webkitTransitionEnd", swiper.onSlideToWrapperTransitionEnd);
@@ -15757,7 +15677,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (params.loopFillGroupWithBlank) {
       const blankSlidesNum = params.slidesPerGroup - slides.length % params.slidesPerGroup;
       if (blankSlidesNum !== params.slidesPerGroup) {
-        for (let i4 = 0; i4 < blankSlidesNum; i4 += 1) {
+        for (let i = 0; i < blankSlidesNum; i += 1) {
           const blankNode = dom_default(document2.createElement("div")).addClass(`${params.slideClass} ${params.slideBlankClass}`);
           $selector.append(blankNode);
         }
@@ -15783,11 +15703,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       }
       slide.attr("data-swiper-slide-index", index2);
     });
-    for (let i4 = 0; i4 < appendSlides.length; i4 += 1) {
-      $selector.append(dom_default(appendSlides[i4].cloneNode(true)).addClass(params.slideDuplicateClass));
+    for (let i = 0; i < appendSlides.length; i += 1) {
+      $selector.append(dom_default(appendSlides[i].cloneNode(true)).addClass(params.slideDuplicateClass));
     }
-    for (let i4 = prependSlides.length - 1; i4 >= 0; i4 -= 1) {
-      $selector.prepend(dom_default(prependSlides[i4].cloneNode(true)).addClass(params.slideDuplicateClass));
+    for (let i = prependSlides.length - 1; i >= 0; i -= 1) {
+      $selector.prepend(dom_default(prependSlides[i].cloneNode(true)).addClass(params.slideDuplicateClass));
     }
   }
 
@@ -15905,28 +15825,28 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     if (!swiper.animating && params.cssMode && params.loop) {
       swiper.loopFix();
     }
-    let e2 = event2;
-    if (e2.originalEvent)
-      e2 = e2.originalEvent;
-    let $targetEl = dom_default(e2.target);
+    let e = event2;
+    if (e.originalEvent)
+      e = e.originalEvent;
+    let $targetEl = dom_default(e.target);
     if (params.touchEventsTarget === "wrapper") {
       if (!$targetEl.closest(swiper.wrapperEl).length)
         return;
     }
-    data2.isTouchEvent = e2.type === "touchstart";
-    if (!data2.isTouchEvent && "which" in e2 && e2.which === 3)
+    data2.isTouchEvent = e.type === "touchstart";
+    if (!data2.isTouchEvent && "which" in e && e.which === 3)
       return;
-    if (!data2.isTouchEvent && "button" in e2 && e2.button > 0)
+    if (!data2.isTouchEvent && "button" in e && e.button > 0)
       return;
     if (data2.isTouched && data2.isMoved)
       return;
     const swipingClassHasValue = !!params.noSwipingClass && params.noSwipingClass !== "";
-    if (swipingClassHasValue && e2.target && e2.target.shadowRoot && event2.path && event2.path[0]) {
+    if (swipingClassHasValue && e.target && e.target.shadowRoot && event2.path && event2.path[0]) {
       $targetEl = dom_default(event2.path[0]);
     }
     const noSwipingSelector = params.noSwipingSelector ? params.noSwipingSelector : `.${params.noSwipingClass}`;
-    const isTargetShadow = !!(e2.target && e2.target.shadowRoot);
-    if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, e2.target) : $targetEl.closest(noSwipingSelector)[0])) {
+    const isTargetShadow = !!(e.target && e.target.shadowRoot);
+    if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, e.target) : $targetEl.closest(noSwipingSelector)[0])) {
       swiper.allowClick = true;
       return;
     }
@@ -15934,8 +15854,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (!$targetEl.closest(params.swipeHandler)[0])
         return;
     }
-    touches.currentX = e2.type === "touchstart" ? e2.targetTouches[0].pageX : e2.pageX;
-    touches.currentY = e2.type === "touchstart" ? e2.targetTouches[0].pageY : e2.pageY;
+    touches.currentX = e.type === "touchstart" ? e.targetTouches[0].pageX : e.pageX;
+    touches.currentY = e.type === "touchstart" ? e.targetTouches[0].pageY : e.pageY;
     const startX = touches.currentX;
     const startY = touches.currentY;
     const edgeSwipeDetection = params.edgeSwipeDetection || params.iOSEdgeSwipeDetection;
@@ -15962,7 +15882,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     swiper.swipeDirection = void 0;
     if (params.threshold > 0)
       data2.allowThresholdMove = false;
-    if (e2.type !== "touchstart") {
+    if (e.type !== "touchstart") {
       let preventDefault = true;
       if ($targetEl.is(data2.focusableElements))
         preventDefault = false;
@@ -15971,10 +15891,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       }
       const shouldPreventDefault = preventDefault && swiper.allowTouchMove && params.touchStartPreventDefault;
       if ((params.touchStartForcePreventDefault || shouldPreventDefault) && !$targetEl[0].isContentEditable) {
-        e2.preventDefault();
+        e.preventDefault();
       }
     }
-    swiper.emit("touchStart", e2);
+    swiper.emit("touchStart", e);
   }
 
   // node_modules/swiper/core/events/onTouchMove.js
@@ -15990,21 +15910,21 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     } = swiper;
     if (!enabled)
       return;
-    let e2 = event2;
-    if (e2.originalEvent)
-      e2 = e2.originalEvent;
+    let e = event2;
+    if (e.originalEvent)
+      e = e.originalEvent;
     if (!data2.isTouched) {
       if (data2.startMoving && data2.isScrolling) {
-        swiper.emit("touchMoveOpposite", e2);
+        swiper.emit("touchMoveOpposite", e);
       }
       return;
     }
-    if (data2.isTouchEvent && e2.type !== "touchmove")
+    if (data2.isTouchEvent && e.type !== "touchmove")
       return;
-    const targetTouch = e2.type === "touchmove" && e2.targetTouches && (e2.targetTouches[0] || e2.changedTouches[0]);
-    const pageX = e2.type === "touchmove" ? targetTouch.pageX : e2.pageX;
-    const pageY = e2.type === "touchmove" ? targetTouch.pageY : e2.pageY;
-    if (e2.preventedByNestedSwiper) {
+    const targetTouch = e.type === "touchmove" && e.targetTouches && (e.targetTouches[0] || e.changedTouches[0]);
+    const pageX = e.type === "touchmove" ? targetTouch.pageX : e.pageX;
+    const pageY = e.type === "touchmove" ? targetTouch.pageY : e.pageY;
+    if (e.preventedByNestedSwiper) {
       touches.startX = pageX;
       touches.startY = pageY;
       return;
@@ -16034,16 +15954,16 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       }
     }
     if (data2.isTouchEvent && document2.activeElement) {
-      if (e2.target === document2.activeElement && dom_default(e2.target).is(data2.focusableElements)) {
+      if (e.target === document2.activeElement && dom_default(e.target).is(data2.focusableElements)) {
         data2.isMoved = true;
         swiper.allowClick = false;
         return;
       }
     }
     if (data2.allowTouchCallbacks) {
-      swiper.emit("touchMove", e2);
+      swiper.emit("touchMove", e);
     }
-    if (e2.targetTouches && e2.targetTouches.length > 1)
+    if (e.targetTouches && e.targetTouches.length > 1)
       return;
     touches.currentX = pageX;
     touches.currentY = pageY;
@@ -16063,7 +15983,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       }
     }
     if (data2.isScrolling) {
-      swiper.emit("touchMoveOpposite", e2);
+      swiper.emit("touchMoveOpposite", e);
     }
     if (typeof data2.startMoving === "undefined") {
       if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) {
@@ -16078,11 +15998,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       return;
     }
     swiper.allowClick = false;
-    if (!params.cssMode && e2.cancelable) {
-      e2.preventDefault();
+    if (!params.cssMode && e.cancelable) {
+      e.preventDefault();
     }
     if (params.touchMoveStopPropagation && !params.nested) {
-      e2.stopPropagation();
+      e.stopPropagation();
     }
     if (!data2.isMoved) {
       if (params.loop && !params.cssMode) {
@@ -16097,9 +16017,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (params.grabCursor && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
         swiper.setGrabCursor(true);
       }
-      swiper.emit("sliderFirstMove", e2);
+      swiper.emit("sliderFirstMove", e);
     }
-    swiper.emit("sliderMove", e2);
+    swiper.emit("sliderMove", e);
     data2.isMoved = true;
     let diff = swiper.isHorizontal() ? diffX : diffY;
     touches.diff = diff;
@@ -16123,7 +16043,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         data2.currentTranslate = swiper.maxTranslate() + 1 - (swiper.maxTranslate() - data2.startTranslate - diff) ** resistanceRatio;
     }
     if (disableParentSwiper) {
-      e2.preventedByNestedSwiper = true;
+      e.preventedByNestedSwiper = true;
     }
     if (!swiper.allowSlideNext && swiper.swipeDirection === "next" && data2.currentTranslate < data2.startTranslate) {
       data2.currentTranslate = data2.startTranslate;
@@ -16175,11 +16095,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     } = swiper;
     if (!enabled)
       return;
-    let e2 = event2;
-    if (e2.originalEvent)
-      e2 = e2.originalEvent;
+    let e = event2;
+    if (e.originalEvent)
+      e = e.originalEvent;
     if (data2.allowTouchCallbacks) {
-      swiper.emit("touchEnd", e2);
+      swiper.emit("touchEnd", e);
     }
     data2.allowTouchCallbacks = false;
     if (!data2.isTouched) {
@@ -16196,11 +16116,11 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     const touchEndTime = now();
     const timeDiff = touchEndTime - data2.touchStartTime;
     if (swiper.allowClick) {
-      const pathTree = e2.path || e2.composedPath && e2.composedPath();
-      swiper.updateClickedSlide(pathTree && pathTree[0] || e2.target);
-      swiper.emit("tap click", e2);
+      const pathTree = e.path || e.composedPath && e.composedPath();
+      swiper.updateClickedSlide(pathTree && pathTree[0] || e.target);
+      swiper.emit("tap click", e);
       if (timeDiff < 300 && touchEndTime - data2.lastClickTime < 300) {
-        swiper.emit("doubleTap doubleClick", e2);
+        swiper.emit("doubleTap doubleClick", e);
       }
     }
     data2.lastClickTime = now();
@@ -16234,15 +16154,15 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     let stopIndex = 0;
     let groupSize = swiper.slidesSizesGrid[0];
-    for (let i4 = 0; i4 < slidesGrid.length; i4 += i4 < params.slidesPerGroupSkip ? 1 : params.slidesPerGroup) {
-      const increment2 = i4 < params.slidesPerGroupSkip - 1 ? 1 : params.slidesPerGroup;
-      if (typeof slidesGrid[i4 + increment2] !== "undefined") {
-        if (currentPos >= slidesGrid[i4] && currentPos < slidesGrid[i4 + increment2]) {
-          stopIndex = i4;
-          groupSize = slidesGrid[i4 + increment2] - slidesGrid[i4];
+    for (let i = 0; i < slidesGrid.length; i += i < params.slidesPerGroupSkip ? 1 : params.slidesPerGroup) {
+      const increment2 = i < params.slidesPerGroupSkip - 1 ? 1 : params.slidesPerGroup;
+      if (typeof slidesGrid[i + increment2] !== "undefined") {
+        if (currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + increment2]) {
+          stopIndex = i;
+          groupSize = slidesGrid[i + increment2] - slidesGrid[i];
         }
-      } else if (currentPos >= slidesGrid[i4]) {
-        stopIndex = i4;
+      } else if (currentPos >= slidesGrid[i]) {
+        stopIndex = i;
         groupSize = slidesGrid[slidesGrid.length - 1] - slidesGrid[slidesGrid.length - 2];
       }
     }
@@ -16270,7 +16190,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         swiper.slideTo(swiper.activeIndex);
         return;
       }
-      const isNavButtonTarget = swiper.navigation && (e2.target === swiper.navigation.nextEl || e2.target === swiper.navigation.prevEl);
+      const isNavButtonTarget = swiper.navigation && (e.target === swiper.navigation.nextEl || e.target === swiper.navigation.prevEl);
       if (!isNavButtonTarget) {
         if (swiper.swipeDirection === "next") {
           swiper.slideTo(stopIndex + increment);
@@ -16278,7 +16198,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         if (swiper.swipeDirection === "prev") {
           swiper.slideTo(stopIndex);
         }
-      } else if (e2.target === swiper.navigation.nextEl) {
+      } else if (e.target === swiper.navigation.nextEl) {
         swiper.slideTo(stopIndex + increment);
       } else {
         swiper.slideTo(stopIndex);
@@ -16324,16 +16244,16 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   }
 
   // node_modules/swiper/core/events/onClick.js
-  function onClick(e2) {
+  function onClick(e) {
     const swiper = this;
     if (!swiper.enabled)
       return;
     if (!swiper.allowClick) {
       if (swiper.params.preventClicks)
-        e2.preventDefault();
+        e.preventDefault();
       if (swiper.params.preventClicksPropagation && swiper.animating) {
-        e2.stopPropagation();
-        e2.stopImmediatePropagation();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
       }
     }
   }
@@ -16531,12 +16451,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         point
       };
     });
-    points.sort((a4, b3) => parseInt(a4.value, 10) - parseInt(b3.value, 10));
-    for (let i4 = 0; i4 < points.length; i4 += 1) {
+    points.sort((a, b) => parseInt(a.value, 10) - parseInt(b.value, 10));
+    for (let i = 0; i < points.length; i += 1) {
       const {
         point,
         value
-      } = points[i4];
+      } = points[i];
       if (base === "window") {
         if (window2.matchMedia(`(min-width: ${value}px)`).matches) {
           breakpoint = point;
@@ -16669,8 +16589,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         swiper.emit("imagesReady");
       }
     }
-    for (let i4 = 0; i4 < swiper.imagesToLoad.length; i4 += 1) {
-      const imageEl = swiper.imagesToLoad[i4];
+    for (let i = 0; i < swiper.imagesToLoad.length; i += 1) {
+      const imageEl = swiper.imagesToLoad[i];
       swiper.loadImage(imageEl, imageEl.currentSrc || imageEl.getAttribute("src"), imageEl.srcset || imageEl.getAttribute("srcset"), imageEl.sizes || imageEl.getAttribute("sizes"), true, onReady);
     }
   }
@@ -17069,17 +16989,17 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (params.centeredSlides) {
         let slideSize = slides[activeIndex].swiperSlideSize;
         let breakLoop;
-        for (let i4 = activeIndex + 1; i4 < slides.length; i4 += 1) {
-          if (slides[i4] && !breakLoop) {
-            slideSize += slides[i4].swiperSlideSize;
+        for (let i = activeIndex + 1; i < slides.length; i += 1) {
+          if (slides[i] && !breakLoop) {
+            slideSize += slides[i].swiperSlideSize;
             spv += 1;
             if (slideSize > swiperSize)
               breakLoop = true;
           }
         }
-        for (let i4 = activeIndex - 1; i4 >= 0; i4 -= 1) {
-          if (slides[i4] && !breakLoop) {
-            slideSize += slides[i4].swiperSlideSize;
+        for (let i = activeIndex - 1; i >= 0; i -= 1) {
+          if (slides[i] && !breakLoop) {
+            slideSize += slides[i].swiperSlideSize;
             spv += 1;
             if (slideSize > swiperSize)
               breakLoop = true;
@@ -17087,15 +17007,15 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         }
       } else {
         if (view === "current") {
-          for (let i4 = activeIndex + 1; i4 < slides.length; i4 += 1) {
-            const slideInView = exact ? slidesGrid[i4] + slidesSizesGrid[i4] - slidesGrid[activeIndex] < swiperSize : slidesGrid[i4] - slidesGrid[activeIndex] < swiperSize;
+          for (let i = activeIndex + 1; i < slides.length; i += 1) {
+            const slideInView = exact ? slidesGrid[i] + slidesSizesGrid[i] - slidesGrid[activeIndex] < swiperSize : slidesGrid[i] - slidesGrid[activeIndex] < swiperSize;
             if (slideInView) {
               spv += 1;
             }
           }
         } else {
-          for (let i4 = activeIndex - 1; i4 >= 0; i4 -= 1) {
-            const slideInView = slidesGrid[activeIndex] - slidesGrid[i4] < swiperSize;
+          for (let i = activeIndex - 1; i >= 0; i -= 1) {
+            const slideInView = slidesGrid[activeIndex] - slidesGrid[i] < swiperSize;
             if (slideInView) {
               spv += 1;
             }
@@ -17307,7 +17227,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     }
     static use(module) {
       if (Array.isArray(module)) {
-        module.forEach((m3) => Swiper.installModule(m3));
+        module.forEach((m) => Swiper.installModule(m));
         return Swiper;
       }
       Swiper.installModule(module);
@@ -17349,7 +17269,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let lastScrollTime = now();
     let lastEventBeforeSnap;
     const recentWheelEvents = [];
-    function normalize(e2) {
+    function normalize(e) {
       const PIXEL_STEP = 10;
       const LINE_HEIGHT = 40;
       const PAGE_HEIGHT = 800;
@@ -17357,36 +17277,36 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       let sY = 0;
       let pX = 0;
       let pY = 0;
-      if ("detail" in e2) {
-        sY = e2.detail;
+      if ("detail" in e) {
+        sY = e.detail;
       }
-      if ("wheelDelta" in e2) {
-        sY = -e2.wheelDelta / 120;
+      if ("wheelDelta" in e) {
+        sY = -e.wheelDelta / 120;
       }
-      if ("wheelDeltaY" in e2) {
-        sY = -e2.wheelDeltaY / 120;
+      if ("wheelDeltaY" in e) {
+        sY = -e.wheelDeltaY / 120;
       }
-      if ("wheelDeltaX" in e2) {
-        sX = -e2.wheelDeltaX / 120;
+      if ("wheelDeltaX" in e) {
+        sX = -e.wheelDeltaX / 120;
       }
-      if ("axis" in e2 && e2.axis === e2.HORIZONTAL_AXIS) {
+      if ("axis" in e && e.axis === e.HORIZONTAL_AXIS) {
         sX = sY;
         sY = 0;
       }
       pX = sX * PIXEL_STEP;
       pY = sY * PIXEL_STEP;
-      if ("deltaY" in e2) {
-        pY = e2.deltaY;
+      if ("deltaY" in e) {
+        pY = e.deltaY;
       }
-      if ("deltaX" in e2) {
-        pX = e2.deltaX;
+      if ("deltaX" in e) {
+        pX = e.deltaX;
       }
-      if (e2.shiftKey && !pX) {
+      if (e.shiftKey && !pX) {
         pX = pY;
         pY = 0;
       }
-      if ((pX || pY) && e2.deltaMode) {
-        if (e2.deltaMode === 1) {
+      if ((pX || pY) && e.deltaMode) {
+        if (e.deltaMode === 1) {
           pX *= LINE_HEIGHT;
           pY *= LINE_HEIGHT;
         } else {
@@ -17451,25 +17371,25 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       return false;
     }
     function handle(event2) {
-      let e2 = event2;
+      let e = event2;
       let disableParentSwiper = true;
       if (!swiper.enabled)
         return;
       const params = swiper.params.mousewheel;
       if (swiper.params.cssMode) {
-        e2.preventDefault();
+        e.preventDefault();
       }
       let target = swiper.$el;
       if (swiper.params.mousewheel.eventsTarget !== "container") {
         target = dom_default(swiper.params.mousewheel.eventsTarget);
       }
-      if (!swiper.mouseEntered && !target[0].contains(e2.target) && !params.releaseOnEdges)
+      if (!swiper.mouseEntered && !target[0].contains(e.target) && !params.releaseOnEdges)
         return true;
-      if (e2.originalEvent)
-        e2 = e2.originalEvent;
+      if (e.originalEvent)
+        e = e.originalEvent;
       let delta = 0;
       const rtlFactor = swiper.rtlTranslate ? -1 : 1;
-      const data2 = normalize(e2);
+      const data2 = normalize(e);
       if (params.forceToAxis) {
         if (swiper.isHorizontal()) {
           if (Math.abs(data2.pixelX) > Math.abs(data2.pixelY))
@@ -17494,7 +17414,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         positions = swiper.maxTranslate();
       disableParentSwiper = swiper.params.loop ? true : !(positions === swiper.minTranslate() || positions === swiper.maxTranslate());
       if (disableParentSwiper && swiper.params.nested)
-        e2.stopPropagation();
+        e.stopPropagation();
       if (!swiper.params.freeMode || !swiper.params.freeMode.enabled) {
         const newEvent = {
           time: now(),
@@ -17573,17 +17493,17 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
             }
           }
           if (!ignoreWheelEvents)
-            emit("scroll", e2);
+            emit("scroll", e);
           if (swiper.params.autoplay && swiper.params.autoplayDisableOnInteraction)
             swiper.autoplay.stop();
           if (position === swiper.minTranslate() || position === swiper.maxTranslate())
             return true;
         }
       }
-      if (e2.preventDefault)
-        e2.preventDefault();
+      if (e.preventDefault)
+        e.preventDefault();
       else
-        e2.returnValue = false;
+        e.returnValue = false;
       return false;
     }
     function events2(method) {
@@ -17711,14 +17631,14 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       toggleEl($prevEl, swiper.isBeginning && !swiper.params.rewind);
       toggleEl($nextEl, swiper.isEnd && !swiper.params.rewind);
     }
-    function onPrevClick(e2) {
-      e2.preventDefault();
+    function onPrevClick(e) {
+      e.preventDefault();
       if (swiper.isBeginning && !swiper.params.loop && !swiper.params.rewind)
         return;
       swiper.slidePrev();
     }
-    function onNextClick(e2) {
-      e2.preventDefault();
+    function onNextClick(e) {
+      e.preventDefault();
       if (swiper.isEnd && !swiper.params.loop && !swiper.params.rewind)
         return;
       swiper.slideNext();
@@ -17788,12 +17708,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         $prevEl[swiper.enabled ? "removeClass" : "addClass"](swiper.params.navigation.lockClass);
       }
     });
-    on3("click", (_s, e2) => {
+    on3("click", (_s, e) => {
       const {
         $nextEl,
         $prevEl
       } = swiper.navigation;
-      const targetEl = e2.target;
+      const targetEl = e.target;
       if (swiper.params.navigation.hideOnClick && !dom_default(targetEl).is($prevEl) && !dom_default(targetEl).is($nextEl)) {
         if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl)))
           return;
@@ -17952,13 +17872,13 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           if (params.dynamicBullets) {
             const $firstDisplayedBullet = bullets.eq(firstIndex);
             const $lastDisplayedBullet = bullets.eq(lastIndex);
-            for (let i4 = firstIndex; i4 <= lastIndex; i4 += 1) {
-              bullets.eq(i4).addClass(`${params.bulletActiveClass}-main`);
+            for (let i = firstIndex; i <= lastIndex; i += 1) {
+              bullets.eq(i).addClass(`${params.bulletActiveClass}-main`);
             }
             if (swiper.params.loop) {
               if (bulletIndex >= bullets.length) {
-                for (let i4 = params.dynamicMainBullets; i4 >= 0; i4 -= 1) {
-                  bullets.eq(bullets.length - i4).addClass(`${params.bulletActiveClass}-main`);
+                for (let i = params.dynamicMainBullets; i >= 0; i -= 1) {
+                  bullets.eq(bullets.length - i).addClass(`${params.bulletActiveClass}-main`);
                 }
                 bullets.eq(bullets.length - params.dynamicMainBullets - 1).addClass(`${params.bulletActiveClass}-prev`);
               } else {
@@ -18021,9 +17941,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         if (swiper.params.freeMode && swiper.params.freeMode.enabled && !swiper.params.loop && numberOfBullets > slidesLength) {
           numberOfBullets = slidesLength;
         }
-        for (let i4 = 0; i4 < numberOfBullets; i4 += 1) {
+        for (let i = 0; i < numberOfBullets; i += 1) {
           if (params.renderBullet) {
-            paginationHTML += params.renderBullet.call(swiper, i4, params.bulletClass);
+            paginationHTML += params.renderBullet.call(swiper, i, params.bulletClass);
           } else {
             paginationHTML += `<${params.bulletElement} class="${params.bulletClass}"></${params.bulletElement}>`;
           }
@@ -18087,8 +18007,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         $el.addClass(params.progressbarOppositeClass);
       }
       if (params.clickable) {
-        $el.on("click", classesToSelector(params.bulletClass), function onClick2(e2) {
-          e2.preventDefault();
+        $el.on("click", classesToSelector(params.bulletClass), function onClick2(e) {
+          e.preventDefault();
           let index2 = dom_default(this).index() * swiper.params.slidesPerGroup;
           if (swiper.params.loop)
             index2 += swiper.loopedSlides;
@@ -18160,8 +18080,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     on3("lock unlock", () => {
       update();
     });
-    on3("click", (_s, e2) => {
-      const targetEl = e2.target;
+    on3("click", (_s, e) => {
+      const targetEl = e.target;
       const {
         $el
       } = swiper.pagination;
@@ -18301,10 +18221,10 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         swiper.autoplay.paused = false;
       }
     }
-    function onTransitionEnd(e2) {
+    function onTransitionEnd(e) {
       if (!swiper || swiper.destroyed || !swiper.$wrapperEl)
         return;
-      if (e2.target !== swiper.$wrapperEl[0])
+      if (e.target !== swiper.$wrapperEl[0])
         return;
       ["transitionend", "webkitTransitionEnd"].forEach((event2) => {
         swiper.$wrapperEl[0].removeEventListener(event2, onTransitionEnd);
@@ -18390,1833 +18310,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     });
   }
 
-  // node_modules/delegate-it/delegate.js
-  var ledger = /* @__PURE__ */ new WeakMap();
-  function editLedger(wanted, baseElement, callback, setup) {
-    if (!wanted && !ledger.has(baseElement)) {
-      return false;
-    }
-    const elementMap = ledger.get(baseElement) ?? /* @__PURE__ */ new WeakMap();
-    ledger.set(baseElement, elementMap);
-    const setups = elementMap.get(callback) ?? /* @__PURE__ */ new Set();
-    elementMap.set(callback, setups);
-    const existed = setups.has(setup);
-    if (wanted) {
-      setups.add(setup);
-    } else {
-      setups.delete(setup);
-    }
-    return existed && wanted;
-  }
-  function safeClosest(event2, selector) {
-    let target = event2.target;
-    if (target instanceof Text) {
-      target = target.parentElement;
-    }
-    if (target instanceof Element && event2.currentTarget instanceof Element) {
-      const closest2 = target.closest(selector);
-      if (closest2 && event2.currentTarget.contains(closest2)) {
-        return closest2;
-      }
-    }
-  }
-  function delegate(selector, type, callback, options = {}) {
-    const { signal, base = document } = options;
-    if (signal?.aborted) {
-      return;
-    }
-    const { once: once2, ...nativeListenerOptions } = options;
-    const baseElement = base instanceof Document ? base.documentElement : base;
-    const capture = Boolean(typeof options === "object" ? options.capture : options);
-    const listenerFn = (event2) => {
-      const delegateTarget = safeClosest(event2, selector);
-      if (delegateTarget) {
-        const delegateEvent = Object.assign(event2, { delegateTarget });
-        callback.call(baseElement, delegateEvent);
-        if (once2) {
-          baseElement.removeEventListener(type, listenerFn, nativeListenerOptions);
-          editLedger(false, baseElement, callback, setup);
-        }
-      }
-    };
-    const setup = JSON.stringify({ selector, type, capture });
-    const isAlreadyListening = editLedger(true, baseElement, callback, setup);
-    if (!isAlreadyListening) {
-      baseElement.addEventListener(type, listenerFn, nativeListenerOptions);
-    }
-    signal?.addEventListener("abort", () => {
-      editLedger(false, baseElement, callback, setup);
-    });
-  }
-  var delegate_default = delegate;
-
-  // node_modules/path-to-regexp/dist.es2015/index.js
-  function lexer(str) {
-    var tokens = [];
-    var i4 = 0;
-    while (i4 < str.length) {
-      var char = str[i4];
-      if (char === "*" || char === "+" || char === "?") {
-        tokens.push({ type: "MODIFIER", index: i4, value: str[i4++] });
-        continue;
-      }
-      if (char === "\\") {
-        tokens.push({ type: "ESCAPED_CHAR", index: i4++, value: str[i4++] });
-        continue;
-      }
-      if (char === "{") {
-        tokens.push({ type: "OPEN", index: i4, value: str[i4++] });
-        continue;
-      }
-      if (char === "}") {
-        tokens.push({ type: "CLOSE", index: i4, value: str[i4++] });
-        continue;
-      }
-      if (char === ":") {
-        var name = "";
-        var j2 = i4 + 1;
-        while (j2 < str.length) {
-          var code = str.charCodeAt(j2);
-          if (code >= 48 && code <= 57 || code >= 65 && code <= 90 || code >= 97 && code <= 122 || code === 95) {
-            name += str[j2++];
-            continue;
-          }
-          break;
-        }
-        if (!name)
-          throw new TypeError("Missing parameter name at ".concat(i4));
-        tokens.push({ type: "NAME", index: i4, value: name });
-        i4 = j2;
-        continue;
-      }
-      if (char === "(") {
-        var count = 1;
-        var pattern = "";
-        var j2 = i4 + 1;
-        if (str[j2] === "?") {
-          throw new TypeError('Pattern cannot start with "?" at '.concat(j2));
-        }
-        while (j2 < str.length) {
-          if (str[j2] === "\\") {
-            pattern += str[j2++] + str[j2++];
-            continue;
-          }
-          if (str[j2] === ")") {
-            count--;
-            if (count === 0) {
-              j2++;
-              break;
-            }
-          } else if (str[j2] === "(") {
-            count++;
-            if (str[j2 + 1] !== "?") {
-              throw new TypeError("Capturing groups are not allowed at ".concat(j2));
-            }
-          }
-          pattern += str[j2++];
-        }
-        if (count)
-          throw new TypeError("Unbalanced pattern at ".concat(i4));
-        if (!pattern)
-          throw new TypeError("Missing pattern at ".concat(i4));
-        tokens.push({ type: "PATTERN", index: i4, value: pattern });
-        i4 = j2;
-        continue;
-      }
-      tokens.push({ type: "CHAR", index: i4, value: str[i4++] });
-    }
-    tokens.push({ type: "END", index: i4, value: "" });
-    return tokens;
-  }
-  function parse(str, options) {
-    if (options === void 0) {
-      options = {};
-    }
-    var tokens = lexer(str);
-    var _a = options.prefixes, prefixes = _a === void 0 ? "./" : _a;
-    var defaultPattern = "[^".concat(escapeString(options.delimiter || "/#?"), "]+?");
-    var result = [];
-    var key = 0;
-    var i4 = 0;
-    var path = "";
-    var tryConsume = function(type) {
-      if (i4 < tokens.length && tokens[i4].type === type)
-        return tokens[i4++].value;
-    };
-    var mustConsume = function(type) {
-      var value2 = tryConsume(type);
-      if (value2 !== void 0)
-        return value2;
-      var _a2 = tokens[i4], nextType = _a2.type, index2 = _a2.index;
-      throw new TypeError("Unexpected ".concat(nextType, " at ").concat(index2, ", expected ").concat(type));
-    };
-    var consumeText = function() {
-      var result2 = "";
-      var value2;
-      while (value2 = tryConsume("CHAR") || tryConsume("ESCAPED_CHAR")) {
-        result2 += value2;
-      }
-      return result2;
-    };
-    while (i4 < tokens.length) {
-      var char = tryConsume("CHAR");
-      var name = tryConsume("NAME");
-      var pattern = tryConsume("PATTERN");
-      if (name || pattern) {
-        var prefix2 = char || "";
-        if (prefixes.indexOf(prefix2) === -1) {
-          path += prefix2;
-          prefix2 = "";
-        }
-        if (path) {
-          result.push(path);
-          path = "";
-        }
-        result.push({
-          name: name || key++,
-          prefix: prefix2,
-          suffix: "",
-          pattern: pattern || defaultPattern,
-          modifier: tryConsume("MODIFIER") || ""
-        });
-        continue;
-      }
-      var value = char || tryConsume("ESCAPED_CHAR");
-      if (value) {
-        path += value;
-        continue;
-      }
-      if (path) {
-        result.push(path);
-        path = "";
-      }
-      var open = tryConsume("OPEN");
-      if (open) {
-        var prefix2 = consumeText();
-        var name_1 = tryConsume("NAME") || "";
-        var pattern_1 = tryConsume("PATTERN") || "";
-        var suffix = consumeText();
-        mustConsume("CLOSE");
-        result.push({
-          name: name_1 || (pattern_1 ? key++ : ""),
-          pattern: name_1 && !pattern_1 ? defaultPattern : pattern_1,
-          prefix: prefix2,
-          suffix,
-          modifier: tryConsume("MODIFIER") || ""
-        });
-        continue;
-      }
-      mustConsume("END");
-    }
-    return result;
-  }
-  function match(str, options) {
-    var keys = [];
-    var re = pathToRegexp(str, keys, options);
-    return regexpToFunction(re, keys, options);
-  }
-  function regexpToFunction(re, keys, options) {
-    if (options === void 0) {
-      options = {};
-    }
-    var _a = options.decode, decode = _a === void 0 ? function(x2) {
-      return x2;
-    } : _a;
-    return function(pathname) {
-      var m3 = re.exec(pathname);
-      if (!m3)
-        return false;
-      var path = m3[0], index2 = m3.index;
-      var params = /* @__PURE__ */ Object.create(null);
-      var _loop_1 = function(i5) {
-        if (m3[i5] === void 0)
-          return "continue";
-        var key = keys[i5 - 1];
-        if (key.modifier === "*" || key.modifier === "+") {
-          params[key.name] = m3[i5].split(key.prefix + key.suffix).map(function(value) {
-            return decode(value, key);
-          });
-        } else {
-          params[key.name] = decode(m3[i5], key);
-        }
-      };
-      for (var i4 = 1; i4 < m3.length; i4++) {
-        _loop_1(i4);
-      }
-      return { path, index: index2, params };
-    };
-  }
-  function escapeString(str) {
-    return str.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
-  }
-  function flags(options) {
-    return options && options.sensitive ? "" : "i";
-  }
-  function regexpToRegexp(path, keys) {
-    if (!keys)
-      return path;
-    var groupsRegex = /\((?:\?<(.*?)>)?(?!\?)/g;
-    var index2 = 0;
-    var execResult = groupsRegex.exec(path.source);
-    while (execResult) {
-      keys.push({
-        name: execResult[1] || index2++,
-        prefix: "",
-        suffix: "",
-        modifier: "",
-        pattern: ""
-      });
-      execResult = groupsRegex.exec(path.source);
-    }
-    return path;
-  }
-  function arrayToRegexp(paths, keys, options) {
-    var parts = paths.map(function(path) {
-      return pathToRegexp(path, keys, options).source;
-    });
-    return new RegExp("(?:".concat(parts.join("|"), ")"), flags(options));
-  }
-  function stringToRegexp(path, keys, options) {
-    return tokensToRegexp(parse(path, options), keys, options);
-  }
-  function tokensToRegexp(tokens, keys, options) {
-    if (options === void 0) {
-      options = {};
-    }
-    var _a = options.strict, strict = _a === void 0 ? false : _a, _b = options.start, start2 = _b === void 0 ? true : _b, _c = options.end, end = _c === void 0 ? true : _c, _d = options.encode, encode = _d === void 0 ? function(x2) {
-      return x2;
-    } : _d, _e = options.delimiter, delimiter = _e === void 0 ? "/#?" : _e, _f = options.endsWith, endsWith = _f === void 0 ? "" : _f;
-    var endsWithRe = "[".concat(escapeString(endsWith), "]|$");
-    var delimiterRe = "[".concat(escapeString(delimiter), "]");
-    var route = start2 ? "^" : "";
-    for (var _i = 0, tokens_1 = tokens; _i < tokens_1.length; _i++) {
-      var token = tokens_1[_i];
-      if (typeof token === "string") {
-        route += escapeString(encode(token));
-      } else {
-        var prefix2 = escapeString(encode(token.prefix));
-        var suffix = escapeString(encode(token.suffix));
-        if (token.pattern) {
-          if (keys)
-            keys.push(token);
-          if (prefix2 || suffix) {
-            if (token.modifier === "+" || token.modifier === "*") {
-              var mod = token.modifier === "*" ? "?" : "";
-              route += "(?:".concat(prefix2, "((?:").concat(token.pattern, ")(?:").concat(suffix).concat(prefix2, "(?:").concat(token.pattern, "))*)").concat(suffix, ")").concat(mod);
-            } else {
-              route += "(?:".concat(prefix2, "(").concat(token.pattern, ")").concat(suffix, ")").concat(token.modifier);
-            }
-          } else {
-            if (token.modifier === "+" || token.modifier === "*") {
-              route += "((?:".concat(token.pattern, ")").concat(token.modifier, ")");
-            } else {
-              route += "(".concat(token.pattern, ")").concat(token.modifier);
-            }
-          }
-        } else {
-          route += "(?:".concat(prefix2).concat(suffix, ")").concat(token.modifier);
-        }
-      }
-    }
-    if (end) {
-      if (!strict)
-        route += "".concat(delimiterRe, "?");
-      route += !options.endsWith ? "$" : "(?=".concat(endsWithRe, ")");
-    } else {
-      var endToken = tokens[tokens.length - 1];
-      var isEndDelimited = typeof endToken === "string" ? delimiterRe.indexOf(endToken[endToken.length - 1]) > -1 : endToken === void 0;
-      if (!strict) {
-        route += "(?:".concat(delimiterRe, "(?=").concat(endsWithRe, "))?");
-      }
-      if (!isEndDelimited) {
-        route += "(?=".concat(delimiterRe, "|").concat(endsWithRe, ")");
-      }
-    }
-    return new RegExp(route, flags(options));
-  }
-  function pathToRegexp(path, keys, options) {
-    if (path instanceof RegExp)
-      return regexpToRegexp(path, keys);
-    if (Array.isArray(path))
-      return arrayToRegexp(path, keys, options);
-    return stringToRegexp(path, keys, options);
-  }
-
-  // node_modules/swup/dist/Swup.modern.js
-  function i() {
-    return i = Object.assign ? Object.assign.bind() : function(t) {
-      for (var e2 = 1; e2 < arguments.length; e2++) {
-        var i4 = arguments[e2];
-        for (var s3 in i4)
-          Object.prototype.hasOwnProperty.call(i4, s3) && (t[s3] = i4[s3]);
-      }
-      return t;
-    }, i.apply(this, arguments);
-  }
-  var s = (t, e2) => String(t).toLowerCase().replace(/[\s/_.]+/g, "-").replace(/[^\w-]+/g, "").replace(/--+/g, "-").replace(/^-+|-+$/g, "") || e2 || "";
-  var n = ({ hash: t } = {}) => window.location.pathname + window.location.search + (t ? window.location.hash : "");
-  var o = (t, e2 = {}) => {
-    const s3 = i({ url: t = t || n({ hash: true }), random: Math.random(), source: "swup" }, e2);
-    window.history.pushState(s3, "", t);
-  };
-  var r = (t = null, e2 = {}) => {
-    t = t || n({ hash: true });
-    const s3 = i({}, window.history.state || {}, { url: t, random: Math.random(), source: "swup" }, e2);
-    window.history.replaceState(s3, "", t);
-  };
-  var a = (e2, s3, n4, o4) => {
-    const r4 = new AbortController();
-    return o4 = i({}, o4, { signal: r4.signal }), delegate_default(e2, s3, n4, o4), { destroy: () => r4.abort() };
-  };
-  var l = class extends URL {
-    constructor(t, e2 = document.baseURI) {
-      super(t.toString(), e2), Object.setPrototypeOf(this, l.prototype);
-    }
-    get url() {
-      return this.pathname + this.search;
-    }
-    static fromElement(t) {
-      const e2 = t.getAttribute("href") || t.getAttribute("xlink:href") || "";
-      return new l(e2);
-    }
-    static fromUrl(t) {
-      return new l(t);
-    }
-  };
-  var h = (t, i4) => {
-    try {
-      return match(t, i4);
-    } catch (e2) {
-      throw new Error(`[swup] Error parsing path "${String(t)}":
-${String(e2)}`);
-    }
-  };
-  var c = class extends Error {
-    constructor(t, e2) {
-      super(t), this.url = void 0, this.status = void 0, this.aborted = void 0, this.timedOut = void 0, this.name = "FetchError", this.url = e2.url, this.status = e2.status, this.aborted = e2.aborted || false, this.timedOut = e2.timedOut || false;
-    }
-  };
-  async function u(t, e2 = {}) {
-    var s3;
-    t = l.fromUrl(t).url;
-    const { visit: n4 = this.visit } = e2, o4 = i({}, this.options.requestHeaders, e2.headers), r4 = null != (s3 = e2.timeout) ? s3 : this.options.timeout, a4 = new AbortController(), { signal: h3 } = a4;
-    e2 = i({}, e2, { headers: o4, signal: h3 });
-    let u3, d3 = false, p3 = null;
-    r4 && r4 > 0 && (p3 = setTimeout(() => {
-      d3 = true, a4.abort("timeout");
-    }, r4));
-    try {
-      u3 = await this.hooks.call("fetch:request", n4, { url: t, options: e2 }, (t2, { url: e3, options: i4 }) => fetch(e3, i4)), p3 && clearTimeout(p3);
-    } catch (e3) {
-      if (d3)
-        throw this.hooks.call("fetch:timeout", n4, { url: t }), new c(`Request timed out: ${t}`, { url: t, timedOut: d3 });
-      if ("AbortError" === (null == e3 ? void 0 : e3.name) || h3.aborted)
-        throw new c(`Request aborted: ${t}`, { url: t, aborted: true });
-      throw e3;
-    }
-    const { status: m3, url: w3 } = u3, g3 = await u3.text();
-    if (500 === m3)
-      throw this.hooks.call("fetch:error", n4, { status: m3, response: u3, url: w3 }), new c(`Server error: ${w3}`, { status: m3, url: w3 });
-    if (!g3)
-      throw new c(`Empty response: ${w3}`, { status: m3, url: w3 });
-    const { url: f3 } = l.fromUrl(w3), v2 = { url: f3, html: g3 };
-    return !n4.cache.write || e2.method && "GET" !== e2.method || t !== f3 || this.cache.set(v2.url, v2), v2;
-  }
-  var d = class {
-    constructor(t) {
-      this.swup = void 0, this.pages = /* @__PURE__ */ new Map(), this.swup = t;
-    }
-    get size() {
-      return this.pages.size;
-    }
-    get all() {
-      const t = /* @__PURE__ */ new Map();
-      return this.pages.forEach((e2, s3) => {
-        t.set(s3, i({}, e2));
-      }), t;
-    }
-    has(t) {
-      return this.pages.has(this.resolve(t));
-    }
-    get(t) {
-      const e2 = this.pages.get(this.resolve(t));
-      return e2 ? i({}, e2) : e2;
-    }
-    set(t, e2) {
-      e2 = i({}, e2, { url: t = this.resolve(t) }), this.pages.set(t, e2), this.swup.hooks.callSync("cache:set", void 0, { page: e2 });
-    }
-    update(t, e2) {
-      t = this.resolve(t);
-      const s3 = i({}, this.get(t), e2, { url: t });
-      this.pages.set(t, s3);
-    }
-    delete(t) {
-      this.pages.delete(this.resolve(t));
-    }
-    clear() {
-      this.pages.clear(), this.swup.hooks.callSync("cache:clear", void 0, void 0);
-    }
-    prune(t) {
-      this.pages.forEach((e2, i4) => {
-        t(i4, e2) && this.delete(i4);
-      });
-    }
-    resolve(t) {
-      const { url: e2 } = l.fromUrl(t);
-      return this.swup.resolveUrl(e2);
-    }
-  };
-  var p = (t, e2 = document) => e2.querySelector(t);
-  var m = (t, e2 = document) => Array.from(e2.querySelectorAll(t));
-  var w = () => new Promise((t) => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        t();
-      });
-    });
-  });
-  function g(t) {
-    return !!t && ("object" == typeof t || "function" == typeof t) && "function" == typeof t.then;
-  }
-  function f(t, e2 = []) {
-    return new Promise((i4, s3) => {
-      const n4 = t(...e2);
-      g(n4) ? n4.then(i4, s3) : i4(n4);
-    });
-  }
-  var y = (t) => window.CSS && window.CSS.escape ? CSS.escape(t) : t;
-  var k = (t) => 1e3 * Number(t.slice(0, -1).replace(",", "."));
-  var b = class {
-    constructor(t) {
-      this.swup = void 0, this.swupClasses = ["to-", "is-changing", "is-rendering", "is-popstate", "is-animating", "is-leaving"], this.swup = t;
-    }
-    get selectors() {
-      const { scope: t } = this.swup.visit.animation;
-      return "containers" === t ? this.swup.visit.containers : "html" === t ? ["html"] : Array.isArray(t) ? t : [];
-    }
-    get selector() {
-      return this.selectors.join(",");
-    }
-    get targets() {
-      return this.selector.trim() ? m(this.selector) : [];
-    }
-    add(...t) {
-      this.targets.forEach((e2) => e2.classList.add(...t));
-    }
-    remove(...t) {
-      this.targets.forEach((e2) => e2.classList.remove(...t));
-    }
-    clear() {
-      this.targets.forEach((t) => {
-        const e2 = t.className.split(" ").filter((t2) => this.isSwupClass(t2));
-        t.classList.remove(...e2);
-      });
-    }
-    isSwupClass(t) {
-      return this.swupClasses.some((e2) => t.startsWith(e2));
-    }
-  };
-  var S = class {
-    constructor(t, e2) {
-      this.id = void 0, this.state = void 0, this.from = void 0, this.to = void 0, this.containers = void 0, this.animation = void 0, this.trigger = void 0, this.cache = void 0, this.history = void 0, this.scroll = void 0;
-      const { to: i4, from: s3 = t.currentPageUrl, hash: n4, el: o4, event: r4 } = e2;
-      this.id = Math.random(), this.state = 1, this.from = { url: s3 }, this.to = { url: i4, hash: n4 }, this.containers = t.options.containers, this.animation = { animate: true, wait: false, name: void 0, native: t.options.native, scope: t.options.animationScope, selector: t.options.animationSelector }, this.trigger = { el: o4, event: r4 }, this.cache = { read: t.options.cache, write: t.options.cache }, this.history = { action: "push", popstate: false, direction: void 0 }, this.scroll = { reset: true, target: void 0 };
-    }
-    advance(t) {
-      this.state < t && (this.state = t);
-    }
-    abort() {
-      this.state = 8;
-    }
-    get done() {
-      return this.state >= 7;
-    }
-  };
-  function E(t) {
-    return new S(this, t);
-  }
-  var P = class {
-    constructor(t) {
-      this.swup = void 0, this.registry = /* @__PURE__ */ new Map(), this.hooks = ["animation:out:start", "animation:out:await", "animation:out:end", "animation:in:start", "animation:in:await", "animation:in:end", "animation:skip", "cache:clear", "cache:set", "content:replace", "content:scroll", "enable", "disable", "fetch:request", "fetch:error", "fetch:timeout", "history:popstate", "link:click", "link:self", "link:anchor", "link:newtab", "page:load", "page:view", "scroll:top", "scroll:anchor", "visit:start", "visit:transition", "visit:abort", "visit:end"], this.swup = t, this.init();
-    }
-    init() {
-      this.hooks.forEach((t) => this.create(t));
-    }
-    create(t) {
-      this.registry.has(t) || this.registry.set(t, /* @__PURE__ */ new Map());
-    }
-    exists(t) {
-      return this.registry.has(t);
-    }
-    get(t) {
-      const e2 = this.registry.get(t);
-      if (e2)
-        return e2;
-      console.error(`Unknown hook '${t}'`);
-    }
-    clear() {
-      this.registry.forEach((t) => t.clear());
-    }
-    on(t, e2, s3 = {}) {
-      const n4 = this.get(t);
-      if (!n4)
-        return console.warn(`Hook '${t}' not found.`), () => {
-        };
-      const o4 = i({}, s3, { id: n4.size + 1, hook: t, handler: e2 });
-      return n4.set(e2, o4), () => this.off(t, e2);
-    }
-    before(t, e2, s3 = {}) {
-      return this.on(t, e2, i({}, s3, { before: true }));
-    }
-    replace(t, e2, s3 = {}) {
-      return this.on(t, e2, i({}, s3, { replace: true }));
-    }
-    once(t, e2, s3 = {}) {
-      return this.on(t, e2, i({}, s3, { once: true }));
-    }
-    off(t, e2) {
-      const i4 = this.get(t);
-      i4 && e2 ? i4.delete(e2) || console.warn(`Handler for hook '${t}' not found.`) : i4 && i4.clear();
-    }
-    async call(t, e2, i4, s3) {
-      const [n4, o4, r4] = this.parseCallArgs(t, e2, i4, s3), { before: a4, handler: l4, after: h3 } = this.getHandlers(t, r4);
-      await this.run(a4, n4, o4);
-      const [c3] = await this.run(l4, n4, o4, true);
-      return await this.run(h3, n4, o4), this.dispatchDomEvent(t, n4, o4), c3;
-    }
-    callSync(t, e2, i4, s3) {
-      const [n4, o4, r4] = this.parseCallArgs(t, e2, i4, s3), { before: a4, handler: l4, after: h3 } = this.getHandlers(t, r4);
-      this.runSync(a4, n4, o4);
-      const [c3] = this.runSync(l4, n4, o4, true);
-      return this.runSync(h3, n4, o4), this.dispatchDomEvent(t, n4, o4), c3;
-    }
-    parseCallArgs(t, e2, i4, s3) {
-      return e2 instanceof S || "object" != typeof e2 && "function" != typeof i4 ? [e2, i4, s3] : [void 0, e2, i4];
-    }
-    async run(t, e2 = this.swup.visit, i4, s3 = false) {
-      const n4 = [];
-      for (const { hook: o4, handler: r4, defaultHandler: a4, once: l4 } of t)
-        if (null == e2 || !e2.done) {
-          l4 && this.off(o4, r4);
-          try {
-            const t2 = await f(r4, [e2, i4, a4]);
-            n4.push(t2);
-          } catch (t2) {
-            if (s3)
-              throw t2;
-            console.error(`Error in hook '${o4}':`, t2);
-          }
-        }
-      return n4;
-    }
-    runSync(t, e2 = this.swup.visit, i4, s3 = false) {
-      const n4 = [];
-      for (const { hook: o4, handler: r4, defaultHandler: a4, once: l4 } of t)
-        if (null == e2 || !e2.done) {
-          l4 && this.off(o4, r4);
-          try {
-            const t2 = r4(e2, i4, a4);
-            n4.push(t2), g(t2) && console.warn(`Swup will not await Promises in handler for synchronous hook '${o4}'.`);
-          } catch (t2) {
-            if (s3)
-              throw t2;
-            console.error(`Error in hook '${o4}':`, t2);
-          }
-        }
-      return n4;
-    }
-    getHandlers(t, e2) {
-      const i4 = this.get(t);
-      if (!i4)
-        return { found: false, before: [], handler: [], after: [], replaced: false };
-      const s3 = Array.from(i4.values()), n4 = this.sortRegistrations, o4 = s3.filter(({ before: t2, replace: e3 }) => t2 && !e3).sort(n4), r4 = s3.filter(({ replace: t2 }) => t2).filter((t2) => true).sort(n4), a4 = s3.filter(({ before: t2, replace: e3 }) => !t2 && !e3).sort(n4), l4 = r4.length > 0;
-      let h3 = [];
-      if (e2 && (h3 = [{ id: 0, hook: t, handler: e2 }], l4)) {
-        const i5 = r4.length - 1, s4 = (t2) => {
-          const i6 = r4[t2 - 1];
-          return i6 ? (e3, n5) => i6.handler(e3, n5, s4(t2 - 1)) : e2;
-        };
-        h3 = [{ id: 0, hook: t, handler: r4[i5].handler, defaultHandler: s4(i5) }];
-      }
-      return { found: true, before: o4, handler: h3, after: a4, replaced: l4 };
-    }
-    sortRegistrations(t, e2) {
-      var i4, s3;
-      return (null != (i4 = t.priority) ? i4 : 0) - (null != (s3 = e2.priority) ? s3 : 0) || t.id - e2.id || 0;
-    }
-    dispatchDomEvent(t, e2, i4) {
-      if (null != e2 && e2.done)
-        return;
-      const s3 = { hook: t, args: i4, visit: e2 || this.swup.visit };
-      document.dispatchEvent(new CustomEvent("swup:any", { detail: s3, bubbles: true })), document.dispatchEvent(new CustomEvent(`swup:${t}`, { detail: s3, bubbles: true }));
-    }
-  };
-  var U = (t) => {
-    if (t && "#" === t.charAt(0) && (t = t.substring(1)), !t)
-      return null;
-    const e2 = decodeURIComponent(t);
-    let i4 = document.getElementById(t) || document.getElementById(e2) || p(`a[name='${y(t)}']`) || p(`a[name='${y(e2)}']`);
-    return i4 || "top" !== t || (i4 = document.body), i4;
-  };
-  var C = "transition";
-  var $2 = "animation";
-  async function x({ elements: t, selector: e2 }) {
-    if (false === e2 && !t)
-      return;
-    let i4 = [];
-    if (t)
-      i4 = Array.from(t);
-    else if (e2 && (i4 = m(e2, document.body), !i4.length))
-      return void console.warn(`[swup] No elements found matching animationSelector \`${e2}\``);
-    const s3 = i4.map((t2) => function(t3) {
-      const { type: e3, timeout: i5, propCount: s4 } = function(t4, e4) {
-        const i6 = window.getComputedStyle(t4), s5 = A(i6, `${C}Delay`), n4 = A(i6, `${C}Duration`), o4 = H(s5, n4), r4 = A(i6, `${$2}Delay`), a4 = A(i6, `${$2}Duration`), l4 = H(r4, a4);
-        let h3 = null, c3 = 0, u3 = 0;
-        return c3 = Math.max(o4, l4), h3 = c3 > 0 ? o4 > l4 ? C : $2 : null, u3 = h3 ? h3 === C ? n4.length : a4.length : 0, { type: h3, timeout: c3, propCount: u3 };
-      }(t3);
-      return !(!e3 || !i5) && new Promise((n4) => {
-        const o4 = `${e3}end`, r4 = performance.now();
-        let a4 = 0;
-        const l4 = () => {
-          t3.removeEventListener(o4, h3), n4();
-        }, h3 = (e4) => {
-          if (e4.target === t3) {
-            if (!function(t4) {
-              return [`${C}end`, `${$2}end`].includes(t4.type);
-            }(e4))
-              throw new Error("Not a transition or animation event.");
-            (performance.now() - r4) / 1e3 < e4.elapsedTime || ++a4 >= s4 && l4();
-          }
-        };
-        setTimeout(() => {
-          a4 < s4 && l4();
-        }, i5 + 1), t3.addEventListener(o4, h3);
-      });
-    }(t2));
-    s3.filter(Boolean).length > 0 ? await Promise.all(s3) : e2 && console.warn(`[swup] No CSS animation duration defined on elements matching \`${e2}\``);
-  }
-  function A(t, e2) {
-    return (t[e2] || "").split(", ");
-  }
-  function H(t, e2) {
-    for (; t.length < e2.length; )
-      t = t.concat(t);
-    return Math.max(...e2.map((e3, i4) => k(e3) + k(t[i4])));
-  }
-  function q(t, e2 = {}, s3 = {}) {
-    if ("string" != typeof t)
-      throw new Error("swup.navigate() requires a URL parameter");
-    if (this.shouldIgnoreVisit(t, { el: s3.el, event: s3.event }))
-      return void window.location.assign(t);
-    const { url: n4, hash: o4 } = l.fromUrl(t), r4 = this.createVisit(i({}, s3, { to: n4, hash: o4 }));
-    this.performNavigation(r4, e2);
-  }
-  async function R(t, e2 = {}) {
-    if (this.navigating) {
-      if (this.visit.state >= 6)
-        return t.state = 2, void (this.onVisitEnd = () => this.performNavigation(t, e2));
-      await this.hooks.call("visit:abort", this.visit, void 0), delete this.visit.to.document, this.visit.state = 8;
-    }
-    this.navigating = true, this.visit = t;
-    const { el: i4 } = t.trigger;
-    e2.referrer = e2.referrer || this.currentPageUrl, false === e2.animate && (t.animation.animate = false), t.animation.animate || this.classes.clear();
-    const a4 = e2.history || (null == i4 ? void 0 : i4.getAttribute("data-swup-history")) || void 0;
-    a4 && ["push", "replace"].includes(a4) && (t.history.action = a4);
-    const l4 = e2.animation || (null == i4 ? void 0 : i4.getAttribute("data-swup-animation")) || void 0;
-    var h3, c3;
-    l4 && (t.animation.name = l4), "object" == typeof e2.cache ? (t.cache.read = null != (h3 = e2.cache.read) ? h3 : t.cache.read, t.cache.write = null != (c3 = e2.cache.write) ? c3 : t.cache.write) : void 0 !== e2.cache && (t.cache = { read: !!e2.cache, write: !!e2.cache }), delete e2.cache;
-    try {
-      await this.hooks.call("visit:start", t, void 0), t.state = 3;
-      const i5 = this.hooks.call("page:load", t, { options: e2 }, async (t2, e3) => {
-        let i6;
-        return t2.cache.read && (i6 = this.cache.get(t2.to.url)), e3.page = i6 || await this.fetchPage(t2.to.url, e3.options), e3.cache = !!i6, e3.page;
-      });
-      if (i5.then(({ html: e3 }) => {
-        t.advance(5), t.to.html = e3, t.to.document = new DOMParser().parseFromString(e3, "text/html");
-      }), !t.history.popstate) {
-        const e3 = t.to.url + t.to.hash;
-        "replace" === t.history.action || t.to.url === this.currentPageUrl ? r(e3) : (this.currentHistoryIndex++, o(e3, { index: this.currentHistoryIndex }));
-      }
-      if (this.currentPageUrl = n(), t.history.popstate && this.classes.add("is-popstate"), t.animation.name && this.classes.add(`to-${s(t.animation.name)}`), t.animation.wait && await i5, t.done)
-        return;
-      if (await this.hooks.call("visit:transition", t, void 0, async () => {
-        if (!t.animation.animate)
-          return await this.hooks.call("animation:skip", void 0), void await this.renderPage(t, await i5);
-        t.advance(4), await this.animatePageOut(t), t.animation.native && document.startViewTransition ? await document.startViewTransition(async () => await this.renderPage(t, await i5)).finished : await this.renderPage(t, await i5), await this.animatePageIn(t);
-      }), t.done)
-        return;
-      await this.hooks.call("visit:end", t, void 0, () => this.classes.clear()), t.state = 7, this.navigating = false, this.onVisitEnd && (this.onVisitEnd(), this.onVisitEnd = void 0);
-    } catch (e3) {
-      if (!e3 || null != e3 && e3.aborted)
-        return void (t.state = 8);
-      t.state = 9, console.error(e3), this.options.skipPopStateHandling = () => (window.location.assign(t.to.url + t.to.hash), true), window.history.back();
-    } finally {
-      delete t.to.document;
-    }
-  }
-  var V = async function(t) {
-    await this.hooks.call("animation:out:start", t, void 0, () => {
-      this.classes.add("is-changing", "is-animating", "is-leaving");
-    }), await this.hooks.call("animation:out:await", t, { skip: false }, (t2, { skip: e2 }) => {
-      if (!e2)
-        return this.awaitAnimations({ selector: t2.animation.selector });
-    }), await this.hooks.call("animation:out:end", t, void 0);
-  };
-  var I = function(t) {
-    var e2;
-    const i4 = t.to.document;
-    if (!i4)
-      return false;
-    const s3 = (null == (e2 = i4.querySelector("title")) ? void 0 : e2.innerText) || "";
-    document.title = s3;
-    const n4 = m('[data-swup-persist]:not([data-swup-persist=""])'), o4 = t.containers.map((t2) => {
-      const e3 = document.querySelector(t2), s4 = i4.querySelector(t2);
-      return e3 && s4 ? (e3.replaceWith(s4.cloneNode(true)), true) : (e3 || console.warn(`[swup] Container missing in current document: ${t2}`), s4 || console.warn(`[swup] Container missing in incoming document: ${t2}`), false);
-    }).filter(Boolean);
-    return n4.forEach((t2) => {
-      const e3 = t2.getAttribute("data-swup-persist"), i5 = p(`[data-swup-persist="${e3}"]`);
-      i5 && i5 !== t2 && i5.replaceWith(t2);
-    }), o4.length === t.containers.length;
-  };
-  var L = function(t) {
-    const e2 = { behavior: "auto" }, { target: s3, reset: n4 } = t.scroll, o4 = null != s3 ? s3 : t.to.hash;
-    let r4 = false;
-    return o4 && (r4 = this.hooks.callSync("scroll:anchor", t, { hash: o4, options: e2 }, (t2, { hash: e3, options: i4 }) => {
-      const s4 = this.getAnchorElement(e3);
-      return s4 && s4.scrollIntoView(i4), !!s4;
-    })), n4 && !r4 && (r4 = this.hooks.callSync("scroll:top", t, { options: e2 }, (t2, { options: e3 }) => (window.scrollTo(i({ top: 0, left: 0 }, e3)), true))), r4;
-  };
-  var T = async function(t) {
-    if (t.done)
-      return;
-    const e2 = this.hooks.call("animation:in:await", t, { skip: false }, (t2, { skip: e3 }) => {
-      if (!e3)
-        return this.awaitAnimations({ selector: t2.animation.selector });
-    });
-    await w(), await this.hooks.call("animation:in:start", t, void 0, () => {
-      this.classes.remove("is-animating");
-    }), await e2, await this.hooks.call("animation:in:end", t, void 0);
-  };
-  var N = async function(t, e2) {
-    if (t.done)
-      return;
-    t.advance(6);
-    const { url: i4 } = e2;
-    this.isSameResolvedUrl(n(), i4) || (r(i4), this.currentPageUrl = n(), t.to.url = this.currentPageUrl), await this.hooks.call("content:replace", t, { page: e2 }, (t2, {}) => {
-      if (this.classes.remove("is-leaving"), t2.animation.animate && this.classes.add("is-rendering"), !this.replaceContent(t2))
-        throw new Error("[swup] Container mismatch, aborting");
-      t2.animation.animate && (this.classes.add("is-changing", "is-animating", "is-rendering"), t2.animation.name && this.classes.add(`to-${s(t2.animation.name)}`));
-    }), await this.hooks.call("content:scroll", t, void 0, () => this.scrollToContent(t)), await this.hooks.call("page:view", t, { url: this.currentPageUrl, title: document.title });
-  };
-  var O = function(t) {
-    var e2;
-    if (e2 = t, Boolean(null == e2 ? void 0 : e2.isSwupPlugin)) {
-      if (t.swup = this, !t._checkRequirements || t._checkRequirements())
-        return t._beforeMount && t._beforeMount(), t.mount(), this.plugins.push(t), this.plugins;
-    } else
-      console.error("Not a swup plugin instance", t);
-  };
-  function D(t) {
-    const e2 = this.findPlugin(t);
-    if (e2)
-      return e2.unmount(), e2._afterUnmount && e2._afterUnmount(), this.plugins = this.plugins.filter((t2) => t2 !== e2), this.plugins;
-    console.error("No such plugin", e2);
-  }
-  function M(t) {
-    return this.plugins.find((e2) => e2 === t || e2.name === t || e2.name === `Swup${String(t)}`);
-  }
-  function W(t) {
-    if ("function" != typeof this.options.resolveUrl)
-      return console.warn("[swup] options.resolveUrl expects a callback function."), t;
-    const e2 = this.options.resolveUrl(t);
-    return e2 && "string" == typeof e2 ? e2.startsWith("//") || e2.startsWith("http") ? (console.warn("[swup] options.resolveUrl needs to return a relative url"), t) : e2 : (console.warn("[swup] options.resolveUrl needs to return a url"), t);
-  }
-  function B(t, e2) {
-    return this.resolveUrl(t) === this.resolveUrl(e2);
-  }
-  var j = { animateHistoryBrowsing: false, animationSelector: '[class*="transition-"]', animationScope: "html", cache: true, containers: ["#swup"], ignoreVisit: (t, { el: e2 } = {}) => !(null == e2 || !e2.closest("[data-no-swup]")), linkSelector: "a[href]", linkToSelf: "scroll", native: false, plugins: [], resolveUrl: (t) => t, requestHeaders: { "X-Requested-With": "swup", Accept: "text/html, application/xhtml+xml" }, skipPopStateHandling: (t) => {
-    var e2;
-    return "swup" !== (null == (e2 = t.state) ? void 0 : e2.source);
-  }, timeout: 0 };
-  var _ = class {
-    constructor(t = {}) {
-      var e2, s3;
-      this.version = "4.6.0", this.options = void 0, this.defaults = j, this.plugins = [], this.visit = void 0, this.cache = void 0, this.hooks = void 0, this.classes = void 0, this.currentPageUrl = n(), this.currentHistoryIndex = void 0, this.clickDelegate = void 0, this.navigating = false, this.onVisitEnd = void 0, this.use = O, this.unuse = D, this.findPlugin = M, this.log = () => {
-      }, this.navigate = q, this.performNavigation = R, this.createVisit = E, this.delegateEvent = a, this.fetchPage = u, this.awaitAnimations = x, this.renderPage = N, this.replaceContent = I, this.animatePageIn = T, this.animatePageOut = V, this.scrollToContent = L, this.getAnchorElement = U, this.getCurrentUrl = n, this.resolveUrl = W, this.isSameResolvedUrl = B, this.options = i({}, this.defaults, t), this.handleLinkClick = this.handleLinkClick.bind(this), this.handlePopState = this.handlePopState.bind(this), this.cache = new d(this), this.classes = new b(this), this.hooks = new P(this), this.visit = this.createVisit({ to: "" }), this.currentHistoryIndex = null != (e2 = null == (s3 = window.history.state) ? void 0 : s3.index) ? e2 : 1, this.checkRequirements() && this.enable();
-    }
-    checkRequirements() {
-      return "undefined" != typeof Promise || (console.warn("Promise is not supported"), false);
-    }
-    async enable() {
-      var t;
-      const { linkSelector: e2 } = this.options;
-      this.clickDelegate = this.delegateEvent(e2, "click", this.handleLinkClick), window.addEventListener("popstate", this.handlePopState), this.options.animateHistoryBrowsing && (window.history.scrollRestoration = "manual"), this.options.native = this.options.native && !!document.startViewTransition, this.options.plugins.forEach((t2) => this.use(t2)), "swup" !== (null == (t = window.history.state) ? void 0 : t.source) && r(null, { index: this.currentHistoryIndex }), await w(), await this.hooks.call("enable", void 0, void 0, () => {
-        const t2 = document.documentElement;
-        t2.classList.add("swup-enabled"), t2.classList.toggle("swup-native", this.options.native);
-      });
-    }
-    async destroy() {
-      this.clickDelegate.destroy(), window.removeEventListener("popstate", this.handlePopState), this.cache.clear(), this.options.plugins.forEach((t) => this.unuse(t)), await this.hooks.call("disable", void 0, void 0, () => {
-        const t = document.documentElement;
-        t.classList.remove("swup-enabled"), t.classList.remove("swup-native");
-      }), this.hooks.clear();
-    }
-    shouldIgnoreVisit(t, { el: e2, event: i4 } = {}) {
-      const { origin: s3, url: n4, hash: o4 } = l.fromUrl(t);
-      return s3 !== window.location.origin || !(!e2 || !this.triggerWillOpenNewWindow(e2)) || !!this.options.ignoreVisit(n4 + o4, { el: e2, event: i4 });
-    }
-    handleLinkClick(t) {
-      const e2 = t.delegateTarget, { href: i4, url: s3, hash: n4 } = l.fromElement(e2);
-      if (this.shouldIgnoreVisit(i4, { el: e2, event: t }))
-        return;
-      if (this.navigating && s3 === this.visit.to.url)
-        return void t.preventDefault();
-      const o4 = this.createVisit({ to: s3, hash: n4, el: e2, event: t });
-      t.metaKey || t.ctrlKey || t.shiftKey || t.altKey ? this.hooks.callSync("link:newtab", o4, { href: i4 }) : 0 === t.button && this.hooks.callSync("link:click", o4, { el: e2, event: t }, () => {
-        var e3;
-        const i5 = null != (e3 = o4.from.url) ? e3 : "";
-        t.preventDefault(), s3 && s3 !== i5 ? this.isSameResolvedUrl(s3, i5) || this.performNavigation(o4) : n4 ? this.hooks.callSync("link:anchor", o4, { hash: n4 }, () => {
-          r(s3 + n4), this.scrollToContent(o4);
-        }) : this.hooks.callSync("link:self", o4, void 0, () => {
-          "navigate" === this.options.linkToSelf ? this.performNavigation(o4) : (r(s3), this.scrollToContent(o4));
-        });
-      });
-    }
-    handlePopState(t) {
-      var e2, i4, s3, o4;
-      const r4 = null != (e2 = null == (i4 = t.state) ? void 0 : i4.url) ? e2 : window.location.href;
-      if (this.options.skipPopStateHandling(t))
-        return;
-      if (this.isSameResolvedUrl(n(), this.currentPageUrl))
-        return;
-      const { url: a4, hash: h3 } = l.fromUrl(r4), c3 = this.createVisit({ to: a4, hash: h3, event: t });
-      c3.history.popstate = true;
-      const u3 = null != (s3 = null == (o4 = t.state) ? void 0 : o4.index) ? s3 : 0;
-      u3 && u3 !== this.currentHistoryIndex && (c3.history.direction = u3 - this.currentHistoryIndex > 0 ? "forwards" : "backwards", this.currentHistoryIndex = u3), c3.animation.animate = false, c3.scroll.reset = false, c3.scroll.target = false, this.options.animateHistoryBrowsing && (c3.animation.animate = true, c3.scroll.reset = true), this.hooks.callSync("history:popstate", c3, { event: t }, () => {
-        this.performNavigation(c3);
-      });
-    }
-    triggerWillOpenNewWindow(t) {
-      return !!t.matches('[download], [target="_blank"]');
-    }
-  };
-
-  // node_modules/@swup/plugin/dist/index.modern.js
-  function r2() {
-    return r2 = Object.assign ? Object.assign.bind() : function(r4) {
-      for (var n4 = 1; n4 < arguments.length; n4++) {
-        var e2 = arguments[n4];
-        for (var t in e2)
-          Object.prototype.hasOwnProperty.call(e2, t) && (r4[t] = e2[t]);
-      }
-      return r4;
-    }, r2.apply(this, arguments);
-  }
-  var n2 = (r4) => String(r4).split(".").map((r5) => String(parseInt(r5 || "0", 10))).concat(["0", "0"]).slice(0, 3).join(".");
-  var e = class {
-    constructor() {
-      this.isSwupPlugin = true, this.swup = void 0, this.version = void 0, this.requires = {}, this.handlersToUnregister = [];
-    }
-    mount() {
-    }
-    unmount() {
-      this.handlersToUnregister.forEach((r4) => r4()), this.handlersToUnregister = [];
-    }
-    _beforeMount() {
-      if (!this.name)
-        throw new Error("You must define a name of plugin when creating a class.");
-    }
-    _afterUnmount() {
-    }
-    _checkRequirements() {
-      return "object" != typeof this.requires || Object.entries(this.requires).forEach(([r4, e2]) => {
-        if (!function(r5, e3, t) {
-          const s3 = function(r6, n4) {
-            var e4;
-            if ("swup" === r6)
-              return null != (e4 = n4.version) ? e4 : "";
-            {
-              var t2;
-              const e5 = n4.findPlugin(r6);
-              return null != (t2 = null == e5 ? void 0 : e5.version) ? t2 : "";
-            }
-          }(r5, t);
-          return !!s3 && ((r6, e4) => e4.every((e5) => {
-            const [, t2, s4] = e5.match(/^([\D]+)?(.*)$/) || [];
-            var o4, i4;
-            return ((r7, n4) => {
-              const e6 = { "": (r8) => 0 === r8, ">": (r8) => r8 > 0, ">=": (r8) => r8 >= 0, "<": (r8) => r8 < 0, "<=": (r8) => r8 <= 0 };
-              return (e6[n4] || e6[""])(r7);
-            })((i4 = s4, o4 = n2(o4 = r6), i4 = n2(i4), o4.localeCompare(i4, void 0, { numeric: true })), t2 || ">=");
-          }))(s3, e3);
-        }(r4, e2 = Array.isArray(e2) ? e2 : [e2], this.swup)) {
-          const n4 = `${r4} ${e2.join(", ")}`;
-          throw new Error(`Plugin version mismatch: ${this.name} requires ${n4}`);
-        }
-      }), true;
-    }
-    on(r4, n4, e2 = {}) {
-      var t;
-      n4 = !(t = n4).name.startsWith("bound ") || t.hasOwnProperty("prototype") ? n4.bind(this) : n4;
-      const s3 = this.swup.hooks.on(r4, n4, e2);
-      return this.handlersToUnregister.push(s3), s3;
-    }
-    once(n4, e2, t = {}) {
-      return this.on(n4, e2, r2({}, t, { once: true }));
-    }
-    before(n4, e2, t = {}) {
-      return this.on(n4, e2, r2({}, t, { before: true }));
-    }
-    replace(n4, e2, t = {}) {
-      return this.on(n4, e2, r2({}, t, { replace: true }));
-    }
-    off(r4, n4) {
-      return this.swup.hooks.off(r4, n4);
-    }
-  };
-
-  // node_modules/@swup/preload-plugin/dist/index.modern.js
-  function r3() {
-    return r3 = Object.assign ? Object.assign.bind() : function(e2) {
-      for (var t = 1; t < arguments.length; t++) {
-        var s3 = arguments[t];
-        for (var r4 in s3)
-          Object.prototype.hasOwnProperty.call(s3, r4) && (e2[r4] = s3[r4]);
-      }
-      return e2;
-    }, r3.apply(this, arguments);
-  }
-  function o2() {
-    return window.matchMedia("(hover: hover)").matches;
-  }
-  function i2(e2) {
-    return !!e2 && (e2 instanceof HTMLAnchorElement || e2 instanceof SVGAElement);
-  }
-  var n3 = window.requestIdleCallback || ((e2) => setTimeout(e2, 1));
-  var a2 = ["preloadVisibleLinks"];
-  var l2 = class extends e {
-    constructor(e2 = {}) {
-      var s3;
-      super(), s3 = this, this.name = "SwupPreloadPlugin", this.requires = { swup: ">=4.5" }, this.defaults = { throttle: 5, preloadInitialPage: true, preloadHoveredLinks: true, preloadVisibleLinks: { enabled: false, threshold: 0.2, delay: 500, containers: ["body"], ignore: () => false } }, this.options = void 0, this.queue = void 0, this.preloadObserver = void 0, this.preloadPromises = /* @__PURE__ */ new Map(), this.mouseEnterDelegate = void 0, this.touchStartDelegate = void 0, this.focusDelegate = void 0, this.onPageLoad = (e3, t, s4) => {
-        const { url: r4 } = e3.to;
-        return r4 && this.preloadPromises.has(r4) ? this.preloadPromises.get(r4) : s4(e3, t);
-      }, this.onMouseEnter = async function(e3) {
-        if (e3.target !== e3.delegateTarget)
-          return;
-        if (!o2())
-          return;
-        const r4 = e3.delegateTarget;
-        if (!i2(r4))
-          return;
-        const { url: n5, hash: a4 } = l.fromElement(r4), l5 = s3.swup.createVisit({ to: n5, hash: a4, el: r4, event: e3 });
-        s3.swup.hooks.callSync("link:hover", l5, { el: r4, event: e3 }), s3.preload(r4, { priority: true });
-      }, this.onTouchStart = (e3) => {
-        if (o2())
-          return;
-        const t = e3.delegateTarget;
-        i2(t) && this.preload(t, { priority: true });
-      }, this.onFocus = (e3) => {
-        const t = e3.delegateTarget;
-        i2(t) && this.preload(t, { priority: true });
-      };
-      const { preloadVisibleLinks: n4 } = e2, l4 = function(e3, t) {
-        if (null == e3)
-          return {};
-        var s4, r4, o4 = {}, i4 = Object.keys(e3);
-        for (r4 = 0; r4 < i4.length; r4++)
-          t.indexOf(s4 = i4[r4]) >= 0 || (o4[s4] = e3[s4]);
-        return o4;
-      }(e2, a2);
-      this.options = r3({}, this.defaults, l4), "object" == typeof n4 ? this.options.preloadVisibleLinks = r3({}, this.options.preloadVisibleLinks, { enabled: true }, n4) : this.options.preloadVisibleLinks.enabled = Boolean(n4), this.preload = this.preload.bind(this), this.queue = function(e3 = 1) {
-        const t = [], s4 = [];
-        let r4 = 0, o4 = 0;
-        function i4() {
-          o4 < e3 && r4 > 0 && ((s4.shift() || t.shift() || (() => {
-          }))(), r4--, o4++);
-        }
-        return { add: function(e4, o5 = false) {
-          if (e4.__queued) {
-            if (!o5)
-              return;
-            {
-              const s5 = t.indexOf(e4);
-              if (s5 >= 0) {
-                const e5 = t.splice(s5, 1);
-                r4 -= e5.length;
-              }
-            }
-          }
-          e4.__queued = true, (o5 ? s4 : t).push(e4), r4++, r4 <= 1 && i4();
-        }, next: function() {
-          o4--, i4();
-        } };
-      }(this.options.throttle);
-    }
-    mount() {
-      const e2 = this.swup;
-      e2.options.cache ? (e2.hooks.create("page:preload"), e2.hooks.create("link:hover"), e2.preload = this.preload, e2.preloadLinks = this.preloadLinks, this.replace("page:load", this.onPageLoad), this.preloadLinks(), this.on("page:view", () => this.preloadLinks()), this.options.preloadVisibleLinks.enabled && (this.preloadVisibleLinks(), this.on("page:view", () => this.preloadVisibleLinks())), this.options.preloadHoveredLinks && this.preloadLinksOnAttention(), this.options.preloadInitialPage && this.preload(n())) : console.warn("SwupPreloadPlugin: swup cache needs to be enabled for preloading");
-    }
-    unmount() {
-      var e2, t, s3;
-      this.swup.preload = void 0, this.swup.preloadLinks = void 0, this.preloadPromises.clear(), null == (e2 = this.mouseEnterDelegate) || e2.destroy(), null == (t = this.touchStartDelegate) || t.destroy(), null == (s3 = this.focusDelegate) || s3.destroy(), this.stopPreloadingVisibleLinks();
-    }
-    async preload(e2, s3 = {}) {
-      var r4;
-      let o4, n4;
-      const a4 = null != (r4 = s3.priority) && r4;
-      if (Array.isArray(e2))
-        return Promise.all(e2.map((e3) => this.preload(e3)));
-      if (i2(e2))
-        n4 = e2, { href: o4 } = l.fromElement(e2);
-      else {
-        if ("string" != typeof e2)
-          return;
-        o4 = e2;
-      }
-      if (!o4)
-        return;
-      if (this.preloadPromises.has(o4))
-        return this.preloadPromises.get(o4);
-      if (!this.shouldPreload(o4, { el: n4 }))
-        return;
-      const l4 = new Promise((e3) => {
-        this.queue.add(() => {
-          this.performPreload(o4).catch(() => {
-          }).then((t) => e3(t)).finally(() => {
-            this.queue.next(), this.preloadPromises.delete(o4);
-          });
-        }, a4);
-      });
-      return this.preloadPromises.set(o4, l4), l4;
-    }
-    preloadLinks() {
-      n3(() => {
-        Array.from(document.querySelectorAll("a[data-swup-preload], [data-swup-preload-all] a")).forEach((e2) => this.preload(e2));
-      });
-    }
-    preloadLinksOnAttention() {
-      const { swup: e2 } = this, { linkSelector: t } = e2.options, s3 = { passive: true, capture: true };
-      this.mouseEnterDelegate = e2.delegateEvent(t, "mouseenter", this.onMouseEnter, s3), this.touchStartDelegate = e2.delegateEvent(t, "touchstart", this.onTouchStart, s3), this.focusDelegate = e2.delegateEvent(t, "focus", this.onFocus, s3);
-    }
-    preloadVisibleLinks() {
-      if (this.preloadObserver)
-        return void this.preloadObserver.update();
-      const { threshold: e2, delay: s3, containers: r4 } = this.options.preloadVisibleLinks;
-      this.preloadObserver = function({ threshold: e3, delay: s4, containers: r5, callback: o4, filter: i4 }) {
-        const a4 = /* @__PURE__ */ new Map(), l4 = new IntersectionObserver((e4) => {
-          e4.forEach((e5) => {
-            e5.isIntersecting ? h3(e5.target) : d3(e5.target);
-          });
-        }, { threshold: e3 }), h3 = (e4) => {
-          var r6;
-          const { href: i5 } = l.fromElement(e4), n4 = null != (r6 = a4.get(i5)) ? r6 : /* @__PURE__ */ new Set();
-          a4.set(i5, n4), n4.add(e4), setTimeout(() => {
-            const t = a4.get(i5);
-            null != t && t.size && (o4(e4), l4.unobserve(e4), t.delete(e4));
-          }, s4);
-        }, d3 = (e4) => {
-          var s5;
-          const { href: r6 } = l.fromElement(e4);
-          null == (s5 = a4.get(r6)) || s5.delete(e4);
-        }, u3 = () => {
-          n3(() => {
-            const e4 = r5.map((e5) => `${e5} a[*|href]`).join(", ");
-            Array.from(document.querySelectorAll(e4)).filter((e5) => i4(e5)).forEach((e5) => l4.observe(e5));
-          });
-        };
-        return { start: () => u3(), stop: () => l4.disconnect(), update: () => (a4.clear(), u3()) };
-      }({ threshold: e2, delay: s3, containers: r4, callback: (e3) => this.preload(e3), filter: (e3) => {
-        if (this.options.preloadVisibleLinks.ignore(e3))
-          return false;
-        if (!e3.matches(this.swup.options.linkSelector))
-          return false;
-        const { href: s4 } = l.fromElement(e3);
-        return this.shouldPreload(s4, { el: e3 });
-      } }), this.preloadObserver.start();
-    }
-    stopPreloadingVisibleLinks() {
-      this.preloadObserver && this.preloadObserver.stop();
-    }
-    shouldPreload(e2, { el: r4 } = {}) {
-      const { url: o4, href: i4 } = l.fromUrl(e2);
-      return !(!function() {
-        if (navigator.connection) {
-          var e3;
-          if (navigator.connection.saveData)
-            return false;
-          if (null != (e3 = navigator.connection.effectiveType) && e3.endsWith("2g"))
-            return false;
-        }
-        return true;
-      }() || this.swup.cache.has(o4) || this.preloadPromises.has(o4) || this.swup.shouldIgnoreVisit(i4, { el: r4 }) || r4 && this.swup.resolveUrl(o4) === this.swup.resolveUrl(n()));
-    }
-    async performPreload(e2) {
-      var s3 = this;
-      const { url: r4 } = l.fromUrl(e2), o4 = this.swup.createVisit({ to: r4 }), i4 = await this.swup.hooks.call("page:preload", o4, { url: r4 }, async function(t, r5) {
-        return r5.page = await s3.swup.fetchPage(e2, { visit: t }), r5.page;
-      });
-      return i4;
-    }
-  };
-
-  // node_modules/@swup/fragment-plugin/dist/index.modern.js
-  function o3() {
-    return o3 = Object.assign ? Object.assign.bind() : function(t) {
-      for (var r4 = 1; r4 < arguments.length; r4++) {
-        var e2 = arguments[r4];
-        for (var n4 in e2)
-          Object.prototype.hasOwnProperty.call(e2, n4) && (t[n4] = e2[n4]);
-      }
-      return t;
-    }, o3.apply(this, arguments);
-  }
-  window.process || (window.process = {}), window.process.env || (window.process.env = {});
-  var s2 = ["test"].includes(String("development"));
-  var i3 = ["development", "test"].includes(String("development"));
-  var a3 = (t, r4, e2) => null == t ? t : `\x1B[${r4}m${String(t)}\x1B[${e2}m`;
-  var l3 = (t) => s2 ? t : `\u{1F9E9} ${((t2) => a3(t2, 1, 22))(t)}`;
-  var u2 = (t) => s2 ? t : ((t2) => a3(t2, 94, 39))(t);
-  var c2 = class {
-    log(...t) {
-      const r4 = t.shift();
-      console.log(l3(r4), ...t);
-    }
-    warn(...t) {
-      const r4 = t.shift();
-      console.warn(l3(r4), ...t);
-    }
-    error(...t) {
-      const r4 = t.shift();
-      console.error(l3(r4), ...t);
-    }
-    logIf(t, ...r4) {
-      t && this.log(...r4);
-    }
-    warnIf(t, ...r4) {
-      t && this.warn(...r4);
-    }
-    errorIf(t, ...r4) {
-      t && this.error(...r4);
-    }
-  };
-  var g2 = (t) => {
-    !function({ parsedRules: t2, swup: e2, logger: n4 }) {
-      const o4 = e2.getCurrentUrl();
-      t2.filter((t3) => t3.matchesFrom(o4) || t3.matchesTo(o4)).forEach((t3) => {
-        t3.containers.forEach((t4) => {
-          const s3 = y2(`${t4}:not([data-swup-fragment])`, e2);
-          if (!s3)
-            return;
-          const a4 = s3.getAttribute("data-swup-fragment-url");
-          a4 && i3 && (null == n4 || n4.log(`fragment url ${u2(a4)} for ${u2(t4)} provided by server`));
-          const { url: l4 } = l.fromUrl(a4 || o4);
-          s3.setAttribute("data-swup-fragment", ""), s3.__swupFragment = { url: l4, selector: t4 };
-        });
-      });
-    }(t), function({ logger: t2, swup: r4 }) {
-      const e2 = "data-swup-link-to-fragment";
-      document.querySelectorAll(`a[${e2}]`).forEach((n4) => {
-        var o4;
-        const s3 = n4.getAttribute(e2);
-        if (!s3)
-          return void (i3 && (null == t2 || t2.warn(`[${e2}] needs to contain a valid fragment selector`)));
-        const a4 = y2(s3, r4);
-        if (!a4)
-          return void (i3 && (null == t2 || t2.log(`ignoring ${u2(`[${e2}="${s3}"]`)} as ${u2(s3)} is missing`)));
-        const l4 = null == (o4 = a4.__swupFragment) ? void 0 : o4.url;
-        l4 ? m2(l4, r4.getCurrentUrl()) ? i3 && (null == t2 || t2.warn(`The fragment URL of ${s3} is identical to the current URL. This could mean that [data-swup-fragment-url] needs to be provided by the server.`)) : n4.href = l4 : i3 && (null == t2 || t2.warn(`no fragment infos found on ${s3}`));
-      });
-    }(t), function({ logger: t2 }) {
-      document.querySelectorAll("dialog[data-swup-fragment]").forEach((r4) => {
-        r4.__swupFragment ? r4.__swupFragment.modalShown || (r4.__swupFragment.modalShown = true, r4.removeAttribute("open"), null == r4.showModal || r4.showModal(), r4.addEventListener("keydown", (t3) => "Escape" === t3.key && t3.preventDefault())) : i3 && (null == t2 || t2.warn("fragment properties missing on element:", r4));
-      });
-    }(t);
-  };
-  var f2 = (t, r4) => {
-    var e2;
-    const n4 = null == (e2 = t.__swupFragment) ? void 0 : e2.url;
-    return !!n4 && m2(n4, r4);
-  };
-  var m2 = (t, r4) => h2(t) === h2(r4);
-  var h2 = (t) => {
-    if (!t.trim())
-      return t;
-    const e2 = l.fromUrl(t);
-    return e2.searchParams.sort(), e2.pathname.replace(/\/+$/g, "") + e2.search;
-  };
-  var p2 = (t) => {
-    const r4 = t.from.url, e2 = t.to.url;
-    if (r4 && e2)
-      return { from: r4, to: e2 };
-  };
-  var d2 = (t, r4) => {
-    if (null == t || !t.name)
-      return;
-    const { name: e2, containers: n4 } = t;
-    n4.forEach((t2) => {
-      var n5;
-      null == (n5 = document.querySelector(t2)) || n5.classList.toggle(`to-${e2}`, r4);
-    });
-  };
-  var w2 = (t, r4) => r4.find((r5) => r5.matches(t));
-  function v(t) {
-    return !!t && t.containers.every((t2) => {
-      var r4;
-      return "template" === (null == (r4 = document.querySelector(t2)) || null == (r4 = r4.tagName) ? void 0 : r4.toLowerCase());
-    });
-  }
-  function y2(t, r4) {
-    for (const e2 of r4.options.containers) {
-      const r5 = document.querySelector(e2);
-      if (null != r5 && r5.matches(t))
-        return r5;
-      const n4 = null == r5 ? void 0 : r5.querySelector(t);
-      if (n4)
-        return n4;
-    }
-  }
-  function $3(t) {
-    if (!Array.isArray(t))
-      throw new Error("cloneRules() expects an array of rules");
-    return t.map((t2) => o3({}, t2, { from: Array.isArray(t2.from) ? [...t2.from] : t2.from, to: Array.isArray(t2.to) ? [...t2.to] : t2.to, containers: [...t2.containers] }));
-  }
-  var S2 = class {
-    constructor(t) {
-      var r4, o4;
-      this.matchesFrom = void 0, this.matchesTo = void 0, this.swup = void 0, this.from = void 0, this.to = void 0, this.containers = void 0, this.name = void 0, this.scroll = false, this.focus = void 0, this.logger = void 0, this.swup = t.swup, this.logger = t.logger, this.from = t.from || "", this.to = t.to || "", t.name && (this.name = s(t.name)), void 0 !== t.scroll && (this.scroll = t.scroll), void 0 !== t.focus && (this.focus = t.focus), this.containers = this.parseContainers(t.containers), i3 && (null == (r4 = this.logger) || r4.errorIf(!this.to, "Every fragment rule must contain a 'to' path", this), null == (o4 = this.logger) || o4.errorIf(!this.from, "Every fragment rule must contain a 'from' path", this)), this.matchesFrom = h(this.from), this.matchesTo = h(this.to);
-    }
-    parseContainers(t) {
-      var r4, e2;
-      return Array.isArray(t) && t.length ? (e2 = t.map((t2) => t2.trim()), [...new Set(e2)]).filter((t2) => {
-        var r5;
-        const e3 = this.validateSelector(t2);
-        return null == (r5 = this.logger) || r5.errorIf(e3 instanceof Error, e3), true === e3;
-      }) : (i3 && (null == (r4 = this.logger) || r4.error("Every fragment rule must contain an array of containers", this.getDebugInfo())), []);
-    }
-    validateSelector(t) {
-      return t.startsWith("#") ? !t.match(/\s|>/) || new Error(`fragment selectors must not be nested: ${t}`) : new Error(`fragment selectors must be IDs: ${t}`);
-    }
-    getDebugInfo() {
-      const { from: t, to: r4, containers: e2 } = this;
-      return { from: String(t), to: String(r4), containers: String(e2) };
-    }
-    matches(t) {
-      const { url: e2 } = l.fromUrl(t.from), { url: n4 } = l.fromUrl(t.to);
-      if (!this.matchesFrom(e2) || !this.matchesTo(n4))
-        return false;
-      for (const t2 of this.containers) {
-        const r4 = this.validateFragmentSelectorForMatch(t2);
-        var o4;
-        if (r4 instanceof Error)
-          return i3 && (null == (o4 = this.logger) || o4.error(r4, this.getDebugInfo())), false;
-      }
-      return true;
-    }
-    validateFragmentSelectorForMatch(t) {
-      return document.querySelector(t) ? !!y2(t, this.swup) || new Error(`skipping rule since ${u2(t)} is outside of swup's default containers`) : new Error(`skipping rule since ${u2(t)} doesn't exist in the current document`);
-    }
-  };
-  var _2 = function(t) {
-    const r4 = p2(t);
-    r4 && w2(r4, this.parsedRules) && (t.scroll.reset = false);
-  };
-  var b2 = async function(t) {
-    const r4 = p2(t);
-    if (!r4)
-      return;
-    const e2 = this.getFragmentVisit(r4);
-    if (!e2)
-      return;
-    var n4;
-    t.fragmentVisit = e2, i3 && (null == (n4 = this.logger) || n4.log(`fragment visit: ${u2(t.fragmentVisit.containers.join(", "))}`)), t.scroll = function(t2, r5) {
-      return "boolean" == typeof t2.scroll ? o3({}, r5, { reset: t2.scroll }) : "string" != typeof t2.scroll || r5.target ? r5 : o3({}, r5, { target: t2.scroll });
-    }(e2, t.scroll);
-    const s3 = t.a11y;
-    var a4;
-    void 0 !== e2.focus && (i3 && (null == (a4 = this.logger) || a4.errorIf(!s3, "Can't set visit.a11y.focus. Is @swup/a11y-plugin installed?")), s3 && (s3.focus = e2.focus)), t.animation.scope = t.fragmentVisit.containers, t.containers = t.fragmentVisit.containers, t.animation.selector = t.fragmentVisit.containers.join(","), d2(e2, true);
-  };
-  var R2 = function(t, r4) {
-    var e2, n4;
-    t.fragmentVisit && v(t.fragmentVisit) && (i3 && (null == (e2 = this.logger) || e2.log(`${u2("out")}-animation skipped for ${u2(null == (n4 = t.fragmentVisit) ? void 0 : n4.containers.toString())}`)), r4.skip = true);
-  };
-  var E2 = function(t, r4) {
-    var e2, n4;
-    t.fragmentVisit && v(t.fragmentVisit) && (i3 && (null == (e2 = this.logger) || e2.log(`${u2("in")}-animation skipped for ${u2(null == (n4 = t.fragmentVisit) ? void 0 : n4.containers.toString())}`)), r4.skip = true);
-  };
-  var F = function(t, r4) {
-    var e2;
-    if (t.trigger.el || !t.to.url)
-      return;
-    const n4 = this.swup.cache.get(t.to.url);
-    n4 && n4.fragmentHtml && (r4.page.html = n4.fragmentHtml, i3 && (null == (e2 = this.logger) || e2.log(`fragment cache used for ${u2(t.to.url)}`)));
-  };
-  var A2 = function(t) {
-    d2(t.fragmentVisit, true), g2(this), (({ swup: t2, logger: r4 }) => {
-      const e2 = t2.getCurrentUrl(), n4 = t2.cache, s3 = n4.get(e2);
-      if (!s3)
-        return;
-      const a4 = new DOMParser().parseFromString(s3.html, "text/html"), l4 = [], c3 = Array.from(document.querySelectorAll("[data-swup-fragment]")).filter((t3) => !t3.matches("template") && !f2(t3, e2));
-      c3.length && (t2.options.cache ? (c3.forEach((t3) => {
-        var e3, o4;
-        if (null != t3.querySelector("[data-swup-fragment]"))
-          return;
-        const s4 = null == (e3 = t3.__swupFragment) ? void 0 : e3.url;
-        if (!s4)
-          return void (i3 && (null == r4 || r4.warn("no fragment url found:", t3)));
-        const u3 = null == (o4 = t3.__swupFragment) ? void 0 : o4.selector;
-        if (!u3)
-          return void (i3 && (null == r4 || r4.warn("no fragment selector found:", t3)));
-        const c4 = n4.get(s4);
-        if (!c4)
-          return;
-        const g3 = a4.querySelector(u3);
-        if (!g3)
-          return;
-        const f3 = new DOMParser().parseFromString(c4.html, "text/html").querySelector(u3);
-        f3 && (f3.setAttribute("data-swup-fragment-url", s4), g3.replaceWith(f3), l4.push(t3));
-      }), l4.length && (n4.update(e2, o3({}, s3, { fragmentHtml: a4.documentElement.outerHTML })), l4.forEach((t3) => {
-        var e3, n5;
-        const o4 = (null == (e3 = t3.__swupFragment) ? void 0 : e3.url) || "", s4 = (null == (n5 = t3.__swupFragment) ? void 0 : n5.selector) || "";
-        i3 && (null == r4 || r4.log(`updated cache with ${u2(s4)} from ${u2(o4)}`));
-      }))) : i3 && (null == r4 || r4.warn("can't cache foreign fragment elements without swup's cache")));
-    })(this);
-  };
-  var V2 = function(t) {
-    d2(t.fragmentVisit, false);
-  };
-  var q2 = class extends e {
-    get parsedRules() {
-      return this._parsedRules;
-    }
-    constructor(t) {
-      super(), this.name = "SwupFragmentPlugin", this.requires = { swup: ">=4" }, this._rawRules = [], this._parsedRules = [], this.options = void 0, this.defaults = { rules: [], debug: false }, this.logger = void 0, this.options = o3({}, this.defaults, t);
-    }
-    mount() {
-      const t = this.swup;
-      var r4;
-      this.setRules(this.options.rules), i3 && this.options.debug && (this.logger = new c2()), this.before("link:self", _2), this.on("visit:start", b2), this.before("animation:out:await", R2), this.before("animation:in:await", E2), this.before("content:replace", F), this.on("content:replace", A2), this.on("visit:end", V2), i3 && (null == (r4 = this.logger) || r4.warnIf(!t.options.cache, "fragment caching will only work with swup's cache being active")), g2(this);
-    }
-    unmount() {
-      super.unmount(), document.querySelectorAll("[data-swup-fragment]").forEach((t) => {
-        t.removeAttribute("data-swup-fragment-url"), delete t.__swupFragment;
-      });
-    }
-    setRules(t) {
-      var r4;
-      this._rawRules = $3(t), this._parsedRules = t.map((t2) => this.parseRule(t2)), i3 && (null == (r4 = this.logger) || r4.log("Updated fragment rules", this.getRules()));
-    }
-    getRules() {
-      return $3(this._rawRules);
-    }
-    prependRule(t) {
-      this.setRules([t, ...this.getRules()]);
-    }
-    appendRule(t) {
-      this.setRules([...this.getRules(), t]);
-    }
-    parseRule({ from: t, to: r4, containers: e2, name: n4, scroll: o4, focus: s3 }) {
-      return new S2({ from: t, to: r4, containers: e2, name: n4, scroll: o4, focus: s3, logger: this.logger, swup: this.swup });
-    }
-    getFragmentVisit(t) {
-      const r4 = w2(t, this.parsedRules);
-      if (!r4)
-        return;
-      const e2 = ((t2, r5, e3, n5) => {
-        const o5 = m2(t2.from, t2.to);
-        return r5.filter((r6) => {
-          const s4 = document.querySelector(r6);
-          return s4 ? y2(r6, e3) ? !(!o5 && f2(s4, t2.to) && (i3 && (null == n5 || n5.log(`ignoring fragment ${u2(r6)} as it already matches the current URL`)), 1)) : (i3 && (null == n5 || n5.error(`${u2(r6)} is outside of swup's default containers`)), false) : (i3 && (null == n5 || n5.log(`${u2(r6)} missing in current document`)), false);
-        });
-      })(t, r4.containers, this.swup, this.logger);
-      if (!e2.length)
-        return;
-      const { name: n4, scroll: o4, focus: s3 } = r4;
-      return { containers: e2, name: n4, scroll: o4, focus: s3 };
-    }
-  };
-
-  // node_modules/js-confetti/dist/es/index.js
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-  function _defineProperties(target, props) {
-    for (var i4 = 0; i4 < props.length; i4++) {
-      var descriptor = props[i4];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor)
-        descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps)
-      _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps)
-      _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-  function normalizeComputedStyleValue(string) {
-    return +string.replace(/px/, "");
-  }
-  function fixDPR(canvas2) {
-    var dpr = window.devicePixelRatio;
-    var computedStyles = getComputedStyle(canvas2);
-    var width = normalizeComputedStyleValue(computedStyles.getPropertyValue("width"));
-    var height = normalizeComputedStyleValue(computedStyles.getPropertyValue("height"));
-    canvas2.setAttribute("width", (width * dpr).toString());
-    canvas2.setAttribute("height", (height * dpr).toString());
-  }
-  function generateRandomNumber(min, max) {
-    var fractionDigits = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0;
-    var randomNumber = Math.random() * (max - min) + min;
-    return Math.floor(randomNumber * Math.pow(10, fractionDigits)) / Math.pow(10, fractionDigits);
-  }
-  function generateRandomArrayElement(arr) {
-    return arr[generateRandomNumber(0, arr.length)];
-  }
-  var FREE_FALLING_OBJECT_ACCELERATION = 125e-5;
-  var MIN_DRAG_FORCE_COEFFICIENT = 5e-4;
-  var MAX_DRAG_FORCE_COEFFICIENT = 9e-4;
-  var ROTATION_SLOWDOWN_ACCELERATION = 1e-5;
-  var INITIAL_SHAPE_RADIUS = 6;
-  var INITIAL_EMOJI_SIZE = 80;
-  var MIN_INITIAL_CONFETTI_SPEED = 0.9;
-  var MAX_INITIAL_CONFETTI_SPEED = 1.7;
-  var MIN_FINAL_X_CONFETTI_SPEED = 0.2;
-  var MAX_FINAL_X_CONFETTI_SPEED = 0.6;
-  var MIN_INITIAL_ROTATION_SPEED = 0.03;
-  var MAX_INITIAL_ROTATION_SPEED = 0.07;
-  var MIN_CONFETTI_ANGLE = 15;
-  var MAX_CONFETTI_ANGLE = 82;
-  var MAX_CONFETTI_POSITION_SHIFT = 150;
-  var SHAPE_VISIBILITY_TRESHOLD = 100;
-  var DEFAULT_CONFETTI_NUMBER = 250;
-  var DEFAULT_EMOJIS_NUMBER = 40;
-  var DEFAULT_CONFETTI_COLORS = ["#fcf403", "#62fc03", "#f4fc03", "#03e7fc", "#03fca5", "#a503fc", "#fc03ad", "#fc03c2"];
-  function getWindowWidthCoefficient(canvasWidth) {
-    var HD_SCREEN_WIDTH = 1920;
-    return Math.log(canvasWidth) / Math.log(HD_SCREEN_WIDTH);
-  }
-  var ConfettiShape = /* @__PURE__ */ function() {
-    function ConfettiShape2(args) {
-      _classCallCheck(this, ConfettiShape2);
-      var initialPosition = args.initialPosition, direction = args.direction, confettiRadius = args.confettiRadius, confettiColors = args.confettiColors, emojis = args.emojis, emojiSize = args.emojiSize, canvasWidth = args.canvasWidth;
-      var randomConfettiSpeed = generateRandomNumber(MIN_INITIAL_CONFETTI_SPEED, MAX_INITIAL_CONFETTI_SPEED, 3);
-      var initialSpeed = randomConfettiSpeed * getWindowWidthCoefficient(canvasWidth);
-      this.confettiSpeed = {
-        x: initialSpeed,
-        y: initialSpeed
-      };
-      this.finalConfettiSpeedX = generateRandomNumber(MIN_FINAL_X_CONFETTI_SPEED, MAX_FINAL_X_CONFETTI_SPEED, 3);
-      this.rotationSpeed = emojis.length ? 0.01 : generateRandomNumber(MIN_INITIAL_ROTATION_SPEED, MAX_INITIAL_ROTATION_SPEED, 3) * getWindowWidthCoefficient(canvasWidth);
-      this.dragForceCoefficient = generateRandomNumber(MIN_DRAG_FORCE_COEFFICIENT, MAX_DRAG_FORCE_COEFFICIENT, 6);
-      this.radius = {
-        x: confettiRadius,
-        y: confettiRadius
-      };
-      this.initialRadius = confettiRadius;
-      this.rotationAngle = direction === "left" ? generateRandomNumber(0, 0.2, 3) : generateRandomNumber(-0.2, 0, 3);
-      this.emojiSize = emojiSize;
-      this.emojiRotationAngle = generateRandomNumber(0, 2 * Math.PI);
-      this.radiusYUpdateDirection = "down";
-      var angle = direction === "left" ? generateRandomNumber(MAX_CONFETTI_ANGLE, MIN_CONFETTI_ANGLE) * Math.PI / 180 : generateRandomNumber(-MIN_CONFETTI_ANGLE, -MAX_CONFETTI_ANGLE) * Math.PI / 180;
-      this.absCos = Math.abs(Math.cos(angle));
-      this.absSin = Math.abs(Math.sin(angle));
-      var positionShift = generateRandomNumber(-MAX_CONFETTI_POSITION_SHIFT, 0);
-      var shiftedInitialPosition = {
-        x: initialPosition.x + (direction === "left" ? -positionShift : positionShift) * this.absCos,
-        y: initialPosition.y - positionShift * this.absSin
-      };
-      this.currentPosition = Object.assign({}, shiftedInitialPosition);
-      this.initialPosition = Object.assign({}, shiftedInitialPosition);
-      this.color = emojis.length ? null : generateRandomArrayElement(confettiColors);
-      this.emoji = emojis.length ? generateRandomArrayElement(emojis) : null;
-      this.createdAt = new Date().getTime();
-      this.direction = direction;
-    }
-    _createClass(ConfettiShape2, [{
-      key: "draw",
-      value: function draw(canvasContext) {
-        var currentPosition = this.currentPosition, radius = this.radius, color = this.color, emoji = this.emoji, rotationAngle = this.rotationAngle, emojiRotationAngle = this.emojiRotationAngle, emojiSize = this.emojiSize;
-        var dpr = window.devicePixelRatio;
-        if (color) {
-          canvasContext.fillStyle = color;
-          canvasContext.beginPath();
-          canvasContext.ellipse(currentPosition.x * dpr, currentPosition.y * dpr, radius.x * dpr, radius.y * dpr, rotationAngle, 0, 2 * Math.PI);
-          canvasContext.fill();
-        } else if (emoji) {
-          canvasContext.font = "".concat(emojiSize, "px serif");
-          canvasContext.save();
-          canvasContext.translate(dpr * currentPosition.x, dpr * currentPosition.y);
-          canvasContext.rotate(emojiRotationAngle);
-          canvasContext.textAlign = "center";
-          canvasContext.fillText(emoji, 0, 0);
-          canvasContext.restore();
-        }
-      }
-    }, {
-      key: "updatePosition",
-      value: function updatePosition(iterationTimeDelta, currentTime) {
-        var confettiSpeed = this.confettiSpeed, dragForceCoefficient = this.dragForceCoefficient, finalConfettiSpeedX = this.finalConfettiSpeedX, radiusYUpdateDirection = this.radiusYUpdateDirection, rotationSpeed = this.rotationSpeed, createdAt = this.createdAt, direction = this.direction;
-        var timeDeltaSinceCreation = currentTime - createdAt;
-        if (confettiSpeed.x > finalConfettiSpeedX)
-          this.confettiSpeed.x -= dragForceCoefficient * iterationTimeDelta;
-        this.currentPosition.x += confettiSpeed.x * (direction === "left" ? -this.absCos : this.absCos) * iterationTimeDelta;
-        this.currentPosition.y = this.initialPosition.y - confettiSpeed.y * this.absSin * timeDeltaSinceCreation + FREE_FALLING_OBJECT_ACCELERATION * Math.pow(timeDeltaSinceCreation, 2) / 2;
-        this.rotationSpeed -= this.emoji ? 1e-4 : ROTATION_SLOWDOWN_ACCELERATION * iterationTimeDelta;
-        if (this.rotationSpeed < 0)
-          this.rotationSpeed = 0;
-        if (this.emoji) {
-          this.emojiRotationAngle += this.rotationSpeed * iterationTimeDelta % (2 * Math.PI);
-          return;
-        }
-        if (radiusYUpdateDirection === "down") {
-          this.radius.y -= iterationTimeDelta * rotationSpeed;
-          if (this.radius.y <= 0) {
-            this.radius.y = 0;
-            this.radiusYUpdateDirection = "up";
-          }
-        } else {
-          this.radius.y += iterationTimeDelta * rotationSpeed;
-          if (this.radius.y >= this.initialRadius) {
-            this.radius.y = this.initialRadius;
-            this.radiusYUpdateDirection = "down";
-          }
-        }
-      }
-    }, {
-      key: "getIsVisibleOnCanvas",
-      value: function getIsVisibleOnCanvas(canvasHeight) {
-        return this.currentPosition.y < canvasHeight + SHAPE_VISIBILITY_TRESHOLD;
-      }
-    }]);
-    return ConfettiShape2;
-  }();
-  function createCanvas() {
-    var canvas2 = document.createElement("canvas");
-    canvas2.style.position = "fixed";
-    canvas2.style.width = "100%";
-    canvas2.style.height = "100%";
-    canvas2.style.top = "0";
-    canvas2.style.left = "0";
-    canvas2.style.zIndex = "1000";
-    canvas2.style.pointerEvents = "none";
-    document.body.appendChild(canvas2);
-    return canvas2;
-  }
-  function normalizeConfettiConfig(confettiConfig) {
-    var _confettiConfig$confe = confettiConfig.confettiRadius, confettiRadius = _confettiConfig$confe === void 0 ? INITIAL_SHAPE_RADIUS : _confettiConfig$confe, _confettiConfig$confe2 = confettiConfig.confettiNumber, confettiNumber = _confettiConfig$confe2 === void 0 ? confettiConfig.confettiesNumber || (confettiConfig.emojis ? DEFAULT_EMOJIS_NUMBER : DEFAULT_CONFETTI_NUMBER) : _confettiConfig$confe2, _confettiConfig$confe3 = confettiConfig.confettiColors, confettiColors = _confettiConfig$confe3 === void 0 ? DEFAULT_CONFETTI_COLORS : _confettiConfig$confe3, _confettiConfig$emoji = confettiConfig.emojis, emojis = _confettiConfig$emoji === void 0 ? confettiConfig.emojies || [] : _confettiConfig$emoji, _confettiConfig$emoji2 = confettiConfig.emojiSize, emojiSize = _confettiConfig$emoji2 === void 0 ? INITIAL_EMOJI_SIZE : _confettiConfig$emoji2;
-    if (confettiConfig.emojies)
-      console.error("emojies argument is deprecated, please use emojis instead");
-    if (confettiConfig.confettiesNumber)
-      console.error("confettiesNumber argument is deprecated, please use confettiNumber instead");
-    return {
-      confettiRadius,
-      confettiNumber,
-      confettiColors,
-      emojis,
-      emojiSize
-    };
-  }
-  var ConfettiBatch = /* @__PURE__ */ function() {
-    function ConfettiBatch2(canvasContext) {
-      var _this = this;
-      _classCallCheck(this, ConfettiBatch2);
-      this.canvasContext = canvasContext;
-      this.shapes = [];
-      this.promise = new Promise(function(completionCallback) {
-        return _this.resolvePromise = completionCallback;
-      });
-    }
-    _createClass(ConfettiBatch2, [{
-      key: "getBatchCompletePromise",
-      value: function getBatchCompletePromise() {
-        return this.promise;
-      }
-    }, {
-      key: "addShapes",
-      value: function addShapes() {
-        var _this$shapes;
-        (_this$shapes = this.shapes).push.apply(_this$shapes, arguments);
-      }
-    }, {
-      key: "complete",
-      value: function complete() {
-        var _a;
-        if (this.shapes.length) {
-          return false;
-        }
-        (_a = this.resolvePromise) === null || _a === void 0 ? void 0 : _a.call(this);
-        return true;
-      }
-    }, {
-      key: "processShapes",
-      value: function processShapes(time, canvasHeight, cleanupInvisibleShapes) {
-        var _this2 = this;
-        var timeDelta = time.timeDelta, currentTime = time.currentTime;
-        this.shapes = this.shapes.filter(function(shape) {
-          shape.updatePosition(timeDelta, currentTime);
-          shape.draw(_this2.canvasContext);
-          if (!cleanupInvisibleShapes) {
-            return true;
-          }
-          return shape.getIsVisibleOnCanvas(canvasHeight);
-        });
-      }
-    }]);
-    return ConfettiBatch2;
-  }();
-  var JSConfetti = /* @__PURE__ */ function() {
-    function JSConfetti2() {
-      var jsConfettiConfig = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-      _classCallCheck(this, JSConfetti2);
-      this.activeConfettiBatches = [];
-      this.canvas = jsConfettiConfig.canvas || createCanvas();
-      this.canvasContext = this.canvas.getContext("2d");
-      this.requestAnimationFrameRequested = false;
-      this.lastUpdated = new Date().getTime();
-      this.iterationIndex = 0;
-      this.loop = this.loop.bind(this);
-      requestAnimationFrame(this.loop);
-    }
-    _createClass(JSConfetti2, [{
-      key: "loop",
-      value: function loop2() {
-        this.requestAnimationFrameRequested = false;
-        fixDPR(this.canvas);
-        var currentTime = new Date().getTime();
-        var timeDelta = currentTime - this.lastUpdated;
-        var canvasHeight = this.canvas.offsetHeight;
-        var cleanupInvisibleShapes = this.iterationIndex % 10 === 0;
-        this.activeConfettiBatches = this.activeConfettiBatches.filter(function(batch) {
-          batch.processShapes({
-            timeDelta,
-            currentTime
-          }, canvasHeight, cleanupInvisibleShapes);
-          if (!cleanupInvisibleShapes) {
-            return true;
-          }
-          return !batch.complete();
-        });
-        this.iterationIndex++;
-        this.queueAnimationFrameIfNeeded(currentTime);
-      }
-    }, {
-      key: "queueAnimationFrameIfNeeded",
-      value: function queueAnimationFrameIfNeeded(currentTime) {
-        if (this.requestAnimationFrameRequested) {
-          return;
-        }
-        if (this.activeConfettiBatches.length < 1) {
-          return;
-        }
-        this.requestAnimationFrameRequested = true;
-        this.lastUpdated = currentTime || new Date().getTime();
-        requestAnimationFrame(this.loop);
-      }
-    }, {
-      key: "addConfetti",
-      value: function addConfetti() {
-        var confettiConfig = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
-        var _normalizeConfettiCon = normalizeConfettiConfig(confettiConfig), confettiRadius = _normalizeConfettiCon.confettiRadius, confettiNumber = _normalizeConfettiCon.confettiNumber, confettiColors = _normalizeConfettiCon.confettiColors, emojis = _normalizeConfettiCon.emojis, emojiSize = _normalizeConfettiCon.emojiSize;
-        var canvasRect = this.canvas.getBoundingClientRect();
-        var canvasWidth = canvasRect.width;
-        var canvasHeight = canvasRect.height;
-        var yPosition = canvasHeight * 5 / 7;
-        var leftConfettiPosition = {
-          x: 0,
-          y: yPosition
-        };
-        var rightConfettiPosition = {
-          x: canvasWidth,
-          y: yPosition
-        };
-        var confettiGroup = new ConfettiBatch(this.canvasContext);
-        for (var i4 = 0; i4 < confettiNumber / 2; i4++) {
-          var confettiOnTheRight = new ConfettiShape({
-            initialPosition: leftConfettiPosition,
-            direction: "right",
-            confettiRadius,
-            confettiColors,
-            confettiNumber,
-            emojis,
-            emojiSize,
-            canvasWidth
-          });
-          var confettiOnTheLeft = new ConfettiShape({
-            initialPosition: rightConfettiPosition,
-            direction: "left",
-            confettiRadius,
-            confettiColors,
-            confettiNumber,
-            emojis,
-            emojiSize,
-            canvasWidth
-          });
-          confettiGroup.addShapes(confettiOnTheRight, confettiOnTheLeft);
-        }
-        this.activeConfettiBatches.push(confettiGroup);
-        this.queueAnimationFrameIfNeeded();
-        return confettiGroup.getBatchCompletePromise();
-      }
-    }, {
-      key: "clearCanvas",
-      value: function clearCanvas() {
-        this.activeConfettiBatches = [];
-      }
-    }, {
-      key: "destroyCanvas",
-      value: function destroyCanvas() {
-        this.canvas.remove();
-      }
-    }]);
-    return JSConfetti2;
-  }();
-  var es_default = JSConfetti;
-
   // src/js/site.js
-  var canvas = document.getElementById("confetti-canvas");
-  var button = document.getElementById("confetti-button");
-  if (canvas && button) {
-    const jsConfetti = new es_default({ canvas });
-    setTimeout(() => {
-      jsConfetti.addConfetti({
-        confettiColors: ["#7A75DF", "#F3BD2C", "#5FA87D", "#BCDEC6", "#F9E48E", "#CED3F7", "#3E3877", "#743713", "#1A3A2B"]
-      });
-    }, 1500);
-    button.addEventListener("click", () => {
-      jsConfetti.addConfetti({
-        confettiColors: ["#7A75DF", "#F3BD2C", "#5FA87D", "#BCDEC6", "#F9E48E", "#CED3F7", "#3E3877", "#743713", "#1A3A2B"]
-      });
-    });
-  }
-  var swup = new _({
-    containers: ["#swup"],
-    plugins: [
-      new l2({ preloadVisibleLinks: false, preloadInitialPage: false }),
-      new q2({
-        debug: true,
-        rules: [
-          {
-            from: "/timeline(.*)",
-            to: "/timeline-item(.*)",
-            containers: ["#swup-modal"],
-            name: "open-modal"
-          },
-          {
-            from: "/timeline-item(.*)",
-            to: "/timeline(.*)",
-            containers: ["#swup-modal"],
-            name: "close-modal"
-          }
-        ]
-      })
-    ]
-  });
-  window.swup = swup;
   window.Alpine = module_default;
   module_default.plugin(module_default2);
   module_default.start();

@@ -44,12 +44,10 @@ ol:not([class]) {
 	p a,
 	ul a,
 	ol a,
-	a.link
-	 {
-		@apply underline transition underline-offset-2 decoration-1 hover:text-primary-300 transition;
+	a.link {
+		@apply underline transition underline-offset-2 decoration-1 hover:text-primary-light transition;
 	}
 }
-
 
 strong {
 	@apply font-semibold;

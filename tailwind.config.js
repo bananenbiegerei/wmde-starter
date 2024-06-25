@@ -11,7 +11,7 @@ module.exports = {
 			pattern: /text-(xs|sm|lg|xl)/,
 		},
 		{
-			pattern: /(bg|text)-(primary|secondary|neutral|accent|warning|success|error)-/,
+			pattern: /(bg|text|border)-(white|black|primary|secondary|neutral|accent|warning|success|error)/,
 		},
 	],
 	theme: {
@@ -96,6 +96,12 @@ module.exports = {
 			defaultTheme: {
 				extend: {
 					colors: {
+						black: {
+							DEFAULT: 'black',
+						},
+						white: {
+							DEFAULT: 'white',
+						},
 						primary: {
 							DEFAULT: '#000099',
 							light: '#000033',
@@ -126,21 +132,35 @@ module.exports = {
 							800: '#383838',
 							900: '#000000',
 						},
+						neutral: {
+							light: '#F8f8f8',
+							DEFAULT: '#F6F6F6',
+							dark: '#a0a0a0',
+							50: '#f7f7f7',
+							100: '#DCDCDC',
+							200: '#c8c8c8',
+							300: '#a4a4a4',
+							400: '#797979',
+							500: '#666666',
+							600: '#515151',
+							700: '#434343',
+							800: '#383838',
+							900: '#313131',
+						},
 						accent: {
+							light: '#2878ff',
+							DEFAULT: '#2878ff',
+							dark: '#2878ff',
 							50: '#e7f6ff',
 							100: '#d3efff',
 							200: '#b0dfff',
 							300: '#81c8ff',
 							400: '#4fa1ff',
 							500: '#2878ff',
-							DEFAULT: '#2878ff',
 							600: '#044bff',
 							700: '#0049ff',
 							800: '#0038c4',
 							900: '#0b3aa4',
-						},
-						black: {
-							DEFAULT: 'black',
 						},
 						error: {
 							50: '#fff0f2',
@@ -155,19 +175,6 @@ module.exports = {
 							700: '#cb0544',
 							800: '#B0003E',
 							900: '#910a3d',
-						},
-						neutral: {
-							50: '#f7f7f7',
-							100: '#DCDCDC',
-							200: '#c8c8c8',
-							300: '#a4a4a4',
-							400: '#797979',
-							DEFAULT: '#F6F6F6',
-							500: '#666666',
-							600: '#515151',
-							700: '#434343',
-							800: '#383838',
-							900: '#313131',
 						},
 						success: {
 							50: '#edfcf4',

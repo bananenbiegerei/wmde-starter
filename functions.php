@@ -33,17 +33,8 @@ require_once get_template_directory() . '/functions/custom-taxonomies.php';
 // Excerpts
 require_once get_template_directory() . '/functions/excerpts.php';
 
-// Block converter and unsupported blocks
-//require_once get_template_directory() . '/functions/block-converter.php';
-
 // Search
 require_once get_template_directory() . '/functions/search.php';
 
-// Fixes
-require_once get_template_directory() . '/functions/fixes.php';
-
 // Blog related
 require_once get_template_directory() . '/functions/comments-functions.php';
-
-// Events related
-require_once get_template_directory() . '/functions/events-calendar.php';

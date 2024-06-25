@@ -258,7 +258,7 @@
 		}
 
 		&.btn-neutral {
-			@apply text-black hover:border-black hover:bg-neutral-200 hover:text-black;
+			@apply text-black hover:border-black hover:bg-neutral-light hover:text-black;
 
 			&.btn-active {
 				@apply border-secondary-600 bg-secondary-600 text-secondary-700;

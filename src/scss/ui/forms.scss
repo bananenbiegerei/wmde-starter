@@ -2,23 +2,23 @@ input[type='text'],
 input[type='email'],
 input[type='password'],
 input[type='date'] {
-	@apply block w-full rounded-md border-neutral-300 shadow-sm focus:border-accent-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 mb-2;
+	@apply block w-full rounded-md border-neutral-light shadow-sm focus:border-accent-light focus:ring focus:ring-primary-light focus:ring-opacity-50 mb-2;
 }
 
 select,
 .form-select {
-	@apply block w-full rounded-md border-neutral-300 shadow-sm focus:border-accent-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-no-repeat;
+	@apply block w-full rounded-md border-neutral-light shadow-sm focus:border-accent-light focus:ring focus:ring-primary-light focus:ring-opacity-50 bg-no-repeat;
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6 1.414-1.414L10 9.172l4.586-4.586L16 6z"/></svg>');
 	background-position: right 0.5rem center;
 	background-size: 1.5em;
 }
 
 textarea {
-	@apply block w-full rounded-md border-neutral-300 shadow-sm focus:border-accent-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50;
+	@apply block w-full rounded-md border-neutral-light shadow-sm focus:border-accent-light focus:ring focus:ring-primary-light focus:ring-opacity-50;
 }
 
 input[type='checkbox'] {
-	@apply rounded border-neutral-300 text-primary shadow-sm focus:border-accent-300 focus:ring focus:ring-offset-0 focus:ring-primary-200 focus:ring-opacity-50;
+	@apply rounded border-neutral-light text-primary shadow-sm focus:border-accent-light focus:ring focus:ring-offset-0 focus:ring-primary-light focus:ring-opacity-50;
 }
 input[type='submit'] {
 	@apply btn;

@@ -19,16 +19,15 @@ if (post_password_required()) {
         <li <?php comment_class('border rounded p-4'); ?> id="li-comment-<?php comment_ID(); ?>">
             <div id="comment-<?php comment_ID(); ?>">
                 <?php if ($comment->comment_approved == '0'): ?>
-                <em class="block bg-warning-300 p-4 rounded"><?php _e('Your comment is awaiting moderation.', BB_TEXT_DOMAIN); ?></em>
+                <em class="block bg-warning-light p-4 rounded"><?php _e('Dein Kommentar wartet auf Moderation.', BB_TEXT_DOMAIN); ?></em>
                 <br />
                 <?php endif; ?>
                 <div class="comment-author flex gap-4 mb-4">
                     <?php printf(__('<cite class="font-bold">%s</cite>', BB_TEXT_DOMAIN), get_comment_author_link()); ?>
-                    <div class="comment-meta text-neutral-500">
+                    <div class="comment-meta text-neutral">
                         <?php
                         printf(__('%1$s um %2$s', BB_TEXT_DOMAIN), get_comment_date(), get_comment_time());
-                edit_comment_link(__('(Bearbeiten)', BB_TEXT_DOMAIN), '  ', '');
-                ?>
+                edit_comment_link(__('(Bearbeiten)', BB_TEXT_DOMAIN), '  ', ''); ?>
                     </div>
                 </div>
 
