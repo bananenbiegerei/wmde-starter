@@ -8958,6 +8958,9 @@
               extend: {
                 colors: {
                   primary: {
+                    DEFAULT: "#000099",
+                    light: "#000033",
+                    dark: "#0000ff",
                     50: "#e5eeff",
                     100: "#cfe0ff",
                     200: "#a9c3ff",
@@ -8967,12 +8970,13 @@
                     600: "#0008ff",
                     700: "#0009ff",
                     800: "#0008e3",
-                    900: "#000094",
-                    DEFAULT: "#000068"
+                    900: "#000094"
                   },
                   secondary: {
+                    DEFAULT: "#009900",
+                    light: "#003300",
+                    dark: "#00ff00",
                     50: "#f7f7f7",
-                    DEFAULT: "#f7f7f7",
                     100: "#e3e3e3",
                     200: "#c8c8c8",
                     300: "#a4a4a4",
@@ -9038,18 +9042,6 @@
                     800: "#095c3f",
                     900: "#084c35"
                   },
-                  accent: {
-                    50: "#fcffe5",
-                    100: "#f5ffc8",
-                    DEFAULT: "#ebff9a",
-                    300: "#d8fb5b",
-                    400: "#c4f229",
-                    500: "#a5d80a",
-                    600: "#80ad03",
-                    700: "#608308",
-                    800: "#4d670d",
-                    900: "#415710"
-                  },
                   warning: {
                     50: "#fffaec",
                     100: "#fff3d3",
@@ -9065,86 +9057,7 @@
                   }
                 }
               }
-            },
-            themes: [
-              {
-                name: "team-members-scheme",
-                extend: {
-                  colors: {
-                    palerose: {
-                      DEFAULT: "#FBC5B4"
-                    },
-                    palepurple: {
-                      DEFAULT: "#E0D3FF"
-                    },
-                    palepeach: {
-                      DEFAULT: "#FADAB6"
-                    },
-                    palecyan: {
-                      DEFAULT: "#D4E9DE"
-                    },
-                    palepink: {
-                      DEFAULT: "#F7DAEF"
-                    },
-                    paleblue: {
-                      DEFAULT: "#C0D8F4"
-                    },
-                    palegreen: {
-                      DEFAULT: "#E3F9D6"
-                    },
-                    default: {
-                      DEFAULT: "#d5d2d7"
-                    }
-                  }
-                }
-              },
-              {
-                name: "orga-scheme",
-                extend: {
-                  colors: {
-                    red: {
-                      DEFAULT: "#D04425"
-                    },
-                    cyan: {
-                      DEFAULT: "#00B9FF"
-                    },
-                    blue: {
-                      DEFAULT: "#3A25FF",
-                      200: "#EEEAFF"
-                    },
-                    black: {
-                      DEFAULT: "#000"
-                    }
-                  }
-                }
-              },
-              {
-                name: "white-scheme",
-                extend: {
-                  colors: {
-                    primary: {
-                      DEFAULT: "#fff"
-                    },
-                    black: {
-                      DEFAULT: "#fff"
-                    }
-                  }
-                }
-              },
-              {
-                name: "default-scheme",
-                extend: {
-                  colors: {
-                    primary: {
-                      DEFAULT: "#000068"
-                    },
-                    black: {
-                      DEFAULT: "black"
-                    }
-                  }
-                }
-              }
-            ]
+            }
           })
         ]
       };
