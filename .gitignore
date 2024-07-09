@@ -7,3 +7,5 @@
 /.nova
 /.nova/Configuration.json
 .vscode/ftp-sync.json
+css/editor.css.map
+css/site.css.map
