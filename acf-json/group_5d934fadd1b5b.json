@@ -99,7 +99,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 0,
+            "max": 3,
             "collapsed": "",
             "button_label": "Eintrag hinzufügen",
             "rows_per_page": 20,
@@ -140,7 +140,8 @@
                         "secondary": "secondary",
                         "error": "error",
                         "warning": "warning",
-                        "success": "success"
+                        "success": "success",
+                        "accent": "accent"
                     },
                     "default_value": "primary",
                     "return_format": "value",
@@ -1088,5 +1089,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720600332
+    "modified": 1720601246
 }
