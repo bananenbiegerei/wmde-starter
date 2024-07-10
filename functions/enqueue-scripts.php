@@ -42,3 +42,15 @@ add_action(
 	},
 	999
 );
+
+// style for wysiwyg editor
+function bb_add_custom_editor_styles( $mce_css ) {
+    if ( ! empty( $mce_css ) )
+        $mce_css .= ',';
+
+    // Adjust the path to where your custom CSS file is located
+    $mce_css .= get_template_directory_uri() . '/css/editor.css';
+
+    return $mce_css;
+}
+add_filter( 'mce_css', 'bb_add_custom_editor_styles' );

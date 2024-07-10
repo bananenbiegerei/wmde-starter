@@ -26,7 +26,6 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
             <a class="btn btn-<?php echo $link_color; ?>" href="<?php echo esc_url( $link['url'] ); ?>"
                 target="<?php echo esc_attr( $link['target'] ); ?>"><?php echo esc_html( $link['title'] ); ?></a>
             <?php endif; ?>
-
             <?php endwhile; ?>
             <?php endif; ?>
         </ul>
