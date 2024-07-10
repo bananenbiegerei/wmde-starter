@@ -1,5 +1,5 @@
 <div class="relative">
-    <div class="bb-image-block aspect-w-16 aspect-h-9 bg-neutral-light rounded-3xl">
+    <div class="bb-block-image aspect-w-16 aspect-h-9 bg-neutral-light rounded-3xl">
         <figure class="w-full w-full">
             <?php the_post_thumbnail('large', ['class' => 'rounded-3xl object-cover w-full h-full overflow-hidden']); ?>
             <?php if (bbWikimediaCommonsMedia::has_post_thumbnail_caption()): ?>

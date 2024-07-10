@@ -60,7 +60,7 @@ html :where(.wp-block) {
 		}
 	}
 
-	.bb-spacer-block {
+	.bb-block-spacer {
 		@apply after:content-['_spacer'] after:absolute after:top-2 after:right-8 after:bg-neutral-light after:py-1 after:px-3 text-xs after:rounded-full after:block border border-neutral-light rounded-xl border-dotted;
 	}
 }

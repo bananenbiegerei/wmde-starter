@@ -7,3 +7,13 @@
 .bb-container-default {
 	@apply col-span-12 lg:col-span-10 lg:col-start-2;
 }
+
+// Add padding to specific blocks that require it in full width
+
+.content > div[class*='bb-block-'] {
+	@apply px-5;
+}
+
+.content > div.bb-fullwidth-no-padding {
+	@apply px-0;
+}

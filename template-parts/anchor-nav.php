@@ -6,7 +6,7 @@ let anchorNav = () => ({
     // Init anchor-nav
     init() {
         // Find all headline blocks that have an anchor title
-        for (const h of document.querySelectorAll(".bb-headline-block:not([data-anchor-title=''])")) {
+        for (const h of document.querySelectorAll(".bb-block-heading:not([data-anchor-title=''])")) {
             this.anchors.push({
                 'id': h.querySelector('.anchor-offset').id,
                 'title': h.getAttribute('data-anchor-title'),
@@ -40,7 +40,7 @@ let anchorNav = () => ({
         // Adjust vertical offset of sticky anchor-nav and vertical offset of anchors (during window resize)
         window.addEventListener('resize', (e) => {
             document.getElementById('anchor-nav').style.top = this.calcTopNavOffset() + 'px';
-            for (const h of document.querySelectorAll(".bb-headline-block:not([data-anchor-title='']) .anchor-offset")) {
+            for (const h of document.querySelectorAll(".bb-block-heading:not([data-anchor-title='']) .anchor-offset")) {
                 h.style.transform = 'translateY(-' + this.getAnchorOffset() + 'px)';
             }
         });
@@ -159,7 +159,7 @@ SwipersConfig['#anchor-nav'] = {
     on: {
         init: function() {
             // Adjust vertical offset of anchor
-            for (const h of document.querySelectorAll(".bb-headline-block:not([data-anchor-title='']) .anchor-offset")) {
+            for (const h of document.querySelectorAll(".bb-block-heading:not([data-anchor-title='']) .anchor-offset")) {
                 h.style.transform = 'translateY(-' + anchorNav().getAnchorOffset() + 'px)';
             }
         }
