@@ -11,32 +11,40 @@ add_filter(
     3
 );
 
-
-
-
+define('BB_CONTAINER_WIDTHS', [
+    'default' => 'Default',
+    'wide' => 'Wide',
+    'full' => 'Full Width'
+]);
 
 define('BB_WIDTH_FIELD', 'container_width');
 
 define(
     'BB_WIDTH_CLASSES',
     [
-        'wide' => 'col-span-12' ,
-        'default' => 'col-span-12 lg:col-span-10 lg:col-start-2'
+        'wide' => 'bb-container-wide' ,
+        'default' => 'bb-container-default',
     ]
 );
-
-
 
 // Magically wrap blocks with a container to implement page layout
 add_filter(
     'render_block',
     function ($block_content, $block) {
-        $width = $block['attrs']['data']['container_width'] ?? 'default';
+        $width = 'default';
+        foreach ($block['attrs']['data'] ?? [] as $key => $value) {
+            if ($key === BB_WIDTH_FIELD || (str_ends_with($key, '_' . BB_WIDTH_FIELD) && !str_starts_with($key, '_'))) {
+                $width = $value;
+            }
+        }
 
+        // Full width blocks get no containers
         if ($width == 'full') {
             return $block_content;
         }
 
+
+        // If the block has a parent,
         if ($block['parentBlock']) {
             $parent_width = $block['parentBlock']->parsed_block['attrs']['data'][BB_WIDTH_FIELD];
             if ($parent_width != 'full') {
@@ -168,3 +176,9 @@ add_filter(
     10,
     2
 );
+
+// Add options for block width
+add_filter('acf/load_field/name=container_width', function ($field) {
+    $field['choices'] = BB_CONTAINER_WIDTHS;
+    return $field;
+});
