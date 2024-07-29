@@ -1,27 +1,27 @@
-has-warning-50-color {
-	@apply text-warning-50;
+.has-warning-50-color {
+	@apply text-warning-light;
 }
-has-white-color {
+.has-white-color {
 	@apply text-white;
 }
-has-primary-50-color {
-	@appply text-primary-50;
+.has-primary-50-color {
+	@appply text-primary-light;
 }
-has-neutral-color {
+.has-neutral-color {
 	@apply text-neutral;
 }
 
-has-warning-50-background-color {
-	@apply bg-warning-50;
+.has-warning-50-background-color {
+	@apply bg-warning-light;
 }
-has-white-background-color {
-	@apply bg-warning-50;
-}
-
-has-primary-50-background-color {
-	@appply bg-primary-50;
+.has-white-background-color {
+	@apply bg-warning-light;
 }
 
-has-neutral-background-color {
+.has-primary-50-background-color {
+	@appply bg-primary-light;
+}
+
+.has-neutral-background-color {
 	@apply bg-neutral;
 }

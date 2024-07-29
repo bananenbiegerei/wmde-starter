@@ -1,5 +1,10 @@
 <?php
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+
 // Polyfills (provides a few functions not yet in PHP7)
 require_once get_template_directory() . '/functions/polyfills.php';
 
@@ -25,10 +30,6 @@ require_once get_template_directory() . '/functions/menu.php';
 
 // Icon dispenser
 require_once get_template_directory() . '/functions/icons.php';
-
-// Custom posts and taxonomies
-require_once get_template_directory() . '/functions/custom-posts.php';
-require_once get_template_directory() . '/functions/custom-taxonomies.php';
 
 // Excerpts
 require_once get_template_directory() . '/functions/excerpts.php';
