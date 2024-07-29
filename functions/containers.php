@@ -30,7 +30,7 @@ define(
     ]
 );
 
-// Add parent block to a block (to avoid getting a container during render_block)
+// Add parent block information to blocks (to avoid getting a container during render_block)
 add_filter(
     'render_block_data',
     function ($parsed_block, $source_block, $parent_block) {
@@ -42,6 +42,7 @@ add_filter(
 );
 
 
+// Get ACF value for block width (looking for BB_WIDTH_FIELD)
 function bb_get_block_width($block)
 {
     $width = 'default';

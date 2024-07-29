@@ -8,12 +8,15 @@
 	@apply col-span-12 lg:col-span-10 lg:col-start-2;
 }
 
-// Add padding to specific blocks that require it in full width
+.bb-group-padding {
+	@apply p-5;
+}
 
+// Add padding to specific blocks that require it in full width
 .content > div[class*='bb-block-'] {
-	@apply px-5;
+	@apply bb-group-padding;
 }
 
 .content > div.bb-fullwidth-no-padding {
-	@apply px-0;
+	@apply p-0;
 }
