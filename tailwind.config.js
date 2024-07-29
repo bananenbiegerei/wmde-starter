@@ -43,10 +43,9 @@ module.exports = {
 			sans: ['Roboto', 'sans-serif'],
 		},
 		fontWeight: {
-			normal: 300,
 			robotonormal: 320,
-			medium: 400,
-			semibold: 500,
+			normal: 300,
+			medium: 500,
 			bold: 700,
 		},
 		extend: {
