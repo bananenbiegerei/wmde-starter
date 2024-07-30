@@ -1,31 +1,29 @@
 @font-face {
-	font-family: 'Montserrat';
+	font-family: 'Headings';
 	font-style: normal;
 	font-weight: 300;
 	src: url('../fonts/montserrat-v25-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
-	font-family: 'Montserrat';
+	font-family: 'Headings';
 	font-style: normal;
 	font-weight: 500;
 	src: url('../fonts/montserrat-v25-latin-500.woff2') format('woff2');
 }
 
-/* montserrat-700 - latin */
 @font-face {
-	font-family: 'Montserrat';
+	font-family: 'Headings';
 	font-style: normal;
 	font-weight: 700;
 	src: url('../fonts/montserrat-v25-latin-700.woff2') format('woff2');
 }
 
-// Roboto Variable Font
-/* roboto-flex-regular - latin */
 @font-face {
-	font-family: 'Roboto';
+	font-family: 'Texts';
 	font-style: normal;
 	font-weight: 100 700;
 	font-display: swap;
+	//src: url('../fonts/PlaywriteAR-VariableFont_wght.ttf') format('truetype');
 	src: url('../fonts/RobotoFlex.woff2') format('woff2');
 }

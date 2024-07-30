@@ -19,6 +19,9 @@ require_once get_template_directory() . '/functions/features.php';
 // Load ACF blocks
 require_once get_template_directory() . '/functions/acf-blocks.php';
 
+// Custom fonts
+require_once get_template_directory() . '/functions/fonts.php';
+
 // Wrap blocks with containers for page layout
 require_once get_template_directory() . '/functions/containers.php';
 

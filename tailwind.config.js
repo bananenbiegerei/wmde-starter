@@ -39,8 +39,8 @@ module.exports = {
 			'3vw': '10vw',
 		},
 		fontFamily: {
-			alt: ['Montserrat', 'sans-serif'],
-			sans: ['Roboto', 'sans-serif'],
+			headings: ['Headings', 'sans-serif'],
+			texts: ['Texts', 'sans-serif'],
 		},
 		fontWeight: {
 			robotonormal: 320,

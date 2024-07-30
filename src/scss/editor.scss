@@ -18,7 +18,7 @@ html :where(.editor-styles-wrapper) {
 	h4,
 	h5,
 	h6 {
-		@apply font-medium font-alt;
+		@apply font-medium font-headings;
 	}
 }
 
@@ -43,7 +43,7 @@ html :where(.wp-block) {
 
 .editor-styles-wrapper,
 :where(.editor-styles-wrapper) {
-	@apply container font-sans bg-transparent;
+	@apply container font-texts bg-transparent;
 	.bb-facts-block {
 		> div {
 			height: 8rem;
@@ -56,7 +56,7 @@ html :where(.wp-block) {
 		}
 		p {
 			line-height: 0;
-			@apply font-sans;
+			@apply font-texts;
 		}
 	}
 

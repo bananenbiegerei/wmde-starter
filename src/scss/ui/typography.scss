@@ -5,7 +5,7 @@ h3,
 h4,
 h5,
 h6 {
-	@apply font-alt leading-tight mb-2 font-medium;
+	@apply font-headings leading-tight mb-2 font-medium;
 }
 h1,
 .h1 {
@@ -37,7 +37,7 @@ ol:not([class]) {
 	@apply leading-normal text-lg lg:text-xl font-robotonormal mb-6 max-w-4xl;
 }
 .topline {
-	@apply uppercase font-bold font-alt text-sm text-primary;
+	@apply uppercase font-bold font-headings text-sm text-primary;
 }
 
 .main-content {
