@@ -178,7 +178,12 @@ document.addEventListener('alpine:init', () => {
 
         <!-- Pointer to domain button -->
         <div class="z-20 absolute pointer-events-none" id="pointer" x-show="showPointer">
-            <img class="object-cover h-full w-full drop-shadow-xs" src="<?php echo get_stylesheet_directory_uri(); ?>/img/header-top/pointer-top.svg" alt="Wikimedia Logo">
+            <div class="object-cover h-full w-full drop-shadow-xs text-neutral-light" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 8L0 20H20L10 8Z" fill="white" />
+                    <path d="M0 20L10 8L20 20" stroke="currentColor" />
+                </svg>
+            </div>
         </div>
 
         <!-- For each domain... -->
