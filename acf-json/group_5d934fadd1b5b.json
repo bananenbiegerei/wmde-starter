@@ -37,7 +37,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 0,
+            "max": 7,
             "collapsed": "",
             "button_label": "Eintrag hinzufügen",
             "rows_per_page": 20,
@@ -1049,7 +1049,7 @@
             "name": "fonts_h",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "To find and use fonts please move them into the fonts folder in the theme",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1079,17 +1079,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/RobotoFlex.woff2": "RobotoFlex.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-VariableFont_wght.ttf": "PlaywriteAR-VariableFont_wght.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-regular.woff2": "montserrat-v25-latin-regular.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-700.woff2": "montserrat-v25-latin-700.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-500.woff2": "montserrat-v25-latin-500.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Regular.ttf": "Gupter-Regular.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Medium.ttf": "Gupter-Medium.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Bold.ttf": "Gupter-Bold.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-Regular.ttf": "PlaywriteAR-Regular.ttf"
-                    },
+                    "choices": [],
                     "default_value": false,
                     "return_format": "array",
                     "multiple": 0,
@@ -1136,7 +1126,7 @@
             "name": "fonts_t",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "To find and use fonts please move them into the fonts folder in the theme",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1166,17 +1156,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/RobotoFlex.woff2": "RobotoFlex.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-VariableFont_wght.ttf": "PlaywriteAR-VariableFont_wght.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-regular.woff2": "montserrat-v25-latin-regular.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-700.woff2": "montserrat-v25-latin-700.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-500.woff2": "montserrat-v25-latin-500.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Regular.ttf": "Gupter-Regular.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Medium.ttf": "Gupter-Medium.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Bold.ttf": "Gupter-Bold.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-Regular.ttf": "PlaywriteAR-Regular.ttf"
-                    },
+                    "choices": [],
                     "default_value": false,
                     "return_format": "array",
                     "multiple": 0,
@@ -1282,5 +1262,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722503094
+    "modified": 1723550423
 }
