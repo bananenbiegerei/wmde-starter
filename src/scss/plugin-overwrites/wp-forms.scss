@@ -5,13 +5,13 @@
 		@apply max-w-full;
 	}
 	input {
-		@apply form-input rounded-xl bg-warning-500;
+		@apply form-input rounded-xl bg-warning;
 	}
 	button.wpforms-submit,
 	button[type='submit'],
 	.wpforms-form button[type='submit'],
 	button.wpforms-page-button {
-		@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1 text-xl text-white hover:bg-primary-900 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 transition px-2 py-0.5 text-lg lg:px-2 lg:py-1 lg:text-xl w-auto cursor-pointer #{!important};
+		@apply inline-flex items-center rounded-md border border-transparent bg-primary px-2 py-1 text-xl text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 transition px-2 py-0.5 text-lg lg:px-2 lg:py-1 lg:text-xl w-auto cursor-pointer #{!important};
 	}
 	[type='text'],
 	[type='email'],
@@ -51,6 +51,6 @@
 		@apply bg-primary #{!important};
 	}
 	.wpforms-field-description {
-		@apply text-neutral-300;
+		@apply text-neutral-light;
 	}
 }

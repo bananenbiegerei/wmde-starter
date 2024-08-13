@@ -12,7 +12,7 @@ get_header(); ?>
 				  <?php get_template_part('template-parts/breadcrumbs'); ?>
 					<h1 class="text-2xl lg:text-5xl pt-5"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
-					  <div class="font-alt text-xl font-normal">
+					  <div class="font-headings text-xl font-normal">
 						<?php the_excerpt(); ?>
 					  </div>
 					<?php endif; ?>
@@ -38,7 +38,7 @@ get_header(); ?>
 				  <?php get_template_part('template-parts/breadcrumbs'); ?>
 					<h1 class="text-2xl lg:text-5xl"><?php the_title(); ?></h1>
 					<?php if (has_excerpt()): ?>
-					  <div class="font-alt text-xl font-normal">
+					  <div class="font-headings text-xl font-normal">
 						<?php the_excerpt(); ?>
 					  </div>
 					<?php endif; ?>
