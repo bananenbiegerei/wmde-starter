@@ -175,7 +175,13 @@
 		}
 	}
 
-	&-error,
+	&-error {
+		@apply border-error bg-error text-white outline-error hover:border-error-light hover:bg-error-light;
+
+		&.btn-active {
+			@apply border-error-dark bg-error-dark;
+		}
+	}
 	&-warning {
 		@apply border-warning bg-warning text-white outline-warning hover:border-warning-400 hover:bg-warning-400;
 

@@ -1,13 +1,14 @@
-<div class="grid grid-cols-4 gap-8 my-12" x-data="{ colors: ['primary', 'secondary', 'accent', 'neutral', 'error', 'success', 'warning'] }">
+<div class="grid grid-cols-4 gap-8 my-12" x-data="{ colors: ['white', 'black', 'primary', 'secondary', 'accent', 'neutral', 'error', 'success', 'warning'] }">
     <template x-for="(color, index) in colors" :key="index">
-        <div :class="`bg-${color}-500 p-4`">
+        <div :class="`bg-${color} p-4`">
             <p x-text="color"></p>
-            <div x-data="{ shades: [900, 800, 700, 600, 500, 400, 300, 200, 100] }">
-                <div class="grid grid-cols-6">
+            <div x-data="{ shades: ['dark', 'light'] }">
+                <div class="grid grid-cols-2"> <!-- Adjusted grid-cols based on the number of items -->
                     <template x-for="shade in shades">
-                        <div :class="`bg-${color}-${shade} p-2 flex justify-center items-center`" x-text="shade"></div>
+                        <div class="p-2 text-center" :class="`bg-${color}-${shade}`" x-text="shade"></div>
                     </template>
                 </div>
             </div>
+        </div>
     </template>
 </div>

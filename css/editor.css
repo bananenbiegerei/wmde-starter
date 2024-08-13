@@ -1202,9 +1202,6 @@ select{
 .grid-cols-5{
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-.grid-cols-6{
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
 .flex-col{
   flex-direction: column;
 }
@@ -16415,7 +16412,28 @@ html[data-theme] *:focus:focus{
   --tw-bg-opacity: 1;
   background-color: rgba(var(--colors-warning), var(--tw-bg-opacity));
 }
-.btn-error, .btn-warning{
+.btn-error{
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--colors-error), var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--colors-error), var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(var(--colors-white), var(--tw-text-opacity));
+  outline-color: rgb(var(--colors-error));
+}
+.btn-error:hover{
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--colors-error-light), var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--colors-error-light), var(--tw-bg-opacity));
+}
+.btn-error.btn-active{
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--colors-error-dark), var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--colors-error-dark), var(--tw-bg-opacity));
+}
+.btn-warning{
   --tw-border-opacity: 1;
   border-color: rgba(var(--colors-warning), var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -16424,13 +16442,13 @@ html[data-theme] *:focus:focus{
   color: rgba(var(--colors-white), var(--tw-text-opacity));
   outline-color: rgb(var(--colors-warning));
 }
-.btn-error:hover, .btn-warning:hover{
+.btn-warning:hover{
   --tw-border-opacity: 1;
   border-color: rgba(var(--colors-warning-400), var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgba(var(--colors-warning-400), var(--tw-bg-opacity));
 }
-.btn-error.btn-active, .btn-warning.btn-active{
+.btn-warning.btn-active{
   --tw-border-opacity: 1;
   border-color: rgba(var(--colors-warning), var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -16793,6 +16811,21 @@ html[data-theme] *:focus:focus{
     transform: scale(1);
   }
 }
+.bb-container-wide{
+  grid-column: span 12 / span 12;
+}
+
+.bb-container-default{
+  grid-column: span 12 / span 12;
+}
+
+@media (min-width: 1024px){
+  .bb-container-default{
+    grid-column: span 10 / span 10;
+    grid-column-start: 2;
+  }
+}
+
 .text-hover-effect:hover h1,
 .text-hover-effect:hover h2,
 .text-hover-effect:hover h3,
@@ -18882,10 +18915,6 @@ html :where(.wp-block){
   }
   .md\:border-r{
     border-right-width: 1px;
-  }
-  .md\:bg-success{
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--colors-success), var(--tw-bg-opacity));
   }
   .md\:pt-0{
     padding-top: 0px;
