@@ -128,9 +128,8 @@
 		}
 	}
 
-	&-accent,
 	&-accent {
-		@apply border-accent bg-accent text-accent-dark outline-accent;
+		@apply border-accent bg-accent text-white outline-accent;
 
 		@media (hover: hover) {
 			&:hover {
