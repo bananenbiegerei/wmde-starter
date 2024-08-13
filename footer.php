@@ -3,9 +3,11 @@
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="border-t-2 border-b border-b-neutral-light py-8 mb-12 lg:mb-0">
         <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-20">
-            <div>
-                <?php get_template_part('template-parts/social-media-menu'); ?>
-            </div>
+            <?php if ( get_field('social_media_links', 'option') ) : ?>
+                <div>
+                    <?php get_template_part('template-parts/social-media-menu'); ?>
+                </div>
+            <?php endif; ?>
             <?php if ( have_rows( 'contacts', 'option' ) ) : ?>
             <?php while ( have_rows( 'contacts', 'option' ) ) : the_row(); ?>
             <div>
