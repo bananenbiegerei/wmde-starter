@@ -43,7 +43,6 @@ module.exports = {
 			texts: ['Texts', 'sans-serif'],
 		},
 		fontWeight: {
-			robotonormal: 320,
 			normal: 300,
 			medium: 500,
 			bold: 700,

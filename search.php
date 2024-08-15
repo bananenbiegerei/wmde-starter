@@ -116,7 +116,7 @@ asort($post_types);
                             <?php if ($result['date']): ?>
                             <div class="text-sm"><?php echo $result['date']; ?></div>
                             <?php endif; ?>
-                            <div class="text-sm font-headings font-normal"><?php echo $result['excerpt']; ?></div>
+                            <div class="text-sm"><?php echo $result['excerpt']; ?></div>
                         </div>
                     </div>
                 </a>

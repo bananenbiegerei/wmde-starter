@@ -15,7 +15,7 @@ $img_position = 'object-' . $img_horizontal_position . '-' . $img_vertical_posit
         <div class="">
             <h1 class="z-10 relative"><?php the_title(); ?></h1>
             <?php if (has_excerpt()): ?>
-            <div class="font-headings text-xl lg:text-2xl font-normal mb-5">
+            <div class="text-xl lg:text-2xl mb-5">
                 <?php the_excerpt(); ?>
             </div>
             <?php endif; ?>

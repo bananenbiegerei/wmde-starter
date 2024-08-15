@@ -77,7 +77,7 @@
 // Styled
 // hover + active color changes around 4-5 steps
 .btn {
-	@apply gap-2 no-underline font-texts font-robotonormal border;
+	@apply gap-2 no-underline font-texts font-normal border;
 	animation: button-pop var(--animation-btn, 0.25s) ease-out;
 
 	&:active:hover,
@@ -101,7 +101,7 @@
 
 	/* Menu */
 	&-menu {
-		@apply rounded-md inline-flex select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent text-black font-headings font-medium hover:bg-neutral hover:border-neutral;
+		@apply rounded-md inline-flex select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent text-black font-headings hover:bg-neutral hover:border-neutral;
 
 		&.current {
 			@apply text-primary-dark;
@@ -335,7 +335,7 @@
 
 /* group */
 .btn-menu-section {
-	@apply text-sm bg-transparent text-black font-headings font-bold uppercase border-none hover:bg-transparent hover:text-primary-dark rounded-md;
+	@apply text-sm bg-transparent text-black font-headings uppercase border-none hover:bg-transparent hover:text-primary-dark rounded-md;
 }
 
 /* radio input and checkbox as button */

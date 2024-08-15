@@ -37,7 +37,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 7,
+            "max": 0,
             "collapsed": "",
             "button_label": "Eintrag hinzufügen",
             "rows_per_page": 20,
@@ -1049,7 +1049,7 @@
             "name": "fonts_h",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "To find and use fonts please move them into the fonts folder in the theme",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1060,7 +1060,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 0,
+            "max": 1,
             "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
@@ -1079,41 +1079,22 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": [],
+                    "choices": {
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/RobotoFlex.woff2": "RobotoFlex.woff2",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-VariableFont_wght.ttf": "PlaywriteAR-VariableFont_wght.ttf",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-regular.woff2": "montserrat-v25-latin-regular.woff2",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-700.woff2": "montserrat-v25-latin-700.woff2",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-500.woff2": "montserrat-v25-latin-500.woff2",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Regular.ttf": "Gupter-Regular.ttf",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Medium.ttf": "Gupter-Medium.ttf",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Bold.ttf": "Gupter-Bold.ttf",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-Regular.ttf": "PlaywriteAR-Regular.ttf"
+                    },
                     "default_value": false,
                     "return_format": "array",
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "parent_repeater": "field_66a8f066667ad"
-                },
-                {
-                    "key": "field_66a8f0e2667b0",
-                    "label": "Weight",
-                    "name": "custom_font_weight",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "300": "Normal",
-                        "500": "Medium",
-                        "700": "Bold",
-                        "variable": "Variable"
-                    },
-                    "default_value": false,
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 1,
                     "ajax": 0,
                     "placeholder": "",
                     "parent_repeater": "field_66a8f066667ad"
@@ -1126,7 +1107,7 @@
             "name": "fonts_t",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "To find and use fonts please move them into the fonts folder in the theme",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1137,7 +1118,7 @@
             "layout": "table",
             "pagination": 0,
             "min": 0,
-            "max": 0,
+            "max": 3,
             "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
@@ -1156,7 +1137,17 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": [],
+                    "choices": {
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/RobotoFlex.woff2": "RobotoFlex.woff2",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-VariableFont_wght.ttf": "PlaywriteAR-VariableFont_wght.ttf",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-regular.woff2": "montserrat-v25-latin-regular.woff2",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-700.woff2": "montserrat-v25-latin-700.woff2",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-500.woff2": "montserrat-v25-latin-500.woff2",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Regular.ttf": "Gupter-Regular.ttf",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Medium.ttf": "Gupter-Medium.ttf",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Bold.ttf": "Gupter-Bold.ttf",
+                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-Regular.ttf": "PlaywriteAR-Regular.ttf"
+                    },
                     "default_value": false,
                     "return_format": "array",
                     "multiple": 0,
@@ -1262,5 +1253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1723550423
+    "modified": 1723735237
 }

@@ -85,8 +85,12 @@ function bb_inline_style_fonts()
             the_row();
             $name = get_sub_field('custom_font_file')['label'];
             $uri = get_sub_field('custom_font_file')['value'];
-            $weight = get_sub_field('custom_font_weight');
-            $weight = $weight == 'variable' ? '100 700' : $weight;
+            if ($k == 'h') {
+                $weight = 700;
+            } else {
+                $weight = get_sub_field('custom_font_weight');
+                $weight = $weight == 'variable' ? '100 700' : $weight;
+            }
             $format = bb_get_font_format(basename($uri));
             $bb_fonts_css .= "@font-face {\n";
             $bb_fonts_css .= "    font-family: '{$l}';\n";
