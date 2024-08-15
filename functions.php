@@ -42,3 +42,6 @@ require_once get_template_directory() . '/functions/search.php';
 
 // Blog related
 require_once get_template_directory() . '/functions/comments-functions.php';
+
+// Update checker
+require_once get_template_directory() . '/functions/bb-update-checker.php';
