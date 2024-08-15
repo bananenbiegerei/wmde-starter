@@ -335,7 +335,15 @@
             "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6641f28fc9b1c",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1253,5 +1261,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1723735237
+    "modified": 1723736179
 }
