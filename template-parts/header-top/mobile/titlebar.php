@@ -21,7 +21,7 @@ document.addEventListener('alpine:init', () => {
   <div class="block flex-none" x-data="navMenuMobileToggle">
   <!-- Using the Alpine.store ($store) to save the state of the site header. -->
   <button class="btn  btn-ghost btn-lg btn-icon" x-on:click="$store.open_mobile_nav = ! $store.open_mobile_nav; toggleNav()">
-    <?= bb_icon('menu-alt-2', '') ?>
+    <?= bb_icon('menu-headings-2', '') ?>
   </button>
   </div>
 

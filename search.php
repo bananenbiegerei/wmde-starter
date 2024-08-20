@@ -112,11 +112,11 @@ asort($post_types);
                             </div>
                         </div>
                         <div class="space-y-2 p-4">
-                            <h2 class="text-xl font-alt"><?php echo $result['title']; ?></h2>
+                            <h2 class="text-xl font-headings"><?php echo $result['title']; ?></h2>
                             <?php if ($result['date']): ?>
                             <div class="text-sm"><?php echo $result['date']; ?></div>
                             <?php endif; ?>
-                            <div class="text-sm font-alt font-normal"><?php echo $result['excerpt']; ?></div>
+                            <div class="text-sm"><?php echo $result['excerpt']; ?></div>
                         </div>
                     </div>
                 </a>

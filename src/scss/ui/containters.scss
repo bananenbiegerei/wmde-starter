@@ -1,0 +1,22 @@
+// Container classes used buy functions/containers.php
+
+.bb-container-wide {
+	@apply col-span-12;
+}
+
+.bb-container-default {
+	@apply col-span-12 lg:col-span-10 lg:col-start-2;
+}
+
+.bb-group-padding {
+	@apply p-5;
+}
+
+// Add padding to specific blocks that require it in full width
+.content > div[class*='bb-block-'] {
+	@apply bb-group-padding;
+}
+
+.content > div.bb-fullwidth-no-padding {
+	@apply p-0;
+}

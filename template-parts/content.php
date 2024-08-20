@@ -11,6 +11,6 @@
   <div class="topline"><?= $topline ?></div>
   <?php endif; ?>
 
-  <h2 class="text-base @xs/content:text-xl @sm/content:text-2xl @md/content:text-3xl font-alt"><?php the_title(); ?></h2>
+  <h2 class="text-base @xs/content:text-xl @sm/content:text-2xl @md/content:text-3xl font-headings"><?php the_title(); ?></h2>
   </div>
 </a>

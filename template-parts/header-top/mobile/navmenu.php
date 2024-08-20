@@ -32,10 +32,12 @@ document.addEventListener('alpine:init', () => {
 <header aria-hidden="true" id="navmenu_mobile" x-data="navMenuMobile" class="z-40 block bg-white fixed left-0 right-0	bottom-0 top-14 block md:hidden nohover:block overflow-scroll" x-show="$store.open_mobile_nav" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
     <div class="flex-1 flex justify-end gap-5 items-center p-3 border-b border-neutral-light" x-data="{ open: false }">
         <div class="w-full">
+        <?php get_template_part('template-parts/header-top/cta'); ?>
             <form class="flex gap-5 form-sm w-full" action="<?= bb_search_url() ?>" method="get">
                 <input class="!mb-0" type="text" name="s" id="mobile-search" x-ref="searchInput" value="<?php the_search_query(); ?>" />
                 <input type="submit" alt="Search" value="Suchen" class="" />
             </form>
+
         </div>
     </div>
 

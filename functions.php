@@ -1,5 +1,10 @@
 <?php
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+
 // Polyfills (provides a few functions not yet in PHP7)
 require_once get_template_directory() . '/functions/polyfills.php';
 
@@ -14,6 +19,9 @@ require_once get_template_directory() . '/functions/features.php';
 // Load ACF blocks
 require_once get_template_directory() . '/functions/acf-blocks.php';
 
+// Custom fonts
+require_once get_template_directory() . '/functions/fonts.php';
+
 // Wrap blocks with containers for page layout
 require_once get_template_directory() . '/functions/containers.php';
 
@@ -26,10 +34,6 @@ require_once get_template_directory() . '/functions/menu.php';
 // Icon dispenser
 require_once get_template_directory() . '/functions/icons.php';
 
-// Custom posts and taxonomies
-require_once get_template_directory() . '/functions/custom-posts.php';
-require_once get_template_directory() . '/functions/custom-taxonomies.php';
-
 // Excerpts
 require_once get_template_directory() . '/functions/excerpts.php';
 
@@ -38,3 +42,6 @@ require_once get_template_directory() . '/functions/search.php';
 
 // Blog related
 require_once get_template_directory() . '/functions/comments-functions.php';
+
+// Update checker
+require_once get_template_directory() . '/functions/bb-update-checker.php';

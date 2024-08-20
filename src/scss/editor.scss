@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 // List of colors as defined in tailwind.config.js
-$bb_colors: 'primary', 'secondary', 'neutral';
+$bb_colors: 'primary', 'secondary', 'neutral', 'success', 'warning', 'error', 'accent';
 
 @import '../../bb-blocks/**/style.scss';
 
@@ -18,7 +18,7 @@ html :where(.editor-styles-wrapper) {
 	h4,
 	h5,
 	h6 {
-		@apply font-medium font-alt;
+		@apply font-headings;
 	}
 }
 
@@ -43,7 +43,7 @@ html :where(.wp-block) {
 
 .editor-styles-wrapper,
 :where(.editor-styles-wrapper) {
-	@apply container font-sans bg-transparent;
+	@apply container font-texts bg-transparent;
 	.bb-facts-block {
 		> div {
 			height: 8rem;
@@ -56,11 +56,11 @@ html :where(.wp-block) {
 		}
 		p {
 			line-height: 0;
-			@apply font-sans;
+			@apply font-texts;
 		}
 	}
 
-	.bb-spacer-block {
+	.bb-block-spacer {
 		@apply after:content-['_spacer'] after:absolute after:top-2 after:right-8 after:bg-neutral-light after:py-1 after:px-3 text-xs after:rounded-full after:block border border-neutral-light rounded-xl border-dotted;
 	}
 }

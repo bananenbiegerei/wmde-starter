@@ -1,4 +1,4 @@
-import * as TW from './tailwindhelpers';
+//import * as TW from './tailwindhelpers';
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
 import Swiper, { Navigation, Autoplay, Pagination, Mousewheel } from 'swiper';
@@ -9,7 +9,7 @@ Alpine.plugin(focus);
 Alpine.start();
 
 // Make Tailwind config available outside of package
-window.TW = TW;
+//window.TW = TW;
 
 // Initialize all swipers
 // 'SwipersConfig' is defined in 'head.php', every swiper block adds its config in it.

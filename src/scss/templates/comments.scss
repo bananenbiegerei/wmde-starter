@@ -39,7 +39,7 @@
 	}
 
 	&-form-cookies-consent {
-		@apply flex gap-5 font-semibold;
+		@apply flex gap-5 font-medium;
 
 		input#wp-comment-cookies-consent {
 			@apply mt-2;

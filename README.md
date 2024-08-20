@@ -2,18 +2,24 @@
 
 ## Installation & Setup
 
-### Node Modules
+### Fork Repo
+Fork Repo to have a independed copy:
+1. `git clone https://github.com/bananenbiegerei/wmde-starter`
+2. Change directory name of the cloned repository then `cd NEW-REPO-NAME`
+3. Create a new repo on github
+4. Add your new repo as a remote: `git remote add origin https://github.com/your-username/new-repo-name.git`
+5. Push the code to your new repository: `git push -u origin main`
 
+### Node Modules
 The first thing to do after cloning the repo is to install node modules for the project: `npm install`.
 
 ### ACF Blocks Submodule
-
-Our ACF blocks are now have their own repository: [wmde-blocks](https://bitbucket.org/bbteam2016/wmde-blocks/). They can be added to any theme as a submodule.
-
-The `wmde-blocks` submodule is installed by running `git submodule update --init` from the project directory.
+For this theme we use two kind of blocks
+1. bb-blocks which are blocks that are used in a global context. Meaning they have DON'T have any individual features required by the theme, but can be used on every context.
+Install the submodule with: ``` git submodule update --init --recursive ```
+2. setup your own individual blocks that are only used within this theme
 
 ### BrowserSync
-
 To setup BrowserSync copy the file `.env-example` to `.env` and edit accordingly:
 
 - `BROWSERSYNC_PROXY_URL`: base URL of your local WP instance (e.g. `wkmde.local`, no `http://`!)
@@ -29,27 +35,6 @@ The Prettier config is defined in `package.json` under the `prettier` key and sh
 - "useTabs": true (use tabs instead of spaces)
 - "phpVersion": "8.0" (among others will convert `array()` to `[]`...)
 - "singleQuote" and "jsxSingleQuote": true (use single quotes by default)
-
-## ACF Blocks
-
-### Managing Changes
-
-The `blocks` directory contains the ACF blocks from the `wmde-blocks` submodule. It behaves as its own git project.
-
-If you make changes to blocks you can sync them to the repo:
-
-```
-cd blocks
-git commit -a -m 'Your commit message'
-git push
-```
-
-To update the submodule from the repo to the latest remote version, run the following:
-
-```
-cd blocks
-git pull
-```
 
 ### ACF-JSON
 
@@ -143,12 +128,3 @@ Upload zip file to bb server. You wll find a directory called updates/themes. Up
 Go to wordpress instance -> themes. Mark the theme and check for updates. Then update.
 
 _Do not manually upload files to the live server. Install the theme in the backend with the zipfile (unless it's for an emergency fix)._
-
-## Fork for WMDE projects
-
-To recycle the wmde theme for different projects you can for the wmde theme.
-
-1. Fork the main repo: got to bitbucket and fork there
-2. Clone the forked repo
-3. Install blocks submodule: ``` git submodule update --init --recursive ```
-4. Cleanup unecessary file
