@@ -138,7 +138,7 @@ document.addEventListener('alpine:init', () => {
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<header aria-hidden="true" id="navmenu_desktop" x-data="navMenu" class="border-b border-neutral-200 sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @mouseleave="closeNav()">
+<header aria-hidden="true" id="navmenu_desktop" x-data="navMenu" class="border-b border-neutral-light sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @mouseleave="closeNav()">
 
     <!-- Top bar with logo, domains, and search -->
     <div class="relative z-10 container overflow-hidden">
@@ -183,14 +183,14 @@ document.addEventListener('alpine:init', () => {
 
         <!-- For each domain... -->
         <template x-for="(domain,i) in nav">
-            <div show="isOpen[i]" x-bind:id="'menu_'+ i" class="absolute inset-x-0 z-10 transform bg-white border border-neutral-100 max-h-screen-80 rounded-xl shadow-navbar p-2 overflow-hidden" x-bind:class="{ 'max-w-6xl': domain.featured.length > 0, 'max-w-md': domain.featured.length == 0, 'visible': isOpen[i], 'invisible': !isOpen[i] }">
+            <div show="isOpen[i]" x-bind:id="'menu_'+ i" class="absolute inset-x-0 z-10 transform bg-white border border-neutral-light max-h-screen-80 rounded-xl shadow-navbar p-2 overflow-hidden" x-bind:class="{ 'max-w-6xl': domain.featured.length > 0, 'max-w-md': domain.featured.length == 0, 'visible': isOpen[i], 'invisible': !isOpen[i] }">
 
                 <!-- If there are featured pages: 2 columns with featured pages + pages -->
                 <div class="relative mx-auto grid" x-bind:class="{ 'grid-cols-2' : domain.featured.length > 0, 'grid-cols-1': domain.featured.length == 0}">
 
                     <!-- Featured pages -->
                     <template x-if="domain.featured.length > 0">
-                        <nav class="border-r border-neutral-200 pr-5 mr-5">
+                        <nav class="border-r border-neutral-light pr-5 mr-5">
                             <ul class="flex flex-col max-h-screen-80 overflow-auto">
                                 <template x-for="page in domain.featured">
                                     <li class="p-1" x-bind:class="{'current': pageID == page.ID }">

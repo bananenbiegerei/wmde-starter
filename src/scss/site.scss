@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 // List of colors as defined in tailwind.config.js
-$bb_colors: 'primary', 'secondary';
+$bb_colors: 'primary', 'secondary', 'neutral';
 
 /* Styles for BB-Blocks */
 @import '../../bb-blocks/**/style.scss';

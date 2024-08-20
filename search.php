@@ -24,22 +24,22 @@ $fallback_thumbnail = wp_get_attachment_image((get_post_thumbnail_id(get_option(
 
 // Redirect to main site search page if needed
 if (is_multisite() && get_current_blog_id() !== 1) {
-  wp_redirect(bb_search_url() . '?s=' . get_search_query());
-  exit();
+    wp_redirect(bb_search_url() . '?s=' . get_search_query());
+    exit();
 }
 
 // Local function to add search results to an array
 function bb_search_get_result_array()
 {
-  global $show_date_for, $post_types, $count, $excerpt_length, $fallback_thumbnail;
-  // Keep track of post types
-  $post_type = get_post_type();
-  $post_type_label = get_post_type_object($post_type)->label;
-  $post_types[$post_type] = $post_type_label;
-  $count[$post_type] = ($count[$post_type] ?? 0) + 1;
-  // Find a suitable thumbnail ID for the post (post or front page or blog page)
-  $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail(null, 'medium', ['class' => 'rounded-t-3xl object-cover w-full h-full overflow-hidden']) : $fallback_thumbnail;
-  return [
+    global $show_date_for, $post_types, $count, $excerpt_length, $fallback_thumbnail;
+    // Keep track of post types
+    $post_type = get_post_type();
+    $post_type_label = get_post_type_object($post_type)->label;
+    $post_types[$post_type] = $post_type_label;
+    $count[$post_type] = ($count[$post_type] ?? 0) + 1;
+    // Find a suitable thumbnail ID for the post (post or front page or blog page)
+    $thumbnail = has_post_thumbnail() ? get_the_post_thumbnail(null, 'medium', ['class' => 'rounded-t-3xl object-cover w-full h-full overflow-hidden']) : $fallback_thumbnail;
+    return [
     'blog_id' => get_current_blog_id(),
     'post_id' => get_the_ID(),
     'title' => get_the_title(),
@@ -60,24 +60,24 @@ $results = [];
 
 // Search main site
 while ($wp_query->have_posts()) {
-  $wp_query->the_post();
-  $results[] = bb_search_get_result_array();
+    $wp_query->the_post();
+    $results[] = bb_search_get_result_array();
 }
 
 // Search blog
 if (is_multisite()) {
-  switch_to_blog(bb_get_id_of_blog());
-  $blog_search = new WP_Query(['s' => get_query_var('s'), 'posts_per_page' => $max_blog_posts]);
-  while ($blog_search->have_posts()) {
-    $blog_search->the_post();
-    $results[] = bb_search_get_result_array();
-  }
-  restore_current_blog();
+    switch_to_blog(bb_get_id_of_blog());
+    $blog_search = new WP_Query(['s' => get_query_var('s'), 'posts_per_page' => $max_blog_posts]);
+    while ($blog_search->have_posts()) {
+        $blog_search->the_post();
+        $results[] = bb_search_get_result_array();
+    }
+    restore_current_blog();
 }
 
 // Sort results by timestamp desc.
 usort($results, function ($a, $b) {
-  return $b['timestamp'] <=> $a['timestamp'];
+    return $b['timestamp'] <=> $a['timestamp'];
 });
 
 // Sort post types
@@ -91,29 +91,23 @@ asort($post_types);
             <?php printf(__('Suchergebnisse für: %s', BB_TEXT_DOMAIN), get_search_query()); ?></h1>
         <div x-data="{selectedFilter: ''}">
             <div class="btn-group mb-5">
-                <button x-on:click="selectedFilter=''" class="btn"
-                    :class="{'btn-outline': selectedFilter != '', 'btn-active': selectedFilter == ''}" type="button">
+                <button x-on:click="selectedFilter=''" class="btn" :class="{'btn-outline': selectedFilter != '', 'btn-active': selectedFilter == ''}" type="button">
                     Alle (<?php echo count($results); ?>) </button>
                 <?php foreach ($post_types as $term => $label): ?>
-                <button x-on:click="selectedFilter='<?php echo $term; ?>'" class="btn"
-                    :class="{'btn-outline': selectedFilter != '<?php echo $term; ?>', 'btn-active': selectedFilter == '<?php echo $term; ?>'}"
-                    type="button">
+                <button x-on:click="selectedFilter='<?php echo $term; ?>'" class="btn" :class="{'btn-outline': selectedFilter != '<?php echo $term; ?>', 'btn-active': selectedFilter == '<?php echo $term; ?>'}" type="button">
                     <?php echo $label; ?> (<?php echo $count[$term]; ?>)
                 </button>
                 <?php endforeach; ?>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 <?php foreach ($results as $result): ?>
-                <a href="<?php echo $result['permalink']; ?>"
-                    class="bb-card-block text-hover-effect image-hover-effect bg-neutral rounded-xl overflow-hidden mb-10 lg:mb-5 z-10 hover:z-20 relative"
-                    x-show="!selectedFilter || '<?php echo $result['post_type']; ?>' == selectedFilter">
-                    <div class="px-2 rounded-full bg-white text-xs border border-neutral-400 absolute top-4 right-4 z-10"
-                        x-show="!selectedFilter">
+                <a href="<?php echo $result['permalink']; ?>" class="bb-card-block text-hover-effect image-hover-effect bg-neutral rounded-xl overflow-hidden mb-10 lg:mb-5 z-10 hover:z-20 relative" x-show="!selectedFilter || '<?php echo $result['post_type']; ?>' == selectedFilter">
+                    <div class="px-2 rounded-full bg-white text-xs border border-neutral absolute top-4 right-4 z-10" x-show="!selectedFilter">
                         <?php echo $result['post_type_label']; ?>
                     </div>
                     <div class="flex flex-col">
                         <div class="">
-                            <div class="aspect-w-16 aspect-h-9 bg-neutral-100 overflow-hidden">
+                            <div class="aspect-w-16 aspect-h-9 bg-neutral-light overflow-hidden">
                                 <?php echo $result['thumbnail']; ?>
                             </div>
                         </div>

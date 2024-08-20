@@ -22,7 +22,7 @@
 .cli_settings_button,
 .cli_setting_save_button,
 #wt-cli-settings-btn {
-	@apply inline-flex items-center rounded-md border border-transparent bg-primary-900 px-1.5 py-2 text-base lg:px-2 lg:py-0.5 lg:text-lg text-white hover:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 transition m-0 font-normal #{!important};
+	@apply inline-flex items-center rounded-md border border-transparent bg-primary-900 px-1.5 py-2 text-base lg:px-2 lg:py-0.5 lg:text-lg text-white hover:bg-neutral-dark focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 transition m-0 font-normal #{!important};
 }
 
 .cli_settings_button,
@@ -39,7 +39,7 @@
 	.cli-modal-dialog {
 		@apply font-normal;
 		.cli-tab-footer .wt-cli-privacy-accept-btn {
-			@apply inline-flex items-center rounded-md border border-transparent bg-primary-900 px-1.5 py-2 text-base lg:px-2 lg:py-0.5 lg:text-lg text-white hover:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 transition m-0 font-normal #{!important};
+			@apply inline-flex items-center rounded-md border border-transparent bg-primary-900 px-1.5 py-2 text-base lg:px-2 lg:py-0.5 lg:text-lg text-white hover:bg-neutral-dark focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-0 transition m-0 font-normal #{!important};
 		}
 	}
 }
