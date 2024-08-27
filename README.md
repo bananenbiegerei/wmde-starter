@@ -2,14 +2,6 @@
 
 ## Installation & Setup
 
-### Fork Repo
-Fork Repo to have a independed copy:
-1. `git clone https://github.com/bananenbiegerei/wmde-starter`
-2. Change directory name of the cloned repository then `cd NEW-REPO-NAME`
-3. Create a new repo on github
-4. Add your new repo as a remote: `git remote add origin https://github.com/your-username/new-repo-name.git`
-5. Push the code to your new repository: `git push -u origin main`
-
 ### Node Modules
 The first thing to do after cloning the repo is to install node modules for the project: `npm install`.
 
