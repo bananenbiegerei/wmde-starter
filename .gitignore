@@ -1,4 +1,4 @@
-/.env
+.env
 /node_modules
 /dist
 /css
@@ -12,3 +12,4 @@ css/editor.css
 css/site.css
 css/editor.css.map
 css/site.css.map
+js/site.js.map
