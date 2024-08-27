@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="h-full no-js" data-theme="wmde">
-<?php get_template_part('head'); ?>
+<?php get_template_part('head');
+$body_color = get_field('body_color', 'options') ?: 'white';
+?>
 
-<body <?php body_class('flex flex-col min-h-screen'); ?>>
+<body <?php body_class('flex flex-col min-h-screen bg-' . $body_color . '-light'); ?>>
     <!--header role="banner"-->
     <?php get_template_part('template-parts/header-top/main'); ?>
     <!--/header-->
