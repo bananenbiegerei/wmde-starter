@@ -1087,17 +1087,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/RobotoFlex.woff2": "RobotoFlex.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-VariableFont_wght.ttf": "PlaywriteAR-VariableFont_wght.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-regular.woff2": "montserrat-v25-latin-regular.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-700.woff2": "montserrat-v25-latin-700.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-500.woff2": "montserrat-v25-latin-500.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Regular.ttf": "Gupter-Regular.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Medium.ttf": "Gupter-Medium.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Bold.ttf": "Gupter-Bold.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-Regular.ttf": "PlaywriteAR-Regular.ttf"
-                    },
+                    "choices": [],
                     "default_value": false,
                     "return_format": "array",
                     "multiple": 0,
@@ -1145,17 +1135,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/RobotoFlex.woff2": "RobotoFlex.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-VariableFont_wght.ttf": "PlaywriteAR-VariableFont_wght.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-regular.woff2": "montserrat-v25-latin-regular.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-700.woff2": "montserrat-v25-latin-700.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/montserrat-v25-latin-500.woff2": "montserrat-v25-latin-500.woff2",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Regular.ttf": "Gupter-Regular.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Medium.ttf": "Gupter-Medium.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/Gupter-Bold.ttf": "Gupter-Bold.ttf",
-                        "http:\/\/localhost:8080\/wp\/wp-content\/uploads\/2024\/08\/PlaywriteAR-Regular.ttf": "PlaywriteAR-Regular.ttf"
-                    },
+                    "choices": [],
                     "default_value": false,
                     "return_format": "array",
                     "multiple": 0,
@@ -1241,6 +1221,111 @@
             "bidirectional": 0,
             "ui": 1,
             "bidirectional_target": []
+        },
+        {
+            "key": "field_66cdb0d6de713",
+            "label": "Component Colors",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_66cdb0f2de714",
+            "label": "Header Color",
+            "name": "header_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "white",
+                "primary": "primary",
+                "secondary": "secondary",
+                "accent": "accent",
+                "neutral": "neutral"
+            },
+            "default_value": "white",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_66cdb33013a97",
+            "label": "Body Color",
+            "name": "body_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "white",
+                "primary": "primary",
+                "secondary": "secondary",
+                "accent": "accent",
+                "neutral": "neutral"
+            },
+            "default_value": "white",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_66cdb34113a98",
+            "label": "Footer Color",
+            "name": "footer_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "white",
+                "primary": "primary",
+                "secondary": "secondary",
+                "accent": "accent",
+                "neutral": "neutral"
+            },
+            "default_value": "white",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -1261,5 +1346,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1723736179
+    "modified": 1724756820
 }

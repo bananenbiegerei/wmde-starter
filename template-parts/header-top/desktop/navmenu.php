@@ -1,4 +1,6 @@
-<?php $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_directory_uri() . '/img/wikimedia-logo-mini.svg'); ?>
+<?php $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_directory_uri() . '/img/wikimedia-logo-mini.svg');
+$header_color = get_field('header_color', 'options') ?: 'white';
+?>
 <script>
 const pw = 20; // pointer width
 const pyoff = -19; // pointer v offset
@@ -138,7 +140,7 @@ document.addEventListener('alpine:init', () => {
 </script>
 
 <!-- Container for the whole desktop nav menu -->
-<header aria-hidden="true" id="navmenu_desktop" x-data="navMenu" class="border-b border-neutral-light sticky top-0 z-40 bg-white py-1 hidden md:block nohover:hidden" @xmouseleave="closeNav()">
+<header aria-hidden="true" id="navmenu_desktop" x-data="navMenu" class="border-b border-neutral-light sticky top-0 z-40 bg-<?= $header_color; ?> py-1 hidden md:block nohover:hidden" @xmouseleave="closeNav()">
 
     <!-- Top bar with logo, domains, and search -->
     <div class="relative z-10 container overflow-hidden">
