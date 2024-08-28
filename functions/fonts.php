@@ -4,6 +4,7 @@
 - add support for different styles (normal / italic ?)
 */
 
+
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes, $real_mime) {
     if (! empty($data['ext']) && ! empty($data['type'])) {
         return $data;
@@ -80,13 +81,13 @@ function bb_get_font_format($filename)
 function bb_inline_style_fonts()
 {
     $bb_fonts_css = "/* Custom Fonts */\n";
-    foreach ([ 'h' => 'Headings', 't' => 'Texts'] as $k => $l) {
+    foreach ([ 'h' => 'Headings', 't' => 'Texts', 'm' => 'Menus' ] as $k => $l) {
         while (have_rows('fonts_' . $k, 'options')) {
             the_row();
             $name = get_sub_field('custom_font_file')['label'];
             $uri = get_sub_field('custom_font_file')['value'];
-            if ($k == 'h') {
-                $weight = 700;
+            if ($k == 'h' || $k == 'm') {
+                $weight = "100 700";
             } else {
                 $weight = get_sub_field('custom_font_weight');
                 $weight = $weight == 'variable' ? '100 700' : $weight;

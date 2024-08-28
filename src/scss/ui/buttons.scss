@@ -101,7 +101,7 @@
 
 	/* Menu */
 	&-menu {
-		@apply rounded-md inline-flex select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent text-black font-headings hover:bg-neutral hover:border-neutral;
+		@apply rounded-md inline-flex font-menus select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent text-black hover:bg-neutral hover:border-neutral;
 
 		&.current {
 			@apply text-primary-dark;
