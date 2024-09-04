@@ -40,8 +40,8 @@ require_once get_template_directory() . '/functions/excerpts.php';
 // Search
 require_once get_template_directory() . '/functions/search.php';
 
-// Blog related
-require_once get_template_directory() . '/functions/comments-functions.php';
+// Disable comments
+require_once get_template_directory() . '/functions/disable-comments.php';
 
 // Update checker
 require_once get_template_directory() . '/functions/bb-update-checker.php';
