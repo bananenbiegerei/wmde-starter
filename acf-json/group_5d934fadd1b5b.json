@@ -1057,7 +1057,7 @@
             "name": "fonts_h",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Make sure to upload font files before selecting",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1105,7 +1105,7 @@
             "name": "fonts_t",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "If you want to have specific font files for \"normal \/ medium \/ bold and variable\" please add and select them",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1326,6 +1326,44 @@
             "ui": 0,
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_66cdcc4aa3887",
+            "label": "Search",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_66cdcc64a3888",
+            "label": "Activate Topbar Search",
+            "name": "activate_topbar_search",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Active",
+            "ui_off_text": "Disabled",
+            "ui": 1
         }
     ],
     "location": [
@@ -1346,5 +1384,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724756820
+    "modified": 1724765224
 }

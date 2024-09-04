@@ -14,6 +14,8 @@ define('BB_NAV_MENU_CACHE_TIMEOUT', 72 * HOUR_IN_SECONDS);
 add_action('init', function () {
     $locations = [
       'nav' => 'Top Navigation Menu',
+      'nav-right-level-1' => 'Top Right First Level Menu',
+      'nav-right-level-2' => 'Top Right Second Level Menu',
       'footer' => __('Footer', BB_TEXT_DOMAIN)
     ];
     register_nav_menus($locations);

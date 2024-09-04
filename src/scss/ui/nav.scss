@@ -31,3 +31,28 @@
 		transition: opacity 0.2s;
 	}
 }
+
+
+.menu {
+	@apply flex flex-col;
+	&.horizontal {
+		@apply flex-row;
+	}
+	&.right {
+		li {
+			@apply justify-end;
+		}
+	}
+	li {
+		@apply flex;
+		a,
+		button {
+			@apply btn btn-menu;
+		}
+		&.current-menu-item {
+			a {
+				@apply underline;
+			}
+		}
+	}
+}

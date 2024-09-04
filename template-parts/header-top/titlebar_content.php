@@ -17,5 +17,9 @@ $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_dire
 
     <div class="hidden md:block">
         <?php get_template_part('template-parts/header-top/cta'); ?>
+
+        <?php if (has_nav_menu('nav-right-level-1')) : ?>
+            <?php get_template_part('template-parts/header-top/menu-top-right-1'); ?>
+        <?php endif; ?>
     </div>
 </div>

@@ -16,7 +16,7 @@
     <!-- Content -->
     <form class="flex gap-5 form-sm w-full" action="<?= bb_search_url() ?>" method="get">
       <input class="!mb-0" type="text" name="s" id="search-form" x-ref="searchInput" value="<?php the_search_query(); ?>" />
-      <input type="submit" value="Suchen" class="btn btn-sm mb-0" />
+      <input type="submit" value="Suchen" class="btn btn-sm mb-0 btn-secondary" />
     </form>
     <!-- Buttons -->
     <div class="">
