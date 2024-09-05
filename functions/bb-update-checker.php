@@ -105,7 +105,7 @@ class BBUpdateCheckerPlugin
 
     public function __construct($slug)
     {
-        $plugin_data = get_plugin_data(dirname(plugin_dir_path(__FILE__)) . "/plugins/{$slug}/{$slug}.php");
+        $plugin_data = get_plugin_data(WP_PLUGIN_DIR . "/{$slug}/{$slug}.php");
         $this->slug = $slug;
         $this->name = $plugin_data['Name'];
         $this->version = $plugin_data['Version'];

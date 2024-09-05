@@ -41,6 +41,7 @@ module.exports = {
 		fontFamily: {
 			headings: ['Headings', 'sans-serif'],
 			texts: ['Texts', 'sans-serif'],
+			menus: ['Menus', 'sans-serif'],
 		},
 		fontWeight: {
 			normal: 300,

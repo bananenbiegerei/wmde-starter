@@ -27,7 +27,6 @@ add_action(
     'admin_enqueue_scripts',
     function () {
         if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
-
             wp_register_script('bb-admin', false, false, false, true);
             wp_enqueue_script('bb-admin');
             $script = "jQuery('.wp-admin.nav-menus-php .wrap').html('<div class=\"wrap\"><h2>Menus</h2><p>" . __('Bitte Menüs auf der <a href="' . network_site_url() . 'wp-admin/nav-menus.php"> Hauptseite</a> bearbeiten.', BB_TEXT_DOMAIN)   .   "</p></div>');";
