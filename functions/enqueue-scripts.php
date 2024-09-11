@@ -13,7 +13,7 @@ add_action(
 			var postEditURL = "$post_edit_url";
 			document.addEventListener('keydown', function (event) {
 			event = event || window.event;
-			if(event.keyCode == 69 && event.ctrlKey) { window.open(postEditURL, '_blank'); }
+			if(event.key == 'e' && event.ctrlKey) { window.open(postEditURL, '_blank'); }
 			});
 			EOF;
             wp_add_inline_script('site', $script);

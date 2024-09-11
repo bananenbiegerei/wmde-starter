@@ -68,7 +68,7 @@ function esbuildProd() {
 }
 
 function packageTheme() {
-	return run('./mktheme.sh', { verbosity: 0 }).exec();
+	return run('./mktheme.sh', { verbosity: 1 }).exec();
 }
 
 function dev() {
