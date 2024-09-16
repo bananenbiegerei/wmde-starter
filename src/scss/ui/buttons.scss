@@ -88,7 +88,7 @@
 
 	/* default btn */
 	& {
-		@apply border-primary bg-primary text-white outline-primary-dark no-underline hover:border-primary-dark hover:bg-primary-dark;
+		@apply border-primary bg-primary  outline-primary-dark no-underline hover:border-primary-dark hover:bg-primary-dark;
 
 		&.btn-active {
 			@apply border-primary-dark bg-primary-dark;
@@ -112,7 +112,7 @@
 	/* brand colors */
 	@each $color in 'primary', 'secondary' {
 		&-#{$color} {
-			@apply border-#{$color} bg-#{$color} text-white outline-#{$color} hover:border-#{$color}-dark hover:bg-#{$color}-dark;
+			@apply border-#{$color} bg-#{$color}  outline-#{$color} hover:border-#{$color}-dark hover:bg-#{$color}-dark;
 
 			&.btn-active {
 				@apply border-#{$color}-dark bg-#{$color}-dark;
@@ -121,7 +121,7 @@
 	}
 
 	&-neutral {
-		@apply border-black bg-black text-white outline-black hover:border-neutral-700 hover:bg-neutral-dark;
+		@apply border-black bg-black  outline-black hover:border-neutral-700 hover:bg-neutral-dark;
 
 		&.btn-active {
 			@apply border-black bg-black;
@@ -129,7 +129,7 @@
 	}
 
 	&-accent {
-		@apply border-accent bg-accent text-white outline-accent;
+		@apply border-accent bg-accent  outline-accent;
 
 		@media (hover: hover) {
 			&:hover {
@@ -159,7 +159,7 @@
 	/* btn with state colors */
 
 	&-success {
-		@apply border-success bg-success text-white outline-success hover:border-success hover:bg-success-dark;
+		@apply border-success bg-success  outline-success hover:border-success hover:bg-success-dark;
 
 		&.btn-active {
 			@apply border-success bg-success;
@@ -167,7 +167,7 @@
 	}
 
 	&-warning {
-		@apply border-warning bg-warning text-white outline-warning hover:border-warning hover:bg-warning;
+		@apply border-warning bg-warning  outline-warning hover:border-warning hover:bg-warning;
 
 		&.btn-active {
 			@apply border-warning bg-warning;
@@ -175,14 +175,14 @@
 	}
 
 	&-error {
-		@apply border-error bg-error text-white outline-error hover:border-error-light hover:bg-error-light;
+		@apply border-error bg-error  outline-error hover:border-error-light hover:bg-error-light;
 
 		&.btn-active {
 			@apply border-error-dark bg-error-dark;
 		}
 	}
 	&-warning {
-		@apply border-warning bg-warning text-white outline-warning hover:border-warning hover:bg-warning;
+		@apply border-warning bg-warning  outline-warning hover:border-warning hover:bg-warning;
 
 		&.btn-active {
 			@apply border-warning bg-warning;
@@ -198,7 +198,7 @@
 		}
 
 		&.btn-secondary {
-			@apply text-neutral-dark hover:border-neutral hover:bg-neutral hover:text-white;
+			@apply text-neutral-dark hover:border-neutral hover:bg-neutral;
 
 			&.btn-active {
 				@apply border-secondary-dark bg-secondary-dark text-secondary-dark;
@@ -215,27 +215,27 @@
 		}
 
 		&.btn-success {
-			@apply text-success hover:border-success hover:bg-success hover:text-white;
+			@apply text-success hover:border-success hover:bg-success;
 
 			&.btn-active {
-				@apply border-success bg-success text-white;
+				@apply border-success bg-success;
 			}
 		}
 
 		&.btn-warning {
-			@apply text-warning hover:border-warning hover:bg-warning hover:text-white;
+			@apply text-warning hover:border-warning hover:bg-warning;
 
 			&.btn-active {
-				@apply border-warning bg-warning text-white;
+				@apply border-warning bg-warning;
 			}
 		}
 
 		&.btn-error,
 		&.btn-warning {
-			@apply text-warning hover:border-warning hover:bg-warning hover:text-white;
+			@apply text-warning hover:border-warning hover:bg-warning;
 
 			&.btn-active {
-				@apply border-warning bg-warning text-white;
+				@apply border-warning bg-warning;
 			}
 		}
 	}
@@ -256,10 +256,10 @@
 
 	/* outline */
 	&-outline {
-		@apply text-primary border-current bg-transparent shadow-none hover:border-primary-dark hover:bg-primary-dark hover:text-white;
+		@apply text-primary border-current bg-transparent shadow-none hover:border-primary-dark hover:bg-primary-dark;
 
 		&.btn-active {
-			@apply border-primary-dark bg-primary-dark text-white;
+			@apply border-primary-dark bg-primary-dark;
 		}
 
 		&.btn-neutral {
@@ -271,7 +271,7 @@
 		}
 
 		&.btn-secondary {
-			@apply text-neutral-dark hover:border-neutral-dark hover:bg-neutral hover:text-white;
+			@apply text-neutral-dark hover:border-neutral-dark hover:bg-neutral;
 
 			&.btn-active {
 				@apply border-secondary-dark bg-secondary-dark text-secondary-dark;
@@ -288,27 +288,27 @@
 		}
 
 		&.btn-success {
-			@apply text-success hover:border-success hover:bg-success hover:text-white;
+			@apply text-success hover:border-success hover:bg-success;
 
 			&.btn-active {
-				@apply border-success bg-success text-white;
+				@apply border-success bg-success;
 			}
 		}
 
 		&.btn-warning {
-			@apply text-warning hover:border-warning hover:bg-warning hover:text-white;
+			@apply text-warning hover:border-warning hover:bg-warning;
 
 			&.btn-active {
-				@apply border-warning bg-warning text-white;
+				@apply border-warning bg-warning;
 			}
 		}
 
 		&.btn-error,
 		&.btn-warning {
-			@apply text-warning hover:border-warning hover:bg-warning hover:text-white;
+			@apply text-warning hover:border-warning hover:bg-warning;
 
 			&.btn-active {
-				@apply border-warning bg-warning text-white;
+				@apply border-warning bg-warning;
 			}
 		}
 	}

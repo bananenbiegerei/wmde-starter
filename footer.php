@@ -13,7 +13,7 @@ $footer_color = get_field('footer_color', 'options') ?: 'white';
             <?php endif; ?>
             <?php if ( have_rows( 'contacts', 'option' ) ) : ?>
             <?php while ( have_rows( 'contacts', 'option' ) ) : the_row(); ?>
-            <div>
+            <div class="dynamic-text-color">
                 <?php the_sub_field( 'contact_column' ); ?>
             </div>
             <?php endwhile; ?>
@@ -32,7 +32,7 @@ $footer_color = get_field('footer_color', 'options') ?: 'white';
     <div class="container lg:flex lg:items-center lg:h-24">
         <?php if (has_nav_menu('footer')): ?>
         <div class="lg:flex-1">
-            <?php bb_wp_nav_menu(['container' => 'nav', 'menu' => 'footer', 'menu_class' => 'flex flex-col md:flex-row gap-5', 'theme_location' => 'footer']); ?>
+            <?php bb_wp_nav_menu(['container' => 'nav', 'menu' => 'footer', 'menu_class' => 'flex flex-col md:flex-row gap-5 dynamic-text-color', 'theme_location' => 'footer']); ?>
         </div>
         <?php else: ?>
         <div class="border-2 my-2 border-error border-dotted rounded-2xl p-4">
@@ -45,7 +45,7 @@ $footer_color = get_field('footer_color', 'options') ?: 'white';
             </a>
         </div>
         <?php endif; ?>
-        <div class="">
+        <div class="dynamic-text-color">
             <h3 class="mb-0 text-base"><?php _e('Wir befreien Wissen', BB_TEXT_DOMAIN); ?></h3>
         </div>
     </div>
