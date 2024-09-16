@@ -18,6 +18,7 @@ require_once get_template_directory() . '/functions/features.php';
 
 // Load ACF blocks
 require_once get_template_directory() . '/functions/acf-blocks.php';
+require_once get_template_directory() . '/functions/acf-options.php';
 
 // Custom fonts
 require_once get_template_directory() . '/functions/fonts.php';
