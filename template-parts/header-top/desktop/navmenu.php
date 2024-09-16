@@ -167,7 +167,7 @@ document.addEventListener('alpine:init', () => {
                 <!-- Domain items -->
                 <nav id="navmenu_desktop_domains">
                     <template x-for="(domain,i) in nav">
-                        <a class="btn btn-menu" @focus="openNav(i); movePointer()"
+                        <a class="btn btn-menu dynamic-text-color" @focus="openNav(i); movePointer()"
                             @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i"
                             x-bind:class="{'current': pageID == domain.ID || domain.children.includes(pageID) }"
                             x-bind:href="domain.url" x-html="domain.title"></a>
@@ -248,7 +248,7 @@ document.addEventListener('alpine:init', () => {
                                     <li class="p-1 bg-white transition rounded-md"
                                         x-bind:class="{'current': pageID == page.ID }">
                                         <a tabindex="-1" x-bind:href="page.url"
-                                            class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
+                                            class="btn btn-menu dynamic-text-color btn-expanded font-normal" x-html="page.title"></a>
                                     </li>
                                 </template>
                             </ul>
@@ -258,14 +258,14 @@ document.addEventListener('alpine:init', () => {
                         <template x-for="section in domain.sections">
                             <ul class="items-stretch justify-items-stretch">
                                 <li
-                                    class="bg-white transition rounded-md btn btn-menu-section btn-expanded hover:text-black">
+                                    class="bg-white transition rounded-md btn btn-menu dynamic-text-color-section btn-expanded hover:text-black">
                                     <span class="p-1" x-text="section.title"></span>
                                 </li>
                                 <template x-for="page in section.pages">
                                     <li class="p-1 bg-white transition rounded-md"
                                         x-bind:class="{'current': pageID == page.ID }">
                                         <a tabindex="-1" x-bind:href="page.url"
-                                            class="btn btn-menu btn-expanded font-normal" x-html="page.title"></a>
+                                            class="btn btn-menu dynamic-text-color btn-expanded font-normal" x-html="page.title"></a>
                                     </li>
                                 </template>
                             </ul>

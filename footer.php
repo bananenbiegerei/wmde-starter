@@ -2,7 +2,7 @@
 $footer_color = get_field('footer_color', 'options') ?: 'white';
 ?>
 </main>
-<footer class="bg-<?= $footer_color; ?> text-black mt-36 site-footer" role="contentinfo" aria-labelledby="footer-heading">
+<footer class="bg-<?= $footer_color; ?> text-black mt-36 site-footer dynamic-text-color" role="contentinfo" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="border-t-2 border-b border-b-neutral-light py-8 mb-12 lg:mb-0">
         <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-20">

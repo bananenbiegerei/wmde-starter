@@ -53,7 +53,7 @@ document.addEventListener('alpine:init', () => {
 
                     <!-- Domain title -->
                     <div x-bind:class="{'current before:w-2 before:h-16 before:bg-primary-dark before:absolute before:-left-2 before:top-0': pageID == domain.ID }">
-                        <a x-bind:href="domain.url" @focus="toggleNav(i)" class="btn btn-menu h-16">
+                        <a x-bind:href="domain.url" @focus="toggleNav(i)" class="btn btn-menu dynamic-text-color h-16">
                             <span class="w-full" x-html="domain.title"></span>
                         </a>
                     </div>
@@ -73,7 +73,7 @@ document.addEventListener('alpine:init', () => {
                             <ul class="pb-5">
                                 <template x-for="page in domain.featured">
                                     <li class="px-5" x-bind:class="{'current': pageID == page.ID }">
-                                        <a x-bind:href="page.url" class="btn btn-menu">
+                                        <a x-bind:href="page.url" class="btn btn-menu dynamic-text-color">
                                             <div class="w-10 h-10 mr-2 flex justify-center items-center">
                                                 <img class="h-auto w-10" x-bind:src="page.logo || page.thumbnail || defaultIcon" />
                                             </div>
@@ -89,7 +89,7 @@ document.addEventListener('alpine:init', () => {
                             <ul class="border-t border-neutral-light py-4">
                                 <template x-for="page in domain.pages">
                                     <li class="px-5 py-2" x-bind:class="{'current': pageID == page.ID }">
-                                        <a x-bind:href="page.url" class="btn btn-menu">
+                                        <a x-bind:href="page.url" class="btn btn-menu dynamic-text-color">
                                             <span class="w-full" x-html="page.title"></span>
                                         </a>
                                     </li>
@@ -102,11 +102,11 @@ document.addEventListener('alpine:init', () => {
                             <template x-for="(section,i) in domain.sections">
                                 <ul class="border-t border-neutral-light py-4 px-2 border-0" x-bind:class="{ 'md:border-r': i % 2 === 0 }">
                                     <li class="pl-6">
-                                        <span class="btn btn-menu-section" x-html="section.title"></span>
+                                        <span class="btn btn-menu dynamic-text-color-section" x-html="section.title"></span>
                                         <ul>
                                             <template x-for="page in section.pages">
                                                 <li class="py-2" x-bind:class="{'current': pageID == page.ID }">
-                                                    <a x-bind:href="page.url" x-html="page.title" class="btn btn-menu"></a>
+                                                    <a x-bind:href="page.url" x-html="page.title" class="btn btn-menu dynamic-text-color"></a>
                                                 </li>
                                             </template>
                                         </ul>
