@@ -29,12 +29,12 @@ module.exports = {
 			xs: '0.75rem', // 12px
 			sm: '0.875rem', // 14px
 			base: '1rem', // 16px
-			lg: '1.125rem', // 18px -> h6
-			xl: '1.25rem', // 20px -> p, h5
-			'2xl': '1.5rem', // 24px -> h4
-			'3xl': '2rem', // 32px -> h3
-			'4xl': '2.5rem', // 40px -> h2
-			'5xl': '3.5rem', // 56px -> h1
+			lg: '1.125rem', // 18px
+			xl: '1.25rem', // 20px
+			'2xl': '1.5rem', // 24px
+			'3xl': '2rem', // 32px
+			'4xl': '2.5rem', // 40px
+			'5xl': '3.5rem', // 56px
 			'6xl': '6rem', // 96px
 			'3vw': '10vw',
 		},
