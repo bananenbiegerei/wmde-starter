@@ -1,0 +1,119 @@
+section {
+	position: relative;
+}
+
+section.full {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: unset;
+	z-index: 1000;
+	background: white;
+}
+
+section.full h2 {
+	padding: 0.5em;
+}
+
+section h2::after {
+	content: '';
+}
+
+section .close {
+	display: none;
+	position: absolute;
+	top: 1em;
+	right: 0.5em;
+	cursor: pointer;
+}
+
+section .close::after {
+	content: 'Schliessen';
+}
+
+section.full .close {
+	display: block;
+}
+
+section .prog_container {
+	/*	display: none; */
+	/* border: solid 2px red; */
+	width: 100%;
+	overflow: scroll;
+	background-color: white;
+	position: absolute;
+	top: 4em;
+	bottom: 0;
+}
+
+section.full .prog_container {
+	display: block;
+}
+
+.table_container .time_line {
+	position: absolute;
+	top: 0;
+	width: 0;
+	height: 0;
+	border: solid 0.5px red;
+	box-shadow: 0 2px 4px black;
+	left: 0;
+	right: 0;
+	z-index: 10;
+}
+
+.table_container table {
+	position: relative;
+	font-size: 75%;
+}
+
+.table_container table th,
+.table_container table td {
+	padding: 0.25rem;
+}
+
+.table_container table tr:first-of-type th {
+	background: white;
+	position: sticky;
+	top: 0; /* Don't forget this, required for the stickiness */
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+.table_container table tr th {
+	background: white;
+	top: 0; /* Don't forget this, required for the stickiness */
+	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+.table_container table td [typeof='mw:File'] {
+	display: none;
+}
+
+/* Background colors */
+.hintergrundfarbe9 {
+	background-color: greenyellow;
+}
+
+.hintergrundfarbe3 {
+	background-color: yellow;
+}
+.hintergrundfarbe7 {
+	background-color: lightcoral;
+}
+.hintergrundfarbe8 {
+	background-color: navajowhite;
+}
+.hintergrundfarbe5 {
+	background-color: lightgray;
+}
+
+.table_container table tr.now th {
+	background-color: red;
+}
+
+/* In each program cell
+assume <b>...</b> is the event title
+and the rest is the facilitator
+*/
