@@ -8,7 +8,6 @@
 .login {
     @apply flex justify-center flex-col py-4 md:py-12 max-w-2xl mx-auto px-4 min-h-screen;
     h1 {
-        @apply after:content-['_↗'];
         a {
             @apply hidden;
         }
