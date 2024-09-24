@@ -1,4 +1,7 @@
-// some old artiles are styled with strong tag
+body {
+	@apply font-texts;
+}
+
 h1,
 h2,
 h3,
@@ -7,6 +10,7 @@ h5,
 h6 {
 	@apply font-headings leading-tight mb-2;
 }
+
 h1,
 .h1 {
 	@apply text-2xl lg:text-5xl;

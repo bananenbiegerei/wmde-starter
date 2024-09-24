@@ -3,23 +3,24 @@ input[type='email'],
 input[type='password'],
 input[type='date'],
 .form-input {
-	@apply block w-full rounded-md border-neutral focus:border-accent-light focus:ring focus:ring-accent-light focus:ring-opacity-50 mb-2;
+	@apply block w-full rounded-md border-neutral focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 mb-2;
 }
 
 select,
 .form-select {
-	@apply block w-full rounded-md border-neutral shadow-sm focus:border-accent-light focus:ring focus:ring-primary-light focus:ring-opacity-50 bg-no-repeat;
+	@apply block w-full rounded-md border-neutral shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 bg-no-repeat;
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6 1.414-1.414L10 9.172l4.586-4.586L16 6z"/></svg>');
 	background-position: right 0.5rem center;
 	background-size: 1.5em;
 }
 
 textarea {
-	@apply block w-full rounded-md border-neutral shadow-sm focus:border-accent-light focus:ring focus:ring-primary-light focus:ring-opacity-50;
+	@apply block w-full rounded-md border-neutral shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50;
 }
 
-input[type='checkbox'] {
-	@apply rounded border-neutral text-primary shadow-sm focus:border-accent-light focus:ring focus:ring-offset-0 focus:ring-primary-light focus:ring-opacity-50;
+input[type='checkbox'],
+.form-checkbox {
+	@apply rounded border-neutral text-primary shadow-sm focus:border-primary focus:ring focus:ring-offset-0 focus:ring-primary focus:ring-opacity-50;
 }
 input[type='submit'] {
 	@apply btn;

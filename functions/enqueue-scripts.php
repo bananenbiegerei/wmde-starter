@@ -78,11 +78,21 @@ function bb_add_custom_editor_styles($mce_css)
 add_filter('mce_css', 'bb_add_custom_editor_styles');
 
 // Login page style
-function my_custom_login_styles() {
-    // Deregister the default WordPress login styles
-    wp_deregister_style('login');
+function my_custom_login_logout_styles() {
+    // Check if we are on the login page
+    if (strpos($_SERVER['REQUEST_URI'], 'wp-login.php') !== false) {
+        // Deregister the default WordPress login styles
+        wp_deregister_style('login');
 
-    // Enqueue your custom login styles
-    wp_enqueue_style('custom-login', get_template_directory_uri() . '/css/login.css');
+        // Enqueue your custom login styles
+        wp_enqueue_style('custom-login', get_template_directory_uri() . '/css/login.css');
+    }
+
+    // Check if we are on the logout page
+    if (isset($_GET['loggedout']) && $_GET['loggedout'] == 'true') {
+        // Enqueue your custom logout styles
+        wp_enqueue_style('custom-logout', get_template_directory_uri() . '/css/logout.css');
+    }
 }
-add_action('login_enqueue_scripts', 'my_custom_login_styles', 20);
+add_action('login_enqueue_scripts', 'my_custom_login_logout_styles', 20);
+add_action('wp_enqueue_scripts', 'my_custom_login_logout_styles', 20);
