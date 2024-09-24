@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* UI Basic components */
+@import './ui/*';
+
+.login {
+    @apply pt-12 max-w-2xl mx-auto;
+    h1 {
+        a {
+            @apply hidden;
+        }
+    }
+    .notice {
+        @apply mb-6;
+        p {
+            @apply mb-0;
+        }
+        &.notice-error {
+            @apply bg-error-light text-error-dark p-6 rounded;
+        }
+    }
+
+    form {
+        @apply bg-white border border-gray-300 rounded-lg p-4;
+
+        label {
+            @apply text-lg;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            @apply form-input;
+        }
+        input[type="checkbox"] {
+            @apply form-checkbox;
+        }
+
+        input[type="submit"] {
+            @apply bg-red-500 #{!important};
+        }
+    }
+}

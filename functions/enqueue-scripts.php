@@ -76,3 +76,13 @@ function bb_add_custom_editor_styles($mce_css)
     return $mce_css;
 }
 add_filter('mce_css', 'bb_add_custom_editor_styles');
+
+// Login page style
+function my_custom_login_styles() {
+    // Deregister the default WordPress login styles
+    wp_deregister_style('login');
+
+    // Enqueue your custom login styles
+    wp_enqueue_style('custom-login', get_template_directory_uri() . '/css/login.css');
+}
+add_action('login_enqueue_scripts', 'my_custom_login_styles', 20);
