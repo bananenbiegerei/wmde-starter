@@ -91,7 +91,7 @@ function my_custom_login_logout_styles() {
     // Check if we are on the logout page
     if (isset($_GET['loggedout']) && $_GET['loggedout'] == 'true') {
         // Enqueue your custom logout styles
-        wp_enqueue_style('custom-logout', get_template_directory_uri() . '/css/logout.css');
+        wp_enqueue_style('custom-logout', get_template_directory_uri() . '/css/login.css');
     }
 }
 add_action('login_enqueue_scripts', 'my_custom_login_logout_styles', 20);

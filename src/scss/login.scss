@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 /* UI Basic components */
-@import './ui/*';
+@import '/ui/*';
 
 .login {
     @apply flex justify-center flex-col py-4 md:py-12 max-w-2xl mx-auto px-4 min-h-screen;
     h1 {
+        @apply after:content-['_↗'];
         a {
             @apply hidden;
         }
@@ -22,6 +23,9 @@
         }
         &.notice-info {
             @apply border-l-4 border-primary text-black p-4;
+        }
+        a {
+            @apply underline decoration-1 underline-offset-2;
         }
     }
     #login {
@@ -71,5 +75,8 @@
 
     .privacy-policy-link {
         @apply text-base text-neutral;
+    }
+    .wp-login-log-in {
+        @apply btn btn-primary;
     }
 }
