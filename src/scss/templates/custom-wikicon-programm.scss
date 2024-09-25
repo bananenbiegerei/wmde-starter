@@ -35,7 +35,7 @@ section {
 }
 
 .table_container {
-  @apply max-h-[600px] overflow-hidden rounded-xl shadow-xl bg-white p-3 pt-0;
+  @apply h-[600px] max-h-screen overflow-hidden rounded-xl shadow-xl bg-white p-3 pt-0;
   .time_line {
     @apply absolute top-0 w-0 h-0 border border-error left-0 right-0 z-10;
   }
