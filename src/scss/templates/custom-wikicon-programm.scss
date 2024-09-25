@@ -1,119 +1,90 @@
 section {
-	position: relative;
+  @apply relative;
+
+  &.full {
+    @apply fixed inset-0 h-auto z-50 bg-white;
+
+    h2 {
+      @apply p-2;
+    }
+
+    .close {
+      @apply block;
+    }
+
+    .prog_container {
+      @apply block;
+    }
+  }
+
+  h2::after {
+    content: '';
+  }
+
+  .close {
+    @apply hidden absolute top-4 right-2 cursor-pointer;
+
+    &::after {
+      content: 'Schliessen';
+    }
+  }
+
+  .prog_container {
+    @apply w-full overflow-auto bg-white absolute top-16 bottom-0;
+  }
 }
 
-section.full {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	height: unset;
-	z-index: 1000;
-	background: white;
-}
+.table_container {
+  @apply max-h-[600px] overflow-hidden rounded-xl shadow-xl bg-white p-3 pt-0;
+  .time_line {
+    @apply absolute top-0 w-0 h-0 border border-error left-0 right-0 z-10;
+  }
 
-section.full h2 {
-	padding: 0.5em;
-}
+  table {
+    @apply relative text-xs;
 
-section h2::after {
-	content: '';
-}
+    th {
+	  @apply p-2 align-top text-left bg-white;
+	}
+    td {
+      @apply p-2 align-top rounded-2xl border-4 border-white;
+    }
 
-section .close {
-	display: none;
-	position: absolute;
-	top: 1em;
-	right: 0.5em;
-	cursor: pointer;
-}
+    tr:first-of-type th {
+      @apply sticky top-0;
+    }
 
-section .close::after {
-	content: 'Schliessen';
-}
+    tr th {
+      @apply sticky top-0;
+    }
 
-section.full .close {
-	display: block;
-}
+    td [typeof='mw:File'] {
+      @apply hidden;
+    }
 
-section .prog_container {
-	/*	display: none; */
-	/* border: solid 2px red; */
-	width: 100%;
-	overflow: scroll;
-	background-color: white;
-	position: absolute;
-	top: 4em;
-	bottom: 0;
-}
-
-section.full .prog_container {
-	display: block;
-}
-
-.table_container .time_line {
-	position: absolute;
-	top: 0;
-	width: 0;
-	height: 0;
-	border: solid 0.5px red;
-	box-shadow: 0 2px 4px black;
-	left: 0;
-	right: 0;
-	z-index: 10;
-}
-
-.table_container table {
-	position: relative;
-	font-size: 75%;
-}
-
-.table_container table th,
-.table_container table td {
-	padding: 0.25rem;
-}
-
-.table_container table tr:first-of-type th {
-	background: white;
-	position: sticky;
-	top: 0; /* Don't forget this, required for the stickiness */
-	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
-}
-
-.table_container table tr th {
-	background: white;
-	top: 0; /* Don't forget this, required for the stickiness */
-	box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
-}
-
-.table_container table td [typeof='mw:File'] {
-	display: none;
+    tr.now th {
+      @apply bg-error;
+    }
+  }
 }
 
 /* Background colors */
 .hintergrundfarbe9 {
-	background-color: greenyellow;
+  @apply bg-success-light;
 }
 
 .hintergrundfarbe3 {
-	background-color: yellow;
+  @apply bg-warning-light;
 }
+
 .hintergrundfarbe7 {
-	background-color: lightcoral;
+  @apply bg-error-light;
 }
+
 .hintergrundfarbe8 {
-	background-color: navajowhite;
+  @apply bg-primary-light;
 }
+
 .hintergrundfarbe5 {
-	background-color: lightgray;
+  @apply bg-neutral-light;
 }
-
-.table_container table tr.now th {
-	background-color: red;
-}
-
-/* In each program cell
-assume <b>...</b> is the event title
-and the rest is the facilitator
-*/

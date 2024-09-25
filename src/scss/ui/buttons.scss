@@ -101,10 +101,10 @@
 
 	/* Menu */
 	&-menu {
-		@apply rounded-md inline-flex font-menus select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent  hover:bg-neutral-200 hover:border-neutral-200;
+		@apply rounded-md inline-flex font-menus select-none flex-wrap items-center justify-start border-transparent text-left transition duration-200 ease-out leading-none text-base p-3 bg-transparent  hover:bg-primary-dark/50 hover:border-primary-dark;
 
 		&.current {
-			@apply text-primary-dark;
+			@apply underline-offset-2 underline;
 		}
 	}
 
