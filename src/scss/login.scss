@@ -6,7 +6,7 @@
 @import '/ui/*';
 
 .login {
-    @apply flex justify-center flex-col py-4 md:py-12 max-w-2xl mx-auto px-4 min-h-screen;
+    @apply flex justify-center flex-col py-4 md:py-12 max-w-2xl mx-auto px-4 min-h-screen bg-neutral-light;
     h1 {
         @apply text-center;
         a {
@@ -33,7 +33,7 @@
         @apply mb-12;
     }
     form {
-        @apply border bg-neutral-light rounded-lg p-4 my-4;
+        @apply border bg-white rounded-lg p-4 my-4;
         p {
             @apply mb-0;
         }
