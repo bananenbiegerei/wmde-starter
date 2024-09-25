@@ -245,3 +245,15 @@ class Aria_Walker_Nav_Menu extends Walker_Nav_Menu
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 }
+
+add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
+function add_login_logout_link($items, $args) {
+    if ($args->theme_location == 'nav-right-level-1') {
+        ob_start();
+        wp_loginout('index.php');
+        $loginoutlink = ob_get_contents();
+        ob_end_clean();
+        $items .= '<li>' . $loginoutlink . '</li>';
+    }
+    return $items;
+}
