@@ -34,17 +34,17 @@
 
 
 .menu {
-	@apply flex flex-col;
+	@apply flex flex-col divide-y divide-neutral-dark;
 	&.horizontal {
-		@apply flex-row;
+		@apply md:flex-row;
 	}
 	&.right {
 		li {
-			@apply justify-end;
+			@apply md:justify-end;
 		}
 	}
 	li {
-		@apply flex;
+		@apply flex p-2 md:p-0;
 		a,
 		button {
 			@apply btn btn-menu;

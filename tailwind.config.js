@@ -59,7 +59,7 @@ module.exports = {
 				xl: '0 0px 60px -15px rgba(0, 0, 0, 0.3)',
 				navbar: '0 8px 30px rgba(0, 0, 0, 0.12)',
 				hard: '-10px 10px 0 0 rgba(0, 0, 0, 1)',
-				images: '0px 0px 24px 0px rgba(0, 0, 0, 0.35)',
+				images: '0px 0px 24px 0px rgba(0, 0, 0, 0.25)',
 			},
 			maxWidth: {
 				32: '8rem',
