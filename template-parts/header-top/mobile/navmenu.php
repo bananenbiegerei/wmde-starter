@@ -38,42 +38,38 @@ document.addEventListener('alpine:init', () => {
     x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100"
     x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform scale-90">
-    <div class="flex-1 flex justify-end gap-5 items-center p-3" x-data="{ open: false }">
-        <?php /* <div class="w-full">
+    <?php /* <div class="flex-1 flex justify-end gap-5 items-center p-3" x-data="{ open: false }">
+        <div class="w-full">
             <?php get_template_part('template-parts/header-top/cta'); ?>
-            <form class="flex gap-5 form-sm w-full" action="<?= bb_search_url() ?>" method="get">
-                <input class="!mb-0" type="text" name="s" id="mobile-search" x-ref="searchInput"
-                    value="<?php the_search_query(); ?>" />
-                <input type="submit" alt="Search" value="Suchen" class="" />
-            </form>
-
-        </div> */ ?>
+    <form class="flex gap-5 form-sm w-full" action="<?= bb_search_url() ?>" method="get">
+        <input class="!mb-0" type="text" name="s" id="mobile-search" x-ref="searchInput"
+            value="<?php the_search_query(); ?>" />
+        <input type="submit" alt="Search" value="Suchen" class="" />
+    </form>
     </div>
+    </div>*/ ?>
     <?php if (has_nav_menu('nav-right-level-1')) : ?>
-            <div class="">
-                <?php get_template_part('template-parts/header-top/menu-top-right-1'); ?>
-            </div>
+    <?php get_template_part('template-parts/header-top/menu-top-right-1'); ?>
     <?php endif; ?>
 
-    <nav>
+    <nav class="divide-y divide-primary-dark border-b border-primary-dark">
         <template x-for="(domain,i) in nav">
 
-            <div class="border-b border-neutral-dark">
+            <div>
 
-                <div class="relative border-l-8 nav_item"
-                    x-bind:class="{ 'border-transparent' : !isOpen[i], 'border-primary-dark' : isOpen[i] }">
+                <div class="relative nav_item flex items-center flex-wrap"
+                    x-bind:class="{ 'border-transparent' : !isOpen[i], 'border-transparent' : isOpen[i] }">
 
                     <!-- Domain title -->
-                    <div
+                    <div class="flex-1"
                         x-bind:class="{'current before:w-2 before:h-16 before:bg-primary-dark before:absolute before:-left-2 before:top-0': pageID == domain.ID }">
-                        <a x-bind:href="domain.url" @focus="toggleNav(i)" class="btn btn-menu dynamic-text-color h-16">
+                        <a x-bind:href="domain.url" @focus="toggleNav(i)" class="btn btn-menu dynamic-text-color">
                             <span class="w-full" x-html="domain.title"></span>
                         </a>
                     </div>
 
-                    <template
-                        x-if="domain.pages.length > 0 || domain.featured.length > 0 ||	domain.sections.length > 0">
-                        <div tabindex='-1' @click="toggleNav(i)" class="absolute top-5 right-5"
+                    <template x-if="domain.pages.length > 0 || domain.sections.length > 0">
+                        <div tabindex='-1' @click="toggleNav(i)" class="flex-shrink mr-3"
                             x-bind:class="{ 'item_closed' : !isOpen[i], 'item_open' : isOpen[i] }">
                             <?= bb_icon('menu_open', 'cursor-pointer open') ?>
                             <?= bb_icon('menu_close', 'cursor-pointer close') ?>
@@ -81,35 +77,18 @@ document.addEventListener('alpine:init', () => {
                     </template>
 
                     <!-- Wrapper for domain items -->
-                    <div x-show="isOpen[i]" x-transition:enter="transition ease-out duration-300"
+                    <div class="basis-full" x-show="isOpen[i]" x-transition:enter="transition ease-out duration-300"
                         x-transition:enter-start="opacity-0 transform scale-90"
                         x-transition:enter-end="opacity-100 transform scale-100"
                         x-transition:leave="transition ease-in duration-300"
                         x-transition:leave-start="opacity-100 transform scale-100"
                         x-transition:leave-end="opacity-0 transform scale-90">
 
-                        <!-- Featured pages -->
-                        <template x-if="domain.featured.length >0">
-                            <ul class="pb-5">
-                                <template x-for="page in domain.featured">
-                                    <li class="px-5" x-bind:class="{'current': pageID == page.ID }">
-                                        <a x-bind:href="page.url" class="btn btn-menu dynamic-text-color">
-                                            <div class="w-10 h-10 mr-2 flex justify-center items-center">
-                                                <img class="h-auto w-10"
-                                                    x-bind:src="page.logo || page.thumbnail || defaultIcon" />
-                                            </div>
-                                            <span class="w-full" x-html="page.title"></span>
-                                        </a>
-                                    </li>
-                                </template>
-                            </ul>
-                        </template>
-
                         <!-- Pages -->
                         <template x-if="domain.pages.length > 0">
-                            <ul class="border-t border-neutral-dark py-4">
+                            <ul class="">
                                 <template x-for="page in domain.pages">
-                                    <li class="px-5 py-2" x-bind:class="{'current': pageID == page.ID }">
+                                    <li class="pl-5" x-bind:class="{'current': pageID == page.ID }">
                                         <a x-bind:href="page.url" class="btn btn-menu dynamic-text-color">
                                             <span class="w-full" x-html="page.title"></span>
                                         </a>
@@ -146,8 +125,8 @@ document.addEventListener('alpine:init', () => {
     </nav>
     <!-- Subnav -->
     <?php if (has_nav_menu('nav-right-level-2')) : ?>
-            <div class="flex-none">
-                <?php get_template_part('template-parts/header-top/menu-top-right-2'); ?>
-            </div>
-            <?php endif; ?>
+    <div class="flex-none">
+        <?php get_template_part('template-parts/header-top/menu-top-right-2'); ?>
+    </div>
+    <?php endif; ?>
 </header>
