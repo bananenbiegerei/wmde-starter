@@ -77,7 +77,7 @@
 // Styled
 // hover + active color changes around 4-5 steps
 .btn {
-	@apply gap-2 no-underline font-texts font-normal border;
+	@apply gap-2 no-underline font-texts font-normal border text-white;
 	animation: button-pop var(--animation-btn, 0.25s) ease-out;
 
 	&:active:hover,
