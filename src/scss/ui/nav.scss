@@ -54,3 +54,11 @@
 		}
 	}
 }
+
+.menu.subnav {
+	li {
+		a {
+			@apply text-primary-dark;
+		}
+	}
+}
