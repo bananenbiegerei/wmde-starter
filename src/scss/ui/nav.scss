@@ -54,3 +54,12 @@
 		}
 	}
 }
+#nav-right-level-1,
+.dropdown {
+	li {
+		a,
+		a.btn {
+			@apply text-primary-dark hover:text-primary hover:bg-transparent;
+		}
+	}
+}
