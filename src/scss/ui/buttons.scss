@@ -286,7 +286,7 @@
 
 	/* outline */
 	&-outline {
-		@apply text-primary border-current bg-transparent shadow-none hover:border-primary-dark hover:bg-primary-dark;
+		@apply text-primary border-current bg-transparent shadow-none hover:border-primary-dark hover:bg-primary-dark hover:text-white;
 
 		&.btn-active {
 			@apply border-primary-dark bg-primary-dark;
