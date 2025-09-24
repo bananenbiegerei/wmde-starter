@@ -167,7 +167,7 @@ document.addEventListener('alpine:init', () => {
                 <!-- Domain items -->
                 <nav id="navmenu_desktop_domains">
                     <template x-for="(domain,i) in nav">
-                        <a class="btn btn-menu dynamic-text-color" @focus="openNav(i); movePointer()"
+                        <a class="btn btn-menu" @focus="openNav(i); movePointer()"
                             @mouseenter="openNav(i); movePointer()" x-bind:id="'domain_' + i"
                             x-bind:class="{'current': pageID == domain.ID || domain.children.includes(pageID) }"
                             x-bind:href="domain.url" x-html="domain.title"></a>
@@ -258,7 +258,7 @@ document.addEventListener('alpine:init', () => {
                         <template x-for="section in domain.sections">
                             <ul class="items-stretch justify-items-stretch">
                                 <li
-                                    class="transition bg-white rounded-md btn btn-menu dynamic-text-color-section btn-expanded hover:text-black">
+                                    class="transition bg-white rounded-md btn btn-menu btn-expanded hover:text-black">
                                     <span class="p-1" x-text="section.title"></span>
                                 </li>
                                 <template x-for="page in section.pages">
