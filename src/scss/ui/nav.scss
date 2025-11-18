@@ -11,10 +11,7 @@
 #navmenu_desktop_dropdown {
 	li {
 		&.current {
-			// Current page
-		}
-		&.current {
-			@apply text-primary-dark;
+			@apply text-primary-dark font-bold;
 		}
 	}
 }
@@ -49,8 +46,17 @@
 		}
 		&.current-menu-item {
 			a {
-				@apply underline;
+				@apply font-bold;
 			}
+		}
+	}
+}
+#nav-right-level-1,
+.dropdown {
+	li {
+		a,
+		a.btn {
+			@apply text-primary-dark hover:text-primary hover:bg-transparent;
 		}
 	}
 }

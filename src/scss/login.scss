@@ -1,6 +1,8 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 /* UI Basic components */
 @import '/ui/*';
@@ -71,7 +73,7 @@
         @apply sr-only;
     }
     .wp-login-lost-password {
-        @apply decoration-1 underline-offset-2 underline text-base text-neutral text-black;
+        @apply decoration-1 underline-offset-2 underline text-base text-black;
     }
 
     .privacy-policy-link {

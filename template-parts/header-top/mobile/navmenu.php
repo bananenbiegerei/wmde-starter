@@ -38,10 +38,10 @@ document.addEventListener('alpine:init', () => {
     x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100"
     x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform scale-90">
-    <?php /* <div class="flex-1 flex justify-end gap-5 items-center p-3" x-data="{ open: false }">
+    <?php /* <div class="flex items-center justify-end flex-1 gap-5 p-3" x-data="{ open: false }">
         <div class="w-full">
             <?php get_template_part('template-parts/header-top/cta'); ?>
-    <form class="flex gap-5 form-sm w-full" action="<?= bb_search_url() ?>" method="get">
+    <form class="flex w-full gap-5 form-sm" action="<?= bb_search_url() ?>" method="get">
         <input class="!mb-0" type="text" name="s" id="mobile-search" x-ref="searchInput"
             value="<?php the_search_query(); ?>" />
         <input type="submit" alt="Search" value="Suchen" class="" />
@@ -52,18 +52,18 @@ document.addEventListener('alpine:init', () => {
     <?php get_template_part('template-parts/header-top/menu-top-right-1'); ?>
     <?php endif; ?>
 
-    <nav class="divide-y divide-primary-dark border-b border-primary-dark">
+    <nav class="border-b divide-y divide-primary-dark border-primary-dark">
         <template x-for="(domain,i) in nav">
 
             <div>
 
-                <div class="relative nav_item flex items-center flex-wrap"
+                <div class="relative flex flex-wrap items-center nav_item"
                     x-bind:class="{ 'border-transparent' : !isOpen[i], 'border-transparent' : isOpen[i] }">
 
                     <!-- Domain title -->
                     <div class="flex-1"
                         x-bind:class="{'current before:w-2 before:h-16 before:bg-primary-dark before:absolute before:-left-2 before:top-0': pageID == domain.ID }">
-                        <a x-bind:href="domain.url" @focus="toggleNav(i)" class="btn btn-menu dynamic-text-color">
+                        <a x-bind:href="domain.url" @focus="toggleNav(i)" class="btn btn-menu">
                             <span class="w-full" x-html="domain.title"></span>
                         </a>
                     </div>
@@ -89,7 +89,7 @@ document.addEventListener('alpine:init', () => {
                             <ul class="">
                                 <template x-for="page in domain.pages">
                                     <li class="pl-5" x-bind:class="{'current': pageID == page.ID }">
-                                        <a x-bind:href="page.url" class="btn btn-menu dynamic-text-color">
+                                        <a x-bind:href="page.url" class="btn btn-menu">
                                             <span class="w-full" x-html="page.title"></span>
                                         </a>
                                     </li>
@@ -100,16 +100,16 @@ document.addEventListener('alpine:init', () => {
                         <!-- Sections -->
                         <div class="grid md:grid-cols-2">
                             <template x-for="(section,i) in domain.sections">
-                                <ul class="border-t border-neutral-dark py-4 px-2 border-0"
+                                <ul class="px-2 py-4 border-0 border-t border-neutral-dark"
                                     x-bind:class="{ 'md:border-r': i % 2 === 0 }">
                                     <li class="pl-6">
-                                        <span class="btn btn-menu dynamic-text-color-section"
+                                        <span class="btn btn-menu"
                                             x-html="section.title"></span>
                                         <ul>
                                             <template x-for="page in section.pages">
                                                 <li class="py-2" x-bind:class="{'current': pageID == page.ID }">
                                                     <a x-bind:href="page.url" x-html="page.title"
-                                                        class="btn btn-menu dynamic-text-color"></a>
+                                                        class="btn btn-menu"></a>
                                                 </li>
                                             </template>
                                         </ul>

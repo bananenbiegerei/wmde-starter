@@ -77,7 +77,7 @@
 // Styled
 // hover + active color changes around 4-5 steps
 .btn {
-	@apply gap-2 no-underline font-texts font-normal border;
+	@apply gap-2 no-underline font-texts font-normal border text-white;
 	animation: button-pop var(--animation-btn, 0.25s) ease-out;
 
 	&:active:hover,
@@ -131,10 +131,15 @@
 		md:w-auto
 		md:rounded-md
 		md:border-transparent
+		text-primary-dark
+		md:text-white
 		;
 
 		&.current {
-			@apply underline-offset-2 underline;
+			//@apply underline-offset-2 underline;
+			//@apply relative;
+			//@apply after:content-[''] after:block after:w-2 after:h-2 after:bg-white after:rounded-full after:absolute after:right-0 after:-translate-y-1;
+			@apply font-bold;
 		}
 	}
 
@@ -286,7 +291,7 @@
 
 	/* outline */
 	&-outline {
-		@apply text-primary border-current bg-transparent shadow-none hover:border-primary-dark hover:bg-primary-dark;
+		@apply text-primary border-current bg-transparent shadow-none hover:border-primary-dark hover:bg-primary-dark hover:text-white;
 
 		&.btn-active {
 			@apply border-primary-dark bg-primary-dark;

@@ -89,7 +89,7 @@
     </button>
     <hr>
     <h4 class="mb-0">Buttons with different HTML Tags</h4>
-    <code class="bg-warning-100 rounded block p-2">
+    <code class="block p-2 rounded bg-warning-100">
 		Radio and checkbox not refinded yet. Because of complications with forms.
 		Let's see if we need it.
 	</code>
