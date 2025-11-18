@@ -1011,7 +1011,7 @@
             "name": "fonts_h",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "Make sure to upload font files before selecting",
+            "instructions": "Upload font files to the WordPress Media Library before selecting. Supported formats: TTF, WOFF, WOFF2",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1065,7 +1065,7 @@
             "name": "fonts_m",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Upload font files to the WordPress Media Library before selecting. Supported formats: TTF, WOFF, WOFF2",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -1119,7 +1119,7 @@
             "name": "fonts_t",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "If you want to have specific font files for \"normal \/ medium \/ bold and variable\" please add and select them",
+            "instructions": "Upload font files to the WordPress Media Library before selecting. Supported formats: TTF, WOFF, WOFF2. If you want to have specific font files for \"normal \/ medium \/ bold and variable\" please add and select them",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
