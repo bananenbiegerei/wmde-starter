@@ -4,7 +4,6 @@
 - add support for different styles (normal / italic ?)
 */
 
-
 add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes, $real_mime) {
     if (! empty($data['ext']) && ! empty($data['type'])) {
         return $data;
@@ -105,11 +104,43 @@ function bb_inline_style_fonts()
     return $bb_fonts_css;
 }
 
-// Add custom colors to stylesheet
+function bb_inline_style_typography_colors()
+{
+    $options = get_fields('options');
+    $headline_color = $options['headline_color'] ?? 'black';
+    $text_color = $options['text_color'] ?? 'black';
+    $menue_color = $options['menue_color'] ?? 'black';
+
+    $typography_css = "/* Typography Colors */\n";
+    $typography_css .= ":root {\n";
+    $typography_css .= "    --typography-headline-color: var(--tw-colors-{$headline_color});\n";
+    $typography_css .= "    --typography-text-color: var(--tw-colors-{$text_color});\n";
+    $typography_css .= "    --typography-menu-color: var(--tw-colors-{$menue_color});\n";
+    $typography_css .= "}\n\n";
+
+    // Apply colors to elements
+    $typography_css .= "h1, h2, h3, h4, h5, h6 {\n";
+    $typography_css .= "    color: rgb(var(--colors-{$headline_color}));\n";
+    $typography_css .= "}\n\n";
+
+    $typography_css .= "p, li, td, th, span, div {\n";
+    $typography_css .= "    color: rgb(var(--colors-{$text_color}));\n";
+    $typography_css .= "}\n\n";
+
+    // Very specific CSS for menu items to override button classes
+    $typography_css .= "/* Menu item colors - specific to override button classes */\n";
+    $typography_css .= "nav a.btn.btn-menu {\n";
+    $typography_css .= "    color: rgb(var(--colors-{$menue_color}));\n";
+    $typography_css .= "}\n\n";
+
+    return $typography_css;
+}
+
+// Add custom fonts and typography colors to stylesheet
 add_action(
     'wp_enqueue_scripts',
     function () {
-        wp_add_inline_style('style', bb_inline_style_fonts());
+        wp_add_inline_style('style', bb_inline_style_fonts() . "\n" . bb_inline_style_typography_colors());
     },
     PHP_INT_MAX
 );

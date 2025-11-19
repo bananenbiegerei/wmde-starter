@@ -800,13 +800,14 @@
                 "id": ""
             },
             "choices": {
+                "black": "black",
                 "white": "white",
                 "primary": "primary",
                 "secondary": "secondary",
                 "accent": "accent",
                 "neutral": "neutral"
             },
-            "default_value": "inherit",
+            "default_value": "black",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -830,13 +831,14 @@
                 "id": ""
             },
             "choices": {
+                "black": "black",
                 "white": "white",
                 "primary": "primary",
                 "secondary": "secondary",
                 "accent": "accent",
                 "neutral": "neutral"
             },
-            "default_value": "inherit",
+            "default_value": "black",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -860,13 +862,14 @@
                 "id": ""
             },
             "choices": {
+                "black": "black",
                 "white": "white",
                 "primary": "primary",
                 "secondary": "secondary",
                 "accent": "accent",
                 "neutral": "neutral"
             },
-            "default_value": "inherit",
+            "default_value": "black",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
