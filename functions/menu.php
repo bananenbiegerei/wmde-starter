@@ -153,9 +153,12 @@ function bb_get_nav_menu($location = 'nav')
         unset($domain->t_sections);
     }
 
+    // DEACTIVATED: Menu sync disabled - using local menus
+    /*
     if ($switched) {
         restore_current_blog();
     }
+    */
 
     set_transient(BB_NAV_MENU_CACHE . $location, $nav, BB_NAV_MENU_CACHE_TIMEOUT);
     return $nav;
