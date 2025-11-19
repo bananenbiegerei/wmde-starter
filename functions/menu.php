@@ -23,6 +23,8 @@ add_action('init', function () {
 
 
 // Replace menu editor with notice to edit menu on the main site
+// DEACTIVATED: Menu sync disabled - edit menus manually on each site
+/*
 add_action(
     'admin_enqueue_scripts',
     function () {
@@ -34,20 +36,26 @@ add_action(
         }
     }
 );
+*/
 
 
 // Get the menus from the main site (used for the footer menu)
+// DEACTIVATED: Menu sync disabled - using local menus
 function bb_wp_nav_menu($args)
 {
+    /*
     if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
         switch_to_blog(1);
     }
+    */
 
     wp_nav_menu($args);
 
+    /*
     if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
         restore_current_blog();
     }
+    */
 }
 
 // Get menu data in a JSON structure for the nav top dropdown menu
@@ -61,17 +69,22 @@ function bb_get_nav_menu($location = 'nav')
     }
 
     $switched = false;
+    // DEACTIVATED: Menu sync disabled - using local menus
+    /*
     if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
         switch_to_blog(1);
         $switched = true;
     }
+    */
 
     $menu = wp_get_nav_menu_name($location);
 
     if ($menu === '') {
+        /*
         if ($switched) {
             restore_current_blog();
         }
+        */
         return [];
     }
 
