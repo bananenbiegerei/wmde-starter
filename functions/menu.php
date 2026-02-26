@@ -2,8 +2,6 @@
 
 /* Menus
   In this theme the content main menu will always be fetched from the main site.
-
-  FIXME: Add an option to disable defaulting to menu from main site? ($use_main is confusing too...)
 */
 
 define('BB_NAV_MENU_FEATURED', 'Featured');
@@ -23,68 +21,88 @@ add_action('init', function () {
 
 
 // Replace menu editor with notice to edit menu on the main site
-// DEACTIVATED: Menu sync disabled - edit menus manually on each site
-/*
 add_action(
     'admin_enqueue_scripts',
     function () {
-        if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
+        if (is_multisite() && get_current_blog_id() != 1 && (get_field('sync_menus', 'options') || get_field('sync_footer_menu', 'options'))) {
             wp_register_script('bb-admin', false, false, false, true);
             wp_enqueue_script('bb-admin');
-            $script = "jQuery('.wp-admin.nav-menus-php .wrap').html('<div class=\"wrap\"><h2>Menus</h2><p>" . __('Bitte Menüs auf der <a href="' . network_site_url() . 'wp-admin/nav-menus.php"> Hauptseite</a> bearbeiten.', BB_TEXT_DOMAIN)   .   "</p></div>');";
+            $synced = [];
+            if (get_field('sync_menus', 'options')) {
+                $synced[] = 'navigation';
+            }
+            if (get_field('sync_footer_menu', 'options')) {
+                $synced[] = 'footer';
+            }
+            $message = sprintf(
+                __('The %s menu(s) are synced from the main site. <a href="%s">Edit menus on the main site</a>.', BB_TEXT_DOMAIN),
+                implode(' and ', $synced),
+                network_site_url() . 'wp-admin/nav-menus.php'
+            );
+            $script = "jQuery('.wp-admin.nav-menus-php .wrap > h1').after('<div class=\"notice notice-info\"><p>" . esc_js($message) . "</p></div>');";
             wp_add_inline_script('bb-admin', $script);
         }
     }
 );
-*/
 
 
-// Get the menus from the main site (used for the footer menu)
-// DEACTIVATED: Menu sync disabled - using local menus
+// Register any custom post types needed for menu items (customize as needed)
+function bb_register_custom_post_types()
+{
+    // Add your custom post types here if needed
+}
+
+
+// Get the menus from the main site (used for simple menus like footer)
 function bb_wp_nav_menu($args)
 {
-    /*
-    if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
+    $location = $args['theme_location'] ?? '';
+    $should_sync = false;
+
+    if (is_multisite() && get_current_blog_id() != 1) {
+        if ($location === 'footer' && get_field('sync_footer_menu', 'options')) {
+            $should_sync = true;
+        } elseif ($location !== 'footer' && get_field('sync_menus', 'options')) {
+            $should_sync = true;
+        }
+    }
+
+    if ($should_sync) {
         switch_to_blog(1);
     }
-    */
 
     wp_nav_menu($args);
 
-    /*
-    if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
+    if ($should_sync) {
         restore_current_blog();
     }
-    */
 }
 
 // Get menu data in a JSON structure for the nav top dropdown menu
 function bb_get_nav_menu($location = 'nav')
 {
-
-    // Return cached value, except for editors (Polylang pro makes a lot of DB queries!)
+    // Return cached value, except for editors
     $cached = get_transient(BB_NAV_MENU_CACHE . $location);
     if ($cached && !current_user_can('edit_posts')) {
         return $cached;
     }
 
     $switched = false;
-    // DEACTIVATED: Menu sync disabled - using local menus
-    /*
     if (is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
         switch_to_blog(1);
+
+        // Register custom post types from main site
+        bb_register_custom_post_types();
+
         $switched = true;
     }
-    */
 
     $menu = wp_get_nav_menu_name($location);
 
     if ($menu === '') {
-        /*
         if ($switched) {
             restore_current_blog();
         }
-        */
         return [];
     }
 
@@ -122,6 +140,7 @@ function bb_get_nav_menu($location = 'nav')
             $page->ID = intval($m->object_id);
             $page->title = $m->title;
             $page->url = $m->url;
+            $page->target = $m->target;
             $page->domain_id = $domain->ID;
             $domain->children[] = $page->ID;
             if ($m->menu_item_parent == $featured_id) {
@@ -153,12 +172,9 @@ function bb_get_nav_menu($location = 'nav')
         unset($domain->t_sections);
     }
 
-    // DEACTIVATED: Menu sync disabled - using local menus
-    /*
     if ($switched) {
         restore_current_blog();
     }
-    */
 
     set_transient(BB_NAV_MENU_CACHE . $location, $nav, BB_NAV_MENU_CACHE_TIMEOUT);
     return $nav;
@@ -177,7 +193,7 @@ add_action('save_post_nav_menu_item', function ($post_id, $post) {
     }
 }, 10, 2);
 
-// Cleanup output of wp_nav_menu() (used only for screen readers)
+// Cleanup output of wp_nav_menu()
 add_filter('nav_menu_item_id', '__return_null', 10, 3);
 add_filter('nav_menu_css_class', '__return_empty_array', 10, 3);
 add_filter('nav_menu_submenu_css_class', '__return_empty_array', 10, 3);

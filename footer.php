@@ -4,33 +4,46 @@ $footer_color = get_field('footer_color', 'options') ?: 'white';
 </main>
 <footer class="bg-<?= $footer_color; ?> text-black mt-36 site-footer text-white" role="contentinfo" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
-    <div class="py-8 mb-12 border-t-2 border-b border-b-neutral-light lg:mb-0">
+    <?php
+    $has_social_links = get_field('social_media_links', 'option');
+    $has_contacts = have_rows('contacts', 'option');
+    $has_newsletter = get_field('show_wikimedia_newsletter_signup_form', 'option') == 1;
+    ?>
+    <?php if ($has_social_links || $has_contacts || $has_newsletter): ?>
+    <div class="py-8 mb-12 border-t-2 lg:mb-0">
         <div class="container grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 xl:gap-20">
-            <?php if ( get_field('social_media_links', 'option') ) : ?>
+            <?php if ($has_social_links) : ?>
                 <div>
                     <?php get_template_part('template-parts/social-media-menu'); ?>
                 </div>
             <?php endif; ?>
-            <?php if ( have_rows( 'contacts', 'option' ) ) : ?>
-            <?php while ( have_rows( 'contacts', 'option' ) ) : the_row(); ?>
+            <?php if (have_rows('contacts', 'option')) : ?>
+            <?php while (have_rows('contacts', 'option')) : the_row(); ?>
             <div class="text-white">
-                <?php the_sub_field( 'contact_column' ); ?>
+                <?php the_sub_field('contact_column'); ?>
             </div>
             <?php endwhile; ?>
-            <?php else : ?>
-            <?php // No rows found ?>
             <?php endif; ?>
-
-
-            <?php if ( get_field( 'show_wikimedia_newsletter_signup_form', 'option' ) == 1 ) : ?>
+            <?php if ($has_newsletter) : ?>
             <div class="flex-1">
                 <?php get_template_part('template-parts/newsletter-signup-form-minimal'); ?>
             </div>
             <?php endif; ?>
         </div>
     </div>
+    <?php endif; ?>
+    <div class="border-t border-t-neutral-light">
     <div class="container lg:flex lg:items-center lg:h-24">
-        <?php if (has_nav_menu('footer')): ?>
+        <?php
+        $has_footer_menu = has_nav_menu('footer');
+        // When syncing footer menu, check main site for menu assignment
+        if (!$has_footer_menu && is_multisite() && get_current_blog_id() != 1 && get_field('sync_footer_menu', 'options')) {
+            switch_to_blog(1);
+            $has_footer_menu = has_nav_menu('footer');
+            restore_current_blog();
+        }
+        ?>
+        <?php if ($has_footer_menu): ?>
         <div class="lg:flex-1">
             <?php bb_wp_nav_menu(['container' => 'nav', 'menu' => 'footer', 'menu_class' => 'flex flex-col md:flex-row gap-5 text-white', 'theme_location' => 'footer']); ?>
         </div>
@@ -48,6 +61,7 @@ $footer_color = get_field('footer_color', 'options') ?: 'white';
         <div class="text-white">
             <h3 class="mb-0 text-base"><?php _e('Wir befreien Wissen', BB_TEXT_DOMAIN); ?></h3>
         </div>
+    </div>
     </div>
 </footer>
 

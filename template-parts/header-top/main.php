@@ -28,7 +28,16 @@
 <?php get_template_part('template-parts/header-top/mobile/titlebar'); ?>
 <?php get_template_part('template-parts/header-top/mobile/navmenu'); ?>
 <?php get_template_part('template-parts/header-top/desktop/titlebar'); ?>
-<?php if (has_nav_menu('nav')): ?>
+<?php
+$has_menu = has_nav_menu('nav');
+// When syncing menus, check main site for menu assignment
+if (!$has_menu && is_multisite() && get_current_blog_id() != 1 && get_field('sync_menus', 'options')) {
+    switch_to_blog(1);
+    $has_menu = has_nav_menu('nav');
+    restore_current_blog();
+}
+?>
+<?php if ($has_menu): ?>
 <?php get_template_part('template-parts/header-top/desktop/navmenu'); ?>
 <?php else: ?>
 <div class="border-2 my-2 border-error border-dotted rounded-2xl p-4">
