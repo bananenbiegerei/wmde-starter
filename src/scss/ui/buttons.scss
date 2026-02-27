@@ -263,12 +263,11 @@
 			}
 		}
 
-		&.btn-error,
-		&.btn-warning {
-			@apply text-warning hover:border-warning hover:bg-warning;
+		&.btn-error {
+			@apply text-error hover:border-error hover:bg-error;
 
 			&.btn-active {
-				@apply border-warning bg-warning;
+				@apply border-error bg-error;
 			}
 		}
 	}
@@ -289,59 +288,57 @@
 
 	/* outline */
 	&-outline {
-		@apply text-primary border-current bg-transparent shadow-none hover:border-primary-dark hover:bg-primary-dark hover:text-white;
+		@apply text-primary border-current bg-transparent shadow-none hover:border-primary-dark hover:bg-transparent;
 
 		&.btn-active {
-			@apply border-primary-dark bg-primary-dark;
+			@apply border-primary-dark bg-transparent;
 		}
 
 		&.btn-neutral {
-			@apply text-black hover:border-black hover:bg-neutral-light hover:text-black;
+			@apply text-black hover:border-black hover:bg-transparent hover:text-black;
 
 			&.btn-active {
-				@apply border-secondary-dark bg-secondary-dark text-secondary-dark;
+				@apply border-secondary-dark bg-transparent text-secondary-dark;
 			}
 		}
 
 		&.btn-secondary {
-			@apply text-neutral-dark hover:border-neutral-dark hover:bg-neutral;
+			@apply text-neutral-dark hover:border-neutral-dark hover:bg-transparent;
 
 			&.btn-active {
-				@apply border-secondary-dark bg-secondary-dark text-secondary-dark;
+				@apply border-secondary-dark bg-transparent text-secondary-dark;
 			}
 		}
 
-		&.btn-accent,
 		&.btn-accent {
-			@apply text-accent-dark hover:border-accent hover:bg-accent;
+			@apply text-accent-dark hover:border-accent hover:bg-transparent;
 
 			&.btn-active {
-				@apply border-accent-dark bg-accent-dark text-accent-dark;
+				@apply border-accent-dark bg-transparent text-accent-dark;
 			}
 		}
 
 		&.btn-success {
-			@apply text-success hover:border-success hover:bg-success;
+			@apply text-success hover:border-success hover:bg-transparent;
 
 			&.btn-active {
-				@apply border-success bg-success;
+				@apply border-success bg-transparent;
 			}
 		}
 
 		&.btn-warning {
-			@apply text-warning hover:border-warning hover:bg-warning;
+			@apply text-warning hover:border-warning hover:bg-transparent;
 
 			&.btn-active {
-				@apply border-warning bg-warning;
+				@apply border-warning bg-transparent;
 			}
 		}
 
-		&.btn-error,
-		&.btn-warning {
-			@apply text-warning hover:border-warning hover:bg-warning;
+		&.btn-error {
+			@apply text-error hover:border-error hover:bg-transparent;
 
 			&.btn-active {
-				@apply border-warning bg-warning;
+				@apply border-error bg-transparent;
 			}
 		}
 	}

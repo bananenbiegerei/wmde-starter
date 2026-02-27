@@ -24,7 +24,7 @@ add_action('init', function () {
 add_action(
     'admin_enqueue_scripts',
     function () {
-        if (is_multisite() && get_current_blog_id() != 1 && (get_field('sync_menus', 'options') || get_field('sync_footer_menu', 'options') || get_field('sync_ctas', 'options'))) {
+        if (is_multisite() && get_current_blog_id() != 1 && (get_field('sync_menus', 'options') || get_field('sync_footer_menu', 'options'))) {
             wp_register_script('bb-admin', false, false, false, true);
             wp_enqueue_script('bb-admin');
             $synced = [];
@@ -34,13 +34,10 @@ add_action(
             if (get_field('sync_footer_menu', 'options')) {
                 $synced[] = 'footer';
             }
-            if (get_field('sync_ctas', 'options')) {
-                $synced[] = 'call to actions';
-            }
             $message = sprintf(
-                __('The %s are synced from the main site. <a href="%s">Edit on the main site</a>.', BB_TEXT_DOMAIN),
-                implode(', ', $synced),
-                network_site_url() . 'wp-admin/admin.php?page=acf-options'
+                __('The %s menu(s) are synced from the main site. <a href="%s">Edit menus on the main site</a>.', BB_TEXT_DOMAIN),
+                implode(' and ', $synced),
+                network_site_url() . 'wp-admin/nav-menus.php'
             );
             $script = "jQuery('.wp-admin.nav-menus-php .wrap > h1').after('<div class=\"notice notice-info\"><p>" . esc_js($message) . "</p></div>');";
             wp_add_inline_script('bb-admin', $script);
@@ -279,33 +276,6 @@ class Aria_Walker_Nav_Menu extends Walker_Nav_Menu
          */
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
-}
-
-// Get CTAs with multisite sync support
-function bb_get_synced_ctas()
-{
-    $should_sync = is_multisite() && get_current_blog_id() != 1 && get_field('sync_ctas', 'options');
-
-    if ($should_sync) {
-        switch_to_blog(1);
-    }
-
-    $ctas = [];
-    if (have_rows('call_to_actions', 'option')) {
-        while (have_rows('call_to_actions', 'option')) {
-            the_row();
-            $ctas[] = [
-                'link' => get_sub_field('link'),
-                'color' => get_sub_field('color')
-            ];
-        }
-    }
-
-    if ($should_sync) {
-        restore_current_blog();
-    }
-
-    return $ctas;
 }
 
 add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);

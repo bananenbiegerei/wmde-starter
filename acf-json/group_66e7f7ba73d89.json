@@ -124,7 +124,7 @@
                 },
                 {
                     "key": "field_66e7f7ba7d78a",
-                    "label": "color",
+                    "label": "Color",
                     "name": "color",
                     "aria-label": "",
                     "type": "button_group",
@@ -137,17 +137,82 @@
                         "id": ""
                     },
                     "choices": {
-                        "primary": "primary",
-                        "secondary": "secondary",
-                        "error": "error",
-                        "warning": "warning",
-                        "success": "success",
-                        "accent": "accent"
+                        "primary": "Primary",
+                        "secondary": "Secondary",
+                        "error": "Error",
+                        "warning": "Warning",
+                        "success": "Success",
+                        "accent": "Accent"
                     },
                     "default_value": "primary",
                     "return_format": "value",
                     "allow_null": 0,
                     "layout": "horizontal",
+                    "parent_repeater": "field_66e7f7ba7a03f"
+                },
+                {
+                    "key": "field_66e7f7ba7d790",
+                    "label": "Style",
+                    "name": "style",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "": "Solid",
+                        "outline": "Outline",
+                        "ghost": "Ghost"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal",
+                    "parent_repeater": "field_66e7f7ba7a03f"
+                },
+                {
+                    "key": "field_66e7f7ba7d795",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "": "None",
+                        "arrow-right": "Arrow Right",
+                        "arrow-left": "Arrow Left",
+                        "arrow-up": "Arrow Up",
+                        "arrow-down": "Arrow Down",
+                        "arrow-north-east": "Arrow North East",
+                        "chevron-right": "Chevron Right",
+                        "chevron-left": "Chevron Left",
+                        "plus": "Plus",
+                        "heart": "Heart",
+                        "search": "Search",
+                        "info": "Info",
+                        "help": "Help",
+                        "chat": "Chat",
+                        "x": "Close"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "Select icon",
                     "parent_repeater": "field_66e7f7ba7a03f"
                 }
             ]

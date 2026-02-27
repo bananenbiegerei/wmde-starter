@@ -123,6 +123,11 @@ function bb_inline_style_typography_colors()
     $typography_css .= "    color: rgb(var(--colors-{$text_color}));\n";
     $typography_css .= "}\n\n";
 
+    // Buttons should inherit their own color, not the text color
+    $typography_css .= ".btn, .btn span, .btn div {\n";
+    $typography_css .= "    color: inherit;\n";
+    $typography_css .= "}\n\n";
+
     // Very specific CSS for menu items to override button classes
     $typography_css .= "/* Menu item colors - specific to override button classes */\n";
     $typography_css .= "nav a.btn.btn-menu {\n";
