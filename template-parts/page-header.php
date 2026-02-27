@@ -1,5 +1,8 @@
+<?php
+$page_header_color = bb_get_component_color('page_header_color');
+?>
 <?php if (has_post_thumbnail()): ?>
-<div class="bg-neutral min-h-[12rem]">
+<div class="<?= $page_header_color['class']; ?> min-h-[12rem]" <?php if ($page_header_color['style']): ?>style="<?= $page_header_color['style']; ?>"<?php endif; ?>>
     <div class="container grid grid-cols-12">
         <div class="col-span-12 lg:col-span-10 lg:col-start-2">
             <?php get_template_part('template-parts/breadcrumbs'); ?>

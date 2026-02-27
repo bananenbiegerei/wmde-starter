@@ -682,11 +682,11 @@
         },
         {
             "key": "field_66cdb0f2de714",
-            "label": "Header Color",
-            "name": "header_color",
+            "label": "Titlebar Color",
+            "name": "titlebar_color",
             "aria-label": "",
-            "type": "select",
-            "instructions": "",
+            "type": "group",
+            "instructions": "Color for the top titlebar with logo and CTAs",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -694,28 +694,165 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "white": "white",
-                "primary": "primary",
-                "secondary": "secondary",
-                "accent": "accent",
-                "neutral": "neutral"
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_66cdb0f2de715",
+                    "label": "Predefined Color",
+                    "name": "preset",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "white": "White",
+                        "black": "Black",
+                        "primary-light": "Primary Light",
+                        "primary": "Primary",
+                        "primary-dark": "Primary Dark",
+                        "secondary-light": "Secondary Light",
+                        "secondary": "Secondary",
+                        "secondary-dark": "Secondary Dark",
+                        "accent-light": "Accent Light",
+                        "accent": "Accent",
+                        "accent-dark": "Accent Dark",
+                        "neutral-light": "Neutral Light",
+                        "neutral": "Neutral",
+                        "neutral-dark": "Neutral Dark",
+                        "custom": "Custom Color"
+                    },
+                    "default_value": "white",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_66cdb0f2de716",
+                    "label": "Custom Color",
+                    "name": "custom",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66cdb0f2de715",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                }
+            ]
+        },
+        {
+            "key": "field_66cdb0f2de717",
+            "label": "Navbar Color",
+            "name": "navbar_color",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Color for the navigation bar with menu items",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            "default_value": "white",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_66cdb0f2de718",
+                    "label": "Predefined Color",
+                    "name": "preset",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "white": "White",
+                        "black": "Black",
+                        "primary-light": "Primary Light",
+                        "primary": "Primary",
+                        "primary-dark": "Primary Dark",
+                        "secondary-light": "Secondary Light",
+                        "secondary": "Secondary",
+                        "secondary-dark": "Secondary Dark",
+                        "accent-light": "Accent Light",
+                        "accent": "Accent",
+                        "accent-dark": "Accent Dark",
+                        "neutral-light": "Neutral Light",
+                        "neutral": "Neutral",
+                        "neutral-dark": "Neutral Dark",
+                        "custom": "Custom Color"
+                    },
+                    "default_value": "white",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_66cdb0f2de719",
+                    "label": "Custom Color",
+                    "name": "custom",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66cdb0f2de718",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                }
+            ]
         },
         {
             "key": "field_66cdb33013a97",
             "label": "Body Color",
             "name": "body_color",
             "aria-label": "",
-            "type": "select",
-            "instructions": "",
+            "type": "group",
+            "instructions": "Background color for the main content area",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -723,28 +860,82 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "white": "white",
-                "primary": "primary",
-                "secondary": "secondary",
-                "accent": "accent",
-                "neutral": "neutral"
-            },
-            "default_value": "white",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_66cdb33013a98",
+                    "label": "Predefined Color",
+                    "name": "preset",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "white": "White",
+                        "black": "Black",
+                        "primary-light": "Primary Light",
+                        "primary": "Primary",
+                        "primary-dark": "Primary Dark",
+                        "secondary-light": "Secondary Light",
+                        "secondary": "Secondary",
+                        "secondary-dark": "Secondary Dark",
+                        "accent-light": "Accent Light",
+                        "accent": "Accent",
+                        "accent-dark": "Accent Dark",
+                        "neutral-light": "Neutral Light",
+                        "neutral": "Neutral",
+                        "neutral-dark": "Neutral Dark",
+                        "custom": "Custom Color"
+                    },
+                    "default_value": "white",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_66cdb33013a99",
+                    "label": "Custom Color",
+                    "name": "custom",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66cdb33013a98",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                }
+            ]
         },
         {
             "key": "field_66cdb34113a98",
             "label": "Footer Color",
             "name": "footer_color",
             "aria-label": "",
-            "type": "select",
-            "instructions": "",
+            "type": "group",
+            "instructions": "Background color for the footer",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -752,20 +943,157 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "white": "white",
-                "primary": "primary",
-                "secondary": "secondary",
-                "accent": "accent",
-                "neutral": "neutral"
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_66cdb34113a99",
+                    "label": "Predefined Color",
+                    "name": "preset",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "white": "White",
+                        "black": "Black",
+                        "primary-light": "Primary Light",
+                        "primary": "Primary",
+                        "primary-dark": "Primary Dark",
+                        "secondary-light": "Secondary Light",
+                        "secondary": "Secondary",
+                        "secondary-dark": "Secondary Dark",
+                        "accent-light": "Accent Light",
+                        "accent": "Accent",
+                        "accent-dark": "Accent Dark",
+                        "neutral-light": "Neutral Light",
+                        "neutral": "Neutral",
+                        "neutral-dark": "Neutral Dark",
+                        "custom": "Custom Color"
+                    },
+                    "default_value": "white",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_66cdb34113a9a",
+                    "label": "Custom Color",
+                    "name": "custom",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66cdb34113a99",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                }
+            ]
+        },
+        {
+            "key": "field_66cdb35213b00",
+            "label": "Page Header Color",
+            "name": "page_header_color",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Background color for the page header area",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            "default_value": "white",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_66cdb35213b01",
+                    "label": "Predefined Color",
+                    "name": "preset",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "white": "White",
+                        "black": "Black",
+                        "primary-light": "Primary Light",
+                        "primary": "Primary",
+                        "primary-dark": "Primary Dark",
+                        "secondary-light": "Secondary Light",
+                        "secondary": "Secondary",
+                        "secondary-dark": "Secondary Dark",
+                        "accent-light": "Accent Light",
+                        "accent": "Accent",
+                        "accent-dark": "Accent Dark",
+                        "neutral-light": "Neutral Light",
+                        "neutral": "Neutral",
+                        "neutral-dark": "Neutral Dark",
+                        "custom": "Custom Color"
+                    },
+                    "default_value": "neutral",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_66cdb35213b02",
+                    "label": "Custom Color",
+                    "name": "custom",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66cdb35213b01",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ffffff",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                }
+            ]
         },
         {
             "key": "field_66e8009196b7b",

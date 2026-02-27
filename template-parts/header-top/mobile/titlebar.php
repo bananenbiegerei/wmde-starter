@@ -1,5 +1,5 @@
 <?php
-$header_color = get_field('header_color', 'options') ?: 'white';
+$titlebar_color = bb_get_component_color('titlebar_color');
 ?>
 <script>
 // Store mobile menu status in Alpine.store
@@ -19,7 +19,7 @@ document.addEventListener('alpine:init', () => {
 });
 </script>
 
-<header aria-hidden="true" tabindex='-1' id="titlebar_mobile" class="flex bg-<?= $header_color; ?> h-14 items-center py-1 px-5 left-0 right-0 fixed  border-b border-neutral z-40  md:hidden nohover:flex">
+<header aria-hidden="true" tabindex='-1' id="titlebar_mobile" class="flex <?= $titlebar_color['class']; ?> h-14 items-center py-1 px-5 left-0 right-0 fixed  border-b border-neutral z-40  md:hidden nohover:flex" <?php if ($titlebar_color['style']): ?>style="<?= $titlebar_color['style']; ?>"<?php endif; ?>>
   <?php get_template_part('template-parts/header-top/titlebar_content'); ?>
   <div class="flex-none block" x-data="navMenuMobileToggle">
   <!-- Using the Alpine.store ($store) to save the state of the site header. -->

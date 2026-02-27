@@ -41,6 +41,26 @@
             "ui_on_text": "Enabled",
             "ui_off_text": "Disabled",
             "ui": 1
+        },
+        {
+            "key": "field_sync_ctas",
+            "label": "Sync Call to Actions from Main Site",
+            "name": "sync_ctas",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "When enabled, this subsite will display the Call to Action buttons from the main site instead of its own.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable CTA synchronization",
+            "default_value": 0,
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled",
+            "ui": 1
         }
     ],
     "location": [

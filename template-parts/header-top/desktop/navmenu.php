@@ -1,5 +1,5 @@
 <?php $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_directory_uri() . '/img/wikimedia-logo-mini.svg');
-$header_color = get_field('header_color', 'options') ?: 'white';
+$navbar_color = bb_get_component_color('navbar_color');
 $search = get_field('activate_topbar_search', 'options');
 ?>
 <script>
@@ -142,7 +142,8 @@ document.addEventListener('alpine:init', () => {
 
 <!-- Container for the whole desktop nav menu -->
 <header aria-hidden="true" id="navmenu_desktop" x-data="navMenu"
-    class="border-b border-neutral sticky top-0 z-40 bg-<?= $header_color; ?> py-1 hidden md:block nohover:hidden"
+    class="border-b border-neutral sticky top-0 z-40 <?= $navbar_color['class']; ?> py-1 hidden md:block nohover:hidden"
+    <?php if ($navbar_color['style']): ?>style="<?= $navbar_color['style']; ?>"<?php endif; ?>
     @mouseleave="closeNav()">
 
     <!-- Top bar with logo, domains, and search -->

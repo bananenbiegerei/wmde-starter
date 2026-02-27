@@ -1,5 +1,5 @@
 <?php
-$header_color = get_field('header_color', 'options') ?: 'white';
+$navbar_color = bb_get_component_color('navbar_color');
 ?>
 <script>
 // Prepare x-data for 'navMenuMobile' component
@@ -33,7 +33,7 @@ document.addEventListener('alpine:init', () => {
 
 <!-- Container for the whole mobile nav menu -->
 <header aria-hidden="true" id="navmenu_mobile" x-data="navMenuMobile"
-    class="z-40 block bg-<?= $header_color; ?>-light fixed left-0 right-0 bottom-0 top-14 block md:hidden nohover:block overflow-scroll"
+    class="z-40 block <?= $navbar_color['class']; ?> fixed left-0 right-0 bottom-0 top-14 block md:hidden nohover:block overflow-scroll" <?php if ($navbar_color['style']): ?>style="<?= $navbar_color['style']; ?>"<?php endif; ?>
     x-show="$store.open_mobile_nav" x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100"
     x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100"

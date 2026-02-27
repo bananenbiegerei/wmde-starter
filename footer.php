@@ -1,8 +1,8 @@
 <?php
-$footer_color = get_field('footer_color', 'options') ?: 'white';
+$footer_color = bb_get_component_color('footer_color');
 ?>
 </main>
-<footer class="bg-<?= $footer_color; ?> text-black mt-36 site-footer text-white" role="contentinfo" aria-labelledby="footer-heading">
+<footer class="<?= $footer_color['class']; ?> text-black mt-36 site-footer text-white" <?php if ($footer_color['style']): ?>style="<?= $footer_color['style']; ?>"<?php endif; ?> role="contentinfo" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <?php
     $has_social_links = get_field('social_media_links', 'option');
