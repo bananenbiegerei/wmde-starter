@@ -117,7 +117,7 @@ module.exports = {
 						},
 						neutral: {
 							light: '#F8f8f8',
-							DEFAULT: '#F6F6F6',
+							DEFAULT: '#C1C1C1',
 							dark: '#a0a0a0',
 						},
 						accent: {

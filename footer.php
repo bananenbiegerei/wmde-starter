@@ -32,7 +32,7 @@ $footer_color = get_field('footer_color', 'options') ?: 'white';
         </div>
     </div>
     <?php endif; ?>
-    <div class="border-t border-t-neutral-light">
+    <div class="border-t border-t-neutral">
     <div class="container lg:flex lg:items-center lg:h-24">
         <?php
         $has_footer_menu = has_nav_menu('footer');

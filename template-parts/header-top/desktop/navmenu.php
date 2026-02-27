@@ -142,8 +142,8 @@ document.addEventListener('alpine:init', () => {
 
 <!-- Container for the whole desktop nav menu -->
 <header aria-hidden="true" id="navmenu_desktop" x-data="navMenu"
-    class="border-b border-neutral-light sticky top-0 z-40 bg-<?= $header_color; ?> py-1 hidden md:block nohover:hidden"
-    @xmouseleave="closeNav()">
+    class="border-b border-neutral sticky top-0 z-40 bg-<?= $header_color; ?> py-1 hidden md:block nohover:hidden"
+    @mouseleave="closeNav()">
 
     <!-- Top bar with logo, domains, and search -->
     <div class="container relative z-10 overflow-hidden">
@@ -217,7 +217,7 @@ document.addEventListener('alpine:init', () => {
 
                     <!-- Featured pages -->
                     <template x-if="domain.featured.length > 0">
-                        <nav class="pr-5 mr-5 border-r border-neutral-light">
+                        <nav class="pr-5 mr-5 border-r border-neutral">
                             <ul class="flex flex-col overflow-auto max-h-screen-80">
                                 <template x-for="page in domain.featured">
                                     <li class="p-1" x-bind:class="{'current': pageID == page.ID }">

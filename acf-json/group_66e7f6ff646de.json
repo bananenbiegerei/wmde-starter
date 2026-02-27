@@ -71,6 +71,35 @@
                     "ajax": 0,
                     "placeholder": "",
                     "parent_repeater": "field_66e7f6ff662c4"
+                },
+                {
+                    "key": "field_66e7f6ff86752",
+                    "label": "Weight",
+                    "name": "custom_font_weight",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "300": "Normal",
+                        "500": "Medium",
+                        "700": "Bold",
+                        "variable": "Variable"
+                    },
+                    "default_value": "500",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_66e7f6ff662c4"
                 }
             ]
         },
@@ -122,6 +151,35 @@
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_66e7f6ff662c7"
+                },
+                {
+                    "key": "field_66e7f6ff8802a",
+                    "label": "Weight",
+                    "name": "custom_font_weight",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "300": "Normal",
+                        "500": "Medium",
+                        "700": "Bold",
+                        "variable": "Variable"
+                    },
+                    "default_value": "500",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
                     "ajax": 0,
                     "placeholder": "",
                     "parent_repeater": "field_66e7f6ff662c7"
@@ -200,7 +258,7 @@
                         "700": "Bold",
                         "variable": "Variable"
                     },
-                    "default_value": false,
+                    "default_value": "500",
                     "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,

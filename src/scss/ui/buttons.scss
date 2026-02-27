@@ -104,7 +104,8 @@
 		@apply
 		w-full
 		inline-flex
-		font-menus
+		font-headings
+		font-medium
 		select-none
 		flex-wrap
 		items-center
@@ -113,7 +114,6 @@
 		border-r-0
 		border-l-8
 		border-transparent
-		hover:border-l-primary-dark
 		text-left transition
 		duration-200
 		ease-out
@@ -125,14 +125,11 @@
 		rounded-none
 		hover:bg-neutral-light
 		md:p-3
-		md:border
+		md:border-transparent
 		md:hover:bg-neutral-light
-		md:hover:border-primary-dark
+		md:hover:border-transparent
 		md:w-auto
 		md:rounded-md
-		md:border-transparent
-		text-primary-dark
-		md:text-white
 		;
 
 		&.current {

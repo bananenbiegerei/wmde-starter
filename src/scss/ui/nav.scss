@@ -1,20 +1,20 @@
 // Domains
-#navmenu_desktop_domains {
-	a {
-		&.current {
-			// Current domain or top-level page
-		}
-	}
-}
+// #navmenu_desktop_domains {
+// 	a {
+// 		&.current {
+// 			// Current domain or top-level page
+// 		}
+// 	}
+// }
 
 // Menu items in dropdown
-#navmenu_desktop_dropdown {
-	li {
-		&.current {
-			@apply text-primary-dark font-bold;
-		}
-	}
-}
+// #navmenu_desktop_dropdown {
+// 	li {
+// 		&.current {
+// 			@apply text-primary-dark font-bold;
+// 		}
+// 	}
+// }
 
 // Dropdown animations (could not get them to work with AlpineJS)
 #navmenu_desktop_dropdown {
@@ -51,12 +51,12 @@
 		}
 	}
 }
-#nav-right-level-1,
-.dropdown {
-	li {
-		a,
-		a.btn {
-			@apply text-primary-dark hover:text-primary hover:bg-transparent;
-		}
-	}
-}
+// #nav-right-level-1,
+// .dropdown {
+// 	li {
+// 		a,
+// 		a.btn {
+// 			@apply text-primary-dark hover:text-primary hover:bg-transparent;
+// 		}
+// 	}
+// }
