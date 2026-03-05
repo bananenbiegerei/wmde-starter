@@ -5,7 +5,8 @@
 }
 
 .bb-container-default {
-	@apply col-span-12 lg:col-span-8 lg:col-start-3;
+	//@apply col-span-12 lg:col-span-8 lg:col-start-3;
+	@apply col-span-12;
 }
 
 .bb-group-padding {
