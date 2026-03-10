@@ -1,5 +1,5 @@
 <?php
-$home_url = is_home() ? 'https://www.wikimedia.de/' : get_home_url();
+$home_url = 'https://www.wikimedia.de/';
 $logo_big = esc_attr(get_field('logo_big', 'options') ?: get_stylesheet_directory_uri() . '/img/wikimedia-logo.svg');
 $logo_small = esc_attr(get_field('logo_small', 'options') ?: get_stylesheet_directory_uri() . '/img/wikimedia-logo-mini.svg');
 ?>
