@@ -11,7 +11,7 @@ $footer_color = bb_get_component_color('footer_color');
     ?>
     <?php if ($has_social_links || $has_contacts || $has_newsletter): ?>
     <div class="py-8 mb-12 border-t-2 lg:mb-0">
-        <div class="container grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 xl:gap-20">
+        <div class="container grid grid-cols-1 gap-6 md:grid-cols-2 xl:flex xl:flex-wrap xl:gap-20">
             <?php if ($has_social_links) : ?>
                 <div>
                     <?php get_template_part('template-parts/social-media-menu'); ?>
@@ -29,11 +29,16 @@ $footer_color = bb_get_component_color('footer_color');
                 <?php get_template_part('template-parts/newsletter-signup-form-minimal'); ?>
             </div>
             <?php endif; ?>
+            <?php if (class_exists('Cookie_Law_Info')): ?>
+            <div>
+                <a class="cli_settings_button" href="#"><?php _e('Cookie Einstellungen', BB_TEXT_DOMAIN); ?></a>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
     <?php endif; ?>
     <div class="border-t border-t-neutral">
-    <div class="container lg:flex lg:items-center lg:h-24">
+    <div class="container py-4 lg:flex lg:items-center lg:h-24">
         <?php
         $has_footer_menu = has_nav_menu('footer');
         // When syncing footer menu, check main site for menu assignment
@@ -58,7 +63,7 @@ $footer_color = bb_get_component_color('footer_color');
             </a>
         </div>
         <?php endif; ?>
-        <div class="text-white">
+        <div class="flex items-center gap-4 text-white">
             <h3 class="mb-0 text-base"><?php _e('Wir befreien Wissen', BB_TEXT_DOMAIN); ?></h3>
         </div>
     </div>
