@@ -1,5 +1,5 @@
 <div class="flex flex-col">
-    <h3 for="newsletter-signup-form" class="text-base text-primary"><?php _e('Newlsetter Anmeldung', BB_TEXT_DOMAIN); ?></h3>
+    <h3 for="newsletter-signup-form" class="text-base text-wmdeblue"><?php _e('Newlsetter Anmeldung', BB_TEXT_DOMAIN); ?></h3>
     <form action="https://t874ad7c5.emailsys1a.net/191/2155/d537ac9314/subscribe/form.html" method="post" id="newsletter-signup-form">
 
         <ul class="relative no-bullet newsletter-form-minimal">
@@ -14,7 +14,7 @@
                 <input type="text" class="form_field form-input" name="email" id="email" value="" placeholder="E-Mail" />
             </li>
             <li class="absolute form_button right-1 bottom-1">
-                <input type="submit" class="form_button_submit btn" value="<?php _e('Anmelden', BB_TEXT_DOMAIN); ?>" />
+                <input type="submit" class="form_button_submit btn btn-wmdeblue" value="<?php _e('Anmelden', BB_TEXT_DOMAIN); ?>" />
             </li>
         </ul>
     </form>
@@ -47,7 +47,7 @@
 
                 <!-- Buttons -->
                 <div class="flex mt-8 space-x-2">
-                    <button type="button" x-on:click="open = false" class="btn">
+                    <button type="button" x-on:click="open = false" class="btn btn-wmdeblue">
                         <?php _e('Schliessen', BB_TEXT_DOMAIN); ?>
                     </button>
                 </div>

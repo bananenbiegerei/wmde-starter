@@ -11,7 +11,7 @@ module.exports = {
 			pattern: /text-(xs|sm|lg|xl)/,
 		},
 		{
-			pattern: /(bg|text|border)-(white|black|primary|secondary|neutral|accent|warning|success|error)/,
+			pattern: /(bg|text|border)-(white|black|wmdeblue|primary|secondary|neutral|accent|warning|success|error)/,
 		},
 		{
             pattern: /shadow-(images|xl|2xl)/,
@@ -104,6 +104,9 @@ module.exports = {
 						},
 						white: {
 							DEFAULT: 'white',
+						},
+						wmdeblue: {
+							DEFAULT: 'rgb(0, 0, 104)',
 						},
 						primary: {
 							light: '#0000ff',

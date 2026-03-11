@@ -189,6 +189,20 @@
 		}
 	}
 
+	&.btn-wmdeblue {
+		@apply border-wmdeblue bg-wmdeblue text-white outline-wmdeblue;
+
+		@media (hover: hover) {
+			&:hover {
+				@apply border-wmdeblue/90 bg-wmdeblue/90;
+			}
+		}
+
+		&.btn-active {
+			@apply border-wmdeblue bg-wmdeblue;
+		}
+	}
+
 	/* btn with state colors */
 
 	&-success {
