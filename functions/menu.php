@@ -46,11 +46,38 @@ add_action(
 );
 
 
-// Register any custom post types needed for menu items (customize as needed)
+// Register custom post types
 function bb_register_custom_post_types()
 {
-    // Add your custom post types here if needed
+    register_post_type('projects', [
+        'labels' => [
+            'name' => __('Projects', BB_TEXT_DOMAIN),
+            'singular_name' => __('Project', BB_TEXT_DOMAIN)
+        ],
+        'public' => true,
+        'has_archive' => false,
+        'supports' => ['title', 'editor', 'thumbnail', 'author', 'excerpt'],
+        'show_in_rest' => true,
+        'menu_icon' => 'dashicons-clipboard',
+        'show_in_menu' => false
+    ]);
+
+    register_post_type('theme-releases', [
+        'labels' => [
+            'name' => _x('Themen', 'Post Type General Name', BB_TEXT_DOMAIN),
+            'singular_name' => _x('Thema', 'Post Type Singular Name', BB_TEXT_DOMAIN)
+        ],
+        'public' => true,
+        'has_archive' => false,
+        'supports' => ['title', 'editor', 'thumbnail', 'custom-fields', 'excerpt'],
+        'show_in_rest' => true,
+        'menu_icon' => 'dashicons-megaphone',
+        'show_in_menu' => false
+    ]);
 }
+
+// Register custom post types on init
+add_action('init', 'bb_register_custom_post_types');
 
 
 // Get the menus from the main site (used for simple menus like footer)
@@ -289,3 +316,4 @@ function add_login_logout_link($items, $args) {
     }
     return $items;
 }
+
