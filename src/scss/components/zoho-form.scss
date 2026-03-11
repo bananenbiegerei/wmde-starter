@@ -1,0 +1,98 @@
+// Zoho Form Styles
+
+.zoho-form {
+    // Field error messages - hidden by default, shown when input has error
+    &__field-error {
+        display: none;
+        @apply text-error text-sm mt-1;
+    }
+
+    // Show error message when input has red border (Zoho adds inline style)
+    &__input-wrap:has(input[style*="red"]) + &__field-error {
+        display: block;
+    }
+
+    // Error message div styling
+    &__error {
+        @apply bg-error-light text-error p-3 rounded-lg mb-4 text-sm border border-error;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    // Success message styling
+    &__success {
+        @apply bg-success-light text-success p-4 rounded-lg mb-4 flex items-center gap-3;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    // Form field styling
+    &__field {
+        @apply mb-4;
+    }
+
+    &__label {
+        @apply block mb-1 font-medium;
+    }
+
+    &__required {
+        @apply text-error;
+    }
+
+    &__input-wrap {
+        input {
+            @apply w-full px-3 py-2 border-2 border-neutral-400 rounded-lg box-border;
+
+            &:focus {
+                @apply outline-none ring-2 ring-primary border-primary;
+            }
+
+            // Override Zoho's inline error border to match our styling
+            &[style*="border"] {
+                border-width: 2px !important;
+                border-style: solid !important;
+                border-radius: 0.5rem !important;
+            }
+        }
+    }
+
+    // Captcha area
+    &__captcha-image {
+        @apply bg-white rounded;
+    }
+
+    &__captcha-refresh {
+        @apply hover:text-primary transition-colors;
+    }
+
+    // Privacy notes
+    &__privacy {
+        @apply text-neutral-dark;
+    }
+
+    // Overlay
+    &__overlay {
+        @apply fixed inset-0 bg-black bg-opacity-50 z-50;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    // Success popup
+    &__popup {
+        @apply fixed top-1/4 left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-xl p-8 z-50 max-w-lg w-full;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    &__popup-close {
+        @apply absolute -top-3 -right-3 cursor-pointer;
+    }
+}

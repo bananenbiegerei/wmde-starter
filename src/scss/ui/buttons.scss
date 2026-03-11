@@ -88,7 +88,7 @@
 
 	/* default btn */
 	& {
-		@apply border-primary bg-primary  outline-primary-dark no-underline hover:border-primary-dark hover:bg-primary-dark;
+		@apply border-primary bg-primary outline-primary-dark no-underline hover:border-primary-dark hover:bg-primary-dark;
 
 		&.btn-active {
 			@apply border-primary-dark bg-primary-dark;
