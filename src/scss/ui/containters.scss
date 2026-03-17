@@ -5,12 +5,18 @@
 }
 
 .bb-container-default {
-	//@apply col-span-12 lg:col-span-8 lg:col-start-3;
-	@apply col-span-12;
+	@apply col-span-12 lg:col-span-10 lg:col-start-2 bg-secondary px-8;
+	// @apply col-span-12;
 }
 
 .bb-group-padding {
 	@apply p-5;
+}
+
+.content {
+	.bb-container-default {
+		@apply rounded-b-xl;
+	}
 }
 
 // Add padding to specific blocks that require it in full width
