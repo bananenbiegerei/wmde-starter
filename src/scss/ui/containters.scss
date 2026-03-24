@@ -9,6 +9,12 @@
 	// @apply col-span-12;
 }
 
+
+.home {
+	.bb-container-default {
+	@apply first:rounded-t-xl pt-8;
+}
+}
 .bb-group-padding {
 	@apply p-5;
 }
