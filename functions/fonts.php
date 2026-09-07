@@ -83,9 +83,15 @@ function bb_inline_style_fonts()
     foreach ([ 'h' => 'Headings', 't' => 'Texts', 'm' => 'Menus' ] as $k => $l) {
         while (have_rows('fonts_' . $k, 'options')) {
             the_row();
-            $name = get_sub_field('custom_font_file')['label'];
-            $uri = get_sub_field('custom_font_file')['value'];
+            $custom_font_file = get_sub_field('custom_font_file');
             $weight = get_sub_field('custom_font_weight');
+            // Skip incomplete rows: the bundled default font in /fonts (registered in
+            // src/scss/ui/fonts.scss) stays in effect for this weight instead.
+            if (empty($custom_font_file) || empty($weight)) {
+                continue;
+            }
+            $name = $custom_font_file['label'];
+            $uri = $custom_font_file['value'];
             $weight = $weight == 'variable' ? '100 700' : $weight;
             $format = bb_get_font_format(basename($uri));
             $bb_fonts_css .= "@font-face {\n";
@@ -105,22 +111,24 @@ function bb_inline_style_typography_colors()
     $options = get_fields('options');
     $headline_color = $options['headline_color'] ?? 'black';
     $text_color = $options['text_color'] ?? 'black';
-    $menue_color = $options['menue_color'] ?? 'black';
+    $titlebar_text_color = $options['titlebar_color']['text_color'] ?? 'black';
+    $navbar_text_color = $options['navbar_color']['text_color'] ?? 'black';
 
     $typography_css = "/* Typography Colors */\n";
     $typography_css .= ":root {\n";
     $typography_css .= "    --typography-headline-color: var(--tw-colors-{$headline_color});\n";
     $typography_css .= "    --typography-text-color: var(--tw-colors-{$text_color});\n";
-    $typography_css .= "    --typography-menu-color: var(--tw-colors-{$menue_color});\n";
     $typography_css .= "}\n\n";
 
     // Apply colors to elements
     $typography_css .= "h1, h2, h3, h4, h5, h6 {\n";
     $typography_css .= "    color: rgb(var(--colors-{$headline_color}));\n";
+    $typography_css .= "    font-weight: 500;\n";
     $typography_css .= "}\n\n";
 
     $typography_css .= "p, li, td, th, span, div {\n";
     $typography_css .= "    color: rgb(var(--colors-{$text_color}));\n";
+    $typography_css .= "    font-weight: 300;\n";
     $typography_css .= "}\n\n";
 
     // Buttons should inherit their own color, not the text color
@@ -128,10 +136,36 @@ function bb_inline_style_typography_colors()
     $typography_css .= "    color: inherit;\n";
     $typography_css .= "}\n\n";
 
-    // Very specific CSS for menu items to override button classes
-    $typography_css .= "/* Menu item colors - specific to override button classes */\n";
-    $typography_css .= "nav a.btn.btn-menu {\n";
-    $typography_css .= "    color: rgb(var(--colors-{$menue_color}));\n";
+    // Menu text in the titlebar (profile/login links) follows the titlebar's own
+    // text color, independent of the navbar's. Hover keeps the background
+    // transparent and just dims the text slightly instead.
+    $typography_css .= "/* Titlebar menu item colors - specific to override button classes */\n";
+    $typography_css .= "#nav-right-level-1 a, #nav-right-level-1 button {\n";
+    $typography_css .= "    color: rgb(var(--colors-{$titlebar_text_color}));\n";
+    $typography_css .= "}\n";
+    $typography_css .= "#nav-right-level-1 a:hover, #nav-right-level-1 button:hover {\n";
+    $typography_css .= "    color: rgba(var(--colors-{$titlebar_text_color}), 0.9);\n";
+    $typography_css .= "}\n\n";
+
+    // Menu text directly on the navbar (domains, subnav) follows the navbar's own
+    // text color, independent of the titlebar's. Same transparent-background,
+    // dimmed-text hover treatment.
+    $typography_css .= "/* Navbar menu item colors - specific to override button classes */\n";
+    $typography_css .= "#navmenu_desktop_domains a.btn-menu, #navmenu_mobile .menu li a, #navmenu_mobile .menu li button, #nav-right-level-2 a, #nav-right-level-2 button {\n";
+    $typography_css .= "    color: rgb(var(--colors-{$navbar_text_color}));\n";
+    $typography_css .= "}\n";
+    $typography_css .= "#navmenu_desktop_domains a.btn-menu:hover, #navmenu_mobile .menu li a:hover, #navmenu_mobile .menu li button:hover, #nav-right-level-2 a:hover, #nav-right-level-2 button:hover {\n";
+    $typography_css .= "    color: rgba(var(--colors-{$navbar_text_color}), 0.9);\n";
+    $typography_css .= "}\n\n";
+
+    // Dropdown panels always have a white background regardless of the navbar's
+    // color, so their text always stays primary rather than following navbar_color.
+    $typography_css .= "/* Dropdown menu item colors - always primary, panel background is always white */\n";
+    $typography_css .= "#navmenu_desktop_dropdown a.btn-menu, #navmenu_desktop_dropdown .btn-menu {\n";
+    $typography_css .= "    color: rgb(var(--colors-primary));\n";
+    $typography_css .= "}\n";
+    $typography_css .= "#navmenu_desktop_dropdown a.btn-menu:hover, #navmenu_desktop_dropdown .btn-menu:hover {\n";
+    $typography_css .= "    color: rgba(var(--colors-primary), 0.9);\n";
     $typography_css .= "}\n\n";
 
     return $typography_css;

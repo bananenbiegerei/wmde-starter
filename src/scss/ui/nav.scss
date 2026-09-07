@@ -25,6 +25,13 @@
 		opacity: 1;
 		transition: opacity 0.2s;
 	}
+
+	// Dropdown text is always primary on a white panel, so it needs a visible
+	// hover background instead of the transparent/dimmed-text treatment used
+	// for the titlebar and navbar menu buttons.
+	.btn-menu:hover {
+		@apply bg-neutral-light;
+	}
 }
 
 

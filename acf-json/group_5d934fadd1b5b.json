@@ -760,6 +760,36 @@
                     "default_value": "#ffffff",
                     "enable_opacity": 0,
                     "return_format": "string"
+                },
+                {
+                    "key": "field_titlebar_text_color",
+                    "label": "Text Color",
+                    "name": "text_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Color for menu text and links in the titlebar",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "black": "Black",
+                        "white": "White",
+                        "primary": "Primary",
+                        "secondary": "Secondary",
+                        "accent": "Accent",
+                        "neutral": "Neutral"
+                    },
+                    "default_value": "black",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         },
@@ -843,6 +873,36 @@
                     "default_value": "#ffffff",
                     "enable_opacity": 0,
                     "return_format": "string"
+                },
+                {
+                    "key": "field_navbar_text_color",
+                    "label": "Text Color",
+                    "name": "text_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Color for the domain menu items directly on the navbar. Dropdown panels always use Primary, since their background is always white.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "black": "Black",
+                        "white": "White",
+                        "primary": "Primary",
+                        "secondary": "Secondary",
+                        "accent": "Accent",
+                        "neutral": "Neutral"
+                    },
+                    "default_value": "black",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         },
@@ -1117,37 +1177,6 @@
             "key": "field_66e800a996b7d",
             "label": "For Headlines",
             "name": "headline_color",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "black": "black",
-                "white": "white",
-                "primary": "primary",
-                "secondary": "secondary",
-                "accent": "accent",
-                "neutral": "neutral"
-            },
-            "default_value": "black",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "allow_in_bindings": 1,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_66e800ed1beb9",
-            "label": "For Menues",
-            "name": "menue_color",
             "aria-label": "",
             "type": "select",
             "instructions": "",

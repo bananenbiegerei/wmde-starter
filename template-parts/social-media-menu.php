@@ -16,12 +16,8 @@
 
             <?php
             $image = get_sub_field('icon', 'option');
-            $size = 'full'; // (thumbnail, medium, large, full or custom size)
-            $attr = [
-            	'class' => 'h-8 w-auto text-current'
-            ];
             if ($image) {
-            	echo wp_get_attachment_image($image, $size, false, $attr);
+            	echo bb_inline_svg_attachment($image, 'h-8 w-auto text-current');
             }
             ?>
 

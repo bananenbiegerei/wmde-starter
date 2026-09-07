@@ -123,11 +123,12 @@
 		px-3
 		py-6
 		bg-transparent
+		text-black
 		rounded-none
-		hover:bg-neutral-light
+		hover:bg-transparent
+		hover:border-transparent
 		md:p-3
 		md:border-transparent
-		md:hover:bg-neutral-light
 		md:hover:border-transparent
 		md:w-auto
 		md:rounded-md

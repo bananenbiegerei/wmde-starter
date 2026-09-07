@@ -50,6 +50,18 @@
         }
         .wp-pwd {
             @apply max-h-12;
+            .caps-warning {
+                @apply hidden relative bg-warning-light border border-warning text-black py-1.5 px-2.5 mb-2;
+            }
+            .caps-icon {
+                @apply inline-flex justify-center items-center w-5 h-5 mr-1 align-middle;
+                svg {
+                    @apply w-full h-full;
+                }
+            }
+            .caps-warning-text {
+                @apply align-middle;
+            }
         }
         input[type="text"],
         input[type="password"] {

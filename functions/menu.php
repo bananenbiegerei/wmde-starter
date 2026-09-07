@@ -46,6 +46,17 @@ add_action(
 );
 
 
+// The "Sync ... from Main Site" options only do anything on a real WordPress
+// Multisite network (they rely on switch_to_blog()), so hide that whole field
+// group on a single-site install instead of showing controls that can never work.
+add_filter('acf/load_field_group', function ($field_group) {
+    if ($field_group['key'] === 'group_menu_settings' && !is_multisite()) {
+        return null;
+    }
+    return $field_group;
+});
+
+
 // Register any custom post types needed for menu items (customize as needed)
 function bb_register_custom_post_types()
 {

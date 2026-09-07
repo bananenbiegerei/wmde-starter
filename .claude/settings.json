@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"capslock\" \"/Users/ingoschmid/Dropbox/BB SERVER/htdocs/oor-data-transfer/fraeulein/wp-login.php\")",
+      "Read(//Users/ingoschmid/Dropbox/BB SERVER/htdocs/oor-data-transfer/fraeulein/**)"
+    ]
+  }
+}
