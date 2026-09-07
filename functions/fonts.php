@@ -144,7 +144,7 @@ function bb_inline_style_typography_colors()
     $typography_css .= "    color: rgb(var(--colors-{$titlebar_text_color}));\n";
     $typography_css .= "}\n";
     $typography_css .= "#nav-right-level-1 a:hover, #nav-right-level-1 button:hover {\n";
-    $typography_css .= "    color: rgba(var(--colors-{$titlebar_text_color}), 0.9);\n";
+    $typography_css .= "    color: rgba(var(--colors-{$titlebar_text_color}), 0.75);\n";
     $typography_css .= "}\n\n";
 
     // Menu text directly on the navbar (domains, subnav) follows the navbar's own
@@ -155,7 +155,7 @@ function bb_inline_style_typography_colors()
     $typography_css .= "    color: rgb(var(--colors-{$navbar_text_color}));\n";
     $typography_css .= "}\n";
     $typography_css .= "#navmenu_desktop_domains a.btn-menu:hover, #navmenu_mobile .menu li a:hover, #navmenu_mobile .menu li button:hover, #nav-right-level-2 a:hover, #nav-right-level-2 button:hover {\n";
-    $typography_css .= "    color: rgba(var(--colors-{$navbar_text_color}), 0.9);\n";
+    $typography_css .= "    color: rgba(var(--colors-{$navbar_text_color}), 0.75);\n";
     $typography_css .= "}\n\n";
 
     // Dropdown panels always have a white background regardless of the navbar's
@@ -165,7 +165,7 @@ function bb_inline_style_typography_colors()
     $typography_css .= "    color: rgb(var(--colors-primary));\n";
     $typography_css .= "}\n";
     $typography_css .= "#navmenu_desktop_dropdown a.btn-menu:hover, #navmenu_desktop_dropdown .btn-menu:hover {\n";
-    $typography_css .= "    color: rgba(var(--colors-primary), 0.9);\n";
+    $typography_css .= "    color: rgba(var(--colors-primary), 0.75);\n";
     $typography_css .= "}\n\n";
 
     return $typography_css;
