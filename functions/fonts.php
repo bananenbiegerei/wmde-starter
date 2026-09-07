@@ -46,7 +46,10 @@ add_action('xinit', function () {
 function bb_list_available_fonts()
 {
     $fonts = [];
-    $args = array('post_type'=>'attachment','numberposts'=>null,'post_status'=>null);
+    // post_status must be 'inherit' (or 'any'), not null: attachments normally have
+    // status 'inherit', which get_posts() otherwise silently excludes, making this
+    // always return an empty list regardless of what's actually been uploaded.
+    $args = array('post_type'=>'attachment','numberposts'=>null,'post_status'=>'inherit');
     $attachments = get_posts($args);
     foreach ($attachments as $attachment) {
         if (!str_starts_with($attachment->post_mime_type, 'font/')) {
@@ -113,6 +116,7 @@ function bb_inline_style_typography_colors()
     $text_color = $options['text_color'] ?? 'black';
     $titlebar_text_color = $options['titlebar_color']['text_color'] ?? 'black';
     $navbar_text_color = $options['navbar_color']['text_color'] ?? 'black';
+    $footer_text_color = $options['footer_color']['text_color'] ?? 'white';
 
     $typography_css = "/* Typography Colors */\n";
     $typography_css .= ":root {\n";
@@ -129,11 +133,6 @@ function bb_inline_style_typography_colors()
     $typography_css .= "p, li, td, th, span, div {\n";
     $typography_css .= "    color: rgb(var(--colors-{$text_color}));\n";
     $typography_css .= "    font-weight: 300;\n";
-    $typography_css .= "}\n\n";
-
-    // Buttons should inherit their own color, not the text color
-    $typography_css .= ".btn, .btn span, .btn div {\n";
-    $typography_css .= "    color: inherit;\n";
     $typography_css .= "}\n\n";
 
     // Menu text in the titlebar (profile/login links) follows the titlebar's own
@@ -166,6 +165,20 @@ function bb_inline_style_typography_colors()
     $typography_css .= "}\n";
     $typography_css .= "#navmenu_desktop_dropdown a.btn-menu:hover, #navmenu_desktop_dropdown .btn-menu:hover {\n";
     $typography_css .= "    color: rgba(var(--colors-primary), 0.75);\n";
+    $typography_css .= "}\n\n";
+
+    // Footer text follows the footer's own text color, independent of the rest
+    // of the page (same pattern as titlebar/navbar).
+    $typography_css .= "/* Footer text colors */\n";
+    $typography_css .= ".site-footer, .site-footer * {\n";
+    $typography_css .= "    color: rgb(var(--colors-{$footer_text_color}));\n";
+    $typography_css .= "}\n\n";
+
+    // Buttons should always inherit their own color, not whichever region's text
+    // color rule above they happen to sit inside - this must stay last so it
+    // wins over the titlebar/navbar/dropdown/footer rules for any .btn element.
+    $typography_css .= ".btn, .btn span, .btn div {\n";
+    $typography_css .= "    color: inherit;\n";
     $typography_css .= "}\n\n";
 
     return $typography_css;

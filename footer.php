@@ -2,7 +2,7 @@
 $footer_color = bb_get_component_color('footer_color');
 ?>
 </main>
-<footer class="<?= $footer_color['class']; ?> text-black mt-36 site-footer text-white" <?php if ($footer_color['style']): ?>style="<?= $footer_color['style']; ?>"<?php endif; ?> role="contentinfo" aria-labelledby="footer-heading">
+<footer class="<?= $footer_color['class']; ?> mt-36 site-footer" <?php if ($footer_color['style']): ?>style="<?= $footer_color['style']; ?>"<?php endif; ?> role="contentinfo" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <?php
     $has_social_links = get_field('social_media_links', 'option');
@@ -19,7 +19,7 @@ $footer_color = bb_get_component_color('footer_color');
             <?php endif; ?>
             <?php if (have_rows('contacts', 'option')) : ?>
             <?php while (have_rows('contacts', 'option')) : the_row(); ?>
-            <div class="text-white">
+            <div>
                 <?php the_sub_field('contact_column'); ?>
             </div>
             <?php endwhile; ?>
@@ -45,7 +45,7 @@ $footer_color = bb_get_component_color('footer_color');
         ?>
         <?php if ($has_footer_menu): ?>
         <div class="lg:flex-1">
-            <?php bb_wp_nav_menu(['container' => 'nav', 'menu' => 'footer', 'menu_class' => 'flex flex-col md:flex-row gap-5 text-white', 'theme_location' => 'footer']); ?>
+            <?php bb_wp_nav_menu(['container' => 'nav', 'menu' => 'footer', 'menu_class' => 'flex flex-col md:flex-row gap-5', 'theme_location' => 'footer']); ?>
         </div>
         <?php else: ?>
         <div class="p-4 my-2 border-2 border-dotted border-error rounded-2xl">
@@ -58,7 +58,7 @@ $footer_color = bb_get_component_color('footer_color');
             </a>
         </div>
         <?php endif; ?>
-        <div class="text-white">
+        <div>
             <h3 class="mb-0 text-base"><?php _e('Wir befreien Wissen', BB_TEXT_DOMAIN); ?></h3>
         </div>
     </div>

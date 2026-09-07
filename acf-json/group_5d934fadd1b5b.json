@@ -1069,6 +1069,36 @@
                     "default_value": "#ffffff",
                     "enable_opacity": 0,
                     "return_format": "string"
+                },
+                {
+                    "key": "field_footer_text_color",
+                    "label": "Text Color",
+                    "name": "text_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Color for text and links in the footer",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "black": "Black",
+                        "white": "White",
+                        "primary": "Primary",
+                        "secondary": "Secondary",
+                        "accent": "Accent",
+                        "neutral": "Neutral"
+                    },
+                    "default_value": "white",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         },
