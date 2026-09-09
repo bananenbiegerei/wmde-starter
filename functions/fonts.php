@@ -177,7 +177,7 @@ function bb_inline_style_typography_colors()
     // Buttons should always inherit their own color, not whichever region's text
     // color rule above they happen to sit inside - this must stay last so it
     // wins over the titlebar/navbar/dropdown/footer rules for any .btn element.
-    $typography_css .= ".btn, .btn span, .btn div {\n";
+    $typography_css .= "{\n";
     $typography_css .= "    color: inherit;\n";
     $typography_css .= "}\n\n";
 
