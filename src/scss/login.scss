@@ -49,7 +49,7 @@
             @apply text-lg;
         }
         .wp-pwd {
-            @apply max-h-12;
+            @apply relative mb-2;
             .caps-warning {
                 @apply hidden relative bg-warning-light border border-warning text-black py-1.5 px-2.5 mb-2;
             }
@@ -62,6 +62,22 @@
             .caps-warning-text {
                 @apply align-middle;
             }
+        }
+        #pass-strength-result {
+            @apply block w-full box-border border py-1.5 px-2.5 mt-2 text-center opacity-0 transition-opacity;
+            &.short,
+            &.bad {
+                @apply opacity-100 bg-error-light border-error text-error;
+            }
+            &.good {
+                @apply opacity-100 bg-warning-light border-warning text-black;
+            }
+            &.strong {
+                @apply opacity-100 bg-success-light border-success text-success;
+            }
+        }
+        .indicator-hint {
+            @apply text-neutral my-2;
         }
         input[type="text"],
         input[type="password"] {
@@ -86,6 +102,9 @@
     }
     .wp-login-lost-password {
         @apply decoration-1 underline-offset-2 underline text-base text-black;
+    }
+    .wp-login-register {
+        @apply hidden;
     }
 
     .privacy-policy-link {
