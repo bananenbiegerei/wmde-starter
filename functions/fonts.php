@@ -150,10 +150,10 @@ function bb_inline_style_typography_colors()
     // text color, independent of the titlebar's. Same transparent-background,
     // dimmed-text hover treatment.
     $typography_css .= "/* Navbar menu item colors - specific to override button classes */\n";
-    $typography_css .= "#navmenu_desktop_domains a.btn-menu, #navmenu_mobile .menu li a, #navmenu_mobile .menu li button, #nav-right-level-2 a, #nav-right-level-2 button {\n";
+    $typography_css .= "#navmenu_desktop_domains a.btn-menu, #navmenu_mobile .menu li a, #navmenu_mobile .menu li button, #navmenu_mobile .btn-menu, #navmenu_mobile .btn-menu span, #nav-right-level-2 a, #nav-right-level-2 button {\n";
     $typography_css .= "    color: rgb(var(--colors-{$navbar_text_color}));\n";
     $typography_css .= "}\n";
-    $typography_css .= "#navmenu_desktop_domains a.btn-menu:hover, #navmenu_mobile .menu li a:hover, #navmenu_mobile .menu li button:hover, #nav-right-level-2 a:hover, #nav-right-level-2 button:hover {\n";
+    $typography_css .= "#navmenu_desktop_domains a.btn-menu:hover, #navmenu_mobile .menu li a:hover, #navmenu_mobile .menu li button:hover, #navmenu_mobile .btn-menu:hover, #navmenu_mobile .btn-menu:hover span, #nav-right-level-2 a:hover, #nav-right-level-2 button:hover {\n";
     $typography_css .= "    color: rgba(var(--colors-{$navbar_text_color}), 0.75);\n";
     $typography_css .= "}\n\n";
 
